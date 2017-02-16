@@ -22,3 +22,13 @@
         transform: scale(1);
     }
 }
+
+@keyframes scale{
+    from{transform: scale(1)}
+    to{transform: scale(1.4)}
+}
+
+@keyframes scale-small{
+    from{transform: scale(1)}
+    to{transform: scale(1.1)}
+}

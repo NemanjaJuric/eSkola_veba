@@ -1,5 +1,3 @@
-$width: 100px;
-
 .showbox {
   position: relative;
   top: 25vh;
@@ -11,13 +9,14 @@ $width: 100px;
 .loader {
   position: relative;
   margin: 0 auto;
-  width: $width;
-  &:before {
+  width: 100px;
+}
+
+.loader:before {
     content: '';
     display: block;
     padding-top: 100%;
   }
-}
 
 .circular {
   animation: rotate 2s linear infinite;
@@ -63,17 +62,17 @@ $width: 100px;
 @keyframes color {
   100%,
   0% {
-    stroke: $html-primary;
+    stroke: #d32f2f;
   }
   40% {
-    stroke: $css-primary;
+    stroke: #1673b6;
   }
   66% {
-    stroke: $php-primary;
+    stroke: #e6b130;
   }
   80%,
   90% {
-    stroke: $js-primary;
+    stroke: #00a961;
   }
 }
 
@@ -82,4 +81,8 @@ $width: 100px;
   position: fixed;
   bottom: 0px;
   width: 100%;
+}
+
+.logo-sm{
+    width: 60px;
 }

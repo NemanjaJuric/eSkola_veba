@@ -45,11 +45,6 @@
    animation-fill-mode: forwards;
 }
 
-@keyframes scale{
-    from{transform: scale(1)}
-    to{transform: scale(1.4)}
-}
-
 .bottom-navigation__button-wrapper{
     display: inline-block;
     height: 60px;

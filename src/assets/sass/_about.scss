@@ -10,6 +10,12 @@
     margin: auto;
 }
 
+.programmer-image:hover{
+    animation: scale-small;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 .programmer-image-small{
     width: 70px;
     height: 70px;

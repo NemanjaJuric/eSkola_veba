@@ -12,6 +12,12 @@
     color: $light-gray;
 }
 
+.course-card:hover{
+    animation: scale-small;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 .home-card-lg{
     cursor: pointer;
 }

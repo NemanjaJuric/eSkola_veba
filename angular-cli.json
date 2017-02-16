@@ -11,8 +11,7 @@
       "assets": [
         "assets",
         "courses",
-        "libs",
-        "android"
+        "libs"
       ],
       "index": "index.html",
       "main": "main.ts",

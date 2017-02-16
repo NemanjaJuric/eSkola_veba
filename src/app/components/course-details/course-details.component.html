@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="text-xs-center m-t-3">
-		<button class="btn btn-secondary btn-circle" (click)="startCourse()"><i class="material-icons md-48">play_arrow</i></button>
+		<button class="btn btn-secondary btn-circle" [ngClass]="'bkg-' + courseUrl" (click)="startCourse()"><i class="material-icons md-48">play_arrow</i></button>
 		<h3 class="h3 material-light-gray m-a-2">Startuj kurs</h3>
 		<div *ngIf="numOfLessons != 0">
 			<h1 class="display-3 material-light-gray m-t-3" [innerHTML]="animatedNumber"></h1>
