@@ -1,0 +1,75 @@
+﻿<h1>Skraćeni zapis osobina </h1>
+<br>
+Neka CSS svojstva omogućavaju da se sa nizom vrenosti zameni nabrajanje. Biće jasnije na primenu.
+<br><br>
+<h2>Margine i uokvirenja</h2>
+<br> 
+<b> margin </b> omogućava da se spoje <b>margin-top</b>, <b>margin-right</b>, <b>margin-bottom</b>, i <b>margin-left</b> u sledecoj formi <b>osobina: top right bottom left;</b>
+<br>
+<textarea class="primer_ta" rows="6"disabled>
+p {
+    margin-top: 1px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+</textarea>
+<br>
+Možemo zapisati:
+<br>
+<textarea class="primer_ta" rows="3" disabled>
+p {
+    margin: 1px 5px 10px 20px;
+}
+</textarea>
+<br>
+<b>padding</b> funkcioniše po istom principu.
+<br>
+Ako se navedu samo dve vrednosti, prva će se odnositi na <b>top</b> i <b>botton</b>, a druga na <b>left</b> i <b>right</b>. Naime, na primeu to izgleda ovako : <i>padding: 1em 10em;</i>
+<br><br>
+<h2>Granice</h2>
+<br>
+<b>border-width</b> se koristi na isti način kao i prethodne dve osobine. Ukoliko želimo da spojimo <b> border-width</b>, <b>border-color</b>, i <b> border-style</b> u jednu celinu, to ćemo moći na sledeći način.
+<br>
+<textarea class="primer_ta" rows="5" disabled>
+p {
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+}
+</textarea>
+<br>
+Jednostavnije, to izgleda ovako:
+<br>
+<textarea class="primer_ta" rows="3" disabled>
+p {
+    border: 1px red solid;
+}
+</textarea>
+<br>
+<b>border-top</b> i <b>border-right</b> takođe imaju skraćeni zapis.
+<b><br>
+<h2>Stilovi</h2>
+<br>
+Svojstva vezana za stilove se mogu spojiti pomoću jednog svojstva <b>font</b>.
+Kombinacija je sledeća:[style] [variant] [weight] [size]/[line-height] [family]
+<br>
+<textarea class="primer_ta" rows="3" disabled >
+p {
+    font: italic bold 12px/2 courier;
+}
+</textarea>
+<br>
+Sve zajedno:
+<br>
+<textarea class="primer_ta" rows="8" disabled>
+p {
+    font: 14px/1.5 "Times New Roman", times, serif;
+    padding: 30px 10px;
+    border: 1px black solid;
+    border-width: 1px 5px 5px 1px;
+    border-color: red green blue yellow;
+    margin: 10px 50px;
+}
+</textarea>
+<br><br>

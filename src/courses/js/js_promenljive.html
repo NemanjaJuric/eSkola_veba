@@ -1,0 +1,116 @@
+<h1><b>Promenljive</b></h1>
+<br>
+Promenljive se koriste za &#269;uvanje vrednosti podataka i za izraze.
+<br>
+<br>
+U JavaScriptu promenljive se deklari&#353;u klju&#269;nom re&#269;i <b>var</b>.
+<br>
+<br>
+Nakon klju&#269;ne re&#269;i var sledi ime promenljive.
+<br>
+<br>
+Imena promenljivih mogu da sadr&#382;e velika i mala slova, kao i brojeve, ali ne mogu da po&#269;inju brojem. 
+<br>
+<br>
+Kao imena promenljivih se ne mogu koristiti rezervisane re&#269;i (<code>class</code>, <code>enum</code>, <code>const</code>, <code>var</code>, ...).
+<br>
+<br>
+Osim znaka za donju crtu ( _ ) promenljive ne mogu da sadr&#382;e razmak, kao ni druge znakove interpunkcije.
+<br>
+<br>
+ <table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Ispravno deklarisane promenljive</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Neispravno deklarisane promenljive</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > var x; </font>
+		</b></td>
+      <td><b><font size="2"  > var 1x; </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > var broj1; </font></b></td>
+      <td><b><font size="2"  > var broj 1;</font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > var imePromenljive; </font>
+		</b></td>
+      <td><b><font size="2"  > var ime.Promenljive; </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > var myVar; </font></b></td>
+      <td><b><font size="2"  > var var; </font>
+		</b></td>
+    </tr>
+  </table>
+<br>
+<br>
+Da bi se inicijalizovala promenljiva ili da bi joj se dodelila odredjena vrednost koristi se sledeca sintaksa:
+<br>
+<span class="primer_text"> var imePromenljive = vrednost;</span>
+<br>
+<br>
+Promenljiva koja je deklarisana bez dodele vrednosti ima vrednost <i>undefined</i>.
+<br>
+<br>
+Vrednost dodeljena promenljivoj mo&#382;e biti znakovna ili numeri&#269;ka.
+<br>
+<br>
+Promenljive u JavaScriptu nisu strogo tipizarane. To zna&#269;i da nije potrebno da se deklari&#353;e da li promenljiva sadr&#382;i ceo broj, broj sa pokretnim zarezom ili znakovni tip.
+<br>
+<br>
+Tip podataka koji &#263;e biti sadr&#382;an unutar neke promenljive mo&#382;e da se promeni jednostavnim naknadnim dodeljivanjem.
+<br>
+<br>
+<h3><b>Podru&#269;je va&#382;enja</b></h3>
+<br>
+Podru&#269;je va&#382;enja se odnosi na lokacije sa kojih mo&#382;e da se pristupi vrednosti.
+<br>
+<br>
+Promenljive mogu biti <b>globalno vidljive</b> i <b>lokalno vidljive</b>.
+<br>
+<br>
+<b>Globalno vidljive</b> promenljive su one koje se koriste izvan funkcije. Njima mo&#382;e da se pristupi bilo gde u okviru JavaScript programa.
+<br>
+<br>
+<b>Lokalno vidljive</b> promenljive su definisane samo unutar funkcije i vidljive su samo unutar funkcije. Vrednostima ovih promenljivih mo&#382;e da se pristupi samo u toj funkciji.
+<br>
+<br>
+Primer: 
+<br>
+<textarea class = "primer_ta" rows="8" disabled>
+<script type="text/javascript">
+var a = "Ja sam globalna promenljiva";
+function ispisi(x){
+	alert(a);
+	alert(x);
+	}
+ispisi("Argument");
+</script>
+</textarea>
+<br>
+Ovaj kod defini&#353;e dve promenljive, jednu globalnu <i>a</i> i jednu lokalnu promenljivu <i>x</i>, koja je lokalna za funkciju <i>uradiNesto()</i>.
+<br>
+Potom se unutar funkcije <i>uradiNesto()</i> i lokalna i globalna promenljiva ravnopravno koriste kao argumenti funkcije <i>alert()</i>.
+
+<br>
+<br>
+Primer gde promenljiva <b>a</b> sadr&#382;i ceo broj, a potom pomo&#263;u druge dodele ona menja znakovni sadr&#382;aj:
+<br>
+<textarea class = "primer_ta" rows="6" disabled>
+<script>
+var a = 10;
+	alert(a);
+a = "Ovo je broj deset";
+	alert(a);
+</script>
+</textarea>
+<br>
+U primeru ispisujemo obe vrednosti promenljive a.
+<br>
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b> Izmeni program tako da zadatoj promenljivoj <b>a</b> dodeli&#353; neku drugu vrednost, i ispi&#353;e&#353; samo izmenjenu vrednost promenljive.
+</div>
+<br>
+<br>

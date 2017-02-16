@@ -1,0 +1,105 @@
+<h1><b>Uvod u JavaScript</b></h1>
+<br>
+<br>
+<h3><b>Šta je JavaScript?</b></h3>
+<br>
+JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. JavaScript se može naći u osnovnim aplikacijama za PDF i u elektronskim knjigama. Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira. JavaScript je takođe slabo tipiziran programski jezik. Nije neophodno reći JavaScript-u koje je vrste promenljiva. Ako promenljivoj dodelimo vrednost 5, ne moramo programski da odredimo tu promenljivu kao broj. JavaScript prepoznaje 5 kao broj. <br> JavaScript razlikuje velika i mala slova. Promenljiva koja se naziva "mojaPromenljiva", ona koja se naziva "mojapromenljiva" i promenljiva sa nazivom "MOJAPromenljiva" se tretiraju kao tri različita objekta. Takodje, u nazivima promenljivih beli prostori kao što su tabovi i razmaci se ignorišu, osim ako nisu deo niza teksta i pod znacima navoda. <br> Skript je sastavljen od serija iskaza. Iskaz je komanda koja kaze pregledaču šta da radi. Ovde ćemo dati primer jednostavnog iskaza koja čini da pregledač prikaže upozorenje (obaveštenje) "Hvala Vam". 
+<br>
+<br> 
+<textarea class = "primer_ta" rows = "14" disabled>
+<!DOCTYPE html>
+<html>
+<body>
+
+<button type="button" onclick="myFunction()">Obaveštenje</button>
+
+<script>
+function myFunction() {
+    alert("Hvala Vam.");
+}
+</script>
+
+</body>
+</html> 
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br> 
+<br> 
+Takodje, bitno je reći da u JavaScript-u postoje dva metoda za korišćenje komentara. Za jednolinijske komentare koristimo karaktere <b> // </b> koje stavljamo na početku linije. <br><br> <span class = "primer_text"> // Ovo je jednolinijski komentar </span> <br><br> Višelinijski komentari se nalaze izmedju karaktera <b> /* */ </b>. Sve između ovih karaktera biće ignorisano od strane pregledača. <br> <br><span class = "primer_text"> /* Ovo je višelinijski komentar <br> Bilo šta između ovih karaktera biće kompletno <br> ignorisano od strane pregledača */ </span>
+<br>
+<br>
+<h3><b>Šta može JavaScript?</b></h3>
+<br>
+<ul>
+<li>JavaScript može promeniti HTML sadržaj.</li>
+<li>JavaScript može promeniti HTML atribute.</li>
+<li>JavaScript može promeniti HTML stilove (CSS).</li>
+<li>JavaScript se često koristiti za proveru validnosti unosa na našoj veb stranici.</li>
+</ul>
+<br>
+<br>
+<h3><b>Šta nije JavaScript?</b></h3>
+<br>
+Samo ime programskog jezika JavaScript je zbunjujuće. Nevezano za ime, važno je naglasiti da je jezik JavaScript potpuno drugačiji od jezika Java, razlikuju se u planu i dizajnu.
+<br>
+<br>
+JavaScript je kreiran od strane kompanije Netscape 1995. godine i njegovo orginalno ime je bilo LiveScript, što je ukazivalo na pravljenje živih (dinamičnih) veb stranica. 
+U to doba, u kompaniji Sun Microsystems pojavio se jezik
+Java i veoma brzo stekao popularnost na internetu pošto je omogućio kreiranje
+apleta — aplikacija koje se preko veba distribuiraju korisnicima. Netscape ubacuje
+podršku za aplete u korisnički pregledač. Novi Netscape-ov jezik se između
+ostalog mogao koristiti za kreiranje neke interakcije izmedu Java apleta i veb
+stranice u koju je aplet ubačen. Kako bi iskoristio popularnost jezika Jave, uz dozvolu kompanije Sun, Netscape
+se odlučuje na marketinški potez i svoj jezik preimunuje u JavaScript. Skraćeno ime programskog jezika JavaScript-a je JS.
+JavaScript je imao lošu reputaciju. Programeri su iskoristili JavaScript za neželjena ponašanja naših veb stranica i JavaScript je bio razlog za nebrojane sigurnosne propuste. Moderni pregledači nisu dozvoljavali ovakvo ponašanje programskog jezika JavaScript. JavaScript je uvek dozvoljavao programerima da imaju ogromnu količinu moći u vezi sa ponašanjem naših veb stranica i ponašanjem pregledača, a na nama je da iskoristimo tu moć na odgovoran način. 
+<br>Na razvoju JavaScript-a danas radi Mozilla Foundation, koja se smatra naslednikom
+Netscape-a.
+<br>
+<br>
+<h3><b>Ugrađivanje skripta na stranicu</b></h3>
+<br>
+Skript ugrađujemo na našu stranicu tako što JavaScript kod dodamo kao sadržaj <b> script </b> elementa. Element <b> script </b> može biti smešten u telu i zaglavlju HTML stranice.
+<br>
+<br>
+<span class = "primer_text"> &ltscript&gt </span> <br> JavaScript kod se nalazi ovde. <br> <span class = "primer_text"> &lt/script&gt </span>
+<br>
+<br>
+Možemo navesti JavaScript kod u spoljašnjoj datoteci na koju se ukazuje korišćenjem <b>src</b> atributa.
+<br>
+<br>
+<span class = "primer_text"> &ltscript  src=”moj_skript.js"&gt &lt/script&gt</span>
+<br>
+<br>
+<h3><b>Primer našeg prvog JavaScript programa</b></h3>
+<br>
+<br>
+<textarea class = "primer_ta" rows = "19" disabled>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Moj prvi JavaScript program!</h1>
+
+<p id="demo"></p>
+
+<button type="button" onclick="myFunction()">Datum i vreme</button>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b> U primeru kada kliknemo na dugme prikazuje se trenutni datum i vreme. Izmeni program tako da kada se klikne na dugme izađe tekst "Zdravo JavaScript!"
+</div>
+<br>
+Ovo je samo upoznavanje sa terminima koje ćete čuti često dok budete učili JavaScript, i onda će oni imati sve više smisla kako budete nastavljali.
+<br>
+<br>

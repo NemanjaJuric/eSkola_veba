@@ -1,0 +1,7 @@
+.code-panel-editor-md{
+    margin: 10px;
+    height: calc(100vh - 200px);
+    @media (max-width:768px){
+        margin-bottom: 40px !important;
+    }
+}

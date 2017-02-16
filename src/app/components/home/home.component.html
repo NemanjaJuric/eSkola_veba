@@ -1,0 +1,137 @@
+<div class="container">
+	<div class="row m-t-3 m-b-3">
+		<div class="col-md-12">
+			<div class="card text-xs-center bkg-light">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<h1 class="h1 m-t-2 line-height-md">
+							Najpopularnije veb tehnologije na jednom mestu
+						</h1>
+						<h3 class="h3 m-a-2 line-height-md">
+							eŠkola veba je elektronska platforma za interaktivno učenje veb programiranja kroz pažljivo osmišljenje kurseve
+						</h3>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center m-a-3">
+		<h1 class="display-4" id="courses">Kursevi</h1>
+	</div>
+	<div class="row m-t-3 m-b-3">
+		<div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses" (click)="setRoute('course-details', course.id, null)">
+			<div class="card text-xs-center course-card" [ngClass]="'hover-' + course.id|lowercase">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<h1 class="display-2 font-weight-bold">{{course.logo}}</h1>
+						<h2 class="h2 m-t-2">{{course.name}}</h2>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center m-a-3">
+		<h1 class="display-4">Dodatni resursi</h1>
+	</div>
+	<div class="row m-t-3 m-b-3">
+		<div class="col-lg-4">
+			<div class="card text-xs-center home-card-lg gray hover-web-center" (click)="setRoute('web-center', null, null)">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2"><i class="material-icons md-96">extension</i></span>
+						<h3 class="h3 m-a-2">Veb centar</h3>
+						<p class="m-a-2">
+							Veb centar eŠkole veba je jedinstveno mesto koje obuhvata sve alate za efikasno učenje veb programiranja.
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card text-xs-center home-card-lg gray hover-ts" (click)="setRoute('ts-compiler', null, null)">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2"><i class="material-icons md-96">settings</i></span>
+						<h3 class="h3 m-a-2">TS kompajler</h3>
+						<p class="m-a-2">
+							TypeScript je jezik dizajniran od strane kompanije Majkrosoft za razvoj velikih aplikacija i kompajlira se u JavaScript
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card text-xs-center home-card-lg gray hover-sass" (click)="setRoute('sass-compiler', null, null)">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2"><i class="material-icons md-96">settings</i></span>
+						<h3 class="h3 m-a-2">Sass kompajler</h3>
+						<p class="m-a-2">
+							Sass proširuje CSS tako što omogućava korišćenje promenljivih, ugnježdavanja klasa i još mnogo toga
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center m-a-3">
+		<h1 class="display-4 m-t-3 m-b-3">Naše tehnologije</h1>
+	</div>
+	<div class="row m-t-3 m-b-3 text-xs-center">
+		<div class="col-xs-12 col-sm-6 col-md-4 m-t-3 m-b-3" *ngFor="let tech of technologies">
+			<div class="techonolgie-wrapper">
+				<div class="technologie-image" [ngStyle]="{'background-image': 'url(' + tech.url + ')' }"></div>
+				<div class="language m-a-2">
+					<h1 class="h1">{{tech.name}}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center m-a-3">
+		<h1 class="display-4">Možete nas naći</h1>
+	</div>
+	<div class="row m-t-3 m-b-3">
+		<div class="col-md-4">
+			<div class="card card-inverse text-xs-center bkg-git">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2"><i class="fa fa-github" aria-hidden="true"></i></span>
+						<h1 class="h1 m-a-2">GitHub</h1>
+						<p class="m-a-2">eŠkola veba je na javno dostupna na GitHub-u</p>
+						<p>
+							<button type="button" class="btn btn-secondary text-css" onclick="window.open('https://github.com/NemanjaJuric/eSkola_veba')">Idi na GitHub</button>
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card text-xs-center bkg-light">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+						<h1 class="h1 m-a-2">Edusoft</h1>
+						<p class="m-a-2">Posetite naš sajt za još edukativnih sadržaja.</p>
+						<p>
+							<button type="button" class="btn btn-secondary text-css" onclick="window.open('http://www.edusoft.matf.bg.ac.rs')">Idi na Edusoft</button>
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card card-inverse text-xs-center bkg-material-dark-gray">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<span class="display-2 android-official"><i class="fa fa-android" aria-hidden="true"></i></span>
+						<h1 class="h1 m-a-2">Android</h1>
+						<p class="m-a-2">eŠkola veba je dostupna i na Android uređajima.</p>
+						<p>
+							<button type="button" class="btn btn-secondary text-css" onclick="window.location = '../../../android/eSkola_veba.apk'">Preuzmi aplikaciju</button>
+						</p>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<div class="menu" [@toggleMenu]="showMenu">
+    <div class="menu__heading material-dark-gray m-b-2" (click)="setRoute('home', null, null)">
+        <img class="logo-sm d-inline menu__logo" src="assets/images/logo.png" alt="logo_light">
+        <h1 class="h2 m-t-1 d-inline">eŠkola veba</h1>
+    </div>
+    <ul>
+        <li *ngFor="let course of courses" class="menu__item">
+            <span class="menu__course h3 d-block m-t-1 m-b-1" (click)="setRoute('course-details', course.id, null)">{{course.name}}</span>
+            <ul>
+                <li *ngFor="let lesson of course.lessons" class="menu__item">
+                    <span class="menu__lesson h5 d-block m-l-1" (click)="setRoute('course', course.id, lesson.url)">{{lesson.name}}</span>
+                    <ul>
+                        <li *ngFor="let sublesson of lesson.sublessons" class="menu__item">
+                            <span class="menu__lesson h5 d-block m-l-3" (click)="setRoute('course', course.id, sublesson.url)">{{sublesson.name}}</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="menu__course menu__item h3 d-block m-t-1 m-b-1" (click)="setRoute('about', null, null)">O nama</span>
+        </li>
+    </ul>
+    <div class="m-t-3">
+        <span class="h6 material-light-gray">Matematički fakultet Beograd © {{year}}</span>
+    </div>
+</div>
+<div class="shadow" *ngIf="showMenu" (click)="showMenu = !showMenu"></div>

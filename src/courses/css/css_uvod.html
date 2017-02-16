@@ -1,0 +1,57 @@
+﻿<h1><b>Uvod u CSS</b></h1>
+<br>
+CSS (engl. <i>Cascade Style Sheets</i>, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. 
+<br><br>
+Da bi učenje CSS-a imalo nekog smisla morate znati HTML.
+Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja.
+CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta.
+CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a.
+Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica.
+<br><br>
+<h2>Prednosti CSS-a</h2>
+CSS-om možete usaglasiti više uredjaja tako što on dozvoljava sadržaj koji je optimizovan 
+za više od jedne vrste uređaja. 
+Korišćenjem istog HTML dokumenta, 
+različite verzije veb stranice se mogu predstaviti i za ručne uređaje 
+kao što su tableti ili mobilni telefoni. <br>
+Takođe, njime možete uštedeti vreme i sprečiti gomilanje koda tako što ćete napisati jedan CSS dokument koji se nalazi van HTML dokumenta i koristiti ga za više HTML stranica. 
+Možete definisati stil za svaki HTML element i primeniti ga na onoliko HTML stranica na koliko god Vi budete želeli.<br>
+Sa CSS-om se stranice učitavaju mnogo brže i ne morate da pišete HTML atribute svaki put. Samo napišite jedno CSS pravilo oznake i primenjujte na sve oznake gde god se pojave u Vašem HTML dokumentu. 
+Tako, na primer, ako ste napravili paragrafe na više HTML stranica i želite da primenite istu boju teksta na njih možete ispisati u CSS dokumentu koji se nalazi van HTML stranice 
+<br>
+<textarea class = "primer_ta" rows = "3" disabled>
+p { 
+  color: red; 
+}
+</textarea> 
+<br>
+Bolje je napisati samo jednom deklaraciju i primeniti na sve paragrafe, nego deklarisati na svakom paragrafu posebno. Deklaracija na svakom paragrafu bi bilo konfuzna i HTML dokument bi imao previše linija koda i takav dokument bi bio težak za održavanje.
+Dakle, manji broj linija kodova u dokumentu znači brže vreme preuzimanja i dokument je lakši za održavanje.  
+A ako napravite globalnu promenu za neki element u CSS dokumentu tako što jednostavno promenite stil 
+tada će se taj element u svakoj od Vaših HTML stranica automatski ažurirati.
+CSS ima mnogo širi niz atributa nego HTML, tako da možete dati daleko bolji izgled vašoj HTML stranici u poređenju sa HTML atributima.
+<br>
+<br>
+CSS opisi (sadržani u tzv. stilskim listovima) imaju veoma jednostavnu sintaksu. Prikažimo je kroz primer koji sadrži dva CSS pravila. Svako pravilo se sastoji od selektora
+p koji označava paragraf i h1 koji označava naslov, za kojim se u vitičastim zagradama navodi CSS deklaracija koja se sastoji od svojstva (npr. color) i njene vrednosti (npr. green).
+<div class="napomena">
+<b>Napomena:</b> U ovom primeru će se upotrebiti CSS unutar dokumenta, a kako sve možete upotrebiti CSS videćete u sledećoj lekciji.
+</div>
+<br>
+<textarea class = "primer_ta" rows = "7" disabled>
+<style>
+p { color: green; }
+
+h1{
+    color: blue;
+}
+</style>
+</textarea>
+<br>
+<br>
+<div class="zadatak">
+ <b>Zadatak:</b>  Promeniti boju teksta paragrafa u crvenu, postaviti veličinu fonta na 20px i tekst poravnati u desno.
+</div>
+<br>
+<br>
+

@@ -1,0 +1,359 @@
+<h1><b>Ugrađene funkcije</b></h1>
+Ugrađene funkcije su one koje ne moramo definisati prilikom izrade HTML dokumenta, vec ih možemo koristiti uvek kada nam zatrebaju.
+<br>
+Postoji mnoštvo ugrađenih funkcija. U nastavku su navedene neke od njih, one koje imaju široku primenu i čestu upotrebu.
+<br>
+<h2>Funkcija <span class = "primer_text">alert</span></h2>
+U nastavku je prikazan primer HTML dokumenta, koji sadrži funkciju <span class = "primer_text">alert</span>:
+
+<textarea class = "primer_ta" rows = "10" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Funkcija alert&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    alert("JavaScript");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Pokretanjem ovog dokumenta aktiviraće se iskačući prozor sa porukom <i>JavaScript</i>.
+<h2>Funkcija <span class = "primer_text">confirm</span></h2>
+Prikazan je primer HTML dokumenta, koji sadrži funkciju <span class = "primer_text">confirm</span>:
+<br>
+<textarea class = "primer_ta" rows = "10" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Funkcija confirm&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    var izaberi=confirm("Prihvatate li uslove privatnosti?");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Pozivanjem ovog dokumenta aktiviraće se iskačući prozor sa porukom <i>Prihvatate li uslove privatnosti?</i>.
+<h2>Funkcija prompt</h2>
+Prikazan je primer HTML dokumenta, koji sadrži funkciju prompt:
+<br>
+<textarea class = "primer_ta" rows = "10" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Funkcija prompt&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    var ime=prompt("Unesite svoje ime:");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Pokretanjem ovog dokumenta aktiviraće se iskačući prozor sa porukom <i>Unesite svoje ime:</i>.
+Iskačući prozor sadrži tekstualno polje u koje je omogućen unos podataka. Ukoliko korisnik odabere dugme "OK" funkcija prosleđuje vrednost koja je uneta u tekstualno polje, a ako je odabrano dugme "Cancel" povratna vrednost će biti "null".
+Konkretno, u navedenom primeru, povratna vrednost funkcije se upisuje u promenljivu <i>ime</i>.
+<h2>Funkcija <span class = "primer_text">write</span></h2>
+Prikazan je primer HTML dokumenta, koji sadrži funkciju <span class = "primer_text">write</span>:
+<br>
+<textarea class = "primer_ta" rows = "10" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Funkcija write&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    document.write("Dobar dan!");
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Pokretanjem ovog dokumenta u internet pretraživač se upiše tekst <i>Dobar dan!</i>.
+<h2>Funkcija <span class = "primer_text">Date</span></h2>
+Prikazan je primer HTML dokumenta, koji sadrži funkciju <span class = "primer_text">Date</span>:
+<br>
+<textarea class = "primer_ta" rows = "11" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Funkcija Date&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    var datum=Date();
+    alert(datum);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Funkcija Date vraća vrednost trenutnog datuma, vremena i vremenske zone područja sa kog se poziva.
+<br>
+U navedenom primeru ove vrednosti se upisuju u novu promenljivu <i>datum</i>, a zatim se funkcijom alert ispisuju u iskačući prozor.
+<h2>Često korišćene metode</h2>
+
+<table class = "tabela">
+<caption>Metode koje se koriste nad numeričkim objektima</caption>
+<thead>
+<tr>
+	<th> Metod </th>
+	<th> Rezultat rada </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>toString()</td>
+	<td>String reprezentacija vrednosti broja</td> 
+</tr>
+<tr>
+	<td>toExponential()</td>
+	<td>Eksponencijalna vrednost broja</td> 
+</tr>
+<tr>
+	<td>valueOf()</td>
+	<td>Vrednost broja</td> 
+</tr>
+<tr>
+	<td>toPrecision()</td>
+	<td>Definiše koliko ukupno cifara prikazati<br>(u zbiru ispred i iza decimalne zapete)</td> 
+</tr>
+<tr>
+	<td>toFixed()</td>
+	<td>Prikazaće se određeni broj cifara iza decimalne zapete</td> 
+</tr>
+</tbody>
+</table>
+<br>
+<table class = "tabela">
+<caption>Metode koje se koriste nad string objektima</caption>
+<thead>
+<tr>
+	<th> Metod </th>
+	<th> Rezultat rada </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>charAt()</td>
+	<td>Karakter koji je na određenoj poziciji</td> 
+</tr>
+<tr>
+	<td>indexOf()</td>
+	<td>Indeks određenog karaktera</td> 
+</tr>
+<tr>
+	<td>lastIndexOf()</td>
+	<td>Indeks poslednjeg pojavljivanja određenog karaktera</td> 
+</tr>
+<tr>
+	<td>length()</td>
+	<td>Dužina stringa</td> 
+</tr>
+<tr>
+	<td>replace()</td>
+	<td>Pronalazi karakter i zamenjuje ga određenim karakterom</td> 
+</tr>
+<tr>
+	<td>split()</td>
+	<td>U niz stringova upisuje reči prvobitnog stringa, bez belina</td> 
+</tr>
+<tr>
+	<td>substr()</td>
+	<td>Karakteri u stringu koji počinju na određenoj poziciji,<br>sve do zadanog broja karaktera</td> 
+</tr>
+<tr>
+	<td>toLowerCase()</td>
+	<td>Svi karakteri stringa se prebacuju u mala slova</td> 
+</tr>
+<tr>
+	<td>toUpperCase()</td>
+	<td>Svi karakteri stringa se prebacuju u velika slova</td> 
+</tr>
+<tr>
+	<td>valueOf()</td>
+	<td>Vrednost stringa</td> 
+</tr>
+<tr>
+	<td>parseInt()</td>
+	<td>Od stringa pravi celobrojnu numeričku promenljivu</td> 
+</tr>
+<tr>
+	<td>parseFloat()</td>
+	<td>Od stringa pravi realnu numeričku promenljivu</td> 
+</tr>
+</tbody>
+</table>
+<br>
+<table class = "tabela">
+<caption>Metode koje se koriste nad objektima tipa <i>Date</i></caption>
+<thead>
+<tr>
+	<th> Metod </th>
+	<th> Rezultat rada </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>Date()</td>
+	<td>Današnji datum, vreme i vremenska zona</td> 
+</tr>
+<tr>
+	<td>getDate()</td>
+	<td>Dan u mesecu za određeni datum</td> 
+</tr>
+<tr>
+	<td>getDay()</td>
+	<td>Dan u nedelji za određeni datum</td> 
+</tr>
+<tr>
+	<td>getFullYear()</td>
+	<td>Godinu za određeni datum</td> 
+</tr>
+<tr>
+	<td>getHours()</td>
+	<td>Sat za određeni datum</td> 
+</tr>
+<tr>
+	<td>getMiliseconds()</td>
+	<td>Milisekunde za određeni datum</td> 
+</tr>
+<tr>
+	<td>getMinutes()</td>
+	<td>Minute za određeni datum</td> 
+</tr>
+<tr>
+	<td>getMonth()</td>
+	<td>Mesec za određeni datum</td> 
+</tr>
+<tr>
+	<td>getSeconds()</td>
+	<td>Sekunde za određeni datum</td> 
+</tr>
+<tr>
+	<td>getTime()</td>
+	<td>Numerička vrednost u milisekundama počev od 01.01.1970.<br>do trenutka poziva funkcije</td> 
+</tr>
+	<td>setDate()</td>
+	<td>Postavlja dan u mesecu za određeni datum</td> 
+</tr>
+<tr>
+	<td>setDay()</td>
+	<td>Postavlja dan u nedelji za određeni datum</td> 
+</tr>
+<tr>
+	<td>setFullYear()</td>
+	<td>Postavlja godinu za određeni datum</td> 
+</tr>
+<tr>
+	<td>setHours()</td>
+	<td>Postavlja sat za određeni datum</td> 
+</tr>
+<tr>
+	<td>setMiliseconds()</td>
+	<td>Postavlja milisekunde za određeni datum</td> 
+</tr>
+<tr>
+	<td>setMinutes()</td>
+	<td>Postavlja minute za određeni datum</td> 
+</tr>
+<tr>
+	<td>setMonth()</td>
+	<td>Postavlja mesec za određeni datum</td> 
+</tr>
+<tr>
+	<td>setSeconds()</td>
+	<td>Postavlja sekunde za određeni datum</td> 
+</tr>
+<tr>
+	<td>setTime()</td>
+	<td>Postavlja numerička vrednost u milisekundama počev od 01.01.1970.</td> 
+</tr>
+<tr>
+	<td>toDateString()</td>
+	<td>String reprezentacija datuma</td> 
+</tr>
+<tr>
+	<td>valueOf()</td>
+	<td>Primitivna vrednost datuma</td> 
+</tr>
+<tr>
+	<td>Date.parse()</td>
+	<td>Za uneti datum računa broj milisekundi od 01.01.1970.</td> 
+</tr>
+</tbody>
+</table>
+<h2>Primeri upotrebe nekih metoda</h2>
+Metode nad objektima tipa <i>Date</i>:
+<br>
+<textarea class = "primer_ta" rows = "31" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Datum&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Datum&lt;/h1&gt;
+    &lt;script&gt;
+     var datum = new Date();
+     document.write("Ovo je trentno vreme: &lt;br&gt;");
+     document.write(datum);
+     document.write("&lt;br&gt;");
+     var datum1 = new Date("July 21, 1983, 01:15:00");
+     document.write("Ovaj datum smo sami podesili: &lt;br&gt;");
+     document.write(datum1);
+     document.write("&lt;br&gt;");
+     datum.setDate(15);
+     document.write("Nakon metode setDate(), danasnji datum je: &lt;br&gt;");
+     document.write(datum);
+     document.write("&lt;br&gt;");
+     var d = datum1.getDay();
+     document.write("Metoda getDay() vratila je: &lt;br&gt;");
+     document.write(d + ", a to je redni broj dana u nedelji.");
+     &lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+Metode nad numeričkim objektima:
+<br>
+<textarea class = "primer_ta" rows = "20" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Brojevi&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Brojevi&lt;/h1&gt;
+    &lt;script&gt;
+    var broj= prompt("Unesite neki broj:");;
+    document.write("Unet je broj: &lt;br&gt;"+broj+"&lt;br&gt;");
+    kvBroj=Math.pow(broj,2);
+    document.write("Kvadrat datog broja je: &lt;br&gt; "+kvBroj.toString()+" &lt;br&gt;");
+    var stringBroj=broj.toString();
+    var podString=stringBroj.substr(0,1);
+    document.write("Prva cifra unetog broja je: &lt;br&gt;"+podString);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Rad nekih od ovih funkcija je predstavljen i u prostoru za vežbu.
+<br>
+<br>
+<div class="zadatak">
+<b>Zadatak: </b>Ispitaj koji je rezultat rada funkcije "parseInt()" ukoliko joj se prosledi argument:
+<br>
+a) "25"
+<br>
+b) "25.2"
+<br>
+</div>

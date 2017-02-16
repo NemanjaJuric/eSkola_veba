@@ -1,0 +1,55 @@
+<div class="bottom-navigation">
+	<div *ngIf="page === 'course'">
+		<div *ngFor="let button of courseButtons" class="bottom-navigation__button-wrapper">
+			<button 
+				class="bottom-navigation__button" 
+				(click)="click('course', button.func)" 
+				[attr.data-toggle]="button.dataToggle" 
+				[attr.data-target]="button.dataTarget">
+					<i class="material-icons md-36">{{button.icon}}</i>
+			</button>
+		</div>
+	</div>
+	<div *ngIf="page === 'web-center'">
+		<div *ngFor="let button of webCenterButtons" class="bottom-navigation__button-wrapper">
+			<button 
+				class="bottom-navigation__button" 
+				(click)="click('web-center', button.func)" 
+				[ngClass]="{'bottom-navigation__button_hover':activeTool === button.func}">
+					<i class="material-icons md-36">{{button.icon}}</i>
+			</button>
+			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.func"></div>
+		</div>
+	</div>
+	<div *ngIf="page === 'ts-compiler'">
+		<div *ngFor="let button of tsCompilerButtons" class="bottom-navigation__button-wrapper">
+			<button 
+				class="bottom-navigation__button" 
+				(click)="click('ts-compiler', button.func)">
+					<i class="material-icons md-36">{{button.icon}}</i>
+			</button>
+			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.tool"></div>
+		</div>
+	</div>
+	<div *ngIf="page === 'sass-compiler'">
+		<div *ngFor="let button of sassCompilerButtons" class="bottom-navigation__button-wrapper">
+			<button 
+				class="bottom-navigation__button" 
+				(click)="click('sass-compiler', button.func)">
+					<i class="material-icons md-36">{{button.icon}}</i>
+			</button>
+			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.tool"></div>
+		</div>
+	</div>
+	<div *ngIf="page === 'lessons-input'">
+		<div *ngFor="let button of lessonsInputButtons" class="bottom-navigation__button-wrapper">
+			<button 
+				class="bottom-navigation__button" 
+				(click)="click('course', button.func)" 
+				[attr.data-toggle]="button.dataToggle" 
+				[attr.data-target]="button.dataTarget">
+					<i class="material-icons md-36">{{button.icon}}</i>
+			</button>
+		</div>
+	</div>
+</div>

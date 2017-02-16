@@ -1,0 +1,53 @@
+<h1><b>Animacije</b></h1>
+<br>
+Animacije imaju još nekoliko zanimljivih svojstava:
+<ul>
+<li>animation-direction - opisuje kako će se animacija kretati
+<ul>
+<li>reverse - animacija se izvršava u obrnutom smeru</li>
+<li>alternative - animacija se izvršava u ciklusima</li>
+</ul>
+ </li>
+<div class = "napomena">
+<b>Napomena:</b>
+U kodu sa desne strane prva dva elementa opisuju dve animacije od kojih se jedna odvija u smeru sleva na desno,a druga u obrnutom smeru.
+</div>
+<li>animation-timing-function - opisuje kako će se vrednosti elementa menjati tj. dopušta promenu brizne promene tokom trajanja prelaza
+<ul>
+<li>easy - ovo je inicijalna vrednost, animacija kreće sporo, pa brzo, zatim ponovo usporava</li>
+<li>linear - brzina animacije je konstantna</li>
+<li>easy-in - animacija ima spor početak</li>
+<li>easy-out - animacija ima spor kraj</li>
+<li>easy-in-out - animacija ima spor i početak i kraj</li>
+</ul>
+</li>
+<div class = "napomena">
+<b>Napomena:</b>
+U kodu sa desne strane su prikazani elementi koji opisuju ove funkcije (različite brzine izvršenja animacija).
+</div>
+</ul>
+<br>
+Pogledajmo kako bi izgledao kod gde bismo upotrebili sva svojstva koja opisuju jednu animaciju:
+<textarea class="primer_ta" rows=8 disabled>
+div {
+    animation-name: primer;
+    animation-duration: 4s;
+    animation-timing-function: easy;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+</textarea>
+Postoji skraćeni oblik zapisa ovog koda koji obuhvata sva pomenuta svojstva animacije:
+<textarea class = "primer_ta" rows=3 disabled>
+div {
+    animation: primer 4s easy 1s infinite alternate;
+}
+</textarea>
+
+
+<div class = "zadatak">
+<b>Zadatak:</b>
+<br>Na kraju ovog poglavlja pokušajte da uradite zadatak u kome se istovremeno javljaju animacije,tranzicije i transformacije:
+<br>Napisati kod u kome pravougaonik menja boje i kreće se beskonačno mnogo puta po određenoj putanji (desno, dole levo, dole desno, gore levo). Kada prisloniš kursor miša na element, on postaje kvadrat.  
+</div>

@@ -1,0 +1,179 @@
+<h1><b>Znakovni nizovi - Stringovi</b></h1>
+<br>
+Stringovi u JavaScriptu sastoje se od jednog ili vi&#353;e znakova pod navodnicima. 
+Navodnici mogu biti jednostruki ili dvostruki.
+<br>
+<br>
+<br>
+ <table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Primeri sa dvostrukim navodnicima</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Primeri sa jednostrukim navodnicima</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > "Zdravo svete!" </font>
+		</b></td>
+      <td><b><font size="2"  > 'Zdravo!' </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > "Rekla nam je 'zdravo'." </font></b></td>
+      <td><b><font size="2"  > 'Rekla je: "Napolju pada kisa".' </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+Unutar jednog tipa navodnika mo&#382;e se koristiti drugi tip kao &#353;to smo imali u primeru iz tabele. 
+<br>
+<br>
+Ukoliko nam je potrebno da koristimo isti stil navodnika unutar stringa, moramo poni&#353;titi specijalno zna&#269;enje navodnika, da ga JavaScript ne bi interpretirao. 
+<br>
+<br>
+Kako poni&#353;titi specijalno zna&#269;enje navodnika?
+<br>
+To se radi kori&#353;&#263;enjem znaka za obrnutu kosu crtu (\). Dosta nam je korisno za ono &#353;to se pi&#353;e na engleskom jeziku. Npr: Umesto <code>'I am' - 'I\'m' ili 'You are' - 'You\'re'</code> itd.
+<br>
+<br>
+U JavaScriptu postoje drugi znakovi sa sprecijalnim zna&#269;enjem.
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong> Znakovi sa specijalnim zna&#269;enjem </strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong> Vrednost znaka </strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \b </font>
+		</b></td>
+      <td><b><font size="2"  > Backspace </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \t </font></b></td>
+      <td><b><font size="2"  > Tabulator  </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \n  </font>
+		</b></td>
+      <td><b><font size="2"  > Novi red </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \v </font></b></td>
+      <td><b><font size="2"  > Vertikalni tabulator </font>
+		</b></td>
+	<tr>
+      <td><b><font size="2"  > \f </font></b></td>
+      <td><b><font size="2"  > Prelazak na sledecu stranicu </font>
+		</b></td>
+    </tr>
+	<tr>
+      <td><b><font size="2"  > \r </font></b></td>
+      <td><b><font size="2"  > Znak za po&#269;etak reda </font>
+		</b></td>
+    </tr>
+	<tr>
+      <td><b><font size="2"  > \\ </font></b></td>
+      <td><b><font size="2"  > Obrnuta kosa crta </font>
+		</b></td>
+    </tr>
+
+    </tr>
+  </table>
+<br>
+<br>
+Takodje postoje metode i svojstva stringova.
+<br>
+Neke od metoda i svojstava su: <i>length, substr(), substring(), slice(), concat(), toUpperCase(), toLowerCase(), charAt(), indexOf(), trim(), valueOf()</i>.
+<br>
+<br>
+<b>Svojstvo length</b>
+<br>
+<br>
+Ovo svojstvo se koristi za odredjivanje du&#382;ine stringa. 
+<br>
+<br>
+Mo&#382;emo ga koristiti na dva nacina. Direktno na stringu, ili prilikom poziva na promenljivoj.
+<br>
+<br>
+Primer kada se <i>length</i> poziva direktno na stringu.
+<br>
+<span class="primer_text">
+document.write("Ovo je string.".length); //Ispisuje "14"
+</span>
+<br>
+<br>
+Primer kada se <i>length</i>  poziva na promenljivoj:
+<br>
+<textarea class = "primer_ta" rows="2" disabled>
+var MojString = "Ovo je string."; 
+document.write(MojString.length); //Ispisuje "14"
+</textarea>
+<br>
+Oba ova primera daju isti rezultat.
+<br>
+<br>
+<b>Metode slice, substring, substr</b>
+<br>
+<br>
+Metode <i>subtring()</i> i <i>slice()</i> prihvataju dva argumenta, tako da je prvi argument po&#269;etna pozicija od koje se ra&#269;una, dok je drugi argument pozicija za zaustavljanje, &#353;to nije slu&#269;aj sa metodom <i>substr()</i> gde je drugi argument broj znakova od po&#269;etne pozicije koji se ra&#269;unaju.
+<br>
+<br>
+Primer kori&#353;cenja ovih metoda:
+<br>
+<textarea class = "primer_ta" rows="5" disabled>
+var MojString = "Ovo je string."; 
+document.write(MojString.substring(3)); //Ispisuje " je string."
+document.write(MojString.substring(3,9)); //Ispisuje " je st"
+document.write(MojString.substr(3)); //Ispisuje " je string."
+document.write(MojString.substr(3,9)); //Ispisuje " je strin"
+</textarea>
+<br>
+<br>
+<b>Metod concat</b>
+<br>
+<br>
+Ovaj metod spaja dva niza. 
+<br>
+<br>
+Primer nadovezivanja sa <i>concat()</i>:
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+var PrviString = "Zdravo ";
+var DrugiString = "svete";
+document.write(PrviString.concat(DrugiString)); //Ispisuje "Zdravo svete"
+</textarea>
+<br>
+<br>
+Umesto <i>concat()</i> mozemo koristiti znak '+' za nadovezivanje.
+<br>
+<br>
+Primer nadovezivanja sa <b>+</b>:
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+var PrviString = "Zdravo ";
+var DrugiString = "svete";
+document.write(PrviString + DrugiString); //Ispisuje "Zdravo svete"
+</textarea>
+<br>
+<br>
+Primer:
+<br>
+<textarea class = "primer_ta" rows="7" disabled>
+<script>
+var a = "Dobar ";
+var b = "dan!";
+var c = a + b;
+var l=c.length;
+document.write("Nadovezivanjem a i b dobili smo: " +c + "<br>" + "Du&#382;ina dobijenog stringa je: " + l + "<br>");
+</script>
+</textarea>
+<br>
+U primeru spajamo dva stringa pomo&#263;u znaka za nadovezivanje ( + ), potom ispisujemo string koji smo dobili i njegovu du&#382;inu koju smo prethodno izra&#269;unali. 
+<br>
+<br>
+
+<div class = "zadatak">
+<b>Zadatak:</b> Izmeni program na slede&#263;i na&#269;in: Za vrednosti promenljivih a i b izaberi bilo koja dva stringa, potom izra&#269;unaj i ispi&#353;i du&#382;inu svakog stringa ponaosob, 
+a potom spoj ta dva stringa pomo&#263;u metode <i>concat()</i>, i izra&#269;unaj du&#382;inu dobijene vrednosti, i ispi&#353;i sve to.
+</div>
+<br>
+<br>
+

@@ -1,0 +1,314 @@
+﻿
+<h1>Tipovi podataka</h1>
+<br> 
+U ovoj lekciji nastavljamo dalje sa upoznavanjem osnovnih pojmova, termina i pravila koja su nam potrebna kako bi bili sposobni da napišemo valjan TypeScript kod. Jedna od najosnovnih elemenata skoro svakog programskog jezika jesu tipovi podataka.
+Među najbitnim ulogam tipova podataka jeste da oni definišu koju vrstu vrednosti neka promenljiva ili objekat može da ima i koja vrsta operacije se mogu vršiti nad njima. Za početak hajde da razmotrimo koja je uloga tipova podataka u TypeScriptu.
+Kao što smo već pomenuli jedna od osobina i namera sa kojom je TypeScript kreiran jeste da se za svaku promenljivu ili objekat defniše i tip podataka kojem pripada. To nije bio slučaj sa JavaScriptom i uglavnom je bilo dovoljno
+da se naznači da je u pitanju promenljiva korišćenjem ključne reči <b>var</b> da bi tek tokom kompilacije bilo automatski definsano i kom tipu podataka promenljiva pripada. Ovaj pristup je i dalje moguć i u TypeScriptu ali nije preporučljiv
+zbog prednosti koje donosi jako tipiziranje podataka, neke od njih smo već pomenuli u prethodnoj lekciji. Za početak krenimo od osnovnih tipova.
+<br>
+<br>
+<b>NADTIP SVIH TIPOVA </b>
+<br>
+Tokom kucanja koda možemo da dođemo u situaciju da moramo da opišemo tip promenljive a da nemamo saznanje kog bi tipa vrednost te promenljive mogla da bude. Ta vrednost može da bude posledica dinamičkog sadržaja, unesena od strane korisnika,
+uvezene iz neke biblioteke itd. U ovim situacijam jedino rešenje koje nam se nameće je da izbegnemo eksplicitno definisanje tipa te promenljive i da tokom procesa kompilacije provera tipa  bude izostavljena. 
+Implementacija rešenja došla je u vidu uvođenja novog tipa promenljive koja može da bude bilo koji drugi tip. Ključna reč rezervisana za ovaj tip promenljive je <b>any</b>. Znači ako nismo sigurni kog bi tipa naša promenljiva trebalo da bude a hteli bi da izbegnemo greške u kodu
+definisianjem tipa te promenljive onda je preporuka upotrebiti <b>any</b>. Pošto vrednost promenljive označene sa <b>any</b>  može da bude bilo kojeg drugog tip, <b>any</b>  predstavlja nadtip svih ostalih tipova. Pogledajmo sledeće primer.
+
+<textarea class = "primer_ta" rows = "11" disabled>
+ 
+ let NisamSiguran: any = 4;
+ 
+ //Ok mozda nije broj, već string?
+ 
+ NisamSiguran = "Da probamo sa tekstom";
+ 
+ //Čekaj , čekaj ipak je neka logička vrednost
+ 
+ NisamSiguran = false; 
+
+</textarea>
+<br>
+Treba skrenuti pažnju da je gore ispisan kod potpuno korektan. Pošto smo promenljivoj NisamSiguran dodelili tip any potpuno je ispravno da promenljiva sadrži bilo koji tip vrednosti i neće se javiti greska u procesu kompilacije.
+Ono što nije korektno je sledeće.
+<br>
+
+<textarea class = "primer_ta" rows = "11" disabled>
+ 
+ let NisamSiguran: number = 4;
+ 
+ //Ok mozda nije broj, već string?
+ 
+ NisamSiguran = "Da probamo sa tekstom";
+ 
+ //Čekaj , čekaj ipak je neka logička vrednost
+ 
+ NisamSiguran = false; 
+
+</textarea>
+<br>
+Pri procesu kompilacije kompaljer to rezonuje na sledeći način. "Ok znači imam promenljivu NisamSiguran za koju je autor koda rekao da je broj. Ajmo da proverimo, 4 jeste zaista broj. Sada mi autor kaže da vrednost promenljive
+NisamSiguran nije više  4 već "Da probamo sa tekstom". Čekaj "Da probamo sa tekstom" je string a NisamSiguran je rečeno da je broj ovo nije korektno jer tip promenljive i tip vrednosti moraju da se poklapaju. Ovo je dobar trenutak
+da javim autoru koda da u ovoj liniji koda ima problem. Da vidim šta imamo dalje? U međuvremenu  vrednost NisamSiguran je postala boolean, ovo opet nije korektno bolje da mu javim da opet pravi istu grešku jer se tipovi ne podudaraju."
+<br>
+<br> 
+Vidimo da je razlika u gore navedena dva koda minorna i da upravo leži u deklarisanju tipa promenljive sa any. Pošto je any nadtip svih tipova , uslov da tip promenljive i tip vrednosti moraju da se podudaraju uvek će biti zadovoljen.
+<br>
+<br>
+<b>LOGIČKE VREDNOSTI</b>
+<br>
+ Još ih zovemo Bulove vrednosti po Džordžu Bulu koji je otkrio jednu jednu od grana algebre koja će kasnije dobiti ime po njemu. Logične vrednosti mogu biti tačno i netačno. Da bi označili ovakav tip podataka koristimo ključnu reč
+ <b>boolean</b> a vrednost koje može da ima ovakav tip podataka sa ključnom reč  <b>true</b> ili <b>false</b>.
+ <br>
+<textarea class = "primer_ta" rows = "5" disabled>
+ 
+ let Tačno:boolean = true;
+ 
+ let Netačno:boolean = false;
+
+</textarea>
+
+<br>
+<br>
+<b>BROJEVI</b>
+<br>
+U TypeScriptu brojeve bili celi ili sa decimalnim zarezom predstavljamo kao realne i to realne šezdesetčetvorobitne duple preciznosti. Ako želimo da neku vrednost označimo da je broj koristimo ključnu reč <b>number</b>.
+<br>
+<textarea class = "primer_ta" rows = "9" disabled>
+ 
+ let DecimalniOblikBroja255: number = 255;
+ 
+ let HeksaDecimalaniOblikBroja255: number = 0xff;
+ 
+ let BinarniOblikBroja255: number = 0b11111111;
+ 
+ let OktalniOblikBroja255: number = 0o377;
+
+</textarea>
+<br>
+<div class = "napomena">U TypeScriptu svaki broj možemo zapisati u 4 brojevna sistema. Važno je skrenuti pažnju da ako je zapis broja u binarnom, oktalnom ili heksadekadnom sistemu onda zapis broja mora početi sa 0b,0o ili 0x respektivno. </div>
+<br>
+<b>NIZOVI KARAKTERA</b>
+<br>
+Jedna od fundamentalnih stvari u kreiranju programa je potreba za rad sa podacima opisanim u vidu teksta. Iz te potrebe uvedeni su nizovi karaktera kao jedan od tipova podataka. Za podatak koji želimo da deklarišemo kao niz karaktera koristimo 
+ključnu reč <b>string</b>. Da bi neki tekst bio prepoznat kao string potrebno je taj tekst ograničiti jednostrukim ili dvostrukim navodnicima.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "6" disabled>
+ 
+ let Tekst:string = 'Ovo je jedan primer niza karaktera';
+ 
+ let DrugiTekst = "Nismo eksplicitno definisali da je string ali tokom kompilacije će biti prepoznat kao takav. Takođe dvostrukim navodnicima možemo da ograničimo tekst da bi dobili string";
+
+</textarea>
+<br>
+<b>VOID</b><!-- Malo je nezgodno na srpskom opisati ova dva pojma ili napisati kao podnaslov kasnije se vrati i vidi da li si u mogucnost da smisliš nešto prikladnije-->
+<br>
+<b>Void</b> bi se mogao opisati kao tip promenljive koja je sušta suprotnost u odnosu na <b>any</b>. Ako je promenljiva tipa any mogla da sadrži vrednost bilo kog tipa onda bi void predstavljao izostanak iste.
+Ovde bi trebalo skrenuti pažnju da mi možemo promenljivoj dodeliti tip void ali njen vrednost može bit samo null ili undefined o kojima će kasnije biti reči. Treba skrenuti pažnju da ima veoma malo smisla deklarisati promenljivu  kao void.
+Void se najviše upotrebljava  kad želimo da naznačimo da funkcija ne vraća vrednost tako što deklarišemo da je povratna vrednost funkcije tipa void.
+<br>
+<textarea class = "primer_ta" rows = "11" disabled>
+ 
+ function NemamPovratnuVrednost(): void {
+    alert("Možda nemam vrednost ali to me ne sprečava da pozovem drugu funkciju");
+}
+
+let Neupotrebljivo: void = undefined;
+
+// Kao što vidimo moguće je deklarisati promenljivu kao tipa void ali to je manje više sve.
+
+</textarea>
+<br>
+<b>NULL I UNDEFINED</b><!-- Malo je nezgodno na srpskom opisati ova dva pojma ili napisati kao podnaslov kasnije se vrati i vidi da li si u mogucnost da smisliš nešto prikladnije-->
+<br>
+U TypeScriptu <b>null</b> i <b>undefined</b> su specifični jer u zavisnosti od toga kako ih upotrebimo u kodu mogu biti protumačene kao tipovi promenljivih ili vrednosti samih promenljivih. Ako nam <b>any</b> predstavlja nadtip svih tipova
+ onda su <b>null</b> i <b>undefined</b> podtipovi svih ostalih tipova.
+<br>
+<textarea class = "primer_ta" rows = "11" disabled>
+ 
+let u: undefined = undefined;
+
+let n: null = null;
+
+let v: void = null;
+
+// To je otprilike to ako promenljive deklarišemo kao undefined ili null. Kao što vidimo jedinu vrednost koju promenljiva tip null može da ima je null isto važi i za undefined. 
+
+</textarea>
+<br>
+<div class = "napomena">
+
+Pošto smo rekli da su null i undefined podtipovi svih ostalih tipova onda bi značilo da je sledeći izraz ispravan let u:number = null. Nažalost pri upotrebe komande --strictNullChecks u procesu kompilacije ovaj izraz neće proći.
+
+Često može doći do zabune između undefined i null. Inicijalizacijom promenljive  kao undefined znači da ta promenljiva nema vrednost niti objekat na koji pokazuje.  Promenljive inicijalizovane kao null pokazuju na objekat čija vrednost je undefined.
+
+</div>
+<br>
+Svi gore prethodno navedeni tipovi podataka izuzev any još se nazivaju osnovni ili primitivni tipovi podataka.  Primitivni tipovi podataka predstavljaju sastavni deo programskog jezika i kao takvi dolaze sa ugrađenom podrskom.
+Njih možemo posmatrati kao osnovu pomoću koje možemo da definišemo složenije tipove podataka. Sve naredne tipove podataka koje budemo navodili predstavljaju složene tipove podataka još se koristi i pojam korisnički definisani tipovi podataka.
+<br>
+<br>
+<b>NIZOVI VREDNOSTI</b><!-- Malo je nezgodno na srpskom opisati ova dva pojma ili napisati kao podnaslov kasnije se vrati i vidi da li si u mogucnost da smisliš nešto prikladnije-->
+<br>
+Šta raditi ako se javi potreba da istovremeno od jedne promenljive zahtevamo da čuva više vrednosti istog tipa? Rešenje je došlo u vidu uvođenja novog tipa podatka a to je niz. Da bi neku promenljivu deklarisali kao niz nemamo rezervisanu ključnu
+reč kao što je bio slučaj sa ostalim tipovima podataka već koristimo [] ispred kojeg navodimo o kom tipu vrednosti u nizu se radi . Pomoću [] takođe smeštamo vrednosti u niz gde su vrednosti razdvojene zarezom. Pogledajmo primere.
+<br>
+
+<textarea class = "primer_ta" rows = "16" disabled>
+ 
+ let NizBrojeva: number[] = [1, 2, 3];
+
+ let NizStringova: string [] = ["Zdravo", "svima", "!"];
+
+ // Drugi način da deklarišemo da je neka promenljiva niz je da upotrebimo Array<TipVrednosti> 
+
+ let NizBrojeva: Array<number> = [1, 2, 3, 4];
+
+ //Svakom elementu niza možemo pristupiti preko indeksa gde indeksi kreću od nule.
+
+ let Zbir: number = NizBrojeva[0] + NizBrojeva[1];
+
+let Rečenica: string =
+</textarea>
+<br>
+Svakom elementu niza možemo pristupiti preko njegovog indeksa gde indeksi kreću od nule.
+<br>
+<textarea class = "primer_ta" rows = "23" disabled>
+ 
+ let NizBrojeva: number[] = [1, 2, 3];
+
+ let NizStringova: string [] = ["Zdravo", "svima", "!"];
+
+ let Zbir: number = NizBrojeva[0] + NizBrojeva[1];
+
+ let Rečenica: string = NizStringova[0] + " "+ NizStringova[1] + NizStringova[2];
+ 
+ let button1 = document.createElement('button');
+ let button2 = document.createElement('button');
+ button1.textContent = "Dont push the button1!";
+ button1.onclick = function () {
+     alert(Rečenica);
+ };
+ button2.textContent = "Dont push the button2!";
+ button2.onclick = function () {
+     alert("Sabiranjem prva 2 člana niza NizBrojeva dobili smo broj " + Zbir);
+ };
+ document.body.appendChild(button1);
+ document.body.appendChild(button2);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<b>NIZOVI VREDNOSTI RAZLIČITOG TIPA</b>
+<br>
+Pošto niz sadrži više vrednosti istoga tipa  prirodno je se nametnula potreba i za nizom koji može da sadrži više vrednosti različitog tipa. Niz koji može da sadrži vrednosti različitig tipa još se naziva <b>tuple</b>. Da bi koristili ovakav niz dovoljno
+je da upotrebimo [tipPodataka1,tipPodataka2,... ] pri deklaraciji. Kao što smo naveli ranije deklarisanje tipova promenljivih je opciona tako da je dovoljno samo inicijalizovati promenljivu i eksplicitno uneti vrednosti u niz. Hajde da vidimo kako to funkcioniše na sledećim primerima.
+<br>
+<textarea class = "primer_ta" rows = "14" disabled>
+ 
+ let t: [string, string, number] =["Zdravo svete", "pet" , 5] ;
+
+ // Naravno i ovako je potpuno uredu
+ 
+ let t =["Zdravo svete", "pet" , 5] ;
+ 
+ // Mada ovo nije
+ 
+ let t: [string, string, number] =["Zdravo svete", 5 ,"pet" ] ;
+ 
+ // Bitan je raspored tipova pri deklaraciji promenljive, na 2. mestu se očekuje string a mi smo uneli broj a to kompajler tumači kao grešku!
+
+</textarea>
+<br>
+Ako unesemo više vrednosti nego tipova u deklaraciji?
+<br>
+<textarea class = "primer_ta" rows = "20" disabled>
+ 
+ let t: [string, string, number] =["Zdravo svete", "pet", 5 , "šest", 6] ;
+ 
+ // Ovo će biti potpuno uredu jer van oblasti deklarisanih tipova( za prve tri vrednosti znamo kog tipa moraju da budu) kompajler proverava da li ostale unete vrednosti pripadaju bilo kom tipu koji je već spomenut u deklaraciji.
+ // U našem slučaju naše vrednosti mogu da budu ili stringovi ili brojevi. Ono što nije uredu je sledeće.
+ 
+ let t: [string, string, number] =["Zdravo svete", "pet", 5 , "šest", true] ;
+ 
+ //t[4]=true a ova vrednost nije tipa ni string ni number već boolean tako da će nam kompajler izbaciti grešku. Da bi kod bio ispravan treba uraditi sledeće.
+ 
+ let t: [string, string, number, boolean] =["Zdravo svete", "pet", 5 , false,"šest", true] ;
+
+</textarea>
+<br>
+<b>NABRAJANJA</b> <!-- Kao i uvek da li uzeti jednsotavno englesku reč ili ići uz neki opis na srpskom i onda uvesti Enum na osnovu prethodnog izloženog??-->
+<br>
+Nabrajanja za koje je rezervisana ključna reč <b>enum</b> predstavlja tip podataka koji se sastoji od skupa vrednosti koje se nazivaju elementi ili enumeratori. Imena enumeratora su promenljive koje se ponašaju
+kao konstante tjst njihove vrednosti su brojevi pa otud i motivacija da se deklarišu kao enum. Enum je skraćenica od enumeration što znači nabrajati. A sad da vidimo par primera kako bi bilo jasnije.
+<br>
+<textarea class = "primer_ta" rows = "14" disabled>
+ 
+ enum Sedmica {Ponedeljak, Utorak, Sreda , Četvrtak, Petak, Subota, Nedelja};
+ 
+ let P: Sedmica = Sedmica.Ponedeljak;
+ 
+ // Vrednost P je nula. Ako ne verujete pritisnite dugme ako smete.
+ 
+ var button = document.createElement('button');
+ button.textContent = "Čik ako smeš!";
+ button.onclick = function () {
+    alert("I vrednost promenljive P je " + P);
+ };
+ document.body.appendChild(button);
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Po automatizmu nabrajanje članova kreće od 0 ali ako insistiramo možemo da sami izaberemo koje brojeve želimo da članovi imaju i od kojih brojeva da krenu nabrajanje.
+<br>
+<textarea class = "primer_ta" rows = "15" disabled>
+ 
+ enum Sedmica {Ponedeljak = 5, Utorak, Sreda , Četvrtak = 20, Petak, Subota, Nedelja};
+ 
+ let P: Sedmica = Sedmica.Ponedeljak;
+ 
+ // Očekujemo da ispiše 28 , ajmo da vidimo šta će se desiti.
+ 
+ var button = document.createElement('button');
+ button.textContent = "I srećan broj je !";
+ button.onclick = function () {
+    alert("I vrednost zbira je " + (Sedmica.Utorak + Sedmica.Subota) + ".");
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Takođe možemo uraditi i obratno od numeričkih vrednosti dobiti imena članova.
+<br>
+<textarea class = "primer_ta" rows = "14" disabled>
+ 
+ enum Sedmica {Ponedeljak = 5, Utorak, Sreda , Četvrtak = 20, Petak, Subota, Nedelja};
+ 
+ let S: string = Sedmica[5];
+ 
+ // Očekujemo da ispiše 28 , ajmo da vidimo šta će se desiti.
+ 
+ let button = document.createElement('button');
+ button.textContent = " :) ";
+ button.onclick = function () {
+    alert("Danas je  " + S + "!");
+ };
+ document.body.appendChild(button);
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<div class = "napomena"> Treba skrenuti pažnju čitaocima da tip promenljive predstavlja tip koji korisnik deklariše i očekuje da će vrednost promenljive biti tog tipa. Tip vrednosti određuje kompajler u procesu kompilacije i na to veoma malo  možemo da utičemo.
+Na osnovu rečenog zaključujemo da greške u ne podudaranju tipova (type mismatch) dolaze zbog nepravilne deklaracije tipa promenljive a ne tipa vrednosti iste.
+ </div>
+<br>
+<div class = "zadatak">
+<b>Zadatak2:</b>
+a)Deklarisati  promenljive x1 i x2 sa vrednostima u dekadnom i heksadekadnom sistemu.
+b)Deklarisati promenljivu y1 čija je vrednost string. 
+c)Deklarisati niz NIZ čiji članovi sadrže vrednosti promenljivih x1, x2, y1 kao i vrednost boolen.
+d)Ispisati zbir promenljivih x1 i x2 kao i x2 i y1. 
+e)Ispisati vrednosti članova niza NIZ.
+</div>

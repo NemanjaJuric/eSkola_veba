@@ -1,0 +1,48 @@
+﻿<h1><b>HTML5 Video</b></h1>
+
+
+Pre HTML5 nije postojao standardan način za reprodukovanje video fajlova na veb stranama.
+HTML5 &ltvideo&gt etiketa omogućava standardan način za postavljanje video fajla na veb stranice.
+Trenutno, postoje tri podržana formata za &ltvideo&gt etiketu: mp4, WebM i Ogg.
+Vrednost 'type' atributa u okviru &ltsource&gt etikete zavisi od formata video fajla:
+
+<br>
+<table border="1">
+  <tr>
+    <th>Format fajla</th>
+    <th>Vrednost atributa</th>
+  </tr>
+    <tr>
+    <td>mp4</td>
+    <td>video/mp4</td>
+  </tr>
+  <tr>
+    <td>ogg</td>
+    <td>video/ogg</td>
+  </tr>
+  <tr>
+    <td>webm</td>
+    <td>video/webm</td>
+  </tr>  
+</table>
+
+<textarea class = "primer_ta" rows="6" disabled>
+Primer:
+&ltvideo controls&gt
+&ltsource src="NewElementsHTML5.mp4" type="video/mp4"&gt
+Vaš pregledač ne podržava ovaj video format.
+&lt/video&gt
+</textarea>
+
+<br> Tekst između &ltvideo&gt i &lt/video&gt etiketa biće prikazan u pretraživačima koji 
+ne podržavaju &ltvideo&gt etiketu.
+<br><br>
+U okviru &ltvideo&gt etikete koriste se tri različita atributa:
+<br> - 'controls' - atribut dodaje video kontrole kao sto su pokretanje audija, pauza ili zvuk;
+<br> - 'autoplay' - omogućava automatsko pokretanje video fajla;
+<br> - 'loop' - omogućava automatsko ponavljanje video fajla.
+
+<div class = "zadatak">
+<b>Zadatak:</b>
+<br>Izmeniti dati kod iz primera tako da se video fajl reprodukuje automatski.
+</div>

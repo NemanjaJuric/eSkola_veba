@@ -1,0 +1,49 @@
+Rešenje zadatka:
+<br>
+<textarea class = "primer_ta" rows = "33" disabled>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Rešenje&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h3&gt; (Ne)prijatelj &lt;/h3&gt;
+		&lt;h5&gt; Da li da ti verujem? &lt;/h5&gt;
+		&lt;script&gt;
+		function ime(){
+			return prompt("Unesite ime osobe:");
+		}
+		function prezime(){
+			return prompt("Unesite prezime osobe:");
+		}
+		function proracunPrijateljstva(i, p){
+			if(i.localeCompare(p)>0){
+				return "Ne";
+			}
+			else if(i.localeCompare(p)==0){
+				return "Reci ove osobe uzimajte sa rezervom";
+			}
+			else{
+				return "Da, potpuno";
+			}
+		}
+		var imeOsobe=ime();
+		var prezimeOsobe=prezime();
+		document.write(proracunPrijateljstva(imeOsobe, prezimeOsobe));
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<br>
+Definisane su tri funkcije:
+<ul>
+<li><i>ime</i> - koja od korisnika traži da se unese ime osobe,</li>
+<li><i>prezime</i> - koja od korisnika traži da se unese prezime osobe,</li>
+<li><i>proracunPrijateljstva</i> - koja poredi prosleđeno ime i prezime i u zavisnosti 
+od rezultata vraća string <i>Ne</i>, <i>Reci ove osobe uzimajte sa rezervom</i> ili <i>Da,
+potpuno</i>.</li>
+</ul>
+
+Ime i prezime se porede string metodom <i>localCompare</i>, koja ispituje da li prvi 
+string pri porenju stoji pre drugog (u tom slučaju povratna vrednost ove 
+funkcije je -1), nakon drugog (u tom slučaju povratna vrednost ove funkcije je 
+1), ili su stringovi jednaki (u tom slučaju povratna vrednost je 0). 

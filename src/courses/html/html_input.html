@@ -1,0 +1,134 @@
+﻿<h1> Input </h1>
+<br>
+<h4><b> Veb formulari <b></h4>
+<br>
+<p> Veb formulari su veb strane koje se prave za prikupljanje nekih informacija od korisnika i za njih se koriste etikete &ltform&gt i &lt/form&gt.
+Te informacije mogu biti ime i prezime, datum, lozinka, telefon itd. Elementi formulara su dugmad, polja za unos, radio dugmad, padajuće liste i još neki elementi koje ćemo prikazati.
+ <textarea class="primer_ta" rows="5" disabled>
+<body>
+  <form>
+       ...
+ </form>  
+</body> 
+</textarea>
+Da bi korisnik mogao poslati svoje informacije na server radi obrade, u formularu mora postojati neko dugme za procesiranje. Za procesiranje i obradu tih informacija dalje se koristi neki od skript jezika (npr. JavaScript). Sada ćemo videti koje sve vrste informacija možemo prikupiti od korisnika uz pomoć etiketa &ltinput&gt i &ltselect&gt.
+</p>
+<br>
+<h4><b> Tipovi input-a </b></h4>
+<br>
+<p> Etiketa&ltinput&gt koristi se za unos različitih vrsta podataka i u zavisnosti od toga imamo različite tipove input kontrola, a i različite atribute. 
+<div class="napomena">Zajednički atributi različitih kontrola su name, kojim se definiše ime promenljive preko koje će biti izvršena dodela vrednosti, i value, koji predstavlja ili izabranu vrednost u formularu ili tekst koji će biti prikazan. Funkcionalnost i pojava input kontrola se menjaju u zavisnosti od atributa type. </div>
+<ul>
+<li>
+Za unos jedne linije koristi se sledeći kod: 
+<br>
+<span class="primer_text">&ltinput type="text" name="ime" value="Unesite ime" maxlength="20"&gt </span>
+<br>
+<input type="text" name="ime" value="Unesite ime" maxlength="20">
+<br>
+Atribut maxlength ograničava unos karaktera na 20.
+Zapravo, to je podrazumevani tip unosa, što znači da je ono što ćete dobiti ako zaboravite da uključite atribut type ili uključite nepoznatu vrednost.
+<li>   
+Radio dugmad se koriste za opcije među kojima korisnik može da odabere samo jednu. Atribut checked definiše podrazumevani izbor.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+<input type="radio" name="pol" value="muški" checked> Muški pol
+<input type="radio" name="pol" value="ženski"> Ženski pol
+</textarea>
+<input type="radio" name="pol" value="muški" checked> Muški pol
+<br>
+<input type="radio" name="pol" value="ženski"> Ženski pol
+
+<li>
+Polja za čekiranje, takođe, korisniku nude izbor opcija, s tim što je ovde omogućen višestruki izbor. I ovde se može koristiti atribut checked.
+<textarea class="primer_ta" rows="4" disabled>
+<input type="checkbox" name="kurs1" value="html"> HTML
+<input type="checkbox" name="kurs2" value="css"> CSS
+<input type="checkbox" name="kurs3" value="js"> JS
+<input type="checkbox" name="kurs4" value="php"> PHP
+</textarea>
+<input type="checkbox" name="kurs1" value="html" checked> HTML <br>
+<input type="checkbox" name="kurs2" value="css"> CSS <br>
+<input type="checkbox" name="kurs3" value="js"> JS <br>
+<input type="checkbox" name="kurs4" value="php"> PHP
+<li>
+Polje za unos neke šifre, koja će se prikazivati kružićima ili zvezdicama, mora imati tip password jer želimo da bude skrivena.
+<br>
+<span class="primer_text">&ltinput type="password" name="šifra" maxlength="8"&gt </span>
+Unesite šifru:
+<input type="password" name="sifra" maxlength="8">
+<li>
+Obično se na kraju formulara ubacuju dva dugmeta - jedno za slanje podataka na server, a drugo za brisanje teksta.
+<br>
+<span class="primer_text">&ltinput type="submit" name="slanje" value="Pošalji"&gt </span>
+<br>
+<input type="submit" name="Pošalji" value="Pošalji"> <br>
+<span class="primer_text">&ltinput type="reset" name="brisanje" value="Obriši"&gt 
+</span> <br>
+<input type="reset" name="brisanje" value="Obriši">
+<li>
+Postoje tipovi unosa datuma, vremena, meseca, nedelje. Svi oni imaju izbor opcija među kojima korisnik treba da izabere jednu.<br>
+<span class="primer_text">&ltinput type="date" name="datum"&gt 
+</span> <br>
+<input type="date" name="datum"> <br>
+<span class="primer_text">&ltinput type="time" name="vreme"&gt 
+</span> <br>
+<input type="time" name="vreme"> <br>
+ <span class="primer_text">&ltinput type="month" name="mesec"&gt </span><br>
+<input type="month" name="mesec"> <br>
+ <span class="primer_text">&ltinput type="week" name="nedelja"&gt 
+</span> <br>
+<input type="week" name="nedelja"> <br>
+<li> 
+Polje za biranje broja ima sledeći kod: <br>
+ <span class="primer_text">&ltinput type="number" name="broj"&gt </span> <br>
+<input type="number" name="broj" min="1" max="10"> <br>
+Ovaj kod možete dopuniti atrubutima min i max, koji ograničavaju izbor broja. U primeru su postavljene vrednosti min="1" i max="10". Takođe, možete dodati atribut step (korak) za postavljanje razmaka između brojeva.
+<li>
+Polje za izbor boje može se dobiti ovako: <br>
+ <span class="primer_text">&ltinput type="color" name="boja"&gt </span> <br>
+<input type="color" name="boja"> <br>
+<li> 
+Za biranje nekog opsega brojeva koristi se range: <br>
+ <span class="primer_text">&ltinput type="range" name="opseg" min="0" max="50" step="5"&gt </span> <br>
+<input type="range" name="opseg" "min="0" max="50" step="5" > 
+<br>
+Podrazumevane vrednosti su min=0, max=100 i step=1. Step (korak) je razmak između brojeva koji se mogu odabrati. Opseg se obično povezuje sa tekstualnim poljem u kome se prikazuje izabrana vrednost.
+<li>
+Za unos mejla, broja telefona i lokacije veb strane koriste se: <br>
+ <span class="primer_text">&ltinput type="email" name="mejl"&gt </span> <br>
+<input type="email" name="mejl"> <br>
+ <span class="primer_text">&ltinput type="tel" name="telefon"&gt </span> <br>
+<input type="tel" name="telefon"> <br>
+ <span class="primer_text">&ltinput type="url" name="lokacija"&gt </span> <br>
+<input type="url" name="lokacija"> <br>
+Neki pretraživači ne prepoznaju ove nove tipove i prikazaće ih kao obična tekstualna polja. Ali to nije razlog da ih ne koristite, jer ih većina savremenih mobilnih telefona i tablet računara koristi.
+<br>
+<li>
+Kontrole search i button ćemo objasniti kroz primer najpoznatije veb strane, Google početne strane. Ona sadrži polje za unos teksta i jedno dugme: <br>
+<textarea class="primer_ta" rows="2" disabled>
+<input type="search" name="pretraga" value="Traži"> 
+<input type="button" name="dugme" value="Idi"> 
+</textarea>
+<input type="search" name="pretraga" value="Traži">
+<input type="button" name="dugme" value="Idi">
+<li> Postoji i input kontrola pomoću koje možete učitati neku sliku iz fajla:<br>
+<span class="primer_text">&ltinput type="file" name="photo" size="28"&gt </span> <br>
+<input type="file" name="photo"> <br>
+</ul>
+ </p>
+<br>
+<h4><b>Tekstualno polje</b></h4>
+<p> Za unos više od jedne linije koristi se tekstualno polje: 
+<br>
+ <textarea class="primer_ta" rows="2" disabled>
+<textarea name="tekst" rows="5" cols="50">
+Ovde unosite tekst...
+</textarea>
+i ovaj deo koda mora se zatvoriti etiketom &lt/textarea&gt.
+<textarea name="tekst" rows="5" value="Unesite tekst">  </textarea>
+<br>
+Atribut rows označava broj redova, a cols broj kolona. Umesto ovih atributa, može se, kao i kod unosa jedne linije, koristiti atribut maxlength.
+<div class="zadatak"><b>Zadatak:</b> Dat je kod za slanje e-maila sa veb strane. Dodati polja za unos šifre, telefona, datuma i vaše slike. Pokušajte da dodate joše neke input kontrole iz lekcije da biste videli kako rade.
+</div>
+</p>

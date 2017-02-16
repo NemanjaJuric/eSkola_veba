@@ -1,0 +1,84 @@
+<h1><b>Nizovi</b></h1>
+<br>
+Nizovi se koriste za sme&#353;tanje vi&#353;e vrednosti u jednu promenljivu.
+<br>
+<br>
+Po&#353;to su nizovi objekti mogu&#263;e je imati istovremeno razli&#269;ite tipove podataka kao elemente niza.
+<br>
+<br>
+Niz mo&#382;emo da kreiramo na dva na&#269;ina.
+<br>
+<br>
+Prvi na&#269;in je da koristimo eksplicitni konstruktor <i>Array()</i>:
+<br>
+<textarea class = "primer_ta" rows="5" disabled>
+var predmeti = new Array();
+predmeti[0]= "Analiza";
+predmeti[1]= "Geometrija";
+predmeti[2]= "Algebra";
+predmeti[3]= "Programiranje";
+</textarea>
+<br>
+<br>
+Drugi na&#269;in je da koristimo implicitni konstruktor niza:
+<br>
+<span class = "primer_text">
+var predmeti = ["Analiza", "Geometrija", "Algebra", "Programiranje"];
+</span>
+<br>
+<br>
+Elementima niza pristupamo pomo&#263;u imena niza i indeksa tog elementa u nizu.
+<br>
+<br>
+<b>Svojstvo length</b>
+<br>
+<br>
+Ovo svojstvo vra&#263;a du&#382;inu niza, tj. broj elemenata niza.
+<br>
+<br>
+<textarea class = "primer_ta" rows="2" disabled>
+var predmeti = ["Analiza", "Geometrija", "Algebra", "Programiranje"];
+var brojPredmeta = predmeti.length; //Rezultat je 4
+</textarea>
+<br>
+<br>
+<b>String metode</b>
+<ul>
+	<li> toString() - konvertuje niz u string, tj. redja elemente niza razdvojene zarezima </li>
+	<li> join() - konvertuje niz u string, ali separator mo&#382;emo da biramo sami. Npr: <span class = "primer_text">imeNiza.join("*")</span> </li>
+	<li> pop() - uklanja poslednji element iz niza i vra&#263;a taj element </li>
+	<li> push() - dodaje novi element na kraj niza i vra&#263;a novu du&#382;inu </li>
+	<li> shift() - uklanja prvi element iz niza, ostale pomera za jedno mesto napred i vra&#263;a taj element</li>
+	<li> unshift() - dodaje novi element na po&#269;etak niza i vra&#263;a novu du&#382;inu niza</li>
+	<li> sort() - sortira niz <br> &nbsp;&nbsp; Ne mo&#382;e se direktno koristiti za sortiranje numeri&#269;kih vrednosti jer ih posmatra kao stringove, pa moramo koristiti funkciju <span class = "primer_text">sort(function(a, b){ return a-b })</span></li>
+	<li> reverse() - obr&#263;e redosled elemenata niza</li>
+	<li> concat() - spaja nizove</li>
+	<li> slice() - izdvaja podniz</li>
+</ul>
+<br>
+<br>
+<b>Kretanje kroz nizove</b>
+<br>
+<br>
+Kako mo&#382;emo da se kre&#263;emo kroz nizove?
+<br>
+<br>
+Mo&#382;emo pomo&#263;u metoda <i>for()</i> na slede&#263;i nacin:
+<br>
+<textarea class = "primer_ta" rows="6" disabled>
+var predmeti = ["Analiza", "Geometrija", "Programiranje"]; <br>
+var brojPredmeta = predmeti.length;
+
+for(var i = 0; i < brPredmeta; i++){
+	document.write(predmeti[i] + "<br>");
+}
+</textarea>
+<br>
+U primeru prolazimo kroz niz i ispisujemo sve njegove vrednosti.
+<br>
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b> Izmeni program tako da kreira&#353; niz godi&#353;njih doba i redom ispise&#353; elemente tog niza.
+</div>
+<br>
+<br>

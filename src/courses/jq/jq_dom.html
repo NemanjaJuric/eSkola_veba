@@ -1,0 +1,460 @@
+<h1>JQuery-DOM</h1>
+<br/>
+ Jedna od najvećih prednosti Jquery biblioteke jeste manipulacija DOM-a. Uz pomoć ove biblioteke možemo da dodamo html element našem dokumentu, da uzmemo njegovu vrednost, da mu dodelimo vrednost ili atribut i još mnogo toga.
+ Kroz ovaj kurs ćemo da pređemo sve najvaznije JQuery-jeve funkcije za manipulaciju DOM-a, i te funkcije možemo da svrstamo u 4 grupe:
+ <ul>
+ <li>JQuery funkcije za postavljanje</li>
+ <li>JQuery funkcije za uzimanje</li>
+ <li>JQuery funkcije za dodavanje</li>
+ <li>JQuery funkcije za uklanjanje</li>
+ </ul>
+ 
+ <br>
+ <br>
+  <h2 style="color:orange">JQuery funkcije za postavljanje</h2>
+	<ul style="color:blue">
+	<li> .text() -<span style="color:gray">Postavlja dati testualni sadžaj izabranom elementu. </span>
+	<textarea class="primer_ta" rows=21 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#test1").text("Mrtav ladan!");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo izmeniti teksualni sadržaj paragrafa klikom na dugme "Postavi tekst". </p>
+<br>
+<br>
+<p id="test1">Nabroj jedan domaci film.</p>
+<button id="btn1">Postavi tekst</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .html() -<span style="color:gray">Postavlja dati html zadatom elementu.</span>
+	<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("#btn2").click(function(){
+        $("#test2").html("<b>Ko to tamo peva!</b>");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo dodati html boldovani tekst našem paragrafu klikom na dugme "Postavi HTML". </p>
+<br>
+<br>
+<p id="test2">Nabroj jedan domaći film.</p>
+
+<button id="btn2">Postavi HTML</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .val() -<span style="color:gray">Postavlja datu vrednost polju forme.</span>
+	<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){ 
+    $("#btn3").click(function(){
+        $("#test3").val("Nikola Pašić");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo postaviti novu vrednost teksualnom polju klikom na dugme "Postavi novu vrednost". </p>
+<br>
+<br>
+<p>Polje: <input type="text" id="test3" value="Živojin Mišić"></p>
+
+<button id="btn3">Postavi novu vrednost</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li>.attr()-<span style="color:gray">Postavlja dati atribut izabranom elementu.</span>
+	<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").attr("title", "Sve znam");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo izmeniti naslov paragrafa klikom na dugme "Promeni vrednost naslova". </p>
+<br>
+<br>
+<p title="Nista ne znam"> Prevuci kursor miša preko ovog teksta da vidiš naslov.</p>
+
+<button>Promeni vrednost naslova</button>
+
+</body>
+</html>
+
+	
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	</ul>
+	<br>
+	<h2 style="color:orange">JQuery funkcije za uzimanje</h2>
+	<ul style="color:blue">
+	<li> .text() -<span style="color:gray">Vraca sadržaj izabranog elementa.</span>
+	<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        alert("Text: " + $("#test").text());
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="test">Mihajlo Pupin je bio najpoznatiji po <b>Pupinovim kalemovima</b>.</p>
+
+<button id="btn1">Prikaži tekst elementa.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .html() -<span style="color:gray">Vraca sadržaj izabranog elementa ukljucujući html oznake.</span>
+	<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn2").click(function(){
+        alert("HTML: " + $("#test").html());
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="test"> Mihajlo Pupin je bio najpoznatiji po <b>Pupinovim kalemovima</b>.</p>
+
+<button id="btn2">Prikaži HTML elementa.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .val() -<span style="color:gray">Vraća vrednost izabranog polja. </span>
+	<textarea class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        alert("Value: " + $("#test").val());
+    });
+});
+</script>
+</head>
+<body>
+
+<p>Name: <input type="text" id="test" value="Nikola Tesla"></p>
+
+<button>Prikaži vrednost polja.</button>
+
+</body>
+</html>
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .attr() -<span style="color:gray">Vraca vrednost navedenog atributa izabranog elementa.</span>
+	<textarea class="primer_ta" rows=24 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        alert($("#paragraf").attr("title"));
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo uzeti vrednost atributa title našeg paragrafa klikom na dugme "Klikni da saznaš naslov knjige ovog citata?" </p>
+<br>
+<br>
+<p title="Zločin i kazna" id="paragraf"> "Do vlasti dolazi samo onaj ko se osmjeli da sagne i uzme je. Tu se traži jedno, samo jedno: treba se odvažiti!"</p>
+
+<button>Klikni da saznaš naslov knjige ovog citata?</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	</ul>
+	<br>
+	<h2 style="color:orange">JQuery funkcije za dodavanje</h2>
+	<ul style="color:blue">
+	<li> .append() -<span style="color:gray">Ubacuje sadržaj na kraj izabranog elementa.</span>
+	<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn2").click(function(){
+        $("ol").append("<li>Pivo</li>");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ubaciti još jednu stavku na kraj liste klikom na dugme "Dodaj namirnicu na kraj liste". </p>
+<br>
+<br>
+<ol>
+  <li>Hleb</li>
+  <li>Mleko</li>
+  <li>Šunka</li>
+</ol>
+
+<button id="btn2">Dodaj namirnicu na kraj liste.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .prepend() -<span style="color:gray">Ubacuje sadržaj na početak izabranog elementa.</span>
+	<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn2").click(function(){
+        $("ol").prepend("<li>Pivo</li>");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ubaciti još jednu stavku na početak liste klikom na dugme "Dodaj namirnicu na početak liste".</p>
+<br>
+<br>
+<ol>
+  <li>Hleb</li>
+  <li>Mleko</li>
+  <li>Šunka</li>
+</ol>
+
+<button id="btn2">Dodaj namirnicu na početak liste.</button>
+
+</body>
+</html>
+	
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .after()-<span style="color:gray">Ubacuje sadržaj posle izabranog elementa.</span>
+	<textarea class="primer_ta" rows=28 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        $("ul").after("<li>Kaladont</li>");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ubaciti tekst posle date liste klikom na dugme "Ubaci tekst ispod liste".</p>
+<br>
+<br>
+<ul>
+<li>Meso</li>
+<li>Lubenica</li>
+<li>Banene</li>
+</ul><br><br>
+
+<button id="btn1">Ubaci tekst ispod liste.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	
+	<li> .before()-<span style="color:gray">Ubacuje sadržaj pre izabranog elementa.</span>
+	<textarea class="primer_ta" rows=27 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn2").click(function(){
+        $("ul").before("<li>Kaladont</li>");
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ubaciti tekst iznad date liste klikom na dugme "Ubaci tekst iznad liste".</p>
+<br>
+<br>
+<ul>
+<li>Meso</li>
+<li>Lubenica</li>
+<li>Banene</li>
+</ul><br><br>
+
+<button id="btn2">Ubaci tekst iznad liste.</button>
+
+</body>
+</html>
+	
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	
+	</ul>
+	<br>
+	<h2 style="color:orange">JQuery funkcije za uklanjanje</h2>
+	<ul style="color:blue">
+	<li> .remove() -<span style="color:gray">Uklanja izabrani element i njegovu decu.</span>
+	<textarea class="primer_ta" rows=32 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").remove(".crveno");
+    });
+});
+</script>
+<style>
+.crveno {
+    color: red;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ukloniti elemente crvene boje klikom na dugme "Ukloni netačne odgovore".</p>
+<br>
+<br>
+<p>Glavni grad Kanade je Otava.</p>
+<p class="crveno">Glavni grad Kanade je Alberta.</p>
+<p class="crveno">Glavni grad Kanade je Ontario.</p>
+
+<button>Ukloni netačne odgovore.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li> .empty() -<span style="color:gray">Uklanja svu decu izabranog elementa</span>
+	<textarea class="primer_ta" rows=30 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").empty();
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>U ovom primeru ćemo ukloniti sve iz div elementa klikom na dugme "Izbriši sve iz div elementa".</p>
+<br>
+<br>
+<div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+
+<p>Glavni grad Australije je Kanbera.</p>
+<p>Glavni grad Brazila je Brazilija.</p>
+<p>Glavni grad Svajcarske je Bern.</p>
+
+</div>
+<br>
+
+<button>Izbriši sve iz div elementa.</button>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+
+	</ul>
+	<br>

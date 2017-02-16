@@ -1,0 +1,31 @@
+﻿<textarea class = "primer_ta" rows = "31" disabled> 
+
+ let x1 = 1;
+ let x2 = 2;
+ let x3 = 256;
+ 
+ function binarniZapis(x:number) { 
+    let str: string = "";
+    let maska: number = 1;
+    for (let i = 0; i < 32; i++){
+        if ((maska & x) != 0)
+            str = "1"+str;
+        else
+            str = "0"+str;
+        maska <<= 1;
+    }
+    return (str);
+}
+ 
+ 
+ let r = x1 > x2 ? x1<<1000 : x1 << 1 + 1 > x2 >> 1 ;
+ 
+ let r1: number = x3 << 2;
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert( "Vrednost izraza je " + r + " a tip je " + typeof r + ". 256 pomnoženo sa 4 je " + r1 + " a njegov binarni zapis je " + binarniZapis(r1) + " .");
+ };
+ document.body.appendChild(button);
+ </textarea>

@@ -1,0 +1,41 @@
+﻿<h1><b>Heder i Futer</b></h1>
+
+
+Pri radu sa većim tabelama nekada je korisno podeliti tabelu. U okviru &lttable&gt etiketa tabelu
+je moguće podeliti na header, futer i body. To se može uraditi pomoću &ltthead&gt, &lttfoot&gt i &lttbody&gt
+etiketa. Što se tiče redosleda navođenja delova tabele neophodno je prvo navesti 'thead', dok za ostale
+delove ('tbody' i 'tfoot') redosled nije od velike važnosti jer će Web pregledač delove pod
+'tfoot' uvek postavljati na dno tabele.
+Tabelu koriščenu u primeru opšteg dela o tabelama možemo podeliti na gore navedene delove pomoću sledećeg
+koda.
+<textarea class = "primer_ta" rows="30" disabled>
+ &lttable border="1"&gt 
+ &ltthead&gt 
+   &lttr&gt 
+     &ltth&gt Ime &lt/th&gt 
+     &ltth&gt Prezime &lt/th&gt 
+     &ltth&gt Broj bodova &lt/th&gt 
+   &lt/tr&gt
+ &lt/thead&gt
+
+ &lttfoot&gt 
+   &lttr&gt 
+     &lttd&gt Footer 1 &lt/td&gt 
+     &lttd&gt Footer 2 &lt/td&gt 
+     &lttd&gt Footer 3 &lt/td&gt 
+ &lt/tfoot&gt 
+ 
+ &lttbody&gt 
+   &lttr&gt 
+     &lttd&gt Marko &lt/td&gt 
+     &lttd&gt Jovanović &lt/td&gt 
+     &lttd&gt 68 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Jasmina &lt/td&gt 
+     &lttd&gt Mihajiloivć &lt/td&gt 
+     &lttd&gt 94 &lt/td&gt 
+   &lt/tr&gt 
+ &lt/tbody&gt 
+ &lt/table&gt 
+</textarea>

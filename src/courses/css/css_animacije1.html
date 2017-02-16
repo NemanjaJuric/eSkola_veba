@@ -1,0 +1,44 @@
+<h1><b>Animacije</b></h1>
+<br>
+Animacije omogućavaju da dati element promeni stil u neki drugi. Možemo promeniti koliko god svojstava želimo neograničen broj puta.
+<ul>Potrebno je obratiti pažnju na sledeće:
+<li>animation-name – određuje na koje CSS svojstvo ćemo primeniti prelaz ( inicijalna vrednost je all)</li>
+<li>@keyframes pravilo – opisuje putanju promena koje vršimo na elementu</li>
+<li>animation-duration - trajanje animacije; ako ga ne navedemo animacija se neće izvršiti jer je inicijalna vrednost 0s</li>
+<li>animation-iteration-count -određuje koliko puta želimo da se animacija ponovi; vrednost infinitive će animaciju izvršavati beskonačan broj</li>
+</ul>
+<br>
+Naredne linije koda prikazuju animaciju u kojoj element zelene boje prelazi u plavu u trajanju od 3s. Prvi primer sa desne strane izvršava bas ovu animaciju. 
+<textarea class = "primer_ta" rows=10 disabled>
+@keyframes primer {
+    from {background-color: green;}
+    to {background-color: blue;}
+}
+div {
+    width: 200px;
+    height: 200px;
+    animation-name: primer;
+    animation-duration: 3s;
+}
+<br>
+Možemo definisati @keyframes koji ima više promena/prelaza uz pomoć procenta na sledeći način:
+<textarea class = "primer_ta" rows=10 disabled>
+@keyframes example {
+    0%   {background-color: blue;}
+    25%  {background-color: yellow;}
+    50%  {background-color: red;}
+    100% {background-color: green;}
+}
+</textarea>    
+Kao i u prethodnoj lekciji svojstvo animation-delay opisuje kašnjenje odnosno kada će prelaz početi da se izvršava.
+<div class = "napomena">
+<b>Napomena:</b>
+U kodu sa desne strane u drugom primeru je korišćena funkcija animation-iteration-count sa vrednošću beskonačno (infinitive), pa se animacija stalno ponavlja, dok se prvi primer izvršava samo jednom. Primetiti da se nakon izvršenja animacije, objekat vraća na početno stanje. </div>
+<div class = "zadatak">
+<b>Zadatak:</b>
+<br>Izmeniti kod u drugom primeru tako da menja pozicije kada menja i boju, tako da:
+<br>Kada je boja plava, pozicija 0px,0px.
+<br>Kada je boja zuta, pozicija 100px,100px.
+<br>Kada je boja crvena, pozicija 400px,0px.
+<br>Kada je boja zelena, pozicija 0px,0px.
+</div>

@@ -1,0 +1,75 @@
+<h1>Uvod u jQuery</h1>
+<br>
+JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili određene animacija, Ajax aplikacije i još mnogo toga.
+<br>
+<br>
+Prilično je laka za koristiti, posebno ako ste vec upoznati sa CSS-om i JavaScript-om. 
+<br>
+<br>
+Ukoliko nemate nikakvo znanje iz Javascripta preporučujemo da naučite bar neke osnovne koncepte i sintaksu JavaScripta, mnogo će vam lakše biti da razumete JQuery. 
+<br>
+<br>
+Međutim ukoliko vam je CSS potpuno nepoznat, nije nemoguce naučiti JQuery.
+<br>
+<br>
+Za početak prođimo kroz preuzimanje JQuery biblioteke sa interneta.
+<br>
+<br>
+JQuery možete da preuzmete <a href="http://jquery.com">ovde</a>.
+<br>
+<br>
+Najlakši način da je uključite u vašu web stranicu (posebno za lokalna testiranja) jeste da biblioteku koju ste preuzeli preimenujete u jquery.js i potom pozicionirate u isti folder sa html dokumentom sa kojim je povezujete.
+<br>
+<br>
+JQuery biblioteku cemo da ukljucimo tagom <span class = "primer_text"> &ltscript&gt </span> na sledeći način:
+<br>
+<br>
+<span class = "primer_text"> &ltscript type=”text/javascript” src=”jquery.js"&gt &lt/script&gt</span>	
+<br>
+<br>
+Takođe je moguće uključiti i direktno preko zvaničnog sajta i to na sledeći način:
+<br>	
+<br>
+<span class="primer_text"> &ltscript src="https://code.jquery.com/jquery-latest.min.js"&gt &lt/script&gt </span>
+<br>
+<br>
+<div class = "napomena">
+<b>Napomena:</b> Nakon preuzimanja JQuery biblioteke sa sajta ime će da sadrži određeni broj verzije tipa: jquery-x.y.z.js,
+ukoliko je ne preimenujete u jquery.js prehodni kod neće raditi i neophodno je izmeniti vrednost src atributa u "jquery-x.y.z.js".
+</div>
+<br>
+<br>
+Sintaksa jQuery-ja je mahom napravljena da bi se "izabrali"  HTML elementi i nad njima izveli određeni događaji.
+<br>
+<br>
+Osnovna jQuery sintaksa je: $(selector).action()
+<br>
+<br>
+<ul>
+	<li>Znak $ definiše odnosno pristupa jQuery-ju.</li>
+	<li>Sa (selector) pronađemo određeni HTML element.</li>
+	<li>I sa action() pozovemo događaj nad elementom.</li>
+</ul>
+<br>
+<br>
+Primer jedne jQuery funkcije koja klikom na sve objekte tipa paragraf ih sakriva: 
+<br>
+<br>
+<textarea class = "primer_ta" rows = "7" disabled>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+</textarea>
+
+<br>
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b> U primeru svi paragrafi nestaju kada klikneš na njih. Napravi i ti jedan paragraf i u njemu napiši nešto po 
+svom izboru. Klikni na njega da vidiš da li će nestati.
+</div>
+<br>
+<br>

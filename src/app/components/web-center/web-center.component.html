@@ -1,0 +1,158 @@
+<div class="container-fluid m-t-1 m-b-1 wrapper web-center-wrapper">
+
+	<div class="row material-light-gray" [hidden]="func != 'editor'">
+		<div class="col-md-12">
+			<div class="code-panel-editor">
+				<editor [(code)]="code"></editor>
+			</div>
+		</div>
+	</div>
+
+	<div class="row material-light-gray web-center-preview" [hidden]="func != 'view'">
+		<div class="col-md-12">
+			<div class="code-panel-preview">
+				<iframe name="frame"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<div class="row text-xs-center" [hidden]="func != 'colors'">
+		<div class="col-md-12">
+			<div class="text-xs-center m-b-2 material-dark-gray">
+				<h1 class="h1">Unesite boju</h1>
+			</div>
+			<div class="color-input-shadow" [ngStyle]="{'background-color': color}"></div>
+			<input class="color-input" [(colorPicker)]="color" [style.borderColor]="color" [value]="color" [cpPosition]="'bottom'" [cpPositionOffset]="'0%'"
+			/>
+		</div>
+	</div>
+
+	<div class="row text-xs-center" [hidden]="func != 'converter'">
+		<div class="converter-wrapper">
+			<div class="col-lg-8 offset-lg-2 col-md-12">
+				<div class="text-xs-center m-b-2 material-dark-gray">
+					<h1 class="h1">Kovertor</h1>
+				</div>
+				<div class="row">
+					<h4 class="h4 m-a-1">Tekst</h4>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="default-px" class="col-form-label h4">Pixels (default)</label>
+							<br>
+							<div class="input-group">
+								<input type="number" class="form-control form-input" id="default-px" placeholder="px" [(ngModel)]="val1">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="text-size-px" class="col-form-label h4">Pixels</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="text-size-px" placeholder="px" [(ngModel)]="val2">
+								<div class="input-group-addon" (click)="convert(2)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="text-size-em" class="col-form-label h4">Em</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="text-size-em" placeholder="em" [(ngModel)]="val3">
+								<div class="input-group-addon" (click)="convert(3)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<h4 class="h4 m-a-1">Dužina</h4>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="length-px" class="col-form-label h4">Centimeters</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="length-px" placeholder="cm" [(ngModel)]="val4">
+								<div class="input-group-addon" (click)="convert(4)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="length-mm" class="col-form-label h4">Milimeters</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="length-mm" placeholder="mm" [(ngModel)]="val5">
+								<div class="input-group-addon" (click)="convert(5)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="length-in" class="col-form-label h4">Inches</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="length-in" placeholder="in" [(ngModel)]="val6">
+								<div class="input-group-addon" (click)="convert(6)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<h4 class="h4 m-a-1">Rezolucija</h4>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="size-px" class="col-form-label h4">Pixels</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="size-px" placeholder="px" [(ngModel)]="val7">
+								<div class="input-group-addon" (click)="convert(7)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="size-pt" class="col-form-label h4">Points</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="size-pt" placeholder="pt" [(ngModel)]="val8">
+								<div class="input-group-addon" (click)="convert(8)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group row text-xs-center m-a-2">
+							<label for="size-pc" class="col-form-label h4">Picas</label>
+							<br>
+							<div class="input-group">
+								<input type="text" class="form-control form-input" id="size-em" placeholder="pc" [(ngModel)]="val9">
+								<div class="input-group-addon" (click)="convert(9)"><i class="material-icons md-18">cached</i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row material-light-gray" [hidden]="func != 'transliterator'">
+		<div class="col-md-12">
+			<div class="code-panel-editor">
+				<div class="editor-header bkg-web-center">
+					<div class="btn-group editor-buttons" role="group" aria-label="Editor buttons">
+						<button type="button" class="btn btn-transparent" (click)="newDocumentTranslit()">Novo</button>
+						<button type="button" class="btn btn-transparent" (click)="openDocumentTranslit()">Otvori</button>
+						<button type="button" class="btn btn-transparent" (click)="saveDocumentTranslit()">Sačuvaj</button>
+						<button type="button" class="btn btn-transparent" (click)="transliteration()">Prebaci pismo</button>
+						<input type="file" (change)="inputDocumentTranslit($event)" accept=".html,.css,.php,.txt" #fileInputTranslit>
+					</div>
+				</div>
+				<textarea class="transliterator-panel" [(ngModel)]="inputText"></textarea>
+			</div>
+		</div>
+	</div>
+
+</div>
+<bottom-navigation (clickEmit)="click($event)"></bottom-navigation>

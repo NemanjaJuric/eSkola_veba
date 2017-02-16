@@ -1,0 +1,100 @@
+﻿<h1><b>Slike kao linkovi</b></h1>
+
+Umesto postavljanja linka unutar &lta&gt etiketa, potrebno je postaviti
+sliku. Slike su najčešće korišćene kao grafička impresija dugmeta, kao npr:
+
+
+<textarea class = "primer_ta" rows="4" disabled>
+&lta href="kurs.php?kurs=html/html_linkovi#" title="Potsetimo se naucenog o linkovima"&gt
+  &ltimg src="links.jpg" width="150" height="150" alt="link" /&gt
+ &lt/a&gt
+</textarea>
+
+
+
+<h2><b>Mapirane slike</b></h2>
+
+
+
+Korišćenjem slike kao mape, može se dodati više linkova na jednu sliku.
+Upotreba slika kao mapa posebno je korisna kada je sliku potrebno podeliti
+na nepravilne oblike (kao sto su mape). Svaka od površina slike na koju je
+moguće kliknuti naziva se 'hotspot'.
+<br><br>
+Ove mapirane slike rade na osnovu x i y koordinata merenih od gornjeg levog
+ugla slike. Koordinate se koriste za dve stvari:
+<br> - Za navođenje mesta 'hotspot-a';
+<br> - Za određivanje mesta gde je korisnik sajta kliknuo. 
+<br>Poređenjem koordinata mesta na koje je korisnik klikuno i koordinata 'hotspot-a',
+korisnik se preusmerava na link naveden za konkretni 'hotspot'.
+<br><br>
+
+Slika, od koje će biti formirana mapa unosi se na stranicu korišćenjem &ltimg&gt
+etikete baš kao i svaka druga slika. Atribut po imenu 'usemap' se zatim dodaje
+unutar &ltimg&gt etikete kako bi se ukazalo na to da slika treba da koristi informacije 
+sadržane u odgovarajućoj &ltmap&gt etiketi kako bi željenu sliku pretvorila u mapu.
+Etiketom &ltmap&gt, koja sada sadrži informacije, govori se pretraživaču kako da
+podeli sliku tako da korisnika može proslediti na odgovarajući sajt.
+<br><br>
+Kao primer za upotrebu slike kao mape na ovaj način može poslužiti slika košarkaškog terena.
+Klik na centar terena treba da vodi na sajt KSS-a, dok klik na reket treba da 
+vodi na sajt NBA lige.
+
+<textarea class = "primer_ta" rows="8" disabled>
+&ltimg src='imageMaps/Slike/KosarkaskiTeren.png' alt='Teren' width='640' height='367' usemap='#KosarkaskiTeren'/&gt
+&ltmap name='KosarkaskiTeren'&gt
+&ltarea shape='circle' coords='160,92,24' href='http://www.kss.rs/' alt='KSS'&gt
+&ltarea shape='rect' coords='0,72,80,112' href='http://www.nba.com' alt='NBA'&gt
+&lt/map&gt
+</textarea>
+<br>
+U primeru vrednost 'usemap' atributa počinje sa tarabom # a u nastavku vrednosti je vrednost 'name'
+atributa iz &ltmap&gt etikete. Odmah nakon &ltimg&gt etikete sledi &ltmap&gt etiketa koja
+u sebi sadrži dva ili više &ltarea&gt etiketa.
+Od atributa, &ltarea&gt etiketa, sadrži sledeće:
+<br>- 'shape',
+<br>- 'coords',
+<br>- 'href' i
+<br>- 'alt'.
+
+<br>
+Atribut 'shape' definiše kako ce Web pregledač koristiti vrednosti iz 'coord' atributa. Ukoliko
+ovaj atribut nije naveden, pregledač će po definiciji smatrati da treba koristiti oblik
+pravougaonika. Ovaj atribut moze imati sledeće vrednosti:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- default: ostatak slike koji nije definisan u nekoj od prethodnih 
+ &ltarea&gt etiketa (ukoliko se koristi treba ga navesti u poslednjoj &ltarea&gt etiketi)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- rectangle ili rect: daje za rezultat oblik pravougaonika
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- circle ili circ: daje za rezultat oblik kruga
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- polygon ili poly: daje za rezultat poligon
+<br>
+<br>Atribut 'coords' definiše površinu na koju se može kliknuti. Broj koordinata zavisi od oblika
+navedenog pod 'shape' atributom i to na sledeći način:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- rectangle ili rect: četiri koordinate - prve dve predstavljaju gornje
+levo teme dok druge dve predstavljaju donje desno teme;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- circle ili circ: tri koordinate - prve dve predstavljaju centar kruga 
+dok je treća prečnik;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;- polygon ili poly: paran broj koordinata od kojih svaki par predstavlja 
+jednu tačku poligona. Prvu tačku poligona nije neophodno navoditi ponovo na kraju jer je poligon 
+automatski zatvoren.
+
+
+<br>
+Na primeru košarkaškog terena prikazana je upotreba atributa 'shape' za oblika kruga i
+pravougaonika. Naredni primer biće upotreba 'shape' atributa kako bi dobili poligon, kao i korišćenje
+default vrednosti za 'shape' atribut. U konkretnom primeru, cilj je da se klikom na crnu strelicu
+vratimo na vrh stranice, a klikom bilo gde na ostatak slike na početnu stranicu sajta.
+
+<textarea class = "primer_ta" rows="15" disabled>
+Primer:
+&ltimg src='imageMaps/Slike/zigzag.png' alt='primer2' width='300' height='300' usemap='#drugiPrimer'/&gt
+&ltmap name='drugiPrimer'&gt
+&ltarea shape='poly' coords='135,257,166,256,165,238,158,220,144,208,137,199,141,191,166,184,189,166,193,141,185,122,171,112,158,108,153,101,153,93,174,99,179,93,138,31,98,89,97,94,101,99,121,93,122,100,125,115,132,126,145,135,160,141,162,149,141,159,125,165,115,175,107,189,107,210,113,224,130,235,133,242' href='' alt='Vrh stranice'&gt
+&ltarea shape='default' coords='' href='http://alas.matf.bg.ac.rs/~mr11032/HTML_skola/home.php' alt='Pocetna stranica'&gt
+&lt/map&gt
+</textarea>
+
+
+<div class = "zadatak">
+<b>Zadatak:</b>
+Izmeniti drugi primer tako da ostatak košarkaškog terena predstavlja link ka sajtu prema sopstvenom izboru.
+<div class = "zadatak">

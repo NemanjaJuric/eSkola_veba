@@ -1,0 +1,16 @@
+﻿var ZdravoSvima = (function () {
+    function ZdravoSvima(poruka) {
+        this.pozdrav = poruka;
+    }
+    ZdravoSvima.prototype.Zdravo = function () {
+        return "Zdravo " + this.pozdrav;
+    };
+    return ZdravoSvima;
+}());
+var Objekat = new ZdravoSvima("svima");
+var button = document.createElement('button');
+button.textContent = "Dont push the button!";
+button.onclick = function () {
+    alert(Objekat.Zdravo());
+};
+document.body.appendChild(button);

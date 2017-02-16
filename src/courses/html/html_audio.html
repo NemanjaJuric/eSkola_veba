@@ -1,0 +1,46 @@
+<h1>HTML5 Audio</h1>
+<br>
+Pre HTML5 nije postojao standardan način za reprodukovanje audio fajlova na veb stranama.
+HTML5 &ltaudio&gt etiketa omogućava standardan način za postavljanje audio fajla na veb stranice.
+Postoje tri podržana formata za &ltaudio&gt etiketu: mp3, Wav i Ogg.
+<br>
+
+<textarea class = "primer_ta" rows="5" disabled>
+Primer:
+&ltaudio controls&gt
+&ltsource src="TomIDzeri.mp3" type="audio/mpeg"&gt
+Vaš pregledač ne podržava ovaj audio format.
+&lt/audio&gt
+</textarea>
+<br>
+Tekst između &ltaudio&gt i &lt/audio&gt etiketa bice prikazan u pretraživačima koji ne podržavaju &ltaudio&gt etiketu.
+<br>U okviru &ltaudio&gt etikete koriste se tri različita atributa:
+<br> -'controls' - atribut dodaje audio kontrole kao što su pokretanje audija, pauza ili zvuk;
+<br> -'autoplay' - omogućava automatsko pokretanje audio fajla;
+<br> -'loop' - omogućava automatsko ponavljanje audio fajla.
+
+<br>Vrednost 'type' atributa u okviru &ltsource&gt etikete zavisi od formata audio fajla:
+<table border="1">
+  <tr>
+    <th>Format fajla </th>
+    <th>Vrednost atributa </th>
+  </tr>
+    <tr>
+    <td>mp3</td>
+    <td>audio/mpeg</td>
+  </tr>
+  <tr>
+    <td>ogg</td>
+    <td>audio/ogg</td>
+  </tr>
+  <tr>
+    <td>wav</td>
+    <td>audio/wav</td>
+  </tr>  
+</table>
+
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b>
+<br>Izmeniti dati kod iz primera tako da se audio fajl reprodukuje automatski.
+</div>

@@ -1,0 +1,75 @@
+<h1><b>Objekti</b></h1>
+Objekat u JavaScript jeziku predstavlja kolekciju nekih svojstava. Ova svojstva mogu biti primitivni tipovi podataka, drugi objekti ili funkcije.
+<h2>Definisanje objekta</h2>
+Definisanje objekta objasnićemo na sledećem primeru:
+<br>
+<textarea class = "primer_ta" rows = "11" disabled>
+var auto={
+	vrsta: "limuzina",
+	brojVrata: 5,
+	motor:{
+		snaga: '185hp',
+		zapremina: 1.5
+	},
+	potrosnja: funciton(a,b){
+			return a+b;
+			}
+	};
+</textarea>
+<br>
+Prilikom definisanja objekta, prvo stoji ključna reč <span class = "primer_text">var</span></i>, koja označava promenljivu,
+ a zatim navodimo njegovo ime. U ovom slučaju za ime smo izabrali reč <i>auto</i>. Učestalo je da ime bliže opisuje taj objekat, ali nije obavezno. Ime je kombinacija karaktera, ali nikako ne sme biti neka od rezervisanih reči.
+<br>
+<br>
+Nakon imenovanja objekta stoji znak jednakosti ("="), a potom vitičaste zagrade unutar kojih se navode svojstva koja taj objat poseduje. 
+Navedeni objekat poseduje četiri svojstva: <i>vrsta</i>, <i>brojVrata</i>, <i>motor</i> i <i>potrošnja</i>. 
+Za ime svojstva, t.j. osobine nekog objekta važe ista pravila kao i za ime samog objekta.
+<br>
+Nakon navedenog imena osobine stoji interpunkcijski znak ":", a potom vrednost koja joj je dodeljena.
+<h2>Svojstva objekta</h2>
+<i>vrsta</i> i <i>brojVrata</i> su primitivna svojstva ovog objekta (oblika string i int),
+<i>motor</i> je svojstvo tipa objekat (ima svoja dva svojstva koja su primitivnog tipa), <i>potrošnja</i> je funkcijsko svojstvo (prilikom poziva ona računa zbir dva prosleđna argumenta).
+<br>
+<br>
+Promenljivama objekta iz navedenog primera pristupa se na sledeći način:
+<ul>
+<li>auto.vrsta - vratiće string "limuzina"</li>
+<li>auto["vrsta"] - vratiće string "limuzina"</li>
+<li>auto.motor.snaga - vratiće string "185hp"</li>
+<li>auto.potrosnja(8,100) - vratiće broj 108</li>
+</ul>
+<h2>Naknadno definisanje svojstva objekta</h2>
+Ukoliko se pojavi potreba da se kasnije dodefiniše neko svojstvo, to je u ovom jeziku dozvoljeno i izvodi se na sledeći način:
+<br>
+<textarea class = "primer_ta" rows = "5" disabled>
+var auto={
+	vrsta: "limuzina",
+	brojVrata: 5
+	};
+auto.nov=true;
+</textarea>
+<br>
+Objekat <i>auto</i> isprva je definisan sa dva svojstva (<i>vrsta</i> i <i>brojVrata</i>), a potom mu se dodaje novo svojstvo <i>nov</i>, tipa <span class = "primer_text">boolean</span>, čija se vrednost postavlja na <i>true</i>.
+<h2>Promena vrednosti svojstva objekta</h2>
+Postojećim objektima mogu se menjati vrednosti svojstava koja poseduju na sledeći način:
+<br>
+<textarea class = "primer_ta" rows = "5" disabled>
+var auto={
+	vrsta: "limuzina",
+	brojVrata: 5
+	};
+auto.vrata=3;
+</textarea>
+<br>
+Objekat <i>auto</i> je definisan sa dva svojstva (<i>vrsta</i> i <i>brojVrata</i>), čije su vrednosti redom <i>limuzina</i> i <i>5</i>. Potom je svojstvu <i>brojVrata</i> promenjena vrednost na <i>3</i>.
+
+<h2>Definisanje praznog objekta</h2>
+<textarea class = "primer_ta" rows = "1" disabled>
+var prazanObjekat={}
+</textarea>
+<br>
+<div class = "napomena"><b>Napomena:</b> Nakon vitičastih zagrada, prilikom definisanja objekta, može, ali i ne mora stajati interpunkcijski znak ";", što je definisano sintaksom JavaScript jezika.</div>
+<br>
+<div class="zadatak" rows=3>
+<b>Zadatak:</b> Kreirati objekat pas, čije je ime Džeki i ima 2 godine. 
+Nakon kreiranja objekta dodati mu i funkcijsku osobinu "zvuk", koja prilikom poziva vraća vrednost "AV AV!" </div>

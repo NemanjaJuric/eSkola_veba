@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style> 
+        div#prvi_primer {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            animation-name: primer_1;
+            animation-duration: 4s;
+            -webkit-animation-name: primer_1; /* Chrome, Safari, Opera */
+            -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+        }
+        /* Standardna sintaksa */
+        @keyframes primer_1 {
+            from {background-color: green;}
+            to {background-color: blue;}
+        }
+        /* Chrome, Safari, Opera */
+        @-webkit-keyframes primer_1 {
+            from {background-color: green;}
+            to {background-color: blue;}
+        }   
+        /*U drugom primeru navodicemo samo standardnu sintaksu*/
+        div#drugi_primer{
+            width: 100px;
+            height: 100px;
+            position: relative; /*Da bi objekat mogao menjati svoju poziciju, mora mu se promeniti pozicioniranje */
+            background-color: black;
+            animation-name: primer_2;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            }
+        @keyframes primer_2 {
+             0%  {background-color: black; left: 0px; top: 0px; }
+            25%  {background-color: red;    left: 100px; top: 0px; }
+            50%  {background-color: orange; left: 100px; top: 100px;}
+            100% {background-color: yellow; left: 0px; top: 0px;}
+            }
+        </style>
+    </head>
+    <body>
+        <p><b>Napomena: </b> Ovaj primer nece raditi na Internet Explorer 9 ili ranijim verzijama.</p>
+        <div id="prvi_primer" title="prvi primer"></div><br>
+        <div id="drugi_primer" title="drugi primer"></div>
+    </body>
+</html>

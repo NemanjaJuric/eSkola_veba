@@ -1,0 +1,33 @@
+﻿<h1><b>CSS selektori</b></h1>
+<br>
+Razlika između klasnih i ID selektora je u znaku koji im prethodi, naime ukoliko je znak # (taraba) u pitanju je ID selektor, u suprotnom .(tacka) označava klasni selektor.
+<br>
+<textarea class="primer_ta" rows="9" disabled >
+#top{
+    background-color: #ccc;
+    padding: 20px
+}
+
+.intro {
+    color: red;
+    font-weight: bold;
+}
+</textarea>
+<br>
+Ako želimo da primenimo navedeni CSS na HTML stranicu, koristimo atribute <b>id</b> i <b>class</b>. To izgleda ovako:
+<br>
+<textarea class="primer_ta" rows="13" disabled>
+<div id="top">
+
+<h1>Zaokruživanje decimalnih brojeva</h1>
+
+<p class="intro">Kada se decimalan broj zaokružuje, gleda se prethodna cifra. Ako je prethodna cifra veca od 5, zaokružuje se na veći broj, ako je manja, zaokružuje se na manji.</p>
+
+<p class="intro">Kada je prethodna cifra 5, gleda se da li postoji jos neka cifra pre nje. Ako postoji, broj se zaokružuje na veći, ako ne, broj se zaokružuje na manji. </p>
+
+</div>
+</textarea>
+<br>
+Jos jedna razlika između klasnih i ID selektora je sto se ID korisi za prepoznavanje <b> samo </b> jednog elementa, dok klasni za više.
+Možete primeniti selektor na određeni HTML element jednostavno navodeći HTML selektor prvi , tako da npr. <b>p.naziv_klase { ... } </b> će biti primenjen samo na elemente paragrafa koji sadrze klasu " naziv_klase" .
+<br><br>

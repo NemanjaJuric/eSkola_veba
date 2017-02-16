@@ -1,0 +1,12 @@
+<div class="container-fluid header" [@headerState]="headerState">
+    <div class="row m-t-2" [ngClass]="pageUrl != 'about' ? 'bkg-' + courseUrl : 'bkg-about'">
+        <div class="col-xs-12 m-t-3 m-b-3">
+            <img class="logo-lg" *ngIf="pageUrl === 'home'" src="assets/images/logo_light.png" alt="logo_light">
+            <h1 class="display-4 m-a-1" *ngIf="pageUrl === 'home'">eŠkola veba</h1>
+            <h1 class="display-1 m-a-1" *ngIf="pageUrl === 'about'"><i class="material-icons md-192">group</i></h1>
+            <h1 class="display-4 m-a-1" *ngIf="pageUrl === 'about'">O nama</h1>
+            <h1 class="display-1 m-a-1" *ngIf="pageUrl != 'home' || pageUrl != 'about'">{{logo}}</h1>
+            <h1 class="display-2 m-a-1" *ngIf="pageUrl != 'home' || pageUrl != 'about'">{{heading}}</h1>
+        </div>
+    </div>
+</div>

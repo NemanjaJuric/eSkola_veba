@@ -1,0 +1,499 @@
+<h1>JQuery-Događaji</h1>
+<br/>
+Najvažnije JQuery događaje možemo da podelimo u sledeće grupe:
+<ul>
+	<li>Događaji pregledača</li>
+	<li>Događaji učitavanja dokumenta</li>
+	<li>Događaji tastature</li>
+	<li>Događaji miša</li>
+ </ul>
+ <br/>
+ <h2 style="color:orange">Događaji pregledača</h2>
+ <div>
+	<ul style= "color:blue">
+		<li>.error() - <span style="color:gray">Aktivira događaj greške</span>
+<textarea class="primer_ta" rows=22 disabled>
+<!DOCTYPE html> 
+<html> 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script> 
+	$(document).ready(function(){ 
+	$("div").error(function(){
+	   alert("Greska!!"); 
+	});
+	$("button").click(function(){ $("p").error(); });
+	});
+</script> 
+</head>
+<body>
+		<div style ="background-color: green"> 
+			<p> Prouzrokuj grešku!</p>
+		</div> 
+		<button>Klikni i prouzrokuj grešku!</button>
+	</body>
+</html>
+			</textarea>
+		<button class = "button_copy">Vidi primer</button>
+		
+		</li>
+		
+		
+		<li>.resize() - <span style="color:gray">Aktivira događaj prilikom promene veličine.</span> 
+<textarea class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+	x = 0;
+	$(document).ready(function(){
+	$(window).resize(function(){
+	$("span").text(x += 1);
+		});
+	});
+</script>
+</head>
+<body>
+
+<p>Veličina prozora promenjena: <span>0</span> puta.</p>
+<p>Smanji ili povećaj veličinu prozora!</p>
+
+</body>
+</html>
+		</textarea>
+		<button class = "button_copy">Vidi primer</button>
+		</li>
+		<li>.scroll() - <span style="color:gray">Aktivira događaj prilikom skrolovanja</span>
+<textarea class="primer_ta" rows=39 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+	x = 0;
+	$(document).ready(function(){
+    $("div").scroll(function(){
+        $("span").text( x+= 1);
+		});
+	});
+	</script>
+</head>
+<body>
+
+<p>Skrolujete naredni tekst.</p>
+
+<div style="border:1px solid black;width:200px;height:100px;overflow:scroll;">Pupin je u jednoj knjizi iz koje je učio na Kembridžu na marginama napisao „Preći pet strana dnevno“. Ova beleška me je usmerila kako raditi – svakog dana malim koracima, ali bez prekida. Čime god da se bavimo, to daje sigurne rezultate. Nikad za deset godina nisam napravila pauzu, nisam ostavila Pupina pa mu se vratila. Intenzitet nije bio uvek isti, ali moja misija je uvek bila prisutna. Od Pupina možemo da naučimo da je vredno biti istrajan i da istrajnost uvek daje rezultat. 
+<br><br>
+Ali najveća lekcija je da najveći rezultat i najveće zadovoljstvo dolaze iz rada za opšte dobro. Stalni kapacitet da proizvodi dobro, da radi za dobro, da radi za druge – to je najveća pouka.
+</div>
+
+<p>Skrolovano <span>0</span> puta.</p>
+
+</body>
+</html>
+		</textarea>
+		
+		<button class = "button_copy">Vidi primer</button>
+		
+		</li>
+	</ul>
+<br>
+<h2 style="color:orange">Događaji učitavanja dokumenta.</h2>
+<ul style="color:blue">
+	<li>.change()- <span style="color:gray">  Aktivira dodgađaj nakon sto se napravi izmena nad elementom.</span>
+<textarea class="primer_ta" rows=25 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+x=0;
+$(document).ready(function(){
+    $("input").change(function(){
+        $("span").text( x+= 1);
+    });
+});
+</script>
+</head>
+<body>
+
+<input type="text">
+<p>Unesi tekst i klikni van tekstualnog polja.</p>
+<br>
+<p>Tekst je izmenjen <span>0</span> puta.</p>
+
+</body>
+</html>
+
+	</textarea>
+	<button class = "button_copy">Vidi primer</button>
+	</li>
+	<li>.select()-<span style="color:gray">Aktivira događaj kad je tekst elementa selektovan.</span>
+<textarea class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("input").select(function(){
+			$( "p" ).text( "Deo teksa je selektovan!" ).show().fadeOut( 1000 );
+		});
+	});
+	</script>
+</head>
+<body>
+
+<input type="text" value="Mihajlo Idvorski Pupin">
+
+<p>Selektuj neki deo teksta iz tekstualnog polja.</p>
+
+</body>
+</html>
+
+	</textarea>
+	<button class="button_copy">Vidi primer</button>
+	
+	</li>
+	<li>.focus()-<span style="color:gray">Aktivira događaj kada element dobije fokus.</span>
+	<textarea class="primer_ta" rows=27 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("input").focus(function(){
+			$("span").css("display", "inline").fadeOut(2000);
+			});
+		});
+		</script>
+<style>
+span {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<input>
+
+<span>Osmeh!?</span>
+<p>Klikni u tekstualno polje za fokus.</p>
+
+</body>
+</html>
+
+	</textarea>
+	<button class="button_copy"> Vidi primer</button>
+	</li>
+	<li>.submit()-<span style="color:gray"> Aktivira događaj nakon sto unesemo formu.</span>
+<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("form").submit(function(){
+        alert("Uneseno!");
+    });
+});
+</script>
+</head>
+<body>
+
+<form action="">
+  First name: <input type="text" name="Ime" value="Mihajlo"><br>
+  Last name: <input type="text" name="Prezime" value="Pupin"><br>
+  <input type="submit" value="Unesi">
+</form> 
+
+</body>
+</html>
+
+	</textarea>
+	<button class="button_copy"> Vidi primer </button>
+	
+	</li>
+	
+	<li>.blur() - <span style="color:gray">Aktivira događaj nakon sto element izgubi fokus.</span>
+<textarea class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("input").blur(function(){
+        alert("Tektualno polje je izgubilo svoj fokus.");
+    });
+});
+</script>
+</head>
+<body>
+
+Unesite svoje ime: <input type="text">
+<p>Unesite ime u tekstualno polje, a potom kliknite van njega da izgubi fokus.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+</ul>
+<br>
+<h2 style="color:orange">Događaji tastature.</h2>
+<ul style="color:blue">
+<li>.keydown()-<span style="color:gray">Aktivira događaj kada držimo pritisnut taster na tastaturi.</span>
+<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("input").keydown(function(){
+        $("input").css("background-color", "yellow");
+    });   
+	$("input").keyup(function(){
+        $("input").css("background-color", "white");
+    });
+});
+</script>
+</head>
+<body>
+
+Unesi svoje ime: <input type="text">
+
+<p>Unesi ime u tekstualno polje. Promeniće pozadinu na pritisnut taster.</p>
+
+</body>
+</html>
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+<li>.keypress()-<span style="color:gray">Aktivira događaj na pritisnut taster na tastaturi.</span>
+<textarea class="primer_ta" rows=24 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+i = 0;
+$(document).ready(function(){
+    $("input").keypress(function(){
+        $("span").text(i += 1);
+    });
+});
+</script>
+</head>
+<body>
+
+Unesi tekst: <input type="text">
+
+<p>Broj unetih slova: <span>0</span></p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+<li>.keyup()-<span style="color:gray">Aktiva događaj prilikom puštanja tastera na tastaturi.</span>
+<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("input").keydown(function(){
+        $("input").css("background-color", "white");
+    }); 
+    $("input").keyup(function(){
+        $("input").css("background-color", "pink");
+    });
+});
+</script>
+</head>
+<body>
+
+Unesi svoje ime: <input type="text">
+
+<p>Unesite ime u tekstualno polje. Promeniće pozadinu prilikom puštanja pritisnutog tastera.</p>
+
+</body>
+</html>
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+</ul>
+<br>
+<h2 style="color:orange">Događaji miša.</h2>
+<ul style="color:blue">
+<li> .click()- <span style="color:gray">Aktivira događaj nakon klika na element.</span>
+<textarea class="primer_ta" rows=24 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $("div").append("<p>Majka ima 30 a ćerka 10 godina.</p>")
+    });
+});
+</script>
+</head>
+<body>
+<div>
+<p>Pre pet godina majka je bila pet puta starija od ćerke, a za deset godina biće samo dva puta starija.
+<br> Koliko godina imaju majka i ćerka? (klikni na pitanje da dobiješ odgovor!) </p>
+</div>
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li> 
+
+<li>.dblclick()-<span style="color:gray">Aktivira događaj nakon dvostrukog klika tastera miša.</span>
+<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").dblclick(function(){
+        $("div").append("<p>Velikih je 9 a malih 81!</p>")
+    });
+});
+</script>
+</head>
+<body>
+<div>
+<p>Ako u svaku veliku kutiju stavimo onoliko malih kutija koliko imamo velikih kutija ukupan broj ce biti 90. 
+<br>Koliko imamo velikih a koliko malih kutija? (dvoklikom na pitanje da dobiješ odgovor!) </p>
+</div>
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .hover()-<span style="color:gray">Aktivira događaj prelaskom kursa miša preko elementa.</span>
+<textarea class="primer_ta" rows=23 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").hover(function(){
+        $("div").append("<p>Marko je čitao knjigu 24 dana.</p>")
+    });
+});
+</script>
+</head>
+<body>
+<div>
+<p>Marko je knjigu iz lektire koja ima 384 stranice, čitao određen broj dana. Janko je tu istu knjigu čitao 8 dana kraće jer je svakog dana čitao 8 stranica više nego Marko. 
+<br>Koliko je dana Marko čitao knjigu?(prelaskom kursorom miša preko pitanja dobijaš odgovor!) </p>
+</div>
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .mousedown()-<span style="color:gray">Aktivira događaj držeci pritisnut taster miša.</span>
+<textarea class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("input").mousedown(function(){
+        $("input").css("background-color", "yellow");
+    });   
+	$("input").mouseup(function(){
+        $("input").css("background-color", "white");
+    });
+});
+</script>
+</head>
+<body>
+
+Klikni na polje: <input type="text">
+
+<p>Pritisom tastera (i držanjem) promenićeš boju polja.</p>
+
+</body>
+</html>
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+<li> .mouseup()-<span style="color:gray">Aktivira događaj nakon puštanja pritisnutog tastera miša.</span>
+<textarea class="primer_ta" rows=25 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("input").mousedown(function(){
+        $("input").css("background-color", "white");
+    });   
+	$("input").mouseup(function(){
+        $("input").css("background-color", "pink");
+    });
+});
+</script>
+</head>
+<body>
+
+Klikni na polje: <input type="text">
+
+<p>Puštanjem pritisnutog tastera miša promenićeš boju polja.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .mousemove()-<span style="color:gray">Aktivira događaj prilikom pomeranja miša.</span>
+<textarea class="primer_ta" rows=20 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(document).mousemove(function(event){
+        $("span").text(event.pageX + ", " + event.pageY);
+    });
+});
+</script>
+</head>
+<body>
+
+<p>Koordinate miša: <span></span>.</p>
+
+</body>
+</html>
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+</li>
+</ul>
+ </div>
+ <br>
+<br>
+<br>
+<br>

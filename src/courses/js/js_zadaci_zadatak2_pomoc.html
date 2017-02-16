@@ -1,0 +1,24 @@
+Rešenje zadatka:
+<br>
+<textarea class = "primer_ta" rows = "17" disabled>
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Rešenje&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;script&gt;
+		var datum=new Date();
+		function oboji(){
+		if(datum.getHours()<20)
+		document.body.style.backgroundColor = "yellow";
+		else
+		document.body.style.backgroundColor = "blue";
+		}
+		oboji();
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<br>
+Definisana je nova promenljiva <i>datum</i> koja poziva funkciju <i>Date</i> i tako su u njemu sačuvani podaci o datumu i vremenu u trenutku pokretanja dokumenta. Funkcijom <i>oboj</i> menja se boja pozdine na žutu ili plavu. Da li će boja pozadine biti plave ili žute boje odruje naredba <span class = "primer_text">if</span> koja ispituje koliko je sati u promenljivoj <i>datum</i>.
+<br>

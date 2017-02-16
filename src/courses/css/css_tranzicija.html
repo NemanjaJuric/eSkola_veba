@@ -1,0 +1,34 @@
+<h1><b>Tranzicije</b></h1>
+<br>
+Tranzicije (prelazi) omogućavaju da dati element postepeno promeni stil u neki drugi prelaskom kursora miša preko njega. 
+Potrebno je obratiti pažnju na sledeća svojstva:
+<ul>
+<li>transition-property – određuje na koje CSS svojstvo ćemo primeniti prelaz (inicijalna vrednost je all)</li>
+<li>transition-duration – određuje trajanje prelaza</li>
+<li>transition-delay – kašnjenje tj. određuje vremenski početak vršenja tranzicije</li>
+<li>transition-timing-function - opisuje kako će se vrednosti menjati tj dopušta promenu brizne tokom trajanja prelaza
+(ease, linear, ease-in, ease-out, ease-in-out...)</li>
+</ul>
+<br>
+Sledeće linije koda opisuju tranziciju gde prelaskom kursora miša preko elementa on promeni svoju širinu u trajanju od 4s.
+<textarea class = "primer_ta" rows="9" disabled>
+div {
+    width: 150px;
+    height: 150px;
+    -webkit-transition: width 4s; /* Safari */
+    transition: width 4s;
+}
+div:hover {
+    width: 400px;
+}
+</textarea>
+<div class = "napomena">
+<b>Napomena:</b>
+U kodu sa desne strane vidimo kako prvi element menja svoju širinu i dužinu po zadatim parametrima. Naredna četiri elementa prikazuju pomenute timing-function gde u prvom od njih primećujemo kašnjenje tranzicije za 2s.
+</div>
+
+<div class = "zadatak">
+<b>Zadatak:</b> 
+Izmeniti linije koda gde će pravougaonik prelaskom kursora preko njega postati kvadrat u trajanju od 5s i kašnjenjem od 1s.
+</div>
+<br>

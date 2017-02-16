@@ -1,0 +1,62 @@
+﻿<h1><b>Slike u pozadini</b></h1>
+<br/>
+CSS svojstvo <b>background-image</b> omogućava postavljanje slike na pozadinu bilo kog bloka u CSS-u.<br/>
+ Ovo svojstvo proširuje mogućnosti dizajna, izuzetno je korisno i daje karakterističan izgled stranici. <br/>
+Vrednost ovog svojstva počinje slovima URL koja su praćena putanjom do željene slike. Putanja je zapisana u zagradi pod navodnicima.<br/>
+<span class = "primer_text"> background-image:url("slike/proleće/cveće.jpg"); </span>
+<br/>
+Ovo svojstvo ima prednost u odnosu na svojstvo <b>background-color</b> (svojstvo koje određuje boju elementu),
+ ukoliko se koriste istovremeno. <br/>
+<div class = "napomena">
+<b>Napomena:</b> Sliku koja se koristi kao pozadina treba sačuvati u dimenzijma u kojima želite da se pojavi.<br/>
+Sliku u pozadini ne treba koristiti za prenos važnih informacija.<br/>
+Često se slike učitaju nakon ostalih elemenata pa mogu produžiti vreme učitavanja.<br/>
+Neki stariji pregledači mogu imati problema sa prikazom slike u pozadini tabele.<br/>
+</div>
+<br/>
+Ukoliko su dimenzije slike manje od dimenzija bloka slika se ponavlja dok ne popuni ceo blok. Ukoliko to ne želite, koristite svojstvo
+<b>background-repeat</b>, koje ima četiri vrednosti:
+<br/>
+<b>repeat</b> (podrazumevano, ponavljanje slike dok ne popuni blok)<br/>
+<b>repeat-x</b> (ponavljanje slike horizontalno)<br/> 
+<b>repeat-y</b> (ponavljanje slike vertikalno)<br/>
+<b>no-repeat</b> (bez ponavljanja)<br/>
+<div>  
+</div>
+<br/>
+Poziciju slike u pozadini je moguće menjati korišćenjem svojstva <b>background-position</b>. Vrednosti ovog svojstva su sledeće:
+<br/>
+<b>x% y%</b> (procenti duž x i y ose) <br/> 
+<b>x y</b> (apsolutne dužine u pikselima duž x i y ose)<br/>
+<b>left</b> (prikazuje sliku levo)<br/> 
+<b>right</b> (prikazuje sliku desno)<br/> 
+<b>center</b> (prikazuje sliku u centru)<br/>
+<b>top</b> (prikazuje sliku na vrhu bloka)<br/> 
+<b>bottom</b> (prikazuje sliku na dnu bloka)<br/>
+<br/>
+<div class = "napomena">
+<b>Napomena:</b> Moguće su i kombinacije, top left, top center, top right, bottom left, bottom center, bottom right.
+</div>
+<br/>
+Za fiksiranje slike u pozadini koristi se svojstvo <b>background-attachment</b>, sa sledećim vrednostima:<br/>
+<b>fixed</b> (prilikom skrolovanja slika se ne pomera)<br/>
+<b>scroll</b> (prilikom skrolovanja slika se pomera)<br/>
+Moguće je koristiti više svojstava odjednom, redosled nije bitan, ako se izostavi neka vrednost primeniće se podrazumevana.
+Na taj način skraćujemo zapis, pa na primer, umesto navođenja svih svojstava:<br/>
+<textarea class="primer_ta" disabled>
+background–color:purple;
+background–image:url("slike/proleće/cveće");
+background–repeat:repeat-x;
+background–attachment:fixed;  
+background–position:bottom;
+</textarea>
+<br/>
+dovoljno je napisati:<br/>
+<span class = "primer_text"> background: purple url("slike/proleće/cveće") repeat-x fixed bottom;  </span> <br/>
+<div class = "zadatak">
+<b>Zadatak:</b> U primeru je na različite načine prikazana slika. Isprobaj i ti, malim izmenama u kodu, da prikažeš sliku
+u pozadini primenom preostalih svojstava.
+</div>
+
+
+

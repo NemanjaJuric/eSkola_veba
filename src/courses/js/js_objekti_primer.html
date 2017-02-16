@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Primer</title>
+		<script>
+		var auto={
+			vrsta: "limuzina",
+			brojVrata: 5,		
+			motor:{					
+				snaga: '185hp',
+				zapremina: 1.5
+			},
+			potrosnja: function(a,b){		
+					return a+b;
+					}
+			};
+		</script>
+	</head>
+	<body>
+		<script>
+		document.write("Vrsta auta je: "+auto.vrsta+"<br>");
+		document.write("Snaga motora je: "+auto.motor.snaga+"<br>");
+		document.write("Potrošnja automobila je: "+auto.potrosnja(8,100)+"<br>");
+		auto.nov=true;
+		document.write("Nov: "+auto.nov+"<br>");
+		auto.vrata=3;
+		document.write("Nakon promene broja vrata naš auto ima "+auto.vrata+" vrata");
+		</script>
+	</body>
+</html>

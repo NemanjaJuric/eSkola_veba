@@ -1,0 +1,37 @@
+<h1><b>Colspan</b></h1>
+
+
+<br>Ako je potrebno da se ćelija prostire preko dve ili više kolona koristi se
+'colspan' atribut. Kako bi to uradili unutar &lttd&gt etikete unosi se 'colspan' atribut
+čija vrednost određuje na koliko ćelija će se prostirati sadržaj unutar tog reda.
+U sledećem primeru korišćen je 'colspan' atribut za spajanje tri ćelije 
+u drugom redu i dve ćelije u četvrtom redu. Zbog toga su u drugom redu
+popunjene vrednosti za dve umesto za četiri ćelije dok su u četvrtom redu popunjene
+vrednosti samo za tri ćelije.
+
+<textarea class = "primer_ta" rows="25" disabled>
+Primer:
+ &lttable border="1"&gt 
+   &lttr&gt 
+     &ltth&gt Radnja\Dan &lt/th&gt 
+     &ltth&gt Ponedeljak-Petak &lt/th&gt 
+     &ltth&gt Subota &lt/th&gt 
+	 &ltth&gt Nedelja &lt/th&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #1 &lt/td&gt 
+     &lttd colspan="3"&gt 00:00 - 24:00 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #2 &lt/td&gt 
+     &lttd&gt 08:00 - 20:00 &lt/td&gt 
+     &lttd&gt 08:00 - 16:00 &lt/td&gt 
+     &lttd&gt ne radi &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #3 &lt/td&gt 
+     &lttd&gt 08:00 - 20:00 &lt/td&gt 
+	 &lttdcolspan="2"&gt ne radi &lt/td&gt 
+   &lt/tr&gt 
+ &lt/table&gt 
+ </textarea>

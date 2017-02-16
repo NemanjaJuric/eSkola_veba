@@ -1,0 +1,19 @@
+﻿<textarea class = "primer_ta" rows = "16" disabled> 
+
+let x1: number = 3;
+let x2: number = 0xff;
+let y1: string = "String";
+
+let x = x1 + x2;
+let z = x2 + y1;
+let NIZ: [number, number, string, boolean] = [x1, x2, y1, true];   
+
+let button = document.createElement('button');
+button.textContent = "Zadatak2";
+button.onclick = function () {
+    alert("Zbir x1 i x2 je " + x + " a " + " x2 i y1 je " + z + " . Vrednosti članova niza su  " + NIZ[0] +
+    " , " + NIZ[1] + " , " + NIZ[2] + " i " +  NIZ[3]  + ".");
+};
+document.body.appendChild(button);
+ </textarea>
+

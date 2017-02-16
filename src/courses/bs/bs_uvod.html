@@ -1,0 +1,66 @@
+<h1>Uvod u Bootstrap </h1>
+<br>
+<h3>Šta je Bootstrap?</h3>
+Bootstrap je front-end css frejmvork čija je osnovna namena kreiranje responzivnih veb stranica, tj. stranica koje mogu da prilagođavaju svoj izgled u zavisnosti od rezolucije uredjaja na kojem se prikazuiju. Bootstrap pruža veoma dobar temelj za njihovo kreiranje zbog svoje prilagodljivosti i nudi način da se uštedi vreme, a postigne zadovoljavajući kvalitet. Nalazi se u klasi najpopularnijih radnih okruženja za razvoj veb aplikacija.  Bootstrap uvodi osnovne HTML i CSS  dizajnerske šablone za tipografiju, forme, dugmad, tabele,  navigaciju, slike i mnogo toga drugog. Razvili su ga Mark Otto i Jacob Thornton u Twitter-u i objavili ga kao proizvod otvorenog koda  u avgustu 2011. na GitHub-u.
+<br>
+<h3>Zašto koristiti Bootstrap? </h3>
+<ul>
+<li>Jednostavan je za upotrebu. Svako sa osnovnim znanjem iz HTML-a i CSS-a može početi sa korišćenjem Bootstrap okruženja. </li>
+<li>Odgovarajući  CSS okruženja Bootstrap se prilagođava telefonima, tabletima i desktop računarima. </li>
+<li>Kompatibilan je sa svim modernim pregledačima (Chrome, Firefox, Internet Explorer, Safari  i Opera).</li> 
+</ul>
+<br>
+<h3>Kako doći do Bootstrap-a?</h3> Postoje dva načina kojima možete početi da koristite Bootstrap:
+<ul>
+ <li>tako što download-ujete Bootstrap sa <a href="http://getbootstrap.com">getbootstrap.com</a> i ispratite tamo napisana  uputstva;</li>
+<li> tako što uključite Bootstrap preko CDN-a;</li>
+</ul>
+<br>
+Uključivanje Bootstrap okruženja preko CDN-a  se postiže navođenjem sledećih linija koda unutar  &lthead&gt elementa: <br>
+<textarea class = "primer_ta" rows = "14"  disabled>
+<!----Poslednji iskompajlirani i umanjeni CSS ---->
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!---- jQuery biblioteka---->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!---- Poslednji iskompajlirani JavaScript ---->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</textarea> 
+<br>
+<h3>Kreiranje prve stranice</h3>
+Da bi se kreirala stranica korišćenjem Bootstrap okruženja potrebno je ispuniti sledeće zahteve.
+<ul>
+<li>Dodati <span class="primer_text">&lt!DOCTYPE html&gt</span> na početku strane.</li>  
+
+<li>Uključiti Bootstrap okruženje. </li>
+Za potrebe ovog kursa, Bootstrap okruženje biće uključeno preko CDN-a. Dakle, u prethodni kod se uključuju pomenute tri linije koda.
+<li> Navođenje &ltmeta&gt etikete sa odgovarajućim svojstvima. </li>
+Potrebno je dodati sledeću liniju : 
+<br>
+ <span class="primer_text" >&ltmeta name="viewport" content="width=device-width, initial-scale=1"&gt   </span> unutar &lthead&gt elementa. <br>
+</ul>
+Ako se uzmu u obzir sva tri uslova,  kod izgleda ovako:  
+<textarea class="primer_ta" rows="17" disabled>
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap strana </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>    </body>
+</html>
+</textarea>
+Da bi se napravile jednostavne  stranice u okruženju Bootstrap,  koriste se klase omotača. Postoje dve klase omotača :
+<ul>
+<li>Klasa   .container  obezbeđuje odgovarajući omotač  fiksne širine.</li>
+<li>Klasa  .container-fluid  obezbeđuje  omotač  u punoj širini.</li>
+</ul>
+<div class="napomena">Napomena: Omotač se ne može smestiti unutar nekog drugog omotača.</div>
+Primer u editoru koji se nalazi desno ilustruje upotrebu klase .container  koja se dodeljuje jednom &ltdiv&gt elementu.  Kod ovog primera je zapravo nadogradnja prethodnog koda. Ubačeno je sve što je potrebno da bi Bootstrap funkcionisao i dodat jedan &ltdiv&gt element.
+<div class = "zadatak">
+<b>Zadatak:</b> Izmeni program tako da se koristi druga klasa omotača koja je pomenuta. 
+</div>

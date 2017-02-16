@@ -1,0 +1,29 @@
+.lead{
+    text-align: justify;
+}
+
+.programmer-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: auto;
+}
+
+.programmer-image-small{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: auto;
+}
+
+.language{
+    color: $light-gray;
+}
+
+.row-about{
+    width: 80%;
+    margin: auto;
+}
+

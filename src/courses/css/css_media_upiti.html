@@ -1,0 +1,119 @@
+﻿<h1><b>@media upiti</b></h1>
+
+@media pravilo se koristi za definisanje stilova za različite tipove uredjaja kao što su tableti, mobilni telefoni, laptopovi, desktop računari
+i medija kao što je štampanje. Tip medija, dakle, može biti <b>screen</b> i <b>print</b>, a vrednosti @media upita mogu biti: 
+ <b>screen</b>, <b>print</b>, <b>projection</b>, <b>handheld</b> i <b>all</b>, a mogu se koristiti i više vrednosti odjednom odvojene zarezom. <br/>
+Primer prikaza <b>screen</b> medija: <br/>
+<textarea class = "primer_ta" rows = "4" disabled>
+@media screen {
+	body { font: 12px arial, sans-serif }
+	section { display: block; }
+}
+</textarea> 
+ <br/> <br/>
+Primer prikaza <b>print</b> medija: <br/>
+
+<textarea class = "primer_ta" rows = "10" disabled>
+@media print {
+    body {
+        font-size: 10pt;
+        font-family: times, serif;
+    }
+
+    section {
+        display: none;
+    }
+}
+</textarea>
+<br/><br/>
+
+
+Ukoliko uzmemo naš originalni raspored koji je u dve ili više kolona i probamo da ga umanjimo 
+na nivo mobilnog telefona, videćemo da je to loše vidljivo posmatraču. 
+Pametni telefoni se tipično koriste u portret režimu, što znači da je ekran duži nego 
+što je širi. Na ovaj način možemo vertikalno skrolovati neki sajt, 
+ali ovaj pristup nije dobar za one sajtove koji imaju širi prikaz sa nekoliko kolona. 
+Tu onda koristimo media upite koji su CSS tehnologija i dostupni su u Web pregledačima 
+već nekoliko godina i suštinska su komponenta prilagodljivog dizajna. 
+Media upiti omogućavaju to da se CSS može primeniti samo ako se ispune specifični uslovi. 
+<br/>
+Na primer, možemo napisati media upit koji će CSS primeniti tek kada Web pregledač dostigne
+ specifičnu širinu. Ovim putem media upit detektuje širinu strane i na osnovu toga može da
+ reorganizuje način prikaza te strane.
+<br/><br/>
+<h2>Specifikacija CSS-a u odnosu na veličinu veb pregledača</h2>
+Sledeći primer definiše do koje širine ekrana će se primenjivati deklarisani CSS
+stil: <br/>
+<textarea class = "primer_ta" rows = "20" disabled>
+@media screen and (max-width: 1000px) {
+
+    #content { width: 100% }
+
+}
+
+@media screen and (max-width: 800px) {
+
+    div { float: none }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #content {
+        float: none;
+        display: block;
+    }
+
+}
+</textarea>
+<div class="napomena">
+<b>Napomena:</b> U primeru vidimo da ako je širina ekrana manja od 600px 
+primenjuju se sve tri deklaracije.
+</div>
+Možete isto koristiti "min-width" umesto "max-width" koja definiše od koje širine ekrana će
+se primenjivati deklarisani CSS stil. <br/>
+<h2>Specifikacija CSS-a u odnosu na orijentaciju</h2>
+Ako želite da primenite CSS u zavisnosti od orijentacije veb pregledača, koristite neki od sledećih vrednosti: <br/>
+<textarea class = "primer_ta" rows = "10" disabled>
+@media screen and (orientation: landscape) {
+
+    div { float: left }
+
+}
+@media screen and (orientation: portrait) {
+
+    div { float: none }
+
+}
+</textarea>
+<div class="napomena">
+<b>Napomena:</b> Specifikacija CSS-a u odnosu na orijentaciju može biti najkorisnija za mobilne uređaje.
+</div>
+<br/>
+<h2>Specifikacija CSS-a u odnosu na uređaj koji koristite</h2>
+<h3>Širina i visina (width, height)</h3>
+<span style="color: red"><b>device-width, device-height, min-device-width, max-device-width,
+min-device-height</b></span> i <span style="color: red"><b>max-device-height</b></span> mogu se koristiti za računanje rezolucije ekrana uređaja:
+<br/>
+<textarea class = "primer_ta" rows = "3" disabled>
+@media screen and (min-device-height: 768px) and (max-device-width: 1024px) {
+	/* Deklaracija CSS-a za uređaje čija je minimalna visina ekrana 768px i maksimalna širina 1024px */
+}
+</textarea><br/>
+<h3>Odnos piksela (pixel ratio) </h3>
+Bitno je, takođe, imati na umu da piksel u CSS-u ne mora biti isti kao fizički piksel. Na primer, može se desiti da je ekran fizički 720px širok, a da veb pregledač 
+može prikazati preko stilova da ima širinu 480px. U ovom primeru odnos piksela je 1.5:1 (na 1.5 fizičkih piksela prikazuje 1 CSS piksel). Desktop monitor ima odnos piksela 1:1.
+<br/>
+Ako želite da prikažete stilove samo na uređajima sa odnosom piksela 2:1 (takvi su, na primer, iPhone 4 i niže verzije), možete koristiti na sledeći način:
+<br/>
+<textarea class = "primer_ta" rows = "3" disabled>
+@media (device-pixel-ratio: 2) {
+	body { background-color: #ececec; }
+}
+</textarea><br/>
+<div class="napomena">
+<b>Napomena:</b> Možete isto koristiti <span style="color: red">min-device-pixel-ratio</span> i <span style="color: red">max-device-pixel-ratio</span>.
+</div>
+<div class="zadatak">
+ <b>Zadatak:</b>  Promeniti boju teksta paragrafa u narandžastu za uredjaje koji su manji od 500px i postaviti veličinu teksta 14px.
+</div>

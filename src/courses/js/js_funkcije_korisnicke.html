@@ -1,0 +1,345 @@
+<h1><b>Korisničke funkcije</b></h1>
+Korisničke funkcije su one koje sami definišemo.
+<h2>Definisanje funkcije</h2>
+Prilikom definisanja funkcije prvo stoji ključna reč <i>function</i>, zatim razmak, pa naziv funkcije, obične zagrade, pa vitičaste zagrade.
+<br>
+U okviru običnih zagrada mogu, ali i ne moraju, da stoje argumenti (dodatne informacije koje koristi funkcija).
+<br>
+U okviru vitičastih zagrada se nalazi telo funkcije, odnosno, naredbe koje funkcija izvršava.
+<br>
+Takođe, u zavisnosti od toga da li funkcije u telu sadrze naredbu <i>return</i> razlikujemo ih kao povratne (one koje vracaju neku vrednost) ili nepovratne (one koje ne vracaju nijednu vrednost, samo izvršavaju nešto bez povratne informacije).
+<br>
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+function naziv_funkcije(niz argumenata){
+	telo funkcije(niz naredbi)
+}
+</textarea>
+<br>
+<h2>Osobine</h2>
+Ključna reč <i>function</i> obavezna.
+<br>
+<br>
+Naziv funkcije je takođe obavezan deo funkcije, kako bismo kasnije mogli da je pozivamo. 
+Naziv može biti bilo koji niz karaktera, osim rezervisanih reči.
+Naziv je često kratak opis onoga što funkcija izvršava. Na primer, funkcija koja računa kvadratni koren nekog broja imaće naziv "kvadratniKoren", "kvKoren" ili "koren".
+<br> 
+<br>
+U okviru običnih zagrada mogu, ali i ne moraju, da stoje ulazni argumenti (dodatne informacije koje koristi funkcija).
+Ulazni argumenti funkcije nisu obavezni. Funkciji se prilikom poziva prosleđuju ovi argumenti, koje ona koristi u radu. Ukoliko se funkciji prilikom
+poziva ne proslede svi ulazni argumenti, oni koji nisu proslni dobijaju vrednost <i>undefined</i>. 
+<br>
+U ovom jeziku moguće je da prilikom definisanja funkcije ne navedemo argumente, a da ih prilikom poziva funkcije unesemo.
+<br>
+<br> 
+U okviru vitičastih zagrada se nalazi telo funkcije, odnosno, naredbe koje funkcija izvršava. 
+<br>
+U telu funkcije su naredbe koje funkcija izvršava. I telo može biti izostavljeno, ali onda funkcija ne bi imala smisla, pa se podrazumeva da je ovo obavezan deo. 
+<br>U telu funkcije mogu se definisati nove promenljive, ali i pozivati postojeće funkcije ukoliko se ukaže takva potreba. Promenljive koje se definišu u telu funkcije "žive" samo u toku rada funkcije. Kada funkcija završi sa radom njima nije moguće pristupiti.
+
+<br>
+<h2>Primeri povratnih funkcija</h2>
+<textarea class = "primer_ta" rows="3" disabled>
+function bezArgPovratna(){
+	return 5;
+}
+</textarea>
+<br>
+Funkcija <i>funkcijaBezArgPovratna()</i> nema ulaznih argumenata, ali ima povratnu
+vrednost. Svaki put kada se pozove ova funkcija ona će vratiti broj 5.
+<br>
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+function duplirajBroj(x){
+	return 2*x;
+}
+</textarea>
+<br>
+Funkcija <i>duplirajBroj(x)</i> očekuje da joj se prilikom poziva obezbedi jedan ulazni argument, broj x, a potom ona vrati duplu vrednost tog broja. Ukoliko se ne prosledi ulazni argument, ova funkcija vratiće vrednost "NaN"(not a number - nije unet broj).<br>
+<br>
+Funkcija <i>zbirBrojeva(a,b,c)</i> ima tri ulazna argumenta, a potom računa zbir unetih brojeva.
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+function zbirBrojeva(a,b,c){
+	return a+b+c;
+}
+</textarea>
+<br>
+Ukoliko neki od argumenta pri pozivu funkcije <i>zbirBrojeva(a,b,c)</i> nije unet povratna vrednost funkcije će biti "NaN".
+<br>
+
+<br>
+U okviru funkcije možemo i definisati nove promenljive, kada nam zatrebaju.
+Ukoliko promenljive definisemo sa ključnom reči <i>var</i> ispred, one će biti vidljive samo u okviru funkcije, a ukoliko ih definišemo bez ključne reči,
+moći ćemo da ih koristimo i nakon završetka rada funkcije.
+<br>
+<textarea class = "primer_ta"rows="4" disabled>
+function zbirBrojeva1(a,b){
+	var zbir=a+b;
+	return zbir;
+}
+</textarea>
+<br>
+Funkcija <i>zbirBrojeva1(a,b)</i> ima dva ulazna argumenta, a u telu funkcije je definisana nova promenljiva "zbir", koja računa zbir ulaznih argumenata. <br>Potom, funkcija vraća vrednost koja je sačuvana u promenljivoj <i>zbir</i>.
+<br>
+<br>
+Program kada naiđe na naredbu <i>return</i> odmah izlazi iz funkcije, t.j. ukoliko u funkciji stoji neka naredba nakon naredbe <i>return</i>,
+ ona nikada neće biti izvršena, što možemo videti u sledećem primeru:
+<br>
+<textarea class = "primer_ta" rows="6" disabled>
+function zbirBrojeva2(a,b){
+	var zbir=a+b;
+	return zbir;
+	alert("Ovo se nikada nece izvrsiti");
+}
+</textarea>
+<br>
+<h2>Primeri nepovratnih funkcija</h2>
+<br>
+<textarea class = "primer_ta" rows="4" disabled>
+function bezArgNepovratna(){
+	document.write("Funkcija bez argumenata i povratne vrednosti");
+}
+</textarea>
+<br>
+Funkcija <i>funkcijaBezArgNepovratna()</i> nema ulaznih argumenata, ni povratnu vrednost, a pri pozivu na internet stranici se ispisuje tekst <i>Funkcija bez argumenata i povratne vrednosti.</i>
+<br>
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+function kvadratBroja(x){
+	document.write(x*x);
+}
+</textarea>
+<br>
+Funkcija <i>kvadratBroja(x)</i> ima jedan ulazni argument, broj <i>x</i>, a potom ispisuje kvadrat tog broja.
+<br>
+<h2>Pozivanje funkcije</h2>
+Funkcija se poziva navođenjem njenog imena i prosleđivanjem neophodnih argumenata.
+<textarea class="primer_ta" rows="16" disabled>
+Primer 1:
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+    function kvadratBroja(x){
+	    return x*x;
+    }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Kvadrat broja&lt;/h1&gt;
+    &lt;script&gt;
+    document.write(kvadratBroja(5));
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<textarea class="primer_ta" rows="20" disabled>
+Primer 2:
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+    function kvadratBroja(x){
+	    return x*x;
+    }
+    function povrsinaKvadrata(x){
+	    var povrsina=kvadratBroja(x)
+	    return povrsina;
+    }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Površina kvadrata&lt;/h1&gt;
+    &lt;script&gt;
+    document.write(povrsinaKvadrata(5));
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<h2>Callback funkcije</h2>
+Callback je mehanizam, poznat i u drugim jezicima, koji omogućava da se funkcija prosledi kao parametar.
+<br>
+<br> 
+Ukoliko se programira složenija aplikacija na vebu, često se dolazi u poziciju da je neophodno sačekati neke podatke sa servera u toku izvršavanja samog programa. 
+Rad programa se tada zaustavlja i nastavlja se tek kada svi podaci pristignu. 
+U momentu kada server odgovori, poziva se callback funkcija koja služi kao početna tačka za nastavak rada.
+<br>
+<br> 
+Primer callback funkcije je zadavanje tajmera koji poziva callback funkciju posle određenog zadatog vremena.
+<br>
+<textarea class="primer_ta" rows="14" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Callback funkcija&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    function fun(){
+      document.body.style.backgroundColor = "#003";
+    }
+    window.setTimeout(fun, 4000);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+U prethodnom primeru definisana je callback funkcija <i>callbackFunkcija()</i> i postavljen je tajmer koji je poziva nakon četiri sekunde. 
+Ovaj primer pauzira izvršavanje programa na četiri sekunde. Konkretno, funkcija <i>callbackFunkcija()</i> menja boju pozadine u tamno plavu.
+<br>
+Specifično je i navođenje callback funkcije u metodi <i>setTimeout()</i>. Navodi se samo naziv funkcije bez zagrada.
+<br>
+<br> 
+Callback funkcije se često koriste kao funkcije za obradu događaja (event hendler), odnosno aktiviraju se kao posledica neke aktivnosti korisnika.
+<br>
+<textarea class="primer_ta" rows="8" disabled>
+var niz = [14, 5, 6, -2, 7];
+if (niz.every(veci)){
+  console.log("Svi elementi su veći od nule.");
+}
+function veci(a){
+  return a > 0;
+}
+</textarea>
+<br>
+U ovom primeru funkcija <i>veci()</i> je u ulozi callback funkcije i zadata je kao parametar metodi <i>every()</i>.
+Ovaj program će u konzolu upisati tekst: <b>Svi elementi su veći od nule.</b>
+<br>
+<h2>Zatvorenja funkcije</h2>
+Program kada izađe iz funkcije sve lokalne promenljive prestaju da postoje i njima nije moguće pristupiti. 
+Logičan zaključak je da se ne može pristupiti unutrašnjoj funkciji ukoliko program izađe iz nadfunkcije. 
+Međutim, u programskom jeziku <i>JavaScript</i> ovo nije slučaj. Moguće je pristupiti unutrašnoj funkciji i kada se završi sa radom sa nadfunkcijom. 
+Ovakva unutrašnja funkcija sme da koristi promenljive svoje nadfunkcije i zovemo je zatvorenje.
+<br>
+<br>
+Dakle, zatvorenje je unutrašnja funkcija koja se poziva van svoje nadfunkcije, ali i dalje ima pristup lokalnim promenljivama nadfunkcije.
+<br>
+Najčešća upotreba zatvorenja funkcija je kada se upotrebljava callback mehanizam i kada se kreiraju funkcije koje obrađuju događaje.
+<br>
+<textarea class="primer_ta" rows="23" disabled>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Zatvorenje funkcija&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+    function nadfunkcija(){
+    	var broj = 0;
+    	function unutrasnjafunkcija(){
+    		broj++;                    
+    		document.write("BROJ: " + broj+"<br>");  
+    	}
+	    window.setTimeout(unutrasnjafunkcija, 5000);            
+	    unutrasnjafunkcija();                                   
+	    document.write("Nadfunkcija je završena!"); 
+    }
+    nadfunkcija();
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+U prethodnom primeru definisana je funkcija <i>nadfunkcija()</i>. U njoj je prvo definisana lokalna promenljiva <i>broj</i>, a zatim i unutrašnja funkcija <i>unutrasnjafunkcija()</i>, koja povećava promenljivu broj i ispisuje je. 
+Sledeća u nizu naredba je <i>setTimeout(unutrasnjafunkcija, 5000)</i>, ali ona će se izvršiti tek za pet sekundi, odnosno prvo će se izvršiti naredbe ispod koje stoje ispod nje. 
+Poziva se funkcija <i>unutrasnjafunkcija()</i> koja u konzoli ispisuje broj <b>1</b>, a zatim se izvršava sledeća naredba, t.j. u konzoli se ispisuje tekst: <b>Nadfunkcija je zavr\v sena!</b>. 
+<br>
+<br>
+Tek sad se izvršava funkcija <i>unutrasnjafunkcija()</i> koja je pozvana callback mehanizmom. Na ovaj način će se unutrašnja funkcija, nakon završetka rada nadfunkcije, još jednom izvršiti. 
+Promenljivoj <i>broj</i> se ponovo pristupa iako je program izašao iz nadfunkcije, a u konzoli će se upisati broj <b>2</b>. 
+Dakle, preko funkcije <i>unutrasnjafunkcija()</i> ostalo je "živo" celo njeno okruženje, odnosno sve lokalne promenljive iz funkcije <i>nadfunkcija()</i>. 
+Isto bi se dogodilo čak i da postoji više nivoa ugnježdenih funkcija.
+<br>
+<h2>Objekat <span class = "primer_text">this</span></h2>
+Na objekat <span class = "primer_text">this</span> se najčešće nailazi kada se kreiraju funkcije događaja. U tom slučaju <span class = "primer_text">this</span> predstavlja element na koji je kliknuto. 
+<br>
+<br>
+Objekat <span class = "primer_text">this</span> predstavlja kontekst u kome se izvršava funkcija.
+<br>
+<br>
+ U programskom jeziku JavaScript objekat <span class = "primer_text">this</span> se formira tokom izvršavanja funkcije. 
+ Svaka funkcija ima svoj <span class = "primer_text">this</span> objekat. Kako se JavaScript funkcija može pozivati na pet različitih načina, tako i <span class = "primer_text">this</span> može biti pet različitih objekata. 
+ Na programerima je da kontrolišu kako će funkcija biti pozvana i da predvide šta će <span class = "primer_text">this</span> predstavljati u funkciji.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+function fun() {}
+fun();
+</textarea>
+<br>
+Svaka funkcija koju pozivamo na način dat prethodnim primerom u suštini nema <span class = "primer_text">this</span>. 
+Preciznije, u ovako pozvanoj funkciji, objekat <span class = "primer_text">this</span> postoji i on je <span class = "primer_text">window</span>.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+obj.metod = function funkcija() {}
+obj.metod();
+</textarea>
+<br>
+Kada je funkcija pozvana na ovaj način <span class = "primer_text">this</span> je tada objekat iz koga je funkcija pozvana. 
+Odnosno, u funkciji se kreira lokalna promenljiva <span class = "primer_text">this</span> koja predstavlja referencu na objekat čiji je ta funkcija metod.
+Ako je jedna ista funkcija metod različitih objekata, <span class = "primer_text">this</span> će se razlikovati zavisno od toga iz kog objekta je pozvana funkcija.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+function Klasa() {}
+var obj = new Klasa();
+</textarea>
+<br>
+U prethodnom primeru operator <i>new</i> kreira novi objekat i izvršava konstruktorsku funkciju u kontekstu tog objekta (kao da je pozvana iz njega). 
+Objekat <span class = "primer_text">this</span> u funkciji konstruktora će referencirati na taj novi objekat.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+function fun(p1, p2, p3...) {}
+fun.call(obj, v1,v2,v3...)
+</textarea>
+<br>
+Ovaj primer prikazuje način pozivanja funkcije metodom <i>call()</i>. Metod <i>call()</i> uvek ima jedan parametar više od same funkcije. 
+To je zato što prvi parametar predstavlja objekat koji se prosleđuje funkciji kao <span class = "primer_text">this</span>.
+<br>
+<br>
+Metod <i>apply()</i> radi isto kao i metod <i>call()</i>, ali malo drugačijim stilom. Ima samo dva parametra. 
+Prvi parametar je objekat koji će u funkciji predstavljati <span class = "primer_text">this</span>, a drugi parametar je niz koji sadrži vrednosti za parametre funkcije.
+Poziv funkcije metodom <i>apply()</i> prikazan je na sledećem primeru.
+<br>
+<textarea class="primer_ta" rows="2" disabled>
+function fun(p1, p2, p3...) {}
+fun.apply(obj, [v1,v2,v3...]);
+</textarea>
+<br>
+Na sledećem primeru prikazana je upotreba <span class = "primer_text">this</span> objekta.
+<br>
+<textarea class="primer_ta" rows="13" disabled>
+function fun(){
+    console.log(this.id ? this.id : "Nepoznat ID");
+}
+var prvi = {id:"PRVI"};
+var drugi = {id:"DRUGI"};
+prvi.metod = fun;
+drugi.poziv = fun;
+prvi.metod();    
+drugi.poziv();   
+fun();          
+document.getElementById("blok").onclick = fun;
+</textarea>
+<br>
+Prvo je definisana funkcija <i>fun()</i>. Ona ima objekat <span class = "primer_text">this</span>, ali mora se proveriti da li taj objekat ima svojstvo <i>id</i>. 
+Ako ima, ispisaće se samo svojstvo <i>id</i>, ako ne, dobićemo poruku o tome.
+<br>
+<br>
+Zatim kreirana su dva objekta: <i>prvi</i> i <i>drugi</i> i pri tom im je već definisano <i>id</i> svojstvo kao string u kome se nalazi njihov naziv. 
+Zatim se tim objektima dodaju još po jedan metod koji predstavlja referencu na funkciju <i>fun</i>. Pozivom metoda tih objekata dobijaju se različite vrednosti. 
+<br>
+<br>
+Naredba <i>prvi.metod();</i> vratiće string <b>PRVI</b>, dok će naredba <i>drugi.poziv();</i> vratiti string <b>DRUGI</b>. 
+Nakon toga se na standardan način poziva funkcija <i>fun()</i>, a tada je objekat <span class = "primer_text">this</span> referenca na <span class = "primer_text">window</span>, koji ne poseduje svojstvo <i>id</i>. 
+<br>
+<br>
+Na kraju, pretpostavljeno je da u HTML dokumentu postoji neki element, npr. <span class = "primer_text">&lt;div id="blok"&gt;...&lt;/div&gt;</span>. 
+Tom elementu dodata je funkcija događaja, koja kada korisnik klikne na njega, poziva funkciju <i>fun()</i>. 
+Rezultat koji se u ovom slučaju dobija je <b>blok</b>, jer objekat <span class = "primer_text">this</span> će biti referenca na element na koji je kliknuto.
+<br>
+<br>
+<div class="zadatak">
+<b>Zadatak: </b>Napiši (povratnu) funkciju koja računa površinu pravougaonika.</div>

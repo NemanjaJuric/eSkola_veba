@@ -1,0 +1,36 @@
+<html>
+	<head>
+	
+	</head>
+	
+	
+	<body>
+		<div>
+			<input type="number" name="broj" id="broj" min="1" max="10">
+			<button onclick="pomnozi()">Ispisi</button>
+		</div>
+		<br>
+		<hr>
+		<div id="ispisTablice">
+		
+		</div>
+		
+		
+		<script>
+			document.getElementById("broj").defaultValue = "1";
+			function pomnozi() {
+				var broj = document.getElementById("broj").value;
+				var ispis = '';
+				i=broj;
+				while (i<11) {
+						ispis = ispis + '3 *' + i + ' = ' + i*3 + '<br>';
+						i++ ;
+					}
+				
+				document.getElementById('ispisTablice').innerHTML = ispis;
+			}
+		</script>
+
+	</body>
+
+</html>

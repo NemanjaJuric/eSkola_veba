@@ -1,0 +1,45 @@
+<h1><b>2D transformacije</b></h1>
+<br>
+<h2>Skaliranje</h2>
+<br>
+Skaliranje je metod koji povećava ili smanjuje element, odnosno njegovu širinu i visinu. 
+Metode su:
+<ul>
+<li>skaleX(n) – promena širine elementa (n-koliko puta po X-osi)</li>
+<li>skaleY(n) – promena visine elementa (n-koliko puta po Y-osi)</li>
+<li>skale(n,m) – promena i širine i visine elementa (n-koliko puta po X-osi, m-koliko puta po Y-osi)</li>
+</ul>
+<br>
+<textarea class = "primer_ta" rows="5" disabled>
+div {
+    -ms-transform: skale(2,3); /* IE 9 */
+    -webkit-transform: skale(2,3); /* Safari */
+    transform: skale(2,3);
+}
+</textarea>
+<h2>Iskošenje</h2>
+<br>
+Ova metoda predstavlja iskošenje elementa za dati ugao i to na sledeći način:
+<ul>
+<li>skewX(angle) - iskošenje  elementa po X-osi</li> 
+<li>skewY(angle) - iskošenje  elementa po Y-osi</li>
+<li>skew(angleX,angleY) - iskošenje elementa i po X i po Y-osi</li>
+</ul>
+<br>
+<textarea class = "primer_ta" rows="5" disabled>
+div {
+    -ms-transform: skew(40,50); /* IE 9 */
+    -webkit-transform: skew(40,50); /* Safari */
+    transform: skew(40,50);
+}
+</textarea>
+<br>
+Postoji metod koji je kombinacija svih 2D transformacija i ima 6 parametara:
+<br>matrix(scale-x, skew-x, skew-y, scale-y, translate-x, translate-y)
+<br>
+<div class = "zadatak">
+<b>Zadatak:</b> 
+<br>a) Izmeniti deo koda tako da se samo širina pravougaonika poveća 2.5 puta. 
+<br>b) Izmeniti deo koda tako da se pravougaonik iskosi za 40 stepeni duž X-ose i 10 stepeni duž Y-ose.
+</div>
+<br>

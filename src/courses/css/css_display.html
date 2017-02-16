@@ -1,0 +1,44 @@
+<h1><b>Display</b></h1>
+<br/>
+Svojstvo <b>display</b> je jedno od najvažnijih svojstava CSS-a za kontrolisanje rasporeda elemenata na stranici koje određuje 
+kako će se element prikazati. Vrednosti ovog svojstva su: <b>block</b>, <b>inline</b> i <b>none</b>.<br/>
+Svaki HTML element ima određenu display vrednost u zavisnosti od toga kog je tipa, najčešće je to blok(block) ili linijski(inline).<br/>
+Primeri blok elemenata:<br/>
+<textarea class="primer_ta" rows ="7" disabled>
+<div>
+<h1> - <h6>
+<p>
+<form>
+<header>
+<footer>
+<section> 
+</textarea><br/>
+Primeri linijskih elemenata:<br/>
+<textarea class="primer_ta" rows ="3" disabled>
+<span>
+<a>
+<img>
+</textarea><br/>
+Korišćenjem display svojstva može se neki linijski element prikazati kao blok, a i obrnuto.<br/>
+Svojstvo none se koristi ako ne želimo da se neki element prikaže.<br/><br/>
+<div class = "napomena">
+Svojstvo <b>visibility</b> sa vrednošću <b>hidden</b> je slično kao i <b>display: none</b>, ali postoji razlika.
+ <b>Display: none</b> izbacuje u potpunosti element i oslobađa se prostor koji je pregledač rezervisao za njega,
+dok <b>visibility: hidden</b> zadržava rezervisano mesto koje je element imao i ne prikazuje njegov sadržaj.
+</div><br/>
+Vrednost none je vrlo korisno koristiti za dinamičke efekte.<br/>
+Inline prikazuje elemente redom jedan za drugim i to linijski. Ako listu koja je blok element  prikažemo inline, 
+njene stavke će se prikazati jedna za drugom, a ne jedna ispod druge, i na taj način se lista pretvara u horizontalnu navigaciju.<br/>
+Sa druge strane, vrednost block prikazuje element samostalno, na primer box elementu postavlja prazan red iznad i ispod i 
+omogućava manipulisanje visinom, marginama, padding.<br/>
+<br/>
+<div class = "napomena">
+Postoji i kombinacija, <b>display: inline-block</b>.
+Element će zadržati vrednost inline, dozvoljavaće da se linijski elementi pozicioniraju pored njega, ali će pozajmiti veću
+ fleksibilnost formatiranja koju ima block, na primer biće moguće podešavanje širine, visine.
+</div>
+<br/>
+<div class = "zadatak">
+<b>Zadatak:</b> Pogledaj u primeru koja svojstva imaju paragrafi. Pokušaj da primenom display svojstva izbrišeš
+četvrti paragraf i dodaš šesti koji će biti pored petog.
+</div>

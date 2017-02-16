@@ -1,0 +1,20 @@
+﻿<h1><b>Apsolutno pozicioniranje</b></h1><br/>
+Apsolutno pozicioniranje je fleksibilnije od relativnog. Tako pozicionirani elementi nemaju uticaj na layout
+elemenata u okruženju. </br>
+<div class = "zadatak">
+<b>Zadatak:</b> Pogledaj zadatak u poglavlju relativno pozicioniranje i postavi position na absolute.
+</div>
+Prvi korak ka razumevanju apsolutnog pozicioniranja jeste upoznavanje sadržajnog bloka.</br>
+Sadržajni blok apsolutno pozicioniranog elementa je najbliže pozicionirani element koji ima vrednost position 
+različitu od static. Ukoliko takav blok ne postoji, html će kreirati inicijalni.</br>
+Element se pozicionira relativno u odnosu na najbliži blok koji ga sadrži, ukoliko je to html 
+pozicioniraće se u odnosu na pregledač.</br>
+Apsolutno pozicionirani elementi se preklapaju sa drugim elementima. Uobičajeno se elementi preklapaju po redosledu
+pojavljivanja (na vrhu je onaj koji se poslednji pojavio). Korišćenjem z-index redosled se može promeniti. 
+Zamislite z-osu kao liniju koja pada normalno od vrha vašeg nosa na stranicu i probija na drugu stranu. Vrednost z-index 
+svojstva je broj(pozitivan ili negativan), što je broj veći element je pozicioniran više napred, a ako je manji gurnut je pozadi.</br>
+Korisno je ukoliko želite da vam neki element bude sigurno na vrhu zadati mu visok z-index, na primer 200.
+<div class = "zadatak">
+<b>Zadatak:</b> U primeru je polukrug pozicioniran apsolutno u odnosu na header. Navigacije i sadržaj su pozicionirani pomoću
+float. Pokušaj malim izmenama u kodu da korišćenjem apsolutnog pozicioniranja dobiješ isti raspored elemenata. 
+</div>

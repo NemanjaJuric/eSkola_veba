@@ -1,0 +1,238 @@
+<h1><b>Operacije</b></h1>
+<br>
+U JavaScriptu razlikujemo slede&#263;e operatore:
+<br>
+<br>
+<ul>
+	<li>Aritmeti&#269;ki operatori</li>
+	<li>Operatori jednakosti</li>
+	<li>Operatori za rad sa bitovima</li>
+	<li>Relacioni operatori</li>
+	<li>Unarni operatori</li>
+</ul>
+<br>
+<br>
+<b>Aritmeti&#269;ki operatori</b>
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Operator</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Zna&#269;enje</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > + </font>
+		</b></td>
+      <td><b><font size="2"  > Sabiranje </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > - </font></b></td>
+      <td><b><font size="2"  > Oduzimanje  </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > * </font></b></td>
+      <td><b><font size="2"  > Mno&#382;enje </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > / </font></b></td>
+      <td><b><font size="2"  > Deljenje </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > % </font></b></td>
+      <td><b><font size="2"  > Deljenje sa ostatkom</font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > ++ </font></b></td>
+      <td><b><font size="2"  > Uve&#263;anje za 1(postfiksno ili prefiksno) </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > - - </font></b></td>
+      <td><b><font size="2"  > Umanjenje za 1(postfiksno ili prefiksno) </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+<b><i>Operator sabiranja</i></b>
+<br>
+<br>
+Ovaj operator funkcioni&#353;e na razli&#269;ite na&#269;ine u zavisnosti koje vrednosti sabira. 
+<br>
+<br>
+Kada sabiramo dva stringa, operator sabiranja spaja levi i desni argument, dok kada sabiramo dva broja, rezultat je njihov zbir.
+<br>
+<br>
+Primer:
+<br>
+<textarea class = "primer_ta" rows="7" disabled>
+var broj1 = 1;
+var string1 = "Ja sam broj";
+var broj2 = 999;
+var string2 = "99";
+var rezultat1 = string1 + broj 1; //Rezultat &#263;e biti "Ja sam broj 1"
+var rezultat2 = broj 1 + broj2; //Rezultat &#263;e biti 1000
+var rezultat3 = broj1 + string2; //Rezultat &#263;e biti 199
+</textarea>
+<br>
+<br>
+Koris&#263;enjem metode <i>Number()</i> konvertujemo string u broj. Npr:
+<br>
+<textarea class = "primer_ta" rows="3" disabled>
+var broj1 = 1;
+var string2 = Number("99");
+var rezultat3 = broj1 + string2; //Rezultat &#263;e biti 100
+</textarea>
+<br>
+<br>
+<b>Operatori jednakosti</b>
+<br>
+<br>
+Ovi operatori koriste se da proverimo da li su neka dva izraza ista ili se razlikuju.
+<br>
+<br>
+Uvek daju vrednosti <i>true</i> ili <i>false</i>.
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Operator</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Zna&#269;enje</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > = = </font>
+		</b></td>
+      <td><b><font size="2"  > Jednako </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > != </font></b></td>
+      <td><b><font size="2"  > Razli&#269;ito  </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > = = = </font></b></td>
+      <td><b><font size="2"  > Jednako kori&#353;&#263;enjem stro&#382;ije metode </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > != = </font></b></td>
+      <td><b><font size="2"  > Razli&#269;ito kori&#353;&#263;enjem stro&#382;ije metode  </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+<b>Operatori za rad sa bitovima</b>
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Operator</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Zna&#269;enje</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > & </font>
+		</b></td>
+      <td><b><font size="2"  > AND - konjukcija(i) </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > |</font></b></td>
+      <td><b><font size="2"  > OR - disjunkcija(ili) </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > ^ </font></b></td>
+      <td><b><font size="2"  > XOR - eksluzivna disjunkcija, eksluzivno ili </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > ~ </font></b></td>
+      <td><b><font size="2"  > NOT - negacija </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > << </font></b></td>
+      <td><b><font size="2"  > pomeranje bitova ulevo </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > >> </font></b></td>
+      <td><b><font size="2"  > ozna&#269;eno pomeranje bitova udesno </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > >>> </font></b></td>
+      <td><b><font size="2"  > neozna&#269;eno pomeranje bitova udesno uz dodavanje nula </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+<b>Relacioni operatori</b>
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Operator</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Zna&#269;enje</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > > </font>
+		</b></td>
+      <td><b><font size="2"  > ve&#263;e od </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > <</font></b></td>
+      <td><b><font size="2"  > manje od </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > >= </font></b></td>
+      <td><b><font size="2"  > ve&#263;e ili jednako od </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > <= </font></b></td>
+      <td><b><font size="2"  > manje ili jednako od </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > in </font></b></td>
+      <td><b><font size="2"  > sadr&#382;e se unutar izraza ili objekta </font></b></td>
+    </tr>
+	 <tr>
+      <td><b><font size="2"  > instanceof </font></b></td>
+      <td><b><font size="2"  > instanca nekog objekta </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+<b><i>Operator in</i></b>
+<br>
+<br>
+Ovaj operator se naj&#269;e&#353;&#263;e koristi za procenjivanje da li je neko svojstvo sadr&#382;ano unutar objekta ili ne.
+<br>
+<br>
+Takodje se koristi i za kretanje kroz objekat.
+
+<br>
+<br>
+<b><i>Operator instanceof</i></b>
+<br>
+<br>
+Ovaj operator omogu&#263;ava da proverimo da li je objekat kreiran pomo&#263;u zadatog konstruktora.
+<br>
+<br>
+Primer:
+<br>
+<textarea class = "primer_ta" rows="4" disabled>
+var mojPas = new Pas();
+if (mojPas instanceof Pas){
+&nbsp;&nbsp;alert("Ta&#269;no je!");
+}
+</textarea>
+<br>
+<br>
+Primer:
+<br>
+<textarea class = "primer_ta" rows="5" disabled>
+var a=50;
+var b=4;
+
+var c=a+b;
+document.write("Zbir brojeva " + a + " i " + b +" je: " + c + "<br>");
+</textarea>
+U primeru ra&#269;unamo i ispisujemo zbir brojeva 50 i 4. 
+<br> 
+<br> 
+<div class = "zadatak">
+<b>Zadatak:</b> Izmeni program tako da umesto zbira ra&#269;una i ispisuje razliku i proizvod ta dva broja.
+</div>
+<br>
+<br>

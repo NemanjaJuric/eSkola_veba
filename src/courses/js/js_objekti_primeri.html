@@ -1,0 +1,55 @@
+<h1><b>Primeri</b></h1>
+
+<h2>Primer 1</h2>
+
+Sledeći objekat ima četiri svojstva i sva su primitivnih tipova.
+<br>
+<textarea class = "primer_ta" rows = "6" disabled>
+var osoba={
+	ime:"Petar",
+	prezime:"Petrović"
+	starost:50,
+	bojaOčiju:"plave"
+};
+</textarea>
+<br>
+<h2>Primer 2</h2>
+
+<textarea class = "primer_ta" rows = "11" disabled>
+var korisnik={
+	ime:"Gost",
+	promeniIme: function(){
+		this.ime=prompt("Vase ime je?")
+	},
+	pozdrav: function(){
+		alert('Zdravo, moje ime je '+this.ime)
+	}
+}
+</textarea>
+<br>
+Objekat <i>korisnik</i> definisan je za potrebe registracije korisnika na jednom forumu. 
+Ona na početku svojoj osobini <i>ime</i> daje vrednost <i>Gost</i>, a potom se može funkcijsim svojstvom <i>promeniIme</i> promeniti vrednost.
+ <br>Takođe, definisano je još jedno funkcijsko svojstvo <i>pozdrav</i>, koje kada se pozove aktivira iskačući prozor sa porukom: <i>'Zdravo, moje ime je '+this.ime</i>, gde deo <i>this.ime</i> prikazuje vrednost sačuvanu u osobini <i>ime</i> tog korisnika.
+<br>
+<h2>Primer 3</h2>
+
+<textarea class = "primer_ta" rows = "12" disabled>
+var stepeniste={
+	stepenik: 0,
+	gore: function(){
+		this.stepenik++
+	},
+	dole: function(){
+		this.stepenik--
+	},
+	prikaziStepenik: function(){
+		alert(this.stepenik)
+	}
+}
+</textarea>
+<br>
+Objekat <i>stepeniste</i> predstavlja simulaciju pravog stepeništa. 
+On sadrži numeričko svojstvo stepenik u kome se čuva informacija o tome na kom se stepeniku trenutno korisnik nalazi, kao i dva funkcijska svojstva <i>gore</i> i <i>dole</i> kojim 
+se korisnik može kretati po stepeništu i još jedno funkcijsko svojstvo <i>prikaziStepenik</i> 
+kojim se u iskačućem prozoru ispisuje numerička vrednost stepenika na 
+kom se korisnik nalazi.

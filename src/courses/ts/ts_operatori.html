@@ -1,0 +1,809 @@
+﻿<h1>Operatori</h1>
+U prethodnim lekcijama smo govorili o elementarnim pravilima jezika, tipovima podataka i promenljivama. Naredni korak ka ovladavanju pisanja valjanog i smislenog koda jeste da savladamo pojam <b>operatora</b>.
+Operator predstavlja konstrukt <!-- Stvarno čovek treba da se pozabavi i da utvrdi šta tačno predstavlja programski konstrukt--> koji se ponaša veoma slično kao funkcija ali se razlikuje u sintaksi i semantici od uobičajne funkcije.
+Kod nekih operatora te razlike su male kao što je operator sabiranja. Umesto izraza x + y možemo da upotrebimo funkciju add(x, y) kako bi smo sabrali dva broja. Podaci nad kojima operator radi nazivaju se operandi. Razmotrimo sledeći izraz:
+<br>
+<br> 
+<b>6:2 = 3</b> 
+<br>
+<br> 
+U ovom slučaju : i = su operatori a 6, 2 i 3 operandi.
+<br>
+<br> 
+U TypeScriptu imamo sledeće grupe operatora:
+<br>
+<br> 
+<ul>
+<li>Aritmetičke operatore</li>
+<li>Relacione operatore</li><!-- Operatori poređenja ?--> 
+<li>Logičke operatore</li>
+<li>Operatore za rad sa bitovima</li>
+<li>Operatore dodele</li>
+<li>Uslovni operator</li>
+<li>Operatore nad tipovima</li>
+<ul/>
+<br>
+<b>ARITMETIČKI OPERATORI</b>
+<br>
+<br>
+Kod aritmetičkih operatora operand i povratna vrednost su tipa number, izuzetak je operator sabiranja gde operand ili povratna vrednost može da bude i string. Za potrebe primera uzećemo sledeće vrednosti: x1 = 2, x2 = 3, s1 = "četri", s2 = "pet".
+<br>
+<br>
+
+<!-- Da li ići ovako ili praviti tabele ili možda jedno i drugo ?--> 
+
+<table class = "tabela">
+<thead>
+     <tr>
+       <th>Operator</th><th>Opis</th><th>Primer</th><th>Povratna vrednost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> + </td><td>Sabiranje</td><td>  x2 + x1 <br> x1 + s1 <br> s2 + s1</td><td> 5 <br>  2četri <br> petčetri </td>	  
+    </tr>
+    <tr>
+      <td> - </td><td>Oduzimanje</td><td> x2 - x1 </td><td> 1 </td>
+    </tr>
+	<tr>
+      <td> * </td><td>Množenje</td><td> x2 * x1 </td><td> 6 </td>
+    </tr>
+	<tr>
+      <td> / </td><td>Deljenje</td><td> x2 / x1 </td><td> 1.5 </td>
+    </tr>
+	<tr>
+      <td> % </td><td>Ostatak pri deljenju broja x2 sa brojem x1</td><td> x2 % x1 </td><td> 1 </td>
+    </tr>
+	<tr>
+      <td> ++ </td><td>Uvećava vrednost broja za 1</td><td> x2++<br>++x2 </td><td> 3 <br> 4</td>
+    </tr>
+	<tr>
+      <td> -- </td><td>Umanjuje vrednosti broja za 1</td><td> x1--<br>--x1 </td><td>2 <br> 1</td>
+    </tr>
+	<tr>
+      <td> - </td><td>Unarni operator koji vraća inverz broja u odnosu na sabiranje</td><td> -x1 </td><td> -2 </td>
+    </tr>
+</tbody>
+
+</table>
+
+<br>
+<!-- Da li samo npr staviti Sabiranje + ili Sabiranje (+) ?--> 
+<textarea class = "primer_ta" rows = "66" disabled>
+
+  let x1: number = 2;
+  let x2: number = 3;
+  let s1: string = "četri";
+  let s2: string = "pet";
+
+  //Operator sabiranja + : x2 + x1
+  
+  let p1  = x2 + x1;
+  
+  //Ako je makar jedan operand string onda će i povratna vrednost biti string.
+  
+  let p2 = x1 + s1; 
+
+  let p3 = s2 + s1;
+  
+  //Operator oduzimanja - : x2 - x1  
+  
+  let p4  = x2 - x1;
+  
+  //Operator množenja   * : x2 * x1
+  
+  let p5  = x2 * x1;
+  
+  //Operator deljenja   / : x2 / x1
+  
+  let p6  = x2 / x1;
+  
+  //Operator ostatka    % : x2 % x1
+  
+  let p7  = x2 % x1;
+  
+  //Operator uvećanja  ++ : x2++,++x2
+  
+  //Obratite da ima razlike da li operator ++ stoji kao sufiks ili kao prefiks!
+  
+  let p8  = x2++;  
+  
+  let p9  = ++x2;
+  
+  //Operator umanjenja -- : x1--,--x1
+  
+  //Obratite da ima razlike da li operator -- stoji kao sufiks ili kao prefiks!
+  
+  let p10  = x1--; 
+  
+  let p11  = --x1;
+  
+  //Operator inverza broja -: -x1
+  
+  let p12  = -x1;
+
+  let p13  = -p12;
+  
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p13
+  let R = p1;  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<div class = "napomena"> 
+Kao što smo već pomenuli operator sabiranja možemo da upotrebimo u situacijama kada su operandi string i number ili string i string. U slučaju string i string "spajanjem" se dobija novi string. Pošto je string u suštini niz karaktera,
+pravi se novi niz gde se redom smeštaju karakteri iz prethodna dva niza. U situaciji kada imamo string i number , vrednost koja je tipa number se prevodi <!-- Kastuje ?-->  u vrednost koja je tipa string pa se onda ta dva stringa "spajaju".
+<br>
+<br>
+Što se tiče operatora ++ i -- u zavisnosti da li ih upotrebljavamo kao sufiks ili prefiks možemo da očekujemo različite rezultate. Izraz ++x znači sledeće: uvećati vrednost x za jedan i vratiti x, a izraz x++ , vratiti x i uvećati vrednost x za jedan. Po istom principu funkcioniše i --.
+Treba skrenuti pažnju da su ++ i -- unarni operatori ali kao i svi drugi operatori imaju svoju povratnu vrednost. Većina nas je navikla da radi sa binarnim operatorima i da za izraz x + y  očekuje povratnu vrednost dok kod izraz x++ možda ostanemo zbunjeni. 
+</div>
+<br>
+<b>RELACIONI OPERATORI</b><!-- Relacijski operatori ?-->
+<br>
+<br>
+Relacioni operatori testiraju ili definišu vrstu relacije između dva entiteta. Povratna vrednost relacionih operatora je true ili false. Operandi relacionih operatora  moraju biti istog tipa. Za potrebe primera uzećemo sledeće vrednosti: x1 = 2, x2 = 3, s1 = "četri", s2 = "pet".
+<br>
+<br>
+
+<table class = "tabela">
+<thead>
+     <tr>
+       <th>Operator</th><th>Opis</th><th>Primer</th><th>Povratna vrednost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> > </td><td> Veće od </td><td>  x2 > x1 <br> s2 > s1  </td><td> true <br>  false</td>	  
+    </tr>
+    <tr>
+      <td> >= </td><td> Veće jedanko od </td><td> x2 >= x1 </td><td> true </td>
+    </tr>
+	<tr>
+      <td> < </td><td> Manje od </td><td> x2 < x1 </td><td> false </td>
+    </tr>
+	<tr>
+      <td> <= </td><td> Manje jedanko od </td><td> x2 <= (x1 + 1) </td><td> true </td>
+    </tr>
+	<tr>
+      <td> != </td><td> Različito od </td><td> x2 != x1 <br> s2 != s1</td><td> true <br>  true </td>
+    </tr>
+	<tr>
+      <td> == </td><td> Jednako </td><td> x2 == x1 <br> s2 == s1 </td><td> false <br> false</td>
+    </tr>
+	<tr>
+      <td> === </td><td>Imaju istu vrednost i tip</td><td> x2 === x1<br> x2 === x1 </td><td>false<br> false</td>
+    </tr>
+</tbody>
+
+</table>
+<br>
+<textarea class = "primer_ta" rows = "54" disabled>
+
+  let x1: number = 2;
+  let x2: number = 3;
+  let s1: string = "četri";
+  let s2: string = "pet";
+
+  //Operator veće od > : x2 > x1
+  
+  let p1  = x2 > x1;
+   
+  let p2  = s2 > s1;
+  
+  //Operator veće jedanko od >= : x2 >= x1  
+  
+  let p4  = x2 >= x1;
+  
+  //Operator Manje od   < : x2 < x1
+  
+  let p5  = x2 < x1;
+  
+  let p6  = s2 < s1;
+  
+  //Operator manje jedanko od   <= : x2 <= x1
+  
+  let p7  = x2 <= x1;
+  
+  //Operator različito od    != : x2 != x1
+  
+  let p7  = x2 != x1;
+  
+  let p8  = s2 != s1;
+  
+  //Operator jednakosti  ==: x2 == x1
+  
+  let p9  = x2 == x1;  
+  
+  //Operator  jednakosti po vrednost i tipu === : x2 === x1
+  
+  let p10 = x2 === x1; 
+  
+  let p11 = --x1;
+
+  
+  
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p11
+  let R = p1;  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">
+Poređenje niskih<!-- Možda da da se držim stringova ?--> se vrši pomoću leksikografičkog poretka! Zbog toga izraz <b>"aab" < "ab"</b> ima smisla.<!-- Trebalo bi objasniti šta znači leksikografički poredak ? Lexicographical order-->
+</div>
+<br>
+<b>LOGIČKI OPERATORI</b>
+<br>
+<br>
+Jedna od osnovnih uloga logičkih operatora u TypeScriptu jeste da poveže dva ili više uslova kako bi dobili novi uslov. Operandi obično imaju vrednosti true ili false i u tom slučaju je povratna vrednost true ili false. Za potrebe primera uzećemo sledeće vrednosti: t = true, f = false, s1 = "četri", s2 = "pet", x1 = 1, x2 = 2 .
+<br>
+<br>
+<table class = "tabela">
+<thead>
+     <tr>
+       <th>Operator</th><th>Opis</th><th>Primer</th><th>Povratna vrednost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> && </td><td> Operator vraća true ako i samo ako su vrednosi oba operanda true </td><td>  t && f <br> s2 && s1 <br> x2&&x1</td><td> false <br>  četri <br>1 </td>	  
+    </tr>
+    <tr>
+      <td> || </td><td> Operator vraća false ako i samo ako su vrednosti oba operanda false </td><td> t || f  <br> s2||s1 <br> x2 || x1</td><td> true <br>  pet <br> 2 </td>
+    </tr>
+	<tr>
+      <td> ! </td><td> Operator vraća inverz povratne vrednosti izraza </td><td> !t <br> !f  <br> !x2 <br> </td><td> false <br> true <br> false </td>
+    </tr>
+</tbody>
+
+</table>
+<br>
+<textarea class = "primer_ta" rows = "39" disabled>
+  let t: boolean = true;
+  let f: boolean = false;
+  let x1: number = 2;
+  let x2: number = 3;
+  let s1: string = "četri";
+  let s2: string = "pet";
+
+  //Operator I    && : t && f
+  
+  let p1  = t && f;
+   
+  let p2  = x2 && x1;
+  
+  //Operator ILI   || : t || f  
+  
+  let p3  = t || f ;
+  
+  let p4  = s2 || s1 ;
+  
+  //Operator negacije  ! : !t
+  
+  let p5  = !t;
+  
+  let p6  = !x2;
+  
+  
+  let p7 = !(t && f || ( t && f ||t));
+  
+  
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p7
+  let R = p1;  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">
+Operandi logičkih operatora mogu biti i nekog drugog tipa, u tom slučaju važi sledeće: <br>
+Ako je operator && i vrednost prvog operanda nije false ili ne može da se konvertuje u false , onda je povratna vrednost, vrednost drugog operanda u izrazu. Ako je operator || i vrednost prvog operanda nije true ili ne može da se konvertuje u true, onda je povratna vrednost, vrednost prvog operanda u izrazu. U slučaju da se koristi operand ! onda je povratna vrednost uvek false. <br>
+</div>
+<br>
+<b>BITOVSKI OPERATORI</b>
+<br>
+<br>
+Brojevi predstavljaju jedan od apstraktnih pojmova koji opisujemo simbolima. Jedan od nama poznatih načina da predstavimo brojeve je upotreba dekadnog sistema . Drugi način je pomoću binarnog sistema, svaki broj u binarnom sistemu možemo da zapišemo kao niz 0 i 1 gde se svaki član tog niza naziva bit. Operandi bitovskih operatora predstavljaju  brojevne vrednosti ali sa zapisom u binarnom sistemu.
+Iz svega izloženog možemo da zaključimo da bitovski operatori izvršavaju svoje operacije baš na binarnim reprezentacijama brojeva, dok vraćaju vrednosti u standardnom dekadnom zapisu. Podsetimo se da u TypeScripu svaki broj možemo da zapišemo pomoću četri brojevna sistema, među njima je i binarni sistem. Da bi koristili bitovske operatore u TypeScriptu
+nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  služiti ćemo se i ovim sistemom. Za potrebe primera uzećemo sledeće vrednosti: x = 0b1000011, x1 = 67, y =0b11110,  y =30.
+<br>
+<br>
+<table class = "tabela">
+<thead>
+     <tr>
+       <th>Operator</th><th>Opis</th><th>Primer</th><th>Povratna vrednost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> & </td><td> Bitovsko <b>I</b> </td><td>  x & y <br> x1 & y1  </td><td> 2 <br>  2</td>	  
+    </tr>
+    <tr>
+      <td> |  </td><td> Bitovsko <b>ILI</b> </td><td> x | y <br> x1 & y1 </td><td> 95 <br>  95 </td>
+    </tr>
+	<tr>
+      <td> ~ </td><td> Bitovska <b>negacija</b> </td><td> ~x <br> ~x1 </td><td> -68 <br> -68</td>
+    </tr>
+	<tr>
+      <td> ^ </td><td> Bitovsko <b>ekskluzivno ILI</b> </td><td> x ^ y </td><td> 93 </td>
+    </tr>
+	<tr>
+      <td> << </td><td> Pomeranje niza bitova prvog operanda u levo za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0. </td><td> x << 1 <br> x1 << 1</td><td> 134 <br>  134 </td>
+    </tr>
+	<tr>
+      <td> >> </td><td> Pomeranje niza bitova prvog operanda u desno za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0, ako je broj negativan 1. </td><td> x >> 1 </td><td> 33 </td>
+    </tr>
+	<tr>
+      <td> >>> </td><td> Pomeranje niza bitova prvog operanda u desno za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0. </td><td> x >>> 1 </td><td>33</td>
+    </tr>
+</tbody>
+</table>
+<br>
+<textarea class = "primer_ta" rows = "75" disabled>
+
+  let x : number = 0b1000011;
+  let x1: number = 67;
+  let y : number = 0b11110;
+  let y1: number = 30;
+
+  //Operator bitovsko I & : x & y
+  
+  let p1  = x & y;
+   
+  let p2  = x1 & y1;
+  
+  //Operator bitovsko ILI |: x | y  
+  
+  let p3  = x | y;
+  
+  let p4  = x1 | y1;
+  
+  //Operator bitovska negacija ~: x ~ y
+  
+  let p5  = ~x;
+  
+  let p6  = ~x1;
+  
+  //Operator bitovsko ekskluzivno ILI  ^ : x ^ y
+  
+  let p7  = x ^ y;
+  
+  //Operator pomeranja bitova u levo  << : x << y
+  
+  let p8 = x << 2;
+  
+  let p9  = x1 << 2;
+  
+  //Operator pomeranja bitova u desno >> : x >> 2
+  
+  let p10  = x >> 2;  
+  
+  //Operator pomeranja bitova u desno >>> : x >>> 2
+  
+  let p11 = x >>> 2; 
+  
+  
+  // Za pozitivne vrednosti brojeva operatori >>> i >> daju iste vrednost ali za negativne , dobićemo potpuno različite rezultate!
+   
+  let p12 = -x >>> 2;
+  
+  let p13 = -x >> 2;
+  
+  // Funkcija koja ispisuje binarni zapis broja
+  
+  
+  function binarniZapis(x:number) { 
+    let str: string = "";
+    let maska: number = 1;
+    for (let i = 0; i < 32; i++){
+        if ((maska & x) != 0)
+            str = "1"+str;
+        else
+            str = "0"+str;
+        maska <<= 1;
+    }
+    return (str);
+}
+    
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p13
+  let R = p1;  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">
+1) Da bi se potpuno razumelo kako bitovski operatori funkcionišu potrebno je biti upoznat sa binarnim zapisom broja, specifičnostima i osobinama.<br>
+2) TypeScript koristi 32 bita za zapis svakog broja. Prvi bit je rezervisan za znak ostalih 31 za predstavljanje numeričke vrednosti. Za zapis svakog broja se koriste 32 bita, npr broj 7 u binarnom zapisu je 1111 ali ga TypeScript čuva kao 00000000000000000000000000001111.<br>
+3) Bitovska negacija predstavlja nepotpun komplement broja a ne njegovu negativnu vrednost !<br>
+4) Kako bi ste videli binarni zapis broja koristite se funkcijom <b>binarniZapis</b>.<br>
+5) Na korišćenje operatora << možemo gledati kao na množenjem stepenom dvojke. Suprotno od toga je operator >> koji je ekvivalent deljenju stepenom dvojke gde je povratna vrednost celobrojni količnik bez ostatka. Svaki realan broj možemo da smestimo između dva cela broja. Kad primenjujemo operator >> povratna vrednost je manji od ta dva broja. Primer: 9 >> 2 = 2, 9 / 4 = 2.25 (2 < 3), -67 >> 2 = -17, -67 / 4 = -16,75 (-17 < -16)
+</div>
+<br>
+A sad da malo bolje pogledamo šta se dešava sa tim bitovima. x = 67, y = 30.
+<br>
+X & Y
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> y </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td>
+    </tr>
+	<tr>
+      <td> x & y </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>
+    </tr>
+</table>
+<br>
+X | Y
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> y </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td>
+    </tr>
+	<tr>
+      <td> x & y </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td>
+    </tr>
+</table>
+<br>
+~X
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+      <td> ~x </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td>
+    </tr>
+</table>
+<br>
+X^Y
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> y </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td>
+    </tr>
+	<tr>
+      <td> x ^ y </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td>
+    </tr>
+</table>
+<br>
+X << 2
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> x << 2 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td>
+    </tr>
+</table>
+<br>
+X >> 2
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> x << 2 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>
+    </tr>
+</table>
+<br>
+X >>> 2
+<table class = "tabela">
+    <tr>
+      <td> x </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>				  
+    </tr>
+    <tr>
+      <td> x << 2 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>
+    </tr>
+</table>
+<br>
+<b>OPERATORI DODELE</b>
+<br>
+<br>
+Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednost levog operanda. Za potrebe primera uzećemo sledeće vrednosti: x1 = 2, x2 = 6, s1 = "četri".
+<br>
+<br>
+<table class = "tabela">
+<thead>
+     <tr>
+       <th>Operator</th><th>Opis</th><th>Primer</th><th>Povratna vrednost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> = </td><td> Dodeljuje vrednost levom operandu na osnovu vredonsti desnog.  </td><td>  x = x1 <br> s = s1  </td><td> 1 <br>  "četri" </td>	  
+    </tr>
+    <tr>
+      <td> += </td><td> x2 = x2 + x1 </td><td> x2 += x1 </td><td> 8 </td>
+    </tr>
+	<tr>
+      <td> -= </td><td> x2 = x2 - x1 </td><td> x2 -= x1 </td><td> 4 </td><!-- Operator dodele je malo specifičan jer ako operatore posmatramo kao funkcije koje imaju povratnu vrednost šta bi bila povratna vrednost operatora dodele, treba o tome malo razmisliti da li ima smisla onda ovo što sam uneo u tabele ?-->
+    </tr>
+	<tr>
+      <td> *=  </td><td> x2 = x2 * x1 </td><td> x2 *= x1 </td><td> 12 </td>
+    </tr>
+	<tr>
+      <td> /= </td><td> x2 = x2 / x1 </td><td> x2 /= x1 </td><td> 3  </td>
+    </tr>
+	<tr>
+      <td> %= </td><td> x2 = x2 % x1 </td><td> x2 %= x1 </td><td> 0 </td>
+    </tr>
+</tbody>
+
+</table>
+<br>
+<textarea class = "primer_ta" rows = "45" disabled>
+
+  let x1: number = 2;
+  let x2: number = 6;
+  let s1: string = "četri";
+
+  //Operator dodele =  : x2 =  x1
+  
+  let p1  = x1;
+  
+  let p2 =  s1; 
+  
+  //Operator dodele sa oduzimanjem -= : x2 -= x1  
+  
+  let p3 = x2;
+  
+  p3 -= x1;
+  
+  //Operator dodele sa množenjem *= : x2 *= x1
+  
+  let p4  = x2;
+  
+  p4  *= x1;
+  
+  //Operator dodele sa deljenjem  / : x2 /= x1
+  
+  let p5  = x2 ;
+  
+  p5  /= x1;
+  
+  //Operator dodele sa ostatkom   % : x2 % x1
+  
+  let p7  = x2;
+  
+  p7  %= x1;
+ 
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p7
+  let R = p1;  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<div class = "napomena">
+Primetimo da gore navedeni operatori dodele ne predstavljaju ništa drugo nego kombinaciju aritemtičkih operatora i standardnog operatora dodele. Po osnovama iste logike funkcionišu i operatori
+<<=, >>=, >>=, &=, |= i ^=. Tako izraz y >>= y1 je ekvivalentan izrazu y = y >> y1, izraz y ^= y1 izrazu y = y ^ y1 itd.
+</div>
+<br>
+<b>USLOVNI OPERATOR</b>
+<br>
+<br>
+Uslovni operator je jedini ternarni operator u typescriptu. Šta to znači ? To znači da je jedini operator koji im tri operanda. Uslovni operator koristimo kada želimo da formiramo uslovne izraze. Njegova sintaksa je sledeća:
+<br>
+<br>
+<span class = "primer_text"> uslova ? izraz1: izraz2</span>
+<br>
+<br>
+Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je true izvršava se <b>izraz1</b> inače <b>izraz2</b>. Povratne vrednosti ova dva izraza mogu biti bilo kog tipa. Pa da vidimo na primerima kako funkcioniše.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "17" disabled>
+ let x1 = 1;
+ let x2 = 2;
+ 
+ let r: string = x1 > x2 ? "x1 je veće od x2" : "x2 je veće od x1" ;
+ 
+ let r1: string = "Tokyo" < "Užice" ? "Užice je leksikografski veće od Tokia" : "Tokyo je leksikografski veće od Užica" ;
+ 
+ let r2: boolean = "Tokyo" < "Užice" ? x1 > x2 : x1 << 1 >= x2 ;
+  
+ 
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(r);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<b>OPERATORI NAD TIPOVIMA</b>
+<br>
+<br>
+U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Typeof je unarni operator koji kao povratnu vrednost vraća tip operanda u vidu stringa. Instanceof je binarni operator koji proverava da li objekat pripada određenoj klasi, njegova povratna vrednost je true ili false u zavisnosti od toga da li objekat pripada klasi ili ne. Bez daljeg zadržavanja da pređemo na primer.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "34" disabled>
+  class obicnaKlasa {
+  
+    polje1: string;
+	polje2: number;
+	polje3: number = 5;
+  
+  
+  }
+
+  let x1: number = 2;
+  let x2: number = 6;
+  let s1: string = "četri";
+  
+  let O: obicnaKlasa = new obicnaKlasa();
+  
+  
+  let p1: string = typeof x1;
+  
+  let p2: string = typeof s1;
+  
+  let p3: string = typeof O;
+  
+  let p4: boolean = O instanceof obicnaKlasa;
+  
+  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p4
+  
+  let R = p1;
+  
+ let button = document.createElement('button');
+ button.textContent = "Rezultat";
+ button.onclick = function () {
+    alert(R);
+ };
+ document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<div class = "napomena">
+Primenom operatora typeof nad O dobijamo da je povratna vrednost <b>object</b>. Iz navedenog možemo da zaključimo da primenom operatora typeof nad objektima možemo samo da saznamo da se radi o objektu ali ne i kojoj klasi pripada. Iz tog razloga razvijen je operator instanceof koji proverava da li objekat pripada navedenoj klasi.
+</div>
+<br>
+<b>PRIORITET OPERATORA</b><!-- Prednost izvršavanja operatora ?-->
+<br>
+<br>
+Prilikom pisanja izraza moramo voditi računa kojim redosledom će se operatori izvršavati. Uzmimo na primer izraz 2+3*7, ovde imamo dve kombinacije ili je vrednost izraza 35 ili je vrednost izraza 23. Naravno tačan odgovor je 23 tjst operator množenja ima prioritet nad operatorom sabiranja.
+Primetimo da u izrazu 2+3*7 operator sabiranje ima operande 2 i 3 a operator množenja operande 3 i 7. Ova dva operatora imaju zajednički operand broj 3, postavlja se pitanje "ko ima preče pravo na taj operand" tjst ko ima veći prioritet. U nastavku možete videti listu operatora u typescriptu poređanih po prioritetu počevši od operatora dodele koji ima najveći prioritet.
+<br>
+<br>
+<table class = "tabela"><!-- E sad ima još brdo operatora kao sto je poziv funkcije, pozivanje konstruktora ne znam da li i njih da stavim u listu prioriteta ili da ostavim na operatorima samo koje sam pomenuo u lekciji ?-->
+<thead>
+     <tr>
+       <th>Prioritet</th><th>Ime operatora</th><th>Operator</th><th>Asocijativnost</th>
+     </tr>
+</thead>
+<tbody>
+    <tr>
+      <td> 1 </td><td> Operatori dodele </td><td>  = <br> +=  <br> -=  <br> *= <br> /= <br> %= <br> <<= <br> >>= <br> >>>= <br> &= <br> ^= <br> |=  </td><td> S desna na levo</td>	  
+    </tr>
+    <tr>
+      <td> 2  </td><td> Uslovni operator </td><td> ?  :  </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 3 </td><td> Logičko ILI </td><td> || </td><td> S leva na desno</td>
+    </tr>
+	<tr>
+      <td> 4 </td><td> Logičko I </td><td> && </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 5 </td><td> Bitovsko ILI </td><td> | </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 6 </td><td> Bitovsko ekskluzivno ILI </td><td> ^ </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 7 </td><td> Bitovsko I </td><td> & </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 8 </td><td> Jednakost po tipu i vrednosti </td><td>  ===  </td><td> S leva na desno </td>	  
+    </tr>
+    <tr>
+      <td> 8  </td><td> Različito od   </b> </td><td> !=  </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 8 </td><td> Jednako </td><td> == </td><td> S leva na desno</td>
+    </tr>
+	<tr>
+      <td> 9 </td><td> instanceof </td><td> instanceof </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 9 </td><td> Veće ili jedanko od </td><td> >= </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 9 </td><td> Veće </td><td> > </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 9 </td><td> Manje ili jednako od </td><td> <= </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 9 </td><td> Manje od </td><td>  <  </td><td> S leva na desno</td>	  
+    </tr>
+    <tr>
+      <td> 10  </td><td> Bitovsko pomeranje u desno nulama   </b> </td><td> >>>  </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 10 </td><td> Bitovsko pomeranje u desno </td><td> >> </td><td> S leva na desno</td>
+    </tr>
+	<tr>
+      <td> 10 </td><td> Bitovsko pomeranje u levo </td><td> << </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 11 </td><td> Oduzimanje </td><td> - </td><td>  S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 12 </td><td> Sabiranje </td><td> + </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 12 </td><td> Ostatak </td><td> % </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 12 </td><td> Deljenje </td><td> / </td><td> S leva na desno </td>
+    </tr>
+	<tr>
+      <td> 12 </td><td> Množenje </td><td>  *  </td><td> S leva na desno</td>	  
+    </tr>
+    <tr>
+      <td> 13  </td><td> typeof   </b> </td><td> typeof  </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Prefiksno umanjenje </td><td> -- </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Prefiksno uvećanje </td><td> ++ </td><td>  S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Unarna negacija </td><td> - </td><td>  S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Unarno plus </td><td> + </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Bitovska negacija </td><td> ~ </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 13 </td><td> Logička negacija </td><td> ! </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 14 </td><td> Postfiksno umanjenje </td><td> -- </td><td> S desna na levo </td>
+    </tr>
+	<tr>
+      <td> 14 </td><td> Postfiksno uvecanje </td><td>  ++  </td><td> S desna na levo </td>	  
+    </tr>
+</tbody>
+</table>
+<br>
+<div class = "zadatak">
+1) Napisati izraz koji u sebi sadrži bitovske , aritmetičke, relacione i uslovne operatore. Vrednost izraza treba da bude true.<br>
+2) Koristeći operator odrediti tip ovog izraza . Vrednost operatora treba da se ispise pritiskom na dugme.<br>
+3) Koristeći bitovske operatore pomnožiti broj 256 sa 4 i ispisati njegovu vrednost pritiskom na dugme.
+</div>

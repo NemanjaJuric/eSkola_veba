@@ -1,0 +1,314 @@
+﻿<h1>PROMENLJIVE</h1>
+<br>
+Promenljiva po definiciji ne predstavlja ništa drugo nego deo prostora u memoriji kojem smo dali neko ime i na kome čuvamo podatke koje mi nazivamo vrednosti. Ako je planeta Zemlja jedna velika memorija onda bi deo memorije bila neka lokacija
+na Zemlji koju možemo da potpuno odredimo pomoću geografske širine i dužine. Tako bi kordinate 35° 41′ 0″ N, 139° 41′ 0″ E predstavljale " deo memorije " koja je još poznata pod imenom Tokyo. Naravno i promenljive su uvedene iz praktičnih razloga kao što
+što je i Tokyo a ne 35° 41′ 0″ N, 139° 41′ 0″.  Što se tiče pravila za davanje imena promenljivoj ostala su ista kao
+u JavaScriptu, pa da se podsetimo nekih od njih. Neformalno možemo reći da nam promenljive služe za čuvanje vrednosti.<!-- Ovde samo navodimo pravila vezano za ime promenljiive a ne i ostala pravila koja promenljiva mora da ispoštuje-->
+<br>
+<br>
+<ul>
+	<li>Imena promenljivih mogu sadržati slova i brojeve</li>
+	<li>Ne smeju sadržati specijalne simbole osim _ ili $</li>
+	<li>Ime promenljive ne može početi brojem.</li>
+	<li>Ime promenljive ne može biti ključna reč.</li>
+</ul>
+<br>
+Svaku promenljivu koju želimo da koristimo moramo prvo da deklarišemo.Da bi deklarisali promenljivu potrebno je da uradimo sledeće:
+<br>
+<br><!-- Ovo nije loše ilustoravti nekim sličicama ako ti ostane vremena da implementiraš-->
+
+<textarea class = "primer_ta" rows = "4" disabled>
+
+ let ImePromenljive;
+
+</textarea>
+<br>
+Da bi deklarisali i naznačili da se radi o promenljivoj u kodu koristimo ključnu reč <b>let</b> ili <b>var</b>. Promenljivu možemo deklarisati i pomoću ključne reči <b>const</b> o čemu ćemo posebno diskutovati.
+<br>
+<br>
+Ovo je dovoljno da bi deklarisali promenljivu. Primetimo da u odnosu na prethodni kod 
+koji smo imali u lekcijama deluje kao da nam nešto "nedostaje"? Ono što nam "nedostaje" je deklaracija tipa
+promenljive i vrednosti koju čuva. Ostanite bez brige čak i ovako deklarisana promenljiva ima svoj tip i vrednost.
+U situacijama  kad to nije eksplicitno  urađeno tip promenljive se automatksi postavlja na <b>any</b> a vrednost na <b>undefined</b>.
+<br>
+<textarea class = "primer_ta" rows = "6" disabled>
+
+//let ImePromenljive: tipPodatka;
+
+  let ImePromenljive: number;
+
+</textarea>
+<br>
+Za deklaraciju tipa promenljive koriste se dve tačke (<b>:</b>)  posle kojih se navodi kog tipa  želimo da naša promenljiva bude tjst koji tip vrednosti očekujemo da će da čuva. Opet smo izostavili vrednost 
+pa će vrednost biti automatski postavjlena na undefined.
+<br>
+<textarea class = "primer_ta" rows = "6" disabled>
+
+//let ImePromenljive: tipPodatka = vrednost;
+
+  let ImePromenljive:   number   = 4;
+
+</textarea>
+<br><!-- Da li pisati reči za simbole ili odmah npr napisati = umesto jednako ?-->
+Korišćenjem operatora jednako (<b>=</b>) mi našoj promenljivoj dodeljujemo vrednost. U gore navedenom primeru našoj promenljivoj ImePromenljive koju smo deklarisali da je tipa number dodeljujemo vrednost 4 koja je takođe tipa number.
+Za ovakav vid deklaracije može se reći da je potpun jer smo deklarisali i tip promenljive i dodelili smo joj vrednost pa možemo bez problema da je koristimo u drugim delovima koda.
+<br>
+<br>
+Može se još dogoditi da promenljivoj dodelimo vrednost a ne deklarišemo tip , tada će njen tip automatski biti postavljen  na osnovu tipa njene vrednosti. Primetimo još da u kodu uvek koristimo <b>let</b> iako imamo izbor da koristimo i <b>var</b>. Razlog
+iza ovakve odluke leži u tome da korišćenjem ključne reči <b>let</b> u kodu manje smo podložni pravljenju ne toliko sintaksnih koliko semantičkih grešaka. Kasnije u lekciji ćemo izneti   poređenja i razloge koji stoje iza ove odluke.
+Naravno izbor između <b>let</b> i <b>var</b> leži na pojedincu.
+<br>
+<div class = "napomena">
+Jedna od stvari koje u ovom trenutku treba skrenuti pažnju čitaocu je i podudaranje tipova. Sad šta podrazumeva podudaranje tipova? Podudaranje tipova podrazumeva jednostavno pravilo koje očekuje da se tip promenljive i tip vrednosti podudaraju.
+Neformalnim jezikom govoreći očekujemo da tipovi sa obe strane jednakosti budu isti inače u procesu kompilacije doći će do greške.
+</div>
+<br>
+<b>Domen promenljive u okviru koda</b> <!-- Ili Pravila domena dostupnosti  promenljive u okviru koda ?-->
+<br>
+Domen promenljive predstavlja deo koda u kojem je promenljiva definisana. Dostupnost promenljive unutar programa zavisi od njenog domena. U prevodu van domena promenljiva kao da ne postoji i ne možemo da je koristimo iako smo je deklarisali i 
+nalazi se u memoriji. U TypeScriptu promenljive mogu da imaju jedan od sledećih domena:
+<br>
+<br>
+<ul>
+	<li><b>Globalni domen</b>- Globalne promenljive su promenljive koje su deklarisane izvan programskih konstrukta<!-- Možda bi bilo lepo objasniti šta su programski konstrukti :) ?-->. Ovim promenljivima se može pristupiti iz bilo kog dela koda.</li>
+	<li><b>Domen klase</b>- Ove promenljive se još zovu polja ili atributi. Polja tjst promenljive klasa su deklarisane unutar klasa ali izvan metoda. Ovim promenljivim se može pristupiti putem objekta klase u kome se nalaze. Polja mogu da budu i statična
+	i u tom slučaju im se pristupa preko imena klase.</li>  <!-- Ako atribut u klasi se tretiraju kao promenljive zašto ne možemo da koristimo let nego to izostavljamo da bi ga prepoznalo kao atribut ?-->
+	<li><b>Lokalni domen</b>- Lokalne promenljive kao što im ime sugeriše su promenljive koje su deklarisane u unutar konstrukcija kao što su metodi, petlje, blokovi naredbi itd. Lokalnim promenljivima se samo može pristupiti unutar konstrukcija u kojima se nalaze.</li>
+	
+</ul>
+<br>
+Nadamo se da će posle narednog primera biti još jasnije.
+<br>
+<textarea class = "primer_ta" rows = "43" disabled>
+
+  let GlobalnaPromenljiva: number = 100;
+  
+  function FUNKCIJA() : number {
+  
+  let LokalnaPromenljiva: number = 1;
+  
+  return (GlobalnaPromenljiva + LokalnaPromenljiva) ;
+  }
+
+  class KLASA {
+
+   static PromenljivaKlase: number = 1;
+   PromenljivaKlase2: number = 5;
+    
+  
+  }
+  
+  let Objekat = new KLASA();
+  
+  let Zbir : number = FUNKCIJA() + Objekat.PromenljivaKlase2;
+  
+  // 1. Ako izbrišemo deo koda (let Objekat = new KLASA();) i Objekat.PromenljivaKlase2 zamenimo sa PromenljivaKlase2
+  
+  let Zbir1: number = GlobalnaPromenljiva + KLASA.PromenljivaKlase;
+  
+  // 2. Umesto KLASE.PromenljivaKlase saberite sa LokalnaPromenljiva
+  
+  
+  let button1 = document.createElement('button');
+  let button2 = document.createElement('button');
+ button1.textContent = "Dugme1";
+ button1.onclick = function () {
+     alert(Zbir);
+ };
+ button2.textContent = "Dugme2";
+ button2.onclick = function () {
+     alert(Zbir1);
+ };
+ document.body.appendChild(button1);
+ document.body.appendChild(button2);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Ako ste pokušali da izmenite deo koda kao što piše u komentaru 1. ili 2. primetićete da kompilacija nije prošla. Dobićete obaveštenje <b>Cannot find name 'PromenljivaKlase2'.</b>  ili <b>Cannot find name 'LokalnaPromenljiva'.</b> u zavisnosti od toga šta ste  od navedenog uradili iz komentara.
+Greške su se javili baš zato što smo pokušali da upotrebimo promenljive van njihovog domena definisanosti. Kao što vidimo  promenljivoj GlobalnaPromenljiva možemo da pristupimo u bilo kom delu koda dok promenljivoj LokalnaPromenljiva samo unutar funkcije u kojoj je i deklarisana. Kad smo pokušali da joj pristupimo van funkcije
+dobili smo grešku jer je kompajler uopšte ne prepoznaje da postoji van funkcije ( Ponaša se prema njoj kao što bi se ponašao prema nekoj drugoj promenljivoj u kodu koju uopšte nismo deklarisali ). Što se tiče promenljivih klasa njima možemo da pristupimo sve dok im pristupamo preko objekata u kojima se nalaze jer im je to i domen.
+Čim kad pokušamo da im pristupimo samo preko njihovog imena kompajler ih neće prepoznati.
+<br>
+<br>
+<b>PROMENA TIPA</b><!-- Možda nagoveštavanje tipa ?-->
+<br>
+<br>
+TypeScript dozvoljava da promenljiva iz početnog tipa P pređe u željeni tip D. Ovaj proces se još na engleskom zove Type Assertion. Sintaksa je sledeća, tip u koji želimo da promenimo postavljamo između <> a sve to isped promenljive ili nekog izraza. Ovo je izvodljivo
+samo ako je tip P podtip tipa D ili tip D podtip tipa P. Type Assertion ne treba mešati sa Type Casting jer Type Casting uključuje i podršku pri izvršavanju programa dok je Type Assertion čisto proces koji se dešava u procesu kompilacije. Prostim jezikom govoreći  Type Assertion
+predstavlja način  da kompajleru skrenemo pažnju kako želimo da naš kod bude protumačen.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "19" disabled> 
+
+  let str1: number = 1; 
+  let str2: string  = <string> <any> str1   
+
+  //Ovde number nije podtip stringa niti obratno tako da prvo menjamo tip na any pa onda sa any na string.
+  // Any je nadtip number i string tjst oni su podtipovi any. 
+  //Ovde smo imali dve promene tipa i to je bilo neophodno uraditi kako bi bio zadovoljen gore navedeni uslov.
+  //Inače bi dobili grešku Type 'number' cannot be converted to type 'string'.
+
+let button = document.createElement('button');
+ button.textContent = " Dugme ";
+ button.onclick = function () {
+    alert(str2);
+ };
+ document.body.appendChild(button);
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<b>DODELJIVANJE TIPA NA OSNOVU VREDNOSTI</b>
+<br>
+Iako je TypeScript jako tipiziran, ovaj pristup je opcionalan. TypeScript pruža mogućnost i dinamičkog dodeljivanja tipa promenljivoj. O čemu se to radi? Dinamičko dodeljivanje tipa promenljivoj podrazumeva da odluku o tome kog će tipa biti promenljiva
+prepustimo TypeScriptu. Ako nismo eksplicitno naveli tip promenljive onda će u procesu kompilacije kompajler sam dodeliti tip promenljivoj na osnovu tipa vrednosti koja joj je dodeljena promenljivoj. Kako funkcioniše pogledajmo na narednom primeru.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "13" disabled> 
+
+   let x= 1; 
+   
+   //x="1";
+   
+   let button = document.createElement('button');
+   button.textContent = " Dugme ";
+   button.onclick = function () {
+      alert("I promenjiva je tipa " + typeof x + ".");
+   };
+   document.body.appendChild(button);
+
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Korišćenjem unarnog operatora <b>typeof</b> proverili smo tip naše promenljive i dobili da je number. Ako bi dodali i kod pod komentarima dobili bi grešku <b>Type '"1"' is not assignable to type 'number'.</b>.Pošto je već kompajler dodelio
+promenljivoj x tip number, dodeljivanjem stringa promenljivoj x nema smisla jer se tip promenljive i tip nove vrednosti razlikuje. To je bio još jedan način da pokažemo da TypeScript dinamički dodeljuje tip promenljivoj u situaciji kad nije eksplicitno deklarisan.
+<br>
+<br>
+<b>KONSTANTE</b>
+<br>
+Još jedan od načina da deklarišemo promenljivu je da upotrebimo ključnu reč <b>const</b>. Upotrebom ključne reči <b>const</b> u kodu mi naznačavamo kompajleru da vrednost promenljive ostaje nepromenjena tokom čitavog izvršavanja programa.
+Const je skraćenica od constant što u prevodu znači znači stalan, nepromenliv. Pokušaj dodeljivanja nove vrednosti promenljivoj (označimo je sa x) koja je deklarisana kao const rezultiraće greškom <b>Cannot assign to 'x' because it is a constant or a read-only property.</b> .
+<br>
+<textarea class = "primer_ta" rows = "20" disabled> 
+  const Broj:number =5;
+  const Reč :string ="Tekst";
+  const Grad = {
+    ime: "Kyoto",
+    brojStanovnika: 1,475,183;
+	  readonly Himna:"Kimigayo"
+  };
+  //Kad smo kod objekata sledeće nije dozvoljeno:
+  /*  
+   const Grad = {
+       ime: "Beograd",
+       brojStanovnika: 1,233,796;
+	   readonly Himna:"Bozepravde"
+   };
+    Ono što je jeste...
+  */ 
+  Grad.ime = "Hirošima";
+  Grad.brojStanovnika = 1,196,274;
+</textarea>
+<br>
+Kada pomenemo reč const obično se misli na matematičke konstante ali za svaku promenljivu koju deklarišemo kao const  njena vrednost postaje nepromenljiva tjst konstantna. Iz gore navedenog primera vidimo da promenljiva tipa string može da bude
+konstantna tjst vrednost promenljive Reč ne može da bude nijedan drugi string sem stringa "Tekst". Kada su upitanju objekti moramo da vodimo računa jer "vrednost" promenljive predstavlja sve pod vitičastim zagradama tjst predstavlja sam objekat. Tako da iako nije
+moguće menjati jedan objekat sa drugim kao što je prikazano u primeru moguće je menjati vrednosti polja koje se nalaze u samom objektu. Vrednost nije moguće menjati ako je polje označeno modifikatorom <b>readonly</b>.
+<br>
+<br>
+<b>RAZLIKA IZMEĐU LET I VAR</b>
+<br>
+<br>
+U ovom odeljku ćemo navesti par najbitnih razlika između let i var. Najveća zamerka i razlog zbog kojeg su autori TypeScript odlučili da se opredele za let a ne var leži u činjenici da promenljiva deklarisana sa var ima različit domen 
+definisanosti od domena koji bi imala kad bi bila deklarisalna pomoću let. Zbog ove činjenice ostavlja se veći prostor za pravljenje semantičkih grešaka nego što bi to bio slučaj da smo promenljivu deklarisali pomoću let. Pa da pogledamo.
+<br>
+<br>
+<textarea class = "primer_ta" rows = "23" disabled>  
+  function testFunkcija ( x: number ) {
+  
+         if (x == 1){
+		 
+		  var y =2; //let y = 2;
+		  
+		 }
+  
+      return y;// Cannot find name 'y'.
+
+     }
+	 
+	 
+   var h =testFunkcija(1);
+   var j =testFunkcija(2);
+   var button = document.createElement('button');
+   button.textContent = "Pa da pogledamo.";
+   button.onclick = function () {
+    alert("Vrednost h je " + h + " a" + " j je " + j + "." );
+    };
+   document.body.appendChild(button);
+   
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Možemo primetiti da se promenljiva y deklarisana pomoću <b>var</b> ponaša kao globalna promenljiva a ako je deklarišemo pomoću <b>let</b> onda kao lokalna. U prilog tome govori gore navedeni primer. Pri pozivu funkcije testFunkcija za vrednost x-a dva,
+uslov unutar funkcije neće biti zadovoljen pa pri tome neće biti ni instrukcije da se deklariše promenljiva y. Uprkos tome vidimo da možemo da pristupimo promenljivoj y koja ima vrednost undefined. Ako umesto var upotrebimo let onda ćemo dobiti grešku 
+<b>Cannot find name 'y'.</b> jer smo pokušali da pristupimo y izvan bloka u kome je definisana. Hadje da pogledamo još koji primer.
+<br>
+<div class = "napomena">
+Za čitaoce koji pokušaju da izmene kod i umesto var stave let, treba skrenuti pažnju da program ne bi trebalo da se pokrene. Kao što smo bili zaključili program ima grešku. Ako se program ipak pokrene to je zato što je TS kompajler iskaz <b>let y =2;</b>
+zamenio iskazom <b>var y =2;</b>. U tom slučaju u dobijenom JavaScript kodu treba samo <b>var y =2;</b> zameniti sa <b>let y =2;</b>.
+</div>
+<br>
+Jedan od problema koje srećemo kada promenljive deklarišemo pomoću var jeste da je moguće jednu promenljivu deklarisati više puta.
+<textarea class = "primer_ta" rows = "20" disabled>  
+  let M: number [][] = [[1, 2, 3, 4],[4, 3, 2, 1],[5, 6, 7, 8], [9, 10, 11, 12]];
+  
+  var S = 0;
+    for (var i = 0; i < M.length; i++) {
+        var trenutniRed = M[i];
+        for (var i = 0; i < ctrenutniRed.length; i++) {
+            S =S + trenutniRed[i];
+        }
+    }
+	// Ovako nećemo daleko dogurati jer samo prođe kroz prvi red. 
+   var button = document.createElement('button');
+   button.textContent = "Pa da pogledamo.";
+   button.onclick = function () {
+    alert(S);
+    };
+   document.body.appendChild(button);
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<textarea class = "primer_ta" rows = "20" disabled>  
+  let M: number [][] = [[1, 2, 3, 4],[4, 3, 2, 1],[5, 6, 7, 8], [9, 10, 11, 12]];
+  
+  var S = 0;
+    for (let i = 0; i < M.length; i++) {
+        var trenutniRed = M[i];
+        for (let i = 0; i < trenutniRed.length; i++) {
+            S=S + trenutniRed[i];
+        }
+    }
+     
+	// Sad će proći kroz celu matricu 
+	 
+   var button = document.createElement('button');
+   button.textContent = "Pa da pogledamo.";
+   button.onclick = function () {
+    alert(S);
+    };
+   document.body.appendChild(button);
+   
+</textarea>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Kao što smo već pomenuli svaka promenljiva koja je deklarisana pomoću var jeste globalna. Zbog ovoga po završetku "unutrašnje" for petlje <b>i</b> koje je deklarisano u petlji će i dalje nastaviti da postoji. 
+Ulazak po drugi put u "spoljasnju" for petlju nije moguće jer nije zadovoljen uslov <b>i < M.length</b>. U slučaju kada promenljive deklarišemo sa let svaka od deklarisanih <b>i-ova</b> ima lokalni domen u okviru svoje for petlje tako da nema kolizije ili zabune.
+Ovo je bio kratak pregled elementarnih stvari što se tiče promenljivih. Za kraj preporučujemo vam da uradite zadatak kako biste proverili dosad naučeno.
+<br>
+<br>
+<div class = "zadatak">
+<b>Zadatak3:</b>
+ a)Deklarisati 3 promenljive tako da jedna ima globalni, druga klasni a treća lokalni domen. Na primeru testirati njihove domene.
+ b)Deklarisati promenljivu tipa string tako da ima vrednost "5" bez upotrebe ( s: string = "5" ili st: number = s;).
+ c)Deklarisati promenljivu tipa string tako da ima vrednost "true"  bez upotrebe ( s: string = "true" ili st: string = s;).
+</div>

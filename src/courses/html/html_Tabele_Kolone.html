@@ -1,0 +1,33 @@
+﻿<h1><b>Kolone</b></h1>
+
+Kako se tabele formiraju red po red, definisanje zajedničkih svojstava
+određenih kolona na takav način nije efiksano. U tu svrhu, koriste se &ltcolgroup&gt i &ltcol&gt etikete.
+Ove etikete omogućavaju definisanje i stilizovanje kolona na željeni način znatno efikasnije.
+<br>
+<br>Ukoliko se vratimo na primer iz opšteg dela o tabelama i želimo da ćelije treće kolone (sa brojem bodova) budu
+obojene zeleno, to možemo postići pomoću sledećeg koda:
+
+<textarea class = "primer_ta" rows="22" disabled>
+ &lttable border="1"&gt 
+   &ltcolgroup&gt 
+       &ltcol&gt        
+	   &ltcol&gt 
+       &ltcol style="background-color:lime"&gt 
+    &lt/colgroup&gt 
+   &lttr&gt 
+     &ltth&gt Ime &lt/th&gt 
+     &ltth&gt Prezime &lt/th&gt 
+     &ltth&gt Broj bodova &lt/th&gt 
+   &lt/tr&gt 
+     &lttr&gt 
+     &lttd&gt Marko &lt/td&gt 
+     &lttd&gt Jovanovic &lt/td&gt 
+     &lttd&gt 68 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Jasmina &lt/td&gt 
+     &lttd&gt Mihajiloivc &lt/td&gt 
+     &lttd&gt 94 &lt/td&gt 
+   &lt/tr&gt 
+ &lt/table&gt 
+</textarea>

@@ -1,0 +1,58 @@
+<div class="strip" [ngClass]="pageUrl != 'about' ? 'bkg-' + courseUrl : 'bkg-about'"></div>
+<div class="container-fluid footer">
+    <div class="row m-t-2">
+        <div class="col-md-4 offset-md-2 m-1-2">
+            <img class="logo-md m-b-1" src="assets/images/logo_light.png" alt="logo_light">
+            <br>
+            <span class="h1 m-1-2">eŠkola veba</span>
+            <br>
+            <p class="m-b-1">Elektroska škola veb programiranja</p>               
+        </div>
+        <div class="col-md-2 m-1-2">
+            <div class="m-b-1">
+                <p>Dodatni resursi</p>
+            </div>
+            <div class="m-b-1">
+                <ul>
+                    <li class="m-t-1"><a class="light-link" [routerLink]="['/web-center']">Veb centar</a></li>
+                    <li class="m-t-1"><a class="light-link" [routerLink]="['/ts-compiler']">TS kompajler</a></li>
+                    <li class="m-t-1"><a class="light-link" [routerLink]="['/sass-compiler']">Sass kompajler</a></li>                    
+                </ul>
+            </div> 
+        </div>
+        <div class="col-md-2 m-1-2">
+            <div class="m-b-1">
+                <p>Možete nas naći</p>
+            </div>
+            <div class="m-b-1">
+                <ul>
+                    <li class="m-t-1"><a href="http://www.matf.bg.ac.rs" class="light-link">Matematički fakultet</a></li>
+                    <li class="m-t-1"><a href="http://www.edusoft.matf.bg.ac.rs" class="light-link">Edusoft</a></li>
+                    <li class="m-t-1"><a href="https://github.com/NemanjaJuric/eSkola_veba" class="light-link">GitHub</a></li>
+                    <li class="m-t-1"><a class="light-link" [routerLink]="['/about']">O nama</a></li>                    
+                </ul>
+            </div> 
+        </div>
+        <div class="col-md-12 text-xs-center m-t-1 m-b-1">
+            <p>
+                Podelite eŠkolu veba sa prijateljima:
+            </p>
+            <div class="m-t-1 m-b-1">
+                <a class = "light-link facebook m-a-1" href="https://www.facebook.com/sharer/sharer.php?u=http://alas.matf.bg.ac.rs/~mr11032/eskola_veba"><i class="fa fa-facebook-square" style = "font-size: 36px;"></i></a>
+			    <a class = "light-link twitter m-a-1" href = "http://twitter.com/share?&url=http://alas.matf.bg.ac.rs/~mr11032/eskola_veba&hashtags=veb_programiranje,matf,html,css,javascript,jquery.bootstrap.php.angular.typescript"><i class="fa fa-twitter" style = "font-size: 36px;"></i></a>
+			    <a class = "light-link google-plus m-a-1" href="https://plus.google.com/share?url=http://alas.matf.bg.ac.rs/~mr11032/eskola_veba"><i class="fa fa-google-plus" style = "font-size: 36px;"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row footer__bottom">
+            <div class="col-md-2 offset-md-2 text-md-left m-t-1">
+                
+            </div>
+            <div class="col-md-4 text-md-center">
+                Matematički fakultet Beograd © {{year}}
+            </div>
+            <div class="col-md-2 text-md-right m-t-1">
+                
+            </div>
+    </div>
+</div>

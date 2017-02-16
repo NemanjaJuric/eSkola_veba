@@ -1,0 +1,123 @@
+<h1>JSON</h1>
+<h2>Uvod</h2>
+<p>JSON (JavaScript Object Notation) je jedan od lak&scaron;ih tekstualnih otvorenih standarda ( javno dostupnih ) dizajniran
+  za čitljivu razmenu podataka. Lak je i za čitanje i pisanje, kao i za generisanje i analiziranje. Izveden je iz JavaScript
+  jezika za predstavljanje jednostavnih struktura podataka i asocijativnih nizova, odnosno objekata.</p>
+<p>JSON je prvi put korišćen u State Software kompaniji koju je osnovao Douglas Crockford koji je takodje i izumeo JSON. Veb
+  sajt JSON.org je počeo sa radom 2002.godine a GOOGLE počinje sa upotrebom JSONa za svoje gData web protokole decembra 2006.</p>
+<p>Koncept JSONa je jednostavan: prosledjuje podatke do klijenta kao string I onda kori&scaron;ćenjem java script funkcije eval()
+  konvertuje taj string u nizove I objekte. JSON je &ldquo; lightweight&rdquo;, otvoreni format za razmenu tekstualno baziranih
+  podataka koji je pogodan za upotrebu u web aplikacijama koje koriste AJAX. JSON je tekstualni format koji je kompletno
+  nezavisan jezik ali sa parserima za mnoge jezike sto ga cini idealnim jezikom za prenos podataka.</p>
+<p>Uprkos njegovoj bliskoj vezi sa Java Scriptom, JSON je nezavisan jezik.</p>
+<p>Njegova ekstenzija je .json. JSON format je često kori&scaron;ćen za serijalizaciju i prenos struktuiranih podataka preko
+  mrežne veze, prvenstveno izmedju servera i web aplikaicja, služeći kao alternativa za XML. Sastavljen je od samo dve strukture:
+  Key-Value kolekcije i Niza. Key-Value kolekcija je ne&scaron;to slično dvodimenzionalnom nizu. Ekvivalent je Dictionary&lt;&gt;
+  u C#. Tipovi podataka koji se mogu smestiti u ove kolekcije su: Object, String, Number, Array, True/False i Null.</p>
+
+<p> Primer 1: Sledeci primer definise objekat “employees”, nizom od tri evidencija zaposlenih:</p>
+<textarea class="primer_ta" rows="5" disabled>
+{ “Employees” : [ 
+  { “Name” : “John” , “Last name” : “Doe” }  
+  { “Name” : “Anna” , “Last name” : “Smith” }
+  { “Name” : “Peter” , “Last name” : “Johns”}
+]} 
+</textarea>
+
+<br>
+<br>
+
+<p> Primer 2. Definisati objekat "Students" , koji definise niz od pet studenata sa imenom, prezimenom i brojem indeksa. </p>
+<br>
+<h2>Sintaksa</h2>
+<p>JSON - tekst se sastoji od sekvence tokena.</p>
+<p>JSON tekst se sastoji od sekvence tokena. Set tokena uključuje set strukturnih karaktera, stringove, brojeve, false, true
+  i null. JSON tekst je serijalizovan objekat ili niz. JavaScript Object Notation je tekst format za serijalizaciju struktuiranih
+  podataka. Izveden je iz objekta literala JavaScript-a, kao sto je definisano u ECMAScript Programming Language.</p>
+<p>String je kolekcija nula ili vi&scaron;e unicode karaktera oivičenih duplim navodnicima. Karakter je predstavljen kao jedinstven
+  karakter. String je predstavljen kao u C-u, tj. Javi.</p>
+<p>Niz je uređena kolekcija vrednosti oivičena srednjim zagradama, a vrednosti su razdvojene znakom zareza.</p>
+<p>Brojevi su slični kao i u mnogim programskim jezicima, dozvoljeno je stavljanje &bdquo;-&rdquo; ili e za eksponent. Oktalni
+  i heksadekadni brojevi nisu dozvoljeni kao i postavljanje 0 na prvom mestu. Decimale su dozvoljene.</p>
+<p>Broj je sličan kao broj u C-u ili Javi, osim &scaron;to se ne koriste oktalni ni heksadecimalni formati.</p>
+<p>Tipovi JavaScript podataka su: <br /> <br /> &bull; Broj (JavaScript format u pokretnom zarezu sa dvostrukom precizno&scaron;ću,
+  zavisi od implementacije)
+  <br /> <br /> &bull; String (Unicode format, sa dvostrukim navodnicima, kao izlazna sekvenca se koristi backslash ) <br
+  /> <br /> &bull; Boolean (true ili false) <br />
+  <br /> &bull; Niz (uredjena sekvenca vrednosti, odvojena zarezima i uokvirena kockastim zagradama; vrednosti ne moraju
+  biti istog tipa) <br /> <br /> &bull; Objekat (neuredjena lokacija nula ili vise imena/promenljivih , gde je ime tipa string
+  a vrednost moze biti string, boolean, null, objekat ili niz. Termini &ldquo;objekat&rdquo; I &ldquo;niz&rdquo; poticu iz
+  JavaScripta) <br /> <br /> &bull; null (prazno) </p>
+<p>Cilj JSONa je da bude minimalan, portabilan, tekstualan I podskup JavaScripta.</p>
+<p>Ključne reči koje se nalaze u narednoj listi moraju biti ispisane malim slovima: <br /> <br /> &bull; false <br /> &bull;
+  number <br /> &bull; string <br /> &bull; null <br /> &bull; true <br /> &bull; object <br /> &bull; array</p>
+<p> Struktura objekta mora biti ograničena vitičastim zagradama , a imena objekata moraju biti jedinstvena. Nizovi se predstavljaju
+  ograničeni kockastim zagradama , a elementi se odvajaju zarezom. </p>
+
+<p> Primer 3. <span class = "primer_text"> {"Ime":"Petar", "Prezime":"Petrović"} </span></p>
+
+<p> JavaScript sintaksa sadrzi nekoliko osnovnih tipova podataka koji nisu ukljuceni u JSON standardu. To su DATE, ERROR, MATH,
+  regularni izrazi I funkcije. Da bi se koristili u JSONu, moraju se predstaviti u nekom drugom formatu podataka. </p>
+
+<p>Primer 4. - Predstavljanje objekta preko JSON-a: 
+  <br>
+  Sledeći primer pokazuje JSON reprezentaciju objekta koji opisuje osobu.
+  <br>
+  Objekat ima polja ime i prezime predstavljena pomoću niske, broj za godinu, objekat koji prikazuje adresu te osobe i niz
+  objekata sa brojevima telefona.
+</p>
+
+<textarea class="primer_ta" rows="24" disabled>
+{
+  "firstName": "John",
+  "lastName" : "Smith",
+  "age" : 25,
+   "address" :
+   { 
+   "streetAddress": "21 2nd Street", 
+   "city" : "New York",
+   "state" : "NY",
+   "postalCode" : "10021"
+   },
+   "phoneNumber":
+  [ 
+   {
+   "type" : "home",
+  "number": "212 555-1234"
+  },
+   {
+   "type" : "fax",
+   "number": "646 555-4567"
+   } 
+   ] 
+  }
+</textarea>
+
+
+
+<p> <br>Pošto je JSON podset JavaScript-a, moguće je parsiranje JSON teksta u objekat, koristeći JavaScript funkciju eval().
+  </br>
+  <br>Npr. ako gore navedeni podatak sadrži JavaScript string promenljivu contact, moguće je kreirati JavaScript objekat
+  p: </br>
+  <br> var p = eval("(" + contact + ")"); </br>
+</p>
+<p>
+  <br>Promenljiva contact mora biti oivičena zagradama da bi se izbegla dvosmislenost u JavaScript sintaksi. Preporučljiv
+  način je da se koristi JSON parser. </br>
+  <br>Ukoliko nismo sigurni u ispravnost teksta, da se on neće shvatiti dvosmisleno, treba izbegavati funkciju eval(). Ispravno
+  implementiran JSON parser ce prihvatiti samo ispravan JSON, sprečavajući na taj način izvršenje loših i neispravnih programa.
+  </br>
+  <br>Današnji browseri kao sto su Firefox, Chrome, IE8 sadrže specijalne karakteristike za parsovanje JSON-a. Brovserska
+  podrška je efikasnija i sigurnija za upotrebu, za razliku od eval() funkcije. <br>
+  Za parsiranje se JSON-a u JavaScript objekat koristi se funkcija JSON.parse, a za konvertovanje objekta u string fukcija JSON.stringify.
+</p>
+<p>
+  <br>Neusaglašenost: JavaScript sintaksa sadrži nekoliko osnovnih tipova podataka koji nisu uključeni u JSON standardu.
+  To su date, error, math, regularni izrazi i funkcije. </br>
+  <br>Da bi se koristili u JSON-u, moraju se predstaviti u nekom drugom formatu podataka. Od 2011. godine postoji nekoliko
+  standarda za konvertovanje izmedju datuma i stringova, ali ni jedan nije univerzalan. Drugi jezici mogu imati različite
+  skupove osnovnih tipova koji moraju biti pažljivo serijalizovani da bi se bavili ovom vrstom konverzije. </br>
+</p>
+<div class = "zadatak">
+   Primer 5. Predstaviti objekat u JSONu koji ima polja ime i prezime predstavljena pomoću niske, broj za godinu, objekat koji prikazuje adresu te osobe i niz objekata sa brojevima telefona.
+</div>

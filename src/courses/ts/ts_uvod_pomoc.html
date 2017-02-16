@@ -1,0 +1,19 @@
+﻿<textarea class = "primer_ta" rows = "18" disabled> 
+var ZdravoSvima = (function () {
+    function ZdravoSvima(poruka) {
+        this.pozdrav = poruka;
+    }
+    ZdravoSvima.prototype.Zdravo = function () {
+        return "Zdravo" + this.pozdrav + "moje ime je Mihailo Petrović";
+    };
+    return ZdravoSvima;
+}());
+var Objekat = new ZdravoSvima("svima");
+var button = document.createElement('button');
+button.textContent = "Dont push the button!";
+button.onclick = function () {
+    alert(Objekat.Zdravo());
+};
+document.body.appendChild(button);
+</textarea>
+

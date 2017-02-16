@@ -1,0 +1,99 @@
+body{
+    font-family: $primary-font;
+}
+
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+}
+
+i{
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
+}
+
+a:link{
+    color: $material-light-gray;
+    text-decoration: none;
+}
+
+a:hover{
+    color: $material-dark-gray !important;
+    text-decoration: none;
+}
+
+a:active{
+    color: $material-light-gray;
+    text-decoration: none;
+}
+
+a:visited{
+    color: $material-light-gray;
+    text-decoration: none;
+}
+
+.light-link{
+    color: $light-gray !important;
+    text-decoration: none;
+}
+
+.light-link:hover{
+    color: $light !important;
+    text-decoration: none;
+}
+
+.no-border{
+    border: none;
+}
+
+.text-md{
+    font-size: 24px;
+}
+
+.line-height-md{
+    line-height: 1.5em;
+}
+
+@media(max-width: 480px){
+    .m-a-3{
+        margin: 0 !important;
+    }
+    .display-4{
+        font-size: 40px;
+    }
+}
+
+h1{
+    @media(max-width: 768px){
+        font-size: 32px !important;
+    }
+}
+
+h2{
+    @media(max-width: 768px){
+        font-size: 28px !important;
+    }
+}
+
+h3{
+    @media(max-width: 768px){
+        font-size: 24px !important;
+    }
+}
+
+h4{
+    @media(max-width: 768px){
+        font-size: 20px !important;
+    }
+}
+
+p{
+    @media(max-width: 768px){
+        font-size: 16px !important;
+    }
+}
+

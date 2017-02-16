@@ -1,0 +1,204 @@
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#e8e8e8;
+</style>
+</head>
+<h1>Selektori </h1>
+<br>
+<table border="1">
+<tr>
+<th>Selektori</th>
+<th>Primer</th>
+<th>Obuhvata</th>
+</tr>
+
+<tr>
+<td>*</td>
+<td>$(&quot;*&quot;)</td>
+<td>Sve elemente</td>
+</tr>
+
+<tr>
+<td><a>#<em>id</em></a></td>
+<td>$(&quot;#jedinstven&quot;)</td>
+<td>Element kome je id="jedinstven"</td>
+</tr>
+
+<tr>
+<td><a>.<em>class</em></a></td>
+<td>$(&quot;.zivotinje&quot;)</td>
+<td>Sve elemente sa klasom &quot;zivotinje&quot;</td>
+</tr>
+
+<tr>
+<td><a>.<em>class,</em>.<em>class</em></a></td>
+<td>$(&quot;.voce,.povrce&quot;)</td>
+<td>Sve elemente sa klasom &quot;voce&quot; ili &quot;povrce&quot;</td>
+</tr>
+
+<tr>
+<td><a><em>element</em></a></td>
+<td>$(&quot;p&quot;)</td>
+<td>Sve &lt;p&gt; elemente</td>
+</tr>
+
+<tr>
+<td><a><em>el1</em>,<em>el2</em>,<em>el3</em></a></td>
+<td>$(&quot;h1,div,p&quot;)</td>
+<td>Svi &lt;h1&gt;, &lt;div&gt; i &lt;p&gt; elementi</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a>:first</a></td>
+<td>$(&quot;p:first&quot;)</td>
+<td>Prvi &lt;p&gt; element</td>
+</tr>
+
+<tr>
+<td><a>:last</a></td>
+<td>$(&quot;p:last&quot;)</td>
+<td>Poslednji &lt;p&gt; element</td>
+</tr>
+<tr>
+<td><a>:even</a></td>
+<td>$(&quot;tr:even&quot;)</td>
+<td>Sve parne &lt;tr&gt; elemente</td>
+</tr>
+<tr>
+<td><a>:odd</a></td>
+<td>$(&quot;tr:odd&quot;)</td>
+<td>Sve neparne &lt;tr&gt; elemente</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a>:first-child</a></td>
+<td>$(&quot;p:first-child&quot;)</td>
+<td>Sve &lt;p&gt; elemente koji su prvo dete svog roditelja</td>
+</tr>
+<tr>
+<td><a>:first-of-type</a></td>
+<td>$(&quot;p:first-of-type&quot;)</td>
+<td>Svaki od &lt;p&gt; elemenata koji su prvi &lt;p&gt; element svog roditelja</td>
+</tr>
+<tr>
+<td><a>:last-child</a></td>
+<td>$(&quot;p:last-child&quot;)</td>
+<td>Svaki od &lt;p&gt; elemenata koji su poslednje dete svog roditelja</td>
+</tr>
+<tr>
+<td><a>:last-of-type</a></td>
+<td>$(&quot;p:last-of-type&quot;)</td>
+<td> Svaki od &lt;p&gt; elemenata koji su poslednji &lt;p&gt; element svog roditelja</td>
+</tr>
+<tr>
+<td><a>:nth-child(<em>broj</em>)</a></td>
+<td>$(&quot;p:nth-child(2)&quot;)</td>
+<td>Sve &lt;p&gt; elemente koji su drugo dete svog roditelja</td>
+</tr>
+<tr>
+<td><a>:nth-last-child(<em>broj</em>)</a></td>
+<td>$(&quot;p:nth-last-child(2)&quot;)</td>
+<td>Svaki od &lt;p&gt; elemenata koji su drugo dete svog roditelje, brojeci unazad pocevsi od poslednjeg deteta</td>
+</tr>
+<tr>
+<td><a>:nth-of-type(<em>broj</em>)</a></td>
+<td>$(&quot;p:nth-of-type(2)&quot;)</td>
+<td>Sve &lt;p&gt; elemente koji su drugi &lt;p&gt; elemenat svog roditelja</td>
+</tr>
+<tr>
+<td><a>:nth-last-of-type(<em>broj</em>)</a></td>
+<td>$(&quot;p:nth-last-of-type(2)&quot;)</td>
+<td>Sve &lt;p&gt; elemente koji su drugi &lt;p&gt; elemenat svog roditelja, brojeci unazad pocevsi od poslednjeg deteta</td>
+</tr>
+<tr>
+<td><a>:only-child</a></td>
+<td>$(&quot;p:only-child&quot;)</td>
+<td>Sve &lt;p&gt; elemente koji su jedino dete svog roditelja</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><a>:gt(<em>broj</em>)</a></td>
+<td>$(&quot;ul li:gt(3)&quot;)</td>
+<td>Sve elemente liste sa indeksom vecim od 3 (indeksiranje pocinje od 0)</td>
+</tr>
+<tr>
+<td><a>:lt(<em>broj</em>)</a></td>
+<td>$(&quot;ul li:lt(2)&quot;)</td>
+<td>Sve elemente liste sa indeksom manjim od 2 (indeksiranje pocinje od 0)</td>
+</tr>
+<tr>
+<td><a>:not(<em>selektor</em>)</a></td>
+<td>$(&quot;input:not(empty)&quot;)</td>
+<td>Sve input elemente koji nisu prazni</td>
+</tr>
+<tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<td><a>:input</a></td>
+<td>$(&quot;:input&quot;)</td>
+<td>Sve input elemente</td>
+</tr>
+<tr>
+<td><a>:text</a></td>
+<td>$(&quot;:text&quot;)</td>
+<td>Sve input elemente koji su tipa text (type="text")</td>
+</tr>
+<tr>
+<td><a>:password</a></td>
+<td>$(&quot;:password&quot;)</td>
+<td>Sve input elemente koji su tipa password (type="password")</td>
+</tr>
+<tr>
+<td><a>:radio</a></td>
+<td>$(&quot;:radio&quot;)</td>
+<td>Sve input elemente koji su tipa radio dugmica (type="radio")</td>
+</tr>
+<tr>
+<td><a>:text</a></td>
+<td>$(&quot;:checkbox &quot;)</td>
+<td>Sve input elemente koji su tipa checkbox (type="checkbox")</td>
+</tr>
+<tr>
+<td><a>:text</a></td>
+<td>$(&quot;:submit&quot;)</td>
+<td>Sve input elemente koji su tipa submit (type="submit")</td>
+</tr>
+<tr>
+<td><a>:button</a></td>
+<td>$(&quot;:button&quot;)</td>
+<td>Sve input elemente koji su tipa button (type="button")</td>
+</tr>
+<tr>
+<td><a>:image</a></td>
+<td>$(&quot;:image&quot;)</td>
+<td>Sve input elemente koji su tipa image (type="image")</td>
+</tr>
+</table>
+<br>
+<br>

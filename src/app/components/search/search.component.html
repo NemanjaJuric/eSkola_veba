@@ -1,0 +1,30 @@
+<div class="search-wrapper">
+    <div class="search-input-group" [@toggleSearch]="showSearchInd">
+        <input type="text" class="form-control search-input" placeholder="&#xF002; &nbsp; Pretraga" [(ngModel)]="searchString" (keyup)="initSearch()">
+        <div class="search-result-wrapper" *ngIf="showSearchInd && (searchResult.length > 0 || searchHistory.length > 0)" [@toggleSearchResults]="showSearchInd">
+            <div class="search-result-body">
+                <span class="searchHistory__heading" *ngIf="searchString.length > 0 && searchResult.length === 0"><i class="material-icons md-24 search-icon">error_outline</i> Nema rezultata</span>
+                <span class="searchHistory__heading" *ngIf="searchString.length > 0 && searchResult.length != 0"><i class="material-icons md-24 search-icon">search</i>  Rezultat pretrage: </span>
+                <div class="search-result-body__list">
+                    <ul>
+                        <li *ngFor="let result of searchResult">
+                            <a class="search-link" *ngIf="(result.url != null || result.id != undefined) && (result.type === 'course' || result.type === 'book')" (click)="setRoute('course-details', result.id, null)">{{result.name}}</a>
+                            <a class="search-link" *ngIf="(result.url != null || result.id != undefined) && (result.type === 'lesson' || result.type === 'sublesson')" (click)="setRoute('course', result.parentCourse, result.url)">{{result.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="searchHistory" *ngIf="searchString.length === 0">
+                    <i class="material-icons md-24 search-icon">history</i> <span class="searchHistory__heading">Nedavna pretraga: </span>
+                    <div class="search-result-body__list">
+                        <ul>
+                            <li *ngFor="let result of searchHistory">
+                                <a class="search-link" *ngIf="(result.url != null || result.id != undefined) && (result.type === 'course' || result.type === 'book')" (click)="setRoute('course-details', result.id, null)">{{result.name}}</a>
+                                <a class="search-link" *ngIf="(result.url != null || result.id != undefined) && (result.type === 'lesson' || result.type === 'sublesson')" (click)="setRoute('course', result.parentCourse, result.url)">{{result.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

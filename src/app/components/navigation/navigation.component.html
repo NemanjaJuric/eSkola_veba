@@ -1,0 +1,20 @@
+<nav class="navbar pos-f-t" [ngClass]="navigationBackground" [class.boxShadow]='navigationShadow'>
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="navigation-link" name="menuIcon" (click)="menu.showMenu = !menu.showMenu"><i class="material-icons" *ngIf="!menu.showMenu">menu</i><i class="material-icons" *ngIf="menu.showMenu">clear</i></a>
+    </li>
+    <li class="nav-item">
+      <a (click)="setRoute('home', null, null)" class="navigation-link">eŠkola veba</a>
+    </li>
+    <li class="nav-item hidden-sm-down" *ngIf="pageUrl != 'web-center'">
+      <a (click)="setRoute('web-center', null, null)" class="navigation-link">Veb centar</a>
+    </li>
+    <li class="nav-item pull-xs-right hidden-md-down" *ngIf="pageUrl === 'home'">
+      <a (click)="setRoute('about', null, null)" class="navigation-link">O nama</a>
+    </li>
+    <li class="nav-item pull-xs-right hidden-md-down">
+      <search class="hidden-sm-down"></search>
+    </li>
+  </ul>
+</nav>
+<menu></menu>

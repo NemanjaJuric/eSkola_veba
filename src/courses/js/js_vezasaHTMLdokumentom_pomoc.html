@@ -1,0 +1,22 @@
+Rešenje zadatka1:
+<span class = "primer_text"><p id='pasus1'> Tekst </p>
+<textarea class="primer_ta" rows="1" disabled>
+    <p id='pasus2'> Tekst </p></span>
+</textarea>
+Pronalazimo ih uz pomoć sledećeg koda:
+<textarea class="primer_ta" rows="4" disabled>
+<p id='pasus1'> Tekst </p>
+<p id='pasus2'> Tekst </p>
+var a2 = document.getElementById("pasus1");
+var a3 = document.getElementById("pasus2");
+</textarea>
+Rešenje zadatka2:
+<textarea class="primer_ta" rows="7" disabled>
+var element = document.createElement("p");
+element.setAttribute("id","element" + i);
+document.body.appendChild(element);
+element.appendChild(document.createTextNode("Ja sam rečenica broj" + i + "."));}
+var removeel = document.getElementById("element1");
+document.body.removeChild(element);
+</textarea>
+</span>

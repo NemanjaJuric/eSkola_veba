@@ -1,0 +1,32 @@
+.btn{
+    border-radius: 0;
+    line-height: 1.5em;
+}
+
+.btn:hover{
+    background-color: $light;
+}
+
+.btn-circle{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    color: $material-light-gray;
+    animation: grow;
+    animation-duration: 1s;
+}
+
+.btn-circle:hover{
+    background-color: $light;
+    color: $material-light-gray;
+}
+
+.btn-transparent{
+    background: none;
+    color: $gray;
+}
+.btn-transparent:hover{ 
+    background: none !important;
+    color: $dark-gray;
+}
+   

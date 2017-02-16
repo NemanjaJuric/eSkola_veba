@@ -1,0 +1,116 @@
+﻿<h1><b> Select <b></h1>
+<br>
+<p> Etiketu &ltselect&gt koristimo kada želimo da ponudimo izbor opcija korisniku. Za razliku od etikete &ltinput&gt, ovaj deo koda se mora 
+zatvoriti etiketom &lt/select&gt. Etiketa &ltoption&gt između etiketa &ltselect&gt i &lt/select&gt definiše moguće opcije u listi. I taj deo koda se mora zatvoriti etiketom &lt/option&gt.
+<textarea class="primer_ta" rows="5" disabled>
+<select>
+   <option> Opcija 1 </option>   
+   <option> Opcija 2 </option>   
+   <option> Opcija 3 </option>   
+</select> 
+</textarea>
+Izbor opcija možemo predstaviti u obliku padajuće liste (eng. drop-down menu) ili u obliku liste sa trakom za pomeranje (eng. scrolling menu). Prikaz odgovarajućeg izbora će zavisiti od broja vidljivih opcija koji postavite i od toga da li ćete omogućiti izbor jedne ili više opcija u listi. Sve to definišemo uz pomoć odgovarajućih atributa. </p>
+<br>
+<p> Prvi atribut koji treba koristiti uz etiketu &ltselect&gt je name, kojim imenujemo navedeni izbor opcija. To je posebno korisno kada imate više listi da bi server, posle slanja podataka od strane korisnika, znao koju listu treba da obradi. <br>
+<span class="primer_text">&ltselect name="Izbor"&gt </span>
+<br><br>
+Etiketa &ltoption&gt se može koristiti bez ikakvih atributa, ali obično je potreban atribut value, koji ukazuje na ono što se šalje serveru. Ukoliko atribut value nije definisan, serveru se šalje sadržaj izabrane opcije.
+<br>
+<span class="primer_text">&ltoption value="opc1"&gt Opcija 1 &lt/option&gt </span>
+</p>
+<br>
+<p>Atribut selected uz etiketu &ltoption&gt može se korisiti za obe liste i on menja podrazumevani izbor u listi, koji je, inače, prva opcija navedena u listi. </p>
+<textarea class="primer_ta" rows="5" disabled>
+<select name="Izbor">
+   <option> Opcija 1 </option>   
+   <option> Opcija 2 </option>   
+   <option selected> Opcija 3 </option>   
+</select>
+ </textarea>
+<br>
+<p> Atribut required, uz etiketu &ltselect&gt, zahteva izbor opcije. To znači da korisnik neće moći da pošalje ostale podatke iz formulara na server dok ne izabere opciju. 
+</p>
+<span class="primer_text">&ltselect name="Izbor" required&gt </span>
+<br><br>
+<h4><b> Padajuća lista </b></h4>
+<br>
+<p> Etiketa &ltselect&gt podrazumevano prikazuje padajuću listu kada nije definisan atribut size ili kada je vrednost atributa size postavljena na 1. U ovoj listi može se izabrati samo jedna opcija među navedenim. 
+</p>
+<textarea class="primer_ta" rows="5" disabled>
+<select name=”izaberiBoju”>
+    <option value=”red”> Crvena </option>
+    <option value=”green”> Zelena </option>
+    <option value=”blue”> Plava </option>
+</select>
+ </textarea>
+
+<select name=”izaberiBoju”>
+    <option value=”red”> Crvena </option>
+    <option value=”green”> Zelena </option>
+    <option value=”blue”> Plava </option>
+</select>
+<br><br>
+<h4><b> Lista sa trakom za pomeranje  </b></h4>
+<br>
+<p>Za pravljenje ove liste koristi se atribut size koji definiše broj vidljivih opcija u listi, dok se ostale mogu videti pomoću trake za pomeranje. 
+Atribut multiple dozvoljava višestruki izbor u ovoj listi. Međutim, ukoliko ovaj atribut upotrebite u padajućoj listi, pretraživač će automatski ovu listu prikazati sa trakom za pomeranje.</p>
+<div class="napomena"><b>Napomena:</b> Više opcija možete izabrati uz pomoć tastera ctrl.
+</div>
+<textarea class="primer_ta" rows="8" disabled>
+<select name="Izbor" size="3" multiple>
+   <option selected> Opcija 1 </option>   
+   <option> Opcija 2 </option>   
+   <option> Opcija 3 </option>   
+   <option> Opcija 4 </option>   
+   <option> Opcija 5 </option>   
+   <option> Opcija 6 </option>   
+</select> 
+</textarea>
+
+<select name="Izbor" size="3" multiple>
+   <option selected> Opcija 1 </option>   
+   <option> Opcija 2 </option>   
+   <option> Opcija 3 </option>   
+   <option> Opcija 4 </option>   
+   <option> Opcija 5 </option>   
+   <option> Opcija 6 </option>   
+</select> 
+<br><br>
+<h5><b> Grupisanje opcija u listi </b></h5>
+<br>
+<p> Ako među opcijama koje stavljate u listi imate neke sa zajedničkim karakteristikama pa ih želite grupisati posebno, to se može učiniti etiketom &ltoptgroup&gt. Ova etiketa se koristi između etiketa &ltselect&gt i &ltoption&gt, i mora se zatvoriti etiketom &lt/optgroup&gt. Uz nju se koristi atribut label za imenovanje grupe opcija, iz istog 
+razloga kao imenovanje cele liste.  
+</p>
+<textarea class="primer_ta" rows="11" disabled>
+<select>
+  <optgroup label="Izbor 1"> 
+      <option> Opcija 1 </option>   
+      <option> Opcija 2 </option>
+  </optgroup>
+  <optgroup label="Izbor 2"> 
+      <option> Opcija 3 </option>
+      <option> Opcija 4 </option>
+      <option> Opcija 5 </option>
+  </optgroup> 
+</select> 
+</textarea> 
+
+<select>
+  <optgroup label="Izbor 1"> 
+      <option> Opcija 1 </option>   
+      <option> Opcija 2 </option>
+  </optgroup>
+  <optgroup label="Izbor 2"> 
+      <option> Opcija 3 </option>
+      <option> Opcija 4 </option>
+      <option> Opcija 5 </option>
+  </optgroup> 
+</select> 
+
+<div class="napomena"><b>Napomena:</b> Atribut disabled, koji onemogućava izbor bilo koje opcije, može se koristiti za sve tri etikete.
+</div>
+<div class="zadatak">
+<b>Zadatak:</b> Kreirana je lista destinacija sa raznih kontinenata.
+Sve destinacije grupisati prema kontinentima na kojima se nalaze. Omogućiti višestruki izbor. Postaviti podrazumevani izbor na destinaciju koju preporučujete.
+</p>
+</div>

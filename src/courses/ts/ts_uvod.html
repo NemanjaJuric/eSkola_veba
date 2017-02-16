@@ -1,0 +1,266 @@
+﻿
+<h1>Uvod u TypeScript</h1>
+
+<!-- <br> -->
+
+<p>TypeScript je besplatan programski jezik otvorenog koda razvijen od strane kompanije Microsoft koja je zadužena  za održavanje i njegov dalji razvoj. TypeScript predstavlja nadskup JavaScripta tjst svaki JavaScipt kod je i 
+valjan TypeScript kod dok obratno ne mora da važi. U suštini svaki TypeScript kod se transkompilacijom prevodi u JavaScript kod. Postavlja se pitanje zašto onda ići toliko daleko razvijajući novi programski jezik ako ćemo da 
+dobijemo opet JavaScript kod? </p>
+<br>
+<ul>
+	<li>TypeScript je potpuno objektno orijentisan za razliku od JavaScripta kome uopšte to nije bila   prvobitna namena. </li>
+	<li>Popularan framework Angular 2 je ispisan u TypeScriptu</li>
+	<li>Aplikacije pisane u JavaScriptu kako postaju složenije tako JavaScript kod postaje mnogo teži za održavanje i ponovno korišćenje. 
+	Jedna od namera pri dizajniranju TypeScripta bila je da se ovi problemi prevaziđu a pisanje koda u aplikacijama bude jednostavnije i jasnije</li>
+	<li>TypeScript podržava druge JavaScript biblioteke i može biti iskorišćen u JavaScript kodu jer je u samoj suštini JavaScript kod.  </li>
+	<li>TypeScript je potpuno dizajniran da ispunjava  ECMAScript5 i ECMAScript6 standarde.</li>
+	<li>TypeScript je jako tipizirana u odnosu na JavuScript koja je slabo. Šta to znači? Mogućnost dodeljivanja tipova promenljivima i  funkcijama itd  omogućava da otkrijemo greske u kodu tokom kompilacije umesto 
+	tokom pokretanja aplikacije. U suštini ostavlja nam više prostora i mogućnosti za otkrivanja greski u kodu.</li>
+</ul>
+
+<br>
+
+U daljem izlaganju lekcije će biti osmišljene sa ciljem da pomognu osobama da savladaju TypeScript bez prethodnog poznavanja JavaScripta kao i onima koji su upoznati da sigurno uplove u vode TypeScripta.
+
+<br>
+
+<h3>Podešavanje radnog okruženja</h3>
+
+<br>
+TypeScript može da se pokrene na bilo kom veb pregledaču kao i na bilo kom operativnom sistemu. Da bi smo bili u mogućnosti da napišemo kod i testiramo tjst pokrenemo aplikacije zasnovane na njemu biće nam potrebni sledeći alati.
+<br>
+<br>
+
+<p>
+Autori ovog sajta su se potrudili i omogućili da dok učite lekcije  na  desnoj strani stranice možete uneti vaš TypeScript kod i na dugme POKRENI KOD proveriti da li je vaš kod ispravan i da li ste dobili željen rezultat. Naravno u okviru
+sajta postoji i <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a> koji vam omogućava da vaš TypeScript kod prevedete u JavaScript kod. Ko ipak insistira da ima potpuno radno okruženje na svom računaru kako bi mogao da 
+kreira aplikacije u TypeScriptu potrebno je da uradi sledeće.</p>
+
+<br> 
+<ul>
+	<li>Tekst editor u kome ćemo da kucamo naš kod. Autor preporučuje <a href="https://notepad-plus-plus.org/">Notepad++</a>, naravno izbor je širok i potpuno zavisi od korisnika. Fajlovi sa izvornim kodom trebali bi da imaju ekstenziju .ts </li>
+	<li>TypeScript kompajler je i sam .ts fajl kompajliran do .js fajla. On generiše JavaScript verziju .ts fajla. Proces prevođenja sa jednog izvornog koda na drugi  naziva se transkompilacija. Napomena, on isključivo prima .ts fajlove i svaki .js fajl će biti odbačen! 
+	Za više o kompajleru možete pronaći <a href="https://www.npmjs.com/package/typescript">OVDE</a>.</li>
+	<li> Node.js. koji nam je potreban da bi smo mogli da pokrenemo naše aplikacije napisane u JavaScriptu bez upotrebe veb pregledač. Node.js možemo skinuti <a href="https://nodejs.org/en/download/">OVDE</a>. Nakon instalacije pokrenuti CMD 
+	i u terminalu uneti sledeću komandu: npm install -g typescript kako bi smo instalirali TypeScript.</li>
+	Ili 
+	<li>Instalirati Microsoft Visual Studio 2015 i odmah krenuti sa radom. </li>
+	
+</ul>
+
+<h3>Elementarna sintaksa u TypeScrpitu</h3>
+<br>
+Kao i u svakom jeziku pa i programskom postoje pravila kojih se moramo pridržavati kako bi jezik bio jasan i što bi rekli gramatički ispravan. U narednom odeljku ćemo izložiti pravila vezane za ključne reči, komentare, prazna prostor,
+osetljivost slova, imena promenljivih itd.
+<br>
+<br>
+Za početak da vidimo primer TypeScript koda i šta se dešava kad taj kod prevedemo u JavaScript kod.
+<br>
+<br>
+
+<textarea class = "primer_ta" rows = "20" disabled> 
+class ZdravoSvima {
+    pozdrav: string;
+    constructor(poruka: string) {
+        this.pozdrav = poruka;
+    }
+    Zdravo() {
+        return "Zdravo " + this.pozdrav;
+    }
+}
+
+let Objekat = new ZdravoSvima("svima");
+
+let button = document.createElement('button');
+button.textContent = "Dont push the button!";
+button.onclick = function() {
+    alert(Objekat.Zdravo());
+}
+
+document.body.appendChild(button); 
+</textarea>
+
+<button class = "button_copy">Vidi primer</button>
+
+<br>
+Posle transkompilacije da vidimo šta se desilo sa našim TypeScript kodom?
+<br>
+
+<textarea class = "primer_ta" rows = "18" disabled> 
+
+var ZdravoSvima = (function () {
+    function ZdravoSvima(poruka) {
+        this.pozdrav = poruka;
+    }
+    ZdravoSvima.prototype.Zdravo = function () {
+        return "Zdravo" + this.pozdrav;
+    };
+    return ZdravoSvima;
+}());
+var Objekat = new ZdravoSvima("svima");
+var button = document.createElement('button');
+button.textContent = "Dont push the button!";
+button.onclick = function () {
+    alert(Objekat.Zdravo());
+};
+document.body.appendChild(button);
+
+</textarea>
+<br>
+Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi skoro identični. Još jednom skrećemo pažnju da na sajtu postoji <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a>  pomoću koga možete vaš TypeScript kod da prevedete u JavaScript kod.
+<br>
+<br>
+<b>IDENTIFIKATORI</b> <!-- Pokazivači, Simboli-->
+<br>
+
+ Predstavljaju  imena koje dajemo promenljivama, funkcijama itd. Pravila koja moraju da se ispoštuju su sledeća:
+<br>
+<br>
+ <ul>
+	<li>Mogu da sadrže slova ili brojeve ali ne smeju počinjati brojem</li>
+	<li>Ne smeju sadržati specijalne simbole osim _ ili $</li>
+	<li>Za identifikatore ne možemo koristiti ključne reči koje su već rezervisane za potrebe programskog jezika</li>
+	<li>Moraju biti jedinstveni tjst jedan isti identifikator ne sme biti upotrebljen da označi dva različita entiteta</li>
+	<li>IDENTIFIKATOR i identifikator  predstavljaju dva raličita identifikatora tjst TypeScript pravi razliku između malih i velikih slova.</li>
+	<li>Ne smeju sadržati prazan prostor. Identifikator 1 nije ispravno dok Identifikator_1 jeste.</li>
+</ul>
+<br>
+<b>KLJUČNE REČI</b>
+<br>
+<br>
+<table class="tabela">
+    <tr>
+      <td>as</td>
+      <td>function</td>
+	  <td>number</td>
+	  <td>typeof</td>
+    </tr>
+	<tr>
+      <td>any</td>
+      <td>false</td>
+	  <td>public</td>
+	  <td>try</td>
+    </tr>
+	<tr>
+      <td>break</td>
+      <td>get</td>
+	  <td>package</td>
+	  <td>throw</td>
+    </tr>
+	<tr>
+      <td>case</td>
+      <td>if</td>
+	  <td>private</td>
+	  <td>var</td>
+    </tr>
+	<tr>
+      <td>const</td>
+      <td>in</td>
+	  <td>return</td>
+	  <td>void</td>
+    </tr>
+	<tr>
+      <td>continue</td>
+      <td>implements</td>
+	  <td>super</td>
+	  <td>while</td>
+    </tr>
+	<tr>
+      <td>catch</td>
+      <td>instanceof</td>
+	  <td>string</td>
+	  <td>yield</td>
+    </tr>
+	<tr>
+      <td>extends</td>
+      <td>interface</td>
+	  <td>static</td>
+	  <td>for</td>
+    </tr>
+	<tr>
+      <td>enum</td>
+      <td>let</td>
+	  <td>switch</td>
+	  <td>do</td>
+    </tr>
+	<tr>
+      <td>export</td>
+      <td>module</td>
+	  <td>type</td>
+	  <td></td>
+    </tr>
+	<tr>
+      <td>else</td>
+      <td>null</td>
+	  <td>this</td>
+	  <td></td>
+    </tr>
+	<tr>
+      <td>finally</td>
+      <td>new</td>
+	  <td>true</td>
+	  <td></td>
+    </tr>
+</table>
+<br>
+
+<b>PRAZAN PROSTOR, NOVI RED, KOMENTARI I ;</b>
+<br>
+<br>
+
+<p>TypeScript ignoriše prazan prostor i novi red u kodu, tako da  nam pruža mogućnost da  ga uredimo kako bi imali bolju preglednost istoga. Za razliku od pojednih drugih programskih jezika , tačka-zarez je opcionalan ali samo u slučaju ako u jednoj liniji koda imamo jedan iskaz, ako u jednoj liniji koda imamo više iskaza onda moramo da ih razdvojimo tačkom-zarezom.
+</p>
+
+<br>
+
+<textarea class = "primer_ta" rows = "26" disabled>
+let x:number = 0 let y:number = 1
+
+ili 
+
+let x:number = 0 let y:number = 1;
+
+Nije ispravno dok 
+
+let x:number = 0
+let y:number = 1
+
+ili 
+
+let x:number = 0;
+let y:number = 1;
+
+ili
+
+let x:number = 0;
+let y:number = 1
+
+ili 
+
+let x:number = 0; let y:number = 1;
+
+Jeste
+</textarea>
+Što se tiče komentara oni su tu kako bi upotpunili čitljivost koda u vidu napomena koje je autor koda ostavio. Da li to bilo u pitanju opis  pojedinih delovi koda kako bi opisali njihovu namenu, da skrene pažnju na moguće probleme u kodu ili čisto 
+ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i kako funkcioniše. Tokom kompilacije komentari se ignorišu. Imamo dve vrste komentara:
+<br>
+<br>
+
+<ul >
+<li><b>Jednolinijski komentari ( // )</b> &minus; Bilo koji tekst između // i do kraja linije se tretira kao komentar</li>
+<li><b>Višelinijski komentari (/*   */)</b> &minus; Ovi komentari mogu da se prostiru više linija.</li>
+</ul>
+
+<textarea class = "primer_ta" rows = "8" disabled>
+// Ovo je naš jednolinijski komentar
+
+/*  
+A ovo je
+naš
+višelinijski 
+komentar
+ */
+</textarea>
+<br>
+
+<div class = "zadatak"><b>Zadatak1:</b> Izmeniti kod u primeru ZdravoSvima tako da posle pritiska na dugme dobijamo poruku Zdravo svima moje ime je IME PREZIME. Napomena misli se na ime i prezime korisnika! </div>
