@@ -34,52 +34,52 @@ import { SchoolService } from './services/school.service';
 import { SanitizerPipe } from './pipes/sanitizer.pipe';
 
 const routes = [
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'about',
-        component: AboutComponent
-      },
-      {
-        path: 'course-details/:id',
-        component: CourseDetailsComponent
-      },
-      {
-        path: 'course/:id/:url',
-        component: CourseComponent
-      },
-      {
-        path: 'book/:id',
-        component: BookComponent
-      },
-      {
-        path: 'web-center',
-        component: WebCenterComponent,
-      },
-      {
-        path: 'ts-compiler',
-        component: TsCompilerComponent,
-      },
-      {
-        path: 'sass-compiler',
-        component: SassCompilerComponent,
-      },
-      {
-        path: 'lessons-input',
-        component: LessonsInputComponent,
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
-      }
-    ]
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'course-details/:id',
+    component: CourseDetailsComponent
+  },
+  {
+    path: 'course/:id/:url',
+    component: CourseComponent
+  },
+  {
+    path: 'book/:id',
+    component: BookComponent
+  },
+  {
+    path: 'web-center',
+    component: WebCenterComponent,
+  },
+  {
+    path: 'ts-compiler',
+    component: TsCompilerComponent,
+  },
+  {
+    path: 'sass-compiler',
+    component: SassCompilerComponent,
+  },
+  {
+    path: 'lessons-input',
+    component: LessonsInputComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -112,7 +112,7 @@ const routes = [
     CodemirrorModule,
     ColorPickerModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, RouteService, SchoolService],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, RouteService, SchoolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

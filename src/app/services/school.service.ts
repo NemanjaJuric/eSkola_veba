@@ -9,7 +9,7 @@ import { Button } from '../classes/button';
 import 'rxjs/Rx';
 
 const assetsDestination = 'assets/';
-const coursesDestination = '../../courses/';
+const coursesDestination = 'courses/';
 
 const PROGRAMMERS: Array<Programmer> = [
     { name: 'Nemanja Jurić', course: 'eŠkola veba', url: assetsDestination + 'images/team/nemanja_juric.jpg' },
