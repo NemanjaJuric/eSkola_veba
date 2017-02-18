@@ -6,7 +6,7 @@ Psedo klase su usko vezane za selektore i određuju stanje ili vezu prema selekt
 <br>
 Linkovi, bilo posećeni (<b>viseted</b>) ili neposećeni <b>link</b> su najjednostavnije pseudo klase. Naime, menjaće se boje svih linkova na stranice u zavisnosti da li je korisnik posetio tu stranicu ili ne.</br>
 <br>
-<textarea class="primer_ta" rows="7" disabled>
+<pre class="primer_ta" rows="7" disabled>
 a:link {
     color: blue;
 }
@@ -14,7 +14,7 @@ a:link {
 a:visited {
     color: purple;
 }
-</textarea>
+</pre>
 <br><br>
 <h2>Dinamičke pseudo klase</h2>
 <br>
@@ -25,7 +25,7 @@ Najčešće korišćene za linkove, dinamičke pseudo klase mogu se koristiti za
 <li><i>focus</i> kada je nešto u fokusu, kada se selektuje ili se sprema za unos sa tastature </li>
 </ol>
 <br>
-<textarea class="primer_ta" rows="13" disabled>
+<pre class="primer_ta" rows="13" disabled>
 a:active {
     color: red;
 }
@@ -39,7 +39,7 @@ a:hover {
 input:focus, textarea:focus {
     background: #eee;
 }
-</textarea>
+</pre>
 <br>
 <i>focus</i> nije podržan od strane starijih pretraživača (browsers), stoga pažljivo!
 <br><br>
@@ -47,19 +47,20 @@ input:focus, textarea:focus {
 <br>
 Konačno, tu je i pseudo klasa <b> first child </b> (prvo dete). Ovo se odnosi samo na prve potomke elemenata (glave, tela...)
 <br>
-<textarea class="primer_ta"rows="4" disabled>
+<pre class="primer_ta"rows="4" disabled>
 <body>
     <p>I am the body&#8217;s first paragraph child. I rule. Obey me.</p>
     <p>I resent you.</p>
 ...
-</textarea>
+</pre>
 <br>
 ...ako želimo da stilizujemo sledeći paragraf, to radimo uz pomoć CSS koda:
 <br>
-<textarea class="primer_ta"rows="4" disabled>
+<pre class="primer_ta"rows="4" disabled>
 p:first-child {
     font-weight: bold;
     font-size: 40px;
 }
-</textarea>
+</pre>
+
 <br><br>

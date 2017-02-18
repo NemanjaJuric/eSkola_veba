@@ -58,7 +58,7 @@ Za početak da vidimo primer TypeScript koda i šta se dešava kad taj kod preve
 <br>
 <br>
 
-<textarea class = "primer_ta" rows = "20" disabled> 
+<pre class = "primer_ta"> 
 class ZdravoSvima {
     pozdrav: string;
     constructor(poruka: string) {
@@ -78,7 +78,7 @@ button.onclick = function() {
 }
 
 document.body.appendChild(button); 
-</textarea>
+</pre>
 
 <button class = "button_copy">Vidi primer</button>
 
@@ -86,7 +86,7 @@ document.body.appendChild(button);
 Posle transkompilacije da vidimo šta se desilo sa našim TypeScript kodom?
 <br>
 
-<textarea class = "primer_ta" rows = "18" disabled> 
+<pre class = "primer_ta" rows = "18" disabled> 
 
 var ZdravoSvima = (function () {
     function ZdravoSvima(poruka) {
@@ -105,7 +105,7 @@ button.onclick = function () {
 };
 document.body.appendChild(button);
 
-</textarea>
+</pre>
 <br>
 Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi skoro identični. Još jednom skrećemo pažnju da na sajtu postoji <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a>  pomoću koga možete vaš TypeScript kod da prevedete u JavaScript kod.
 <br>
@@ -213,7 +213,7 @@ Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi s
 
 <br>
 
-<textarea class = "primer_ta" rows = "26" disabled>
+<pre class = "primer_ta" rows = "26" disabled>
 let x:number = 0 let y:number = 1
 
 ili 
@@ -240,7 +240,7 @@ ili
 let x:number = 0; let y:number = 1;
 
 Jeste
-</textarea>
+</pre>
 Što se tiče komentara oni su tu kako bi upotpunili čitljivost koda u vidu napomena koje je autor koda ostavio. Da li to bilo u pitanju opis  pojedinih delovi koda kako bi opisali njihovu namenu, da skrene pažnju na moguće probleme u kodu ili čisto 
 ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i kako funkcioniše. Tokom kompilacije komentari se ignorišu. Imamo dve vrste komentara:
 <br>
@@ -251,7 +251,7 @@ ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i kako funkcio
 <li><b>Višelinijski komentari (/*   */)</b> &minus; Ovi komentari mogu da se prostiru više linija.</li>
 </ul>
 
-<textarea class = "primer_ta" rows = "8" disabled>
+<pre class = "primer_ta" rows = "8" disabled>
 // Ovo je naš jednolinijski komentar
 
 /*  
@@ -260,7 +260,7 @@ naš
 višelinijski 
 komentar
  */
-</textarea>
+</pre>
 <br>
 
 <div class = "zadatak"><b>Zadatak1:</b> Izmeniti kod u primeru ZdravoSvima tako da posle pritiska na dugme dobijamo poruku Zdravo svima moje ime je IME PREZIME. Napomena misli se na ime i prezime korisnika! </div>

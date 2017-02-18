@@ -102,10 +102,10 @@ document.write("Ovo je string.".length); //Ispisuje "14"
 <br>
 Primer kada se <i>length</i>  poziva na promenljivoj:
 <br>
-<textarea class = "primer_ta" rows="2" disabled>
+<pre class = "primer_ta" rows="2" disabled>
 var MojString = "Ovo je string."; 
 document.write(MojString.length); //Ispisuje "14"
-</textarea>
+</pre>
 <br>
 Oba ova primera daju isti rezultat.
 <br>
@@ -118,13 +118,13 @@ Metode <i>subtring()</i> i <i>slice()</i> prihvataju dva argumenta, tako da je p
 <br>
 Primer kori&#353;cenja ovih metoda:
 <br>
-<textarea class = "primer_ta" rows="5" disabled>
+<pre class = "primer_ta" rows="5" disabled>
 var MojString = "Ovo je string."; 
 document.write(MojString.substring(3)); //Ispisuje " je string."
 document.write(MojString.substring(3,9)); //Ispisuje " je st"
 document.write(MojString.substr(3)); //Ispisuje " je string."
 document.write(MojString.substr(3,9)); //Ispisuje " je strin"
-</textarea>
+</pre>
 <br>
 <br>
 <b>Metod concat</b>
@@ -135,11 +135,11 @@ Ovaj metod spaja dva niza.
 <br>
 Primer nadovezivanja sa <i>concat()</i>:
 <br>
-<textarea class = "primer_ta" rows="3" disabled>
+<pre class = "primer_ta" rows="3" disabled>
 var PrviString = "Zdravo ";
 var DrugiString = "svete";
 document.write(PrviString.concat(DrugiString)); //Ispisuje "Zdravo svete"
-</textarea>
+</pre>
 <br>
 <br>
 Umesto <i>concat()</i> mozemo koristiti znak '+' za nadovezivanje.
@@ -147,16 +147,16 @@ Umesto <i>concat()</i> mozemo koristiti znak '+' za nadovezivanje.
 <br>
 Primer nadovezivanja sa <b>+</b>:
 <br>
-<textarea class = "primer_ta" rows="3" disabled>
+<pre class = "primer_ta" rows="3" disabled>
 var PrviString = "Zdravo ";
 var DrugiString = "svete";
 document.write(PrviString + DrugiString); //Ispisuje "Zdravo svete"
-</textarea>
+</pre>
 <br>
 <br>
 Primer:
 <br>
-<textarea class = "primer_ta" rows="7" disabled>
+<pre class = "primer_ta" rows="7" disabled>
 <script>
 var a = "Dobar ";
 var b = "dan!";
@@ -164,7 +164,7 @@ var c = a + b;
 var l=c.length;
 document.write("Nadovezivanjem a i b dobili smo: " +c + "<br>" + "Du&#382;ina dobijenog stringa je: " + l + "<br>");
 </script>
-</textarea>
+</pre>
 <br>
 U primeru spajamo dva stringa pomo&#263;u znaka za nadovezivanje ( + ), potom ispisujemo string koji smo dobili i njegovu du&#382;inu koju smo prethodno izra&#269;unali. 
 <br>

@@ -9,7 +9,7 @@ Metoda <i><b> getElementById() </b></i> predstavlja glavnu metodu DOM-a. Ova met
 <br> Na primer, iz primera 1 možete modifikovati HTML dokument kako biste elementu <span class = "primer_text"> &lta&gt </span> dodelili atribut <i> id </i>, što bi izgledalo ovako: 
 <br>
 
-<textarea class = "primer_ta" rows=12 disabled>
+<pre class = "primer_ta" rows=12 disabled>
 <!doctype html>
 <html>
 <head>
@@ -20,14 +20,14 @@ Metoda <i><b> getElementById() </b></i> predstavlja glavnu metodu DOM-a. Ova met
 <p> Link <a id="googlelink" href="http://www.google.com"> Google </a></p>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Pošto element a ima id atribut, možete ga pronaći koristeći metodu <i> getElementById() </i>
 <br>
-<textarea class = "primer_ta" rows=1 disabled>
+<pre class = "primer_ta" rows=1 disabled>
 var a1 = document.getElementById("googlelink");
-</textarea>
+</pre>
 Referenca elementa sa ID-om googlelink biće smeštena unutar JavaScript promenljive a1. 
 <br>
 <div class="zadatak">
@@ -40,16 +40,16 @@ Referenca elementa sa ID-om googlelink biće smeštena unutar JavaScript promenl
 <br>
 Metoda <i><b>getElementByTagName()</b></i> vraća sve elemente određenog tipa oznake i to u obliku niza ili liste. Na primer, da biste pronašli sve slike oznake <span class = "primer_text"> &ltimg&gt </span> u dokumentu, ukucajte sledeći kod: 
 <br>
-<textarea class = "primer_ta" rows=1 disabled>
+<pre class = "primer_ta" rows=1 disabled>
 var images = document.getElementsByTagName("img"); 
-</textarea>
+</pre>
 <br> 
 Zatim, možete ispitati osobine <span class = "primer_text"> &ltimg&gt </span> elementa, koje se nalazi unutar promenljive images, tako što ćete proći petljom kroz njih. 
 <br>
 Navešćemo jedan primer koji modifikuje tabelu. Ovaj kod menja boju pozadine svakog <span class = "primer_text"> &lttd&gt </span> elementa unutar tabele , svaki put kada korisnik klikne na link Klikni da izmeniš boju. 
 <br>
 Primer 2: 
-<textarea class = "primer_ta" rows=32 disabled>
+<pre class = "primer_ta" rows=32 disabled>
 <!doctype html>
 <html>
 <head>
@@ -82,14 +82,14 @@ a2[i].style.background = "#aaabba";
 <a href = "#" onclick = "promeni_boju()"> Klikni da promeniš boju </a>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
  Ova funkcija pronalazi sve <span class = "primer_text"> &lttd&gt </span> elemente korišćenjem metode getElementByTagName() i smešta ih u niz a2: 
  <br>
- <textarea class= "primer_ta" rows = 1 disabled>
+ <pre class= "primer_ta" rows = 1 disabled>
  var a2= document.getElementByTagName("td");
- </textarea>
+ </pre>
  <br>
  <br>
  <h3> <b> Kreiranje elemenata </b></h3>
@@ -112,7 +112,7 @@ a2[i].style.background = "#aaabba";
   Ova tri reda koda možemo koristiti u telu dokumenta i imati ovako neki primer:
   <br>
   Primer 3:
-  <textarea class = "primer_ta" rows=13 disabled>
+  <pre class = "primer_ta" rows=13 disabled>
 <!doctype html>
 <html>
 <head>
@@ -126,7 +126,7 @@ novielement.appendChild(document.createTextNode("Zdravo svima"));
 </script>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <h4> <b> Dodavanje elementa i podešavanje ID-a </b></h4>
@@ -134,7 +134,7 @@ Prethodni primer nam je pokazao kako se dodaje element. Pored dodavanja, nekad j
 <br>
 Naredni kod se vezuje za prethodni primer kako bi se dodao atribut id:
 <br>
-<textarea class = "primer_ta" rows=14 disabled>
+<pre class = "primer_ta" rows=14 disabled>
 <!doctype html>
 <html>
 <head>
@@ -149,7 +149,7 @@ novielement.appendChild(document.createTextNode("Zdravo svima"));
 </script>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <h2><b> Brisanje elemenata </b></h2>
@@ -158,7 +158,7 @@ Možete ukloniti čvorove iz dokumenta koristeći metodu removeChild().
 <br>
 Nadovežimo se na prethodni primer i dodajmo još nekoliko elemenata <span class = "primer_text">&ltp&gt</span>.
 <br>
-<textarea class = "primer_ta" rows=15 disabled>
+<pre class = "primer_ta" rows=15 disabled>
 <!doctype html>
 <html>
 <head>
@@ -174,20 +174,20 @@ element.appendChild(document.createTextNode("Zdravo svima, ja sam element" + i +
 </script>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Zatim, želimo da ukonimo neki od novokreiranih elemenata koristeći metodu removeChild().
 Ovo su dva reda koja su dodata kodu:
 <br>
-<textarea class= "primer_ta" rows = 2 disabled>
+<pre class= "primer_ta" rows = 2 disabled>
 var removeel = document.getElementById("element1");
 document.body.removeChild(removeel);
-</textarea>
+</pre>
 <br>
 Celokupan primer dodavanja i uklanjanja elemenata izgleda ovako:
 <br>
-<textarea class = "primer_ta" rows=17 disabled>
+<pre class = "primer_ta" rows=17 disabled>
 <!doctype html>
 <html>
 <head>
@@ -206,7 +206,7 @@ document.body.removeChild(removeel);
 </script>
 </body>
 </html>
-</textarea>
+</pre>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class="zadatak">

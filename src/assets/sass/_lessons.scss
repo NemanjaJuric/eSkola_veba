@@ -97,8 +97,7 @@
     border: none;
     border-left: 5px solid $material-light-gray;
     padding: 20px;
-    overflow: hidden;
-    height: auto;
+    overflow-x: auto;
     width: 100%;
     resize: none;
     margin-top: 20px;
