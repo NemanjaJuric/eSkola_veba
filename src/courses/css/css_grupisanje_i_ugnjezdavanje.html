@@ -6,7 +6,7 @@ Postoje dva načina za uprošćavanje koda koji sadrži i html i css i korisćen
 <br>
 Možemo dati iste osobine velikom broju selektora bez potrebe za ponavljanjem.
 <br>
-<pre class="primer_ta" rows="10" disabled>
+<xmp class="primer_ta" >
 h2 {
     color: red;
 }
@@ -18,21 +18,21 @@ h2 {
 .yetAnotherClass {
     color: red;
 }
-</pre>
+</xmp>
 <br>
 Možemo jednostavno radvojiti selektore zarezom (,) u jednoj liniji i dodeliti iste osobine za sve.
 <br>
-<pre class="primer_ta" rows="3" disabled>
+<xmp class="primer_ta" >
 h2, .thisOtherClass, .yetAnotherClass {
     color: red;
 }
-</pre>
+</xmp>
 <br><br>	
 <h2>Ugnježdavanje </h2>
 <br>
 Ako je CSS dobro postavljen, nece biti potrebe za korišćenje mnogo klasnih i ID selektora, jer se osobine (novih) selektora mogu navesti kroz postojece selektore.
 <br>
-<pre class="primer_ta" rows="13" disabled>
+<xmp class="primer_ta" >
 #top {
     background-color: #ccc;
     padding: 1em
@@ -46,18 +46,18 @@ Ako je CSS dobro postavljen, nece biti potrebe za korišćenje mnogo klasnih i I
     color: red;
     font-weight: bold;
 }
-</pre>
+</xmp>
 
 <br>
 Ovim se uklanja potreba za korišćenjem klasnih i ID selektora na p,h1 etiketama. Primenjeno na HTML to izgleda ovako: 
 <br>
-<pre class="primer_ta" rows="5" disabled>
+<xmp class="primer_ta" >
 <div id="top">
     <h1>Čokoladni kolač</h1>
     <p>Ovo je recept za pravljenje kolača!</p>
     <p>Prijatno!</p>
 </div>
-</pre>
+</xmp>
 <br>
 Ovo ugnježdavanje može da bude komplikovano ukoliko postoji više od dva nivoa, pa bi valjalo provežbati!
 <br><br>

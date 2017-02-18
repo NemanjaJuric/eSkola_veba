@@ -1,6 +1,6 @@
 <h1><b>Primeri</b></h1>
 <h2>Površina kvadrata (verzija 1)</h2>
-<pre class = "primer_ta" rows="22" disabled>
+<xmp class = "primer_ta" >
 &lt;html&gt;
   &lt;head&gt;
     &lt;script&gt;
@@ -21,14 +21,14 @@
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Nakon pokretanja primera funkcija <span class = "primer_text">prompt()</span> pokreće iskačući prozor, sa tekstualnim poljem u kome je moguće uneti dužinu ivice kvadrata.
 Pri validnom unosu, program radi. Ukoliko korisnik unese negativan broj, program će računati površinu. Poznato je da dužina stranice ne može biti negativan broj, zato je ova greška u programu ispravljena u narednom primeru.
 <br>
 <h2>Površina kvadrata (verzija 2)</h2>
-<pre class = "primer_ta" rows="26" disabled>
+<xmp class = "primer_ta" >
 &lt;html&gt;
   &lt;head&gt;
     &lt;script&gt;
@@ -53,7 +53,7 @@ Pri validnom unosu, program radi. Ukoliko korisnik unese negativan broj, program
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Nakon pokretanja primera funkcija <span class = "primer_text">prompt()</span> pokreće iskačući prozor, sa tekstualnim poljem u kome je moguće uneti dužinu ivice kvadrata.
@@ -62,7 +62,7 @@ Poželjno je da ukoliko ne bude unosa, program prekine sa radom. <br>
 Ova greška je popravljena u sledećem primeru.
 <br>
 <h2>Površina kvadrata (verzija 3)</h2>
-<pre class = "primer_ta" rows="31" disabled>
+<xmp class = "primer_ta" >
 &lt;html&gt;
   &lt;head&gt;
     &lt;script&gt;
@@ -90,20 +90,20 @@ Ova greška je popravljena u sledećem primeru.
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Ni ova verzija nije potpuno ispravna, jer postoji deo koda koji se nikada ne izvršava.
 <br>
-<pre class = "primer_ta" rows="2" disabled>
+<xmp class = "primer_ta" >
 else
 	alert("Unos nije validan!");
-</pre>
+</xmp>
 <br>
 Ovaj deo koda se nikada neće izvršiti, jer se funkciji <i>povrsinaKvadrata</i> pristupa samo u slučaju kada je <i>x>=0</i>, pa je odgovor na ovo pitanje u okviru funkcije uvek potvrdan, a deo koji se odnosi na negativan odgovor suvišan.
 <br>
 <h2>Palindrom</h2>
-<pre class = "primer_ta" rows="26" disabled>
+<xmp class = "primer_ta" >
 function is_Palindrome(str1) {  
 	var rev = str1.split("").reverse().join("");  
 	return str1 == rev;  
@@ -127,7 +127,7 @@ function longest_palindrome(str1){
   }   
   return maxp;  
 }  
-</pre>
+</xmp>
 <br>
 Ovaj primer prikazuje funkciju, t.j. kombinaciju funkcija koje pronalaze najduži palindrom u prosleđenoj reči. 
 <br>
@@ -145,7 +145,7 @@ Funkcija <i>longest_palindrome</i> prosleđeni string razlaže na podstringove i
 <br>
 <br>
 Na primer, ukoliko se proverava reč <i>banana</i>, provera će ići sledećim tokom:
-<pre class = "primer_ta" rows="10" disabled>
+<xmp class = "primer_ta" >
 banana (i=0, j=6)
 banan (i=0, j=5)
 bana (i=0, j=4)
@@ -156,7 +156,7 @@ anana (i=1, j=6)
 anan (i=1, j=5)
 ana (i=1, j=5)
 ...
-</pre>
+</xmp>
 <br>
 Provera se dalje nastavlja istim tokom, ne prekida se iako je pronađena reč koja jeste najduži palindrom. 
 Prvi pronađeni palindrom je slovo <b>b</b> i tada promenljiva <i>max_length</i> uzima vrednost <b>1</b>. 
@@ -168,7 +168,7 @@ Funkcija će još jednom naići na reč <b>ana</b> koja je palindrom, koja tako�
 Kada funkcija izađe iz obe <i>for</i> petlje vraća se vrednost sačuvana u promenljivoj <i>max_length</i>, koja bi u navedenom primeru bila broj <b>5</b>.
 <br>
 <h2>Najmanji zajednički sadržalac</h2>
-<pre class = "primer_ta" rows="13" disabled>
+<xmp class = "primer_ta" >
 function NZS(x, y){ 
   return Math.abs((x * y) / NZD(x, y));  
 }  
@@ -182,7 +182,7 @@ function NZD(x, y){
   }  
   return x;  
 }
-</pre>
+</xmp>
 <br>
 Funkcije date u ovom primeru pronalaze najmanji zajednički sadržalac i najveći zajednički delilac dva broja.
 <br>

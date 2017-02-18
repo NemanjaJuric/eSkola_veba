@@ -4,13 +4,13 @@
 <br>
 <p> Veb formulari su veb strane koje se prave za prikupljanje nekih informacija od korisnika i za njih se koriste etikete &ltform&gt i &lt/form&gt.
 Te informacije mogu biti ime i prezime, datum, lozinka, telefon itd. Elementi formulara su dugmad, polja za unos, radio dugmad, padajuće liste i još neki elementi koje ćemo prikazati.
- <pre class="primer_ta" rows="5" disabled>
+ <xmp class="primer_ta" >
 <body>
   <form>
        ...
  </form>  
 </body> 
-</pre>
+</xmp>
 Da bi korisnik mogao poslati svoje informacije na server radi obrade, u formularu mora postojati neko dugme za procesiranje. Za procesiranje i obradu tih informacija dalje se koristi neki od skript jezika (npr. JavaScript). Sada ćemo videti koje sve vrste informacija možemo prikupiti od korisnika uz pomoć etiketa &ltinput&gt i &ltselect&gt.
 </p>
 <br>
@@ -31,22 +31,22 @@ Zapravo, to je podrazumevani tip unosa, što znači da je ono što ćete dobiti 
 <li>   
 Radio dugmad se koriste za opcije među kojima korisnik može da odabere samo jednu. Atribut checked definiše podrazumevani izbor.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 <input type="radio" name="pol" value="muški" checked> Muški pol
 <input type="radio" name="pol" value="ženski"> Ženski pol
-</pre>
+</xmp>
 <input type="radio" name="pol" value="muški" checked> Muški pol
 <br>
 <input type="radio" name="pol" value="ženski"> Ženski pol
 
 <li>
 Polja za čekiranje, takođe, korisniku nude izbor opcija, s tim što je ovde omogućen višestruki izbor. I ovde se može koristiti atribut checked.
-<pre class="primer_ta" rows="4" disabled>
+<xmp class="primer_ta" >
 <input type="checkbox" name="kurs1" value="html"> HTML
 <input type="checkbox" name="kurs2" value="css"> CSS
 <input type="checkbox" name="kurs3" value="js"> JS
 <input type="checkbox" name="kurs4" value="php"> PHP
-</pre>
+</xmp>
 <input type="checkbox" name="kurs1" value="html" checked> HTML <br>
 <input type="checkbox" name="kurs2" value="css"> CSS <br>
 <input type="checkbox" name="kurs3" value="js"> JS <br>
@@ -106,10 +106,10 @@ Neki pretraživači ne prepoznaju ove nove tipove i prikazaće ih kao obična te
 <br>
 <li>
 Kontrole search i button ćemo objasniti kroz primer najpoznatije veb strane, Google početne strane. Ona sadrži polje za unos teksta i jedno dugme: <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 <input type="search" name="pretraga" value="Traži"> 
 <input type="button" name="dugme" value="Idi"> 
-</pre>
+</xmp>
 <input type="search" name="pretraga" value="Traži">
 <input type="button" name="dugme" value="Idi">
 <li> Postoji i input kontrola pomoću koje možete učitati neku sliku iz fajla:<br>
@@ -121,12 +121,12 @@ Kontrole search i button ćemo objasniti kroz primer najpoznatije veb strane, Go
 <h4><b>Tekstualno polje</b></h4>
 <p> Za unos više od jedne linije koristi se tekstualno polje: 
 <br>
- <pre class="primer_ta" rows="2" disabled>
+ <xmp class="primer_ta" >
 <textarea name="tekst" rows="5" cols="50">
 Ovde unosite tekst...
-</pre>
+</xmp>
 i ovaj deo koda mora se zatvoriti etiketom &lt/textarea&gt.
-<textarea name="tekst" rows="5" value="Unesite tekst">  </pre>
+<textarea name="tekst" rows="5" value="Unesite tekst">  </xmp>
 <br>
 Atribut rows označava broj redova, a cols broj kolona. Umesto ovih atributa, može se, kao i kod unosa jedne linije, koristiti atribut maxlength.
 <div class="zadatak"><b>Zadatak:</b> Dat je kod za slanje e-maila sa veb strane. Dodati polja za unos šifre, telefona, datuma i vaše slike. Pokušajte da dodate joše neke input kontrole iz lekcije da biste videli kako rade.

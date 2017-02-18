@@ -2,13 +2,13 @@
 <br>
 <p> Etiketu &ltselect&gt koristimo kada želimo da ponudimo izbor opcija korisniku. Za razliku od etikete &ltinput&gt, ovaj deo koda se mora 
 zatvoriti etiketom &lt/select&gt. Etiketa &ltoption&gt između etiketa &ltselect&gt i &lt/select&gt definiše moguće opcije u listi. I taj deo koda se mora zatvoriti etiketom &lt/option&gt.
-<pre class="primer_ta" rows="5" disabled>
+<xmp class="primer_ta" >
 <select>
    <option> Opcija 1 </option>   
    <option> Opcija 2 </option>   
    <option> Opcija 3 </option>   
 </select> 
-</pre>
+</xmp>
 Izbor opcija možemo predstaviti u obliku padajuće liste (eng. drop-down menu) ili u obliku liste sa trakom za pomeranje (eng. scrolling menu). Prikaz odgovarajućeg izbora će zavisiti od broja vidljivih opcija koji postavite i od toga da li ćete omogućiti izbor jedne ili više opcija u listi. Sve to definišemo uz pomoć odgovarajućih atributa. </p>
 <br>
 <p> Prvi atribut koji treba koristiti uz etiketu &ltselect&gt je name, kojim imenujemo navedeni izbor opcija. To je posebno korisno kada imate više listi da bi server, posle slanja podataka od strane korisnika, znao koju listu treba da obradi. <br>
@@ -20,13 +20,13 @@ Etiketa &ltoption&gt se može koristiti bez ikakvih atributa, ali obično je pot
 </p>
 <br>
 <p>Atribut selected uz etiketu &ltoption&gt može se korisiti za obe liste i on menja podrazumevani izbor u listi, koji je, inače, prva opcija navedena u listi. </p>
-<pre class="primer_ta" rows="5" disabled>
+<xmp class="primer_ta" >
 <select name="Izbor">
    <option> Opcija 1 </option>   
    <option> Opcija 2 </option>   
    <option selected> Opcija 3 </option>   
 </select>
- </pre>
+ </xmp>
 <br>
 <p> Atribut required, uz etiketu &ltselect&gt, zahteva izbor opcije. To znači da korisnik neće moći da pošalje ostale podatke iz formulara na server dok ne izabere opciju. 
 </p>
@@ -36,13 +36,13 @@ Etiketa &ltoption&gt se može koristiti bez ikakvih atributa, ali obično je pot
 <br>
 <p> Etiketa &ltselect&gt podrazumevano prikazuje padajuću listu kada nije definisan atribut size ili kada je vrednost atributa size postavljena na 1. U ovoj listi može se izabrati samo jedna opcija među navedenim. 
 </p>
-<pre class="primer_ta" rows="5" disabled>
+<xmp class="primer_ta" >
 <select name=”izaberiBoju”>
     <option value=”red”> Crvena </option>
     <option value=”green”> Zelena </option>
     <option value=”blue”> Plava </option>
 </select>
- </pre>
+ </xmp>
 
 <select name=”izaberiBoju”>
     <option value=”red”> Crvena </option>
@@ -56,7 +56,7 @@ Etiketa &ltoption&gt se može koristiti bez ikakvih atributa, ali obično je pot
 Atribut multiple dozvoljava višestruki izbor u ovoj listi. Međutim, ukoliko ovaj atribut upotrebite u padajućoj listi, pretraživač će automatski ovu listu prikazati sa trakom za pomeranje.</p>
 <div class="napomena"><b>Napomena:</b> Više opcija možete izabrati uz pomoć tastera ctrl.
 </div>
-<pre class="primer_ta" rows="8" disabled>
+<xmp class="primer_ta" >
 <select name="Izbor" size="3" multiple>
    <option selected> Opcija 1 </option>   
    <option> Opcija 2 </option>   
@@ -65,7 +65,7 @@ Atribut multiple dozvoljava višestruki izbor u ovoj listi. Međutim, ukoliko ov
    <option> Opcija 5 </option>   
    <option> Opcija 6 </option>   
 </select> 
-</pre>
+</xmp>
 
 <select name="Izbor" size="3" multiple>
    <option selected> Opcija 1 </option>   
@@ -81,7 +81,7 @@ Atribut multiple dozvoljava višestruki izbor u ovoj listi. Međutim, ukoliko ov
 <p> Ako među opcijama koje stavljate u listi imate neke sa zajedničkim karakteristikama pa ih želite grupisati posebno, to se može učiniti etiketom &ltoptgroup&gt. Ova etiketa se koristi između etiketa &ltselect&gt i &ltoption&gt, i mora se zatvoriti etiketom &lt/optgroup&gt. Uz nju se koristi atribut label za imenovanje grupe opcija, iz istog 
 razloga kao imenovanje cele liste.  
 </p>
-<pre class="primer_ta" rows="11" disabled>
+<xmp class="primer_ta" >
 <select>
   <optgroup label="Izbor 1"> 
       <option> Opcija 1 </option>   
@@ -93,7 +93,7 @@ razloga kao imenovanje cele liste.
       <option> Opcija 5 </option>
   </optgroup> 
 </select> 
-</pre> 
+</xmp> 
 
 <select>
   <optgroup label="Izbor 1"> 

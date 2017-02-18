@@ -17,11 +17,11 @@ Ovaj atribut odredjuje izgled slova kojim se ispisuje tekst. Moguće je navesti 
 <li><b>cursive</b> - Kurzivni (iskošeni) font.</li>
 </ul>
 Ako želimo da zadamo sam naziv fonta koji u sebi ima razmak, pišemo ga unutar navodnika. <br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer1{
 	font-family: "Times New Roman", serif;
 }
-</pre><br>
+</xmp><br>
 <h3>font-size</h3>
 Ovaj atribut određuje veličinu slova. Zadaje se kao: <br>
 <ul>
@@ -30,12 +30,12 @@ Ovaj atribut određuje veličinu slova. Zadaje se kao: <br>
 	<li><b>jedna od sledećih mogućnosti</b> - xx-small, x-small, small, medium, large, x-large, xx-large. </li>
 </ul>
 
-<pre class = "primer_ta" rows="4" disabled>
+<xmp class = "primer_ta" >
 .primer2{
 	font-size: 14px;
 	font-size: 40%;
 }
-</pre><br>
+</xmp><br>
 <h3>font-weight</h3>
 Ovaj atribut odredjuje debljinu slova kojim se tekst ispisuje.Unapred definisane vrednosti su: <br>
 <ul>
@@ -44,22 +44,22 @@ Ovaj atribut odredjuje debljinu slova kojim se tekst ispisuje.Unapred definisane
 <li><b>bolder</b> - Ukoliko je moguće, jače podebljana slova.</li>
 <li><b>lighter</b> - Slova tanja od normalnih.</li>
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer3{
 	font-weight: bold;
 }
-</pre> <br>
+</xmp> <br>
 <h3>font-style</h3>
 Atribut koji odredjuje da li su slova iskošena. <br>
 <ul>
 <li><b>normal</b> - Obična slova.</li>
 <li><b>italic</b> - Iskošena slova.</li>
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer4{
 	font-style: italic;
 }
-</pre> <br>
+</xmp> <br>
 <h3>font</h3>
 Atributom font mozemo istovremeno da postavimo više podešavanja za font slova. Redosled zadatih vrednosti jeste bitan.
 <ul>
@@ -67,28 +67,28 @@ Atributom font mozemo istovremeno da postavimo više podešavanja za font slova.
 <li>Zatim se zadaje font-size.
 <li>I uvek se na kraju zadaje font-family.
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer5{
 	font: bold, 14pt, "Times New Roman",serif;
 }
-</pre> <br>
+</xmp> <br>
 <b>Primer</b><br>
 Sada ćemo na dva načina zadati potpuno iste parametre: <br>
 Prvo ćemo ih zadati pomoću pojedinačnih atributa:<br>
-<pre class = "primer_ta" rows="6" disabled>
+<xmp class = "primer_ta" >
 .primer6{
 	font-family: "Times New Roman",serif;
 	font-size: 11pt;
 	font-weight: bold;
 	font-style: italic;
 }
-</pre> <br>
+</xmp> <br>
 A zatim ćemo iste parametre zadati preko kompleksnog atributa <i>font</i>.<br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer7{
 	font: italic, bold, 11pt, "Times New Roman",serif;
 }
-</pre> <br>
+</xmp> <br>
 U ovom primeru slova su ispisana "Times New Roman" fontom,<i>iskošena</i> su,<b>boldirana</b> i njihova veličina je 11pt.
 <br>
 <h3>Atributi teksta</h3>
@@ -106,11 +106,11 @@ Načini podvlačenja teksta su:
 <li><b>overline</b> - Linija se nalazi iznad teksta.
 <li><b>line-through</b> - Linija se iscrtava preko testa.
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer8{
 	text-decoration: underline;
 }
-</pre>
+</xmp>
 <br>
 <h3>text-transform</h3>
 <ul>
@@ -119,11 +119,11 @@ Načini podvlačenja teksta su:
 <li><b>uppercase</b> - Sva slova pretvara u velika.
 <li><b>lowercase</b> - Sva slova pretvara u mala.
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer9{
 	text-transform: lowercase;
 }
-</pre> <br>
+</xmp> <br>
 <h3>text-align</h3>
 Zadaje se za blok unutar kog se nalazi tekst. Poravnanje se vrši horizontalno prema ivicama bloka.
 <ul>
@@ -132,9 +132,9 @@ Zadaje se za blok unutar kog se nalazi tekst. Poravnanje se vrši horizontalno p
 <li><b>center</b> - Tekst je centriran.
 <li><b>justify</b> - Tekst poravnat po obe ivice bloka.
 </ul>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 .primer10{
 	text-align: center;
 }
-</pre> <br><br>
+</xmp> <br><br>
 <div class = "zadatak"><b>Zadatak:</b> Napisati pasus čiji će tekst biti centriran, veličina slova 12px, a slova da budu iskošena i boldirana.</div><br><br>

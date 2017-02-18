@@ -69,7 +69,7 @@ Kod aritmetičkih operatora operand i povratna vrednost su tipa number, izuzetak
 
 <br>
 <!-- Da li samo npr staviti Sabiranje + ili Sabiranje (+) ?--> 
-<pre class = "primer_ta" rows = "66" disabled>
+<xmp class = "primer_ta" >
 
   let x1: number = 2;
   let x2: number = 3;
@@ -133,7 +133,7 @@ Kod aritmetičkih operatora operand i povratna vrednost su tipa number, izuzetak
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena"> 
@@ -184,7 +184,7 @@ Relacioni operatori testiraju ili definišu vrstu relacije između dva entiteta.
 
 </table>
 <br>
-<pre class = "primer_ta" rows = "54" disabled>
+<xmp class = "primer_ta" >
 
   let x1: number = 2;
   let x2: number = 3;
@@ -238,7 +238,7 @@ Relacioni operatori testiraju ili definišu vrstu relacije između dva entiteta.
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
 Poređenje niskih<!-- Možda da da se držim stringova ?--> se vrši pomoću leksikografičkog poretka! Zbog toga izraz <b>"aab" < "ab"</b> ima smisla.<!-- Trebalo bi objasniti šta znači leksikografički poredak ? Lexicographical order-->
@@ -270,7 +270,7 @@ Jedna od osnovnih uloga logičkih operatora u TypeScriptu jeste da poveže dva i
 
 </table>
 <br>
-<pre class = "primer_ta" rows = "39" disabled>
+<xmp class = "primer_ta" >
   let t: boolean = true;
   let f: boolean = false;
   let x1: number = 2;
@@ -309,7 +309,7 @@ Jedna od osnovnih uloga logičkih operatora u TypeScriptu jeste da poveže dva i
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
 Operandi logičkih operatora mogu biti i nekog drugog tipa, u tom slučaju važi sledeće: <br>
@@ -355,7 +355,7 @@ nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  s
 </tbody>
 </table>
 <br>
-<pre class = "primer_ta" rows = "75" disabled>
+<xmp class = "primer_ta" >
 
   let x : number = 0b1000011;
   let x1: number = 67;
@@ -430,7 +430,7 @@ nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  s
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
 1) Da bi se potpuno razumelo kako bitovski operatori funkcionišu potrebno je biti upoznat sa binarnim zapisom broja, specifičnostima i osobinama.<br>
@@ -555,7 +555,7 @@ Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednost levog ope
 
 </table>
 <br>
-<pre class = "primer_ta" rows = "45" disabled>
+<xmp class = "primer_ta" >
 
   let x1: number = 2;
   let x2: number = 6;
@@ -600,7 +600,7 @@ Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednost levog ope
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena">
@@ -620,7 +620,7 @@ Uslovni operator je jedini ternarni operator u typescriptu. Šta to znači ? To 
 Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je true izvršava se <b>izraz1</b> inače <b>izraz2</b>. Povratne vrednosti ova dva izraza mogu biti bilo kog tipa. Pa da vidimo na primerima kako funkcioniše.
 <br>
 <br>
-<pre class = "primer_ta" rows = "17" disabled>
+<xmp class = "primer_ta" >
  let x1 = 1;
  let x2 = 2;
  
@@ -637,7 +637,7 @@ Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je t
     alert(r);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
@@ -647,7 +647,7 @@ Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je t
 U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Typeof je unarni operator koji kao povratnu vrednost vraća tip operanda u vidu stringa. Instanceof je binarni operator koji proverava da li objekat pripada određenoj klasi, njegova povratna vrednost je true ili false u zavisnosti od toga da li objekat pripada klasi ili ne. Bez daljeg zadržavanja da pređemo na primer.
 <br>
 <br>
-<pre class = "primer_ta" rows = "34" disabled>
+<xmp class = "primer_ta" >
   class obicnaKlasa {
   
     polje1: string;
@@ -682,7 +682,7 @@ U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Ty
     alert(R);
  };
  document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena">

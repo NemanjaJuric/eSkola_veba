@@ -2,14 +2,14 @@
 <br>
 Margine i uokvirenja su dva najčešća alata za razdvajanja teksta. Margina predstavlja razmak od ivica, a uokvirenje (padding) razmak od ostalih elemenata.
 <br>
-<pre class="primer_ta" rows="6" disabled>
+<xmp class="primer_ta" >
 h2 {
     font-size: 1.5em;
     background-color: #ccc;
     margin: 20px;
     padding: 40px;
 }
-</pre>
+</xmp>
 <br>
 Ovo znači da se ostavlja prostor za margine od 20 piksela za drugo zaglavlje (h2) i uokviruje se sa 40 piksela.
 <br>
@@ -45,7 +45,7 @@ Da bi se napravile ivice oko elementa sve sto je potrebno je border-style. Mogu�
 <br>
 Na kraju, moguće je postaviti boju pomoću border-color.
 <br>
-<pre class="primer_ta" rows="7" disabled>
+<xmp class="primer_ta" >
 
 h2 {
     border-style: dashed;//crvena isprekidana linija
@@ -54,7 +54,7 @@ h2 {
     border-right-width: 10px;
     border-color: red;
 }
-</pre>
+</xmp>
 <br>
 Ovim će gore navedena svojstva biti primenjena na sve elemente u h2 poglavlju.
 <br><br>
@@ -66,38 +66,38 @@ Zakrivljene ivice nam služe da redizajniramo izgled jednog dela teksta(ili foto
 <br>
 <b>border-radius</b> svojstvo se koristi da se napravi zakrivljenje na svakoj od četiri ivice.
 <br>
-<pre class="primer_ta" rows="6" disabled>
+<xmp class="primer_ta" >
 #marilyn {
     background: #fff;
     width: 100px;
     height: 100px;
     border-radius: 20px;
 }
-</pre>
+</xmp>
 <br>
 Naravno, ukoliko želite standardni izgled, sa dodatnom ivicom, to ćete postići na sledeći način:
 <br>
-<pre class="primer_ta" rows="6" disabled>
+<xmp class="primer_ta" >
 #ok_a_border_then {
     border: 5px solid #8b2;
     width: 100px;
     height: 100px;
     border-radius: 5px;
 }
-</pre>
+</xmp>
 <br><br>
 <h2>Različita zakrivljenost ivica</h2>
 <br>
 <b>border-top-left-radius</b>, <b>border-top-right-radius</b>, <b>border-bottom-right-radius</b>, i <b>border-bottom-left-radius</b> možemo primeniti na svaku pojedinačnu ivicu.
 <br>
-<pre class="primer_ta" rows="6" disabled>
+<xmp class="primer_ta" >
 #monroe {
     background: #fff;
     width: 100px;
     height: 100px;
     border-radius: 6px 12px 18px 24px;
 }
-</pre>
+</xmp>
 <br>
 Korišćenjem samo dve vrednosti (umesto četiri), prva će se odnositi na gornju-levu i donju-desnu, a druga na ostale dve. Opet, ako imamo tri vrdnosti, prva se odnosi na gornju-levu ivicu, druga na gornju-desnu i donju-levu, a treca na preostalu.
 <br><br>
@@ -105,7 +105,7 @@ Korišćenjem samo dve vrednosti (umesto četiri), prva će se odnositi na gornj
 <br>
 Mozemo  napraviti i interesantnije oblike razdvajanjem horizontalnog i vertikalnog poluprečnika (radijusa), sto činimo pomoću znaka “/”.
 <br>
-<pre class="primer_ta" rows="8" disabled>
+<xmp class="primer_ta" >
 #nanoo {
         background: #fff;
         width: 100px;
@@ -114,6 +114,6 @@ Mozemo  napraviti i interesantnije oblike razdvajanjem horizontalnog i vertikaln
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
 }
-</pre>
+</xmp>
 <br><br>
 

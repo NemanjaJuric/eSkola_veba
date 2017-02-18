@@ -4,11 +4,11 @@ Umesto postavljanja linka unutar &lta&gt etiketa, potrebno je postaviti
 sliku. Slike su najčešće korišćene kao grafička impresija dugmeta, kao npr:
 
 
-<pre class = "primer_ta" rows="4" disabled>
+<xmp class = "primer_ta" >
 &lta href="kurs.php?kurs=html/html_linkovi#" title="Potsetimo se naucenog o linkovima"&gt
   &ltimg src="links.jpg" width="150" height="150" alt="link" /&gt
  &lt/a&gt
-</pre>
+</xmp>
 
 
 
@@ -40,13 +40,13 @@ Kao primer za upotrebu slike kao mape na ovaj način može poslužiti slika koš
 Klik na centar terena treba da vodi na sajt KSS-a, dok klik na reket treba da 
 vodi na sajt NBA lige.
 
-<pre class = "primer_ta" rows="8" disabled>
+<xmp class = "primer_ta" >
 &ltimg src='imageMaps/Slike/KosarkaskiTeren.png' alt='Teren' width='640' height='367' usemap='#KosarkaskiTeren'/&gt
 &ltmap name='KosarkaskiTeren'&gt
 &ltarea shape='circle' coords='160,92,24' href='http://www.kss.rs/' alt='KSS'&gt
 &ltarea shape='rect' coords='0,72,80,112' href='http://www.nba.com' alt='NBA'&gt
 &lt/map&gt
-</pre>
+</xmp>
 <br>
 U primeru vrednost 'usemap' atributa počinje sa tarabom # a u nastavku vrednosti je vrednost 'name'
 atributa iz &ltmap&gt etikete. Odmah nakon &ltimg&gt etikete sledi &ltmap&gt etiketa koja
@@ -84,14 +84,14 @@ pravougaonika. Naredni primer biće upotreba 'shape' atributa kako bi dobili pol
 default vrednosti za 'shape' atribut. U konkretnom primeru, cilj je da se klikom na crnu strelicu
 vratimo na vrh stranice, a klikom bilo gde na ostatak slike na početnu stranicu sajta.
 
-<pre class = "primer_ta" rows="15" disabled>
+<xmp class = "primer_ta" >
 Primer:
 &ltimg src='imageMaps/Slike/zigzag.png' alt='primer2' width='300' height='300' usemap='#drugiPrimer'/&gt
 &ltmap name='drugiPrimer'&gt
 &ltarea shape='poly' coords='135,257,166,256,165,238,158,220,144,208,137,199,141,191,166,184,189,166,193,141,185,122,171,112,158,108,153,101,153,93,174,99,179,93,138,31,98,89,97,94,101,99,121,93,122,100,125,115,132,126,145,135,160,141,162,149,141,159,125,165,115,175,107,189,107,210,113,224,130,235,133,242' href='' alt='Vrh stranice'&gt
 &ltarea shape='default' coords='' href='http://alas.matf.bg.ac.rs/~mr11032/HTML_skola/home.php' alt='Pocetna stranica'&gt
 &lt/map&gt
-</pre>
+</xmp>
 
 
 <div class = "zadatak">

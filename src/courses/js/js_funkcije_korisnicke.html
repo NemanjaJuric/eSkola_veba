@@ -10,11 +10,11 @@ U okviru vitičastih zagrada se nalazi telo funkcije, odnosno, naredbe koje funk
 Takođe, u zavisnosti od toga da li funkcije u telu sadrze naredbu <i>return</i> razlikujemo ih kao povratne (one koje vracaju neku vrednost) ili nepovratne (one koje ne vracaju nijednu vrednost, samo izvršavaju nešto bez povratne informacije).
 <br>
 <br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 function naziv_funkcije(niz argumenata){
 	telo funkcije(niz naredbi)
 }
-</pre>
+</xmp>
 <br>
 <h2>Osobine</h2>
 Ključna reč <i>function</i> obavezna.
@@ -39,31 +39,31 @@ U telu funkcije su naredbe koje funkcija izvršava. I telo može biti izostavl
 
 <br>
 <h2>Primeri povratnih funkcija</h2>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 function bezArgPovratna(){
 	return 5;
 }
-</pre>
+</xmp>
 <br>
 Funkcija <i>funkcijaBezArgPovratna()</i> nema ulaznih argumenata, ali ima povratnu
 vrednost. Svaki put kada se pozove ova funkcija ona će vratiti broj 5.
 <br>
 <br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 function duplirajBroj(x){
 	return 2*x;
 }
-</pre>
+</xmp>
 <br>
 Funkcija <i>duplirajBroj(x)</i> očekuje da joj se prilikom poziva obezbedi jedan ulazni argument, broj x, a potom ona vrati duplu vrednost tog broja. Ukoliko se ne prosledi ulazni argument, ova funkcija vratiće vrednost "NaN"(not a number - nije unet broj).<br>
 <br>
 Funkcija <i>zbirBrojeva(a,b,c)</i> ima tri ulazna argumenta, a potom računa zbir unetih brojeva.
 <br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 function zbirBrojeva(a,b,c){
 	return a+b+c;
 }
-</pre>
+</xmp>
 <br>
 Ukoliko neki od argumenta pri pozivu funkcije <i>zbirBrojeva(a,b,c)</i> nije unet povratna vrednost funkcije će biti "NaN".
 <br>
@@ -73,12 +73,12 @@ U okviru funkcije možemo i definisati nove promenljive, kada nam zatrebaju.
 Ukoliko promenljive definisemo sa ključnom reči <i>var</i> ispred, one će biti vidljive samo u okviru funkcije, a ukoliko ih definišemo bez ključne reči,
 moći ćemo da ih koristimo i nakon završetka rada funkcije.
 <br>
-<pre class = "primer_ta"rows="4" disabled>
+<xmp class = "primer_ta">
 function zbirBrojeva1(a,b){
 	var zbir=a+b;
 	return zbir;
 }
-</pre>
+</xmp>
 <br>
 Funkcija <i>zbirBrojeva1(a,b)</i> ima dva ulazna argumenta, a u telu funkcije je definisana nova promenljiva "zbir", koja računa zbir ulaznih argumenata. <br>Potom, funkcija vraća vrednost koja je sačuvana u promenljivoj <i>zbir</i>.
 <br>
@@ -86,36 +86,36 @@ Funkcija <i>zbirBrojeva1(a,b)</i> ima dva ulazna argumenta, a u telu funkcije je
 Program kada naiđe na naredbu <i>return</i> odmah izlazi iz funkcije, t.j. ukoliko u funkciji stoji neka naredba nakon naredbe <i>return</i>,
  ona nikada neće biti izvršena, što možemo videti u sledećem primeru:
 <br>
-<pre class = "primer_ta" rows="6" disabled>
+<xmp class = "primer_ta" >
 function zbirBrojeva2(a,b){
 	var zbir=a+b;
 	return zbir;
 	alert("Ovo se nikada nece izvrsiti");
 }
-</pre>
+</xmp>
 <br>
 <h2>Primeri nepovratnih funkcija</h2>
 <br>
-<pre class = "primer_ta" rows="4" disabled>
+<xmp class = "primer_ta" >
 function bezArgNepovratna(){
 	document.write("Funkcija bez argumenata i povratne vrednosti");
 }
-</pre>
+</xmp>
 <br>
 Funkcija <i>funkcijaBezArgNepovratna()</i> nema ulaznih argumenata, ni povratnu vrednost, a pri pozivu na internet stranici se ispisuje tekst <i>Funkcija bez argumenata i povratne vrednosti.</i>
 <br>
 <br>
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 function kvadratBroja(x){
 	document.write(x*x);
 }
-</pre>
+</xmp>
 <br>
 Funkcija <i>kvadratBroja(x)</i> ima jedan ulazni argument, broj <i>x</i>, a potom ispisuje kvadrat tog broja.
 <br>
 <h2>Pozivanje funkcije</h2>
 Funkcija se poziva navođenjem njenog imena i prosleđivanjem neophodnih argumenata.
-<pre class="primer_ta" rows="16" disabled>
+<xmp class="primer_ta" >
 Primer 1:
 &lt;html&gt;
   &lt;head&gt;
@@ -132,11 +132,11 @@ Primer 1:
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
-<pre class="primer_ta" rows="20" disabled>
+<xmp class="primer_ta" >
 Primer 2:
 &lt;html&gt;
   &lt;head&gt;
@@ -157,7 +157,7 @@ Primer 2:
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <h2>Callback funkcije</h2>
@@ -171,7 +171,7 @@ U momentu kada server odgovori, poziva se callback funkcija koja služi kao poč
 <br> 
 Primer callback funkcije je zadavanje tajmera koji poziva callback funkciju posle određenog zadatog vremena.
 <br>
-<pre class="primer_ta" rows="14" disabled>
+<xmp class="primer_ta" >
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Callback funkcija&lt;/title&gt;
@@ -185,7 +185,7 @@ Primer callback funkcije je zadavanje tajmera koji poziva callback funkciju posl
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 U prethodnom primeru definisana je callback funkcija <i>callbackFunkcija()</i> i postavljen je tajmer koji je poziva nakon četiri sekunde. 
@@ -196,7 +196,7 @@ Specifično je i navođenje callback funkcije u metodi <i>setTimeout()</i>. Navo
 <br> 
 Callback funkcije se često koriste kao funkcije za obradu događaja (event hendler), odnosno aktiviraju se kao posledica neke aktivnosti korisnika.
 <br>
-<pre class="primer_ta" rows="8" disabled>
+<xmp class="primer_ta" >
 var niz = [14, 5, 6, -2, 7];
 if (niz.every(veci)){
   console.log("Svi elementi su veći od nule.");
@@ -204,7 +204,7 @@ if (niz.every(veci)){
 function veci(a){
   return a > 0;
 }
-</pre>
+</xmp>
 <br>
 U ovom primeru funkcija <i>veci()</i> je u ulozi callback funkcije i zadata je kao parametar metodi <i>every()</i>.
 Ovaj program će u konzolu upisati tekst: <b>Svi elementi su veći od nule.</b>
@@ -220,7 +220,7 @@ Dakle, zatvorenje je unutrašnja funkcija koja se poziva van svoje nadfunkcije, 
 <br>
 Najčešća upotreba zatvorenja funkcija je kada se upotrebljava callback mehanizam i kada se kreiraju funkcije koje obrađuju događaje.
 <br>
-<pre class="primer_ta" rows="23" disabled>
+<xmp class="primer_ta" >
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Zatvorenje funkcija&lt;/title&gt;
@@ -241,7 +241,7 @@ Najčešća upotreba zatvorenja funkcija je kada se upotrebljava callback mehani
     &lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 U prethodnom primeru definisana je funkcija <i>nadfunkcija()</i>. U njoj je prvo definisana lokalna promenljiva <i>broj</i>, a zatim i unutrašnja funkcija <i>unutrasnjafunkcija()</i>, koja povećava promenljivu broj i ispisuje je. 
@@ -265,35 +265,35 @@ Objekat <span class = "primer_text">this</span> predstavlja kontekst u kome se i
  Svaka funkcija ima svoj <span class = "primer_text">this</span> objekat. Kako se JavaScript funkcija može pozivati na pet različitih načina, tako i <span class = "primer_text">this</span> može biti pet različitih objekata. 
  Na programerima je da kontrolišu kako će funkcija biti pozvana i da predvide šta će <span class = "primer_text">this</span> predstavljati u funkciji.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 function fun() {}
 fun();
-</pre>
+</xmp>
 <br>
 Svaka funkcija koju pozivamo na način dat prethodnim primerom u suštini nema <span class = "primer_text">this</span>. 
 Preciznije, u ovako pozvanoj funkciji, objekat <span class = "primer_text">this</span> postoji i on je <span class = "primer_text">window</span>.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 obj.metod = function funkcija() {}
 obj.metod();
-</pre>
+</xmp>
 <br>
 Kada je funkcija pozvana na ovaj način <span class = "primer_text">this</span> je tada objekat iz koga je funkcija pozvana. 
 Odnosno, u funkciji se kreira lokalna promenljiva <span class = "primer_text">this</span> koja predstavlja referencu na objekat čiji je ta funkcija metod.
 Ako je jedna ista funkcija metod različitih objekata, <span class = "primer_text">this</span> će se razlikovati zavisno od toga iz kog objekta je pozvana funkcija.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 function Klasa() {}
 var obj = new Klasa();
-</pre>
+</xmp>
 <br>
 U prethodnom primeru operator <i>new</i> kreira novi objekat i izvršava konstruktorsku funkciju u kontekstu tog objekta (kao da je pozvana iz njega). 
 Objekat <span class = "primer_text">this</span> u funkciji konstruktora će referencirati na taj novi objekat.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 function fun(p1, p2, p3...) {}
 fun.call(obj, v1,v2,v3...)
-</pre>
+</xmp>
 <br>
 Ovaj primer prikazuje način pozivanja funkcije metodom <i>call()</i>. Metod <i>call()</i> uvek ima jedan parametar više od same funkcije. 
 To je zato što prvi parametar predstavlja objekat koji se prosleđuje funkciji kao <span class = "primer_text">this</span>.
@@ -303,14 +303,14 @@ Metod <i>apply()</i> radi isto kao i metod <i>call()</i>, ali malo drugačijim s
 Prvi parametar je objekat koji će u funkciji predstavljati <span class = "primer_text">this</span>, a drugi parametar je niz koji sadrži vrednosti za parametre funkcije.
 Poziv funkcije metodom <i>apply()</i> prikazan je na sledećem primeru.
 <br>
-<pre class="primer_ta" rows="2" disabled>
+<xmp class="primer_ta" >
 function fun(p1, p2, p3...) {}
 fun.apply(obj, [v1,v2,v3...]);
-</pre>
+</xmp>
 <br>
 Na sledećem primeru prikazana je upotreba <span class = "primer_text">this</span> objekta.
 <br>
-<pre class="primer_ta" rows="13" disabled>
+<xmp class="primer_ta" >
 function fun(){
     console.log(this.id ? this.id : "Nepoznat ID");
 }
@@ -322,7 +322,7 @@ prvi.metod();
 drugi.poziv();   
 fun();          
 document.getElementById("blok").onclick = fun;
-</pre>
+</xmp>
 <br>
 Prvo je definisana funkcija <i>fun()</i>. Ona ima objekat <span class = "primer_text">this</span>, ali mora se proveriti da li taj objekat ima svojstvo <i>id</i>. 
 Ako ima, ispisaće se samo svojstvo <i>id</i>, ako ne, dobićemo poruku o tome.

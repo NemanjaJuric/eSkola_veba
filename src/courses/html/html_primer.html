@@ -14,12 +14,12 @@ Stranicu delimo na blokove uz pomoć &lt div &gt elemenata.
 ( &lt div &gt oznaka definiše blok unutar HTML dokumenta )<br>
 U telo HTML dokumenta unosimo sledeći kod:
 <br>
-<pre class = "primer_ta" rows="4" disabled>
+<xmp class = "primer_ta" >
 <div id="zaglavlje"></div>
 <div id="pano"></div>
 <div id="sadržaj"></div>
 <div id="podnožje"></div>
-</pre>
+</xmp>
 Blokovima smo dodelili identifikacionu vrednost (id) o čemu će više reči biti u kursu CSS. Trenutno nam služi samo da se lakše snađemo u kom bloku radimo.
 <br>
 Kao rezultat imamo praznu stranicu. Tek kada unesemo sadržaj<br>u &lt div &gt elemente imaćemo vidljive promene.
@@ -38,7 +38,7 @@ To radimo da bismo ih kasnije uz pomoć CSS-a lakše pozicionirali.
 Sada kao rezultat dobijamo linije teksta ispisane jedna ispod druge. Tek kasnije, upotrebom CSS-a, listu i blokove oblikovaćemo i postaviti kako želimo.
 <br> 
 Uneti deo koda u blok<b> "navigacija"</b>:
-<pre class = "primer_ta" rows="12" disabled>
+<xmp class = "primer_ta" >
 <div>
      <a href="#"> <img src = "../../app/assets/pictures/logo_transparent.png" alt="Logo" width="30px">eŠkola veba</a> 
 </div>
@@ -49,19 +49,19 @@ Uneti deo koda u blok<b> "navigacija"</b>:
       <li><a href="#">O nama </a></li>
   </ul>
 </div>
-</pre> 
+</xmp> 
 <br>
 Prelazimo na blok<b> "pano".</b> 
 <br>
 Ovde imamo samo sliku i tekst:
-<pre class = "primer_ta" rows="6" disabled>
+<xmp class = "primer_ta" >
 <img src = "../../app/assets/pictures/logo_light.png" alt="Logo" width="80px">
 <br>
 eŠkola veba
 <br>
 Naučite veb programiranje na interaktivan način
 <br><br>
-</pre>
+</xmp>
 <br>
 Središnji deo stranice - <b> "sadržaj"</b> smeštamo u jedan blok  koji delimo na deset podblokova  koji će se nalaziti jedan ispod drugog (crni blokovi)  : 
 <br>
@@ -72,23 +72,23 @@ Sadržaj ovih blokava čine samo tekst i slika.
 Unosimo sledeće kodove za svaki podblok:
 <br>
 (Dakle, u blok "sadržaj" uneti kodove koji slede a koji predstavljaju naše podblokove )
-<pre class = "primer_ta" rows="7" disabled>
+<xmp class = "primer_ta" >
 <div>
    <h2>Zašto učiti veb programiranje?</h2>
    Posao programera je jedan od najprofitabilnijih poslova.
    <br>
    Najnoviji trendovi govore o potpunom prelasku na veb bazirana softverska rešenja.
 </div>
-</pre>
-<pre class = "primer_ta" rows="7" disabled>
+</xmp>
+<xmp class = "primer_ta" >
 <div>
    <h2>Sve je na jednom mestu.</h2>
    <img src = "../../app/assets/pictures/all.jpg"  width="260px">
    <br>
    Radno okruženje je osmišljeno tako da omogući lako i interaktvino učenje.
 </div>
-</pre>
-<pre class = "primer_ta" rows="9" disabled>
+</xmp>
+<xmp class = "primer_ta" >
 <div>
    <h2>Laka navigacija kroz kurseve</h2>
    <img src = "../../app/assets/pictures/choose.jpg"  width="260px">
@@ -97,16 +97,16 @@ Unosimo sledeće kodove za svaki podblok:
    <br>
    Neke lekcije se sastoje iz više celina.
 </div>
-</pre>
-<pre class = "primer_ta" rows="7" disabled>
+</xmp>
+<xmp class = "primer_ta" >
 <div>
    <h2>Čitajte</h2>
    <img src = "../../app/assets/pictures/read.jpg"  width="260px">
    <br><br>
    Pažljivo čitajte svaku lekciju u kojima su detaljno objašnjeni svi elementi koje treba da znate.
 </div>
-</pre>
-<pre class = "primer_ta" rows="17" disabled>
+</xmp>
+<xmp class = "primer_ta" >
 <div>
    <h2>Interaktivno učenje</h2>
    <img src = "../../app/assets/pictures/edit.jpg"  width="260px">
@@ -121,8 +121,8 @@ Unosimo sledeće kodove za svaki podblok:
    <br><br>
    Sačuvane HTML fajlove možete možete otvoriti u editoru jednostavnim prevlačenjem fajla u prozor editora.
 </div>
-</pre>
-<pre class = "primer_ta" rows="9" disabled>
+</xmp>
+<xmp class = "primer_ta" >
 <div>
    <h2>Najbolje se uči vežbanjem</h2>
    <img src = "../../app/assets/pictures/help.jpg"  width="260px">
@@ -131,14 +131,14 @@ Unosimo sledeće kodove za svaki podblok:
    <br>
    U svakom trenutku možete iskoristiti pomoć ako vam je potrebna.
 </div>
-</pre>
+</xmp>
 <br> 
 Napravili smo šest podblokova "sadržaj"-a i ovde se zaustavljamo jer je u okviru preostala četiri podbloka potrebno napraviti dodatnu podelu (crveni blokovi sa slike).
 <br>
 Ovo radimo iz istog razloga iz kojeg smo pravili podblokove za  "navigaciju" - radi pozicioniranja.
 <br>
 Ispod poslednjeg unetog kucamo sledeći deo koda:
-<pre class = "primer_ta" rows="29" disabled>
+<xmp class = "primer_ta" >
 <br>
 <br>
 <h2 id="kursevi">Kursevi</h2>
@@ -168,87 +168,87 @@ Korisni alati za veb programiranje
    <div></div>
    <div></div>
 </div>
-</pre>
+</xmp>
 <b>Napomena: </b>Dodelom id-ja ovim blokovima povezali smo odgovarajuće linkove navigacionog menija sa njima.  
 <br><br>
 Redom u blokove uneti delove koda:
 <br>
 <div style="width:80%">
 <div style="float:left">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 <>
 <br><br> 
 HTML 
-</pre>
+</xmp>
 </div>
 <div style="float:right;">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 {}
 <br><br>
 CSS 
-</pre>
+</xmp>
 </div>
 <div style="float:left;">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 ()
 <br><br>
 JavaScript
-</pre>
+</xmp>
 </div>
 <div style="float:right;">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 ({})
 <br><br>
 jQuery
-</pre>
+</xmp>
 </div>
 <div style="float:left;">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 ()
 <br><br>
 Canvas
-</pre>
+</xmp>
 </div>
 <div style="float:right;">
-<pre class = "primer_ta" rows="3" disabled>
+<xmp class = "primer_ta" >
 ()
 <br><br>
 Veb
-</pre>
+</xmp>
 </div>
 <div style="float:left;">
-<pre class = "primer_ta" rows="1" disabled>
+<xmp class = "primer_ta" >
 Editor
-</pre>
+</xmp>
 </div>
 <div style="float:right;">
-<pre class = "primer_ta" rows="1" disabled>
+<xmp class = "primer_ta" >
 Boje
-</pre>
+</xmp>
 </div>
 <div style="float:left;">
-<pre class = "primer_ta" rows="1" disabled>
+<xmp class = "primer_ta" >
 Konvertor
-</pre>
+</xmp>
 </div>
 <div style="float:right;">
-<pre class = "primer_ta" rows="1" disabled>
+<xmp class = "primer_ta" >
 Mape
-</pre>
+</xmp>
 </div>
 <div style="float:left;">
-<pre class = "primer_ta" rows="1" disabled>
+<xmp class = "primer_ta" >
 Konvertor teksta
-</pre>
+</xmp>
 </div>
 </div>
 <div style="clear:both"></div>
 <br>
 <b>Horizontalna linija:</b>
-<pre class = "primer_ta" rows="2" disabled>
+<xmp class = "primer_ta" >
 <br><br>
 <hr>
-</pre>
+</xmp>
 <br>
 Prelazimo na blok <b>"podnožje"</b>.
 <br>
@@ -257,7 +257,7 @@ I ovde pravimo podblokove:
 <img src = "pictures/html/kostur2.png"  width=" 300px;" class = "primer_slika" >
 <br>
 U okviru ovog bloka imamo dva podbloka (crni blokovi) a u okviru prvog imamo dodatnu podelu (crveni blokovi):
-<pre class = "primer_ta" rows="7" disabled>
+<xmp class = "primer_ta" >
 <div id="podnožje">
          <div>
                 <div></div>
@@ -265,9 +265,9 @@ U okviru ovog bloka imamo dva podbloka (crni blokovi) a u okviru prvog imamo dod
          </div>
          <div></div>
 </div>
-</pre>
+</xmp>
 Prvi "crveni":
-<pre class = "primer_ta" rows="14" disabled>
+<xmp class = "primer_ta" >
 <div>
 <img src = "pictures/logo.png" style = "width: 80px;">
 <br>
@@ -282,9 +282,9 @@ Elektronska škola veb programiranja
 <br>
 <a href="#">O nama</a>
 </div>
-</pre>
+</xmp>
 Drugi "crveni":
-<pre class = "primer_ta" rows="12" disabled>
+<xmp class = "primer_ta" >
 <div>
 Kursevi
 <br>
@@ -297,9 +297,9 @@ Kursevi
       <li><a href="#" >Veb</a></li>				
 </ul>
 </div>
-</pre>
+</xmp>
 Treći podblok:
-<pre class = "primer_ta" rows="15" disabled>
+<xmp class = "primer_ta" >
 <div>
 Podelite E-školu veba sa prijateljima:
 <br>
@@ -312,7 +312,7 @@ Podelite E-školu veba sa prijateljima:
 Beograd, 2015.
 <br>
 </div>
-</pre>
+</xmp>
 <br>
 <br>
 Ovim smo završili definisanje strukture i sadržaja stranice.

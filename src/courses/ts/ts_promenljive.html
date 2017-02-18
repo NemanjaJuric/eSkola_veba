@@ -17,11 +17,11 @@ Svaku promenljivu koju želimo da koristimo moramo prvo da deklarišemo.Da bi de
 <br>
 <br><!-- Ovo nije loše ilustoravti nekim sličicama ako ti ostane vremena da implementiraš-->
 
-<pre class = "primer_ta" rows = "4" disabled>
+<xmp class = "primer_ta" >
 
  let ImePromenljive;
 
-</pre>
+</xmp>
 <br>
 Da bi deklarisali i naznačili da se radi o promenljivoj u kodu koristimo ključnu reč <b>let</b> ili <b>var</b>. Promenljivu možemo deklarisati i pomoću ključne reči <b>const</b> o čemu ćemo posebno diskutovati.
 <br>
@@ -31,24 +31,24 @@ koji smo imali u lekcijama deluje kao da nam nešto "nedostaje"? Ono što nam "n
 promenljive i vrednosti koju čuva. Ostanite bez brige čak i ovako deklarisana promenljiva ima svoj tip i vrednost.
 U situacijama  kad to nije eksplicitno  urađeno tip promenljive se automatksi postavlja na <b>any</b> a vrednost na <b>undefined</b>.
 <br>
-<pre class = "primer_ta" rows = "6" disabled>
+<xmp class = "primer_ta" >
 
 //let ImePromenljive: tipPodatka;
 
   let ImePromenljive: number;
 
-</pre>
+</xmp>
 <br>
 Za deklaraciju tipa promenljive koriste se dve tačke (<b>:</b>)  posle kojih se navodi kog tipa  želimo da naša promenljiva bude tjst koji tip vrednosti očekujemo da će da čuva. Opet smo izostavili vrednost 
 pa će vrednost biti automatski postavjlena na undefined.
 <br>
-<pre class = "primer_ta" rows = "6" disabled>
+<xmp class = "primer_ta" >
 
 //let ImePromenljive: tipPodatka = vrednost;
 
   let ImePromenljive:   number   = 4;
 
-</pre>
+</xmp>
 <br><!-- Da li pisati reči za simbole ili odmah npr napisati = umesto jednako ?-->
 Korišćenjem operatora jednako (<b>=</b>) mi našoj promenljivoj dodeljujemo vrednost. U gore navedenom primeru našoj promenljivoj ImePromenljive koju smo deklarisali da je tipa number dodeljujemo vrednost 4 koja je takođe tipa number.
 Za ovakav vid deklaracije može se reći da je potpun jer smo deklarisali i tip promenljive i dodelili smo joj vrednost pa možemo bez problema da je koristimo u drugim delovima koda.
@@ -79,7 +79,7 @@ nalazi se u memoriji. U TypeScriptu promenljive mogu da imaju jedan od sledećih
 <br>
 Nadamo se da će posle narednog primera biti još jasnije.
 <br>
-<pre class = "primer_ta" rows = "43" disabled>
+<xmp class = "primer_ta" >
 
   let GlobalnaPromenljiva: number = 100;
   
@@ -121,7 +121,7 @@ Nadamo se da će posle narednog primera biti još jasnije.
  };
  document.body.appendChild(button1);
  document.body.appendChild(button2);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Ako ste pokušali da izmenite deo koda kao što piše u komentaru 1. ili 2. primetićete da kompilacija nije prošla. Dobićete obaveštenje <b>Cannot find name 'PromenljivaKlase2'.</b>  ili <b>Cannot find name 'LokalnaPromenljiva'.</b> u zavisnosti od toga šta ste  od navedenog uradili iz komentara.
@@ -138,7 +138,7 @@ samo ako je tip P podtip tipa D ili tip D podtip tipa P. Type Assertion ne treba
 predstavlja način  da kompajleru skrenemo pažnju kako želimo da naš kod bude protumačen.
 <br>
 <br>
-<pre class = "primer_ta" rows = "19" disabled> 
+<xmp class = "primer_ta" > 
 
   let str1: number = 1; 
   let str2: string  = <string> <any> str1   
@@ -155,7 +155,7 @@ let button = document.createElement('button');
  };
  document.body.appendChild(button);
 
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
@@ -165,7 +165,7 @@ Iako je TypeScript jako tipiziran, ovaj pristup je opcionalan. TypeScript pruža
 prepustimo TypeScriptu. Ako nismo eksplicitno naveli tip promenljive onda će u procesu kompilacije kompajler sam dodeliti tip promenljivoj na osnovu tipa vrednosti koja joj je dodeljena promenljivoj. Kako funkcioniše pogledajmo na narednom primeru.
 <br>
 <br>
-<pre class = "primer_ta" rows = "13" disabled> 
+<xmp class = "primer_ta" > 
 
    let x= 1; 
    
@@ -178,7 +178,7 @@ prepustimo TypeScriptu. Ako nismo eksplicitno naveli tip promenljive onda će u 
    };
    document.body.appendChild(button);
 
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Korišćenjem unarnog operatora <b>typeof</b> proverili smo tip naše promenljive i dobili da je number. Ako bi dodali i kod pod komentarima dobili bi grešku <b>Type '"1"' is not assignable to type 'number'.</b>.Pošto je već kompajler dodelio
@@ -190,7 +190,7 @@ promenljivoj x tip number, dodeljivanjem stringa promenljivoj x nema smisla jer 
 Još jedan od načina da deklarišemo promenljivu je da upotrebimo ključnu reč <b>const</b>. Upotrebom ključne reči <b>const</b> u kodu mi naznačavamo kompajleru da vrednost promenljive ostaje nepromenjena tokom čitavog izvršavanja programa.
 Const je skraćenica od constant što u prevodu znači znači stalan, nepromenliv. Pokušaj dodeljivanja nove vrednosti promenljivoj (označimo je sa x) koja je deklarisana kao const rezultiraće greškom <b>Cannot assign to 'x' because it is a constant or a read-only property.</b> .
 <br>
-<pre class = "primer_ta" rows = "20" disabled> 
+<xmp class = "primer_ta" > 
   const Broj:number =5;
   const Reč :string ="Tekst";
   const Grad = {
@@ -209,7 +209,7 @@ Const je skraćenica od constant što u prevodu znači znači stalan, nepromenli
   */ 
   Grad.ime = "Hirošima";
   Grad.brojStanovnika = 1,196,274;
-</pre>
+</xmp>
 <br>
 Kada pomenemo reč const obično se misli na matematičke konstante ali za svaku promenljivu koju deklarišemo kao const  njena vrednost postaje nepromenljiva tjst konstantna. Iz gore navedenog primera vidimo da promenljiva tipa string može da bude
 konstantna tjst vrednost promenljive Reč ne može da bude nijedan drugi string sem stringa "Tekst". Kada su upitanju objekti moramo da vodimo računa jer "vrednost" promenljive predstavlja sve pod vitičastim zagradama tjst predstavlja sam objekat. Tako da iako nije
@@ -223,7 +223,7 @@ U ovom odeljku ćemo navesti par najbitnih razlika između let i var. Najveća z
 definisanosti od domena koji bi imala kad bi bila deklarisalna pomoću let. Zbog ove činjenice ostavlja se veći prostor za pravljenje semantičkih grešaka nego što bi to bio slučaj da smo promenljivu deklarisali pomoću let. Pa da pogledamo.
 <br>
 <br>
-<pre class = "primer_ta" rows = "23" disabled>  
+<xmp class = "primer_ta" >  
   function testFunkcija ( x: number ) {
   
          if (x == 1){
@@ -246,7 +246,7 @@ definisanosti od domena koji bi imala kad bi bila deklarisalna pomoću let. Zbog
     };
    document.body.appendChild(button);
    
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Možemo primetiti da se promenljiva y deklarisana pomoću <b>var</b> ponaša kao globalna promenljiva a ako je deklarišemo pomoću <b>let</b> onda kao lokalna. U prilog tome govori gore navedeni primer. Pri pozivu funkcije testFunkcija za vrednost x-a dva,
@@ -259,7 +259,7 @@ zamenio iskazom <b>var y =2;</b>. U tom slučaju u dobijenom JavaScript kodu tre
 </div>
 <br>
 Jedan od problema koje srećemo kada promenljive deklarišemo pomoću var jeste da je moguće jednu promenljivu deklarisati više puta.
-<pre class = "primer_ta" rows = "20" disabled>  
+<xmp class = "primer_ta" >  
   let M: number [][] = [[1, 2, 3, 4],[4, 3, 2, 1],[5, 6, 7, 8], [9, 10, 11, 12]];
   
   var S = 0;
@@ -276,9 +276,9 @@ Jedan od problema koje srećemo kada promenljive deklarišemo pomoću var jeste 
     alert(S);
     };
    document.body.appendChild(button);
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
-<pre class = "primer_ta" rows = "20" disabled>  
+<xmp class = "primer_ta" >  
   let M: number [][] = [[1, 2, 3, 4],[4, 3, 2, 1],[5, 6, 7, 8], [9, 10, 11, 12]];
   
   var S = 0;
@@ -298,7 +298,7 @@ Jedan od problema koje srećemo kada promenljive deklarišemo pomoću var jeste 
     };
    document.body.appendChild(button);
    
-</pre>
+</xmp>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Kao što smo već pomenuli svaka promenljiva koja je deklarisana pomoću var jeste globalna. Zbog ovoga po završetku "unutrašnje" for petlje <b>i</b> koje je deklarisano u petlji će i dalje nastaviti da postoji. 
