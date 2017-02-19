@@ -104,9 +104,12 @@ export class CourseComponent implements OnInit {
   }
 
   getLessonSiblings(lessonUrl: string, courseUrl: string) {
-    let siblings = this.schoolService.getLessonSiblings(lessonUrl, courseUrl);
-    this.next = siblings[0] != null ? siblings[0].url : null;
-    this.previous = siblings[1] != null ? siblings[1].url : null;
+    let siblings: Array<Lesson>;
+    this.schoolService.getLessonSiblings(lessonUrl, courseUrl).subscribe(data => {
+      siblings = data;
+      this.next = siblings[0] != null ? siblings[0].url : null;
+      this.previous = siblings[1] != null ? siblings[1].url : null;
+    });
   }
 
   makeIframe() {

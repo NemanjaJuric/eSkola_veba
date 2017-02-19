@@ -8,9 +8,6 @@ import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
 import { EditorComponent } from '../../components/editor/editor.component';
 
-// import 'node_modules/jquery/dist/jquery.min.js';
-// import 'node_modules/file-saver/FileSaver.min.js';
-
 declare var $: any;
 declare var saveAs: any;
 

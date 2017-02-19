@@ -23,15 +23,15 @@ export class MenuComponent implements OnInit {
         this.router.events.subscribe(() => {
             this.showMenu = false;
         });
-        this.courses = this.getCourses();
+        this.getCourses();
     }
 
     private courses: Array<Course>;
     private year: number = new Date().getFullYear();
     public showMenu: boolean;
 
-    getCourses(): Array<Course> {
-        return this.schoolService.getCourses();
+    getCourses(): void {
+        this.schoolService.getCourses().subscribe(data => this.courses = data);
     }
 
     setRoute(page, course, lesson): void {

@@ -7,9 +7,9 @@ import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
 
 @Component({
-  selector: 'header',
-  templateUrl: './header.component.html',
-  animations: [
+    selector: 'header',
+    templateUrl: './header.component.html',
+    animations: [
         trigger('headerState', [
             state('inactive', style({ transform: 'translatey(0)' })),
             state('active', style({ transform: 'translatey(500px)' })),
@@ -19,7 +19,7 @@ import { RouteService } from '../../services/route.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService) { };
+    constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService) { };
 
     ngOnInit() {
         this.initComponent();
@@ -56,13 +56,15 @@ export class HeaderComponent implements OnInit {
     private location = 'about'
 
     getCourseData(): void {
-        this.courses = this.schoolService.getCourses();
-        this.courses.forEach((course) => {
-            if (course.id === this.courseUrl) {
-                this.heading = course.name;
-                this.logo = course.logo;
-            }
-        })
+        this.schoolService.getCourses().subscribe(data => {
+            this.courses = data;
+            this.courses.forEach((course) => {
+                if (course.id === this.courseUrl) {
+                    this.heading = course.name;
+                    this.logo = course.logo;
+                }
+            })
+        });
     }
 
 }

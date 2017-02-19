@@ -1,0 +1,110 @@
+{
+    "courseButtons": [
+        {
+            "name": "Prikaži u većem prozoru",
+            "func": "open",
+            "icon": "open_in_new",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Prethodna lekcija",
+            "func": "prev",
+            "icon": "skip_previous",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Pokreni kod",
+            "func": "run",
+            "icon": "play_circle_filled",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Sledeća lekcija",
+            "func": "next",
+            "icon": "skip_next",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Pomoć",
+            "func": "help",
+            "icon": "lightbulb_outline",
+            "dataToggle": "modal",
+            "dataTarget": "#helpModal"
+        }
+    ],
+    "webCenterButtons": [
+        {
+            "name": "Editor",
+            "func": "editor",
+            "icon": "create",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Pregled",
+            "func": "view",
+            "icon": "visibility",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Paleta",
+            "func": "colors",
+            "icon": "palette",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Konvertor",
+            "func": "converter",
+            "icon": "loop",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Transliterator",
+            "func": "transliterator",
+            "icon": "text_fields",
+            "dataToggle": "",
+            "dataTarget": ""
+        }
+    ],
+    "tsCompilerButtons": [
+        {
+            "name": "Pokreni JS kod",
+            "func": "openNewWindow",
+            "icon": "open_in_new",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Kompajliraj",
+            "func": "runCompiler",
+            "icon": "settings",
+            "dataToggle": "",
+            "dataTarget": ""
+        }
+    ],
+    "sassCompilerButtons": [
+        {
+            "name": "Kompajliraj",
+            "func": "runCompiler",
+            "icon": "settings",
+            "dataToggle": "",
+            "dataTarget": ""
+        }
+    ],
+    "lessonsInputButtons": [
+        {
+            "name": "Kompajliraj",
+            "func": "runCompiler",
+            "icon": "settings",
+            "dataToggle": "",
+            "dataTarget": ""
+        }
+    ]
+}

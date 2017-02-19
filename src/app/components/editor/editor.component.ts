@@ -55,10 +55,12 @@ export class EditorComponent implements OnInit {
     let routes = url.split("/");
     this.pageUrl = routes[1] != undefined ? routes[1] : null;
     this.courseUrl = routes[2] != undefined ? routes[2] : null;
-    this.lesson = routes[3] != undefined ? routes[3] : null;   
-    this.course = this.schoolService.getCourse(this.courseUrl);
+    this.lesson = routes[3] != undefined ? routes[3] : null;
+    this.schoolService.getCourse(this.courseUrl).subscribe(data => {
+      this.course = data;
+      this.setConfiguration(this.pageUrl, this.course);
+    });
     this.documentName = this.lesson != null ? this.lesson : 'fajl';
-    this.setConfiguration(this.pageUrl, this.course);
     this.counter(this.code);
     var this_ = this;
     this.config = {

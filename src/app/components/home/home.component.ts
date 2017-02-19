@@ -5,28 +5,28 @@ import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html'
+    selector: 'home',
+    templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService, private routeService: RouteService) { };
+    constructor(private schoolService: SchoolService, private routeService: RouteService) { };
 
     ngOnInit() {
-        this.courses = this.getCourses();
-        this.technologies = this.getTechnologies();
+        this.getCourses();
+        this.getTechnologies();
         window.scrollTo(0, 0);
     }
 
     private courses: Array<Course>;
     private technologies: Array<Technologie>;
 
-    getCourses(): Array<Course> {
-        return this.schoolService.getCourses();
+    getCourses(): void {
+        this.schoolService.getCourses().subscribe(data => this.courses = data);
     }
-    
-    getTechnologies(): Array<Technologie> {
-        return this.schoolService.getTechnologies();
+
+    getTechnologies(): void {
+        this.schoolService.getTechnologies().subscribe(data => this.technologies = data);
     }
 
     setRoute(page, course, lesson): void {

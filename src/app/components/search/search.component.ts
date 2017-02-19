@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
     private searchHistory = [];
 
     ngOnInit() {
-        this.courses = this.schoolService.getCourses();
+        this.schoolService.getCourses().subscribe(data => this.courses = data);
         this.resetSearch();
         this.router.events.subscribe((event) => {
             if (event instanceof NavigationEnd) {

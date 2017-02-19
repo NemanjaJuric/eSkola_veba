@@ -1,0 +1,87 @@
+[
+   {
+      "name":"Nemanja Jurić",
+      "course":"eŠkola veba",
+      "url":"assets/images/team/nemanja_juric.jpg"
+   },
+   {
+      "name":"Milana Grab",
+      "course":"jQuery",
+      "url":"assets/images/team/milana_grab.jpg"
+   },
+   {
+      "name":"Marija Vujičić",
+      "course":"JavaScript",
+      "url":"assets/images/team/marija_vujicic.jpg"
+   },
+   {
+      "name":"Milena Milovanović",
+      "course":"JavaScript",
+      "url":"assets/images/team/milena_milovanovic.jpg"
+   },
+   {
+      "name":"Milica Panić",
+      "course":"CSS",
+      "url":"assets/images/team/milica_panic.jpg"
+   },
+   {
+      "name":"Tijana Spasić",
+      "course":"JavaScript",
+      "url":"assets/images/team/tijana_spasic.jpg"
+   },
+   {
+      "name":"Marija Đorđević",
+      "course":"JavaScript",
+      "url":"assets/images/team/marija_djordjevic.jpg"
+   },
+   {
+      "name":"Dragana Miletić",
+      "course":"HTML",
+      "url":"assets/images/team/dragana_miletic.jpg"
+   },
+   {
+      "name":"Nikola Aćimović",
+      "course":"CSS",
+      "url":"assets/images/team/nikola_acimovic.jpg"
+   },
+   {
+      "name":"Tamara Tešić",
+      "course":"JavaScript",
+      "url":"assets/images/team/tamara_tesic.jpg"
+   },
+   {
+      "name":"Bojana Milivojević",
+      "course":"CSS",
+      "url":"assets/images/team/bojana_milivojevic.jpg"
+   },
+   {
+      "name":"Petra Šarčević",
+      "course":"CSS",
+      "url":"assets/images/team/petra_sarcevic.jpg"
+   },
+   {
+      "name":"Ivana Jovanović",
+      "course":"CSS",
+      "url":"assets/images/team/ivana_jovanovic.jpg"
+   },
+   {
+      "name":"Ljubica Ilić",
+      "course":"HTML",
+      "url":"assets/images/team/ljubica_ilic.jpg"
+   },
+   {
+      "name":"Tanja Ivanović",
+      "course":"Bootstrap",
+      "url":"assets/images/team/tanja_ivanovic.jpg"
+   },
+   {
+      "name":"Miroslav Marić",
+      "course":"profesor",
+      "url":"assets/images/team/miroslav_maric.jpg"
+   },
+   {
+      "name":"Aleksandar Đenić",
+      "course":"asistent",
+      "url":"assets/images/team/aleksandar_djenic.jpg"
+   }
+]

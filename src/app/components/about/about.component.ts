@@ -10,15 +10,15 @@ export class AboutComponent implements OnInit {
 
   constructor(private schoolService: SchoolService) { };
 
+  private programmers: Array<Programmer>;  
+
   ngOnInit() {
-    this.programmers = this.getProgrammers();
+    this.getProgrammers();
     window.scrollTo(0, 0);
   }
 
-  private programmers: Array<Programmer>;
-
-  getProgrammers(): Array<Programmer> {
-    return this.schoolService.getProgrammers();
+  getProgrammers(): void {
+      this.schoolService.getProgrammers().subscribe(data => this.programmers = data);
   }
 
 }
