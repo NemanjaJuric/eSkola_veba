@@ -25,8 +25,6 @@ import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/matchtags';
 import 'codemirror/addon/selection/active-line';
 
-// import 'node_modules/file-saver/FileSaver.js';
-
 declare var saveAs: any;
 
 @Component({
@@ -59,9 +57,15 @@ export class EditorComponent implements OnInit {
     this.schoolService.getCourse(this.courseUrl).subscribe(data => {
       this.course = data;
       this.setConfiguration(this.pageUrl, this.course);
+      this.config['mode'] = this.lang;
     });
     this.documentName = this.lesson != null ? this.lesson : 'fajl';
     this.counter(this.code);
+    if (this.pageUrl == 'ts-compiler'){
+      this.lang = 'application/typescript';
+    }else{
+      this.lang = 'application/x-httpd-php';
+    }
     var this_ = this;
     this.config = {
       mode: this_.lang,
@@ -78,7 +82,7 @@ export class EditorComponent implements OnInit {
         "Esc": function (cm) {
           if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
         }
-      },
+      }
     };
   }
 
