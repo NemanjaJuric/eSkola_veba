@@ -84,7 +84,7 @@
         {
             "name": "Kompajliraj",
             "func": "runCompiler",
-            "icon": "settings",
+            "icon": "swap_horiz",
             "dataToggle": "",
             "dataTarget": ""
         }
@@ -93,7 +93,7 @@
         {
             "name": "Kompajliraj",
             "func": "runCompiler",
-            "icon": "settings",
+            "icon": "swap_horiz",
             "dataToggle": "",
             "dataTarget": ""
         }

@@ -58,17 +58,11 @@ export class EditorComponent implements OnInit {
       this.course = data;
       this.setConfiguration(this.pageUrl, this.course);
       this.config['mode'] = this.lang;
+      this.showCodeMirror = true;
     });
     this.documentName = this.lesson != null ? this.lesson : 'fajl';
     this.counter(this.code);
-    if (this.pageUrl == 'ts-compiler'){
-      this.lang = 'application/typescript';
-    }else{
-      this.lang = 'application/x-httpd-php';
-    }
-    var this_ = this;
     this.config = {
-      mode: this_.lang,
       lineNumbers: true,
       autoCloseTags: true,
       styleActiveLine: true,
@@ -97,6 +91,7 @@ export class EditorComponent implements OnInit {
   private documentName: string;
   private extension: string;
   private fullScreen: boolean;
+  private showCodeMirror: boolean = false;
 
   @Output() codeChange = new EventEmitter();
 

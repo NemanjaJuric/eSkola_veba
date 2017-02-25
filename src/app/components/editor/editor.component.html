@@ -1,4 +1,4 @@
-<div class="editor-wrapper" [ngClass]="{'editor-full': fullScreen}">
+<div class="editor-wrapper" [ngClass]="{'editor-full': fullScreen}" *ngIf="showCodeMirror">
     <div class="editor-header" [ngClass]="'bkg-' + theme" *ngIf="pageUrl != 'ts-compiler' && pageUrl != 'sass-compiler'">
         <div class="btn-group editor-buttons" role="group" aria-label="Editor buttons">
             <button class="btn btn-transparent" (click)="newDocument()">Novo</button>
