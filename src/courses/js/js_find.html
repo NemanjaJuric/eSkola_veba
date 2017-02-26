@@ -1,0 +1,90 @@
+<html>
+<head> 
+</head>
+<body>
+<h1> Metoda <b>find()</b> </h1>
+<p> Metoda <b>find()</b> pronalazi prvi element u nizu koji
+ zadaovoljava određeni kriterijum i kao rezultat daje vrednost
+ tog elementa. Ukoliko ne pronađe takav element u nizu, rezultat
+ je undefined.</p><br/>
+ <p>Metoda <b>find()</b> ispituje sve lemente niza, kako one za koje je definisana vrednost tako i one za koje nije. Elemente ispituje redom, od indeksa 0 pa do -1.
+ </p>
+
+ 
+ <xmp class = "primer_ta"  disabled>
+function isBigEnough(element) {
+  return element >= 15;
+}
+[12, 5, 8, 130, 44].find(isBigEnough); // 130
+</xmp>
+<h2>Sintaksa</h2>
+
+<xmp class = "primer_ta"  disabled>
+arr.find(callback[, thisArg])
+</xmp>
+
+<h3>Parametri</h3>
+<p><b>callback</b>-funkcija koja se izvršava nad svakim elementom u nizu i ima tri argumenta:
+<ul> <li> <b>element</b> <br/>Element nad koji se trenutno vrši operacija.</li>
+<li> <b>index</b> <br/> Redni broj elementa nad kojim se vrši operacija u trenutku.</li>
+<li> <b>array</b> <br/> Niz nad čijim elementima se vrši operacija.</li>
+</ul>
+<b>thisArg</b> <br/> Opciono.</p> 
+<h3>Rezultat</h3>
+<p>Vrednost elementa koji prođe test, u suprotom undefined.</p>
+<h2>Primeri:</h2>
+<p>Pronalaženje elementa niza na osnovu nekog svojstva</p>
+<xmp class = "primer_ta" rows = "15" disabled>
+var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+function findCherries(fruit) { 
+    return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(findCherries)); 
+// { name: 'cherries', quantity: 5 }
+</xmp>
+<p>Sledeći primer pronalazi prost broj u nizu, ukoliko nema prostog broja u nizu vraća reziltat undefined.
+</p>
+<xmp class = "primer_ta" rows = "10" disabled>
+function isPrime(element, index, array) {
+  var start = 2;
+  while (start <= Math.sqrt(element)) {
+    if (element % start++ < 1) {
+      return false;
+    }
+  }
+  return element > 1;
+}
+console.log([4, 6, 8, 12].find(isPrime)); // undefined, nije pronadjen
+console.log([4, 5, 8, 12].find(isPrime)); // 5
+</xmp>
+<p>Na sledećem primeru vidimo kako metoda find tretira nedefinisane vrednosti i izbrisane elemente niza:
+</p>
+<xmp class = "primer_ta" rows = "20" disabled>
+// Niz koji nema elementata na mestima 2, 3 i 4
+var a = [0,1,,,,5,6];
+
+// Pokazuje sve indekse svih elemenata,a ne samo onih koji imaju vrednost
+a.find(function(value, index) {
+  console.log('Visited index ' + index + ' with value ' + value); 
+});
+
+//Pokazuje sve indekse, cak i izbrisanih elementata
+a.find(function(value, index) {
+
+  // briše element 5 u prvoj iteraciji
+  if (index == 0) {
+    console.log('Deleting a[5] with value ' + a[5]);
+    delete a[5];
+  }
+  // Element 5 je posećen, iako izbrisan
+  console.log('Visited index ' + index + ' with value ' + value); 
+});
+</xmp>
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<html>
+<head> 
+</head>
+<body>
+<h1>Metoda indexOf()</h1>
+<p> Metoda indexOf() kao rezultat daje redni broj gde se element nalazi u nizu. Ako postoje dva ista elementa, indexOf() vraća prvi redni broj tog elementa, a ako se element ne nalazi u nizu vraća -1.</p>
+<xmp class = "primer_ta"  disabled>
+var a = [2, 9, 9]; 
+a.indexOf(2); // 0 
+a.indexOf(7); // -1
+
+if (a.indexOf(7) === -1) {
+  // element se ne nalazi u nizu
+}
+</xmp>
+<h2>Sintaksa</h2>
+<xmp class = "primer_ta"  disabled>
+arr.indexOf(searchElement)
+arr.indexOf(searchElement, fromIndex)
+</xmp>
+<h3>Parametri</h3>
+<ol style="list-style-type:circle">
+<li><b>searchElement</b>-element koji je potrebno locirati u nizu. </li>
+<br/><li><b>fromIndex</b>- (opciono) redni broj od kojeg počinje pretraga. Ako je redni broj jednak ili veći od dužine niza, rezultat je -1, što znači da neće pretražiti niz. Ako je uneti redni broj negativan, izvršiće se naredba, a ako je nula onda se pretražuje ceo niz, redom.</li>
+</ol>
+<h3>Rezultat</h3>
+Prvi redni broj elementa unizu, ako se element ne nalazi u nizu, -1.
+<h3>Primer</h3>
+Usledećem primeru koristimo indexOf() da odredimo redni broja članova niza:
+<xmp class = "primer_ta"  disabled> 
+var array = [2, 9, 9];
+array.indexOf(2);     // 0
+array.indexOf(7);     // -1
+array.indexOf(9, 2);  // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0 
+</xmp>
+Možemo naći sve pozicije nekog elementa u nizu na sledeći način:
+<xmp class = "primer_ta" rows = "11" disabled> 
+var indices = [];
+var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+var element = 'a';
+var idx = array.indexOf(element);
+while (idx != -1) {
+  indices.push(idx);
+  idx = array.indexOf(element, idx + 1);
+}
+console.log(indices);
+// [0, 2, 4]
+</xmp>
+Način na koji možemo proveriti da li se element nalazi u nizu i ako ne ubaciti ga:
+<xmp class = "primer_ta" rows = "19" disabled> 
+function updateVegetablesCollection (veggies, veggie) {
+    if (veggies.indexOf(veggie) === -1) {
+        veggies.push(veggie);
+        console.log('New veggies collection is : ' + veggies);
+    } else if (veggies.indexOf(veggie) > -1) {
+        console.log(veggie + ' already exists in the veggies collection.');
+    }
+}
+
+var veggies = ['potato', 'tomato', 'chillies', 'green-pepper'];
+
+updateVegetablesCollection(veggies, 'spinach'); 
+// New veggies collection is : potato,tomato,chillies,green-papper,spinach
+updateVegetablesCollection(veggies, 'spinach'); 
+// spinach already exists in the veggies collection.
+</xmp>
+</body>
+</html> 
