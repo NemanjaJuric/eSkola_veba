@@ -1,0 +1,66 @@
+﻿	    let x:number;
+		let y:number;
+			
+	let l1 = document.createElement('span');
+    l1.textContent = "x: ";
+
+    document.body.appendChild(l1);
+  
+    let input_1 = document.createElement('input'); 
+    document.body.appendChild(input_1);
+
+    let l2 = document.createElement('span');
+    l2.textContent = "y: ";
+    document.body.appendChild(l2);
+    
+    let input_2 = document.createElement('input');
+    document.body.appendChild(input_2); 
+    
+	let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	button.onclick= f;
+			
+			function f() {
+			
+			x = parseInt(input_1.value.toString());
+			
+            y = parseInt(input_2.value.toString());
+            
+			try{  
+                  if( y == 0){ 
+				  
+				  throw "Nije moguće deljenje 0, molim vas unesite drugi broj.";
+				  
+				  }
+				 
+				 alert(x/y);
+				  
+                 let z:number = p; 
+				  
+				 // Izkaz let z:number = p; nema smisla jer p ne postoji! 
+				  
+				 // Unesite y != 0 i vidite koji će izuzetak prvi izbaciti.
+				  
+               } catch ( e ){  
+
+			     if (e instanceof RangeError){ 
+
+                    alert("Nije u opsegu.");
+                }  
+			   
+                if (e instanceof ReferenceError){ 
+
+                    alert(e);
+
+                }  
+
+                if (typeof e == "string"){ 
+
+                    alert(e);
+
+                }
+            }  
+
+			}

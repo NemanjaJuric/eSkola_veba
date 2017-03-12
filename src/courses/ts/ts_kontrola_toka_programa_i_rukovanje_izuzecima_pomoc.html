@@ -1,0 +1,41 @@
+﻿<xmp class = "primer_ta" disabled>
+let x: number;
+let a: number[] = [1,25,56,78,90];
+			
+	let l1 = document.createElement('span');
+    l1.textContent = "x: ";
+
+    document.body.appendChild(l1);
+  
+    let input_1 = document.createElement('input'); 
+    document.body.appendChild(input_1);
+
+	let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	button.onclick= f;
+			
+    function f() {
+
+        x = parseInt(input_1.value.toString());
+
+        try {
+                if(x>a.length -1 ||  x<0){
+				  
+                    throw new RangeError("Traženi član niza ne postoji");
+				  
+                  }
+                    
+            alert(a[x]);
+    
+        } catch (e) {
+
+            if (e instanceof RangeError) {
+
+                alert(" Ovaj član niza ne postoji, niz ima ukupno " + a.length + " članova .");
+
+            }
+        }
+    }
+</xmp>

@@ -752,6 +752,13 @@
                 "type": "lesson",
                 "parentCourse": "ts",
                 "sublessons": null
+            },
+            {
+                "name": "Kontrola toka programa i rukovanje izuzecima",
+                "url": "ts_kontrola_toka_programa_i_rukovanje_izuzecima",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
             }
         ]
     },

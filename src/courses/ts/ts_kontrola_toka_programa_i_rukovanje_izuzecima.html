@@ -1,0 +1,505 @@
+﻿<h1>Kontrola toka programa i rukovanje izuzecima</h1><!-- Da li je iskaz isto što i naredba ?-->
+<br> 
+Kontrola toka predstavlja redosled kojim se pojedinačni iskazi, instrukcije ili pozivi funkcija proveravaju ili izvršavaju. Na osnovu eksplicitne kontrole toka pravimo razliku između imperativnih i deklarativnih programskih jezika.
+TypeScript podržava kompaktan skup iskaza, konkretno skup iskaza zaduženih za kontrolu toka programa. Jedna od prvih stvar sa kojim smo se susreli u kodu bilo je i tačka-zarez(;). Tačku-zarez  koristimo kako bi razdvojili iskaze u TypeScriptu. A sad da vidimo šta sve spada u skup iskaza zaduženih za kontrolu toka.
+<br>
+<br> 
+<b>BLOK ISKAZ</b> 
+<br>
+<br>
+Jedan od najosnovnih iskaza je blok iskaz koji se upotrebljava kako bi grupisali druge iskaze. Da bi se nešto smatralo blok iskazom dovoljno je da upotrebimo vitičaste zagrade između kojih navodimo iskaze koje želimo da grupišemo. Blok iskaze uglavnom koristimo u kombinaciji sa iskazima za kontrolu toka.
+<br>
+<xmp class = "primer_ta"  disabled> 
+{
+  iskaz_1;
+  iskaz_2;
+  .
+  .
+  .
+  iskaz_n;
+}
+
+</xmp>
+<br>
+U kombinaciji sa nekim iskazom kontrole toka to bi izgledalo ovako:
+<br>
+<xmp class = "primer_ta"  disabled> 
+  if ( x != 10)
+     {
+	 
+	 let y: number = x + 10;
+	 
+         x++;
+	 
+     }
+</xmp>
+<br>
+U iskaze za kontrolu toka upravo spadaju i uslovni iskazi.
+<br>
+<br>
+<b>USLOVNI ISKAZI</b> 
+<br>
+<br>
+Uslovni iskaz predstavlja niz instrukcija koje se izvršavaju ako je zadovoljen specifičan uslov tjst ako je povratna vrednost izraza <b>true</b> . TypeScript podržava dve vrste uslovnih iskaza <b>if ... else</b> i <b>switch</b>.
+<br>
+<br>
+IF ... ELSE ISKAZ
+<br>
+<br>
+Iskaz <b>if</b> koristimo kako bismo izvršili iskaz ili blok iskaza u slučaju kada je povratna vrednost uslova true. Iskaz <b>else</b> opciono možemo da upotrebimo kako bismo izvršili iskaz ili blok iskaza u slučaju kada je povratna vrednost uslova false. <b>Uslov</b> je izraz koji može imati vrednost true ili false.
+<br>
+<xmp class = "primer_ta"  disabled>
+
+     if (uslov) {
+	 
+        izraz_1;
+        izraz_2;
+                } else {		
+        izraz_3;
+                }
+				
+	//Iskaz else je opcioni , može i bez njega
+	
+	if (uslov) {
+             izraz_1;
+		
+		izraz_2;
+                }
+</xmp>
+<xmp class = "primer_ta"  disabled>
+
+ let x: number = 6;
+ let y: number = 5;
+ 
+ if (x > y){
+      let button = document.createElement('button');
+      button.textContent = "Rezultat";
+      button.onclick = function () {
+      alert(" Pošto je uslov zadovoljen tjst 6 je veće od 5 izvršiće se ovaj blok iskaza. Zameniti u kodu x > y sa x < y pa da vidimo šta će se desiti? :)");
+           };
+      document.body.appendChild(button);
+ 
+           }
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Else takođe možemo upotrebiti kako bi konstruisiali više uslova koji bi se proveravali redom.
+<br>
+<xmp class = "primer_ta"  disabled>
+
+     if (uslov_1) {
+	 
+           iskaz_1;
+		   
+        } else if (uslov_2) {
+		
+           iskaz_2;
+		   
+        } else if (uslov_3) {
+		
+           iksaz_3;
+		   
+        } else {
+		
+           poslednji_iskaz;
+        } 	
+</xmp>
+Kako to izgleda na primeru:
+<br>
+<xmp class = "primer_ta"  disabled>
+
+     let x: number = 6;
+     let y: number = 5;
+ 
+         if (x == y) {
+	 
+           button.onclick = function () {
+           alert(" x i y su jednaki");
+           };
+         
+        } else if ( x > y) {
+		
+           button.onclick = function () {
+           alert(" x je vece od y ");
+           };
+		   
+        } else if ( x < y ) {
+		
+           button.onclick = function () {
+           alert(" x je manje od y ");
+           };
+		   
+        } else {
+		
+           button.onclick = function () {
+           alert(" x i y nisu uporedivi ");
+           };
+        } 	
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+U ovoj situaciji treba napomenuti da se uslovi proveravaju do prvog zadovoljenog a da se ostali uslovi ne proveravaju.
+<br>
+<br>
+SWITCH ISKAZ
+<br>
+<br>
+Switch iskaz omogućava programu da odredi vrednost <b>početnog izraza</b> i da tu vrednost uporedi sa vrednostima u <b>slučajevima</b> koji su definisani u switch bloku. Ako se vrednosti poklapaju onda se izvršava niz iskaza koji su definisani za taj slučaj.
+Da bi definisali slučaj koristimo ključnu reč <b>case</b> i : između koji stoji izraz. Posle : ide skup iskaza koji želimo da se izvrši. Nakon poslednjeg iskaza u slučaju koristimo ključnu reč <b>break</b> da bi izašli iz switch bloka kako bi sprečili mogućnost da se izvrše iskazi iz jos nekog slučaja.
+Ako se vrednost početnog izraza ne poklapa ni sa jednom vrednosti slučaja onda možemo upotrebiti ključnu reč <b>default</b> kako bi naznačili da u tom slučaju će da se izvrši sledeći niz naredbi. Treba skrenuti pažnju da je upotreba ključnih reči <b>break</b> i <b>default</b> opciona. 
+<br>
+<xmp class = "primer_ta"  disabled>
+
+     switch (početni_izraz) {
+          case slučaj_1:
+		  
+            iskaz_1;
+			iskaz_2;
+			
+           break;
+          case slučaj_2:
+		  
+            iskaz_3
+			iskaz_4;
+			iskaz_5;
+			
+           break;
+		  default:
+		  
+            iskaz_koji_se_izvršava_kad_nijedan_od_slučajeva_nije_zadovoljen;
+			iskaz_koji_se_izvršava_kad_nijedan_od_slučajeva_nije_zadovoljen_1;
+			
+           break;
+}
+</xmp>
+<br>
+Kako to izgleda u praksi.
+<br>
+<xmp class = "primer_ta"  disabled>
+
+    let s1: string = "Užice";
+    let s2: string = "Beograd";
+    let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+
+     switch ( s1 > s2 ) {
+          case true:
+		  
+            button.onclick = function () {
+            alert(" Heheh pozdrav iz Užica. ;)");
+            };
+			
+           break;
+          case false:
+		  
+            button.onclick = function () {
+            alert(" Ima jedan grad zove se Beograd.");
+            };
+			
+           break;
+		  default:
+		  
+            button.onclick = function () {
+            alert(" Ipak je najbolji Tokyo.");
+            };
+			
+           break;
+          }
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<b>ISKAZI ZA RUKOVANJE IZUZECIMA</b> 
+<br>
+<br>
+Tokom izvršavanja programa može doći do ne predviđenih situacija , abnormalnog ponašanja programa ili stanja u njemu. Posebna softverska podrška je zadužena za generisanje <b>objekta</b> koji sadrže informacije o uzroku ne predviđenog ponašanja programa. Ovi objekti se nazivaju <b>izuzeci</b>. Treba skrenuti pažnju da izuzeci mogu biti kreirani i od strane autora koda.
+U TypeScriptu postoji više tipova izuzetaka. Postupak izbacivanja i hvatanja izuzetaka kao i pisanja koda koji je odgovor na taj izuzetak naziva se rukovanje izuzecima. Za izbacivanje i hvatanje izuzetka koristimo ključne reči <b>throw</b> i <b>catch</b>. Upravo pomoću ovih ključnih reči ćemo formirati izraze za rukovanje izuzecima. 
+Pre nego što krenemo dalje kratko ćemo se osvrnuti na tipove grešaka na koje možemo da naiđemo u TypeScriptu ( Napomena kad govorimo o izuzecima pričamo o objektima koje kreiraju konstruktori klasa, u nastavku navodimo 7 klasa izuzetaka) .
+<br>
+<br>
+<ul>
+<li><b>EvalError</b>-Kreira objekat koji predstavlja grešku koja je se javlja u okviru globalne funkcije eval(). </li>
+<br>
+<!--  Izgleda ovaj tip greske nema u TypeScript? <li><b>InternalError</b>-Kreira objekat koji predstavlja grešku koja je se javlja kada se izbaci izuzetak kao posledica greške unutar programa koji pokreće JavaScript kod.?--> </li><!-- Svaki TypeScript kod se kompajlira da JavaScript izvršnog koda ?--> 
+<br>
+<li><b>RangeError</b>-Kreira objekat koji predstavlja grešku koja se javlja kada se brojevna promenljiva ili parametar nalaze van svog opsega definisanosti.</li>
+<br>
+<li><b>ReferenceError</b>-Kreira objekat koji predstavlja grešku koja se javlja kada želimo da učitamo vrednost sa nevažećeg pokazivača.</li>
+<br>
+<li><b>SyntaxError</b>-Kreira objekat koji predstavlja sintaksnu grešku koja se javlja prilikom parsiranja koda u fukciji eval().</li>
+<br>
+<li><b>TypeError</b>-Kreira objekat koji predstavlja grešku koja se javlja kada promenljiva ili parametar nisu odgovarajućeg tipa.</li>
+<br>
+<li><b>URIError</b>-Kreira objekat koji predstavlja grešku koja se javlja kada su encodeURI() ili decodeURI() prosleđeni nevažeći parametri.</li>
+<ul/>
+<br>
+<br>
+THROW ISKAZ
+<br>
+<br>
+Iskaz throw koristimo kako bi smo izbacili izuzetak. Kad izbacujemo izuzetak mi ustvari  izbacujemo vrednost izraz koji smo sami definisali. Treba napomenuti da se iskaz throw koristi kako bismo izbacili izuzetak koji smo sami kreirali( Program za pokretanje JavaScript <!-- Svaki TypeScript kod se kompajlira da JavaScript izvršnog koda ?-->  koda ima sam po sebi ugrađen sistem za izbacivanje izuzetaka. ).
+<br>
+<br>
+<span class = "primer_text"> throw izraz_čiju_vrednost_želimo_da_izbacimo ; </span>
+<br>
+<br>
+Kako to izgleda u praksi.
+<br>
+<xmp class = "primer_ta"  disabled>
+    let y = "Užice";
+    let x = 2;
+	
+    let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	if ( (typeof x) == "number" && (typeof y) == "number"){
+           
+	        button.onclick = function () {
+            alert(x/y);
+			};
+			
+          }else {
+           
+	       throw "Deljenik ili delilac nije broj!";
+			
+			};
+				
+// Postaviti vrednost y da bude broj i opet pokrenuti kod	
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">
+Treba biti oprezan pri korišćenju throw jer se njegovom upotrebom prekida dalji tok programa u <b>okviru bloka</b> u kome se nalazi. <br>
+Izuzetak koji smo izbacili možemo videti u konzoli veb-pregledača. U našem slučaju dobićemo poruku <b>uncaught exception: Deljenik ili delilac nije broj!
+</div>
+</b>
+</b>
+Izuzetke možemo kreirati i pomoću konstruktora gore navedenih klasa.
+<br> 
+<br> 
+<span class = "primer_text">throw new ReferenceError(" Greška!"); </span>
+<br>
+<br> 
+TRY...CATCH ISKAZ
+<br>
+<br>
+Pomoću try...catch iskaza pokrivamo blok iskaza u kome sumnjamo da može doći do greške  i definišemo odgovor na izuzetak koji može da se pojavi. Ako je izuzetak izbačen tjst ako se pojavi tu je try...catch iskaz da ga uhvati.
+<br>
+<br>
+Try...catch iskaz se sastoji od <b>try</b> i <b>catch</b> bloka. U <b>try</b> bloku se nalazi skup iskaza u kojima smatramo da može doći do greške dok u <b>catch</b> bloku, skup iskaza koji se izvršavaju kao odgovor na izbačeni izuzetak iz <b>try</b> bloka.
+<b>Try</b> i <b>catch</b> bloka se formiraju pomoću ključnih reči <b>try</b> i <b>catch</b> iza kojih sledi blok iskaza. Suštinski šta postižemo try...catch iskazom ? Kada se desi greška program prestaje sa radom, ono što postižemo try...catch iskazom jeste da nam pruža priliku da adekvatno odreagujemo na grešku koja je nastala u try bloku. Tim pristupom preusmeravamo tok programa i omogućavamo da se izvršavanje programa privede kraju. 
+Treba da se napomene da se preusmeravanje toka programa vrši samo u situacijama  kada nastane greška inače  program se izvršava standardno.
+<br>
+<br>
+<xmp class = "primer_ta"  disabled>
+    	    try{  
+                  
+				  iskaz_1;
+			      iskaz_2;	  
+		                                // Posle try bloka uvek ide catch blok!
+                } catch ( izuzetak_koji_hvatamo ) {
+			   
+			      iskaz_3;
+			      iskaz_4;
+			   
+			   }  
+</xmp>
+<xmp class = "primer_ta"  disabled>
+    	    let x:number;
+			let y:number;
+			
+	let l1 = document.createElement('span');
+    l1.textContent = "x: ";
+
+    document.body.appendChild(l1);
+  
+    let input_1 = document.createElement('input'); 
+    document.body.appendChild(input_1);
+
+	
+	
+    let l2 = document.createElement('span');
+    l2.textContent = "y: ";
+    document.body.appendChild(l2);
+    
+    let input_2 = document.createElement('input');
+    document.body.appendChild(input_2); 
+    
+	
+	
+	
+	let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	button.onclick= f;
+			
+			function f() {
+			
+			x = parseInt(input_1.value.toString());
+			
+            y = parseInt(input_2.value.toString());
+            
+			try{  
+                  if( y == 0){ 
+				  
+				  throw "Nije moguće deljenje 0, molim vas unesite drugi broj.";
+				  
+				  }
+				 
+				  alert(x/y);
+				  
+               } catch ( e ){  //(e kao exception)) 
+
+			      alert(e);
+
+			   }  
+			  
+			}
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">
+U TypeScript-u uvek posle try bloka ide <b>jedan</b> catch blok a ne više kao što je bio slučaj u nekim drugim programskim jezicima. Razlog leži u tome što autori TypeScript-a insistiraju da parametar catch bloka (e) bude tipa any.
+Zbog toga jednim catch blokom hvatamo sve vrste izuzetaka. U nekim programskim jezicima imamo više catch blokova u zavisnosti od broja tipova izuzetaka koje hvatamo. Kako  sa jednim catch blokom prepoznati i odgovoriti na određeni tip izuzetka? Dovoljno je upotrebiti operator <b>instanceof</b> u uslovu nekog uslovnog iskaza i definisati odgovor u zavisnosti od vrednosti uslovnog izraza. <br>( Operator instanceof se koristi nad objektima ako je izuzetak nekog osnovnog tipa podataka onda koristimo operator typeof)
+Kao što možemo videti u prethodnom primeru smo uspeli da uhvatimo izuzetak koji smo sami kreirali.
+</div>
+<xmp class = "primer_ta"  disabled>
+    	    let x:number;
+			let y:number;
+			
+	let l1 = document.createElement('span');
+    l1.textContent = "x: ";
+
+    document.body.appendChild(l1);
+  
+    let input_1 = document.createElement('input'); 
+    document.body.appendChild(input_1);
+
+    let l2 = document.createElement('span');
+    l2.textContent = "y: ";
+    document.body.appendChild(l2);
+    
+    let input_2 = document.createElement('input');
+    document.body.appendChild(input_2); 
+    
+	let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	button.onclick= f;
+			
+			function f() {
+			
+			x = parseInt(input_1.value.toString());
+			
+            y = parseInt(input_2.value.toString());
+            
+			try{  
+                  if( y == 0){ 
+				  
+				  throw "Nije moguće deljenje 0, molim vas unesite drugi broj.";
+				  
+				  }
+				 
+				 alert(x/y);
+				  
+                 let z:number = p; 
+				  
+				 // Izkaz let z:number = p; nema smisla jer p ne postoji! 
+				  
+				 // Unesite y != 0 i vidite koji će izuzetak prvi izbaciti.
+				  
+               } catch ( e ){  
+
+			     if (e instanceof RangeError){ 
+
+                    alert("Nije u opsegu.");
+                }  
+			   
+                if (e instanceof ReferenceError){ 
+
+                    alert(e);
+
+                }  
+
+                if (typeof e == "string"){ 
+
+                    alert(e);
+
+                }
+            }  
+
+			}
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+<!-- Može da se razvije diskusija o ugnježdenim try...catch iskazima ?-->
+Treba imati u vidu da catch hvata prvi izuzetak koji izbacimo jer tu program prestaje sa radom. Postavlja se pitanje šta raditi ako izbacimo izuzetak a u catch bloku ne reagujemo na taj izuzetak, jednostavno nismo predvideli da može doći do tog tipa izuzetka pa nismo definisali ni odgovor. 
+U tom slučaju greška će ostati netaknuta a program prestati sa radom. U ovakvim situacijama želimo makar da imamo neki blok iskaza, npr kojim bismo mogli da oslobodimo resurse računara koje je program koristio. Jedan od načina da to uradimo je upotrebom <b>finally</b> bloka.
+Korišćenjem ključne reči <b>finally</b> iza koje sledi blok iskaza formiramo finally bloka. Ovaj blok se izvršava neposredno pošto se izvrše try i catch blokovi. Da ne bude zabune finally blok se izvršava bez obzira da li je izbačen izuzetak ili ne. Ako je izbačen izuzetak a cathc blok ne odreaguje na taj izuzetak finally blok će se opet izvršiti.
+Nadamo se da će sa sledećim primerom biti jasnije.
+<br>
+<br>
+<xmp class = "primer_ta"  disabled>
+    	    let x:number;
+			let y:number;
+			
+	let l1 = document.createElement('span');
+    l1.textContent = "x: ";
+
+    document.body.appendChild(l1);
+  
+    let input_1 = document.createElement('input'); 
+    document.body.appendChild(input_1);
+
+    let l2 = document.createElement('span');
+    l2.textContent = "y: ";
+    document.body.appendChild(l2);
+    
+    let input_2 = document.createElement('input');
+    document.body.appendChild(input_2); 
+    
+	let button = document.createElement('button');
+    button.textContent = "Rezultat";
+    document.body.appendChild(button);
+	
+	button.onclick= f;
+			
+			function f() {
+			
+			x = parseInt(input_1.value.toString());
+			
+            y = parseInt(input_2.value.toString());
+           				  
+                try{  
+                  if( y == 0){ 
+				  
+				  throw "Nije moguće deljenje 0, molim vas unesite drugi broj.";
+				  
+				  }
+				 
+				  alert("Zbog 0 tjst throw treba da iskoči iz try bloka ako se ovo dešava onda znači da smo uneli y različito od nule.");
+				  alert(x/y);
+				  
+               } finally {
+				
+                 alert("Kod u finally bloku se izvršava...");
+                 alert(x/y);
+				 window.close();
+                        }
+			}
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<br>
+Možemo primetiti da u gore navedenom primeru nemamo catch blok, to je potpuno sintaksno ispravno jer nam on služi za hvatanje izuzetaka. Ako ne želimo da hvatamo izuzetke onda ne moramo da koristimo catch. Ono što je bitno napomenuti da finally blok mora da ide posle catch bloka tjst posle try bloka ako catch bloka nema.
+Ako se catch i finally blok nalaze u funkciji a koristimo u oba bloka <b>return</b> onda će se prioritet dati return-u koji je upotrebljen u finally bloku.
+<br>
+<br>
+<!-- Može da se razvije diskusija o Erro klasi i korišćenju objekata te klase, Promise klasa ?-->
+<div class = "zadatak">
+<b>Zadatak5:</b><br>
+Napisati program tako da korisnik može da pristupi članovima niza i da vidi vrednost člana kome je pristupio. U slučaju da korisnik pokuša da pristupi članu koji ne postoji, izuzetak mora biti uhvaćen i ispisana poruka da taj član niza ne postoji.
+</div>
