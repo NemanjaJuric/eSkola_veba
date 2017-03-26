@@ -9,7 +9,7 @@ TypeScript podržava kompaktan skup iskaza, konkretno skup iskaza zaduženih za 
 <br>
 Jedan od najosnovnih iskaza je blok iskaz koji se upotrebljava kako bi grupisali druge iskaze. Da bi se nešto smatralo blok iskazom dovoljno je da upotrebimo vitičaste zagrade između kojih navodimo iskaze koje želimo da grupišemo. Blok iskaze uglavnom koristimo u kombinaciji sa iskazima za kontrolu toka.
 <br>
-<xmp class = "primer_ta"  disabled> 
+<textarea class = "primer_ta" rows = "10" disabled> 
 {
   iskaz_1;
   iskaz_2;
@@ -19,11 +19,11 @@ Jedan od najosnovnih iskaza je blok iskaz koji se upotrebljava kako bi grupisali
   iskaz_n;
 }
 
-</xmp>
+</textarea>
 <br>
 U kombinaciji sa nekim iskazom kontrole toka to bi izgledalo ovako:
 <br>
-<xmp class = "primer_ta"  disabled> 
+<textarea class = "primer_ta" rows = "9" disabled> 
   if ( x != 10)
      {
 	 
@@ -32,7 +32,7 @@ U kombinaciji sa nekim iskazom kontrole toka to bi izgledalo ovako:
          x++;
 	 
      }
-</xmp>
+</textarea>
 <br>
 U iskaze za kontrolu toka upravo spadaju i uslovni iskazi.
 <br>
@@ -48,7 +48,7 @@ IF ... ELSE ISKAZ
 <br>
 Iskaz <b>if</b> koristimo kako bismo izvršili iskaz ili blok iskaza u slučaju kada je povratna vrednost uslova true. Iskaz <b>else</b> opciono možemo da upotrebimo kako bismo izvršili iskaz ili blok iskaza u slučaju kada je povratna vrednost uslova false. <b>Uslov</b> je izraz koji može imati vrednost true ili false.
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "16" disabled>
 
      if (uslov) {
 	 
@@ -65,8 +65,8 @@ Iskaz <b>if</b> koristimo kako bismo izvršili iskaz ili blok iskaza u slučaju 
 		
 		izraz_2;
                 }
-</xmp>
-<xmp class = "primer_ta"  disabled>
+</textarea>
+<textarea class = "primer_ta" rows = "15" disabled>
 
  let x: number = 6;
  let y: number = 5;
@@ -80,12 +80,12 @@ Iskaz <b>if</b> koristimo kako bismo izvršili iskaz ili blok iskaza u slučaju 
       document.body.appendChild(button);
  
            }
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Else takođe možemo upotrebiti kako bi konstruisiali više uslova koji bi se proveravali redom.
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "18" disabled>
 
      if (uslov_1) {
 	 
@@ -103,10 +103,10 @@ Else takođe možemo upotrebiti kako bi konstruisiali više uslova koji bi se pr
 		
            poslednji_iskaz;
         } 	
-</xmp>
+</textarea>
 Kako to izgleda na primeru:
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "31" disabled>
 
      let x: number = 6;
      let y: number = 5;
@@ -135,7 +135,7 @@ Kako to izgleda na primeru:
            alert(" x i y nisu uporedivi ");
            };
         } 	
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 U ovoj situaciji treba napomenuti da se uslovi proveravaju do prvog zadovoljenog a da se ostali uslovi ne proveravaju.
@@ -148,7 +148,7 @@ Switch iskaz omogućava programu da odredi vrednost <b>početnog izraza</b> i da
 Da bi definisali slučaj koristimo ključnu reč <b>case</b> i : između koji stoji izraz. Posle : ide skup iskaza koji želimo da se izvrši. Nakon poslednjeg iskaza u slučaju koristimo ključnu reč <b>break</b> da bi izašli iz switch bloka kako bi sprečili mogućnost da se izvrše iskazi iz jos nekog slučaja.
 Ako se vrednost početnog izraza ne poklapa ni sa jednom vrednosti slučaja onda možemo upotrebiti ključnu reč <b>default</b> kako bi naznačili da u tom slučaju će da se izvrši sledeći niz naredbi. Treba skrenuti pažnju da je upotreba ključnih reči <b>break</b> i <b>default</b> opciona. 
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "24" disabled>
 
      switch (početni_izraz) {
           case slučaj_1:
@@ -171,11 +171,11 @@ Ako se vrednost početnog izraza ne poklapa ni sa jednom vrednosti slučaja onda
 			
            break;
 }
-</xmp>
+</textarea>
 <br>
 Kako to izgleda u praksi.
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "30" disabled>
 
     let s1: string = "Užice";
     let s2: string = "Beograd";
@@ -206,7 +206,7 @@ Kako to izgleda u praksi.
 			
            break;
           }
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
@@ -246,7 +246,7 @@ Iskaz throw koristimo kako bi smo izbacili izuzetak. Kad izbacujemo izuzetak mi 
 <br>
 Kako to izgleda u praksi.
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "22" disabled>
     let y = "Užice";
     let x = 2;
 	
@@ -267,7 +267,7 @@ Kako to izgleda u praksi.
 			};
 				
 // Postaviti vrednost y da bude broj i opet pokrenuti kod	
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
 Treba biti oprezan pri korišćenju throw jer se njegovom upotrebom prekida dalji tok programa u <b>okviru bloka</b> u kome se nalazi. <br>
@@ -292,7 +292,7 @@ Try...catch iskaz se sastoji od <b>try</b> i <b>catch</b> bloka. U <b>try</b> bl
 Treba da se napomene da se preusmeravanje toka programa vrši samo u situacijama  kada nastane greška inače  program se izvršava standardno.
 <br>
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "11" disabled>
     	    try{  
                   
 				  iskaz_1;
@@ -304,8 +304,8 @@ Treba da se napomene da se preusmeravanje toka programa vrši samo u situacijama
 			      iskaz_4;
 			   
 			   }  
-</xmp>
-<xmp class = "primer_ta"  disabled>
+</textarea>
+<textarea class = "primer_ta" rows = "52" disabled>
     	    let x:number;
 			let y:number;
 			
@@ -357,14 +357,14 @@ Treba da se napomene da se preusmeravanje toka programa vrši samo u situacijama
 			   }  
 			  
 			}
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
 U TypeScript-u uvek posle try bloka ide <b>jedan</b> catch blok a ne više kao što je bio slučaj u nekim drugim programskim jezicima. Razlog leži u tome što autori TypeScript-a insistiraju da parametar catch bloka (e) bude tipa any.
 Zbog toga jednim catch blokom hvatamo sve vrste izuzetaka. U nekim programskim jezicima imamo više catch blokova u zavisnosti od broja tipova izuzetaka koje hvatamo. Kako  sa jednim catch blokom prepoznati i odgovoriti na određeni tip izuzetka? Dovoljno je upotrebiti operator <b>instanceof</b> u uslovu nekog uslovnog iskaza i definisati odgovor u zavisnosti od vrednosti uslovnog izraza. <br>( Operator instanceof se koristi nad objektima ako je izuzetak nekog osnovnog tipa podataka onda koristimo operator typeof)
 Kao što možemo videti u prethodnom primeru smo uspeli da uhvatimo izuzetak koji smo sami kreirali.
 </div>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "68" disabled>
     	    let x:number;
 			let y:number;
 			
@@ -431,7 +431,7 @@ Kao što možemo videti u prethodnom primeru smo uspeli da uhvatimo izuzetak koj
             }  
 
 			}
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
@@ -442,7 +442,7 @@ Korišćenjem ključne reči <b>finally</b> iza koje sledi blok iskaza formiramo
 Nadamo se da će sa sledećim primerom biti jasnije.
 <br>
 <br>
-<xmp class = "primer_ta"  disabled>
+<textarea class = "primer_ta" rows = "50" disabled>
     	    let x:number;
 			let y:number;
 			
@@ -490,7 +490,7 @@ Nadamo se da će sa sledećim primerom biti jasnije.
 				 window.close();
                         }
 			}
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>

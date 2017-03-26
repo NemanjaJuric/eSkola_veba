@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+<p>Url adresa ove veb stranice je:</p>
+<h3>{{mojUrl}}</h3>
+</div>
+
+<p>Ovaj primer koristi ugradeni servis $location.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $location) {
+    $scope.mojUrl = $location.absUrl();
+});
+</script>
+
+</body>
+</html>

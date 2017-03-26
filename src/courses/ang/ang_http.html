@@ -1,0 +1,228 @@
+<h1>AngularJS AJAX - $http</h1>
+<br/>
+<br/>
+<span class = "primer_text">$http</span> je AngularJS servis za čitanje podataka sa udaljenih servera.
+<br/>
+<br/>
+<h2>AngularJS $http</h2>
+<br/>
+AngularJS <span class = "primer_text">$http</span> servis šalje zahtev serveru i čita odgovor.
+<br/>
+<br/>
+U narednom primeru je poslat jednostavan zahtev serveru i prikazuje se rezultat u naslovu:
+<textarea class = "primer_ta" rows = "34" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Današnja poruka glasi:</p>
+
+<h1>{{mojaPoruka}}</h1>
+
+</div>
+
+<p>$http servis zahteva stranicu sa servera i odgovor je postavljen kao vrednost promenljive "mojaPoruka".</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $http) {
+  $http.get("courses/ang/http/zdravo.htm")
+  .then(function(response) {
+      $scope.mojaPoruka = response.data;
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Metode</h2>
+<br/>
+<span class = "primer_text"> $http</span> servis ima nekoliko metoda:
+<ul>
+	<li><span class = "primer_text">.delete()</span></li>
+	<li><span class = "primer_text">.get()</span></li>
+	<li><span class = "primer_text">.head()</span></li>
+	<li><span class = "primer_text">.jsonp()</span></li>
+	<li><span class = "primer_text">.patch()</span></li>
+	<li><span class = "primer_text">.post()</span></li>
+	<li><span class = "primer_text">.put()</span></li>
+</ul>
+<br/>
+Ove metode su prečice za pozivanje $http servisa.
+<br/>
+<br/>
+U narednom primeru se izvršava $http servis kome je argument objekat. Objekat navodi HTTP metod, URL, šta da uradi ako je rezultat uspešan, a šta ako je neuspešan.
+<textarea class = "primer_ta" rows = "38" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Današnja poruka glasi:</p>
+
+<h1>{{mojaPoruka}}</h1>
+
+</div>
+
+<p>$http servis zahteva stranicu sa servera i odgovor je postavljen kao vrednost promenljive "mojaPoruka".</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $http) {
+  $http({
+    method : "GET",
+    url : "courses/ang/http/zdravo.htm"
+  }).then(function mySucces(response) {
+      $scope.mojaPoruka = response.data;
+    }, function myError(response) {
+      $scope.mojaPoruka = response.statusText;
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Svojstva</h2>
+<br/>
+Odgovor od servera je objekat sa sledećim svojstvima:
+<ul>
+	<li><span class = "primer_text">.config</span> - objekat koji se koristi za generisanje zahteva;</li>
+	<li><span class = "primer_text">.data</span> - string ili objekat, koji nosi odgovor od servera;</li>
+	<li><span class = "primer_text">.headers</span> - funkcija koja se koristi da bi smo dobili informacije iz zaglavllja;</li>
+	<li><span class = "primer_text">.status</span> - broj koji definiše HTTP status;</li>
+	<li><span class = "primer_text">.statusText</span> - string koji definiše HTTP status.</li>
+</ul>
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span>
+<textarea class = "primer_ta" rows = "36" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Data : {{sadrzaj}}</p>
+<p>Status : {{statuskod}}</p>
+<p>StatusText : {{statustekst}}</p>
+
+</div>
+
+<p>Odgovor ima mnogo svojstava. Ovaj primer pokazuje vrednost sadržaja, statusa, i statusTekst svojstva.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $http) {
+  $http.get("courses/ang/http/zdravo.htm")
+  .then(function(response) {
+      $scope.sadrzaj = response.data;
+      $scope.statuskod = response.status;
+      $scope.statustekst = response.statusText;            
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Za rukovanje greškama treba da se doda još jedna funkcija u <span class = "primer_text">.then</span> metodi, što je pokazano u sledećem primeru:
+<br/>
+<textarea class = "primer_ta" rows = "34" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<h1>{{sadrzaj}}</h1>
+
+</div>
+
+<p>$http servis izvršava različite funkcije kada je odgovor uspešan ili neuspešan.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $http) {
+  $http.get("pogresnoimedatoteke.htm")
+  .then(function(response) {
+      $scope.sadrzaj = response.data;
+  }, function(response) {
+      $scope.sadrzaj = "Nešto je bilo pogrešno!";
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>JSON</h2>
+<br/>
+Podaci koji se dobijaju od odgovora očekuje se da budu u JSON formatu.
+<br/>
+<br/>
+JSON je odličan način za prenos podataka, i jednostavan je za korišćenje unutar AngularJS-a, ili bilo kog JavaScript-a.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span> Na serveru je datoteka koja vraća JSON objekat koji sadrži 15 klijenata, koji su upakovani u niz po imenu "zapisi".
+<textarea class = "primer_ta" rows = "33" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerKlijent"> 
+
+<ul>
+  <li ng-repeat="x in mojiPodaci">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('kontrolerKlijent', function($scope, $http) {
+  $http.get("courses/ang/http/klijenti.php").then(function (response) {
+      $scope.mojiPodaci = response.data.records;
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Objašnjenje primera:
+<br/>
+<br/>
+<ul>
+<li>Aplikacija definiše kontroler "kontrolerKlijent", sa $scope i $http objektom.</li>
+<li>$http je XMLHttpRequest objekat za traženje spoljnih podataka.</li>
+<li>$http.get() čita JSON podatke iz datoteke "klijenti.php".</li>
+<li>Kada se funkcija izvrši uspešno, kontroler pravi svojstvo, "mojiPodaci", u domenu, koje vraća JSON podatke sa servera.</li>
+</ul>
+<br/>

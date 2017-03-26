@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <p ng-bind="ime"></p>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrovic";    
+});
+</script>
+
+</body>
+</html>

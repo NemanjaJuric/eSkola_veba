@@ -1,0 +1,482 @@
+<h1>AngularJS filteri</h1>
+<br/>
+<br/>
+U AngularJS-u mogu da se dodaju filteri da bi se podaci formatirali.
+<br/>
+<br/>
+<h2>AngularJS filteri</h2>
+<br/>
+U AngularJS-u postoje sledeći filteri za transformaciju podataka:
+<ul>
+	<li><span class = "primer_text"> currency </span> - transformiše broj u valutu;</li>
+	<li><span class = "primer_text"> date </span> - transformiše datum u određeni format;</li>
+	<li><span class = "primer_text"> filter </span> - bira podniz iz niza podataka;</li>
+	<li><span class = "primer_text"> json </span> - transformiše objekat u JSON string;</li>
+	<li><span class = "primer_text"> limitTo </span> - ograničava niz/string na određeni broj elemenata/karaktera;</li>
+	<li><span class = "primer_text"> lowercase </span> - transformiše string da bude ispisan malim slovima;</li>
+	<li><span class = "primer_text"> number </span> - transformiše broj u string;</li>
+	<li><span class = "primer_text"> orderBy </span> - sortira niz po izrazu;</li>
+	<li><span class = "primer_text"> uppercase </span> - transformiše string da bude ispisan velikim slovima.</li>
+</ul>
+<br/>
+<br/>
+<h2>Dodavanje filtera u izraze</h2>
+<br/>
+Filteri mogu da se dodaju izrazima koristeći karakter "|", iza koga sledi filter.
+<br/>
+<br/>
+<ul>
+<li>Filter <span class = "primer_text"> uppercase </span> transformiše string da bude ispisan velikim slovima:</li>
+<textarea class = "primer_ta" rows = "26" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerOsoba">
+
+<p>Moje prezime je {{ prezime | uppercase }}</p>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerOsoba', function($scope) {
+    $scope.ime = "Marko",
+    $scope.prezime = "Petrović"
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<li>Filter <span class = "primer_text"> lowercase </span> transformiše string da bude ispisan malim slovima:</li>
+<textarea class = "primer_ta" rows = "26" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerOsoba">
+
+<p>Moje prezime je {{ prezime | lowercase }}</p>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerOsoba', function($scope) {
+    $scope.ime = "Marko",
+    $scope.prezime = "Petrović"
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+</ul>
+<h2>Dodavanje filtera u direktive</h2>
+<br/>
+Filteri se dodaju i direktivu, poput <span class = "primer_text"> ng-repeat </span>, koristeći karakter "|" iza koga sledi filter.
+<br/>
+<br/>
+Filter <span class = "primer_text"> orderBy </span> sortira niz:
+<br/>
+<textarea class = "primer_ta" rows = "41" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+
+<p>Petlja sa objektima:</p>
+<ul>
+  <li ng-repeat="x in imena | orderBy:'drzava'">
+    {{ x.ime + ', ' + x.drzava }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        {ime:'Marko',drzava:'Srbija'},
+        {ime:'Ivan',drzava:'Rusija'},
+        {ime:'Gligor',drzava:'Makedonija'},
+        {ime:'Igor',drzava:'Bosna i Hercegovina'},
+        {ime:'Luka',drzava:'Srbija'},
+        {ime:'Aleksa',drzava:'Srbija'},
+        {ime:'Petar',drzava:'Crna Gora'},
+        {ime:'Viliam',drzava:'Engleska'},
+        {ime:'Fedor',drzava:'Rusija'}
+        ];
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Filter <span class = "primer_text"> currency </span></h2>
+<br/>
+Filter <span class = "primer_text"> currency </span> transformiše broj u valutu.
+<br/>
+<textarea class = "primer_ta" rows = "28" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerCena">
+
+<h1>Cena: {{ cena | currency }}</h1>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('kontrolerCena', function($scope) {
+    $scope.cena = 58;
+});
+</script>
+
+<p>Filter "currency" transformiše broj u valutu.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Podrazumevana valuta je lokalna valuta. Valuta može da se promeni dodavanjem simbola iza filtera na sledeći način:
+<br/>
+<textarea class = "primer_ta" rows = "28" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerCena">
+
+<p>Cena = {{ cena | currency : "RSD"}}</p>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('kontrolerCena', function($scope) {
+    $scope.cena = 250.99;
+});
+</script>
+
+<p>Možete da promenite simbol valute tako šte dodate simbol parametar iza "currency".</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Filter <span class = "primer_text"> filter </span></h2>
+<br/>
+Filter <span class = "primer_text"> filter </span> bira podniz od niza podataka.
+<br/>
+Filter <span class = "primer_text"> filter </span> može da se koristi samo za nizove, i vraća niz koji sadrži samo odgovarajuće elemente.
+<br/>
+Sledeći primer će ispisati sva imena koja sadrže slovo "I":
+<br/>
+<textarea class = "primer_ta" rows = "42" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+
+<ul>
+  <li ng-repeat="x in imena | filter : 'i'">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        'Marko',
+        'Ivan',
+        'Aleksa',
+        'Gligor',
+        'Igor',
+        'Fedor',
+        'Petar',
+        'Viliam',
+        'Luka'
+    ];
+});
+</script>
+
+<p>Ovaj primer prikazuje samo imena koja sadrže slovo "i".</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Sintaksa:
+<br/>
+<span class = "primer_text"> {{ niz | filter : izraz : komparator }} </span>
+<br/>
+<br/>
+Vrednosti parametra mogu biti:
+<table class = "tabela">
+	<thead>
+		<tr>
+			<th>Vrednost</th>
+			<th>Opis</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>izraz</td>
+			<td>Izraz koji se koristi prilikom biranja elemenata iz niza. Izraz može da bude tipa:
+				<br/>
+				<br/>
+				String: Biće odabrani elementi niza koji se podudaraju sa stringom.
+				<br/>
+				<br/>
+				Objekat: Objekat je obrazac za pretragu niza. Na primer: {"ime" : "I", "grad": "Beograd"} će vratiti niz elemenata čije ime sadrži slovo "I", i gde grad sadrži reč "Beograd". Vidite primer ispod tabele.
+				<br/>
+				<br/>
+				Funkcija: Funkcija koja će se pozivati za svaki element niza, i vraća samo one elemente u kojima funkcija vraća "true".
+			</td>
+		</tr>
+		<tr>
+			<td>komparator</td>
+			<td>Ovo je opciono. Definiše koliko strogo poređenje treba da bude. Može imati sledeće vrednosti:
+				<br/>
+				<br/>
+				true: Vraća samo one elemente niza koji se tačno podudaraju sa onim sa čime vršimo poređenje.
+				<br/>
+				<br/>
+				false : Vraća one elemente niza koji sadrže izraz sa kojim se porede. Kod ovog poređenja nije bitno da li su mala ili velika slova. Ovo je podrazumevana vrednost.
+				<br/>
+				<br/>
+				funkcija: Funkcija u kojoj će biti definisano šta će se smatrati poklapanjem ili ne.
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br/>
+<span class = "primer_text">Primer:</span>
+<br/>
+<textarea class = "primer_ta" rows = "41" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+
+<ul>
+<li ng-repeat="x in imena | filter : {'ime' : 'I', 'grad' : 'Beograd'}">
+{{x.ime + ", " + x.grad}}</li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        {ime:'Marko',grad:'Beograd'},
+        {ime:'Ivan',grad:'Moskva'},
+        {ime:'Gligor',grad:'Skoplje'},
+        {ime:'Igor',grad:'Beograd'},
+        {ime:'Luka',grad:'Beograd'},
+        {ime:'Aleksa',grad:'Sarajevo'},
+        {ime:'Petar',grad:'Kragujevac'},
+        {ime:'Fedor',grad:'Moskva'}
+        ];
+});
+</script>
+
+<p>Filter će vratiti elemente koji sadrže slovo "I" u imenu, i gde je grad "Beograd".</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Filtriranje niza na osnovu unosa korisnika</h2>
+<br/>
+Postavljanjem direktive ng-model na polje za unos podataka, može se koristiti vrednost polja "input" kao izraz za filter.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span>
+<textarea class = "primer_ta" rows = "47" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+
+<p>Ukucajte slovo u polju za unos:</p>
+
+<p><input type="text" ng-model="test"></p>
+
+<ul>
+  <li ng-repeat="x in imena | filter:test">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        'Marko',
+        'Petar',
+        'Luka',
+        'Ivan',
+        'Aleksa',
+        'Igor',
+        'Momir',
+        'Slavko',
+        'Dragan'
+    ];
+});
+</script>
+
+<p>Lista će sadržati samo imena koja se podudaraju sa filterom.</p>
+
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Sortiranje niza na osnovu unosa korisnika</h2>
+<br/>
+Dodavanjem direktive ng-click na zaglavlje tabele, može da se pokrene funkcija koja menja redosled sortiranja niza.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span>
+<textarea class = "primer_ta" rows = "53" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<p>Kliknite na zaglavlje tabele da bi promenili redosled sortiranja:</p>
+
+<div ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+
+<table border="1" width="100%">
+<tr>
+<th ng-click="promeniRedosled('ime')">Ime</th>
+<th ng-click="promeniRedosled('drzava')">Država</th>
+</tr>
+<tr ng-repeat="x in imena | orderBy:mojRedosled">
+<td>{{x.ime}}</td>
+<td>{{x.drzava}}</td>
+</tr>
+</table>
+
+</div>
+
+<script>
+angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        {ime:'Marko',drzava:'Srbija'},
+        {ime:'Ivan',drzava:'Rusija'},
+        {ime:'Gligor',drzava:'Makedonija'},
+        {ime:'Igor',drzava:'Bosna i Hercegovina'},
+        {ime:'Luka',drzava:'Srbija'},
+        {ime:'Aleksa',drzava:'Srbija'},
+        {ime:'Petar',drzava:'Crna Gora'},
+        {ime:'Viliam',drzava:'Engleska'},
+        {ime:'Fedor',drzava:'Rusija'}
+        ];
+    $scope.promeniRedosled = function(x) {
+        $scope.mojRedosled = x;
+    }
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Napravljeni filteri</h2>
+<br/>
+Mogu da se naprave novi filteri tako što se napravi novi skup funkcija filtera sa svojim modulom.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span> napravljen je novi filter koji se zove "mojFormat"
+<textarea class = "primer_ta" rows = "52" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<ul ng-app="mojaAplikacija" ng-controller="kontrolerImena">
+<li ng-repeat="x in imena">
+    {{x | mojFormat}}
+</li>
+</ul>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.filter('mojFormat', function() {
+    return function(x) {
+        var i, c, txt = "";
+        for (i = 0; i < x.length; i++) {
+            c = x[i];
+            if (i % 2 == 0) {
+                c = c.toUpperCase();
+            }
+            txt += c;
+        }
+        return txt;
+    };
+});
+app.controller('kontrolerImena', function($scope) {
+    $scope.imena = [
+        'Marko',
+        'Ivan',
+        'Aleksa',
+        'Petar',
+        'Luka',
+        'Momir',
+        'Igor',
+        'Dragan',
+        'Slavko'
+        ];
+});
+</script>
+
+<p>Napravi svoj filter.</p>
+<p>Ovaj filter, koji se zove "mojFormat", će ispisati svaki drugi karakter velikim slovom.</p>
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>

@@ -1,0 +1,198 @@
+<h1>AngularJS Scope</h1>
+<br/>
+<br/>
+<span class = "primer_text">Scope</span> je deo za vezivanje HTML-a (view-a) i JavaScript-a (kontrolera).
+<br/>
+<br/>
+Scope je objekat sa dostupnim svojstvima i metodama. 
+<br/>
+<br/>
+Scope je dostupan i za HTML view i za kontroler.
+<br/>
+<br/>
+<h2>Kako se koristi Scope?</h2>
+<br/>
+<br/>
+Kada se u JavaScript-u napravi kontroler, prosleđuje mu se $scope objekat kao argument.
+<br/>
+<br/>
+U sledećem primeru je pokazano kako se svojstva napravljena u kontroleru mogu proslediti na view:
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "29" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<h1>{{imeauta}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.imeauta = "Volvo";
+});
+</script>
+
+<p>Svojstvo "imeauta" je napravljeno u kontroleru, i može da se prosledi view-u koristeći {{ }} zagrade.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Kada se dodaju svojstva objektu $scope u kontroleru, view (HTML) dobija pristup ovim svojstvima.
+<br/>
+<br/>
+U HTML view-u se ne koristi prefix $scope, samo se prosleđuje ime svojstva, na primer {{imeauta}}.
+<br/>
+<br/>
+<h2>Razumevanje Scope-a?</h2>
+<br/>
+<br/>
+Ako uzmemo u obzir da AngularJS aplikaciju čine:
+<ul>
+<li>HTML view;</li>
+<li>Model, koji ima podatke koji su dostupni za view;</li>
+<li>Kontroler, koji je JavaScript funkcija koja pravi/menja/uklanja/kontroliše podatke,</li>
+</ul>
+onda je Scope model.
+<br/>
+<br/>
+Scope je JavaScript objekat sa svojstvima i metodama koje su dostupne i za view i za kontroler.
+<br/>
+<br/>
+U narednom primeru je pokazano kako se ažurira model i kontroler nakon što se napravi izmena na view-u:
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "31" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<input ng-model="ime">
+
+<h1>Moje ime je {{ime}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko Petrović";
+});
+</script>
+
+<p>Kada promenite ime u polju za unos podataka, promena će uticati na model, i takođe će uticati na svojstvo "ime" u kontroleru.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Poznavanje Scope-a?</h2>
+<br/>
+<br/>
+Važno je da se zna sa kojim scope-om se bavimo, u bilo kom trenutku.
+<br/>
+<br/>
+U prethodna dva primera je postojao samo jedan scope, tako da poznavanje scope-a nije predstavljalo problem, ali u većim aplikacijama mogu postojati delovi u HTML DOM-u kojima može da pristupi samo određeni scope.
+<br/>
+<br/>
+Kada se koristi direktiva ng-repeat, svako ponavljanje ima pristup tekućem objektu. To je pokazano u narednom primeru:
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "32" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<ul>
+    <li ng-repeat="x in imena">{{x}}</li>
+</ul>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+
+app.controller('mojKontroler', function($scope) {
+    $scope.imena = ["Marko", "Ivan", "Luka"];
+});
+</script>
+
+<p>Promenljiva "x" ima različitu vrednost za svako ponavljanje, što dokazuje da svako ponavljanje ima svoj scope.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Svaki <span class = "primer_text">< li ></span> element ima pristup tekućem objektu, u ovom slučaju stringu, kojem se pristupa preko promenljive x.
+<br/>
+<br/>
+<h2>Root Scope?</h2>
+<br/>
+<br/>
+Sve aplikacije imaju <span class = "primer_text">$rootScope</span>. $rootScope je scope koji se pravi u HTML elementu koji sadrži direktivu ng-app.
+<br/>
+<br/>
+$rootScope je dostupan celoj aplikaciji.
+<br/>
+<br/>
+Ako promenljiva ima isto ime i u trenutnom scope-u i u rootScope-u, aplikacija koristi onu koja je u trenutnom scope-u.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span>
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "39" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="mojaAplikacija">
+
+<p>Omiljena boja od rootScope-a je:</p>
+<h1>{{boja}}</h1>
+
+<div ng-controller="mojKontroler">
+
+<p>Omiljena boja tekućeg scope-a u kontroleru je:</p>
+<h1>{{boja}}</h1>
+
+</div>
+
+<p>Omiljena boja rootScope-a je još uvek:</p>
+<h1>{{boja}}</h1>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.run(function($rootScope) {
+    $rootScope.boja = 'plava';
+});
+app.controller('mojKontroler', function($scope) {
+    $scope.boja = "crvena";
+});
+</script>
+
+<p>Primetite da promenljiva "boja" iz kontrolera nije prebrisala vrednost promenljive "boja" iz rootScope-a.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>

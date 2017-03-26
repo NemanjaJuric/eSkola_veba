@@ -15,7 +15,7 @@ uvezene iz neke biblioteke itd. U ovim situacijam jedino rešenje koje nam se na
 Implementacija rešenja došla je u vidu uvođenja novog tipa promenljive koja može da bude bilo koji drugi tip. Ključna reč rezervisana za ovaj tip promenljive je <b>any</b>. Znači ako nismo sigurni kog bi tipa naša promenljiva trebalo da bude a hteli bi da izbegnemo greške u kodu
 definisianjem tipa te promenljive onda je preporuka upotrebiti <b>any</b>. Pošto vrednost promenljive označene sa <b>any</b>  može da bude bilo kojeg drugog tip, <b>any</b>  predstavlja nadtip svih ostalih tipova. Pogledajmo sledeće primer.
 
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "11" disabled>
  
  let NisamSiguran: any = 4;
  
@@ -27,13 +27,13 @@ definisianjem tipa te promenljive onda je preporuka upotrebiti <b>any</b>. Pošt
  
  NisamSiguran = false; 
 
-</xmp>
+</textarea>
 <br>
 Treba skrenuti pažnju da je gore ispisan kod potpuno korektan. Pošto smo promenljivoj NisamSiguran dodelili tip any potpuno je ispravno da promenljiva sadrži bilo koji tip vrednosti i neće se javiti greska u procesu kompilacije.
 Ono što nije korektno je sledeće.
 <br>
 
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "11" disabled>
  
  let NisamSiguran: number = 4;
  
@@ -45,7 +45,7 @@ Ono što nije korektno je sledeće.
  
  NisamSiguran = false; 
 
-</xmp>
+</textarea>
 <br>
 Pri procesu kompilacije kompaljer to rezonuje na sledeći način. "Ok znači imam promenljivu NisamSiguran za koju je autor koda rekao da je broj. Ajmo da proverimo, 4 jeste zaista broj. Sada mi autor kaže da vrednost promenljive
 NisamSiguran nije više  4 već "Da probamo sa tekstom". Čekaj "Da probamo sa tekstom" je string a NisamSiguran je rečeno da je broj ovo nije korektno jer tip promenljive i tip vrednosti moraju da se poklapaju. Ovo je dobar trenutak
@@ -60,13 +60,13 @@ Vidimo da je razlika u gore navedena dva koda minorna i da upravo leži u deklar
  Još ih zovemo Bulove vrednosti po Džordžu Bulu koji je otkrio jednu jednu od grana algebre koja će kasnije dobiti ime po njemu. Logične vrednosti mogu biti tačno i netačno. Da bi označili ovakav tip podataka koristimo ključnu reč
  <b>boolean</b> a vrednost koje može da ima ovakav tip podataka sa ključnom reč  <b>true</b> ili <b>false</b>.
  <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "5" disabled>
  
  let Tačno:boolean = true;
  
  let Netačno:boolean = false;
 
-</xmp>
+</textarea>
 
 <br>
 <br>
@@ -74,7 +74,7 @@ Vidimo da je razlika u gore navedena dva koda minorna i da upravo leži u deklar
 <br>
 U TypeScriptu brojeve bili celi ili sa decimalnim zarezom predstavljamo kao realne i to realne šezdesetčetvorobitne duple preciznosti. Ako želimo da neku vrednost označimo da je broj koristimo ključnu reč <b>number</b>.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "9" disabled>
  
  let DecimalniOblikBroja255: number = 255;
  
@@ -84,7 +84,7 @@ U TypeScriptu brojeve bili celi ili sa decimalnim zarezom predstavljamo kao real
  
  let OktalniOblikBroja255: number = 0o377;
 
-</xmp>
+</textarea>
 <br>
 <div class = "napomena">U TypeScriptu svaki broj možemo zapisati u 4 brojevna sistema. Važno je skrenuti pažnju da ako je zapis broja u binarnom, oktalnom ili heksadekadnom sistemu onda zapis broja mora početi sa 0b,0o ili 0x respektivno. </div>
 <br>
@@ -94,13 +94,13 @@ Jedna od fundamentalnih stvari u kreiranju programa je potreba za rad sa podacim
 ključnu reč <b>string</b>. Da bi neki tekst bio prepoznat kao string potrebno je taj tekst ograničiti jednostrukim ili dvostrukim navodnicima.
 <br>
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "6" disabled>
  
  let Tekst:string = 'Ovo je jedan primer niza karaktera';
  
  let DrugiTekst = "Nismo eksplicitno definisali da je string ali tokom kompilacije će biti prepoznat kao takav. Takođe dvostrukim navodnicima možemo da ograničimo tekst da bi dobili string";
 
-</xmp>
+</textarea>
 <br>
 <b>VOID</b><!-- Malo je nezgodno na srpskom opisati ova dva pojma ili napisati kao podnaslov kasnije se vrati i vidi da li si u mogucnost da smisliš nešto prikladnije-->
 <br>
@@ -108,7 +108,7 @@ ključnu reč <b>string</b>. Da bi neki tekst bio prepoznat kao string potrebno 
 Ovde bi trebalo skrenuti pažnju da mi možemo promenljivoj dodeliti tip void ali njen vrednost može bit samo null ili undefined o kojima će kasnije biti reči. Treba skrenuti pažnju da ima veoma malo smisla deklarisati promenljivu  kao void.
 Void se najviše upotrebljava  kad želimo da naznačimo da funkcija ne vraća vrednost tako što deklarišemo da je povratna vrednost funkcije tipa void.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "11" disabled>
  
  function NemamPovratnuVrednost(): void {
     alert("Možda nemam vrednost ali to me ne sprečava da pozovem drugu funkciju");
@@ -118,14 +118,14 @@ let Neupotrebljivo: void = undefined;
 
 // Kao što vidimo moguće je deklarisati promenljivu kao tipa void ali to je manje više sve.
 
-</xmp>
+</textarea>
 <br>
 <b>NULL I UNDEFINED</b><!-- Malo je nezgodno na srpskom opisati ova dva pojma ili napisati kao podnaslov kasnije se vrati i vidi da li si u mogucnost da smisliš nešto prikladnije-->
 <br>
 U TypeScriptu <b>null</b> i <b>undefined</b> su specifični jer u zavisnosti od toga kako ih upotrebimo u kodu mogu biti protumačene kao tipovi promenljivih ili vrednosti samih promenljivih. Ako nam <b>any</b> predstavlja nadtip svih tipova
  onda su <b>null</b> i <b>undefined</b> podtipovi svih ostalih tipova.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "11" disabled>
  
 let u: undefined = undefined;
 
@@ -135,7 +135,7 @@ let v: void = null;
 
 // To je otprilike to ako promenljive deklarišemo kao undefined ili null. Kao što vidimo jedinu vrednost koju promenljiva tip null može da ima je null isto važi i za undefined. 
 
-</xmp>
+</textarea>
 <br>
 <div class = "napomena">
 
@@ -155,7 +155,7 @@ Njih možemo posmatrati kao osnovu pomoću koje možemo da definišemo složenij
 reč kao što je bio slučaj sa ostalim tipovima podataka već koristimo [] ispred kojeg navodimo o kom tipu vrednosti u nizu se radi . Pomoću [] takođe smeštamo vrednosti u niz gde su vrednosti razdvojene zarezom. Pogledajmo primere.
 <br>
 
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "11" disabled>
  
  let NizBrojeva: number[] = [1, 2, 3];
 
@@ -170,11 +170,11 @@ reč kao što je bio slučaj sa ostalim tipovima podataka već koristimo [] ispr
  let Zbir: number = NizBrojeva[0] + NizBrojeva[1];
 
 let Rečenica: string =
-</xmp>
+</textarea>
 <br>
 Svakom elementu niza možemo pristupiti preko njegovog indeksa gde indeksi kreću od nule.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "22" disabled>
  
  let NizBrojeva: number[] = [1, 2, 3];
 
@@ -196,7 +196,8 @@ Svakom elementu niza možemo pristupiti preko njegovog indeksa gde indeksi kreć
  };
  document.body.appendChild(button1);
  document.body.appendChild(button2);
-</xmp>
+
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <br>
@@ -205,7 +206,7 @@ Svakom elementu niza možemo pristupiti preko njegovog indeksa gde indeksi kreć
 Pošto niz sadrži više vrednosti istoga tipa  prirodno je se nametnula potreba i za nizom koji može da sadrži više vrednosti različitog tipa. Niz koji može da sadrži vrednosti različitig tipa još se naziva <b>tuple</b>. Da bi koristili ovakav niz dovoljno
 je da upotrebimo [tipPodataka1,tipPodataka2,... ] pri deklaraciji. Kao što smo naveli ranije deklarisanje tipova promenljivih je opciona tako da je dovoljno samo inicijalizovati promenljivu i eksplicitno uneti vrednosti u niz. Hajde da vidimo kako to funkcioniše na sledećim primerima.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "14" disabled>
  
  let t: [string, string, number] =["Zdravo svete", "pet" , 5] ;
 
@@ -219,11 +220,11 @@ je da upotrebimo [tipPodataka1,tipPodataka2,... ] pri deklaraciji. Kao što smo 
  
  // Bitan je raspored tipova pri deklaraciji promenljive, na 2. mestu se očekuje string a mi smo uneli broj a to kompajler tumači kao grešku!
 
-</xmp>
+</textarea>
 <br>
 Ako unesemo više vrednosti nego tipova u deklaraciji?
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "20" disabled>
  
  let t: [string, string, number] =["Zdravo svete", "pet", 5 , "šest", 6] ;
  
@@ -236,14 +237,14 @@ Ako unesemo više vrednosti nego tipova u deklaraciji?
  
  let t: [string, string, number, boolean] =["Zdravo svete", "pet", 5 , false,"šest", true] ;
 
-</xmp>
+</textarea>
 <br>
 <b>NABRAJANJA</b> <!-- Kao i uvek da li uzeti jednsotavno englesku reč ili ići uz neki opis na srpskom i onda uvesti Enum na osnovu prethodnog izloženog??-->
 <br>
 Nabrajanja za koje je rezervisana ključna reč <b>enum</b> predstavlja tip podataka koji se sastoji od skupa vrednosti koje se nazivaju elementi ili enumeratori. Imena enumeratora su promenljive koje se ponašaju
 kao konstante tjst njihove vrednosti su brojevi pa otud i motivacija da se deklarišu kao enum. Enum je skraćenica od enumeration što znači nabrajati. A sad da vidimo par primera kako bi bilo jasnije.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "14" disabled>
  
  enum Sedmica {Ponedeljak, Utorak, Sreda , Četvrtak, Petak, Subota, Nedelja};
  
@@ -258,12 +259,12 @@ kao konstante tjst njihove vrednosti su brojevi pa otud i motivacija da se dekla
  };
  document.body.appendChild(button);
 
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Po automatizmu nabrajanje članova kreće od 0 ali ako insistiramo možemo da sami izaberemo koje brojeve želimo da članovi imaju i od kojih brojeva da krenu nabrajanje.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "14" disabled>
  
  enum Sedmica {Ponedeljak = 5, Utorak, Sreda , Četvrtak = 20, Petak, Subota, Nedelja};
  
@@ -277,12 +278,13 @@ Po automatizmu nabrajanje članova kreće od 0 ali ako insistiramo možemo da sa
     alert("I vrednost zbira je " + (Sedmica.Utorak + Sedmica.Subota) + ".");
  };
  document.body.appendChild(button);
-</xmp>
+
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 Takođe možemo uraditi i obratno od numeričkih vrednosti dobiti imena članova.
 <br>
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "14" disabled>
  
  enum Sedmica {Ponedeljak = 5, Utorak, Sreda , Četvrtak = 20, Petak, Subota, Nedelja};
  
@@ -297,7 +299,7 @@ Takođe možemo uraditi i obratno od numeričkih vrednosti dobiti imena članova
  };
  document.body.appendChild(button);
 
-</xmp>
+</textarea>
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena"> Treba skrenuti pažnju čitaocima da tip promenljive predstavlja tip koji korisnik deklariše i očekuje da će vrednost promenljive biti tog tipa. Tip vrednosti određuje kompajler u procesu kompilacije i na to veoma malo  možemo da utičemo.

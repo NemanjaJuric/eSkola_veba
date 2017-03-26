@@ -1,0 +1,23 @@
+Rešenje zadatka:
+<br/>
+<textarea class = "primer_ta" rows = "23" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="imenaKontroler"> 
+
+<ul>
+  <li ng-repeat="x in imena">
+    {{ x.ime + ', ' + x.zemlja }}
+  </li>
+</ul>
+
+</div>
+
+<script src="imenaKontroler.js"></script>
+
+</body>
+</html>
+</textarea>

@@ -1,0 +1,201 @@
+<h1>AngularJS povezivanje podataka</h1>
+<br/>
+<br/>
+Povezivanje podataka u AngularJS-u (eng. Data binding) je sinhronizacija između modela i HTML view-a.
+<br/>
+<br/>
+<h2>Model podataka</h2>
+<br/>
+AngularJS aplikacija obično ima model podataka. Model podataka je skup podataka koji su dostupni aplikaciji.
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "9" disabled >
+Primer:
+
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrović";
+});
+</textarea>
+<br/>
+<br/>
+<h2>HTML view</h2>
+<br/>
+HTML kontejner gde je prikazana AngularJS aplikacija se naziva HTML view.
+<br/>
+<br/>
+View ima pristup modelu, i postoji nekoliko načina prikazivanja modela podataka u view-u.
+<br/>
+<br/>
+Može da se koristi ng-bind direktiva, koja će povezati HTML element sa odgovarajućim svojstvom modela:
+<br/>
+<textarea class = "primer_ta" rows = "24" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <p ng-bind="ime"></p>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrović";    
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Takođe, mogu da se koriste duple zagrade {{ }} da se prikaže sadržaj modela:
+<br/>
+<textarea class = "primer_ta" rows = "27" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <p>Ime: {{ime}}</p>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrović";    
+});
+</script>
+
+<p>Možete da koristite duple zagrade da prikažete sadržaj modela podataka.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Ili, može da se koristi direktiva ng-model na HTML kontrole da poveže model i view.
+<br/>
+<br/>
+<h2>Direktiva ng-model</h2>
+<br/>
+Direktiva ng-model se koristi da poveže podatke iz modela sa HTML kontrolama (input, select, textarea).
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "28" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <input ng-model="ime">
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrović";    
+});
+</script>
+
+<p>Koristite direktivu ng-model na HTML kontrole (input, select, textarea) da povežete podatke između view-a i modela podataka.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Direktiva ng-model pruža dvosmernu vezu između modela i view-a.
+<br/>
+<br/>
+<h2>Dvosmerno povezivanje</h2>
+<br/>
+Povezivanje podataka u AngularJS-u je sinhronizacija između modela i view-a.
+<br/>
+<br/>
+Kada se podatak u <b>modelu</b> promeni, na <b>view-u</b> se odražava promena. Takođe, kada se podatak promeni na <b>view-u</b>,
+i <b>model</b> se ažurira. Ovo se događa momentalno i automatski, što osigurava da se model i view ažuriraju u svakom trenutku.
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "30" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    Name: <input ng-model="ime">
+    <h1>{{ime}}</h1>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.prezime = "Petrović";    
+});
+</script>
+
+<p>Promenite ime unutar polja za unos podataka, i model podataka će se automatski promeniti, a samim tim će i naslov promeniti svoju vrednost.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>AngularJS kontroler</h2>
+<br/>
+Aplikacije u AngularJS-u se kontrolišu preko kontrolera.
+<br/>
+<br/>
+Zbog neposredne sinhronizacije modela i view-a, kontroler može da bude potpuno odvojen od view-a, 
+ i da se jednostavno koncentriše na model podataka. Zahvaljujući povezivanju podataka u AngularJS-u, view će 
+ odražavati svaku promenu napravljenu u kontroleru.
+<br/>
+<br/>
+<textarea class = "primer_ta" rows = "32" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <h1 ng-click="promeniIme()">{{ime}}</h1>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.ime = "Marko";
+    $scope.promeniIme = function() {
+        $scope.ime = "Ivan";
+    }
+});
+</script>
+
+<p>Kliknite na naslov da bi pokrenuli funkciju "promeniIme".</p>
+
+<p>Ovaj primer prikazuje kako da koristite kontroler da promenite model podataka.</p>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<div class = "zadatak">
+<b>Zadatak:</b> U prethodnom primeru, kada se klikne na naslov, koji je u ovom slučaju "ime", onda se promeni to ime.
+Izmenite primer tako da kada se klikne na naslov, ime ostane isto, a pored njega se doda i prezime.
+</div>

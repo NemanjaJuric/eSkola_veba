@@ -704,7 +704,64 @@
         "lang": "text/html",
         "displayLang": "HTML",
         "detailsText": "U pripremi",
-        "lessons": null
+        "lessons": [
+            {
+                "name": "Uvod u Angular",
+                "url": "ang_uvod",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Moduli",
+                "url": "ang_moduli",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Kontroleri",
+                "url": "ang_kontroleri",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Data binding",
+                "url": "ang_databinding",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Direktive",
+                "url": "ang_direktive",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Filteri",
+                "url": "ang_filteri",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Servisi",
+                "url": "ang_servisi",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Http",
+                "url": "ang_http",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "PHP",

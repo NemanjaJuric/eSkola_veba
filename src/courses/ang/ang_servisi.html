@@ -1,0 +1,303 @@
+<h1>AngularJS servisi</h1>
+<br/>
+<br/>
+U AngularJS-u mogu da se naprave novi servisi, ili da se koriste već ugrađeni servisi.
+<br/>
+<br/>
+<h2>Šta je servis?</h2>
+<br/>
+U AngularJS-u, servis je funkcija, ili objekat, koji je dostupan za AngularJS aplikaciju, i ograničen je.
+<br/>
+<br/>
+AngularJS ima oko 30 ugrađenih servisa. Jedan od njih je <span class = "primer_text"> $location</span> servis.
+<br/>
+<br/>
+Servis <span class = "primer_text"> $location</span> ima metode koji vraćaju informacije o lokaciji trenutne veb stranice. U narednom primeru 
+ovaj servis je iskorišćen u kontroleru:
+<br/>
+<textarea class = "primer_ta" rows = "27" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+<p>Url adresa ove veb stranice je:</p>
+<h3>{{mojUrl}}</h3>
+</div>
+
+<p>Ovaj primer koristi ugrađeni servis $location.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $location) {
+    $scope.mojUrl = $location.absUrl();
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Servis <span class = "primer_text"> $location</span> je prosleđen kontroleru kao argument. Da bi se koristili servisi u kontroleru, moraju biti definisani kao zavisni.
+<br/>
+<br/>
+<h2>Zašto se koriste servisi?</h2>
+<br/>
+Za mnoge servise, poput <span class = "primer_text"> $location</span> servisa, se čini kao da bi mogli umesto njih da se iskoriste objekti koji su već u DOM-u, poput objekta <span class = "primer_text"> window.location</span>, što se i može, ali će imati neka ograničenja.
+<br/>
+<br/>
+AngularJS konstantno nadgleda aplikaciju, i da bi se pravilno sprovele promene i događaji, AngularJS preferira da se koristi $location servis umesto window.location objekta.
+<br/>
+<br/>
+<h2>Servis <span class = "primer_text"> $http</span></h2>
+<br/>
+<span class = "primer_text"> $http</span> servis je jedan od najčešće korišćenih servisa u AngularJS aplikacijama. Ovaj servis šalje zahtev serveru i dozvoljava aplikaciji da rukuje sa odgovorom.
+<br/>
+<br/>
+<span class = "primer_text">Primer:</span>
+<textarea class = "primer_ta" rows = "34" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Današnja poruka glasi:</p>
+
+<h1>{{mojaPoruka}}</h1>
+
+</div>
+
+<p>$http servis zahteva stranicu na serveru, i odgovor je postavljen kao promenljiva "mojaPoruka".</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $http) {
+  $http.get("courses/ang/servisi/zdravo.htm").then(function (response) {
+      $scope.mojaPoruka = response.data;
+  });
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Servis <span class = "primer_text"> $timeout</span></h2>
+<br/>
+<span class = "primer_text"> $timeout</span> servis je servis u AngularJS-u koji je verzija <span class = "primer_text"> window.setTimeout</span> funkcije.
+<br/>
+<br/>
+U sledećem primeru će se prikazati nova poruka nakon 2 sekunde:
+<textarea class = "primer_ta" rows = "34" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Ovaj naslov će se promeniti nakon 2 sekunde:</p>
+
+<h1>{{mojNaslov}}</h1>
+
+</div>
+
+<p>$timeout servis pokreće funkciju nakon zadatog broja milisekundi.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $timeout) {
+  $scope.mojNaslov = "Zdravo svete!";
+  $timeout(function () {
+      $scope.mojNaslov = "Kako ste danas?";
+  }, 2000);
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Servis <span class = "primer_text"> $interval</span></h2>
+<br/>
+<span class = "primer_text"> $interval</span> servis je servis u AngularJS-u koji je verzija <span class = "primer_text"> window.setInterval</span> funkcije.
+<br/>
+<br/>
+U sledećem primeru će se prikazati vreme svake sekunde:
+<textarea class = "primer_ta" rows = "35" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<p>Vreme je:</p>
+
+<h1>{{vreme}}</h1>
+
+</div>
+
+<p>$interval servis pokreće funkcijuu na zadati broj milisekundi.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope, $interval) {
+  $scope.vreme = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.vreme = new Date().toLocaleTimeString();
+  }, 1000);
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Pravljenje novih servisa</h2>
+<br/>
+Da bi se napravio servis, mora da se poveže sa modulom.
+<br/>
+<br/>
+Kreiranje novog servisa koji nazivamo "mojServis" se vrši na sledeći način:
+<br/>
+<textarea class = "primer_ta" rows = "6" disabled >
+app.service('mojServis', function() {
+    this.mojaFunkcija = function (x) {
+        return x.toString(16);
+    }
+});
+</textarea>
+<br/>
+<br/>
+Da bi se koristio napravljeni servis, treba da se doda kao zavisan kada se definiše filter. 
+U narednom primeru se koristi napravljeni servis "mojServis" koji prebacuje broj u heksadecimalni broj:
+<br/>
+<textarea class = "primer_ta" rows = "35" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<p>Heksadecimalna vrednost od broja 255 je:</p>
+
+<h1>{{hex}}</h1>
+
+</div>
+
+<p>Napravljeni servis sa metodom koja konvertuje dati broj u heksadecimalni broj.</p>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+
+app.service('mojServis', function() {
+    this.mojaFunkcija = function (x) {
+        return x.toString(16);
+    }
+});
+app.controller('mojKontroler', function($scope, mojServis) {
+  $scope.hex = mojServis.mojaFunkcija(255);
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+<h2>Korišćenje novih servisa unutar filtera</h2>
+<br/>
+Jednom kada se napravi servis, i kada se poveže sa aplikacijom, taj servis može da se koristi u bilo kom kontroleru, direktivi, filteru, ili čak unutar servisa.
+<br/>
+<br/>
+Da bi se servis koristio unutar filtera, treba da se doda zavisnost kada se definiše filter.
+<br/>
+<br/>
+U narednom primeru se servis "mojServis" koristi unutar filtera "mojFormat":
+<textarea class = "primer_ta" rows = "34" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija">
+Konvertuj broj 255 koristeći napravljeni servis unutar napravljenog filtera:
+
+<h1>{{255 | mojFormat}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.service('mojServis', function() {
+    this.mojaFunkcija = function (x) {
+        return x.toString(16);
+    }
+});
+app.filter('mojFormat',['mojServis', function(mojServis) {
+    return function(x) {
+        return mojServis.mojaFunkcija(x);
+    };
+}]);
+
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>
+Filter može da se koristi kada se prikazuju vrednosti iz objekta ili niza:
+<textarea class = "primer_ta" rows = "43" disabled >
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+<p>Iskoristi filter prilikom prikazivanja niza [255, 251, 200]:</p>
+
+<ul>
+  <li ng-repeat="x in brojevi">{{x | mojFormat}}</li>
+</ul>
+
+<p>Ovaj filter koristi servis koji konvertuje brojeve u heksadecimalne vrednosti.</p>
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.service('mojServis', function() {
+    this.mojaFunkcija = function (x) {
+        return x.toString(16);
+    }
+});
+app.filter('mojFormat',['mojServis', function(mojServis) {
+    return function(x) {
+        return mojServis.mojaFunkcija(x);
+    };
+}]);
+app.controller('mojKontroler', function($scope) {
+    $scope.brojevi = [255, 251, 200];
+});
+</script>
+
+</body>
+</html>
+</textarea>
+<button class = "button_copy" >Vidi primer</button >
+<br/>
+<br/>

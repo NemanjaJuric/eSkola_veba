@@ -58,14 +58,14 @@ Za početak da vidimo primer TypeScript koda i šta se dešava kad taj kod preve
 <br>
 <br>
 
-<xmp class = "primer_ta"> 
+<textarea class = "primer_ta" rows = "20" disabled> 
 class ZdravoSvima {
     pozdrav: string;
     constructor(poruka: string) {
         this.pozdrav = poruka;
     }
     Zdravo() {
-        return "Zdravo " + this.pozdrav;
+        return "Zdravo" + this.pozdrav;
     }
 }
 
@@ -78,7 +78,7 @@ button.onclick = function() {
 }
 
 document.body.appendChild(button); 
-</xmp>
+</textarea>
 
 <button class = "button_copy">Vidi primer</button>
 
@@ -86,7 +86,7 @@ document.body.appendChild(button);
 Posle transkompilacije da vidimo šta se desilo sa našim TypeScript kodom?
 <br>
 
-<xmp class = "primer_ta" > 
+<textarea class = "primer_ta" rows = "18" disabled> 
 
 var ZdravoSvima = (function () {
     function ZdravoSvima(poruka) {
@@ -105,7 +105,7 @@ button.onclick = function () {
 };
 document.body.appendChild(button);
 
-</xmp>
+</textarea>
 <br>
 Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi skoro identični. Još jednom skrećemo pažnju da na sajtu postoji <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a>  pomoću koga možete vaš TypeScript kod da prevedete u JavaScript kod.
 <br>
@@ -128,79 +128,81 @@ Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi s
 <b>KLJUČNE REČI</b>
 <br>
 <br>
-<table class="tabela">
+<table border="2"  cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
     <tr>
-      <td>as</td>
-      <td>function</td>
-	  <td>number</td>
-	  <td>typeof</td>
+      <td align="center" ><font size="3"  ><strong>as</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>function</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>number</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>typeof</strong></font></td>
     </tr>
 	<tr>
-      <td>any</td>
-      <td>false</td>
-	  <td>public</td>
-	  <td>try</td>
+      <td align="center" ><font size="3"  ><strong>any</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>false</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>public</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>try</strong></font></td>
     </tr>
 	<tr>
-      <td>break</td>
-      <td>get</td>
-	  <td>package</td>
-	  <td>throw</td>
+      <td align="center" ><font size="3"  ><strong>break</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>get</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>package</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>throw</strong></font></td>
     </tr>
 	<tr>
-      <td>case</td>
-      <td>if</td>
-	  <td>private</td>
-	  <td>var</td>
+      <td align="center" ><font size="3"  ><strong>case</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>if</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>private</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>var</strong></font></td>
     </tr>
 	<tr>
-      <td>const</td>
-      <td>in</td>
-	  <td>return</td>
-	  <td>void</td>
+      <td align="center" ><font size="3"  ><strong>const</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>in</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>return</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>void</strong></font></td>
     </tr>
 	<tr>
-      <td>continue</td>
-      <td>implements</td>
-	  <td>super</td>
-	  <td>while</td>
+      <td align="center" ><font size="3"  ><strong>continue</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>implements</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>super</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>while</strong></font></td>
     </tr>
 	<tr>
-      <td>catch</td>
-      <td>instanceof</td>
-	  <td>string</td>
-	  <td>yield</td>
+      <td align="center" ><font size="3"  ><strong>catch</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>instanceof</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>string</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>yield</strong></font></td>
     </tr>
 	<tr>
-      <td>extends</td>
-      <td>interface</td>
-	  <td>static</td>
-	  <td>for</td>
+      <td align="center" ><font size="3"  ><strong>extends</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>interface</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>static</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>for</strong></font></td>
     </tr>
 	<tr>
-      <td>enum</td>
-      <td>let</td>
-	  <td>switch</td>
-	  <td>do</td>
+      <td align="center" ><font size="3"  ><strong>enum</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>let</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>switch</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>do</strong></font></td>
     </tr>
 	<tr>
-      <td>export</td>
-      <td>module</td>
-	  <td>type</td>
-	  <td></td>
+      <td align="center" ><font size="3"  ><strong>export</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>module</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>type</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong></strong></font></td>
     </tr>
 	<tr>
-      <td>else</td>
-      <td>null</td>
-	  <td>this</td>
-	  <td></td>
+      <td align="center" ><font size="3"  ><strong>else</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>null</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>this</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong></strong></font></td>
     </tr>
 	<tr>
-      <td>finally</td>
-      <td>new</td>
-	  <td>true</td>
-	  <td></td>
+      <td align="center" ><font size="3"  ><strong>finally</strong></font></td>
+      <td align="center" ><font size="3"  ><strong>new</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong>true</strong></font></td>
+	  <td align="center" ><font size="3"  ><strong></strong></font></td>
     </tr>
+<tr>
+
 </table>
 <br>
 
@@ -213,7 +215,7 @@ Novodobijeni kod predstavlja kod zapisan u JavaScriptu. Primetimo da su kodovi s
 
 <br>
 
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "26" disabled>
 let x:number = 0 let y:number = 1
 
 ili 
@@ -240,7 +242,7 @@ ili
 let x:number = 0; let y:number = 1;
 
 Jeste
-</xmp>
+</textarea>
 Što se tiče komentara oni su tu kako bi upotpunili čitljivost koda u vidu napomena koje je autor koda ostavio. Da li to bilo u pitanju opis  pojedinih delovi koda kako bi opisali njihovu namenu, da skrene pažnju na moguće probleme u kodu ili čisto 
 ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i kako funkcioniše. Tokom kompilacije komentari se ignorišu. Imamo dve vrste komentara:
 <br>
@@ -251,7 +253,7 @@ ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i kako funkcio
 <li><b>Višelinijski komentari (/*   */)</b> &minus; Ovi komentari mogu da se prostiru više linija.</li>
 </ul>
 
-<xmp class = "primer_ta" >
+<textarea class = "primer_ta" rows = "8" disabled>
 // Ovo je naš jednolinijski komentar
 
 /*  
@@ -260,7 +262,7 @@ naš
 višelinijski 
 komentar
  */
-</xmp>
+</textarea>
 <br>
 
 <div class = "zadatak"><b>Zadatak1:</b> Izmeniti kod u primeru ZdravoSvima tako da posle pritiska na dugme dobijamo poruku Zdravo svima moje ime je IME PREZIME. Napomena misli se na ime i prezime korisnika! </div>
