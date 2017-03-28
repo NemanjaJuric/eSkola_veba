@@ -1,0 +1,338 @@
+<h1>AngularJS rutiranje</h1>
+<br><br>
+<font style="color: blue;">ngRoute</font> modul pomaže vašoj aplikaciji da postane jednostranična aplikacija.
+<br><br>
+<h2>Šta je rutiranje u angularJS</h2>
+<br><br>
+Ako želite da se krećete na različitim stranama u vašoj aplikaciji, ali takođe želite da aplikacija bude SPA (jednostranična aplikacija), bez učitavanja stranice, možete koristiti <font style="color: blue;">ngRoute</font> modul.
+<br><br>
+<font style="color: blue;">ngRoute</font> modul vodi vašu aplikaciju u različite stranice bez ponovnog učitavanja cele aplikacije.
+<br><br>
+Primer:
+<br>
+Prebaciti na "red.htm", "green.htm" i "blue.htm".
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Glavna</a></p>
+
+<a href="#red">Crvena</a>
+<a href="#green">Zelena</a>
+<a href="#blue">Plava</a> 
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "courses/ang/main.htm"
+    })
+    .when("/red", {
+        templateUrl : "courses/ang/red.htm"
+    })
+    .when("/green", {
+        templateUrl : "courses/ang/green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "courses/ang/blue.htm"
+    });
+});
+</script>
+
+<p>Kliknite na linkove da biste se prebacili na "red.htm", "green.htm", "blue.htm", ili povratak na "main.htm"</p>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Šta vam je potrebno?</h2>
+<br><br>
+Da bi vase aplikacije bile spremne spremne za ruting, morate ukljuciti AngularJS Route modul:
+<br>
+<xmp class="primer_ta"><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script></xmp>
+<br>
+Onda morate dodati <font style="color: blue;">ngRoute</font> kao zavisnost u aplikaciji modula:
+<br>
+<xmp class="primer_ta">var app = angular.module("myApp", ["ngRoute"]);</xmp>
+<br>
+Sada vaša aplikacija ima pristup route modulu, koji obezbeđuje <font style="color: blue;">$routeProvider</font>.
+<br>
+Koristite <font style="color: blue;">$routeProvider</font> da podesite različite rute u svojoj aplikaciji:
+<br>
+<xmp class="primer_ta">
+app.config(function($routeProvider) {
+  $routeProvider
+  .when("/", {
+    templateUrl : "courses/ang/main.htm"
+  })
+  .when("/red", {
+    templateUrl : "courses/ang/red.htm"
+  })
+  .when("/green", {
+    templateUrl : "courses/ang/green.htm"
+  })
+  .when("/blue", {
+    templateUrl : "courses/ang/blue.htm"
+  });
+});
+</xmp>
+<br><br>
+<h2>Gde to ide?</h2>
+<br><br>
+Vaša aplikacija treba u kontejner da stavi sadržaj prosleđen preko rutinga.
+<br>
+Ovaj kontejner je <font style="color: blue;">ng-view</font> direktiva.
+<br>
+Postoje tri različita načina da se uključi <font style="color: blue;">ng-view</font> direktiva u vašu aplikaciju:
+<br>
+<b>Primer 1:</b>
+<br>
+<xmp class="primer_ta"><div ng-view></div></xmp>
+<br>
+<b>Primer 2:</b>
+<br>
+<xmp class="primer_ta"><ng-view></ng-view></xmp>
+<br>
+<b>Primer 3:</b>
+<br>
+<xmp class="primer_ta"><<div class="ng-view"></div></xmp>
+<br>
+Aplikacije mogu imati samo jednu <font style="color: blue;">ng-view</font> direktivu i to će uvek biti čuvar za sve prikaze obezbđene putanjom.
+<br><br>
+<h2>$routeProvider</h2>
+<br><br>
+Sa <font style="color: blue;">$routeProvider</font> možete definisati šta strana da prikazuje kada korisnik klikne na link.
+<br>
+<b>Primer:</b>
+<br>
+Definišite <font style="color: blue;">$routeProvider</font>:
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Glavna</a></p>
+
+<a href="#london">Grad 1</a>
+<a href="#paris">Grad 2</a>
+
+<p>Kliknite na linkove da pročitate nešto o Londonu i Parizu.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "courses/ang/main.htm"
+    })
+    .when("/london", {
+        templateUrl : "courses/ang/london.htm"
+    })
+    .when("/paris", {
+        templateUrl : "courses/ang/paris.htm"
+    });
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Definišite <font style="color: blue;">$routeProvider</font> koristeći config metodu vase aplikacije. Rad registrovan u config metodi obaviće se kada se aplikacija bude učitavala.
+<br><br>
+<h2>Kontroleri</h2>
+<br><br>
+Sa <font style="color: blue;">$routeProvider</font> možete takođe definisati kontrolera za svaki "pogled".
+<br>
+<b>Primer:</b>
+<br>
+Dodaj kontrolere:
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Glavna</a></p>
+
+<a href="#london">Grad 1</a>
+<a href="#paris">Grad 2</a>
+
+<p>Kliknite na linkove.</p>
+
+<p>Imajte na umu da svaki "pogled" ima svog kontrolera koji svakom daje "msg" promenljivu vrednost.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "courses/ang/main.htm",
+    })
+    .when("/london", {
+        templateUrl : "courses/ang/london.htm",
+        controller : "londonCtrl"
+    })
+    .when("/paris", {
+        templateUrl : "courses/ang/paris.htm",
+        controller : "parisCtrl"
+    });
+});
+app.controller("londonCtrl", function ($scope) {
+    $scope.msg = "Ja volim London";
+});
+app.controller("parisCtrl", function ($scope) {
+    $scope.msg = "Ja volim Paris";
+});
+
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+"london.htm" i "paris.htm"  su normalne HTML datoteke, koje možete dodati AngularJS izrazu kao što bi sa bilo kojoj drugoj HTML sekciji vaše aplikacije AngularJS.
+<br>
+london.htm
+<br>
+<xmp class="primer_ta">
+<h1>London</h1>
+<h3>London je glavni grad Engleske.</h3>
+<p>To je najnaseljeniji grad u Velikoj Britaniji, sa gradskim područjem ima više od 13 miliona stanovnika.</p>
+<p>{{msg}}</p>
+</xmp>
+<br>
+paris.htm
+<br>
+<xmp class="primer_ta">
+<h1>Paris</h1>
+<h3>Paris je glavni grad Francuske.</h3>
+<p>Područje Pariz je jedano od najvećih centara u Evropi, sa više od 12 miliona stanovnika.</p>
+<p>{{msg}}</p>
+</xmp>
+<br><br>
+<h2>Šablon</h2>
+<br><br>
+U prethodnim primerima smo koristili <font style="color: blue;">templateUrl</font> imovinu u <font style="color: blue;">$routeProvider.when</font> metodi.
+<br>
+Takodje možete koristiti <font style="color: blue;">template</font> imovinu, koja vam omogucava da napišete HTML direktno u vrednost imovine i ne odnosi se na stranicu. 
+<br>
+<b>Primer:</b>
+<br>
+Napišite šablone:
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Glavna</a></p>
+
+<a href="#banana">Banana</a>
+<a href="#tomato">Paradajz</a>
+
+<p>Kliknite na linkove da promenite sadržaj.</p>
+
+<p>HTML prikazan u direktivi ng-view je napisan u šablon imovine metodom $routeProvider.vhen.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        template : "<h1>Glavna</h1><p>Kliknite na linkove da promenite ovaj sadržaj.</p>"
+    })
+    .when("/banana", {
+        template : "<h1>Banana</h1><p>Banane sadrže oko 75% vode.</p>"
+    })
+    .when("/tomato", {
+        template : "<h1>Paradajz</h1><p>Paradajz sadrži oko 95% vode.</p>"
+    });
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Otherwise metod</h2>
+<br><br>
+U prethodnim primerima smo koristili <font style="color: blue;">when</font> metod od <font style="color: blue;">$routeProvider.</font>
+<br>
+Takođe možete da koristite <font style="color: blue;">otherwise</font> metod, koji je podrazumevana ruta kada niko drugi ne dobije meč.
+<br>
+<b>Primer:</b>
+<br>
+Ako "banana" kao ni "Paradajz" link nije kliknut, pokazati da se zna:
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<p><a href="#/">Glavna</a></p>
+
+<a href="#banana">Banana</a>
+<a href="#tomato">Paradajz</a>
+
+<p>Kliknite na linkove da promenite ovaj sadržaj.</p>
+
+<p>Koristite "otherwise" metod za definisanje šta će se prikazivati kada ne kliknete na nijedan od linkova.</p>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/banana", {
+        template : "<h1>Banana</h1><p>Banane sadrže oko 75% vode.</p>"
+    })
+    .when("/tomato", {
+        template : "<h1>Paradajz</h1><p>Paradajz sadrži oko 95% vode.</p>"
+    })
+    .otherwise({
+        template : "<h1>Ništa</h1><p>Ništa nije selktovano.</p>"
+    });
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Probajte sami:
+<br>
+<div class = "zadatak">Napisati program koji prilikom klika na neki od linkova gradova prikazuje opis tog grada,prilikom čega je boja pozadine teksta za svaki grad različita.</div>
+<br><br>

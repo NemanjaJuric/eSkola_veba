@@ -1,0 +1,158 @@
+<h1>Komunikacija izmedju komponenti</h1>
+<br><br>
+<h2>Direktive</h2>
+<br><br>
+One su bukvalno ulazna tačka u AngularJS razvoj (svaka aplikacija sadrži poziv na ng-app), mnogi ljudi koji počinju sa AngularJS oklevaju da ih pišu zbog kompleksnosti u vezi sa njima.
+Čak i jednostavna direktiva zahteva razumevanje komplikovanih pojmova kao <font style="color: blue;">restrict</font>, <font style="color: blue;">scope</font> i  <font style="color: blue;">link</font>.
+Ali kada to shvatite, vrednosti direktive, kao višekratne upotrebe komponente, postaju neophodne. 
+Ali šta je sa tim kada direktiva nije samostalna?
+Šta ako komplikovana komponenta prirodno dođe da se modelira sa više direktiva?
+Nijedan direktiv u grupi ne moze stajati sam, zato što jedino ima smisla kada se koriste zajedno; oni sarađuju; oni su svesni jedni drugih i treba da komuniciraju jedni sa drugima.
+Ovaj post će razmotriti najbolju praksu za upravljanje komunikacije među sarađujućim direktivama i ilustraciju ove prakse jednim primerom.
+Zamislite ovakav scenario:
+<br>
+<xmp class="primer_ta">
+<parent-component>
+  <child-component></child-component>
+  <another-child-component></another-child-component>
+</parent-component>
+</xmp>
+<br>
+Pretpostavimo da kada se nešto menja u <font style="color: blue;">child-component</font> tada <font style="color: blue;">parent-component</font> i <font style="color: blue;">another-child-component</font> trebaju da znaju o tome.
+Kako ove direktive trebaju da komuniciraju? 
+Ovde je odgovor ušuškan daleko u AngularJS dokumentaciji, ali pre nego što pogledamo to hajde da ispitamo niz pristupa koji mogu biti uzeti sa "alatima pri ruci".
+<br><br>
+<h2>Shared scopes</h2>
+<br><br>
+Primamljivo je da komuniciramo putem scopes. <font style="color: blue;">parent-component</font> komponenta može se izložiti API izvoznim funkcijama i podacima o ovom scope.
+Ovaj API je dostupan na obe <font style="color: blue;">child-component</font> i <font style="color: blue;">another-child-component</font>, pod pretpostavkom da se koristi izolovan scope. 
+Sada obe direktive mogu da komuniciraju direktno sa svojim roditeljima preko API na scope.
+Međutim, <font style="color: blue;">parent-component</font> ne može da komunicira direktno sa <font style="color: blue;">child-component</font> ili <font style="color: blue;">another-child-component</font> jer scopes predstavlja hijerarhijski odnos između roditelja i deteta.
+Ova veza je realizovana koristeći prototipično nasleđe, tako da deca imaju pristup podacima koji se stavljaju u scope od strane roditelja, ali ne i obrnuto. 
+<font style="color: blue;">parent-component</font> mora da pronađe drugi način da komunicira sa svojom decom. 
+Slično tome, <font style="color: blue;">child-component</font> i <font style="color: blue;">another-child-component</font> ce imati problema u komunikaciji jer rođaci  i scope ne obezbeđuju metode za rođačku komunikaciju.
+<br><br>
+<h2>Događaji preko $scope.$broadcast, $scope.$emit i $scope.$on</h2>
+<br><br>
+Zato komunikacija između roditelja i deteta,ili rođaka upućuje na ograničenje preko scopes, druga opcija je Angular's događaji sistema.
+Zato ovaj pristup se ne oslanja na scope(bar ne direktno), za komunikaciju nijedan od problema navedenih prethodno neće predstaviti sebe.
+Ali dizajn događaja sistema predstavlja svoje izazove. 
+Događaji u Angular su usmereni.
+Oni ili putuju u scope hijerarhijski preko <font style="color: blue;">$scope.$emit</font> ili preko <font style="color: blue;">$scope.$broadcast</font>. 
+Ovo znači da je lokacija direktive u dokumentu važna kada dođe do slanja događaja.
+Mada se to može zaobići ubacivanjem <font style="color: blue;">$rootScope</font> i slanjem događaja kroz lanac koristeći <font style="color: blue;">$rootScope</font>. <font style="color: blue;">$broadcast</font>, ekstra zavisnost je pomalo pogrešna. 
+Rastuća veličina liste zavisnosti je obično znak da nešto nije u redu.
+Najveći problem sa ovim pristupom, konceptualno barem, je to da sarađivanje direktiva iznosi privatne razgovore u javnost.
+<br><br> 
+<h2>Kontroleri</h2>
+<br><br>
+Kako bi trebalo da komuniciraju sarađujuce direktive? Odgovor je u dokmenataciji za direktive(ušuškan na dnu stranice) :
+<br>
+<div class = "napomena">“Najbolja praksa:  Koristite kontrolere kada želite da izlažete API drugim direktivama. U suprotnom koristite vezu.“
+</div>
+<br>
+Ako pogledamo kako je direktiva definisana  pojasnićemo je malo. Razmotriti, ponovo, ovaj primer:
+<br>
+<xmp class="primer_ta">
+<parent-component>
+  <child-component></child-component>
+  <another-child-component></another-child-component>
+</parent-component>
+</xmp>
+<br>
+Ovo je direktna definicija za <font style="color: blue;">parent-component</font>:
+<br>
+<xmp class="primer_ta">
+module.directive('parentComponent', function() {
+  function ParentComponentController(scope) {
+    // initialize scope
+  }
+
+  ParentComponentController.prototype.doSomething = function() {
+    // ironically does nothing
+  }
+
+  return {
+    restrict: 'E',
+    controller: ['$scope', ParentComponentController],
+    scope: {}
+  };
+});
+</xmp>
+<br>
+Direktiva <font style="color: blue;">parent-component</font>  određuje šta pruža kontroler  <font style="color: blue;">ParentComponentController</font>. Kontroler je klasa i instancira se svaki put kada naidje na direktivu.
+To je instanciranje pre direktivnog šablona, sastavljeno je tako da kontroler može da inicira i scope ako je potrebno.
+Sada pogledajte definiciju direktive za <font style="color: blue;">child-component</font>:
+<br>
+<xmp class="primer_ta">
+module.directive('childComponent', function() {
+  function link(scope, element, attrs, controller) {
+    controller.doSomething();
+  }
+
+  return {
+    restrict: 'E',
+    require: '^parentComponent',
+    link: link,
+    scope: {}
+  }
+});
+</xmp>
+<br>
+Ovde su dve stvari u igri. <font style="color: blue;">child-component</font> se određuje preko potrebne imovine koju je potrebno da kontroler dobije od <font style="color: blue;">parent-component</font>. 
+Kontrolori nisu navedeni po imenu klase kontrolera, nego po imenu direktive registrovane kod injektora zavisnosti.
+‘^’  ukazuje da je kontroler obezbeđen od strane roditelj direktive.
+Kao rezultat zahteva <font style="color: blue;">parent-component</font> kontroler se prenosi na <font style="color: blue;">child-component</font>'s link funkcije kao cetvrti argument.
+To pokriva osnovni mehanizam između direktivne komunikacije. 
+Ostatak ovog članka će biti fokusiran na primer.
+<br><br>
+<b>Primer:</b>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-scope-events-propagation-production</title>
+  
+
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="script.js"></script>
+  
+
+  
+</head>
+<body ng-app="eventExample">
+  <div ng-controller="EventController">
+  Root scope <tt>događaj</tt> brojanje: {{count}}
+  <ul>
+    <li ng-repeat="i in [1]" ng-controller="EventController">
+      <button ng-click="$emit('MyEvent')">$emit('događaj')</button>
+      <button ng-click="$broadcast('MyEvent')">$broadcast('događaj')</button>
+      <br>
+      Middle scope <tt>događaj</tt> brojanje: {{count}}
+      <ul>
+        <li ng-repeat="item in [1, 2]" ng-controller="EventController">
+          Leaf scope <tt>događaj</tt> brojanje: {{count}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<script>
+(function(angular) {
+  'use strict';
+angular.module('eventExample', [])
+  .controller('EventController', ['$scope', function($scope) {
+    $scope.count = 0;
+    $scope.$on('MyEvent', function() {
+      $scope.count++;
+    });
+  }]);
+})(window.angular);
+</script>
+</body>
+</xmp>
+</html>
+<button class = "button_copy">Vidi primer</button>
+<br><br>

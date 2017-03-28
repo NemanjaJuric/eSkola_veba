@@ -1,0 +1,162 @@
+<h1>AngularJS API</h1>
+<br><br>
+API je skraćenica od Application Programming Interface.
+<h2>AngularJS Global API</h2>
+<br><br>
+AngularJS Global API je skup globalnih JavaScript funkcija za obavljanje uobičajenih zadataka kao što su:
+<ul>
+<li>Upoređivanje objekata</li>
+<li>Ponavljanje objekata</li>
+<li>Pretvaranje podataka</li>
+</ul>
+<br><br>
+Global API funkcijama se pristupa pomoću angular objekata.
+<br><br>
+Ispod je lista uobicajenih API funkcija:
+<br>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+tr:hover{background-color:#e8e8e8;
+</style>
+</head>
+
+<br>
+<table border="1">
+<tr>
+<th><b>API</b></th>
+<th><b>Opis</b></th>
+</tr>
+<tr>
+<td style="color:blue">angular.lowercase()</td> <td>Prebacuje string u mala slova</td> 
+</tr>
+<tr>
+<td style="color:blue">angular.uppercase()</td> <td>Prebacuje string u velika slova</td> 
+</tr>
+<tr>
+<td style="color:blue">angular.isString()</td> <td>Vraća <i>true</i> ako je referenca string</td> 
+</tr>
+<tr>
+<td style="color:blue">angular.isNumber()</td> <td>Vraća <i>true</i> ako je referenca broj</td> 
+</tr>
+</table>
+<br>
+<b>Primeri:</b>
+<br>
+<ul> 
+<li style="color:blue">angular.lowercase()</li>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>{{ x1 }}</p>
+<p>{{ x2 }}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.x1 = "PETAR";
+    $scope.x2 = angular.lowercase($scope.x1);
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<li style="color:blue">angular.uppercase()</li>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>{{ x1 }}</p>
+<p>{{ x2 }}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.x1 = "Petar";
+    $scope.x2 = angular.uppercase($scope.x1);
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<li style="color:blue">angular.isString()</li>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>{{ x1 }}</p>
+<p>{{ x2 }}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.x1 = "PETAR";
+    $scope.x2 = angular.isString($scope.x1);
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<li style="color:blue">angular.isNumber()</li>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>{{ x1 }}</p>
+<p>{{ x2 }}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.x1 = "PETAR";
+    $scope.x2 = angular.isNumber($scope.x1);
+});
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Probajte sami:
+<br>
+<div class = "zadatak">Napisati program koji, u zadatom stringu, mala slova prebacuje u velika,a velika u mala.</div>
+</ul>
+<br><br>

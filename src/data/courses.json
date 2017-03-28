@@ -734,6 +734,13 @@
                 "sublessons": null
             },
             {
+                "name": "Scope",
+                "url": "ang_scope",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
                 "name": "Direktive",
                 "url": "ang_direktive",
                 "type": "lesson",
@@ -757,6 +764,34 @@
             {
                 "name": "Http",
                 "url": "ang_http",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Angular API",
+                "url": "ang_api",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Animacije u Angularu",
+                "url": "ang_animacije",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Rutiranje",
+                "url": "ang_rutiranje",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Komunikacija između komponenti",
+                "url": "ang_komunikacija_izmedju_komponenti",
                 "type": "lesson",
                 "parentCourse": "ang",
                 "sublessons": null

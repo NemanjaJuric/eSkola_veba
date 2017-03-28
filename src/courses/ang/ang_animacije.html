@@ -1,0 +1,249 @@
+<h1>AngularJS animacije</h1>
+<br><br>
+AngularJS pruža animirane prelaze, uz pomoć CSS.
+<h2>Šta je animacija?</h2>
+<br><br>
+Animacija je kada transformacija HTML elementa daje iluziju kretanja.
+<br>
+<b>Primer:</b>
+<br>
+Označite polje za potvrdu da sakrijete odeljak:
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<body ng-app="ngAnimate">
+
+<h1>Sakriti odeljak: <input type="checkbox" ng-model="myCheck"></h1>
+
+<div ng-hide="myCheck"></div>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<div class = "napomena">Aplikacije ne bi trebalo da budu ispunjene animacijama, ali neke animacije mogu da čine aplikacije lakše razumljivim.</div>
+<br>
+<h2>Šta vam je potrebno?</h2>
+<br><br>
+Da bi vaše aplikacije bile spremne za animacije, morate uključiti AngularJS Animate biblioteku:
+<br>
+<xmp class = "primer_ta"> <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"> </script></xmp>
+<br><br>
+Onda se mora odnositi na <font style="color: blue;">ngAnimate</font> modul u vašoj aplikaciji:
+<br>
+<xmp class = "primer_ta"> <body ng-app="ngAnimate"> </xmp>
+<br><br>
+Ili ako vaša aplikacija ima ime, dodati <font style="color: blue;">ngAnimate</font> kao zavistan modul u svojoj aplikaciji.
+<br>
+<b>Primer:</b>
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<body ng-app="myApp">
+
+<h1>Sakriti odeljak: <input type="checkbox" ng-model="myCheck"></h1>
+
+<div ng-hide="myCheck"></div>
+
+<script>
+var app = angular.module('myApp', ['ngAnimate']);
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Šta ngAnimate radi?</h2>
+<br>
+NgAnimate modul dodaje i uklanja klase.
+<br><br>
+NgAnimate modul ne animira svoje HTML elemente, ali kada ngAnimate primeti određene događaje, kao što su prikazati ili sakriti neki HTML element, element dobija neke prethodno definisane klase koje se mogu koristiti da bi napravili animacije.
+<br><br>
+Direktive u AngularJS koji dodaju / uklanjaju klase su:
+<br><br>
+<ul style="color:blue"> 
+<li>ng-show</li>
+<br>
+<li>ng-hide</li>
+<br>
+<li>ng-class</li>
+<br>
+<li>ng-view</li>
+<br>
+<li>ng-include</li>
+<br>
+<li>ng-repeat</li>
+<br>
+<li>ng-if</li>
+<br>
+<li>ng-switch</li>
+</ul>
+<br><br>
+<font style="color: blue;">ng-show</font> i <font style="color: blue;">ng-hide</font> direktive dodaju ili uklanjaju <font style="color: blue;">ng-hide</font> vrednost klase.
+<br><br>
+Druge direktive dodaju <font style="color: blue;">ng-enter</font> vrednost klase kada uđu u DOM, i <font style="color: blue;">ng-leave</font> atribut kada su uklonjeni iz DOM.
+<br><br>
+Direktiva <font style="color: blue;">ng-repeat</font> takođe dodaje <font style="color: blue;">ng-move</font> vrednost klase kada HTML element menja položaj.
+<br><br>
+Pored toga, tokom animacije, HTML element će imati niz vrednosti klase, koji će biti uklonjeni kada se animacija završi.
+<br>
+Na primer <font style="color: blue;">ng-hide</font> direktiva će dodati ove vrednosti klase:
+<br><br>
+<ul style="color:blue"> 
+<li>ng-animate</li>
+<br>
+<li>ng-hide-animate</li>
+<br>
+<li>ng-hide-add <font color="black">(Ako je element biće sakriven)</font></li>
+<br>
+<li>ng-hide-remove <font color="black">(Ako je element biće prikazan)</font></li>
+<br>
+<li>ng-hide-add-active <font color="black">(Ako je element biće sakriven)</font></li>
+<br>
+<li>ng-hide-remove-active <font color="black">(Ako je element biće prikazan)</font></li>
+</ul>
+<br><br>
+<h2>Korišćenje CSS animacija</h2>
+<br><br>
+Možete koristiti CSS tranzicije ili CSS animacije da animirate HTML elemente. Ovaj članak će vam pokazati kako.
+<br><br>
+<h2>CSS tranzicije</h2>
+<br><br>
+CSS tranzicije vam omogućavaju da lako menjate vrednosti CSS osobina, sa jedne vrednosti na drugu, u datom trenutku.
+<br>
+<b>Primer:</b>
+<br>
+Kada odeljak elementa dobije <font style="color: blue;">.ng-hide</font> klasu, tranzicija će trajati 0,5 sekundi, a visina se glatko menja od 100pk do 0.
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+}
+
+.ng-hide {
+  height: 0;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<body ng-app="myApp">
+
+<h1>Sakriti odeljak: <input type="checkbox" ng-model="myCheck"></h1>
+
+<div ng-hide="myCheck"></div>
+
+<script>
+var app = angular.module('myApp', ['ngAnimate']);
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>CSS Animacije</h2>
+<br><br>
+CSS animacije vam omogućavaju da lako menjate vrednosti CSS osobina, sa jedne vrednosti na drugu, u datom trenutku.
+<br>
+<b>Primer:</b>
+<br>
+Kada odeljak elementa dobije <font style="color: blue;">.ng-hide</font> klasu, <font style="color: blue;">myChange</font> animacija će raditi, što će glatko menjati visinu od 100pk do 0.
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<style>
+@keyframes myChange {
+  from {
+      height: 100px;
+  } to {
+      height: 0;
+  }
+}
+
+div {
+  height: 100px;
+  background-color: lightblue;
+}
+
+div.ng-hide {
+  animation: 0.5s myChange;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+<body ng-app="ngAnimate">
+
+<h1>Sakriti odeljak: <input type="checkbox" ng-model="myCheck"></h1>
+
+<div ng-hide="myCheck">
+</div>
+
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Probajte sami:
+<br>
+<div class = "zadatak">Napisati program koji prilikom označavanja polja za potvrdu, odeljak proširuje do sredine ekrana.</div>
+<br><br>
