@@ -1,4 +1,4 @@
-﻿var ZdravoSvima = (function () {
+﻿let ZdravoSvima = (function () {
     function ZdravoSvima(poruka) {
         this.pozdrav = poruka;
     }
@@ -7,8 +7,8 @@
     };
     return ZdravoSvima;
 }());
-var Objekat = new ZdravoSvima("svima");
-var button = document.createElement('button');
+let Objekat = new ZdravoSvima("svima");
+let button = document.createElement('button');
 button.textContent = "Dont push the button!";
 button.onclick = function () {
     alert(Objekat.Zdravo());

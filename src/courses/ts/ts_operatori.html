@@ -1,7 +1,7 @@
 ﻿<h1>Operatori</h1>
-U prethodnim lekcijama smo govorili o elementarnim pravilima jezika, tipovima podataka i promenljivama. Naredni korak ka ovladavanju pisanja valjanog i smislenog koda jeste da savladamo pojam <b>operatora</b>.
+U prethodnim lekcijama je bilo reči o elementarnim pravilima jezika, tipovima podataka i promenljivama. Naredni korak ka ovladavanju pisanja valjanog i smislenog koda jeste savladati pojam <b>operatora</b>.
 Operator predstavlja konstrukt <!-- Stvarno čovek treba da se pozabavi i da utvrdi šta tačno predstavlja programski konstrukt--> koji se ponaša veoma slično kao funkcija ali se razlikuje u sintaksi i semantici od uobičajne funkcije.
-Kod nekih operatora te razlike su male kao što je operator sabiranja. Umesto izraza x + y možemo da upotrebimo funkciju add(x, y) kako bi smo sabrali dva broja. Podaci nad kojima operator radi nazivaju se operandi. Razmotrimo sledeći izraz:
+Kod nekih operatora te razlike su male kao što je operator sabiranja. Umesto izraza x + y može se upotrebiti funkcija add(x, y) kako bi sabrali dva broja. Podaci nad kojima operator radi nazivaju se operandi. Razmotrimo sledeći izraz:
 <br>
 <br> 
 <b>6:2 = 3</b> 
@@ -10,17 +10,17 @@ Kod nekih operatora te razlike su male kao što je operator sabiranja. Umesto iz
 U ovom slučaju : i = su operatori a 6, 2 i 3 operandi.
 <br>
 <br> 
-U TypeScriptu imamo sledeće grupe operatora:
+U TypeScript-u postoje sledeće grupe operatora:
 <br>
 <br> 
 <ul>
-<li>Aritmetičke operatore</li>
-<li>Relacione operatore</li><!-- Operatori poređenja ?--> 
-<li>Logičke operatore</li>
-<li>Operatore za rad sa bitovima</li>
-<li>Operatore dodele</li>
+<li>Aritmetički operatori</li>
+<li>Relacioni operatori</li><!-- Operatori poređenja ?--> 
+<li>Logički operatori</li>
+<li>Operatori za rad sa bitovima</li>
+<li>Operatori dodele</li>
 <li>Uslovni operator</li>
-<li>Operatore nad tipovima</li>
+<li>Operatori nad tipovima</li>
 <ul/>
 <br>
 <b>ARITMETIČKI OPERATORI</b>
@@ -137,12 +137,12 @@ Kod aritmetičkih operatora operand i povratna vrednost su tipa number, izuzetak
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena"> 
-Kao što smo već pomenuli operator sabiranja možemo da upotrebimo u situacijama kada su operandi string i number ili string i string. U slučaju string i string "spajanjem" se dobija novi string. Pošto je string u suštini niz karaktera,
-pravi se novi niz gde se redom smeštaju karakteri iz prethodna dva niza. U situaciji kada imamo string i number , vrednost koja je tipa number se prevodi <!-- Kastuje ?-->  u vrednost koja je tipa string pa se onda ta dva stringa "spajaju".
+Kao što je već pomenuto operator sabiranja može da se upotrebi u situaciji kada su operandi string i number ili string i string. U slučaju string i string "spajanjem" se dobija novi string. Pošto je string u suštini niz karaktera,
+pravi se novi niz gde se redom smeštaju karakteri iz prethodna dva niza. U situaciji kada su operandi string i number, operand koji je tipa number se prevodi <!-- Kastuje ?-->  u vrednost tipa string pa se onda ta dva stringa "spajaju".
 <br>
 <br>
-Što se tiče operatora ++ i -- u zavisnosti da li ih upotrebljavamo kao sufiks ili prefiks možemo da očekujemo različite rezultate. Izraz ++x znači sledeće: uvećati vrednost x za jedan i vratiti x, a izraz x++ , vratiti x i uvećati vrednost x za jedan. Po istom principu funkcioniše i --.
-Treba skrenuti pažnju da su ++ i -- unarni operatori ali kao i svi drugi operatori imaju svoju povratnu vrednost. Većina nas je navikla da radi sa binarnim operatorima i da za izraz x + y  očekuje povratnu vrednost dok kod izraz x++ možda ostanemo zbunjeni. 
+Što se tiče operatora ++ i -- u zavisnosti da li se upotrebljavaju kao sufiksi ili prefiksi mogu da se očekuju različiti rezultati. Izraz ++x znači sledeće: uvećati vrednost x za jedan i vratiti x, a izraz x++ , vratiti x i uvećati vrednost x za jedan. Po istom principu funkcioniše i operator --.
+Treba skrenuti pažnju da su ++ i -- unarni operatori ali kao i svi drugi operatori imaju svoju povratnu vrednost! 
 </div>
 <br>
 <b>RELACIONI OPERATORI</b><!-- Relacijski operatori ?-->
@@ -247,7 +247,7 @@ Poređenje niskih<!-- Možda da da se držim stringova ?--> se vrši pomoću lek
 <b>LOGIČKI OPERATORI</b>
 <br>
 <br>
-Jedna od osnovnih uloga logičkih operatora u TypeScriptu jeste da poveže dva ili više uslova kako bi dobili novi uslov. Operandi obično imaju vrednosti true ili false i u tom slučaju je povratna vrednost true ili false. Za potrebe primera uzećemo sledeće vrednosti: t = true, f = false, s1 = "četri", s2 = "pet", x1 = 1, x2 = 2 .
+Jedna od osnovnih uloga logičkih operatora u TypeScript-u jeste da poveže dva ili više uslova kako bi dobili novi uslov. Operandi obično imaju vrednosti true ili false i u tom slučaju je povratna vrednost true ili false. Za potrebe primera uzećemo sledeće vrednosti: t = true, f = false, s1 = "četri", s2 = "pet", x1 = 1, x2 = 2.
 <br>
 <br>
 <table class = "tabela">
@@ -258,7 +258,7 @@ Jedna od osnovnih uloga logičkih operatora u TypeScriptu jeste da poveže dva i
 </thead>
 <tbody>
     <tr>
-      <td> && </td><td> Operator vraća true ako i samo ako su vrednosi oba operanda true </td><td>  t && f <br> s2 && s1 <br> x2&&x1</td><td> false <br>  četri <br>1 </td>	  
+      <td> && </td><td> Operator vraća true ako i samo ako su vrednosti oba operanda true </td><td>  t && f <br> s2 && s1 <br> x2&&x1</td><td> false <br>  četri <br>1 </td>	  
     </tr>
     <tr>
       <td> || </td><td> Operator vraća false ako i samo ako su vrednosti oba operanda false </td><td> t || f  <br> s2||s1 <br> x2 || x1</td><td> true <br>  pet <br> 2 </td>
@@ -319,9 +319,9 @@ Ako je operator && i vrednost prvog operanda nije false ili ne može da se konve
 <b>BITOVSKI OPERATORI</b>
 <br>
 <br>
-Brojevi predstavljaju jedan od apstraktnih pojmova koji opisujemo simbolima. Jedan od nama poznatih načina da predstavimo brojeve je upotreba dekadnog sistema . Drugi način je pomoću binarnog sistema, svaki broj u binarnom sistemu možemo da zapišemo kao niz 0 i 1 gde se svaki član tog niza naziva bit. Operandi bitovskih operatora predstavljaju  brojevne vrednosti ali sa zapisom u binarnom sistemu.
-Iz svega izloženog možemo da zaključimo da bitovski operatori izvršavaju svoje operacije baš na binarnim reprezentacijama brojeva, dok vraćaju vrednosti u standardnom dekadnom zapisu. Podsetimo se da u TypeScripu svaki broj možemo da zapišemo pomoću četri brojevna sistema, među njima je i binarni sistem. Da bi koristili bitovske operatore u TypeScriptu
-nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  služiti ćemo se i ovim sistemom. Za potrebe primera uzećemo sledeće vrednosti: x = 0b1000011, x1 = 67, y =0b11110,  y =30.
+Brojevi predstavljaju jedan od apstraktnih pojmova koji se opisuju simbolima. Jedan od poznatih načina za predstavljanje brojeve je upotreba dekadnog sistema. Drugi način je pomoću binarnog sistema, svaki broj u binarnom sistemu može da se zapiše kao niz nula i jedinica gde se svaki član tog niza naziva bit. Operandi bitovskih operatora predstavljaju  brojevne vrednosti ali sa zapisom u binarnom sistemu.
+Iz svega izloženog može da se zaključi da bitovski operatori izvršavaju svoje operacije baš nad binarnim reprezentacijama brojeva, dok vraćaju vrednosti u standardnom dekadnom zapisu. Podsetimo se da u TypeScript-u svaki broj može da se zapiše pomoću četri brojevna sistema, među njima je i binarni sistem. Da bi koristili bitovske operatore u TypeScript-u
+nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustracije  služićemo se i ovim sistemom. Za potrebe primera uzećemo sledeće vrednosti: x = 0b1000011, x1 = 67, y =0b11110,  y =30.
 <br>
 <br>
 <table class = "tabela">
@@ -347,7 +347,7 @@ nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  s
       <td> << </td><td> Pomeranje niza bitova prvog operanda u levo za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0. </td><td> x << 1 <br> x1 << 1</td><td> 134 <br>  134 </td>
     </tr>
 	<tr>
-      <td> >> </td><td> Pomeranje niza bitova prvog operanda u desno za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0, ako je broj negativan 1. </td><td> x >> 1 </td><td> 33 </td>
+      <td> >> </td><td> Pomeranje niza bitova prvog operanda u desno za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0, ako je broj negativan 1.</td><td> x >> 1 </td><td> 33 </td>
     </tr>
 	<tr>
       <td> >>> </td><td> Pomeranje niza bitova prvog operanda u desno za broj mesta koji odgovara vrednosti drugog operanda. Svako upražnjeno mesto se popunjava 0. </td><td> x >>> 1 </td><td>33</td>
@@ -433,14 +433,14 @@ nije potrebno da operandi imaju zapis u binarnom sistemu ali radi ilustraciji  s
 </textarea>
 <button class = "button_copy">Vidi primer</button>
 <div class = "napomena">
-1) Da bi se potpuno razumelo kako bitovski operatori funkcionišu potrebno je biti upoznat sa binarnim zapisom broja, specifičnostima i osobinama.<br>
+1) Da bi potpuno bilo jasno kako bitovski operatori funkcionišu potrebno je biti upoznat sa binarnim zapisom broja, specifičnostima i osobinama.<br>
 2) TypeScript koristi 32 bita za zapis svakog broja. Prvi bit je rezervisan za znak ostalih 31 za predstavljanje numeričke vrednosti. Za zapis svakog broja se koriste 32 bita, npr broj 7 u binarnom zapisu je 1111 ali ga TypeScript čuva kao 00000000000000000000000000001111.<br>
-3) Bitovska negacija predstavlja nepotpun komplement broja a ne njegovu negativnu vrednost !<br>
-4) Kako bi ste videli binarni zapis broja koristite se funkcijom <b>binarniZapis</b>.<br>
-5) Na korišćenje operatora << možemo gledati kao na množenjem stepenom dvojke. Suprotno od toga je operator >> koji je ekvivalent deljenju stepenom dvojke gde je povratna vrednost celobrojni količnik bez ostatka. Svaki realan broj možemo da smestimo između dva cela broja. Kad primenjujemo operator >> povratna vrednost je manji od ta dva broja. Primer: 9 >> 2 = 2, 9 / 4 = 2.25 (2 < 3), -67 >> 2 = -17, -67 / 4 = -16,75 (-17 < -16)
+3) Bitovska negacija predstavlja nepotpun komplement broja a ne njegovu negativnu vrednost!<br>
+4) Funkcija <b>binarniZapis</b> ispisuje binarnu reprezentaciju broja.<br>
+5) Na korišćenje operatora << se može posmatrati kao na množenjem stepenom dvojke. Suprotno od toga je operator >> koji je ekvivalent deljenju stepenom dvojke gde je povratna vrednost celobrojni količnik bez ostatka. Svaki realan broj može da se smesti između dva cela broja. Kad se primenjuje operator >> povratna vrednost je manji od ta dva broja. Primer: 9 >> 2 = 2, 9 / 4 = 2.25 (2 < 3), -67 >> 2 = -17, -67 / 4 = -16,75 (-17 < -16)
 </div>
 <br>
-A sad da malo bolje pogledamo šta se dešava sa tim bitovima. x = 67, y = 30.
+U narednom primeru je ilustrovano kako funkcionišu bitovski operatori nad brojevima x = 67 i y = 30.
 <br>
 X & Y
 <table class = "tabela">
@@ -523,7 +523,7 @@ X >>> 2
 <b>OPERATORI DODELE</b>
 <br>
 <br>
-Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednost levog operanda. Za potrebe primera uzećemo sledeće vrednosti: x1 = 2, x2 = 6, s1 = "četri".
+Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednosti levog operanda. Za potrebe primera uzećemo sledeće vrednosti: x1 = 2, x2 = 6, s1 = "četri".
 <br>
 <br>
 <table class = "tabela">
@@ -604,20 +604,20 @@ Operatori dodele dodeljuju vrednost desnom operandu na osnovu vrednost levog ope
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena">
-Primetimo da gore navedeni operatori dodele ne predstavljaju ništa drugo nego kombinaciju aritemtičkih operatora i standardnog operatora dodele. Po osnovama iste logike funkcionišu i operatori
-<<=, >>=, >>=, &=, |= i ^=. Tako izraz y >>= y1 je ekvivalentan izrazu y = y >> y1, izraz y ^= y1 izrazu y = y ^ y1 itd.
+Gore navedeni operatori dodele ne predstavljaju ništa drugo nego kombinaciju aritemtičkih operatora i standardnog operatora dodele. Po istoj logici funkcionišu i operatori
+<<=, >>=, >>=, &=, |= i ^=. Tako je izraz y >>= y1 je ekvivalentan izrazu y = y >> y1, izraz y ^= y1 izrazu y = y ^ y1 itd.
 </div>
 <br>
 <b>USLOVNI OPERATOR</b>
 <br>
 <br>
-Uslovni operator je jedini ternarni operator u typescriptu. Šta to znači ? To znači da je jedini operator koji im tri operanda. Uslovni operator koristimo kada želimo da formiramo uslovne izraze. Njegova sintaksa je sledeća:
+Uslovni operator je jedini ternarni operator u TypeScript-u. Ternarni operatori su operatori koji imaju tri operanda. Uslovni operator se koristi kada treba formirati uslovne izraze. Njegova sintaksa je sledeća:
 <br>
 <br>
 <span class = "primer_text"> uslova ? izraz1: izraz2</span>
 <br>
 <br>
-Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je true izvršava se <b>izraz1</b> inače <b>izraz2</b>. Povratne vrednosti ova dva izraza mogu biti bilo kog tipa. Pa da vidimo na primerima kako funkcioniše.
+Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je true izvršava se <b>izraz1</b> inače se izvršava <b>izraz2</b>. Povratne vrednosti ova dva izraza mogu biti bilo kog tipa. U narednim primerima je prikazana upotreba uslovnih operatora.
 <br>
 <br>
 <textarea class = "primer_ta" rows = "17" disabled>
@@ -626,9 +626,9 @@ Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je t
  
  let r: string = x1 > x2 ? "x1 je veće od x2" : "x2 je veće od x1" ;
  
- let r1: string = "Tokyo" < "Užice" ? "Užice je leksikografski veće od Tokia" : "Tokyo je leksikografski veće od Užica" ;
+ let r1: string = "Tokio" < "Užice" ? "Užice je leksikografski veće od Tokia" : "Tokio je leksikografski veći od Užica" ;
  
- let r2: boolean = "Tokyo" < "Užice" ? x1 > x2 : x1 << 1 >= x2 ;
+ let r2: boolean = "Tokio" < "Užice" ? x1 > x2 : x1 << 1 >= x2 ;
   
  
  let button = document.createElement('button');
@@ -644,7 +644,7 @@ Prvi operand <b>uslov</b> predstavlja izraz koji vraća true ili false. Ako je t
 <b>OPERATORI NAD TIPOVIMA</b>
 <br>
 <br>
-U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Typeof je unarni operator koji kao povratnu vrednost vraća tip operanda u vidu stringa. Instanceof je binarni operator koji proverava da li objekat pripada određenoj klasi, njegova povratna vrednost je true ili false u zavisnosti od toga da li objekat pripada klasi ili ne. Bez daljeg zadržavanja da pređemo na primer.
+U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Typeof je unarni operator koji kao povratnu vrednost vraća tip operanda u vidu stringa. Instanceof je binarni operator koji proverava da li objekat pripada određenoj klasi, njegova povratna vrednost je true ili false u zavisnosti od toga da li objekat pripada klasi ili ne. Bez daljeg zadržavanja pređimo na primer.
 <br>
 <br>
 <textarea class = "primer_ta" rows = "34" disabled>
@@ -686,14 +686,14 @@ U operatore nad tipovima spadaju operatori <b>typeof</b> i <b>instanceof</b>. Ty
 <button class = "button_copy">Vidi primer</button>
 <br>
 <div class = "napomena">
-Primenom operatora typeof nad O dobijamo da je povratna vrednost <b>object</b>. Iz navedenog možemo da zaključimo da primenom operatora typeof nad objektima možemo samo da saznamo da se radi o objektu ali ne i kojoj klasi pripada. Iz tog razloga razvijen je operator instanceof koji proverava da li objekat pripada navedenoj klasi.
+Primenom operatora typeof nad O dobijamo da je povratna vrednost <b>object</b>. Iz navedenog može da se zaključi da primenom operatora typeof nad objektom može samo da se sazna da se radi o objektu ali ne i kojoj klasi pripada. Iz tog razloga razvijen je operator instanceof koji proverava da li objekat pripada navedenoj klasi.
 </div>
 <br>
 <b>PRIORITET OPERATORA</b><!-- Prednost izvršavanja operatora ?-->
 <br>
 <br>
-Prilikom pisanja izraza moramo voditi računa kojim redosledom će se operatori izvršavati. Uzmimo na primer izraz 2+3*7, ovde imamo dve kombinacije ili je vrednost izraza 35 ili je vrednost izraza 23. Naravno tačan odgovor je 23 tjst operator množenja ima prioritet nad operatorom sabiranja.
-Primetimo da u izrazu 2+3*7 operator sabiranje ima operande 2 i 3 a operator množenja operande 3 i 7. Ova dva operatora imaju zajednički operand broj 3, postavlja se pitanje "ko ima preče pravo na taj operand" tjst ko ima veći prioritet. U nastavku možete videti listu operatora u typescriptu poređanih po prioritetu počevši od operatora dodele koji ima najveći prioritet.
+Prilikom pisanja izraza mora se voditi računa kojim redosledom će se operatori izvršavati. Na primer izraz 2+3*7, ovde postoje dve kombinacije ili je vrednost izraza 35 ili je vrednost izraza 23. Naravno tačan odgovor je 23 tj. operator množenja ima prioritet nad operatorom sabiranja.
+Primetimo da u izrazu 2+3*7 operator sabiranje ima operande 2 i 3 a operator množenja operande 3 i 7. Ova dva operatora imaju zajednički operand broj 3, postavlja se pitanje "ko ima prvi pravo na taj operand" tjst ko ima veći prioritet. U nastavku možete videti listu operatora u TypeScript-u poređanih po prioritetu počevši od operatora dodele koji ima najveći prioritet.
 <br>
 <br>
 <table class = "tabela"><!-- E sad ima još brdo operatora kao sto je poziv funkcije, pozivanje konstruktora ne znam da li i njih da stavim u listu prioriteta ili da ostavim na operatorima samo koje sam pomenuo u lekciji ?-->
@@ -803,7 +803,8 @@ Primetimo da u izrazu 2+3*7 operator sabiranje ima operande 2 i 3 a operator mno
 </table>
 <br>
 <div class = "zadatak">
-1) Napisati izraz koji u sebi sadrži bitovske , aritmetičke, relacione i uslovne operatore. Vrednost izraza treba da bude true.<br>
-2) Koristeći operator odrediti tip ovog izraza . Vrednost operatora treba da se ispise pritiskom na dugme.<br>
+<b>Zadatak4:</b><br>
+1) Napisati izraz koji u sebi sadrži bitovske, aritmetičke, relacione i uslovne operatore. Vrednost izraza treba da bude true.<br>
+2) Koristeći operator odrediti tip tog izraza. Vrednost operatora treba da se ispiše pritiskom na dugme.<br>
 3) Koristeći bitovske operatore pomnožiti broj 256 sa 4 i ispisati njegovu vrednost pritiskom na dugme.
 </div>
