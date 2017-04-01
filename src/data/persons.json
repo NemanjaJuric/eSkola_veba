@@ -1,0 +1,104 @@
+[
+   {
+      "name":"Nemanja Jurić",
+      "course":"eŠkola veba",
+      "url":"assets/images/team/nemanja_juric.jpg",
+      "mainPosition": true
+   },
+   {
+      "name":"Miroslav Marić",
+      "course":"profesor",
+      "url":"assets/images/team/miroslav_maric.jpg",
+      "mainPosition": true      
+   },
+   {
+      "name":"Aleksandar Đenić",
+      "course":"asistent",
+      "url":"assets/images/team/aleksandar_djenic.jpg",
+      "mainPosition": true      
+   },
+   {
+      "name":"Milana Grab",
+      "course":"jQuery",
+      "url":"assets/images/team/milana_grab.jpg",
+      "mainPosition": false      
+   },
+   {
+      "name":"Marija Vujičić",
+      "course":"JavaScript",
+      "url":"assets/images/team/marija_vujicic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Milena Milovanović",
+      "course":"JavaScript",
+      "url":"assets/images/team/milena_milovanovic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Milica Panić",
+      "course":"CSS",
+      "url":"assets/images/team/milica_panic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Tijana Spasić",
+      "course":"JavaScript",
+      "url":"assets/images/team/tijana_spasic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Marija Đorđević",
+      "course":"JavaScript",
+      "url":"assets/images/team/marija_djordjevic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Dragana Miletić",
+      "course":"HTML",
+      "url":"assets/images/team/dragana_miletic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Nikola Aćimović",
+      "course":"CSS",
+      "url":"assets/images/team/nikola_acimovic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Tamara Tešić",
+      "course":"JavaScript",
+      "url":"assets/images/team/tamara_tesic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Bojana Milivojević",
+      "course":"CSS",
+      "url":"assets/images/team/bojana_milivojevic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Petra Šarčević",
+      "course":"CSS",
+      "url":"assets/images/team/petra_sarcevic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Ivana Jovanović",
+      "course":"CSS",
+      "url":"assets/images/team/ivana_jovanovic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Ljubica Ilić",
+      "course":"HTML",
+      "url":"assets/images/team/ljubica_ilic.jpg",
+      "mainPosition": false            
+   },
+   {
+      "name":"Tanja Ivanović",
+      "course":"Bootstrap",
+      "url":"assets/images/team/tanja_ivanovic.jpg",
+      "mainPosition": false            
+   }
+]

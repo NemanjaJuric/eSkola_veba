@@ -31,12 +31,25 @@
 		<h1 class="display-4 m-t-3 m-b-3">Naš tim</h1>
 	</div>
 	<div class="row text-xs-center row-about">
-		<div class="col-md-6 col-lg-4 m-t-2 m-b-2" *ngFor="let programmer of programmers">
-			<div class="programmer-image" [ngStyle]="{'background-image': 'url(' + programmer.url + ')' }">
+		<div class="col-md-6 col-lg-4 m-t-2 m-b-2" *ngFor="let person of personsMainPosition">
+			<div class="programmer-image" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
 			</div>
 			<div class="text-xs-center m-t-2 m-b-2">
-				<h4 class="h4 dark-gray">{{programmer.name}}</h4>
-				<h6 class="h6 gray">{{programmer.course}}</h6>
+				<h4 class="h4 dark-gray">{{person.name}}</h4>
+				<h6 class="h6 gray">{{person.course}}</h6>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center m-a-3">
+		<h1 class="h1 m-t-3 m-b-3">Lekcije su radili</h1>
+	</div>
+	<div class="row text-xs-center row-about">
+		<div class="col-md-6 col-lg-4 m-t-2 m-b-2" *ngFor="let person of personsOtherPosition">
+			<div class="programmer-image" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
+			</div>
+			<div class="text-xs-center m-t-2 m-b-2">
+				<h4 class="h4 dark-gray">{{person.name}}</h4>
+				<h6 class="h6 gray">{{person.course}}</h6>
 			</div>
 		</div>
 	</div>

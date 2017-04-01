@@ -3,7 +3,7 @@ import { Http, Response, Headers, Request, RequestOptions, RequestMethod } from 
 import { Observable } from 'rxjs/Observable';
 import { Course } from '../classes/course';
 import { Lesson } from '../classes/lesson';
-import { Programmer } from '../classes/programmer';
+import { Person } from '../classes/person';
 import { Technologie } from '../classes/technologie';
 import { Button } from '../classes/button';
 import 'rxjs/Rx';
@@ -100,8 +100,8 @@ export class SchoolService {
             .catch(this.handleError)
     }
 
-    getProgrammers(): Observable<Array<Programmer>> {
-        let getUrl = dataStoreLocation + 'programmers.json';
+    getPersons(): Observable<Array<Person>> {
+        let getUrl = dataStoreLocation + 'persons.json';
         return this.http.get(getUrl)
             .map(res => JSON.parse(res.text()))
             .catch(this.handleError)

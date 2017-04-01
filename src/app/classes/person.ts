@@ -1,5 +1,6 @@
-export class Programmer {
+export class Person {
     name: string;
     course: string;
     url: string;
+    mainPosition: boolean;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from '../../services/school.service';
-import { Programmer } from '../../classes/programmer';
+import { Person } from '../../classes/person';
 
 @Component({
   selector: 'about',
@@ -10,7 +10,8 @@ export class AboutComponent implements OnInit {
 
   constructor(private schoolService: SchoolService) { };
 
-  private programmers: Array<Programmer>;  
+  private personsMainPosition: Array<Person>;
+  private personsOtherPosition: Array<Person>;
 
   ngOnInit() {
     this.getProgrammers();
@@ -18,7 +19,11 @@ export class AboutComponent implements OnInit {
   }
 
   getProgrammers(): void {
-      this.schoolService.getProgrammers().subscribe(data => this.programmers = data);
+    this.schoolService.getPersons()
+      .subscribe(data => {
+        this.personsMainPosition = data.filter( person => person.mainPosition === true);
+        this.personsOtherPosition = data.filter( person => person.mainPosition === false);
+      });
   }
 
 }
