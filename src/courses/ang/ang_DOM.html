@@ -1,0 +1,68 @@
+<h1>AngularJS HTML DOM</h1>
+AngularJS ima direktive za povezivanje podataka aplikacije u atribute HTML DOM elemenata.<br>
+<h2>ng-disabled direktiva</h2>
+ng-disabled direktiva povezuje podatke AngularJS aplikacije sa iskljucenim atributima HTML elemenata.<br>
+<xmp class = "primer_ta" >
+<div ng-app="" ng-init="mySwitch=true">
+
+<p>
+<button ng-disabled="mojPrekidac">klikni me!</button>
+</p>
+
+<p>
+<input type="checkbox" ng-model="mojPrekidac">Dugme
+</p>
+
+<p>
+{{ mojPrekidac }}
+</p>
+
+</div>
+</xmp>
+Objasnjenje aplikacije:<br>
+ng-disabled direktiva povezuje podatak aplikacije MySwitch sa onemogucenim atributom HTML dugmeta.<br>
+ng-model direktiva povezuje vrednost elementa HTML cekboksa sa vrednoscu MySwitch.<br>
+Ako vrednost mySwitch elementa bude true, dugme se onemogucava:<br>
+<xmp class = "primer_ta" >
+<p>
+<button disabled>Klikni me!</button>
+</p>
+</xmp>
+Ako vrednost bude false, dugme nece biti onemoguceno:<br>
+<xmp class = "primer_ta" >
+<p>
+<button>klikni me!</button>
+</p>
+</xmp>
+<h2>ng-show direktiva</h2>
+Direktiva ng-show prikazuje ili sakriva HTML elemente.<br>
+<xmp class = "primer_ta" >
+<div ng-app="">
+
+<p ng-show="true">Vidim se.</p>
+
+<p ng-show="false">Ne vidim se.</p>
+
+</div>
+</xmp>
+ng-show direktiva pokazuje(ili skriva) HTML element na osnovu vrednosti ng-show. Mozete koristiti bilo koji izraz cija je vrednost true ili false:
+<xmp class = "primer_ta" >
+<div ng-app="" ng-init="sat=13">
+
+<p ng-show="sat > 12">Vidim se.</p>
+
+</div>
+</xmp>
+<h2>ng-hide</h2>
+ng-hide direktiva sakriva ili pokazuje HTML element.
+<xmp class = "primer_ta" >
+<div ng-app="">
+
+<p ng-hide="true">Ne vidim se.</p>
+
+<p ng-hide="false">Vidim se.</p>
+
+</div>
+</xmp>
+
+

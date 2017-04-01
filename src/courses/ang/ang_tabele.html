@@ -1,0 +1,93 @@
+<h1>Tabele</h1>
+Direktiva ng-repeat je savršena za prikazivanje tabela.
+<h2>Prikazivanje podataka u tabeli</h2>
+Prikazivanje tabela u Angularu je veoma jednostavno:
+<br>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<xmp class = "primer_ta" >
+
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
+
+<table>
+  <tr ng-repeat="x in imena">
+    <td>{{ x.Ime }}</td>
+    <td>{{ x.Zemlja}}</td>
+  </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.imena = [
+      { "Ime" : "Pera Perić", "Grad" : "Beograd", "Zemlja" : "Srbija" },
+      { "Ime" : "John Doe", "Grad" : "New York", "Zemlja" : "USA" },
+      { "Ime" : "Koniglich", "Grad" : "Barcelona", "Zemlja" : "Španija" },
+      { "Ime" : "Wolski", "Grad" : "Arhus", "Zemlja" : "Danska" }
+    ];
+    });
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<h2>Prikazivanje u CSS stilu</h2>
+Da bi ucinili tabelu lepsom dodacemo malo CSS-a:
+<xmp class = "primer_ta" >
+<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+</xmp>
+<br>
+<h2>Sortiranje tabele sa OrderBy filterom</h2>
+Da bi sortitali tabelu dodajemo OrderBy filter.
+<xmp class = "primer_ta" >
+<table>
+  <tr ng-repeat="x in imena| orderBy : 'Country'">
+    <td>{{ x.Ime}}</td>
+    <td>{{ x.Zemlja }}</td>
+  </tr>
+</table>
+</xmp>
+<h2>Prikazivanje sa Uppercase filterom</h2>
+Da bi smo prikazali sa svim velikim slovima, koristimo Uppercase filter:
+<xmp class = "primer_ta" ><table>
+  <tr ng-repeat="x in imena">
+    <td>{{ x.Ime }}</td>
+    <td>{{ x.Zemlja| uppercase }}</td>
+  </tr>
+</table>
+</xmp>
+<h2>Prikazivanje indeksa tabele</h2>
+Da bi prikazali indeks tabele, dodajemo <td> sa $index: 
+<xmp class = "primer_ta" >
+<table>
+  <tr ng-repeat="x in imena">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ x.Ime }}</td>
+    <td>{{ x.Zemlja }}</td>
+  </tr>
+</table>
+</xmp>
+<h2>Korišcenje $even i $odd</h2>
+<xmp class = "primer_ta" >
+<table>
+<tr ng-repeat="x in imena">
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+<td ng-if="$even">{{ x.Ime }}</td>
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+<td ng-if="$even">{{ x.Zemlja }}</td>
+</tr>
+</table>
+</xmp>
+

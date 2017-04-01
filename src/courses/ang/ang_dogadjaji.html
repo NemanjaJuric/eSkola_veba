@@ -1,0 +1,142 @@
+<h1>AngularJS događaji (events)</h1>
+AngularJS ima sopstvene direktive za HTML događaje.<br>
+<h2>AngularJS događaji</h2>
+Možete dodati osluškivače dogaćaja u vaše HTML elemente koristeći neku od sledećih direktiva:<br>
+<ul>
+    <li>ng-blur</li>
+    <li>ng-change</li>
+    <li>ng-click</li>
+    <li>ng-copy</li>
+    <li>ng-cut</li>
+    <li>ng-dblclick</li>
+    <li>ng-focus</li>
+    <li>ng-keydown</li>
+    <li>ng-keypress</li>
+    <li>ng-keyup</li>
+    <li>ng-mousedown</li>
+    <li>ng-mouseenter</li>
+    <li>ng-mouseleave</li>
+    <li>ng-mousemove</li>
+    <li>ng-mouseover</li>
+    <li>ng-mouseup</li>
+    <li>ng-paste</li>
+</ul>
+Direktive događaja nam dozvoljavaju da pokrećemo AngularJS funckije kod određenih
+korisničkih događaja.<br>
+AngularJS događaj neće ukloniti postojeći HTML događaj, oba će biti 
+izvršena.<br>
+
+<h2>Događaji za mišem(Mouse Events)</h2>
+Oni se dešavaju kad se kursor pomeri preko nekog elementa, po ovom redosledu:<br>
+<ol>
+    <li>ng-mouseenter</li>
+    <li>ng-mouseover</li>
+    <li>ng-mousemove</li>
+    <li>ng-mouseleave </li>
+</ol>
+Ili, kada se dugme miša klkne na odgovarajući element, u narednom redosledu:</br>
+<ol>
+    <li>ng-mousedown</li>
+    <li>ng-mouseup</li>
+    <li>ng-click</li>
+</ol>
+Možete dodati događaj miša u bilo koji HTML element.<br>
+<xmp class = "primer_ta" >
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<h1 ng-mousemove="zbir = zbir + 1">Miš je preko mene!</h1>
+
+<h2>{{ zbir }}</h2>
+
+</div>
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.zbir = 0;
+});
+</script>
+</xmp>
+<h2>ng-click direktiva</h2>
+Direktiva ng-click definiđe AngularJS kod koji će biti izvršen kada je kliknuto na element.
+<xmp class = "primer_ta" >
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<button ng-click="zbir = zbir + 1">Klikni me!</button>
+
+<p>{{ zbir }}</p>
+
+</div>
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.zbir = 0;
+});
+</script>
+</xmp>
+Takođe možete i da referišete na funkciju:
+<xmp class = "primer_ta" >
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<button ng-click="mojaFunkcija()">Klikni me!</button>
+
+<p>{{ zbir }}</p>
+
+</div>
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.count = 0;
+    $scope.mojaFunkcija = function() {
+        $scope.zbir++;
+    }
+});
+</script>
+</xmp>
+<h2>Toggle, True/False</h2>
+Ako želite da prikažete deo HTML koda kada je dugme stisnuto i sakrijete kada je ponovo kliknuto, kao padajući meni, možemo napraviti da se dugme ponaša kao toggle prekidač:
+<xmp class = "primer_ta" >
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<button ng-click="mojaFunkcija()">Klikni me!</button>
+
+<div ng-show="pokaziMe">
+    <h1>Menu:</h1>
+    <div>Piza</div>
+    <div>Pasta</div>
+    <div>Pesto</div>
+</div>
+
+</div>
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.pokaziMe = false;
+    $scope.mojaFunkcija = function() {
+        $scope.pokaziMe = !$scope.pokaziMe;
+    }
+});
+</script>
+</xmp>
+Promenjiva pokaziMe u početku ima Boolean vrednost false.<br>
+Funkcija mojaFunkcija postavlja vrdnost pokaziMe promenjive suprotno od onog što jeste, koristeći operator ! (not).<br>
+<h2>$event objekat</h2>
+Možete da prosledite $event objekat kao argumetn kada pozivate funkciju.<br>
+$event objekat sadrži event objekat pregledača:<br>
+<xmp class = "primer_ta" >
+<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+
+<h1 ng-mousemove="mojaFunkcija($event)">Miš je preko mene!</h1>
+
+<p>Koordinate: {{x + ', ' + y}}</p>
+
+</div>
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.controller('mojKontroler', function($scope) {
+    $scope.mojaFunkcija = function(myE) {
+        $scope.x = myE.clientX;
+        $scope.y = myE.clientY;
+    }
+});
+</script>
+</xmp>

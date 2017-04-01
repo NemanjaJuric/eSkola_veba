@@ -1,0 +1,123 @@
+<h1>AngularJS validacije forme</h1>
+AngularJS moze da vrsi validaciju ulaznih podataka<br>
+<h2>Validacija forme</h2>
+AngularJS nudi klijent orijentisanu validaciju forme.<br>
+AngularJS prati stanje forme i ulaznih polja(input, textarea, select), i dozvoljava vam da obavestite korisnika o trenutnom stanju.<br>
+AngularJS takodje drzi i informacije da li je nesto kliknuto, modifikovano ili ne.<br>
+Mozete koristiti standardne HTML atribute da validirate ulaz, ili mozete praviti sopstvene funkcije za validaciju.<br>
+Klijent orijentisana validacija ne moze sama osigurati unos korisnika. Potrebna je i servert orijentisana validacija.<br>
+<h2>Atribut Required</h2>
+Koristicemo HTML5 atribut required da preciziramo da polje unosa mora biti popunjeno:<br>
+<xmp class = "primer_ta" >
+<form name="myForm">
+<input name="myInput" ng-model="myInput" required>
+</form>
+
+<p>The input's valid state is:</p>
+<h1>{{myForm.myInput.$valid}}</h1>
+</xmp>
+<h2>E-mail</h2>
+Koristicemo HTML5 tip email da naglasimo da vrednost mora biti e-mail adresa:
+<xmp class = "primer_ta" >
+<form name="myForm">
+<input name="myInput" ng-model="myInput" type="email">
+</form>
+
+<p>The input's valid state is:</p>
+<h1>{{myForm.myInput.$valid}}</h1>
+</xmp>
+<h2>Stanje polja form i input</h2>
+AngularJS konstantno osvezava vrednosti polja form i input.<br>
+Input polja imaju sledeca stanja:
+<ul>
+<li>$untouched Polje nije dodirnuto</li>
+<li>$touched Polje je dodirnuto</li>
+<li>$pristine Polje jos uvek nije modifikovano</li>
+<li>$dirty Polje je modifikovano</li>
+<li>$invalid Sadržaj polja nije validan</li>
+<li>$valid Sadržaj polja je validan</li>
+</ul>
+To su sve svojstva input polja, i ona su ili true ili false.<br>
+Mozete koristiti ova svojstva da prikažete znaèajne poruke korisniku. Na primer, ako je polje obavezno, i korisnik ga ostavim praznim, onda mu dajemo upozorenje:
+<xmp class = "primer_ta" >
+<input name="myName" ng-model="myName" required>
+<span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span>
+</xmp>
+<h2>CSS klase</h2>
+AngularJS dodaje CSS klase u forme i ulazna polja u zavinosti od stanja.<br>
+Sledeæe klase se dodaju, ili izbacuju, iz ulaznih polja:
+<ul>
+<li>ng-untouched Polje nije jos taknuto</li>
+<li>ng-touched Polje je taknuto</li>
+<li>ng-pristine Polje nije modifikovano</li>
+<li>ng-dirty Polje je modifikovano</li>
+<li>ng-valid Sadršaj polja je validan</li>
+<li>ng-invalid Sadržaj polja nije validan</li>
+<li>ng-valid-key Jedan kljuè za svaku validaciju. Primer:ng-valid-required, korisno kada je potreno proveriti validaciju više od jedne stvari.</li>
+<li>ng-invalid-key Primer:ng-invalid-required
+</ul>
+Sledeæe klase se dodaju, ili izbacuju iz formi:
+<ul>
+<li>ng-pristine Polje nije modifikovano</li>
+<li>ng-dirty Polje je modifikovano</li>
+<li>ng-valid Sadršaj polja je validan</li>
+<li>ng-invalid Sadržaj polja nije validan</li>
+<li>ng-valid-key Jedan kljuè za svaku validaciju. Primer:ng-valid-required, korisno kada je potreno proveriti validaciju više od jedne stvari.</li>
+<li>ng-invalid-key Primer:ng-invalid-required
+</ul>
+Klase se izbacuju ako je vrednost koju one predstavljaju vrednosti false.<br>
+Možemo dodati stilove u ove klase.
+<xmp class = "primer_ta" >
+<style>
+input.ng-invalid {
+    background-color: pink;
+}
+input.ng-valid {
+    background-color: lightgreen;
+}
+</style>
+</xmp>
+Takoðe možemo ubaciti stilove i u forme:
+<xmp class = "primer_ta" ><style>
+form.ng-pristine {
+    background-color: lightblue;
+}
+form.ng-dirty {
+    background-color: pink;
+}
+</style>
+</xmp>
+<h2>Sopstvena validacija</h2>
+Pravljenje sopstvene validacije zna biti problematièno. Morate dodati novu direktivu u vašu aplikaciju <br>
+i snaæi se sa validacijom unutar funkcije sa specifiènim argumentima.
+
+<h2>Primer</h2>
+Kreirati sopstvenu direkticu, koja sadrži sopstvenu funkciju za validaciju, i referišite na nju koristeæi my-directive.<br>
+Polje æe biti validno samo ako sadrži karakter "e".
+<xmp class = "primer_ta" >
+
+<form name="mojaForma">
+<input name="mojUlaz" ng-model="mojUlaz" required my-directive>
+</form>
+
+<script>
+var app = angular.module('mojaAplikacija', []);
+app.directive('mojaDirektiva', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attr, mCtrl) {
+      function mojaValidacija(value) {
+        if (value.indexOf("e") > -1) {
+          mCtrl.$setValidity('charE', true);
+        } else {
+          mCtrl.$setValidity('charE', false);
+        }
+        return value;
+      }
+      mCtrl.$parsers.push(mojaValidacija);
+    }
+  };
+});
+</script>
+</xmp>
+

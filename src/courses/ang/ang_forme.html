@@ -1,0 +1,88 @@
+<h1>Angular - Forme</h1>
+<br/>
+Forme u programskom jeziku AngularJS omogućavaju povezivanje podataka i validaciju kontrole ulaza.
+<br/>
+
+
+<h2>Kontrole ulaza</h2>
+Kontrole ulaza su HTML ulazni elementi:<br>
+-Elementi ulaza<br>
+-Elementi selektovanja<br>
+-Elementi tipa dugme<br>
+-Elementi sa tekstom <br>
+
+
+<h2>Povezivanje podataka</h2>
+Kontrole ulaza omogućavaju povezivanje podataka koristeći ng-model direktive.
+<xmp class = "primer_ta"><input type="text" ng-model="ime"> </xmp>
+Aplikacija sada ima svojstvo zvano ime.
+ng-model direktive povezuje ulazni kontroler sa ostatkom važe aplikacije.
+
+Svojstvo Ime, može se pozvati u kontroleru:
+<xmp class = "primer_ta" >
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+    $scope.ime = "Aleksandar";
+});
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Takodje se može pozvati bilo gde u aplikaciji:
+<xmp class = "primer_ta" >
+<form>
+Ime: <input type="text" ng-model="ime">
+</form>
+
+<h1>Uneli ste: {{ime}}</h1>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<h2>Checkbox</h2>
+Checkbox može imati dve vrednosti, true ili false. Prenjujući ng-model direktive na Checkbox, i koristimo njegovu vrednost u aplikaciji.
+
+<xmp class = "primer_ta" >
+<form>
+    Štiklirajte da bi pokazali zaglavlje:
+    <input type="checkbox" ng-model="myVar">
+</form>
+
+<h1 ng-show="myVar">Moje zaglavlje</h1>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<h2>Radio button</h2>
+Radio button se dodaje u vašu aplikaciju pomoću ng-model-a direktive.
+Radio button-i sa istim ng-model-om direktive mogu imati različite vrednosti, ali će samo selektovani biti korišćeni.
+<xmp class = "primer_ta" >
+<form>
+ Izaberite temu:
+<input type="radio" ng-model="myVar" value="psi">Psi
+<input type="radio" ng-model="myVar" value="lekcije">Lekcije
+<input type="radio" ng-model="myVar" value="automobili">Automobili
+</form>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Vrednost promenjive myVar će biti psi, lekcije ili automobili.
+<br>
+<h2>Selectbox</h2>
+Selectbox-ovi se dodaju pomoću ng-model direktive.
+Svojstvo definisano u ng-model atributu će imati vrednost selektovane opcije u selectbox-u.
+<xmp class = "primer_ta" >
+<form>
+Izaberite temu:
+<select ng-model="myVar">
+    <option value="">
+    <option value="psi">Psi
+    <option value="tutorijali">Tutorijali
+    <option value="automobili">Automobili
+</select>
+</form>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Vrednost promenjljive myVar će biti psi, tutorijali ili automobili.

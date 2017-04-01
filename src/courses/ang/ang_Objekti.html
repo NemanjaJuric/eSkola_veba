@@ -1,0 +1,29 @@
+<h1> Objekti </h1>
+
+
+<br>
+	AngularJS objekti se definišu na isti naèin kao i u JavaScript-u:
+<br>
+	<xmp class = "primer_ta">
+		<div ng-app="" ng-init="Osoba={Ime:'Marko',Prezime:'Markovic'}">
+
+		<p> Ime:{{ Osoba.Ime }}</p>
+		<p> Prezime:{{ Osoba.Prezime }}</p>
+		</div>
+
+	</xmp>
+<br>
+<br>
+	Isti primer možemo napisati korišæenjem ng-bind direktive:
+<br>
+	<xmp class = "primer_ta">
+		<div ng-app="" ng-init="Osoba={Ime:'Marko',Prezime:'Markovic'}">
+
+			<p>Ime: <span ng-bind="Osoba.Ime"></span></p>
+			<p>Ime: <span ng-bind="Osoba.Prezime"></span></p>
+		</div>
+	</xmp>
+	
+<br>
+Atributima objekta se pristupa putem taèke.
+<br>

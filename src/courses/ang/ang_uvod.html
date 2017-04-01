@@ -1,0 +1,43 @@
+<h1> Uvod u Angular i ucitavanje biblioteke sa CDN </h1>
+
+
+<br>
+<br>
+	AngularJS je JavaScript framework. Napisan je kao biblioteka JavaScript-a.
+<br>
+	AngularJS se distribuiše kao JavaScript fajl, i dodaje se na web stranu putem taga script:
+<br>
+<br>
+
+	<span class = "primer_text">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	</span>
+<br>
+<br>
+
+	AngularJS proširuje HTML sa <b> ng-direktivom </b>
+<br>
+	<b> ng-app </b> direktiva definiše AngularJS aplikaciju.
+<br>
+	<b> ng-model </b> vezuje vrednosti HTML kontrola (nput, select, textarea) sa podacima aplikacije.
+<br> 
+	<b> ng-bind </b>  vezuje podatke aplikacije sa HTML prikazom.
+<br>
+
+
+<xmp class = "primer_ta"><!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body>
+		<div ng-app="">
+			<p>Name: <input type="text" ng-model="name"></p>
+			<p ng-bind="name"></p>
+		</div>
+	</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Primetimo da na početku svakog dokumenta u okviru taga script moramo ukljuciti biblioteku.
+<br>

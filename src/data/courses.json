@@ -703,11 +703,46 @@
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
-        "detailsText": "U pripremi",
+        "detailsText": "AngularJS je JavaScript MVC framework napravljen od strane Google-a koji vam omogućava da pravite dobro struktuirane, lake za testiranje i održavanje front-end aplikacije. AngularJS je MVC framework koji definiše brojne koncepte za pravilno organizovanje vaše veb aplikacije. Aplikacija je definisana uz pomoć modula koji mogu zavistiti jedan od drugih. AngularJS proširuje HTML pružajući direktive vašim oznakama pomoću kojih možete praviti moćne i dinamičke stranice. Takođe možete napraviti sopstvene direktive pomoću kojih ćete vršiti DOM manipulaciju. Takođe implementira two-way vezivanje podataka, vezujući vaš HTML (view) sa javascript objektima (models) na veoma lak način.",
         "lessons": [
             {
                 "name": "Uvod u Angular",
                 "url": "ang_uvod",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "MVC pattern",
+                "url": "ang_MVC_pattern",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Primer Angular aplikacije",
+                "url": "ang_Pocetni_primer",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Promenljive u Angularu",
+                "url": "ang_Promenljive",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Objekti u Angularu",
+                "url": "ang_Objekti",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Izrazi u Angularu",
+                "url": "ang_Izrazi",
                 "type": "lesson",
                 "parentCourse": "ang",
                 "sublessons": null
@@ -764,6 +799,41 @@
             {
                 "name": "Http",
                 "url": "ang_http",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Manipulacija DOM elementima",
+                "url": "ang_DOM",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Tabele u Angularu",
+                "url": "ang_tabele",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Događaji u Angularu",
+                "url": "ang_dogadjaji",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Forme u Angularu",
+                "url": "ang_forme",
+                "type": "lesson",
+                "parentCourse": "ang",
+                "sublessons": null
+            },
+            {
+                "name": "Validacija formi",
+                "url": "ang_validacija",
                 "type": "lesson",
                 "parentCourse": "ang",
                 "sublessons": null
