@@ -10,6 +10,7 @@ export class AboutComponent implements OnInit {
 
   constructor(private schoolService: SchoolService) { };
 
+  private persons: Array<Person>;
   private personsMainPosition: Array<Person>;
   private personsOtherPosition: Array<Person>;
 
@@ -21,8 +22,9 @@ export class AboutComponent implements OnInit {
   getProgrammers(): void {
     this.schoolService.getPersons()
       .subscribe(data => {
-        this.personsMainPosition = data.filter( person => person.mainPosition === true);
-        this.personsOtherPosition = data.filter( person => person.mainPosition === false);
+        this.persons = data;
+        this.personsMainPosition = this.persons.filter( person => person.mainPosition === true);
+        this.personsOtherPosition = this.persons.filter( person => person.mainPosition === false);
       });
   }
 
