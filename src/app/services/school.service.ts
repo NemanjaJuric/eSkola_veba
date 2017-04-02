@@ -36,28 +36,21 @@ export class SchoolService {
     }
 
     getLessonText(url: string): Observable<string> {
-        let getUrl = coursesLocation + url + ".html"
+        let getUrl = coursesLocation + url + ".html";
         return this.http.get(getUrl)
             .map(this.extractData)
             .catch(this.handleError)
     }
 
     getLessonCode(url: string): Observable<string> {
-        let getUrl = coursesLocation + url + "_primer.html"
+        let getUrl = coursesLocation + url + "_primer.html";
         return this.http.get(getUrl)
             .map(this.extractData)
             .catch(this.handleError)
     }
 
     getLessonHelp(url: string): Observable<string> {
-        let getUrl = coursesLocation + url + "_pomoc.html"
-        return this.http.get(getUrl)
-            .map(this.extractData)
-            .catch(this.handleError)
-    }
-
-    getBookLessonText(url: string): Observable<string> {
-        let getUrl = coursesLocation + url + "/index.html"
+        let getUrl = coursesLocation + url + "_pomoc.html";
         return this.http.get(getUrl)
             .map(this.extractData)
             .catch(this.handleError)
@@ -133,6 +126,16 @@ export class SchoolService {
             .map(res => {
                 let buttons = JSON.parse(res.text());
                 return buttons['courseButtons'];
+            })
+            .catch(this.handleError)
+    }
+
+    getBookButtons(): Observable<Array<Button>> {
+        let getUrl = dataStoreLocation + 'buttons.json';
+        return this.http.get(getUrl)
+            .map(res => {
+                let buttons = JSON.parse(res.text());
+                return buttons['bookButtons'];
             })
             .catch(this.handleError)
     }

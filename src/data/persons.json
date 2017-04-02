@@ -100,5 +100,11 @@
       "course":"Bootstrap",
       "url":"assets/images/team/tanja_ivanovic.jpg",
       "mainPosition": false            
+   },
+   {
+      "name":"Ivana Majstorović",
+      "course":"AngularJS",
+      "url":"assets/images/team/ivana_majstorovic.jpg",
+      "mainPosition": false            
    }
 ]

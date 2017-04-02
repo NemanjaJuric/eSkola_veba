@@ -32,6 +32,7 @@ export class RouteService {
   }
 
   getCourseRoute(): any {
+    this.initRoutes();
     return this.course + "/" + this.lesson === null ? null : this.course + "/" + this.lesson;
   }
 

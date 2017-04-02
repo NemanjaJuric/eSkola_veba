@@ -23,6 +23,7 @@ export class BottomNavigationComponent implements OnInit {
   initComponent() {
     this.page = this.routeService.page;
     this.schoolService.getCourseButtons().subscribe(data => this.courseButtons = data);
+    this.schoolService.getBookButtons().subscribe(data => this.bookButtons = data);
     this.schoolService.getTSCompilerButtons().subscribe(data => this.tsCompilerButtons = data);
     this.schoolService.getWebCenterButtons().subscribe(data => this.webCenterButtons = data);
     this.schoolService.getSASSCompilerButtons().subscribe(data => this.sassCompilerButtons = data);
@@ -30,6 +31,7 @@ export class BottomNavigationComponent implements OnInit {
   }
 
   private courseButtons: Array<Button>;
+  private bookButtons: Array<Button>;
   private webCenterButtons: Array<Button>;
   private tsCompilerButtons: Array<Button>;
   private sassCompilerButtons: Array<Button>;

@@ -44,15 +44,15 @@ const routes = [
     component: AboutComponent
   },
   {
-    path: 'course-details/:id',
+    path: 'course-details/:courseID',
     component: CourseDetailsComponent
   },
   {
-    path: 'course/:id/:url',
+    path: 'course/:courseID/:lesson',
     component: CourseComponent
   },
   {
-    path: 'book/:id',
+    path: 'book/:courseID/:lesson',
     component: BookComponent
   },
   {

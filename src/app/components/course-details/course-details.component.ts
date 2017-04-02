@@ -49,12 +49,7 @@ export class CourseDetailsComponent implements OnInit {
   private detailsText: string;
 
   startCourse() {
-    if (this.course.type === 'course') {
-      this.routeService.setRoute('course', this.courseUrl, this.courseUrl + '_uvod');
-    }
-    if (this.course.type === 'book') {
-      this.routeService.setRoute('book', this.courseUrl, null);
-    }
+    this.routeService.setRoute(this.course.type, this.courseUrl, this.courseUrl + '_uvod');
   }
 
   getNumberOfLessons(course: Course): number {

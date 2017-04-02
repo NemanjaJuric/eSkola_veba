@@ -36,6 +36,22 @@
             "dataTarget": "#helpModal"
         }
     ],
+    "bookButtons": [
+        {
+            "name": "Prethodna lekcija",
+            "func": "prev",
+            "icon": "skip_previous",
+            "dataToggle": "",
+            "dataTarget": ""
+        },
+        {
+            "name": "Sledeća lekcija",
+            "func": "next",
+            "icon": "skip_next",
+            "dataToggle": "",
+            "dataTarget": ""
+        }
+    ],
     "webCenterButtons": [
         {
             "name": "Editor",
