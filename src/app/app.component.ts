@@ -2,19 +2,26 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SchoolService } from './services/school.service';
 import { RouteService } from './services/route.service';
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService) { };
+  constructor(
+    private schoolService: SchoolService, 
+    private router: Router, 
+    private routeService: RouteService,
+    public googleAnalyticsService: GoogleAnalyticsService) { };
 
   ngOnInit() {
     this.initComponent();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.initComponent();
+        ga('set', 'page', event.urlAfterRedirects);
+        ga('send', 'pageview');
       }
     });
   }

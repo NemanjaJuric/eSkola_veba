@@ -1,0 +1,29 @@
+﻿<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <title>JavaScript Stringovi Primeri</title>
+</head>
+
+<body>
+
+    <div style="text-align:center"><h1>JavaScript Stringovi Primeri</h1></div>
+    <div>
+        <h2>
+            ZADATAK (postavka zadatka)
+        </h2>
+        <p>Izmeniti program koji za niz znakova (string) ''Isprobaj i ti.'' Određuje njegovu dužinu, kao i indeks (položaj) prvog pojavljivanja reči ''proba''.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            function myFunction() {
+                var stringValue = "Isprobaj i ti.";
+                var stringLength = stringValue.length;
+                var probaIndex = stringValue.indexOf("proba");
+                document.getElementById("demo1").innerHTML = stringLength;
+                document.getElementById("demo2").innerHTML = probaIndex;
+            }
+        </script>
+    </div>
+</body>
+</html>

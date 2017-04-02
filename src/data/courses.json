@@ -459,6 +459,27 @@
                 ]
             },
             {
+                "name": "Stringovi i operacije nad stringovima",
+                "url": "js_stringovi",
+                "type": "lesson",
+                "parentCourse": "js",
+                "sublessons": null
+            },
+            {
+                "name": "Brojevi i operacije nad brojevima",
+                "url": "js_brojevi",
+                "type": "lesson",
+                "parentCourse": "js",
+                "sublessons": null
+            },
+            {
+                "name": "Datumi i operacije nad datumima",
+                "url": "js_datumi",
+                "type": "lesson",
+                "parentCourse": "js",
+                "sublessons": null
+            },
+            {
                 "name": "If",
                 "url": "js_if",
                 "type": "lesson",

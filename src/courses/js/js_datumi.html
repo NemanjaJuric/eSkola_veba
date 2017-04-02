@@ -1,0 +1,329 @@
+<h1>JavaScript Datumi</h1>
+
+
+
+<p>Brojeve u JavaScriptu možemo pisati sa ili bez decimala!</p>
+<b>Primer 1:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML = Date();
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Korišćenjem operacije nev Date(), prikazuje se trenutni datum i vreme:</p>
+<b>Primer 2:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d;
+        </script>
+
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Kada prikažete datum objekta u HTML, on se automatski konvertuje u string operacijom toString ().</p>
+<b>Primer 3:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toString();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija toDateString () prikazuje datum u uobičajenom formatu:</p>
+<b>Primer 4:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toDateString();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija toUTCString() pretvara datum u niz znakova (string) standardnog oblika.</p>
+<b>Primer 5:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p>
+            The toUTCString() method converts a date to a UTC string (date display
+            standard).
+        </p>
+
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toUTCString();
+        </script>
+
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<h1>JavaScript Formati Datuma</h1>
+
+
+<p>Datum u ISO formatu može biti napisan bez navođenja dana (GGGG-MM):</p>
+<b>Primer 6:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2017-03");
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2017-03");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Datum u ISO formatu može se napisati bez meseca i dana (samo godina):</p>
+<b>Primer 7:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2017");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2017");
+        </script>
+    </body>
+</html>
+
+</xmp>
+
+<button class="button_copy">Vidi Primer</button>
+
+<p>Datum u ISO formatu mogu biti pisani sa dodatim satima, minutima i sekundama (GGGG-MM-DDTčč: mm: SSZ):</p>
+<b>Primer 8:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2015-03-25T12:00:00Z");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p> Datum i vreme su odvojeni velikim T.</p>
+        <p> UTC-vreme je definisano velikim slovom Z.</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2015-03-25T12:00:00Z");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Ako želite da izmenite vreme u odnosu na UTC, uklonite Z i dodajte + HH: MM ili -HH: MM umesto:</p>
+<b>Primer 9:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2015-03-25T12:00:00-06:30");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p>Modify the time relative to UTC by adding +HH:MM or subtraction -HH:MM to the time.</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2015-03-25T12:00:00-06:00");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<h1>JavaScript Operacije nad datumima</h1>
+
+<h2>Unutrašnji sat u Java Scrupt-u računa vreme od ponoći 1. januara 1970. godine.</h2>
+
+<p>Operacija getTime () prikazuje koliko je milisekundi prošlo od 1. januara 1970. godine do sada:</p>
+<b>Primer 10:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getTime();
+    </script>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Unutrasnji sat u Java Scrupt-u racuna vreme od ponoci 1. januara 1970. godine.</p>
+        <p>Ova operacija prikazuje broj milisekundi od tada do sada:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getTime();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija getFullyear () prikazuje tekuću godinu u obliku četvorocifrenog broja:</p>
+<b>Primer 11:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getFullYear();
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Prikazati tekucu godinu u obliku cetvorocifrenog broja:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getFullYear();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija getDay () prikazuje redni broj  dana u tekućoj nedelji (0-6):</p>
+<b>Primer 12:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getDay();
+    </script>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ovo je redni broj danasnjeg dana u tekucoj nedelji:</p>
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getDay();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Može se koristiti i niz imena dana u nedelji. Tada će operacija getDay () prikazati naziv današnjeg dana:</p>
+<b>Primer 13:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        document.getElementById("demo").innerHTML = days[d.getDay()];
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Today is:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            document.getElementById("demo").innerHTML = days[d.getDay()];
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija setFullyear () postavlja željeni datum.</p>
+<b>Primer 14:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        d.setFullYear(2020, 0, 14);
+        document.getElementById("demo").innerHTML = d;
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p>Ova operacija postavlja datum po zelji.</p>
+        <p>JavaScript numerise mesece od 0 do 11 (jul je na primer 6. mesec u godini).  </p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            d.setFullYear(2020, 0, 14);
+            document.getElementById("demo").innerHTML = d;
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+<br />
+<b>Zadatak:</b>
+<div class="zadatak">Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom obliku, kao i broj milisekundi od 1. januara 1970. godine</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

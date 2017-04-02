@@ -1,0 +1,22 @@
+﻿<div style="text-align:center"><h1>JavaScript Datumi zadatak</h1></div>
+<xmp class="primer_ta">
+
+    <div>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            function myFunction() {
+                var date = new Date();
+                var n = date.toDateString();
+                var time = date.toLocaleTimeString();
+
+                var numberOfSeconds = date.getTime();
+
+                document.getElementById('demo1').innerHTML = n + ' ' + time;
+                document.getElementById('demo2').innerHTML = numberOfSeconds;
+            }
+        </script>
+    </div>
+</xmp>
+<button class="button_copy">vidi primer</button>

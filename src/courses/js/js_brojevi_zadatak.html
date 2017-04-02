@@ -1,0 +1,24 @@
+<h1>JavaScript brojevi zadatak</h1>
+<p>Izmeniti primer tako da se broj 3,14285714 pretvori u niz znakova dužine 1, 2, 3, 4 i 5 .     (operacija toPrecision)</p>
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<script>
+    function myFunction() {
+        var pi = 3.14285714;
+        var n1 = pi.toPrecision(2);
+        var n2 = pi.toPrecision(3);
+        var n3 = pi.toPrecision(4);
+        var n4 = pi.toPrecision(5);
+        var n5 = pi.toPrecision(6);
+        document.getElementById("demo1").innerHTML = n1;
+        document.getElementById("demo2").innerHTML = n2;
+        document.getElementById("demo3").innerHTML = n3;
+        document.getElementById("demo4").innerHTML = n4;
+        document.getElementById("demo5").innerHTML = n5;
+    }
+</script>

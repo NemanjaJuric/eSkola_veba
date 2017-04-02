@@ -1,0 +1,243 @@
+﻿<h1>JavaScript Brojevi</h1>
+<p>Brojeve u JavaScriptu možemo pisati sa ili bez decimala!</p>
+<b>Primer 1:</b>
+<xmp class="primer_ta" disabled>
+    var x = 34.00;    // A number with decimals
+    var y = 34;       // A number without decimals
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+
+<p>Mnogo veliki ili mnogo mali brojevi  mogu biti napisani u eksponencijalnom (naučnom) obliku:</p>
+<b>Primer 2:</b>
+<xmp class="primer_ta">
+    var x = 123e5;    // 12300000
+    var y = 123e-5;   // 0.00123
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Celi brojevi se pišu sa tačnošću do 15 cifara.</p>
+<b>Primer 3:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Celi brojevi se pišu sa tačnošću do 15 cifara.</p>
+        <button onclick="myFunction()">
+            Try it
+        </button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 999999999999999;
+                var y = 9999999999999999;
+                document.getElementById("demo").innerHTML = x + "<br>" + y;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+<p>Maksimalan broj decimala je 17, ali tada tačnost  nije uvek 100%.</p>
+<b>Primer 4:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Floating point arithmetic is not always 100% accurate.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 0.2 + 0.1;
+                document.getElementById("demo").innerHTML = "0.2 + 0.1 = " + x;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Gore istaknuti problem, pomaže pri množenju i deljenju brojeva:</p>
+<b>Primer 5:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Floating point arithmetic is not always 100% accurate.</p>
+        <p>But it helps to multiply and divide.</p>
+
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = (0.2 * 10 + 0.1 * 10) / 10;
+                document.getElementById("demo").innerHTML = "0.2 + 0.1 = " + x;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Deljenje nulom odredjuje beskonacnost:</p>
+<b>Primer 6:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Deljenje nulom određuje beskonacnost.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 2 / 0;
+                var y = -2 / 0;
+                document.getElementById("demo").innerHTML = x + "<br>" + y;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Operacija tipeof Infinity   vraća broj.</p>
+<b>Primer 7:</b>
+
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Beskonacno je broj.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = typeof Infinity;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<h1>Operacije nad brojevima</h1>
+
+<p>Operacija ToString () vraća broj kao string (niz znakova).</p>
+<b>Primer 8:</b>
+
+<xmp class="primer_ta">
+    <!DOCTYPE html1>
+    <html>
+    <body>
+        <h2>The JavaScript toString() Method</h2>
+        <p>Operacija toString() pretvara broj u niz znakova:</p>
+        <p id="demo"></p>
+        <script>
+            var x = 123;
+            document.getElementById("demo").innerHTML =
+                x.toString() + "<br>" +
+               (123).toString() + "<br>" +
+               (100 + 23).toString();
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija toPrecision () vraća broj kao niz znakova zadate dužine, uz poštovanje pravila zaokrugljivanja decimalnih brojeva.</p>
+<!-- <b>Primer 9:</b> -->
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Operacija toPrecision() pretvara broj u niz znakova zadate preciznosti :</p>
+        <p id="demo"></p>
+        <script>
+            var x = 9.656;
+            document.getElementById("demo").innerHTML =
+                x.toPrecision() + "<br>" +
+                x.toPrecision(2) + "<br>" +
+                x.toPrecision(4) + "<br>" +
+                x.toPrecision(6);
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija  valueOf () vraća broj kao broj.</p>
+<b>Primer 10:</b>
+<xmp class="primer_ta">
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+
+        <script>
+            var x = 123;
+            document.getElementById("demo").innerHTML =
+                x.valueOf() + "<br>" +
+                (123).valueOf() + "<br>" +
+                (100 + 23).valueOf();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+    Operacija  Number () može se koristiti za pretvaranje JavaScript promenljivih u brojeve.
+    Ako se broj ne može  konvertovati, vratiće se poruka NaN (nije broj).
+</p>
+<b>Primer 11:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ova operacija pretvara promenljive u brojeve, ili vraca NaN ako konverzija nije moguca:</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+                Number(true) + "<br>" +
+                Number(false) + "<br>" +
+                Number(new Date()) + "<br>" +
+                Number("  10") + "<br>" +
+                Number("10  ") + "<br>" +
+                Number("10 6");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+    Operacija  parseFloat() pretvara stringove u brojeve.
+    Ako konverzija nije moguća, vratiće se NaN.
+</p>
+<b>Primer 12:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ova funkcija pretvara stringove u brojeve, ili vraca NaN ako konverzija nije moguca:</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+                parseFloat("10") + "<br>" +
+                parseFloat("10.33") + "<br>" +
+                parseFloat("10 6") + "<br>" +
+                parseFloat("10 years") + "<br>" +
+                parseFloat("years 10");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">vidi primer</button>
+<br />
+<br />
+<b>Zadatak:</b>
+<div class="zadatak">Izmeniti primer tako da se broj 3,14285714    pretvori u niz znakova dužine 1, 2, 3, 4 i 5</div>
+
+
