@@ -1,0 +1,223 @@
+<h1>Panel</h1>
+Panel je klasa koja se dodeljuje <span class="primer_text">&ltdiv&gt</span> elementu kada je potrebno uokviriti sadržaj 
+unutar njega. U daljem tekstu, <span class="primer_text">&ltdiv&gt</span> klase <span class="primer_text">.panel</span> oslovljavaćemo
+samo sa <span class="primer_text">panel</span>.<br>
+
+Panel se prikazuje kao uokvireno polje bele boje i zaobljenih ivica.
+Unutar njega je moguće staviti bilo koji validan HTML element tekstualnog sadržaja.
+<br>
+
+<h2>Podrazumevani izgled panela</h2>
+Podrazumevani izgled panela se realizuje upotrebom <span class="primer_text">&ltdiv&gt</span> elementa klase 
+<span class="primer_text">.panel</span> i klase <span class="primer_text">.panel-default</span>.<br>
+<textarea class="primer_ta" rows="5">
+<div class="panel panel-default">
+  <div>Ovo je div element.</div>
+  <p>Ovo je pasus.</p>
+  <span>Ovo je span element.<span>
+</div>
+</textarea>
+<textarea class="primer_ta"  style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="panel panel-default">
+  <div>Ovo je div element.</div>
+  <p>Ovo je pasus.</p>
+  <span>Ovo je span element.<span>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Panel unutar container-a</h2>
+Prethodni primer panela stavljenog u container:<br>
+<textarea class="primer_ta" rows="7">
+<div class="container">
+  <div class="panel panel-default">
+    <div>Ovo je div element.</div>
+    <p>Ovo je pasus.</p>
+    <span>Ovo je span element.<span>
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta"  style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="panel panel-default">
+  <div>Ovo je div element.</div>
+  <p>Ovo je pasus.</p>
+  <span>Ovo je span element.<span>
+</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Panel većih dimenzija</h2>
+Veličina panela svakako zavisi od veličine njegovog sadržaja. Međutim, na veličinu panela se može uticati
+još i upotrebom klase <span class="primer_text">.panel-body</span>. Ova klasa se navodi na nivou elementa
+koji se nalazi unutar panela. Njenom upotrebom se uvećava vrednost <span class="primer_text">padding</span> atributa
+tog elementa.
+<br>
+U sledećem primeru je svim elementima zadata klasa <span class="primer_text">.panel-body</span>.
+<textarea class="primer_ta" rows="13" disabled>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      Ovo je div element.
+    </div>
+    <p class="panel-body">
+      Ovo je pasus.
+    </p>
+    <span class="panel-body">
+      Ovo je span element.
+    <span>
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta"  style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-body">Ovo je div element.</div>
+  <p class="panel-body">Ovo je pasus.</p>
+  <span class="panel-body">Ovo je span element.<span>
+</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>     
+<br>
+<br>
+<h2>Zaglavlje i podnožje panela</h2>
+Tekstualni sadržaj panela je moguće rasporediti u 3 celine:
+<ul>
+<li>zaglavlje panela</li>
+<li>telo panela</li>
+<li>podnožje panela .</li>
+</ul>
+Da bi se određeni tekst pojavio u zaglavlju panela, potrebno je staviti ga unutar <span class="primer_text">&ltdiv&gt</span>
+elementa klase <span class="primer_text">.panel-heading</span>.<br>
+Slično, da bi se određeni tekst pojavio u podnožju panela, potrebno je staviti ga unutar <span class="primer_text">&ltdiv&gt</span>
+elementa klase <span class="primer_text">.panel-footer</span>.<br>
+U narednom primeru, panel sadrži zaglavlje, telo i podnožje.
+<textarea class="primer_ta" rows="13" disabled>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Zaglavlje
+    </div>
+    <div class="panel-body">
+      Telo zaglavlja
+    </div>
+    <div class="panel-footer">
+      Podnožje
+    </div>
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta"  style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">Zaglavlje</div>
+  <div class="panel-body">Telo zaglavlja</div>
+  <div class="panel-footer">Podnožje</div>
+</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>     
+<br>
+<br>
+<h2>Grupisanje panela</h2>
+Da bi se više panela grupisalo u jedan, potrebno je obuhvatiti ih jednim 
+<span class="primer_text">&ltdiv&gt</span> elementom klase <span class="primer_text">.panel-group</span>. 
+Sledeći primer prikazuje grupisanje panela.
+<textarea class="primer_ta" rows="12" disabled>
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      Prvi panel
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      Drugi panel
+    </div>
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta"  style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">Prvi panel</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">Drugi panel</div>
+  </div>
+</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>     
+<div class="zadatak">
+Grupisati dva panela i obezbediti da jedan od njih ima zaglavlje i podnožje.
+</div>

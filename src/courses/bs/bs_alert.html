@@ -1,0 +1,554 @@
+<h1>Polje alert</h1>
+
+Poljem alert nazivamo element <span class="primer_text">&ltdiv&gt</span> klase <span class="primer_text">.alert</span>.<br>
+Alert polje se koristi kada je potrebno prikazati neki tekst u vidu poruke.<br>
+
+ Osnovni kod za ubacivanje alert polja izgleda ovako:
+<textarea class="primer_ta" rows="3" disabled>
+<div class="alert">
+Ovo je neka poruka.
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert">
+Ovo je neka poruka.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+Možemo primetiti da alert polje iz ovog primera nema mogućnost zatvaranja.
+<br>
+<br>
+<h2>Zatvaranje alert polja</h2>
+
+Zatvaranje alert polja se postiže klikom na neko dugme ili klikom na link.
+Neophodno je da element, čijim klikom se alert polje zatvara, bude klase 
+<span class="primer_text">.close</span>. Ova klasa stilizuje izgled elementa koje 
+služi za zatvaranje.
+<br><br>
+Sama akcija zatvaranja alert polja sprovodi se na dva načina:
+<ul>
+<li>upotrebom <span class="primer_text">data-dismiss="alert"</span> atributa</li>
+<li>ili pomoću jQuery biblioteke .</li>
+</ul>
+<br>
+<h3>Upotreba <span class="primer_text">data-dismiss="alert"</span> atributa</h3>
+Atribut <span class="primer_text">data-dismiss="alert"</span> se navodi na nivou elementa čijim klikom se 
+alert polje zatvara.On označava da element ima funkciju da zatvori alert polje. Prikažimo to odvojeno na 
+dugmetu i linku.
+<br>
+<br>
+<ul>
+<li>Zatvaranje klikom na dugme</li>
+
+<textarea class="primer_ta" rows="5" disabled>
+<div class="alert">
+<button type="button" class="close"
+data-dismiss="alert">&amptimes;</button>
+Ovo je neka poruka.
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert">
+<button type="button" class="close"
+data-dismiss="alert">
+&amptimes;
+</button>
+Ovo je neka poruka.
+</div>
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Zatvaranje klikom na link</li>
+
+<textarea class="primer_ta" rows="5" disabled>
+<div class="alert">
+<a href="#" class="close"
+data-dismiss="alert">&amptimes;</a>
+Ovo je neka poruka.
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&amptimes;</a>
+Ovo je neka poruka.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</ul>
+<div class="napomena">
+Napomena: u cilju lakšeg pristupa od strane ljudi koji koriste čitače ekrana, preporuka je da se na nivou dugmeta ili linka navede atribut 
+	&nbsp <span class="primer_text">aria-label="close"</span>.
+</div>
+<br>
+<br>
+<h3>Upotreba jQuery biblioteke</h3>
+U ovom slučaju, zatvaranje alert polja se postiže kada se pomoću jQuery-ja 
+pozove metod <span class="primer_text">.alert("close")</span> nad alert poljem.<br>
+Prikažimo to odvojeno na dugmetu i linku. 
+<br>
+<br>
+<ul>
+<li>Zatvaranje klikom na dugme</li>
+<textarea class="primer_ta" rows="12" disabled>
+<div class="alert" id="polje">
+  <button type="button" class="close">&amptimes;
+  </button>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+});
+</script>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert" id="polje">
+  <button type="button" class="close">&amptimes;</button>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+});
+</script>
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Zatvaranje klikom na link</li>
+<textarea class="primer_ta" rows="11" disabled>
+<div class="alert" id="polje">
+  <a href="#" class="close">&amptimes;</a>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+});
+</script>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert" id="polje">
+  <a href="#" class="close">&amptimes;</a>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+});
+</script>
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</ul>
+<br>
+<br>
+<h2>Kontekstualne klase</h2>
+Alert polje je moguće prikazati u 4 različite boje koje su u vezi sa značenjem njegovih poruka.
+Za to se koriste sledeće kontekstualne klase:
+<ul>
+<li>.alert-success</li>
+<li>.alert-info</li>
+<li>.alert-warning</li>
+<li>.alert-danger</li>
+</ul>
+Svaka od ovih klasa se koristi u kombinaciji sa klasom <span class="primer_text">.alert</span>.
+
+<br>
+<br>
+<h3>Klasa .alert-success</h3>
+Ova klasa zadaje zelenu boju alert polju. Koristi se za označavanje uspešne ili pozitivne akcije.
+<textarea class="primer_ta" rows="5">
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert"
+  aria-label="close">&amptimes;</a>
+  Uspešna akcija!
+</div> 
+</textarea>
+<br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-success">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&amptimes;</a>
+  Uspešna akcija! 
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h3>Klasa .alert-info</h3>
+Ova klasa zadaje plavu boju alert polju. Koristi se da ukaže na neutralnu promenu ili akciju.
+<textarea class="primer_ta" rows="5">
+<div class="alert alert-info">
+  <a href="#" class="close" data-dismiss="alert"
+  aria-label="close">&amptimes;</a>
+  Ovo je informacija.
+</div> 
+</textarea>
+<br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-info">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&amptimes;</a>
+  Ovo je informacija.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h3>Klasa .alert-warning</h3>
+Ova klasa zadaje narandžastu boju alert polju. Koristi se za poruke upozorenja.
+<textarea class="primer_ta" rows="5">
+<div class="alert alert-warning">
+  <a href="#" class="close" data-dismiss="alert"
+  aria-label="close">&amptimes;</a>
+  Ovo je poruka upozorenja.
+</div> 
+</textarea>
+<br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-warning">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&amptimes;</a>
+  Ovo je poruka upozorenja.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h3>Klasa .alert-danger</h3>
+Ova klasa zadaje crvenu boju alert polju. Koristi se da ukaže na negativne ili opasne akcije.
+<textarea class="primer_ta" rows="5">
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert"
+  aria-label="close">&amptimes;</a>
+  Ovo je poruka koja ukazuje na opasnost.
+</div> 
+</textarea>
+<br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&amptimes;</a>
+  Ovo je poruka koja ukazuje na opasnost.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h2>Klase .fade i .in </h2>
+Primetimo da se u svim prethodnim primerima, klikom na dugme &times, alert polje gubi odjednom, ne ostavljajući nikakav trag za sobom. 
+Zatvaranje alert polja je moguće animirati tako da se uočava trag pri njegovom nestajanju.
+ To se postiže istovremenim korišćenjem klasa <span class="primer_text">.fade</span> i <span class="primer_text">.in</span>.
+<textarea class="primer_ta" rows="5" disabled>
+<div class="alert alert-success fade in">
+  <a href="#" class="close" data-dismiss="alert"
+  aria-label="close">&amptimes;</a>
+  Uspešna akcija.
+</div> 
+</textarea>
+ <br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-success fade in">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Uspešna akcija.
+</div> 
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Link u alert polju</h2>
+Unutar alert polja moguće je pojavljivanje linkova. Da bi linkovi dobili boju alert polja u kom se nalaze, 
+potrebno je na nivou svakog linka navesti klasu <span class="primer_text">alert-link</span>.
+<textarea class="primer_ta" rows="7" disabled>
+<div class="alert alert-success">
+Uspešna akcija!
+  <a href="http://www.matf.bg.ac.rs"
+  class="alert-link">
+  Idi na stranicu Matematičkog fakulteta.
+  </a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-success">
+Uspešna akcija! <a href="http://www.matf.bg.ac.rs" class="alert-link">Idi na stranicu Matematičkog fakulteta.</a>
+</div>
+</body>
+</html>  
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Alert metodi</h2>
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+<th>Metod</th>
+<th>Opis</th>
+<th>Primer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.alert("close")</td>
+<td> Zatvara alert polje.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-success" id="polje">
+  <button type="button" class="close">&amptimes;</button>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+});
+</script>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<h2>Alert događaji</h2>
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+<th>Događaj</th>
+<th>Opis</th>
+<th>Primer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close.bs.alert</td>
+<td>Događaj nastupa neposredno pre nego što će alert polje biti zatvoreno.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-warning" id="polje">
+  <button type="button" class="close">&amptimes;</button>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+  $("#polje").on('close.bs.alert', function(){
+        alert('Alert polje će uskoro biti zatvoreno.');
+    });
+});
+</script>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+<tr>
+<td>closed.bs.alert</td>
+<td>Događaj nastupa nakon što je alert polje zatvoreno.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap strana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="alert alert-danger" id="polje">
+  <button type="button" class="close">&amptimes;</button>
+   Ovo je nekakva poruka.
+</div>
+<script>
+$(document).ready(function(){
+  $(".close").click(function(){
+    $("#polje").alert("close");
+    });
+  $("#polje").on('closed.bs.alert', function(){
+        alert('Alert polje je već zatvoreno.');
+    });
+});
+</script>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<div class="zadatak">
+<b>Zadatak:</b><br>
+Napraviti mrežni sistem koji će se kod svih uređaja prikazivati kao jedan red sa 4 ćelije.
+U svakoj ćeliji napraviti jedno alert polje različite boje. Obezbediti da svako alert polje ima mogućnost zatvaranja.
+U jedno od njih staviti link do Matematičkog fakulteta koji je obojen u skladu sa bojom alert polja.
+</div>

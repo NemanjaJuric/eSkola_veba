@@ -1,0 +1,597 @@
+<h1>Grupisanje dugmadi</h1>
+Dugmad se može grupisati linijski i vertikalno.
+<br>
+<br>
+<h2>Linijsko grupisanje</h2>
+Za linijsko grupisanje, dugmad je potrebno staviti unutar <span class="primer_text">&ltdiv&gt</span> 
+elementa klase <span class="primer_text">.btn-group</span>. U prethodnoj lekciji zaključili smo da se
+dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span>, <span class="primer_text">&ltinput&gt</span> i 
+<span class="primer_text">&lta&gt</span>.
+ Razmotrimo linijsko grupisanje na svakom od ovih elemenata.
+<br><br>
+<ul>
+<li>Element <span class="primer_text">&ltbutton&gt:</span></li>
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group">
+  <button type="button"
+  class="btn btn-info">dugme 1</button>
+  <button type="button"
+  class="btn btn-info">dugme 2</button>
+  <button type="button"
+  class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div> 
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&ltinput&gt:</span></li>
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group">
+  <input type="button" class="btn btn-success"
+  value="Dugme 1">
+  <input type="button" class="btn btn-success"
+  value="Dugme 2">
+  <input type="button" class="btn btn-success"
+  value="Dugme 3">
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group">
+   <input type="button" class="btn btn-success" value="Dugme 1">
+   <input type="button" class="btn btn-success" value="Dugme 2">
+   <input type="button" class="btn btn-success" value="Dugme 3">
+</div> 
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&lta&gt:</span></li>
+</ul>
+<textarea class="primer_ta" rows="5">
+<div class="btn-group">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Linijsko grupisanje duž celog ekrana</h2>
+Da bi se dugmad, koja je linijski grupisana, razvukla celom širinom ekrana, koristi se klasa <span class="primer_text">.btn-group-justified</span>
+na nivou okružujućeg <span class="primer_text">&ltdiv&gt</span> elementa.
+Razmotrimo linijsko grupisanje na svakoj od vrsta dugmadi.
+<br>
+<br>
+<ul>
+<li>Element <span class="primer_text">&ltbutton&gt</span></li>
+<div class="napomena">
+Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&ltdiv&gt</span> klase  
+<span class="primer_text">.btn-group</span>.
+</div>
+<textarea class="primer_ta" rows="14" disabled>
+<div class="btn-group btn-group-justified">
+	<div class="btn-group">
+		<button type="button" class="btn 
+		btn-info">dugme 1</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn 
+		btn-info">dugme 2</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn 
+		btn-info">dugme 3</button>
+	</div>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group btn-group-justified">
+	<div class="btn-group">
+		<button type="button" class="btn btn-info">dugme 1</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-info">dugme 2</button>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-info">dugme 3</button>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&ltinput&gt</span></li>
+<div class="napomena">
+Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&ltdiv&gt</span> klase  
+<span class="primer_text">.btn-group</span>.
+</div>
+<textarea class="primer_ta" rows="14" disabled>
+<div class="btn-group btn-group-justified">
+	<div class="btn-group">
+		<input type="button" class="btn 
+		btn-success" value="Dugme 1">
+	</div>
+	<div class="btn-group">
+		<input type="button" class="btn 
+		btn-success" value="Dugme 2">
+	</div>
+	<div class="btn-group">
+		<input type="button" class="btn 
+		btn-success" value="Dugme 3">
+	</div>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group btn-group-justified">
+	<div class="btn-group">
+  <input type="button" class="btn btn-success" value="Dugme 1">
+	</div>
+	<div class="btn-group">
+  <input type="button" class="btn btn-success" value="Dugme 2">
+	</div>
+	<div class="btn-group">
+  <input type="button" class="btn btn-success" value="Dugme 3">
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&lta&gt</span></li>
+</ul>
+<textarea class="primer_ta" rows="5">
+<div class="btn-group btn-group-justified">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-justified">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Vertikalno grupisanje</h2>
+Za vertikalno grupisanje, dugmad je potrebno staviti unutar <span class="primer_text">&ltdiv&gt</span> 
+elementa klase <span class="primer_text">.btn-group-vertical</span>.
+Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
+<br>
+<br>
+<ul>
+<li>Element <span class="primer_text">&ltbutton&gt</span></li>
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group-vertical">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div> 
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&ltinput&gt</span></li>
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group-vertical">
+  <input type="button" class="btn btn-success" value="Dugme 1">
+  <input type="button" class="btn btn-success" value="Dugme 2">
+  <input type="button" class="btn btn-success" value="Dugme 3">
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="btn-group-vertical">
+   <input type="button" class="btn btn-success" value="Dugme 1">
+   <input type="button" class="btn btn-success" value="Dugme 2">
+   <input type="button" class="btn btn-success" value="Dugme 3">
+</div> 
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li>Element <span class="primer_text">&lta&gt</span></li>
+</ul>
+<textarea class="primer_ta" rows="5">
+<div class="btn-group-vertical">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group-vertical">
+ <a href="#" class="btn btn-danger">dugme 1</a>
+ <a href="#" class="btn btn-danger">dugme 2</a>
+ <a href="#" class="btn btn-danger">dugme 3</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Veličina dugmeta </h2>
+Umesto zadavanja veličine svakom pojedinačnom dugmetu, na nivou grupe je moguće zadati veličinu svima.
+To se postiže sledećim klasama:
+<ul>
+<li><span class="primer_text">btn-group-lg</span></li>
+<li><span class="primer_text">btn-group-md</span></li>
+<li><span class="primer_text">btn-group-sm</span></li>
+<li><span class="primer_text">btn-group-xs</span>.</li>
+Svaka od klasa se zadaje na nivou okružujućeg <span class="primer_text">&ltdiv&gt</span> elementa.
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-group-lg</span></h3>
+Upotrebom ove klase, grupiše se velika dugmad.
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group btn-group-lg">
+  <button type="button"
+  class="btn btn-info">dugme 1</button>
+  <button type="button"
+  class="btn btn-info">dugme 2</button>
+  <button type="button"
+  class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-lg">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-group-md</span></h3>
+Upotrebom ove klase, grupiše se dugmad srednje veličine.
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group btn-group-md">
+  <button type="button"
+  class="btn btn-info">dugme 1</button>
+  <button type="button"
+  class="btn btn-info">dugme 2</button>
+  <button type="button"
+  class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-md">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-group-sm</span></h3>
+Upotrebom ove klase, grupiše se mala dugmad.
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group btn-group-sm">
+  <button type="button"
+  class="btn btn-info">dugme 1</button>
+  <button type="button"
+  class="btn btn-info">dugme 2</button>
+  <button type="button"
+  class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-sm">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-group-xs</span></h3>
+Upotrebom ove klase, grupiše se veoma mala dugmad.
+<textarea class="primer_ta" rows="8" disabled>
+<div class="btn-group btn-group-xs">
+  <button type="button"
+  class="btn btn-info">dugme 1</button>
+  <button type="button"
+  class="btn btn-info">dugme 2</button>
+  <button type="button"
+  class="btn btn-info">dugme 3</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group btn-group-xs">
+  <button type="button" class="btn btn-info">dugme 1</button>
+  <button type="button" class="btn btn-info">dugme 2</button>
+  <button type="button" class="btn btn-info">dugme 3</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Padajući meni </h2>
+Grupisanjem je moguće kreirati dugme koje sadrži padajući meni.
+<textarea class="primer_ta" rows="10" disabled>
+<div class="btn-group">
+  <button type="button" class="btn btn-info
+	dropdown-toggle" data-toggle="dropdown"> 
+	Država <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Austrija</a></li>
+      <li><a href="#">Kina</a></li>
+  </ul>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+      Država <span class="caret"></span>
+	  </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Austrija</a></li>
+        <li><a href="#">Kina</a></li>
+      </ul>
+    </div>  
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Imajući u vidu ovo, moguće je grupisati dugmad od kojih neka sadrže padajući meni.<br>
+
+<textarea class="primer_ta" rows="17">
+<div class="btn-group">
+  <button type="button"
+  class="btn btn-info">Glavni grad</button>
+  <button type="button"
+  class="btn btn-info">Broj stanovnika</button>
+  <div class="btn-group">
+    <button type="button"
+	class="btn btn-info dropdown-toggle"
+	data-toggle="dropdown">
+	Država <span class="caret"></span>
+	</button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Austrija</a></li>
+      <li><a href="#">Kina</a></li>
+    </ul>
+  </div>
+</div>
+</textarea>
+<br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group">
+  <button type="button" class="btn btn-info">Glavni grad</button>
+  <button type="button" class="btn btn-info">Broj stanovnika</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+    Država <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Austrija</a></li>
+      <li><a href="#">Kina</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+<b>Zadatak:</b><br>
+Grupisati linijski dva dugmeta zelene boje tako da se prostiru celom širinom ekrana. Obezbediti da dugmad budu najveća moguća i da 
+se na jednom od njih nalazi padajući meni.
+</div>

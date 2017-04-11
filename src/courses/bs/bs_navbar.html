@@ -1,0 +1,592 @@
+<h1>Navbar</h1>
+
+Pre nego što pređemo na klasu <span class="primer_text">.navbar</span>,
+ podsetimo se upotrebe <span class="primer_text">&ltnav&gt</span> elementa.
+ <br>
+ <br>
+ <h2>Element <span class="primer_text">&ltnav&gt</span></h2>
+ Element <span class="primer_text">&ltnav&gt</span> je uveden u HTML5.
+ On predstavlja sekciju neke stranice koja sadrži linkove ka drugim stranicama ili delovima
+ u okviru iste stranice. Sledeći primer prikazuje njegovu upotrebu bez Bootstrap-ovih klasa.
+ <textarea class="primer_ta" rows="9" disabled>
+<nav>
+ <div class="container">
+   <ul>
+     <li class="active"><a href="#">Početna</a>
+     </li>
+     <li><a href="#">Kontakt</a></li>
+   </ul>
+ </div>
+</nav>
+</textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav>
+<div class="container">
+<ul>
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Za element <span class="primer_text">&ltnav&gt</span>,
+Bootstrap obezbeđuje klasu <br><span class="primer_text">.navbar</span> koja se koristi u kombinaciji sa jednom od sledećih klasa:
+<ul>
+<li> <span class="primer_text">.navbar-default</span> </li>
+<li> <span class="primer_text">.navbar-inverse</span>. </li>
+</ul>
+Upotrebom klase <span class="primer_text">.navbar</span> nad <span class="primer_text">&ltnav&gt</span> elementom, dobija se 
+traka za navigaciju.
+Traka za navigaciju se obično smešta na vrhu ili na dnu stranice. U zavisnosti od rezolucije uređaja, njeni linkovi se prikazuju ili u jednom redu ili
+jedan ispod drugog.<br>
+<br>
+<br>
+<h2>Klasa <span class="primer_text">.navbar-default</span></h2>
+Kao što je rečeno, ova klasa se koristi u kombinaciji sa klasom <span class="primer_text">.navbar</span>
+na nivou <span class="primer_text">&ltnav&gt</span>, elementa. 
+Upotrebom ove klase, traka za navigaciju dobija pozadinu svetlo-sive boje i okvire.
+<textarea class="primer_ta" rows="10" disabled>
+<nav class="navbar navbar-default">
+ <div class="container">
+   <ul>
+     <li class="active"><a href="#">Početna</a>
+     </li>
+     <li><a href="#">Kontakt</a>
+     </li>
+   </ul>
+ </div>
+</nav>
+ </textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container">
+<ul>
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+
+Prethodna traka za navigaciju dobija bolji izgled kada se na nivou <span class="primer_text">&ltul&gt</span> elementa navedu klase 
+<span class="primer_text">.nav</span> i <span class="primer_text">.navbar-nav</span>. Ove klase stilizuju prikaz linkova 
+unutar trake za navigaciju.
+
+<textarea class="primer_ta" rows="10" disabled>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li><a href="#">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container">
+<ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br><br>
+
+Traka za navigaciju može sadržati zaglavlje. 
+Zaglavlje se predstavlja <span class="primer_text">&ltdiv&gt</span> elementom klase <span class="primer_text">.navbar-header</span> u 
+okviru <span class="primer_text">&ltnav&gt</span> elementa.
+Najčešće samo zaglavlje sadrži link koji se može stilizovati klasom
+<span class="primer_text">.navbar-brand</span>. Ova klasa je predviđena za prikazivanje
+ zaglavlja unutar trake za navigaciju.<br>
+
+<textarea class="primer_ta" rows="14" disabled>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li><a href="#">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="#">Zaglavlje</a>
+</div>
+<ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Upravo ovakva traka se smatra standardnom trakom za navigaciju, koja je u ovom slučaju prikazana u sivoj boji zbog klase <br>
+<span class="primer_text">.navbar-default</span>.
+<br>
+<br>
+<h2>Klasa .navbar-inverse</h2>
+Ova klasa se koristi u kombinaciji sa klasom <span class="primer_text">.navbar</span>
+na nivou <span class="primer_text">&ltnav&gt</span>, elementa. 
+Upotrebom ove klase, traka za navigaciju se prikazuje sa crnom pozadinom.
+<br>
+Da bi se dobila standardna traka za navigaciju u crnoj boji, jedino je potrebno zameniti klasu 
+<span class="primer_text">.navbar-default</span>  klasom <br><span class="primer_text">.navbar-inverse</span>
+u prethodnom kodu.
+<textarea class="primer_ta" rows="14" disabled>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li><a href="#">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</textarea>  
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="#">Zaglavlje</a>
+</div>
+<ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav> 
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Fiksna traka za navigaciju</h2>
+Traka za navigaciju se može fiksirati na vrhu ili na dnu strane i ona ostaje vidljiva na fisnoj poziciji nezavisno od skrolovanja strane. 
+<br>
+<br>
+<h3>Fiksna traka za navigaciju na vrhu strane</h3>
+<br>
+Kreira se na isti način kao i standardna traka za navigaciju, uz pridodatu klasu <span class="primer_text">.navbar-fixed-top</span> na nivou 
+<span class="primer_text">&ltnav&gt</span> elementa.
+<textarea class="primer_ta" rows="15" disabled>
+<nav class="navbar navbar-default
+navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li><a href="#">Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</textarea>  
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="#">Zaglavlje</a>
+</div>
+<ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Skrolujte da biste videli efekat.  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Traka za navigaciju ostaje fiksna na vrhu strane.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Fiksna traka za navigaciju na dnu strane</h3>
+<br>
+Kreira se na isti način kao i standardna traka za navigaciju, uz pridodatu klasu <span class="primer_text">.navbar-fixed-bottom</span> na nivou 
+<span class="primer_text">&ltnav&gt</span> elementa.
+<textarea class="primer_ta" rows="15" disabled>
+<nav class="navbar navbar-default
+navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li><a href="#">Kontakt</a>
+      </li>
+    </ul>
+   </div>
+</nav>
+</textarea>  
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" href="#">Zaglavlje</a>
+</div>
+<ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li><a href="#">Kontakt</a></li>
+</ul>
+</div>
+</nav>
+Skrolujte da biste videli efekat.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Traka za navigaciju ostaje fiksna na dnu strane.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Traka za navigaciju sa padajućim menijem</h2>
+
+Neke komponente trake za navigaciju mogu sadržati padajući meni.
+Ova traka se kreira kao standardna traka, samo što se na nivou željene komponente doda padajući meni, upotrebom klase 
+<span class="primer_text">.dropdown</span> ili <span class="primer_text">.dropup</span> (videti lekciju "Dropdown i dropup").
+<textarea class="primer_ta" rows="22" disabled>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Početna</a>
+      </li>
+      <li class="dropdown">
+         <a class="dropdown-toggle"
+         data-toggle="dropdown" href="#">Kontakt
+           <span class="caret"></span>
+         </a>
+         <ul class="dropdown-menu">
+           <li><a href="#">telefon</a></li>
+           <li><a href="#">e-mail</a></li>
+         </ul>
+      </li>
+    </ul>
+</div>
+</nav>
+</textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="height:1500px">
+<nav class="navbar navbar-inverse">
+<div class="container">
+  <div class="navbar-header">
+  <a class="navbar-brand" href="#">Zaglavlje</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Početna</a></li>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kontakt <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">telefon</a></li>
+        <li><a href="#">e-mail</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Sakrivanje trake za navigaciju</h2>
+Traka za navigaciju se različito prikazuje na uređajima različite rezolucije.
+Kod uređaja male rezolucije, komponente će se posložiti jedna ispod druge, dok se kod uređaja veće rezolucije, komponente prikazuju u istom redu.
+Da biste videli razliku, svaki primer ove lekcije možete otvoriti u većem prozoru.<br>
+Zbog ovoga, traka za navigaciju zauzima puno prostora na malim uređajima a to se može poboljšati ako se traka sakrije ispod 
+dugmeta. Klikom na dugme, traka se prikazuje u svojoj veličini.
+<br><br>
+Da bi se kreirala ovakva traka za navigaciju, potrebno je na nivou zaglavlja kreirati dugme klase 
+<span class="primer_text">.navbar-toggle</span>, sa atributima 
+<span class="primer_text">data-toggle="collapse"</span> i <span class="primer_text">data-target</span>.<br>
+Klasa <span class="primer_text">.navbar-toggle</span> stilizuje dugme koje sakriva traku za navigaciju  dok su 
+pomenuti atributi neophodni za funkcionalnost dugmeta.
+Dugme se može prikazati sa prugama kada se unutar njega navede sledeća linija koda:
+<span class="primer_text"> &ltspan class="icon-bar"&gt&lt/span&gt</span>.
+<br>
+<br>
+Osim ovoga, potrebno je neuređenu listu <span class="primer_text">&ltul&gt</span>
+klase <span class="primer_text">.nav</span> i <span class="primer_text">.navbar-nav</span>
+smestiti unutar <span class="primer_text">&ltdiv&gt</span> elementa klase 
+<span class="primer_text">.collapse</span> i <span class="primer_text">.navbar-collapse</span> i zadati mu identifikator.
+Pomenuta vrednost atributa <span class="primer_text">data-target</span> na nivou dugmeta mora biti jednaka ovom identifikatoru, sa 
+dodatom oznakom <span class="primer_text">#</span> ispred.
+
+<br>
+<textarea class="primer_ta" rows="35" disabled>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button"
+       class="navbar-toggle"
+       data-toggle="collapse"
+       data-target="#traka">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Zaglavlje
+      </a>
+    </div>
+	
+    <div class="collapse
+    navbar-collapse"id="traka">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="#">Početna</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" 
+          data-toggle="dropdown" href="#">
+           Kontakt <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">telefon</a></li>
+            <li><a href="#">e-mail</a></li>
+          </ul>
+         </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</textarea>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="height:1500px">
+<nav class="navbar navbar-inverse">
+<div class="container">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle"
+  data-toggle="collapse" data-target="#traka">
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="#">Zaglavlje</a>
+</div>
+	
+<div class="collapse navbar-collapse"id="traka">
+ <ul class="nav navbar-nav">
+  <li class="active"><a href="#">Početna</a>
+  </li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" 
+	data-toggle="dropdown" href="#">
+	Kontakt <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+     <li><a href="#">telefon</a></li>
+     <li><a href="#">e-mail</a></li>
+    </ul>
+  </li>
+ </ul>
+</div>
+</div>
+</nav>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="napomena">
+Napomena: u svim prethodnim primerima, 
+vrednost atributa href je postavljena na "#" kako 
+ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link.
+</div>
+<div class="zadatak">
+Napraviti traku za navigaciju koja se prikazuje u fiksnoj poziciji na vrhu strane. Obezbediti da traka bude u sivoj boji,
+ da ima zaglavlje i tri linka ispod njega.
+</div>

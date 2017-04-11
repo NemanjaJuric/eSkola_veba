@@ -1,0 +1,971 @@
+<h1>Dugme</h1>
+Dugme se može zadati na dva načina:<br>
+<ul>
+<li>upotrebom <span class="primer_text">&ltbutton&gt</span> elementa</li>
+<textarea class="primer_ta" rows="1" disabled>
+<button type="button">Dugme</button>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button type="button">Dugme</button>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi prmer</button>
+<br>
+<li>upotrebom <span class="primer_text">&ltinput&gt</span> elementa</li>
+</ul>
+<textarea class="primer_ta" rows="1" disabled>
+<input type="button" value="Dugme">
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<input type="button" value="Dugme">
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Izgled dugmeta</h2>
+Postoji 7 klasa kojima se može stilizovati izgled dugmeta:
+<ul>
+<li><span class="primer_text">.btn-default</span></li>
+<li><span class="primer_text">.btn-primary</span></li>
+<li><span class="primer_text">.btn-success</span></li>
+<li><span class="primer_text">.btn-info</span></li>
+<li><span class="primer_text">.btn-warning</span></li>
+<li><span class="primer_text">.btn-danger</span></li>
+<li><span class="primer_text">.btn-link</span></li>
+</ul>
+Upotreba svake od njih zahteva navođenje klase <span class="primer_text">.btn</span> dodatno. Ova klasa 
+zadaje osnovni stil dugmetu.
+<div class="napomena">
+Napomena: pomenute klase je moguće koristiti nad elementima &ltbutton&gt, &ltinput&gt i &lta&gt.
+</div>
+<br>
+<h3>Klasa <span class="primer_text">.btn-default</span></h3>
+Ovom klasom se postiže podrazumevani izgled dugmeta, a to je dugme čija je pozadina bele boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-default">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-default">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-default" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-default" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-default" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-default" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-primary</span></h3>
+Ovom klasom se postiže pozadina plave boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-primary">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-primary">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-primary" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-primary" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-primary" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-primary" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3><span class="primer_text">Klasa .btn-info</span></h3>
+Ovom klasom se postiže pozadina svetlo plave boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-info">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-info">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-info" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-info" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-info" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-info" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-success</span></h3>
+Ovom klasom se postiže pozadina zelene boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-success">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-success">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-success" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-success" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-success" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-success" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-warning</span></h3>
+Ovom klasom se postiže pozadina narandžaste boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-warning">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-warning">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-warning" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-warning" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-warning" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-warning" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-danger</span></h3>
+Ovom klasom se postiže pozadina crvene boje.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-danger">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-danger">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-danger" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-danger" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-danger" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-danger" role="button">Link u formi dugmeta</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-link</span></h3>
+Upotrebom ove klase dugme dobija izgled linka.<br>
+Upotreba ove klase nad različitim elementima data je u tabeli.
+<div class="container-fluid">
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltbutton&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><button type="button" class="btn btn-link">Dugme</button></textarea></div>
+<div class="col-xs-3" style="text-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<button type="button" class="btn btn-link">Dugme</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&ltinput&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="3"><input type="button" class="btn btn-link" value="Dugme"></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<input type="button" class="btn btn-link" value="Dugme">
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+<div class="row" style="border:1px solid gray;">
+<div class="col-xs-2" style="text-align:center;"><span class="primer_text">&lta&gt</span></div>
+<div class="col-xs-7"><textarea class="primer_ta" rows="4"><a href="#" class="btn btn-link" role="button">Link u formi dugmeta</a></textarea></div>
+<div class="col-xs-3" style="vertical-align:center;"><textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+<body>
+<a href="#" class="btn btn-link" role="button">Link</a>
+</body>
+</html>
+</textarea>
+<button class="button_copy"> Vidi primer </button>
+</div>
+</div>
+</div>
+<div class="napomena">Napomena: u svim prethodnim primerima, vrednost atributa <span class="primer_text">href</span>
+je postavljena na "#" kako ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link. </div>
+<br>
+<br>
+<h2>Veličina dugmeta</h2>
+Veličina dugmeta se zadaje upotrebom sledećih klasa:
+<ul>
+<li><span class="primer_text">.btn-xs</span></li>
+<li><span class="primer_text">.btn-sm</span></li>
+<li><span class="primer_text">.btn-md </span></li>
+<li><span class="primer_text">.btn-lg</span></li>
+ </ul>
+ <br>
+ <br>
+<h3>Klasa <span class="primer_text">.btn-xs</span> </h3>
+ Upotrebom ove klase, prikazuje se najmanje moguće dugme.
+ <textarea class="primer_ta" rows="2" disabled>
+<button type="button" class="btn btn-warning btn-xs">Najmanje dugme</button>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button type="button" class="btn btn-warning btn-xs">Najmanje dugme</button>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-sm</span> </h3>
+ Upotrebom ove klase prikazuje se malo dugme.
+ <textarea class="primer_ta" rows="2" disabled>
+<button type="button" class="btn btn-warning btn-sm">Malo dugme</button>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button type="button" class="btn btn-warning btn-sm">Malo dugme</button>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-md</span> </h3>
+ Upotrebom ove klase prikazuje se dugme srednje veličine.
+ <textarea class="primer_ta" rows="2" disabled>
+<button type="button" class="btn btn-warning btn-md">Dugme srednje veličine</button>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button type="button" class="btn btn-warning btn-md">Dugme srednje veličine</button>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klasa <span class="primer_text">.btn-lg</span></h3>
+ Upotrebom ove klase prikazuje se veliko dugme.
+ <textarea class="primer_ta" rows="2" disabled>
+<button type="button" class="btn btn-warning btn-lg">Veliko dugme</button>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button type="button" class="btn btn-warning btn-lg">Veliko dugme</button>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Dugme nivoa bloka</h2>
+Dugme nivoa bloka se prostire celom širinom okružujućeg elementa.
+Ono se kreira navođenjem klase <span class="primer_text">.btn-block</span> na nivou <span class="primer_text">&ltbutton&gt</span> elementa.
+<textarea class="primer_ta" rows="4" disabled>
+<div class="container">
+  <button type="button" class="btn btn-warning btn-block">Dugme</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <button type="button" class="btn btn-warning btn-block">Dugme</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Aktivna i neaktivna dugmad</h2>
+Da bi dugme bilo aktivno potrebno je na nivou elementa <span class="primer_text">&ltbutton&gt</span>
+ navesti klasu <span class="primer_text">.active</span>.
+ Sa druge strane, da bi bilo neaktivno, potrebno je navesti klasu <span class="primer_text">.disabled</span>.
+<textarea class="primer_ta" rows="6">
+<div class="container">
+  <button type="button" class="btn btn-warning active">Aktivno dugme</button>
+  <button type="button" class="btn btn-warning disabled">Neaktivno dugme</button>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <button type="button" class="btn btn-warning active">Aktivno dugme</button>
+  <button type="button" class="btn btn-warning disabled">Neaktivno dugme</button>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Upotreba jQuery biblioteke</h2>
+<h3>Uključivanje dugmeta</h3>
+Dugme se može uključiti na sledeći način:
+<br>
+<span class="primer_text">$('.btn').button();</span>
+<br>
+<br>
+<h3>Opcije dugmeta</h3>
+Nije podržana nijedna opcija.
+<br>
+<br>
+<h3>Metodi dugmeta</h3>
+Sledeća tabela prikazuje metode dugmeta.
+
+<br>
+<br>
+<div class="container-fluid">
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+ <th>Metod</th>
+ <th>Opis</th>
+ <th colspan="2">Primer</th>
+</tr>
+</thead>
+<tbody>
+
+
+<tr>
+ <td>.button("toggle")</td>
+ <td>Čini da dugme izgleda pritisnuto.
+ Ovaj metod se može pozvati preko atributa 
+ <span class="primer_text">data-toggle="button"</span>, bez upotrebe jQuery-ja.
+ </td>
+ <td>
+ Preko atributa
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-default" data-toggle="button">
+Dugme
+</button>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ 
+ <td>
+ jQuery
+ <br>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-info">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+   $(".btn-info").click(function(){
+        $(this).button('toggle');
+    });   
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.button("loading")</td>
+ <td>Onemogućava dugme i postavlja mu novi tekst. Novi tekst se može
+ zadati kao vrednost
+ <span class="primer_text">data-loading-text</span> atributa.
+ Ukoliko se atribut ne navede, podrazumevano se postavlja tekst "loading...".
+ </td>
+ <td colspan="2">
+ 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-info" data-loading-text="Obrađuje se...">
+Upit stanja
+</button>
+<script>
+$(document).ready(function(){
+   $(".btn-info").click(function(){
+        $(this).button('loading');
+    });   
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.button("reset")</td>
+ <td>Vraća originalni tekst na dugmetu, ukoliko je bio promenjen.
+ </td>
+ <td colspan="2">
+ 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-warning" data-loading-text="Obrađuje se...">
+Upit stanja
+</button>
+<button type="button" class="btn btn-info">
+Restartuj
+</button>
+<script>
+$(document).ready(function(){
+	$(".btn-warning").click(function(){
+        $(this).button('loading');
+    });
+	$(".btn-info").click(function(){
+        $('.btn-warning').button('reset');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.button("string")</td>
+ <td>Postavlja novi tekst na dugmetu. Novi tekst se zadaje kao vrednost atributa 
+ <span class="primer_text">data-string-text</span>.
+ </td>
+ <td colspan="2">
+ 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button type="button" class="btn btn-warning" data-loading-text="Obrađuje se..." data-string-text="Obrađeno">
+Upit stanja
+</button>
+<button type="button" class="btn btn-danger">
+Gotovo
+</button>
+<script>
+$(document).ready(function(){
+	$(".btn-warning").click(function(){
+        $(this).button('loading');
+    });
+	$(".btn-danger").click(function(){
+        $('.btn-warning').button('string');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+</tbody>
+</table>
+
+
+
+<br>
+<br>
+<div class="zadatak">
+<b>Zadatak:</b><br>
+Napraviti mrežni sistem koji će se kod svih uređaja prikazivati kao jedan red sa 4 ćelije.
+U svakoj ćeliji napraviti jedno dugme različite boje. Obezbediti da dugmad budu različitih veličina, i
+da neko od njih bude aktivno a neko neaktivno.
+</div>

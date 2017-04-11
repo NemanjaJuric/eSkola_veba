@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+ </head>
+<body>
+<mark><h2 style="text-align:center;">Rezime</h2></mark>
+<br>
+
+<h3>Tooltip komponenta u Bootstrap-u</h3>
+<span data-toggle="tooltip" title="Ovo je tooltip komponenta.">
+Pređite kursorom ovde.
+</span>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+<br>
+<br>
+<h3>Tooltip opcije</h3>
+<ul>
+<li>title</li>
+<li>animation</li>
+<li>container</li>
+<li>delay</li>
+<li>html</li>
+<li>placement</li>
+<li>trigger</li>
+</ul>
+<br>
+<br>
+<h3>Tooltip metodi</h3>
+<ul>
+<li>.tooltip(navedene opcije)</li>
+<li>.tooltip("show")</li>
+<li>.tooltip("hide")</li>
+<li>.tooltip("toggle")</li>
+<li>.tooltip("destroy")</li>
+</ul>
+<br>
+<br>
+<h3>Tooltip događaji</h3>
+<ul>
+<li>show.bs.tooltip</li>
+<li>shown.bs.tooltip</li>
+<li>hide.bs.tooltip</li>
+<li>hidden.bs.tooltip</li>
+</ul>
+<br>
+<br>

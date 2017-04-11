@@ -1,0 +1,508 @@
+<h1>List-group</h1>
+List-group je klasa koja obezbeđuje grupisanje tekstualnog sadržaja unutar  2 elementa:
+<ul>
+<li><span class="primer_text">&ltdiv&gt</span> elementa</li>
+<li><span class="primer_text">&ltul&gt</span> elementa.</li>
+<br>
+<h2>Grupisanje unutar <span class="primer_text">&ltdiv&gt</span> elementa</h2>
+Unutar <span class="primer_text">&ltdiv&gt</span> elementa je moguće grupisati linkove, pasuse, <span class="primer_text">&ltspan&gt</span> i 
+<span class="primer_text">&ltdiv&gt</span> elemente.
+Ukoliko je potrebno grupisati naslov (<span class="primer_text">&lth1&gt</span>, <span class="primer_text">&lth2&gt</span>, 
+<span class="primer_text">&lth3&gt</span>,
+<span class="primer_text"> &lth4&gt</span>, <span class="primer_text">&lth5&gt</span>, <span class="primer_text">&lth6&gt</span>),
+preporuka je smestiti ga unutar <span class="primer_text">&ltdiv&gt</span> elementa i potom grupisati taj 
+<span class="primer_text">&ltdiv&gt</span> element.
+<br>
+<br>
+<h3>Podrazumevano grupisanje unutar <span class="primer_text">&ltdiv&gt</span> elementa</h3>
+Podrazumevano grupisanje različitih elemenata unutar <span class="primer_text">&ltdiv&gt</span> elementa  se realizuje upotrebom 
+ <span class="primer_text">&ltdiv&gt</span> elementa  klase <br>
+<span class="primer_text">.list-group</span> unutar kog su svi elementi koji se grupišu 
+klase <span class="primer_text">.list-group-item</span>.
+
+<div class="napomena">
+Napomena: ukoliko je potrebno grupisati naslov, treba ga smestiti u <span class="primer_text">&ltdiv&gt</span>
+ klase <span class="primer_text">.list-group-item</span>
+i obezbediti da sam naslov bude klase <span class="primer_text">.list-group-item-heading</span>.
+</div>
+<div class="napomena">
+Napomena: ukoliko je potrebno grupisati <span class="primer_text">&ltdiv&gt</span> u kome se nalazi naslov i pasus, potrebno je da taj
+<span class="primer_text">&ltdiv&gt</span> element bude klase 
+<span class="primer_text">.list-group-item</span>, pasus klase <span class="primer_text">.list-group-item-text</span> a naslov 
+ klase <span class="primer_text">.list-group-item-heading</span>.
+</div>
+Sledeći primer prikazuje podrazumevano grupisanje različitih elemenata unutar <span class="primer_text">&ltdiv&gt</span>
+elementa.
+
+<textarea class="primer_ta" rows="24" disabled>
+<div class="list-group">
+  <a href="#" class="list-group-item">Link</a>
+  <p class="list-group-item">Pasus</p>
+  <span class="list-group-item">
+  Span
+  </span>
+  <div class="list-group-item">
+  Div
+  </div>
+  <div class="list-group-item">
+    <h2 class="list-group-item-heading">
+    Naslov
+    </h2>
+  </div>
+  
+  <div class="list-group-item">
+    <h2 class="list-group-item-heading">
+    Naslov
+    </h2>
+    <p class="list-group-item-text">
+    Pasus ispod naslova
+    </p>
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+
+<a href="#" class="list-group-item">Link</a>
+<p class="list-group-item">Pasus</p>
+<span class="list-group-item">Span</span>
+<div class="list-group-item">Div</div>
+<div class="list-group-item">
+<h2 class="list-group-item-heading">Naslov</h2>
+</div>
+<div class="list-group-item">
+<h2 class="list-group-item-heading">Naslov</h2>
+<p class="list-group-item-text">Pasus ispod naslova</p>
+</div>
+
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Podrazumevano grupisanje linkova unutar <span class="primer_text">&ltdiv&gt</span> elementa</h3>
+Podrazumevano grupisanje linkova unutar <span class="primer_text">&ltdiv&gt</span>
+ elementa  se realizuje upotrebom <span class="primer_text">&ltdiv&gt</span> elementa  klase 
+<span class="primer_text">.list-group</span> unutar kog su svi linkovi
+klase <span class="primer_text">.list-group-item</span>.
+
+<textarea class="primer_ta" rows="5" disabled>
+<div class="list-group">
+  <a href="#" class="list-group-item">Link 1</a>
+  <a href="#" class="list-group-item">Link 2</a>
+  <a href="#" class="list-group-item">Link 3</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+  <a href="#" class="list-group-item">Link 1</a>
+  <a href="#" class="list-group-item">Link 2</a>
+  <a href="#" class="list-group-item">Link 3</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Za razliku od grupisanja različitih elemenata, prelaskom kursora preko grupisanih linkova,
+pozadina linkova postaje zasenčena.
+<br>
+<br>
+<h3>Grupisanje neaktivnih linkova unutar <span class="primer_text">&ltdiv&gt</span> elementa</h3>
+Grupisanje neaktivnih linkova unutar <span class="primer_text">&ltdiv&gt</span> elementa  se realizuje
+ upotrebom <span class="primer_text">&ltdiv&gt</span> elementa  klase 
+<span class="primer_text">.list-group</span> unutar kog su svi linkovi
+klase <span class="primer_text">.list-group-item</span> a neaktivni linkovi su još i klase <span class="primer_text">.disabled</span>.
+
+<textarea class="primer_ta" rows="7" disabled>
+<div class="list-group">
+  <a href="#" class="list-group-item disabled">
+  Link 1
+  </a>
+  <a href="#" class="list-group-item">Link 2</a>
+  <a href="#" class="list-group-item">Link 3</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+<a href="#" class="list-group-item disabled">Link 1</a>
+<a href="#" class="list-group-item">Link 2</a>
+<a href="#" class="list-group-item">Link 3</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+<br>
+
+<h3>Grupisanje sa oznakama unutar <span class="primer_text">&ltdiv&gt</span> elementa</h3>
+Elementima koji se grupišu moguće je zadati tekstualne oznake. Grupisanje sa oznakama se 
+realizuje na isti način kao i podrazumevano grupisanje, s tim što se na nivou željenog elementa navodi oznaka 
+pomoću sledeće linije koda: <br><span class="primer_text">&ltspan class="badge"&gtOznaka&lt/span&gt </span>.
+
+<textarea class="primer_ta" rows="10" disabled>
+<div class="list-group">
+  <p class="list-group-item">
+  Pasus &ltspan class="badge"&gtOznaka&lt/span&gt
+  </p>
+  <div class="list-group-item">div element</div>
+  <span class="list-group-item">
+  span element &ltspan class="badge"&gtOznaka&lt/span&gt
+  </span>
+  <a href="#" class="list-group-item">Link</a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+<p class="list-group-item">Pasus &ltspan class="badge"&gtOznaka&lt/span&gt </p>
+<div class="list-group-item">div element</div>
+<span class="list-group-item">span element &ltspan class="badge"&gtOznaka&lt/span&gt</span>
+<a href="#" class="list-group-item">Link</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Grupisanje obojenih elemenata unutar <span class="primer_text">&ltdiv&gt</span> elementa</h3>
+Elementima koji se grupišu moguće je zadati plavu boju pozadine. To se realizuje na isti način kao i podrazumevano grupisanje 
+s tim što se dodaje klasa <span class="primer_text">.active</span> onom elementu koji treba naglasiti.
+<textarea class="primer_ta" rows="8" disabled>
+<div class="list-group">
+  <p class="list-group-item active">Pasus</p>
+  <div class="list-group-item">Div</div>
+  <span class="list-group-item">Span</span>
+  <a href="#" class="list-group-item active">
+  Link
+  </a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+<p class="list-group-item active">Pasus</p>
+<div class="list-group-item">Div</div>
+<span class="list-group-item">Span</span>
+<a href="#" class="list-group-item active">Link</a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Grupisanje unutar neuređene liste</h2>
+Unutar neuređene liste moguće je grupisati isključivo stavke te liste, pri čemu se
+u stavkama mogu pojaviti različiti elementi (linkovi, pasusi, <span class="primer_text">&ltspan&gt</span> elementi,
+<span class="primer_text">&ltdiv&gt</span> elementi i naslovi ).
+<br>
+<br>
+<h3>Podrazumevano grupisanje unutar liste</h3>
+Podrazumevano grupisanje različitih elemenata unutar neuređene liste se realizuje upotrebom
+ <span class="primer_text">&ltul&gt</span> elementa  klase <br>
+<span class="primer_text">.list-group</span> unutar koje su sve stavke
+klase <span class="primer_text">.list-group-item</span>.
+<textarea class="primer_ta" rows="22" disabled>
+<ul class="list-group">
+  <li class="list-group-item">1.stavka</li>
+  <li class="list-group-item">
+    <a href="#"> Link</a>
+  </li>
+  <li class="list-group-item">
+    <p>Pasus</p>
+  </li>
+  <li class="list-group-item">
+    <span>Span element</span>
+  </li>
+  <li class="list-group-item">
+    <div>Div element</div>
+  </li>
+  <li class="list-group-item">
+    <h3>Naslov</h3>
+  </li>
+  <li class="list-group-item">
+    <h3>Naslov</h3>
+    <p>Pasus ispod naslova</p>
+  </li>
+</ul>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<ul class="list-group">
+<li class="list-group-item">1.stavka</li>
+<li class="list-group-item"><a href="#"> Link</a></li>
+<li class="list-group-item"><p>Pasus</p></li>
+<li class="list-group-item"><span>Span element</span></li>
+<li class="list-group-item"><div>Div element</div></li>
+<li class="list-group-item"><h3>Naslov</h3></li>
+<li class="list-group-item"><h3>Naslov</h3> <p>Pasus ispod naslova</p></li>
+</ul>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Primetimo da prelazak kursora preko linka ne dovodi do zasenčenja pozadine tog linka, kao 
+što je to bio slučaj kod grupisanja linkova unutar <span class="primer_text">&ltdiv&gt</span> elementa.
+<br>
+<br>
+<h3>Grupisanje sa oznakama unutar liste</h3>
+ Ovo se realizuje na isti način kao i podrazumevano grupisanje unutar neuređene liste
+s tim što se navodi sledeća linija koda
+ <br><span class="primer_text">&ltspan class="badge"&gtOznaka&lt/span&gt </span><br>
+ unutar stavke u kojoj je potrebna oznaka.
+
+<textarea class="primer_ta" rows="12" disabled>
+<ul class="list-group">
+  <li class="list-group-item">
+    1.stavka &ltspan class="badge"&gtOznaka&lt/span&gt
+  </li>
+  <li class="list-group-item">
+    <a href="#"> Link</a>
+  </li>
+  <li class="list-group-item">
+    <p>Pasus </p>
+    &ltspan class="badge"&gtOznaka&lt/span&gt
+  </li>
+</ul>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<ul class="list-group">
+<li class="list-group-item">1.stavka &ltspan class="badge"&gtOznaka&lt/span&gt</li>
+<li class="list-group-item"><a href="#"> Link</a></li>
+<li class="list-group-item"><p>Pasus</p> &ltspan class="badge"&gtOznaka&lt/span&gt</li>
+</ul>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Grupisanje obojenih elemenata unutar liste</h3>
+Ovo se realizuje na isti način kao i podrazumevano grupisanje unutar neuređene liste
+s tim što se dodaje klasa <span class="primer_text">.active</span> onoj stavci koju treba naglasiti.
+<textarea class="primer_ta" rows="11" disabled>
+<ul class="list-group">
+  <li class="list-group-item">
+    1.stavka
+  </li>
+  <li class="list-group-item">
+    <a href="#"> Link</a>
+  </li>
+  <li class="list-group-item active">
+    <p>Pasus</p>
+  </li>
+</ul>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<ul class="list-group">
+<li class="list-group-item">1.stavka</li>
+<li class="list-group-item"><a href="#"> Link</a></li>
+<li class="list-group-item active"><p>Pasus</p></li>
+</ul>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+
+<h2>Kontekstualne klase</h2>
+Kontekstualnim klasama se zadaje boja pozadine grupisanih elemenata.
+Dostupne su sledeće kontekstualne klase:<br>
+<ul>
+<li><span class="primer_text">.list-group-item-success</span></li>
+<li> <span class="primer_text">.list-group-item-info</span> </li>
+<li> <span class="primer_text">.list-group-item-warning</span> </li>
+<li> <span class="primer_text">.list-group-item-danger</span> </li>
+</ul><br>
+
+Sledeći primer ilustruje upotrebu kontekstualnih klasa nad elementima grupisanim
+unutar <span class="primer_text">&ltdiv&gt</span> elementa.
+<textarea class="primer_ta" rows="18" disabled>
+<div class="list-group">
+  <a href="#" class="list-group-item
+  list-group-item-success">
+    Link
+  </a>
+  <p class="list-group-item
+  list-group-item-info">
+    Pasus
+  </p>
+  <span class="list-group-item
+  list-group-item-warning">
+    Span element
+  </span>
+  <div class="list-group-item
+  list-group-item-danger">
+    Div element
+  </div>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="list-group">
+<a href="#" class="list-group-item list-group-item-success">Link</a>
+<p class="list-group-item list-group-item-info">Pasus</p>
+<span class="list-group-item list-group-item-warning">Span element</span>
+<div class="list-group-item list-group-item-danger">Div element</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>    
+<br>
+<br>
+Sledeći primer ilustruje upotrebu kontekstualnih klasa nad elementima grupisanim unutar 
+neuređene liste.
+<textarea class="primer_ta" rows="18" disabled>
+<ul class="list-group">
+  <li class="list-group-item
+  list-group-item-success">
+      1.stavka
+  </li>
+  <li class="list-group-item
+  list-group-item-info">
+      2.stavka
+  </li>
+  <li class="list-group-item
+  list-group-item-warning">
+      3.stavka
+  </li>
+  <li class="list-group-item
+  list-group-item-danger">
+      4.stavka
+  </li>
+</ul>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <ul class="list-group">
+   <li class="list-group-item list-group-item-success">1.stavka</li>
+  <li class="list-group-item list-group-item-info">2.stavka</li>
+  <li class="list-group-item list-group-item-warning">3.stavka</li>
+  <li class="list-group-item list-group-item-danger">4.stavka</li>
+</ul>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">
+Napomena: u svim prethodnim primerima, 
+vrednost atributa href je postavljena na "#" kako 
+ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link.
+</div>
+<div class="zadatak">
+Zadatak:
+Grupisati četiri linka unutar <span class="primer_text">&ltdiv&gt</span> elementa. Obezbediti da prvi bude neaktivan,
+drugi ima oznaku, treći zelenu pozadinu a četvrti crvenu.
+</div>

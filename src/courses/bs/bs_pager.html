@@ -1,0 +1,78 @@
+<h1>Pager</h1>
+Pager je klasa koja se koristi za obeležavanje isključivo prethodne i naredne stranice u vidu dugmadi. 
+U odnosu na dugmad za obeležavanje iz prethodne lekcije, ova dugmad je drugačije stilizovana.<br><br>
+Prikazivanje dugmadi se realizuje upotrebom neuredjene liste <span class="primer_text">&ltul&gt</span> klase
+ <span class="primer_text">.pager</span> sa dve stavke koje sadrže linkove na prethodnu i narednu stranicu.
+<br>
+Osnovni kod za upotrebu ove klase je sledeći:
+<textarea class="primer_ta" disabled rows="4">
+<ul class="pager">
+  <li><a href="#">Prethodna</a></li>
+  <li><a href="#">Sledeća</a></li>
+</ul>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <ul class="pager">
+  <li><a href="#">Prethodna</a></li>
+  <li><a href="#">Sledeća</a></li>
+</ul>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Klase <span class="primer_text">.previous</span> i <span class="primer_text">.next</span></h2>
+Klase <span class="primer_text">.previous</span> i <span class="primer_text">.next</span>
+ se koriste nad stavkama neuređene liste <span class="primer_text">&ltul&gt</span> klase
+ <span class="primer_text">.pager</span>. Klasa <span class="primer_text">.previous</span> 
+ pozicionira dugme na levu stranu a klasa <span class="primer_text">.next</span> pozicionira
+ na desnu.
+<textarea class="primer_ta" rows="6" disabled>
+<ul class="pager">
+  <li class="previous"><a href="#">Prethodna</a>
+  </li>
+  <li class="next"><a href="#">Sledeća</a>
+  </li>
+</ul>
+</textarea>
+<textarea class="primer_ta" rows="4" disabled style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<ul class="pager">
+  <li class="previous"><a href="#">Prethodna</a></li>
+  <li class="next"><a href="#">Sledeća</a></li>
+</ul>
+</body>
+</html>
+</textarea> 
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">
+Napomena: u svim prethodnim primerima, vrednost atributa href je
+ postavljena na "#" kako ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link.
+</div>
+
+<div class="zadatak">
+Zadatak:<br>
+Napraviti dva dugmeta za prelazak na prethodnu i narednu stranu. Prvo dugme pozicionirati
+na levi kraj strane, a drugo dugme na desni kraj strane.
+</div>

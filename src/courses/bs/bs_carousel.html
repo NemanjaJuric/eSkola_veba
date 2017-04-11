@@ -1,0 +1,1471 @@
+<h1>Carousel</h1>
+ Carousel je plagin (eng. plugin) koji omogućava automatsko i manuelno prikazivanje slajdova.
+ Može se priključiti:
+<ul>
+<li>samostalno (upotrebom fajla "carousel.js")</li>
+<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+</ul>
+ <div class="napomena">
+ Carousel nije podržan u Internet Explorer 9 i njegovim ranijim verzijama.
+ </div>
+ Korišćenje carousel plagina se svodi na korišćenje istoimene klase 
+ <span class="primer_text">.carousel</span>. U nastavku ćemo element <span class="primer_text">&ltdiv&gt</span>
+ klase <span class="primer_text">.carousel</span> nazivati <span class="primer_text">elementom carousel</span>.
+ <br>
+ <br>
+ <h2>Upotreba</h2> 
+
+ Carousel element se koristi za prikazivanje slajdova. Slajdovi se podrazumevano prikazuju automatski, 
+ ali je moguće i manuelno prikazivanje.<br>
+ Osnovni delovi jednog carousel elementa su:
+ <ul>
+ <li>indikatori</li>
+ <li>omotač slajdova</li>
+ <li>kontrole za listanje slajdova .</li>
+ </ul>
+ <br>
+
+Kao što je rečeno, carousel nastaje upotrebom <span class="primer_text">&ltdiv&gt</span> elementa
+ klase <span class="primer_text">.carousel</span>. 
+ Klasa <span class="primer_text">.carousel</span> naglašava da ovaj element koristi carousel plagin 
+ i njena upotreba je obavezna.<br>
+Na nivou carousel elementa opciono se koristi još i klasa <span class="primer_text">.slide</span>.
+Klasa <span class="primer_text">.slide</span> uvodi poseban efekat u prikazivanju slajdova.
+<br>
+Na nivou ovog carousel elementa se obavezno zadaje identifikator.<br>
+<br>
+<br>
+<h4><b>Indikatori</b></h4>
+
+ Indikatori su predstavljeni malim kružnicama na dnu slajda pri čemu se svaka od njih vezuje za odgovarajući slajd.
+ Onaj indikator čiji  slajd je trenutno prikazan se naglašava belom bojom. Na ovaj način se beleži prolazak kroz slajdove.<br>
+ 
+Indikatori se formiraju kao stavke uređene liste koja je obavezno klase <br><span class="primer_text">.carousel-indicators</span>.
+Ova klasa zadaje indikatore carousel elementa.
+Prva stavka te liste je obavezno klase <span class="primer_text">.active</span>, kako bi carousel pravilno funkcionisao.
+ <br>
+ <br>
+ <h4><b>Omotač slajdova</b></h4>
+ Omotač slajdova se predstavlja <span class="primer_text">&ltdiv&gt</span> elementom klase 
+ <span class="primer_text">.carousel-inner</span>. Ova klasa označava da se u okviru tog 
+<span class="primer_text">&ltdiv&gt</span> elementa zadaju slajdovi carousel elementa.<br>
+
+ Unutar omotača se navode slajdovi kao zasebni <span class="primer_text">&ltdiv&gt</span> elementi klase 
+ <span class="primer_text">.item</span>.  Klasa <span class="primer_text">.item</span>
+označava da se u okviru tog elementa zadaje sadržaj slajda.<br>
+ Sadržaj slajda može biti slika ili tekst.
+ Na nivou prvog slajda, neophodno je navođenje klase  <span class="primer_text">.active</span> pored postojeće
+ klase  <span class="primer_text">.item</span>. U suprotnom, carousel neće biti prikazan.
+ <br>
+ <br>
+ <h4><b>Kontrole za listanje slajdova</b></h4>
+ Postoje leva i desna kontrola za listanje slajdova.<br>
+ Leva kontrola se upotrebljava za prelazak na prethodni slajd, dok se desna upotrebljava za prelazak 
+ na sledeći.<br>
+ Kontrole se predstavljaju linkom klase <span class="primer_text">.carousel-control</span>.
+ Ova klasa daje linku značenje kontrole za listanje slajdova.
+ <br>
+ Link klase <span class="primer_text">.carousel-control</span> i klase <span class="primer_text">.left</span> dobija značenje leve kontrole, dok 
+ link klase <span class="primer_text">.carousel-control</span> i klase <span class="primer_text">.right</span>
+ dobija značenje desne.
+  <br>
+  <br>
+  Sve što je navedeno predstavlja opšte uputstvo za kreiranje osnovnog carousel elementa, ali njegova funkcionalnost još nije obezbeđena.
+Funkcionalnost carousel elementa se ostvaruje na dva načina:
+<ol>
+<li>-upotrebom  <span class="primer_text">data-*</span> atributa </li>
+<li>-upotrebom jQuery biblioteke .</li>
+</ol>
+Opšta priča važi u oba slučaju. Razmotrimo sada pojedinačne slučajeve.
+<br>
+<br>
+<h2>Upotreba <span class="primer_text">data-*</span> atributa </h2>
+  
+Jedan od načina da se kreira funkcionalan carousel sa svojim osnovnim delovima je 
+upotrebom različitih <span class="primer_text">data-*</span> atributa.
+<br>
+Na nivou samog carousel elementa je neophodno navođenje <span class="primer_text">data-ride="carousel"</span>
+ atributa. Ovaj atribut govori Bootstrap-u da se prikazivanje slajdova
+započne odmah po učitavanju veb strane.
+<br><br>
+Sledeći neophodni atributi se zadaju indikatorima.
+Na nivou svake stavke uređene liste su obavezni atibuti <span class="primer_text">data-target</span> i 
+ <span class="primer_text">data-slide-to</span>.
+ Atribut <span class="primer_text">data-target</span>
+ povezuje stavku sa carousel elementom pa se za vrednost ovog atributa navodi identifikator carousel elementa.
+ <br>
+ Atribut <span class="primer_text">data-slide-to</span> označava koji će se slajd prikazati pritiskom na tu kružnicu.
+ Vrednost ovog atributa predstavlja se odgovarajućim brojem slajda.
+ <br><br>
+ I na kraju, neophodna je upotreba <span class="primer_text">data-slide</span> atributa na nivou leve i desne kontrole za listanje
+ slajdova. Prihvatljive vrednosti atributa su <span class="primer_text">"prev"</span> i <span class="primer_text">"next"</span>.
+ Prva se zadaje na nivou leve kontrole i označava da se njome mogu listati prethodni slajdova, a druga se zadaje na nivou desne i 
+ označava listanje narednih slajdova.
+ <br>
+ <br>
+ Sledeći primer ilustruje kreiranje funkcionalnog carousel elementa, sa svim osnovnim delovima, čiji su slajdovi slike.
+<textarea class="primer_ta" rows="34" disabled>
+<div id="id1" class="carousel slide"
+data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#id1" data-slide-to="0" 
+    class="active"></li>
+    <li data-target="#id1" data-slide-to="1">
+    </li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg"
+      class="img-thumbnail" alt="Slika2"
+      width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg"
+      class="img-rounded" alt="Slika3"
+      width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1"
+  role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-
+    left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1"
+  role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-
+    right" aria-hidden="true"></span>
+  </a>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div id="id1" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#id1" data-slide-to="0" class="active"></li>
+    <li data-target="#id1" data-slide-to="1"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-rounded" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+ <h2>Upotreba jQuery biblioteke</h2>
+ Drugi način da se obezbedi funkcionalnost carousel elementa je upotrebom javascript-a, odnosno jQuery biblioteke.
+ U ovom slučaju, potrebno je svakoj stavci uređene liste zadati identifikator a onda:
+ <ul>
+ <li>pozvati metod <span class="primer_text">.carousel()</span> nad carousel elementom (čime se on aktivira)</li>
+ <li>obezbediti da se klikom na svaku stavku liste poziva metod <span class="primer_text">.carousel(parametar)</span>
+ nad carousel elementom, čiji je parametar broj odgovarajućeg indikatora </li>
+ <li>obezbediti da se klikom na levu kontrolu poziva metod <span class="primer_text">.carousel("prev")</span> nad carousel elementom</li>
+<li>obezbediti da se klikom na desnu kontrolu poziva metod <span class="primer_text">.carousel("next")</span> nad carousel elementom .</li>
+</ul>
+<br>
+ Sledeći primer ilustruje kreiranje carousel elementa upotrebom jQuery-ja.
+ <textarea class="primer_ta" rows="50" disabled>
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg"
+      class="img-thumbnail" alt="Slika2"
+      width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg"
+      class="img-thumbnail" alt="Slika3"
+      width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1"
+  role="button">
+    <span class="glyphicon glyphicon-chevron-
+    left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1"
+  role="button">
+    <span class="glyphicon glyphicon-chevron-
+    right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel();
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel();
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h2>Opcije elementa carousel</h2>
+U slučaju da je carousel kreiran preko <span class="primer_text">data-*</span>
+atributa, opcije se zadaju isto preko <span class="primer_text">data-*</span>
+atributa na nivou carousel elementa.
+<br>
+U slučaju da je kreiran pomoću jQuery-ja, opcije će 
+se koristiti kao parametri <span class="primer_text">.carousel()</span> metoda.
+<br>
+U sledećoj tabeli su prikazane moguće opcije.<br><br>
+<div class="container">
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+ <th>Opcija</th>
+ <th>Opis</th>
+ 
+ <th>Preko atributa:</th>
+ <th>Preko jQuery-ja</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr>
+ <td>interval</td>
+ 
+ <td>Određuje razmak između slajdova u milisekundama. Podrazumevana vrednost je 5000.
+ Vrednost se može postaviti na <span class="primer_text">false</span> i 
+ na taj način se zaustavlja automatsko prikazivanje slajdova.
+ </td>
+ 
+ <td>
+ data-interval
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div id="id1" class="carousel slide" data-ride="carousel" data-interval="500">
+  <ol class="carousel-indicators">
+    <li data-target="#id1" data-slide-to="0" class="active"></li>
+    <li data-target="#id1" data-slide-to="1"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-rounded" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+ 
+ 
+<td>
+.carousel({interval: 500})
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500});
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>pause</td>
+ 
+ <td>
+ Zaustavlja prikazivanje slajdova kada kursor miša uđe u carousel, i 
+ nastavlja prikazivanje kada kursor napusti carousel. Podrazumevana vrednost je 
+ <span class="primer_text">hover</span>.
+ Vrednost se može postaviti na 
+ <span class="primer_text">false</span> i na taj način položaj kursora neće uticati na 
+ prikazivanje slajdova.
+ </td>
+ 
+ <td>
+ data-pause
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div id="id1" class="carousel slide" data-ride="carousel" data-pause="hover" data-interval="500">
+  <ol class="carousel-indicators">
+    <li data-target="#id1" data-slide-to="0" class="active"></li>
+    <li data-target="#id1" data-slide-to="1"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-rounded" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+ 
+ 
+<td>
+.carousel({pause:"hover"})
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500, pause: "hover"});
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+<tr>
+ <td>wrap</td>
+ 
+ <td>
+ Određuje način prikazivanja slajdova. Dozvoljene su vrednosti 
+ <span class="primer_text">true</span> i <span class="primer_text">false</span>.
+ Vrednost <span class="primer_text">true</span> označava konstantno prikazivanje slajdova kružnim redosledom,
+dok <span class="primer_text">false</span> označava da će se prikazivanje zaustaviti na poslednjem slajdu.
+ Podrazumevano je <span class="primer_text">true</span>.
+ </td>
+ 
+ <td>
+ data-wrap
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div id="id1" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="500">
+  <ol class="carousel-indicators">
+    <li data-target="#id1" data-slide-to="0" class="active"></li>
+    <li data-target="#id1" data-slide-to="1"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-rounded" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+ 
+ 
+<td>
+.carousel({wrap:false})
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500, wrap:false});
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<br>
+<h2>Metodi carousel elementa</h2>
+U sledećoj tabeli su prikazani svi metodi.
+
+
+
+<div class="container">
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+ <th>Metod</th>
+ <th>Opis</th>
+ <th>Primer</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr>
+ <td>.carousel(opcije)</td>
+ 
+ <td>Aktivira carousel korišćenjem opcija datih u prethodnoj tabeli.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500});
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+<tr>
+ <td>.carousel("pause")</td>
+ 
+ <td>Zaustavlja prikazivanje slajdova.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<button type="button" id="dugme1" class="btn btn-info">Zaustavi slajdove</button>
+
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval:500});
+	
+	$("#dugme1").click(function(){
+        $("#id1").carousel("pause");
+    });
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.carousel("cycle")</td>
+ <td>Prikazuje slajdove idući sa leva na desno.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<button type="button" class="btn btn-info" id="dugme1">Zaustavi slajdove</button>
+<button type="button" class="btn btn-success" id="dugme2">Pokreni slajdove</button>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval:500});
+	
+	$("#dugme1").click(function(){
+        $("#id1").carousel("pause");
+    });
+	
+	$("#dugme2").click(function(){
+        $("#id1").carousel("cycle");
+    });
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.carousel(broj)</td>
+ <td>Prikazuje slajd određen zadatim brojem.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<button type="button" class="btn btn-info" id="dugme1">Zaustavi slajdove</button>
+<button type="button" class="btn btn-success" id="dugme2">Pokreni slajdove</button>
+<button type="button" class="btn btn-warning" id="dugme3">Otvori 2. slajd</button>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval:500});
+	
+	$("#dugme1").click(function(){
+        $("#id1").carousel("pause");
+    });
+	
+	$("#dugme2").click(function(){
+        $("#id1").carousel("cycle");
+    });
+	
+	$("#dugme3").click(function(){
+        $("#id1").carousel(1);
+		$("#id1").carousel("pause");
+    });
+    
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.carousel("prev")</td>
+ <td>Prikazuje prethodni slajd.
+ </td>
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<button type="button" class="btn btn-info" id="dugme1">Prethodni slajd</button>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel("pause");
+	
+	$("#dugme1").click(function(){
+        $("#id1").carousel("prev");
+    });
+	
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>.carousel("next")</td>
+ <td>Prikazuje naredni slajd.
+ </td>
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<button type="button" class="btn btn-info" id="dugme1">Naredni slajd</button>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel("pause");
+	
+	$("#dugme1").click(function(){
+        $("#id1").carousel("next");
+    });
+	
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<h2>Događaji carousel elementa </h2>
+U sledećoj tabeli su prikazani svi događaji carousel elementa.
+<div class="container">
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+ <th>Događaj</th>
+ <th>Opis</th>
+ <th>Primer</th>
+</tr>
+</thead>
+<tbody>
+
+
+
+<tr>
+ <td>slide.bs.carousel</td>
+ 
+ <td>Događa se neposredno pre nego što se izvrši prelaz sa jednog slajda na drugi.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500});
+	
+	$("#id1").on('slide.bs.carousel', function () {
+            alert('Uskoro će biti prikazan sledeći slajd.');
+    });
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>slid.bs.carousel</td>
+ 
+ <td>Događa se nakon što se prikaže neki slajd.
+ </td>
+ 
+ <td>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<div id="id1" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li id="id2" class="active"></li>
+    <li id="id3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="courses/bs/images/sl2.jpg" class="img-thumbnail" alt="Slika2" width="304" height="236">
+    </div>
+
+    <div class="item">
+      <img src="courses/bs/images/sl3.jpg" class="img-thumbnail" alt="Slika3" width="304" height="236">
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control" href="#id1" role="button">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+<script>
+$(document).ready(function(){
+    $("#id1").carousel({interval: 500});
+	
+	$("#id1").on('slid.bs.carousel', function () {
+            alert('Upravo je prikazan slajd.');
+    });
+    
+    $("#id2").click(function(){
+        $("#id1").carousel(0);
+    });
+    $("#id3").click(function(){
+        $("#id1").carousel(1);
+    });
+    
+    $(".left").click(function(){
+        $("#id1").carousel("prev");
+    });
+    $(".right").click(function(){
+        $("#id1").carousel("next");
+    });
+});
+</script>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+ </td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<div class="zadatak">
+Napraviti carousel sa dva slajda tekstualnog sadržaja. Obezbediti da se automatsko smenjivanje slajdova otpočne
+klikom na dugme. Inicijalno se slajdovi ne smenjuju.
+</div>

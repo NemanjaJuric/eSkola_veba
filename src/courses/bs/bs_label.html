@@ -1,0 +1,62 @@
+<h1>Label</h1>
+Label je klasa koja obezbeđuje prikazivanje labela. Labele su koriste uz tekstove i obezbeđuju dodatne informacije o njemu.
+One mogu biti različitih boja i postoji 6 kontekstualnih klasa koje to određuju:
+<ul>
+<li> <span class="primer_text">.label-default</span> </li>
+<li> <span class="primer_text">.label-primary</span> </li>
+<li> <span class="primer_text">.label-success</span> </li>
+<li> <span class="primer_text">.label-info</span> </li>
+<li> <span class="primer_text">.label-warning</span> </li>
+<li> <span class="primer_text">.label-danger</span> </li>
+</ul>
+Prikazivanje labele se realizuje upotrebom <span class="primer_text">&ltspan&gt</span> elementa klase 
+<span class="primer_text">.label</span> i jedne od kontekstualnih klasa.<br>
+Osnovni kod za korišćenje labele uz tekst je sledeći:
+<textarea class="primer_ta" rows="1" disabled>
+Tekst<span class="label label-*"></span>
+</textarea>
+pri čemu je label-* jedna od pomenutih kontekstualnih klasa. 
+<br>
+<br>
+Sledeći primer prikazuje labele različitih boja.
+<textarea class="primer_ta" rows="12" disabled>
+Bootstrap
+<span class="label label-default">novo</span>
+Bootstrap
+<span class="label label-info">novo</span>
+Bootstrap
+<span class="label label-primary">novo</span>
+Bootstrap
+<span class="label label-warning">novo</span>
+Bootstrap
+<span class="label label-success">novo</span>
+Bootstrap
+<span class="label label-danger">novo</span>
+</textarea><br>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+Bootstrap <span class="label label-default">novo</span><br>
+Bootstrap <span class="label label-info">novo</span><br>
+Bootstrap <span class="label label-primary">novo</span><br>
+Bootstrap <span class="label label-warning">novo</span><br>
+Bootstrap <span class="label label-success">novo</span><br>
+Bootstrap <span class="label label-danger">novo</span><br>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+Zadatak:<br>
+Napraviti mrežni sistem sastavljen iz jednog reda i dve ćelije, koji će se prikazivati na svim uređajima kao takav.
+Obezbediti da svaka ćelija sadrži tekst sa labelom u nekoj boji.
+</div>

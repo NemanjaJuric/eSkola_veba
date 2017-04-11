@@ -1,0 +1,243 @@
+<h1>Prikazivanje forme</h1>
+Bootstrap obezbeđuje klase za:
+vertikalno, horizontalno i linijsko prikazivanje forme.
+<br>
+<br>
+<h2>Vertikalno prikazivanje forme</h2>
+
+Vertikalno prikazivanje forme podrazumeva da se elementi forme prikazuju jedan ispod drugog, svaki u posebnom redu.<br>
+Ovakvo prikazivanje je podrazumevano prikazivanje forme pa se ne zahteva navođenje
+ klase na nivou <span class="primer_text">&ltform&gt</span> elementa.
+<br>
+<textarea class="primer_ta" rows="15" disabled>
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="id1">Email:</label>
+      <input type="email" class="form-control"
+      id="id1" placeholder="Unesite email">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox">Zapamti
+      email</label>
+    </div>
+    <button type="submit"
+    class="btn btn-success">Posalji</button>
+  </form>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<form>
+<div class="form-group">
+  <label for="id1">Email:</label>
+  <input type="email" class="form-control" id="id1" placeholder="Unesite email">
+</div>
+<div class="checkbox">
+  <label><input type="checkbox">Zapamti email</label>
+</div>
+<button type="submit" class="btn btn-success">Posalji</button>
+</form>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Horizontalno prikazivanje forme</h2>
+Horizontalno prikazivanje forme podrazumeva da se elementi forme, koji su grupisani, prikazuju u istom redu.<br>
+Grupisani elementi su oni koji se nalaze
+unutar istog <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">.form-group</span>.<br>
+Da bi se forma prikazala horizontalno, neophodno je navođenje klase <span class="primer_text">.form-horizontal</span> na nivou
+ <span class="primer_text">&ltform&gt</span> elementa.
+<br>
+Sledeći primer otvorite u većem prozoru kako biste uočili efekat.
+<textarea class="primer_ta" rows="26" disabled>
+<div class="container">
+  <form class="form-horizontal">
+   <div class="form-group">
+      <label class="control-label col-sm-2"
+	for="id2">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control"
+	id="id2" placeholder="Unesite email">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox">
+	Zapamti</label>
+        </div>
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn 
+	btn-success">Posalji</button>
+      </div>
+   </div>
+  </form>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="id2">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="id2" placeholder="Unesite email">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox">Zapamti</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">Posalji</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>
+</textarea> 
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Linijsko prikazivanje forme</h2>
+Linijsko prikazivanje forme podrazumeva da se svi elementi jedne forme prikazuju u istom redu i da su levo-poravnati.<br>
+Ovakvo prikazivanje se postiže navođenjem klase <span class="primer_text">.form-inline</span> na nivou
+ <span class="primer_text">&ltform&gt</span> elementa.
+<br>
+Linijsko prikazivanje forme moguće je kod uređaja čija rezolucija nije manja od 768px.<br>
+Sledeći primer otvorite u većem prozoru kako biste uočili efekat.
+<textarea class="primer_ta" rows="15" disabled>
+<div class="container">
+  <form class="form-inline">
+   <div class="form-group">
+     <label for="id3">Email:</label>
+     <input type="email" class="form-control"
+     id="id3" placeholder="Unesite email">
+   </div>
+   <div class="checkbox">
+     <label><input type="checkbox">
+     Zapamti email</label>
+   </div>
+   <button type="submit" class="btn 
+   btn-success">Posalji</button>
+  </form>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<form class="form-inline">
+  <div class="form-group">
+   <label for="id3">Email:</label>
+   <input type="email" class="form-control" id="id3" placeholder="Unesite email">
+  </div>
+  <div class="checkbox">
+   <label><input type="checkbox">Zapamti email</label>
+  </div>
+  <button type="submit" class="btn btn-success">Posalji</button>
+</form>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br><br>
+<div class="napomena">
+Korišćenje labela unutar forme doprinosi uspešnom prikazivanju forme od strane čitača ekrana.
+Ukoliko je potrebno sakriti labele, preporuka je koristiti klasu <span class="primer_text">.sr-only</span> na nivou
+ <span class="primer_text">&ltlabel&gt</span> elementa.
+Na taj način labela će biti sakrivena za formu ali ne i za čitače ekrana.
+</div>
+Sledeći primer ilustruje upotrebu klase <span class="primer_text">.sr-only</span>.
+<textarea class="primer_ta" rows="16" disabled>
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="id4">Email:
+      </label>
+      <input type="email" class="form-control"
+      id="id4" placeholder="Unesite email">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox">
+      Zapamti</label>
+    </div>
+    <button type="submit"
+    class="btn btn-success">Posalji</button>
+  </form>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group">
+      <label class="sr-only" for="id4">Email:</label>
+      <input type="email" class="form-control" id="id4" placeholder="Unesite email">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox">Zapamti</label>
+    </div>
+    <button type="submit" class="btn btn-success">Posalji</button>
+  </form>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+Napraviti formu koja sadrži jednu kontrolu za unos boje i jedno <span class="primer_text">&lttextarea&gt</span> polje.
+ Obezbediti da svako od njih ima labelu proizvoljnog sadržaja i da se forma prikazuje horizontalno.
+</div>

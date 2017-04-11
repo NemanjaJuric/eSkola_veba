@@ -1,0 +1,290 @@
+<h1>Mrežni sistem</h1>
+Mrežni sistem u Bootstrap-u (ili mreža) se sastoji iz proizvoljnog broja redova i 12 kolona po strani.
+ Redovi i kolone grade mrežu sastavljenu iz ćelija mreže.
+Ćelije mreže koje pripadaju istom redu mogu se grupisati u jednu ćeliju. Sledeća slika prikazuje primer jedne mreže. 
+Primer ove mreže je dostupan u editoru sa desne strane.
+<div class="row"  style="border:1px solid white;background-color:#5a4181;color: white;font-size: 9px;">
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1  </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div>
+  <div class="col-xs-1" style="border:1px solid white;">span1 </div></div>
+<div class="row" style="border:1px solid white;background-color:#5a4181;color: white; font-size: 9px;text-align:center;"><div class="col-xs-4" style="border:1px solid white;">span 4</div>
+  <div class="col-xs-4" style="border:1px solid white;">span 4</div>
+  <div class="col-xs-4" style="border:1px solid white;">span 4</div></div>
+<div class="row" style="border:1px solid white;background-color:#5a4181;color: white; font-size: 9px;text-align: center;">
+<div class="col-xs-4" style="border:1px solid white;">span 4</div>
+<div class="col-xs-8" style="border:1px solid white;">span 8</div></div>
+<div class="row" style="border:1px solid white;background-color:#5a4181;color: white; font-size: 9px;text-align:center;">
+  <div class="col-xs-6" style="border:1px solid white;" >span 6</div>
+  <div class="col-xs-6" style="border:1px solid white;" >span 6</div></div>
+<div class="row" style="border:1px solid white;background-color:#5a4181;color: white;font-size: 9px;text-align: center;"><div class="col-xs-12" style="border:1px solid white;"  >span 12 </div>
+</div>
+Mreža u Bootstrap-u je fleksibilna. To znači da se ista mreža može prikazati različito na različitim uređajima zbog njihove rezolucije.
+Radi boljeg razumevanja ove lekcije, uredjaje ćemo klasifikovati na sledeći način:
+<div class="container-fluid">
+<div class="row" style="border:1px solid black;font-size: 20px;text-align:center;font-weight:bold;">
+<div class="col-xs-6" style="border-right:1px solid black;font-size: 20px;">naziv</div>
+<div class="col-xs-6" style="font-size: 20px;">rezolucija</div>
+</div>
+<div class="row"  style="border:1px solid black;font-size: 20px;text-align:center">
+  <div class="col-xs-6" style="border-right:1px solid black;font-size: 20px;">uređaji <span class="primer_text">veoma male</span> rezolucije</div>
+  <div class="col-xs-6" style="font-size: 20px;"> <768px</div>
+ </div>
+ <div class="row"  style="border:1px solid black;font-size: 20px;text-align:center">
+  <div class="col-xs-6" style="border-right:1px solid black;font-size: 20px;">uređaji <span class="primer_text">male</span> rezolucije</div>
+  <div class="col-xs-6" style="font-size: 20px;"> >=768px</div>
+ </div>
+<div class="row"  style="border:1px solid black;font-size: 20px;text-align:center">
+  <div class="col-xs-6" style="border-right:1px solid black;font-size: 20px;">uređaji <span class="primer_text">srednje</span> rezolucije</div>
+  <div class="col-xs-6" style="font-size: 20px;"> >=992px</div>
+ </div>
+ <div class="row"  style="border:1px solid black;font-size: 20px;text-align:center">
+  <div class="col-xs-6" style="border-right:1px solid black;font-size: 20px;">uređaji <span class="primer_text">velike</span> rezolucije</div>
+  <div class="col-xs-6" style="font-size: 20px;"> >=1200px</div>
+ </div>
+ </div>
+ <br>
+ <br>
+<h2>Mrežne klase</h2>
+Korišćenje mreže u Bootstrap-u zahteva korišćenje mrežnih klasa. One određuju ponašanje mreže na uređajima različitih rezolucija.
+Mrežne klase su sledeće:
+<div class="container-fluid">
+<div class="row"  style="border:1px solid black;text-align:center;">
+  <div class="col-xs-2" style="border-right:1px solid black;font-size:20px;">.xs</div>
+  <div class="col-xs-10" style="font-size:15px;">određuje ponašanje mreže kod uređaja <span class="primer_text">veoma male</span> rezolucije</div>
+</div>
+<div class="row"  style="border:1px solid black;text-align:center;">
+  <div class="col-xs-2" style="border-right:1px solid black;font-size:20px;">.sm</div>
+  <div class="col-xs-10" style="font-size:15px;">određuje ponašanje mreže kod uređaja <span class="primer_text">male</span> rezolucije</div>
+</div>
+<div class="row"  style="border:1px solid black;text-align:center;">
+  <div class="col-xs-2" style="border-right:1px solid black;font-size:20px;">.md</div>
+  <div class="col-xs-10" style="font-size:15px;">određuje ponašanje mreže kod uređaja <span class="primer_text">srednje</span> rezolucije</div>
+</div>
+<div class="row"  style="border:1px solid black;text-align:center;">
+  <div class="col-xs-2" style="border-right:1px solid black;font-size:20px;">.lg</div>
+  <div class="col-xs-10" style="font-size:15px;">određuje ponašanje mreže kod uređaja <span class="primer_text">velike</span> rezolucije</div>
+</div>
+</div>
+<br>
+<br>
+<h2>Pravila mrežnog sistema</h2>
+<ul>
+<li>Mreža se sastoji iz proizvoljnog broja redova.</li>
+<li>Redovi moraju biti smešteni unutar klase <span class="primer_text">.container </span> ili <span class="primer_text">.container-fluid</span>.</li>
+<li>Svaki red se sastoji iz ćelija.</li>
+<li>Ćelije su uvek smeštaju unutar redova.</li>
+<li>Unutar ćelija se smešta sadržaj mreže.</li>
+<li>Ćelije jednog reda se mogu grupisati u jednu i ona će se prostirati kroz više kolona.</li>
+<li>Ćelije jednog reda moraju zajedno da se rasprostiru kroz 12 kolona.</li>
+<li>Između sadržaja ćelija se kreiraju praznine. </li>
+</ul>
+<br>
+<h2>Uopštena struktura mreže</h2>
+Ovako izgleda uopštena struktura jedne mreže:
+<textarea class="primer_ta" rows="15" disabled>
+<div class="container">
+  <div class="row">
+    <div class="col-mrežnaKlasa-broj1"></div>
+  </div>
+  <div class="row">
+    <div class="col-mrežnaKlasa-broj2"></div>
+    <div class="col-mrežnaKlasa-broj3"></div>
+  </div>
+  <div class="row">
+    <div class="col-mrežnaKlasa-broj4"></div>
+    <div class="col-mrežnaKlasa-broj5"></div>
+    <div class="col-mrežnaKlasa-broj6"></div>
+  </div>
+...
+</div>
+</textarea>
+Postupak:<br>
+<ul>
+<li>kreiranje omotača (<span class="primer_text">&ltdiv class="container"&gt </span>)</li>
+<li>kreiranje reda (<span class="primer_text">&ltdiv class="row"&gt</span>) </li>
+<li> kreiranje željenog broja ćelija u tom redu <br>
+(<span class="primer_text">&ltdiv class="col-mrežnaKlasa-broj1"&gt&lt/div&gt </span>)</li>
+<li>oznaka "mrežnaKlasa" predstavlja neku od mrežnih klasa: <br>
+.xs, .sm, .md, .lg </li>
+<li>oznaka "broj1" predstavlja broj kolona kroz koje se ćelija rasprostire </li>
+<li>zbir ovih brojeva za svaki red pojedinačno mora biti 12, jer se ćelije bilo kog reda uvek rasprostiru kroz 12 kolona.</li>
+</ul>
+<br>
+<h2>Primeri</h2>
+U svim narednim primerima mrežnih sistema korišćena je mrežna klasa <span class="primer_text">.xs</span>.
+Karakteristike svake od mrežnih klasa biće objašnjene u sledećim lekcijama.<br><br>
+1. Primer mreže sa dve jednake kolone:
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-6" style="border:1px solid black;">col-xs-6</div>
+		<div class="col-xs-6" style="border:1px solid black;">col-xs-6</div>
+	</div>
+</div>
+<textarea class="primer_ta" style="display:none">
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>   
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-6" style="border:1px solid black;">col-xs-6</div>
+		<div class="col-xs-6" style="border:1px solid black;">col-xs-6</div>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+
+2. Primer mreže sa dve nejednake kolone:
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-3" style="border:1px solid black;">col-xs-3</div>
+		<div class="col-xs-9" style="border:1px solid black;">col-xs-9</div>
+	</div>
+</div>
+<textarea class="primer_ta" style="display:none">
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>   
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-3" style="border:1px solid black;">col-xs-3</div>
+		<div class="col-xs-9" style="border:1px solid black;">col-xs-9</div>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+3. Primer mreže sa 3 jednake kolone:
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+	</div>
+</div>
+<textarea class="primer_ta" style="display:none">
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>   
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+4. Primer mreže sa 3 nejednake kolone:
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-5" style="border:1px solid black;">col-xs-5</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-3" style="border:1px solid black;">col-xs-3</div>
+	</div>
+</div>
+<textarea class="primer_ta" style="display:none">
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>   
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-5" style="border:1px solid black;">col-xs-5</div>
+		<div class="col-xs-4" style="border:1px solid black;">col-xs-4</div>
+		<div class="col-xs-3" style="border:1px solid black;">col-xs-3</div>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+5. Primer mreže sa 4 jednake ćelije u prvom i 3 nejednake u drugom redu.
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+	</div>
+	<div class="row" style="border:1px solid black">
+		<div class="col-xs-5" style="border:1px solid black">col-xs-5</div>
+		<div class="col-xs-4" style="border:1px solid black">col-xs-4</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+	</div>
+</div>
+<textarea class="primer_ta" style="display:none">
+<!DOCTYPE html>
+<html>
+<head>  
+<title> Bootstrap </title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>   
+<div class="container">
+	<div class="row" style="border:1px solid black;">
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+	</div>
+	<div class="row" style="border:1px solid black">
+		<div class="col-xs-5" style="border:1px solid black">col-xs-5</div>
+		<div class="col-xs-4" style="border:1px solid black">col-xs-4</div>
+		<div class="col-xs-3" style="border:1px solid black">col-xs-3</div>
+	</div>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+<b>Zadatak:</b> Izmeniti prethodni primer i napraviti mrežu koja se sastoji iz tri reda. Neka prvi red sadrži 2 nejednake ćelije,
+drugi red 3 nejednake, a treći red četiri jednake ćelije.
+</div>

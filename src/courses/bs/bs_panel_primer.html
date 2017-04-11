@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+ </head>
+<body>
+<mark><h2 style="text-align:center;">Rezime</h2></mark>
+<h3>Podrazumevani izgled panela</h3>
+<div class="panel panel-default">
+  <div>Ovo je div element.</div>
+  <p>Ovo je pasus.</p>
+  <span>Ovo je span element.<span>
+</div>
+<br>
+<br>
+<h3>Panel unutar container-a</h3>
+<div class="container">
+<div class="panel panel-default">
+  <div>Ovo je div element.</div>
+  <p>Ovo je pasus.</p>
+  <span>Ovo je span element.<span>
+</div>
+</div>
+<br>
+<br>
+<h3>Panel većih dimenzija</h3>
+Na veličinu panela se može uticati
+upotrebom klase <span class="primer_text">.panel-body</span>. Ova klasa se navodi na nivou elementa
+koji se nalazi unutar panela.
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-body">Ovo je div element.</div>
+  <p class="panel-body">Ovo je pasus.</p>
+  <span class="panel-body">Ovo je span element.<span>
+</div>
+</div>
+<br>
+<br>
+<h3>Zaglavlje i podnožje panela</h3>
+U ovom primeru razlikuje se zaglavlje, telo i podnožje panela.
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">Zaglavlje</div>
+  <div class="panel-body">Telo zaglavlja</div>
+  <div class="panel-footer">Podnožje</div>
+</div>
+</div>
+<br>
+<br>
+<h3>Grupisanje panela</h3>
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">Prvi panel</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">Drugi panel</div>
+  </div>
+</div>
+</body>
+</html>

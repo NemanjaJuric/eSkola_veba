@@ -1,0 +1,63 @@
+Rešenje zadatka:<br> <span class = "primer_text">
+&ltdiv id="id1" class="carousel slide"&gt <br><br>
+	&nbsp &ltol class="carousel-indicators"&gt <br>
+	&nbsp	&nbsp &ltli id="id2" class="active"&gt &lt/li&gt <br>
+	&nbsp	&nbsp &ltli id="id3"&gt &lt/li&gt <br>
+	&nbsp &lt/ol&gt <br>
+<br>
+	&nbsp &ltdiv class="carousel-inner" role="listbox"&gt <br>
+	&nbsp	&nbsp &ltdiv class="item active"&gt <br>
+	&nbsp	&nbsp &nbsp  Ovo je prvi slajd. <br>
+	&nbsp	&nbsp &lt/div&gt <br>
+<br>
+	&nbsp	&nbsp &ltdiv class="item"&gt <br>
+	&nbsp	&nbsp &nbsp Ovo je drugi slajd. <br>
+	&nbsp	&nbsp &lt/div&gt <br>
+	&nbsp &lt/div&gt <br>
+<br>
+
+   	&nbsp &lta class="left carousel-control" href="#id1" role="button"&gt <br>
+   	&nbsp &nbsp &ltspan class="glyphicon glyphicon-chevron-left" <br>
+	&nbsp	&nbsp &nbsp aria-hidden="true"&gt &lt/span&gt <br>
+   	&nbsp &lt/a&gt <br>
+<br>	
+	&nbsp &lta class="right carousel-control" href="#id1" role="button"&gt <br>
+   	&nbsp &nbsp &ltspan class="glyphicon glyphicon-chevron-right" <br>
+	&nbsp	&nbsp &nbsp aria-hidden="true"&gt &lt/span&gt <br>
+   	&nbsp &lt/a&gt <br>
+<br>	
+&lt/div&gt <br><br>
+&ltbr&gt <br>
+&ltbr&gt <br>
+&ltbr&gt <br>
+	&nbsp &ltbutton type="button" class="btn btn-danger" id="dugme"&gt <br>
+	&nbsp Pokreni slajdove <br>
+	&nbsp &lt/button&gt <br>
+<br>
+	
+&ltscript&gt <br>
+$(document).ready(function(){ <br>
+	&nbsp $("#id1").carousel("pause"); <br>
+	<br>
+	&nbsp $("#dugme").click(function(){<br>
+	&nbsp 	&nbsp $("#id1").carousel("cycle"); <br>
+	&nbsp });<br>
+    <br>
+	&nbsp $("#id2").click(function(){ <br>
+	&nbsp 	&nbsp $("#id1").carousel(0); <br>
+	&nbsp }); <br>
+	<br>
+	&nbsp $("#id3").click(function(){ <br>
+	&nbsp 	&nbsp $("#id1").carousel(1); <br>
+	&nbsp }); <br>
+    <br>
+	&nbsp $(".left").click(function(){ <br>
+	&nbsp 	&nbsp $("#id1").carousel("prev"); <br>
+	&nbsp }); <br>
+	<br>
+	&nbsp $(".right").click(function(){ <br>
+	&nbsp 	&nbsp $("#id1").carousel("next"); <br>
+	&nbsp }); <br>
+}); <br>
+&lt/script&gt
+</span>

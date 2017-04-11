@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<a href="#" data-toggle="popover" title="Naslov" data-content="Sadržaj">Popover komponenta</a>
+<br>
+<br>
+<br>
+<button class="btn btn-success">
+Prikaži
+</button>
+<button class="btn btn-primary">
+Sakrij
+</button>
+<button class="btn btn-danger">
+Prikaži/Sakrij
+</button>
+<script>
+$(document).ready(function(){
+    $(".btn-success").click(function(){
+    $("[data-toggle='popover']").popover('show');
+    });
+	$(".btn-primary").click(function(){
+        $("[data-toggle='popover']").popover('hide');
+    });
+	$(".btn-danger").click(function(){
+        $("[data-toggle='popover']").popover('toggle');
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+ </head>
+<body>
+<mark><h2 style="text-align:center;">Rezime</h2></mark>
+<h3>Zadavanje dugmeta</h3>
+<ul>
+<li>Pomoću button etikete: <button type="button">Dugme</button></li><br>
+<li>Pomoću input etikete: <input type="button" value="Dugme"></li>
+</ul>
+<br>
+<br>
+<h3>Izgled dugmeta</h3>
+<ul>
+<li> Klasa .btn-default: <button type="button" class="btn btn-default">Dugme</button></li>
+<br>
+<li>Klasa .btn-primary: <button type="button" class="btn btn-primary">Dugme</button></li>
+<br>
+<li>Klasa .btn-info: <button type="button" class="btn btn-info">Dugme</button></li>
+<br>
+<li>Klasa .btn-success: <button type="button" class="btn btn-success">Dugme</button></li>
+<br>
+<li>Klasa .btn-warning: <button type="button" class="btn btn-warning">Dugme</button></li>
+<br>
+<li>Klasa .btn-danger: <button type="button" class="btn btn-danger">Dugme</button></li>
+<br>
+<li>Klasa .btn-link: <button type="button" class="btn btn-link">Dugme</button></li>
+</ul>
+<br>
+<br>
+<h3>Veličina dugmeta</h3>
+<ul>
+<li>Klasa .btn-xs: <button type="button" class="btn btn-warning btn-xs">Dugme</button></li>
+
+<br>
+<li>Klasa .btn-sm: <button type="button" class="btn btn-warning btn-sm">Dugme</button></li>
+
+<br>
+<li>Klasa .btn-md: <button type="button" class="btn btn-warning btn-md">Dugme</button></li>
+
+<br>
+<li>Klasa .btn-lg: <button type="button" class="btn btn-warning btn-lg">Dugme</button></li>
+</ul>
+<br>
+<br>
+<h3>Dugme nivoa bloka</h3>
+<div class="container">
+  <button type="button" class="btn btn-warning btn-block">Dugme</button>
+</div>
+<br>
+<br>
+<h3>Aktivna i neaktivna dugmad</h3>
+<div class="container">
+  <button type="button" class="btn btn-warning active">Aktivno dugme</button>
+  <button type="button" class="btn btn-warning disabled">Neaktivno dugme</button>
+</div>
+<br>
+<br>
+<h3>Upotreba jQuery biblioteke</h3>
+<br>
+<h4><b>Uključivanje dugmeta</b></h4><br>
+$('.btn').button(); 
+<br>
+<br>
+<h4><b>Opcije dugmeta</b></h4>
+Nije podržana nijedna opcija. 
+<br>
+<br>
+<h4><b>Metodi dugmeta</b></h4>
+<ul>
+<li>.button("toggle")</li>
+<li>.button("loading")</li>
+<li>.button("reset")</li>
+<li>.button("string")</li>
+</ul>
+<br>
+<br>
+</body>
+</html>

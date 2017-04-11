@@ -1,0 +1,122 @@
+<h1>Kombinacije mrežnih klasa</h1>
+
+U strukturi jedne mreže, moguće je zadati više mrežnih klasa. 
+Koja od njih će odrediti prikaz mreže, zavisi od rezolucije samog uređaja.<br>
+Razmotrimo kombinacije mrežnih klasa na primeru mreže koja se
+sastoji iz jednog reda sa dve ćelije.
+<br>
+<br>
+<h2>Primeri</h2>
+<br>
+1. Kombinacija <span class="primer_text">.lg</span> i <span class="primer_text">.md</span>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-md-5 col-lg-3</div>
+    <div class="col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-md-7 col-lg-9</div>
+  </div>
+  </div>
+<textarea class="primer_ta" style="display:none;">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-md-5 col-lg-3</div>
+    <div class="col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-md-7 col-lg-9</div>
+  </div>
+  </div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Ovaj primer određuje mrežu čiji je:<br>
+-odnos širina ćelija jednak 3:9 na uređajima velike rezolucije<br>
+-odnos širina ćelija jednak 5:7 na uređajima srednje rezolucije.<br>
+ U strukturi ove mreže nije određeno kakav odnos se očekuje kod uređaja manjih rezolucija.
+ Kod njih će se ćelije složiti jedna ispod druge. Isti ovaj primer se nalazi u editoru sa desne strane i vidi se da su se ćelije složile 
+ jedna ispod druge zbog male rezolucije prozora.
+ <br><br>
+ 2. Kombinacija <span class="primer_text">.lg</span>,<span class="primer_text">.md</span> i <span class="primer_text">.sm</span>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-sm-8 col-md-5 col-lg-3</div>
+    <div class="col-sm-4 col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-sm-4 col-md-7 col-lg-9</div>
+  </div>
+  </div>
+<textarea class="primer_ta" style="display:none;">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8 col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-sm-8 col-md-5 col-lg-3</div>
+    <div class="col-sm-4 col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-sm-4 col-md-7 col-lg-9</div>
+  </div>
+  </div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Ovaj primer određuje mrežu čiji je:<br>
+-odnos širina ćelija jednak 3:9 na uređajima velike rezolucije<br>
+-odnos širina ćelija jednak 5:7 na uređajima srednje rezolucije<br>
+-odnos širina ćelija jednak 8:4 na uređajima male rezolucije.<br>
+Na uređajima veoma male rezolucije, ćelije će se složiti jedna ispod druge.
+Za jednostavnu proveru, smanjite prozor pregledača.
+<br><br>
+3. Kombinacija svih klasa
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10 col-sm-8 col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-xs-10 col-sm-8 col-md-5 col-lg-3</div>
+    <div class="col-xs-2 col-sm-4 col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-xs-2 col-sm-4 col-md-7 col-lg-9</div>
+  </div>
+  </div>
+  <textarea class="primer_ta" style="display:none;">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10 col-sm-8 col-md-5 col-lg-3" style="background-color:rgb(255,185,220);">col-xs-10 col-sm-8 col-md-5 col-lg-3</div>
+    <div class="col-xs-2 col-sm-4 col-md-7 col-lg-9" style="background-color:rgb(193,255,255);">col-xs-2 col-sm-4 col-md-7 col-lg-9</div>
+  </div>
+  </div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+Ovaj primer određuje mrežu čiji je:<br>
+-odnos širina ćelija jednak 3:9 na uređajima velike rezolucije<br>
+-odnos širina ćelija jednak 5:7 na uređajima srednje rezolucije<br>
+-odnos širina ćelija jednak 8:4 na uređajima male rezolucije<br>
+-odnos širina ćelija jednak 10:2 na uređajima veoma male rezolucije.<br>
+Za jednostavnu proveru, smanjite prozor pregledača.
+<div class="zadatak">
+<b>Zadatak:</b> Izmeniti prethodni primer i napraviti mrežu koja se sastoji iz dva reda sa po 2 ćelije. Neka odnos širina ćelija bude 1:11 kod veoma malih uređaja
+i 8:4 kod velikih uređaja.
+</div>

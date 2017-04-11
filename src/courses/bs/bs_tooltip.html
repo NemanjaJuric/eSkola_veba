@@ -1,0 +1,1223 @@
+<h1>Tooltip</h1>
+Tooltip je plagin (eng. plugin) koji se koristi za prikazivanje tooltip komponenata nad elementima.
+Tooltip se može priključiti:
+<ul>
+<li>pojedinačno (upotrebom fajla "tooltip.js")</li>
+<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+</ul>
+<br>
+Tooltip komponenta nekog elementa se prikazuje u vidu balončića prelaskom kursora preko tog elementa.
+Kreiranje tooltip komponente nad određenim elementom se realizuje na dva načina:
+<ul>
+<li>upotrebom  <span class="primer_text">data-toggle</span> atributa </li>
+<li>upotrebom jQuery biblioteke .</li>
+</ul>
+<br>
+<br>
+<h2>Upotreba <span class="primer_text">data-toggle</span> atributa </h2>
+Jedan od načina da se kreira tooltip komponenta nad određenim elementom je 
+upotrebom atributa <span class="primer_text">data-toggle="tooltip"</span> nad tim elementom.
+ Ovaj atribut aktivira tooltip komponentu.<br>
+ Sadržaj tooltip komponente se zadaje kao vrednost opcije <span class="primer_text">title</span> koja se upotrebljava
+ kao atribut na nivou elementa.
+ <br><br>
+ Međutim, za potpunu funkcionalnost tooltip komponente dobijene na ovaj način, neophodno je korišćenje 
+ jQuery biblioteke. Korišćenjem jQuery biblioteke treba pozvati metod <span class="primer_text">tooltip()</span> nad elementom.
+<br>
+<br>
+U sledećem primeru je kreirana tooltip komponenta nad linkom i obezbeđena njena funkcionalnost pomoću jQuery-ja.
+<textarea class="primer_ta" rows="8">
+<span data-toggle="tooltip" id="id1" title="Ovo je tooltip komponenta.">Pređite kursorom ovde.</span>
+<script>
+$(document).ready(function(){
+    $('#id1').tooltip(); 
+});
+</script>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<span data-toggle="tooltip" id="id1" title="Ovo je tooltip komponenta.">Pređite kursorom ovde.</span>
+<script>
+$(document).ready(function(){
+    $('#id1').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+<br>
+<h2>Upotreba jQuery biblioteke</h2>
+Drugi način da se kreira tooltip komponenata nad određenim elementom je da se korišćenjem jQuery biblioteke pozove
+ metod <span class="primer_text">tooltip()</span> nad istim.
+ Sadržaj tooltip komponente se zadaje kao vrednost opcije <span class="primer_text">title</span> koja se upotrebljava
+ kao parametar metoda <span class="primer_text">tooltip()</span>.
+ <br>
+ <br>
+U sledećem primeru je na ovaj način kreirana tooltip komponenta nad dugmetom.
+<textarea class="primer_ta" rows="7">
+<button class="btn btn-success" title="Hej!" id="id2">Dugme</button>
+<script>
+$(document).ready(function(){
+    $('#id2').tooltip(); 
+});
+</script>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-success" title="Hej!" id="id2">Dugme</button>
+<script>
+$(document).ready(function(){
+    $('#id2').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button><br>
+<br>
+<br>
+<h2>Tooltip opcije</h2>
+Tooltip podržava različite opcije koje se primenjuju nad tooltip komponentama.<br>
+U slučaju da je komponenta kreirana upotrebom <span class="primer_text">data-toggle</span>
+ atributa, sve opcije osim <span class="primer_text">title</span>
+se koriste sa prefiksom <span class="primer_text">data-</span> i navode kao atributi na nivou elementa.<br>
+Sa druge strane, u slučaju da je tooltip komponenta kreirana isključivo pomoću jQuery biblioteke, ove opcije će 
+se koristiti kao parametri <span class="primer_text">tooltip()</span> metoda.
+<br>
+<br>
+<div class="container">
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+ <th>Opcija</th>
+ <th>Opis</th>
+ <th>Preko atributa:</th>
+ <th>Preko metoda tooltip()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+ <td>title</td>
+ <td>Ova opcija određuje sadržaj tooltip komponente. U slučaju da je komponenta kreirana upotrebom <span class="primer_text">data-toggle</span>
+ atributa, opcija se navodi kao atribut na nivou elementa.
+ U drugom slučaju, navodi se kao parametar tooltip() metoda.
+ </td>
+ <td>title
+ <br>
+ 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="Sadržaj tooltip komponente">
+Dugme 1
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+  $('.btn').tooltip({title:"Sadržaj tooltip komponente"});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>animation</td>
+ <td>Opcija određuje da li se prikazuje efekat pri pojavljivanju i nestajanju tooltip komponente.
+Naredbom:
+<ul>
+<li><span class="primer_text">animation:true</span> se zadaje efekat</li>
+<li><span class="primer_text">animation:false</span> se onemogućava efekat.</li>
+</ul>
+ </td>
+ <td>data-animation
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="Hej!" data-animation="true" id="id3">
+Sa efektom
+</button>
+<button class="btn btn-success" data-toggle="tooltip" title="Hej!" data-animation="false" id="id4">
+Bez efekta
+</button>
+<script>
+$(document).ready(function(){
+    $('#id3').tooltip(); 
+	$('#id4').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" id="id5"> Sa efektom
+</button>
+<button class="btn btn-success" id="id6"> Bez efekta
+</button>
+<script>
+$(document).ready(function(){
+  $('#id5').tooltip({title:"Hi!",animation:true});
+  $('#id6').tooltip({title:"Hi!",animation:false});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+
+<tr>
+ <td>container</td>
+ <td>Ova opcija čini da se tooltip komponenta pridruži specifičnom elementu, koji je određen
+ imenom koje se navodi nakon komande <span class="primer_text">container</span>.
+ </td>
+ <td>data-container
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<div class="omotac">
+  <button class="btn btn-info" data-toggle="tooltip" title="Hej!" data-container=".omotac">
+  Dugme
+  </button>
+</div>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<div class="omotac">
+  <button class="btn btn-info">Dugme
+  </button>
+</div>
+<script>
+$(document).ready(function(){
+  $('.btn').tooltip({title:"Hej!",container:".omotac"});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+<tr>
+ <td>delay</td>
+ <td>Određuje za koliko milisekundi se pojavljuje i povlači tooltip komponenta.
+ Ukoliko se naredba navodi preko toltip() metoda, moguće je zadati trenutak pojavljivanja <span class="primer_text">(show)</span>
+ i trenutak povlačenja <span class="primer_text">(hide)</span> na sledeći način: <br>
+ delay: {show: 500, hide: 100} .<br>
+ Ukoliko se navodi preko atributa <span class="primer_text">data-delay</span>, njegova vrednost važi za oba.
+ </td>
+ <td>data-delay
+ 
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="Hej!" data-delay="2000">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-success">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip({title:"Hej!",delay:{show:1000,hide:500}}); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>html</td>
+ <td>Određuje da li tooltip komponenta može prihvatiti HTML elemente kao sadržaj. Naredba:
+ <ul>
+ <li><span class="primer_text">html:true</span> prihvata HTML elemente </li>
+ <li><span class="primer_text">html:false</span> ne prihvata.</li>
+ </ul>
+ </td>
+ <td>data-html
+ 
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="<h3>Tooltip</h3> <b>komponenta</b>" data-html="true">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-success">
+Dugme
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip({title:"<h3>Tooltip</h3> <b>komponenta</b>",html:true}); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+<tr>
+ <td>placement</td>
+ <td>Određuje poziciju tooltip komponente. Ona
+ se podrazumevano pojavljuje iznad svog elementa ali se pozicija može promeniti upotrebom sledećih vrednosti: 
+ <ul>
+ <li><span class="primer_text">top</span> (pozicionira iznad)</li>
+ <li><span class="primer_text">bottom</span> (ispod)</li>
+ <li><span class="primer_text">left</span> (levo)</li>
+ <li><span class="primer_text">right</span> (desno)</li>
+ <li><span class="primer_text">auto</span>.</li>
+ </ul>
+ Vrednost <span class="primer_text">auto</span> dopušta pregledaču da sam odredi poziciju tooltip komponente. 
+ Ako je zadata vrednost <span class="primer_text">auto left</span>, to znači da će 
+ se tooltip komponenta pojaviti na levoj strani kad god je to moguće. 
+ Slično i za ostale.
+ </td>
+ <td>data-placement
+ 
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="Hej!" data-placement="top">
+Dugme 1
+</button>
+
+<button class="btn btn-success" data-toggle="tooltip" title="Hej!" data-placement="bottom">
+Dugme 2
+</button>
+
+<button class="btn btn-warning" data-toggle="tooltip" title="Hej!" data-placement="left">
+Dugme 3
+</button>
+
+<button class="btn btn-danger" data-toggle="tooltip" title="Hej!" data-placement="right">
+Dugme 4
+</button>
+
+<button class="btn btn-default" data-toggle="tooltip" title="Hej!" data-placement="auto">
+Dugme 5
+</button>
+
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+Dugme 1
+</button>
+<button class="btn btn-success">
+Dugme 2
+</button>
+<button class="btn btn-warning">
+Dugme 3
+</button>
+<button class="btn btn-danger">
+Dugme 4
+</button>
+<button class="btn btn-default">
+Dugme 5
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn-info').tooltip({title:"Hej!",placement:"top"});
+	$('.btn-success').tooltip({title:"Hej!",placement:"bottom"});
+	$('.btn-warning').tooltip({title:"Hej!",placement:"left"});
+	$('.btn-danger').tooltip({title:"Hej!",placement:"right"});
+	$('.btn-default').tooltip({title:"Hej!",placement:"auto"});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+
+
+
+
+<tr>
+ <td>trigger</td>
+ <td>Određuje način na koji se tooltip komponenta pojavljuje. Podrazumevano pojavljivanje je usled 
+prelaska kursora preko elementa a moguća pojavljivanja su još usled levog i desnog klika na element.
+To se postiže sledećim vrednostima:
+ <ul>
+ <li><span class="primer_text">click</span> (omogućava pojavljivanje nakon levog klika)</li>
+ <li><span class="primer_text">hover</span> (pojavljivanje usled prelaska kursorom)</li>
+ <li><span class="primer_text">focus</span> (pojavljivanje usled levog ili desnog klika) .</li>
+ </ul>
+ </td>
+ <td>data-trigger
+ 
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info" data-toggle="tooltip" title="Hej!" data-trigger="click">
+Dugme 1
+</button>
+
+<button class="btn btn-success" data-toggle="tooltip" title="Hej!" data-trigger="hover">
+Dugme 2
+</button>
+
+<button class="btn btn-warning" data-toggle="tooltip" title="Hej!" data-trigger="focus">
+Dugme 3
+</button>
+
+<script>
+$(document).ready(function(){
+    $('.btn').tooltip(); 
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+ <td>
+ <br>
+ <br>
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+Dugme 1
+</button>
+<button class="btn btn-success">
+Dugme 2
+</button>
+<button class="btn btn-warning">
+Dugme 3
+</button>
+<script>
+$(document).ready(function(){
+    $('.btn-info').tooltip({title:"Hej!",trigger:"click"});
+	$('.btn-success').tooltip({title:"Hej!",trigger:"hover"});
+	$('.btn-warning').tooltip({title:"Hej!",trigger:"focus"});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+ </td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<br>
+<h2>Tooltip metodi</h2>
+
+Tooltip podržava metod <span class="primer_text">tooltip()</span> koji može imati različite parametre pozivanja, u skladu sa kojim 
+izvršava različite akcije. 
+<br>
+<br>
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+<th>Metod</th>
+<th>Opis</th>
+<th>Primer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> .tooltip(opcije) </td>
+<td> Aktivira tooltip opcije koje se primenjuju nad tooltip komponentom.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+Dugme 1
+</button>
+<button class="btn btn-success">
+Dugme 2
+</button>
+
+<script>
+$(document).ready(function(){
+    $('.btn-info').tooltip({title:"Hej!",placement:"right"});
+	$('.btn-success').tooltip({title:"Hej!",trigger:"hover"});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+
+<tr>
+<td> .tooltip("show") </td>
+<td> Prikazuje tooltip komponentu.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+Klikom na dugme se izvršava akcija.
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hej!">Nad ovim se prikazuje tooltip komponenta </a>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+ Prikaži
+</button>
+
+<script>
+$(document).ready(function(){
+	$(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td> .tooltip("hide") </td>
+<td> Sakriva tooltip komponentu.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hej!">Nad ovim se prikazuje tooltip komponenta </a>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+ Prikaži
+</button>
+
+<button class="btn btn-danger">
+ Sakrij
+</button>
+Klikom na dugme se izvršava akcija.
+<script>
+$(document).ready(function(){
+	$(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+	$(".btn-danger").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+<tr>
+<td> .tooltip("toggle") </td>
+<td> Prikazuje tooltip komponentu, ako je bila sakrivena.
+Sakriva tooltip komponentu, ukoliko je bila prikazana.
+</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hej!">Nad ovim se prikazuje tooltip komponenta </a>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+ Prikaži
+</button>
+
+<button class="btn btn-danger">
+ Sakrij
+</button>
+
+<button class="btn btn-success">
+ Prikaži/Sakrij
+</button>
+Klikom na dugme se izvršava akcija.
+<script>
+$(document).ready(function(){
+	$(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+	$(".btn-danger").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+	$(".btn-success").click(function(){
+        $("[data-toggle='tooltip']").tooltip('toggle');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td> .tooltip("destroy") </td>
+<td> Sakriva i deaktivira tooltip komponentu.
+</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hej!">Nad ovim se prikazuje tooltip komponenta </a>
+<br>
+<br>
+<br>
+<button class="btn btn-info">
+ Prikaži
+</button>
+
+<button class="btn btn-danger">
+ Sakrij
+</button>
+
+<button class="btn btn-success">
+ Prikaži/Sakrij
+</button>
+
+<button class="btn btn-warning">
+ Deaktiviraj
+</button>
+
+
+Klikom na dugme se izvršava akcija.
+<script>
+$(document).ready(function(){
+	$(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+	$(".btn-danger").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+	$(".btn-success").click(function(){
+        $("[data-toggle='tooltip']").tooltip('toggle');
+    });
+	$(".btn-warning").click(function(){
+        $("[data-toggle='tooltip']").tooltip('destroy');
+    });
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<h2>Tooltip događaji</h2>
+Sledeća tabela sa primerima ilustruje
+upotrebu svakog od njih.
+<br>
+<br>
+<table class="table table-striped" style="font-size:14px">
+<thead>
+<tr>
+<th>Događaj</th>
+<th>Opis</th>
+<th>Primer</th>
+</tr>
+</thead>
+<tbody>
+
+
+<tr>
+<td>show.bs.tooltip</td>
+<td>Događaj nastupa neposredno pre nego što će tooltip komponenta biti prikazana.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hooray!">Nad ovim linkom će se pojaviti tooltip komponenta.</a>
+<br>
+<br>
+<button type="button" class="btn btn-info">
+Pritisni
+</button>
+
+<script>
+$(document).ready(function(){
+   $(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+   $("[data-toggle='tooltip']").on('show.bs.tooltip', function(){
+      alert('Tooltip komponenta će uskoro biti prikazana.');
+	});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+
+<tr>
+<td>shown.bs.tooltip</td>
+<td>Događaj nastupa nakon što je tooltip komponenta prikazana.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hooray!">Nad ovim linkom će se pojaviti tooltip komponenta.</a>
+<br>
+<br>
+<button type="button" class="btn btn-default">
+Pritisni
+</button>
+
+<script>
+$(document).ready(function(){
+   $(".btn-default").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+   $("[data-toggle='tooltip']").on('shown.bs.tooltip', function(){
+      alert('Tooltip komponenta je već prikazana.');
+	});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+<tr>
+<td>hide.bs.tooltip</td>
+<td>Događaj nastupa neposredno pre nego što će tooltip komponenta biti sakrivena.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hooray!">Nad ovim linkom će se pojaviti tooltip komponenta.</a>
+<br>
+<br>
+<button type="button" class="btn btn-info">
+Prikaži
+</button>
+
+<button type="button" class="btn btn-success">
+Sakrij
+</button>
+
+
+<script>
+$(document).ready(function(){
+	$(".btn-info").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+	
+    $(".btn-success").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+   $("[data-toggle='tooltip']").on('hide.bs.tooltip', function(){
+      alert('Tooltip komponenta će uskoro biti sakrivena.');
+	});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+
+<tr>
+<td>hidden.bs.tooltip</td>
+<td>Događaj nastupa nakon što je tooltip komponenta sakrivena.</td>
+<td> 
+ <textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<a href="#" data-toggle="tooltip" title="Hooray!">Nad ovim linkom će se pojaviti tooltip komponenta.</a>
+<br>
+<br>
+<button type="button" class="btn btn-warning">
+Prikaži
+</button>
+
+<button type="button" class="btn btn-success">
+Sakrij
+</button>
+
+
+<script>
+$(document).ready(function(){
+	$(".btn-warning").click(function(){
+        $("[data-toggle='tooltip']").tooltip('show');
+    });
+	
+    $(".btn-success").click(function(){
+        $("[data-toggle='tooltip']").tooltip('hide');
+    });
+   $("[data-toggle='tooltip']").on('hidden.bs.tooltip', function(){
+      alert('Tooltip komponenta je već sakrivena.');
+	});
+});
+</script>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</td>
+</tr>
+
+</tbody>
+</table>
+<br>
+<br>
+
+
+<div class="zadatak">
+Napraviti link sa tooltip komponentom proizvoljnog sadržaja. Obezbediti da se ona prikazuje na desnoj strani kad god je to moguće, inače 
+ neka njena pozicija bude određena od strane pregledača.
+</div>

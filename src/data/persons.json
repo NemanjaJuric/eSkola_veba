@@ -106,5 +106,11 @@
       "course":"AngularJS",
       "url":"assets/images/team/ivana_majstorovic.jpg",
       "mainPosition": false            
+   },
+   {
+      "name":"Dušan Šuljagić",
+      "course":"TypeScript",
+      "url":"assets/images/team/dusan_suljagic.jpg",
+      "mainPosition": false            
    }
 ]

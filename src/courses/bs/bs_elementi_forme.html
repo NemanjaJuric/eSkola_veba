@@ -1,0 +1,961 @@
+<h1>Elementi forme</h1>
+Forme (formulari) predstavljaju osnovu interaktivnosti veb stranica. One omogućavaju unos podataka koji se mogu
+iskoristiti na klijentskoj mašini ili proslediti serveru.<br> 
+Kreiranje forme se postiže upotrebom <span class="primer_text">&ltform&gt</span> elementa u okviru kojeg je 
+moguće koristiti elemente forme i druge HTML elemente.<br>
+Elementi forme su
+<span class="primer_text">&lttextarea&gt</span>, <span class="primer_text">&ltselect&gt</span> i <span class="primer_text">&ltinput&gt</span>.
+Bootstrap obezbeđuje klasu <span class="primer_text">.form-control</span> koja se obavezno navodi na nivou pomenutih elemenata forme.
+Upotrebom ove klase, svaki se prikazuje u širini celog ekrana.
+<br>
+<br>
+<h2>Element <span class="primer_text">&lttextarea&gt</span></h2>
+Podsetimo se osnovnog koda za prikazivanje <span class="primer_text">&lttextarea&gt</span> elementa:
+<textarea class="primer_ta" rows="1" disabled>
+&lttextarea rows="4"&gt &lt/textarea&gt
+</textarea><br>
+Obično se <span class="primer_text">&lttextarea&gt</span> prikazuje sa labelom koja se na njega odnosi.
+Da bi se uspešno prikazalo sa svojom labelom, potrebno je grupisati ih unutar
+ <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">form-group</span>.<br>
+ Elementu <span class="primer_text">textarea</span>
+ potrebno je zadati klasu <span class="primer_text">.form-control</span> kao i željeni broj redova i identifikator.
+ Na nivou <span class="primer_text">label</span> elementa je potrebno navesti atribut 
+<span class="primer_text">for</span> čija je vrednost jednaka identifikatoru <span class="primer_text">&lttextarea&gt</span> elementa.
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<div class="form-group">
+  <label for="txt">Polje za unos:</label>
+  &lttextarea class="form-control" rows="4"
+  id="txt"&gt
+  &lt/textarea&gt
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="txt">Polje za unos:</label>
+  <textarea class="form-control" rows="4" id="txt">
+  </textarea>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Element <span class="primer_text">&ltselect&gt</span></h2>
+Podsetimo se osnovnog koda za prikazivanje <span class="primer_text">&ltselect&gt</span> elementa:
+<textarea class="primer_ta" rows="5" disabled>
+<select>
+ <option>1</option>
+ <option>2</option>
+ <option>3</option>
+</select>
+</textarea>
+<br>
+Element <span class="primer_text">&ltselect&gt</span> se obično prikazuje sa labelom koja se na njega odnosi.
+Da bi se uspešno prikazali, potrebno je grupisati ih unutar
+ <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">form-group</span>.<br>
+ Elementu <span class="primer_text">select</span>
+ potrebno je zadati klasu <span class="primer_text">.form-control</span> i identifikator.
+ Na nivou <span class="primer_text">label</span> elementa je potrebno navesti atribut 
+<span class="primer_text">for</span> čija je vrednost jednaka identifikatoru <span class="primer_text">&ltselect&gt</span> elementa.
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group">
+ <label for="sel1">Izaberite jednu opciju:</label>
+ <select class="form-control" id="sel1">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+ <label for="sel1">Izaberite jednu opciju:</label>
+ <select class="form-control" id="sel1">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Sledeći primer prikazuje <span class="primer_text">&ltselect&gt</span> element koji dozvoljava višestruki izbor opcija
+navođenjem naredbe <span class="primer_text">multiple</span>.
+<textarea class="primer_ta" rows="12" disabled>
+<form>
+<div class="form-group">
+ <label for="sel1">Izaberite više opcija:</label>
+ <select multiple class="form-control"
+ id="sel1">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+ <label for="sel1">Izaberite više opcija:</label>
+ <select multiple class="form-control" id="sel1">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Element <span class="primer_text">&ltinput&gt</span></h2>
+Podsetimo se osnovnog koda za prikazivanje <span class="primer_text">&ltinput&gt</span> elementa:
+<textarea class="primer_ta" rows="1" disabled>
+<input type="">
+</textarea><br>
+Atribut <span class="primer_text">type</span> određuje tip (kontrolu) <span class="primer_text">input</span> elementa.
+HTML5 obezbeđuje sledeće tipove: 
+<br>
+checkbox, radio, text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel i color.<br>
+Obično se svaki od njih prikazuje sa labelom koja se na njega odnosi. 
+Bootstrap podržava svaki od tipova i da bi se 
+određeni <span class="primer_text">&ltinput&gt</span> element uspešno prikazao sa svojom labelom, potrebno je grupisati ih unutar
+ <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">form-group</span>.<br>
+ Elementu <span class="primer_text">input</span>
+ potrebno je zadati klasu <span class="primer_text">.form-control</span> kao i željeni tip i identifikator.
+ Na nivou <span class="primer_text">label</span> elementa je potrebno navesti atribut 
+<span class="primer_text">for</span> čija je vrednost jednaka identifikatoru <span class="primer_text">input</span> elementa.<br>
+Ovo važi za sve kontrole osim za checkbox i radio.
+U nastavku slede primeri ostalih kontrola prikazanih pomoću Bootstrap-a.
+<ul>
+<div class="row">
+<div class="col-xs-2">
+<li>text</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="tekst">Ime:</label>
+  <input type="text"
+  class="form-control" id="tekst">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="tekst">Ime:</label>
+  <input type="text" class="form-control" id="tekst">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+<div class="col-xs-2">
+<li>password</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="sifra">Sifra:</label>
+  <input type="password"
+  class="form-control" id="sifra">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="sifra">Sifra:</label>
+  <input type="password" class="form-control" id="sifra">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+<div class="col-xs-2">
+<li>datetime</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<div class="form-group">
+  <label for="dt">Datum i vreme:
+  </label>
+  <input type="datetime"
+  class="form-control" id="dt">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="dt">Datum i vreme:</label>
+  <input type="datetime" class="form-control" id="dt">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+<div class="col-xs-2">
+<li>datetime-local</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<div class="form-group">
+  <label for="dtl">Datum i vreme
+  (lokalno):</label>
+  <input type="datetime-local"
+  class="form-control" id="dtl">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="dtl">Datum i vreme (lokalno):</label>
+  <input type="datetime-local" class="form-control" id="dtl">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+<div class="col-xs-2">
+<li>date</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="d">Datum:</label>
+  <input type="date"
+  class="form-control" id="d">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="d">Datum:</label>
+  <input type="date" class="form-control" id="d">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+<div class="col-xs-2">
+<li>month</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="m">Mesec:</label>
+  <input type="month"
+  class="form-control" id="m">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="m">Mesec:</label>
+  <input type="month" class="form-control" id="m">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+<div class="col-xs-2">
+<li>time</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="t">Vreme:</label>
+  <input type="time"
+  class="form-control" id="t">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="t">Vreme:</label>
+  <input type="time" class="form-control" id="t">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+<div class="col-xs-2">
+<li>week</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="w">Nedelja:</label>
+  <input type="week"
+  class="form-control" id="w">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="w">Nedelja:</label>
+  <input type="week" class="form-control" id="w">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+<div class="col-xs-2">
+<li>number</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="n">Broj:</label>
+  <input type="number"
+  class="form-control" id="n">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="n">Broj:</label>
+  <input type="number" class="form-control" id="n">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+<div class="col-xs-2">
+<li>email</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="e">Email:</label>
+  <input type="email"
+  class="form-control" id="e">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="e">Email:</label>
+  <input type="email" class="form-control" id="e">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+<div class="col-xs-2">
+<li>url</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="u">Adresa:</label>
+  <input type="url"
+  class="form-control" id="u">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="u">Adresa:</label>
+  <input type="url" class="form-control" id="u">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+
+<div class="col-xs-2">
+<li>search</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="s">Trazi:</label>
+  <input type="search"
+  class="form-control" id="s">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="s">Trazi:</label>
+  <input type="search" class="form-control" id="s">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+
+<div class="col-xs-2">
+<li>tel</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="tt">Tel.:</label>
+  <input type="tel"
+  class="form-control" id="tt">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="tt">Tel.:</label>
+  <input type="tel" class="form-control" id="tt">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+
+
+
+<div class="col-xs-2">
+<li>color</li>
+</div>
+<div class="col-xs-10">
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="col">Boja:</label>
+  <input type="color"
+  class="form-control" id="col">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="col">Boja:</label>
+  <input type="color" class="form-control" id="col">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+</div>
+<br>
+</div>
+</ul>
+<br>
+<br>
+<h3>Checkbox</h3>
+
+Checkbox kontrola omogućava korisniku da štiklira više ponuđenih opcija sa liste.<br>
+
+Kao što je pomenuto, checkbox predstavlja jedan od tipova <span class="primer_text">&ltinput&gt</span>
+elementa i obično se prikazuje sa labelom koja se na njega odnosi.
+<br>
+Da bi se uspešno prikazao sa svojom labelom, potrebno je grupisati ih unutar
+ <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">.checkbox</span>.<br>
+<textarea class="primer_ta" rows="6">
+<form>
+<div class="checkbox">
+	<label><input type="checkbox"
+	value="">Opcija1</label>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcija 1</label>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Grupa checkbox kontrola se može prikazati vertikalno i horizontalno.<br><br>
+
+<h4><b>Vertikalni prikaz</b></h4>
+<br>
+Podrazumevano grupisanje checkbox kontrola je vertikalno pa se ne zahteva navođenje posebnih klasa.
+<textarea class="primer_ta" rows="10" disabled>
+<form>
+<div class="checkbox">
+  <label><input type="checkbox"
+  value="">Opcija1</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox"
+  value="">Opcija2</label>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcija1</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Opcija2</label>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h4><b>Horizontalni prikaz</b></h4>
+<br>
+Horizontalno grupisanje checkbox kontrola zahteva navođenje klase <span class="primer_text">.checkbox-inline</span> na nivou svake 
+labele koja okružuje checkbox kontrolu. Uz to, potrebno je ukloniti sve <span class="primer_text">&ltdiv&gt</span>
+elemente klase <span class="primer_text">.checkbox</span>.
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<label class="checkbox-inline">
+<input type="checkbox" value="">Opcija1
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" value="">Opcija2
+</label>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<label class="checkbox-inline">
+<input type="checkbox" value="">Opcija1
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" value="">Opcija2
+</label>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Radio</h3>
+
+Radio kontrola (dugme) omogućava korisniku da izabere jednu od više ponuđenih opcija.<br>
+
+Kao što je pomenuto, radio predstavlja jedan od tipova <span class="primer_text">&ltinput&gt</span>
+elementa i obično se prikazuje sa labelom koja se na njega odnosi.
+<br>
+Da bi se uspešno prikazao sa svojom labelom, potrebno je grupisati ih unutar
+ <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">.radio</span>.<br>
+<textarea class="primer_ta" rows="5">
+<form>
+<div class="radio">
+  <label><input type="radio">Opcija1</label>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="radio">
+<label><input type="radio">Opcija1</label>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Grupa radio dugmadi se može prikazati vertikalno i horizontalno.<br><br>
+
+<h4><b>Vertikalni prikaz</b></h4>
+<br>
+Podrazumevano grupisanje radio dugmadi je vertikalno pa se ne zahteva navođenje posebnih klasa.
+<textarea class="primer_ta" rows="10" disabled>
+<form>
+<div class="radio">
+  <label><input type="radio"
+  name="naziv_grupe">Opcija1</label>
+</div>
+<div class="radio">
+  <label><input type="radio"
+  name="naziv_grupe">Opcija2</label>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="radio">
+  <label><input type="radio" name="naziv_grupe">Opcija1</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="naziv_grupe">Opcija2</label>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h4><b>Horizontalni prikaz</b></h4>
+<br>
+Horizontalno grupisanje radio dugmadi zahteva navođenje klase <span class="primer_text">.radio-inline</span> na nivou svake 
+labele koja okružuje radio kontrolu. Uz to, potrebno je ukloniti sve <span class="primer_text">&ltdiv&gt</span>
+elemente klase <span class="primer_text">.radio</span>.
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<label class="radio-inline">
+<input type="radio" name="ime_grupe">Opcija1
+</label>
+<label class="radio-inline">
+<input type="radio" name="ime_grupe">Opcija2
+</label>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<label class="radio-inline">
+<input type="radio" name="ime_grupe">Opcija1
+</label>
+<label class="radio-inline">
+<input type="radio" name="ime_grupe">Opcija2
+</label>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+Napraviti formu koja sadrži jednu kontrolu za unos teksta, jedno <span class="primer_text">&lttextarea&gt</span> polje i dva radio
+dugmeta. Obezbediti da svaki od njih ima labelu proizvoljnog sadržaja i da se radio dugmad prikazuju horizontalno.
+</div>

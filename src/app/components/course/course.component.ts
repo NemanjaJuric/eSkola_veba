@@ -25,12 +25,17 @@ export class CourseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd && this.routeService.course != null && this.routeService.lesson != null) {
+        this.initComponent();
+      }
+    });
     this.initComponent();
   }
 
   initComponent() {
-    this.course = this.routeService.course;
     this.getLesson(this.routeService.getCourseRoute());
+    this.course = this.routeService.course;
     this.getExtension(this.course);
     this.getLessonSiblings(this.routeService.lesson, this.routeService.course);
   }

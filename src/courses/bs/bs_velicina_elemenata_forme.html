@@ -1,0 +1,531 @@
+<h1>Veličina elemenata forme</h1>
+<br>
+<h2>Visina elemenata forme</h2>
+Podsetimo se, elementi forme su:
+<span class="primer_text">&lttextarea&gt</span>, <span class="primer_text">&ltselect&gt</span> i <span class="primer_text">&ltinput&gt</span>.
+<br>
+Visina elementa <span class="primer_text">&lttextarea&gt</span> se zadaje brojem redova, tj. vrednošću atributa 
+<span class="primer_text">rows</span> na nivou samog elementa.<br>
+Visina ostalih elemenata je podrazumevano zadata, ali se može menjati upotrebom posebnih klasa. 
+<br>
+<br>
+<h3>Klase <span class="primer_text">.input-lg</span> i <span class="primer_text">.input-sm</span></h3>
+
+Klase <span class="primer_text">.input-lg</span> i <span class="primer_text">.input-sm</span> se zadaju na nivou 
+<span class="primer_text">&ltinput&gt</span> i <span class="primer_text">&ltselect&gt</span> elemenata i zadaju im visinu.
+<br><br>
+<h4><b>Visina <span class="primer_text">&ltinput&gt</span> elementa</b></h4>
+Upotrebom klase <span class="primer_text">.input-lg</span> na nivou <span class="primer_text">&ltinput&gt</span> elementa,
+ dobija se polje najveće visine:
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<div class="form-group">
+      <label for="id1">Polje za unos
+      teksta:</label>
+      <input class="form-control input-lg"
+      id="id1" type="text">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+      <label for="id1">Polje za unos teksta:</label>
+      <input class="form-control input-lg" id="id1" type="text">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Upotrebom klase <span class="primer_text">.input-sm</span>, dobija se polje najmanje visine.
+<textarea class="primer_ta" rows="8" disabled>
+<form>
+<div class="form-group">
+      <label for="id2">Polje za unos teksta:
+      </label>
+      <input class="form-control input-sm"
+      id="id2" type="text">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+      <label for="id2">Polje za unos teksta:</label>
+      <input class="form-control input-sm" id="id2" type="text">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h4><b>Visina <span class="primer_text">&ltselect&gt</span> elementa</b></h4>
+Upotrebom klase <span class="primer_text">.input-lg</span> na nivou <span class="primer_text">&ltselect&gt</span> elementa, 
+dobija se <span class="primer_text">&ltselect&gt</span> polje najveće visine.
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group">
+      <label for="id3">Izbor:</label>
+      <select class="form-control input-lg"
+      id="id3">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+      </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+      <label for="id3">Izbor:</label>
+      <select class="form-control input-lg" id="id3">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Upotrebom klase <span class="primer_text">.input-sm</span>, dobija se <span class="primer_text">&ltselect&gt</span> polje najmanje visine.
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group">
+      <label for="id4">Izbor:</label>
+      <select class="form-control input-sm"
+      id="id4">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+      </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+      <label for="id4">Izbor:</label>
+      <select class="form-control input-sm"
+	id="id4">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Klase <span class="primer_text">.form-group-lg</span> i <span class="primer_text">.form-group-sm</span> </h3>
+Klase <span class="primer_text">.form-group-lg</span> i <span class="primer_text">.form-group-sm</span> 
+takođe zadaju visinu <span class="primer_text">&ltinput&gt</span> i <span class="primer_text">&ltselect&gt</span> elemenata.
+Navode se na nivou <span class="primer_text">&ltdiv&gt</span> elementa koji okružuje <span class="primer_text">&ltinput&gt</span>
+ i <span class="primer_text">&ltselect&gt</span> elemenat.
+<br>
+<br>
+<h4><b>Visina <span class="primer_text">&ltinput&gt</span> elementa</b></h4>
+Upotrebom klase <span class="primer_text">.form-group-lg</span>, dobija se <span class="primer_text">&ltinput&gt</span> polje najveće visine.
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group form-group-lg">
+  <label for="id5">Polje za unos:</label>
+  <input type="text" class="form-control"
+  id="id5">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group form-group-lg">
+  <label for="id5">Polje za unos:</label>
+  <input type="text" class="form-control" id="id5">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Upotrebom klase <span class="primer_text">.form-group-sm</span>, dobija se <span class="primer_text">&ltinput&gt</span> polje najmanje visine.
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group form-group-sm">
+  <label for="id6">Polje za unos:</label>
+  <input type="text" class="form-control"
+  id="id6">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group form-group-sm">
+  <label for="id6">Polje za unos:</label>
+  <input type="text" class="form-control" id="id6">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h4><b>Visina <span class="primer_text">&ltselect&gt</span> elementa</b></h4>
+Upotrebom klase <span class="primer_text">.form-group-lg</span>, dobija se <span class="primer_text">&ltselect&gt</span> polje najveće visine.
+
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group form-group-lg">
+      <label for="id7">Izbor:</label>
+      <select class="form-control"
+      id="id7">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+      </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group form-group-lg">
+      <label for="id7">Izbor:</label>
+      <select class="form-control"
+	id="id7">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Upotrebom klase <span class="primer_text">.form-group-sm</span>, dobija se <span class="primer_text">&ltselect&gt</span> polje najmanje visine.
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group form-group-sm">
+      <label for="id8">Izbor:</label>
+      <select class="form-control"
+      id="id8">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+      </select>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group form-group-sm">
+      <label for="id8">Izbor:</label>
+      <select class="form-control"
+	id="id8">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Širina elemenata forme</h2>
+U lekciji "Elementi forme" detaljno su obrađeni svi elementi forme. Prikaz svakog od elemenata, korišćenjem Bootstrap-a, zahtevao je 
+smeštanje konkretnog elementa u <span class="primer_text">&ltdiv&gt</span> klase <span class="primer_text">.form-group</span>. Upotrebom 
+ove klase, svaki element se prikazuje u širini celog ekrana.
+<br>
+Širina elemenata forme se može smanjiti upotrebom mrežnih klasa:<span class="primer_text">.col-xs-*</span>, <span class="primer_text">.col-sm-*</span>,
+<span class="primer_text">.col-md-*</span> i <span class="primer_text">.col-lg-*</span>, koje su pomenute kod mrežnih sistema.
+<br>
+Zadavanje širine elementa forme se realizuje kada se on ubaci u <span class="primer_text">&ltdiv&gt</span> mrežne klase, a potom taj
+<span class="primer_text">&ltdiv&gt</span> u <span class="primer_text">&ltdiv&gt</span> klase<br>
+ <span class="primer_text">.form-group</span>.
+<br>
+Mrežna klasa na nivou pomenutog <span class="primer_text">&ltdiv&gt</span> elementa, određuje broj kolona kojim će se element prostirati.
+<br>
+<br>
+<h3>Širina <span class="primer_text">&ltinput&gt</span> elementa</h3>
+Sledeći primer prikazuje <span class="primer_text">&ltinput&gt</span> element koji se prostire kroz 3 kolone.
+<textarea class="primer_ta" rows="9" disabled>
+<form>
+<div class="form-group">
+    <div class="col-xs-3">
+       <label for="id9">Polje za unos:</label>
+       <input class="form-control" id="id9"
+       type="text">
+    </div>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+    <div class="col-xs-3">
+      <label for="id9">Polje za unos:</label>
+      <input class="form-control" id="id9"
+	  type="text">
+    </div>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Sledeći primer prikazuje dva <span class="primer_text">&ltinput&gt</span> elementa. Jedan se prostire kroz dve, a drugi kroz tri kolone. 
+Primetimo da se elementi nalaze u istom redu. Razlog tome je što su <span class="primer_text">&ltinput&gt</span> elementi smešteni u okviru istog 
+<span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">.form-group</span>.
+<textarea class="primer_ta" rows="16" disabled>
+<form>
+<div class="form-group">
+    <div class="col-xs-2">
+	  <label for="id10">Polje:
+	  </label>
+	  <input class="form-control"
+	  id="id10" type="text">
+    </div>
+    <div class="col-xs-3">
+	  <label for="id11">Polje:
+	  </label>
+	  <input class="form-control"
+	  id="id11" type="text">
+    </div>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+	<div class="col-xs-2">
+      <label for="id10">Polje:</label>
+      <input class="form-control" id="id10" type="text">
+    </div>
+    <div class="col-xs-3">
+      <label for="id11">Polje:</label>
+      <input class="form-control" id="id11" type="text">
+    </div>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Širina <span class="primer_text">&ltselect&gt</span> elementa</h3>
+Sledeći primer prikazuje <span class="primer_text">&ltselect&gt</span> element koji se prostire kroz 3 kolone.
+<textarea class="primer_ta" rows="12" disabled>
+<form>
+<div class="form-group">
+  <div class="col-xs-3">
+      <label for="id12">Izbor:</label>
+      <select class="form-control"
+      id="id12">
+         <option>1</option>
+         <option>2</option>
+      </select>
+  </div>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <div class="col-xs-3">
+      <label for="id12">Izbor:</label>
+      <select class="form-control"
+	id="id12">
+        <option>1</option>
+        <option>2</option>
+      </select>
+  </div>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Širina <span class="primer_text">&lttextarea&gt</span> elementa</h3>
+Sledeći primer prikazuje element <span class="primer_text">&lttextarea&gt</span> koji se prostire kroz tri kolone.
+<textarea class="primer_ta" rows="10" disabled>
+<form>
+<div class="form-group">
+  <div class="col-xs-3">
+    <label for="id13">Polje:</label>
+    &lttextarea class="form-control" rows="4"
+    id="id13"&gt
+    &lt/textarea&gt
+  </div>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <div class="col-xs-3">
+    <label for="id13">Polje:</label>
+    &lttextarea class="form-control" rows="4"
+    id="id13"&gt
+    &lt/textarea&gt
+  </div>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+Napraviti dva <span class="primer">&ltselect&gt</span> polja u istom redu, bez prikazivanja labela. Obezbediti da se prvi prostire kroz 5 kolona
+a drugi kroz 2 kolone.
+</div>

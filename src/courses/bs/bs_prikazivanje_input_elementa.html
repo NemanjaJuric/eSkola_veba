@@ -1,0 +1,484 @@
+<h1>Prikazivanje <span class="primer_text">&ltinput&gt</span> elementa</h1>
+<br>
+
+<h2>Klasa <span class="primer_text">.form-control-static</span></h2>
+
+Klasa <span class="primer_text">.form-control-static</span> se koristi kada je potrebno dodati neki tekst pored labele u formi.
+Navodi se nad elementom tekstualnog sadržaja 
+(na primer <span class="primer_text">&ltp&gt</span> i <span class="primer_text">&ltdiv&gt</span>) koji stoji uz labelu. Klasu je moguće upotrebiti
+kod svih vrsta formi (vertikalnih, horizontalnih i linijskih). Sledeći primer ilustruje njenu upotrebu kod horizontalne forme. Da biste videli efekat,
+otvorite primer u većem prozoru.
+<textarea class="primer_ta" rows="18" disabled>
+<div class="container">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2"
+    for="adresa">Url:</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+	www.matf.bg.ac.rs</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn
+	btn-success">Idi na adresu</button>
+    </div>
+  </div>
+</form>
+</div>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2"
+	for="adresa">Url:</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">
+	  www.matf.bg.ac.rs</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn
+	  btn-success">Idi na adresu</button>
+    </div>
+  </div>
+</form>
+</div>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+
+
+<h2>Grupisanje oko <span class="primer_text">&ltinput&gt</span> elementa</h2>
+
+Grupisanje omogućava da se <span class="primer_text">&ltinput&gt</span>  
+prikaže sa pomoćnim elementom (tekstom, sličicom ili dugmetom)  pored njega. Da bi se to realizovalo,
+potrebno je taj pomoćni element smestiti u <span class="primer_text">&ltdiv&gt</span> klase 
+<span class="primer_text">.input-group</span> zajedno sa <span class="primer_text">&ltinput&gt</span> elementom.
+<br>
+<br>
+U slučaju da se <span class="primer_text">&ltinput&gt</span> grupiše sa tekstom ili sličicom, potrebno je još navesti 
+klasu <span class="primer_text">.input-group-addon</span> na nivou teksta ili sličice.<br>
+U slučaju da se grupiše sa dugmetom, potrebno je navesti 
+klasu <span class="primer_text">.input-group-btn</span> na nivou <span class="primer_text">&ltdiv&gt</span>
+elementa koji okružuje dugme.
+<br>
+<br>
+<h3>Grupisanje sa sličicom</h3>
+<textarea class="primer_ta" rows="9" disabled>
+<form>
+<div class="input-group">
+  <span class="input-group-addon">
+  <span class="glyphicon glyphicon-user"></span>
+  </span>
+  <input type="email" class="form-control"
+  placeholder="Email">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="input-group">
+  <span class="input-group-addon">
+  <span class="glyphicon glyphicon-user"></span>
+  </span>
+  <input type="email" class="form-control"
+  placeholder="Email">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Grupisanje sa tekstom</h3>
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="input-group">
+  <span class="input-group-addon">Text</span>
+  <input type="text" class="form-control"
+   placeholder="Dodatne informacije">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="input-group">
+  <span class="input-group-addon">Text</span>
+  <input type="text" class="form-control"
+   placeholder="Dodatne informacije">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h3>Grupisanje sa dugmetom</h3>
+<textarea class="primer_ta" rows="12" disabled>
+<form>
+<div class="input-group">
+ <input type="text" class="form-control"
+ placeholder="Traži">
+ <div class="input-group-btn">
+   <button type="button" class="btn btn-info">
+   <span class="glyphicon glyphicon-search">
+   </span>
+   </button>
+ </div>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="input-group">
+ <input type="text" class="form-control"
+ placeholder="Traži">
+ <div class="input-group-btn">
+ <button type="button" class="btn btn-info">
+ <span class="glyphicon glyphicon-search"></span>
+ </button>
+ </div>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<h2>Stanja <span class="primer_text">&ltinput&gt</span> elementa </h2>
+ Element <span class="primer_text">&ltinput&gt</span> se može pojaviti u različitim stanjima.
+ <br>
+ <br>
+<h3>Stanje fokusa</h3>
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="id1">Email:</label>
+  <input type="email" class="form-control"
+  id="id1" placeholder="Unesite email">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="id1">Email:</label>
+  <input type="email" class="form-control"
+  id="id1" placeholder="Unesite email">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Klikom na <span class="primer_text">&ltinput&gt</span> element, on dobija fokus.
+ Ovo stanje je podrazumevano.
+<br>
+<br>
+<h3>Stanje <span class="primer_text">disabled</span> </h3>
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="id2">Email:</label>
+  <input type="email" class="form-control"
+  id="id2" placeholder="Unesite email" disabled>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group">
+  <label for="id2">Email:</label>
+  <input type="email" class="form-control"
+  id="id2" placeholder="Unesite email" disabled>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Stanje <span class="primer_text">disabled</span> onemogućava unos.
+<br>
+<br>
+<h3>Stanje <span class="primer_text">readonly</span> </h3>
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group">
+  <label for="id3">Email:</label>
+  <input type="email" class="form-control"
+  id="id3" placeholder="Unesite email" readonly>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<form>
+<div class="form-group">
+  <label for="id3">Email:</label>
+  <input type="email" class="form-control"
+  id="id3" placeholder="Unesite email" readonly>
+</div>
+</form>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Stanje <span class="primer_text">readonly</span> onemogućava unos a dopušta samo čitanje iz <span class="primer_text">&ltinput&gt</span>
+elementa.
+<br>
+<br>
+<h2>Kontekstualne klase</h2>
+Bootstrap obezbezbeđuje 3 kontekstualne klase <span class="primer_text">&ltinput&gt</span>
+elementa:<span class="primer_text">.has-success</span>, <span class="primer_text">.has-warning</span> i 
+<span class="primer_text">.has-error</span>. Kontekstualne klase se navode na nivou <span class="primer_text">&ltdiv&gt</span>
+ elementa koji okružuje element <span class="primer_text">&ltinput&gt</span>. <br><br>
+<ul>
+<li><span class="primer_text">.has-success</span></li>
+<textarea class="primer_ta" rows="7" disabled>
+<form>
+<div class="form-group has-success">
+    <label for="id4">Polje za unos</label>
+    <input type="text" class="form-control"
+    id="id4">
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group has-success">
+    <label for="id4">Polje za unos</label>
+    <input type="text" class="form-control" id="id4">
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+Prethodni unos je moguće poboljšati dodavanjem odgovarajuće sličice na njegovom kraju. Sličica se
+može dodati upotrebom <span class="primer_text">&ltspan&gt</span> elementa klase <span class="primer_text">.glyphicon</span>,
+ objašnjene u nekoj od prethodnih lekcija. Osim toga, potrebno je na nivou sličice
+navesti klasu <br><span class="primer_text">.form-control-feedback</span>, a na nivou okružujućeg 
+<span class="primer_text">&ltdiv&gt</span> elementa, navesti klasu <span class="primer_text">.has-feedback</span>.
+
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group has-success 
+has-feedback">
+  <label for="id5">Polje za unos</label>
+  <input type="text" class="form-control"
+  id="id5">
+  <span class="glyphicon glyphicon-ok 
+  form-control-feedback">
+  </span>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group has-success has-feedback">
+    <label for="id5">Polje za unos</label>
+    <input type="text" class="form-control" id="id5">
+    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li><span class="primer_text">.has-warning</span></li>
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group has-warning
+has-feedback">
+  <label for="id6">Polje za unos</label>
+  <input type="text" class="form-control"
+  id="id6">
+  <span class="glyphicon glyphicon-warning-sign
+  form-control-feedback">
+  </span>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group has-warning has-feedback">
+    <label for="id6">Polje za unos</label>
+    <input type="text" class="form-control" id="id6">
+    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+<li><span class="primer_text">.has-error</span></li>
+<textarea class="primer_ta" rows="11" disabled>
+<form>
+<div class="form-group has-error
+has-feedback">
+  <label for="id7">Polje za unos</label>
+  <input type="text" class="form-control"
+  id="id7">
+  <span class="glyphicon glyphicon-remove
+  form-control-feedback">
+  </span>
+</div>
+</form>
+</textarea>
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form>
+<div class="form-group has-error has-feedback">
+    <label for="id7">Polje za unos</label>
+    <input type="text" class="form-control" id="id7">
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+</div>
+</form>
+</body>
+</html>
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+Napraviti formu koja sadrži <span class="primer_text">&ltinput&gt</span> za unos šifre. Obezbediti da se
+ <span class="primer_text">&ltinput&gt</span> grupiše sa tekstom "šifra".
+</div>

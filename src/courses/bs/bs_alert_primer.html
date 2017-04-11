@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+ </head>
+<body>
+<mark><h2 style="text-align:center;">Rezime</h2></mark>
+<h3>Polje alert bez mogućnosti zatvaranja</h3>
+<div class="alert">
+Ovo je alert polje koje izgleda kao običan &ltdiv&gt element.
+</div>
+<br>
+<h3>Polje alert koje se može zatvoriti</h3>
+<div class="alert">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ovo alert polje možete zatvoriti. Da biste zatvorili, kliknite na dugme u desnom uglu.
+</div>
+<br>
+Zatvaranje alert polja sprovodi se na dva načina:
+<ul>
+<li>upotrebom data-dismiss="alert" atributa</li>
+<li>ili pomoću jQuery biblioteke . </li>
+
+<br>
+<h3>Kontekstualne klase</h3>
+<ul>
+<li>
+Klasa .alert-success
+</li>
+<div class="alert alert-success">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ovo alert polje se koristi za označavanje uspešne ili pozitivne akcije.
+</div>
+<li>
+Klasa .alert-info
+</li>
+<div class="alert alert-info">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ovo alert polje se koristi ukaže na neutralnu promenu ili akciju.
+</div>
+<li>
+Klasa .alert-warning
+</li>
+<div class="alert alert-warning">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ovo alert polje se koristi za poruke upozorenja.
+</div>
+<li>
+Klasa .alert-danger
+</li>
+<div class="alert alert-danger">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ovo alert polje se koristi da ukaže na negativne ili opasne akcije.
+</div>
+</ul>
+<h3>Klase .fade i .in</h3>
+<div class="alert alert-success fade in">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ove klase animiraju zatvaranje alert polja. Koriste se istovremeno.
+</div>
+<br>
+<h3>Klasa .alert-link</h3>
+<div class="alert alert-success">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+Ova klasa se navodi na nivou linka koji se nalazi u alert polju. Služi da oboji link u skladu sa bojom alert polja.
+<a href="http://www.matf.bg.ac.rs" class="alert-link">Ovo je link do stranice Matematičkog fakulteta.</a>
+</div>
+<br>
+<h3>Alert metodi</h3>
+<ul>
+<li>.alert("close")</li>
+</ul>
+<br>
+<h3>Alert događaji</h3>
+<ul>
+<li>close.bs.alert</li>
+<li>closed.bs.alert</li>
+</ul>
+<br>
+<br>
+</body>
+</html>

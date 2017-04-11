@@ -1,0 +1,103 @@
+<h1>Jumbotron</h1>
+Jumbotron je klasa koja se dodeljuje <span class="primer_text">&ltdiv&gt</span> elementu kada je potrebno istaći sadržaj 
+unutar njega. U daljem tekstu, <span class="primer_text">&ltdiv&gt</span> klase <span class="primer_text">.jumbotron</span> oslovljavaćemo
+samo sa <span class="primer_text">jumbotron</span>.<br>
+Jumbotron se prikazuje kao velika površina sive boje sa zaobljenim ivicama. 
+Unutar njega je moguće staviti bilo koji validan HTML element i klasu iz Bootstrap-a, a 
+tekst koji se u njemu nalazi je uvećan u odnosu na spoljašnji.<br>
+<br>
+<br>
+<h2> Jumbotron unutar container-a </h2>
+<textarea class="primer_ta" rows="7">
+<div class="container">
+<div class="jumbotron">
+<h1>Jumbotron</h1>
+ Ukoliko se jumbotron stavi unutar container-a, neće  se prostirati celom širinom ekrana.
+</div>
+</div>
+</textarea><br> 
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+ <body>
+<div class="container">
+<div class="jumbotron">
+<h1>Jumbotron</h1>
+ Ukoliko se jumbotron stavi unutar container-a, neće  se prostirati celom širinom ekrana.
+</div>
+</div>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h2>Container unutar jumbotron-a </h2>
+<textarea class="primer_ta" rows="7">
+<div class="jumbotron">
+<div class="container">
+<h1>Jumbotron</h1>
+Ukoliko se container stavi unutar jumbotron-a, jumbotron će se prostirati celom širinom ekrana.
+</div>
+</div>
+</textarea><br> 
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+ <body>
+<div class="jumbotron">
+<div class="container">
+<h1>Jumbotron</h1>
+ Ukoliko se container stavi unutar jumbotron-a, jumbotron će se prostirati celom širinom ekrana.
+</div>
+</div>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>  
+<br>
+<br>
+<h2> Jumbotron bez container-a </h2>
+<textarea class="primer_ta" rows="5">
+<div class="jumbotron">
+<h1>Jumbotron</h1>
+ Ukoliko je jumbotron bez container-a, tada će se prostirati celom širinom ekrana.
+</div>
+</textarea> 
+<textarea class="primer_ta" style="display:none;">
+<!DOCTYPE html>
+<html>
+<head>  
+<title>Bootstrap</title> 
+<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ </head>
+ <body>
+<div class="jumbotron">
+<h1>Jumbotron</h1>
+ Ukoliko je jumbotron bez container-a, tada će se prostirati celom širinom ekrana.
+</div>
+</body>
+</html> 
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+<b>Zadatak:</b> 
+Napraviti jumbotron koji se neće prostirati celom širinom ekrana. Unutar njega napisati tekst po izboru.
+</div>
