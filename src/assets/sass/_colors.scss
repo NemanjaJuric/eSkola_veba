@@ -13,6 +13,7 @@ $sass-primary: #cf649a;
 $canvas-primary: #009688;
 $json-primary: #607d8b;
 $about-primary: #00a961;
+$java-primary: #E65100;
 $web-center-primary: #37474F;
 
 $material-dark-gray: #37474F;
@@ -126,6 +127,10 @@ $android-official: #a2c53d;
     background-color: $veb-primary !important;
 }
 
+.bkg-java{
+    background-color: $java-primary !important;
+}
+
 .bkg-ts{
     background-color: $ts-primary !important;
 }
@@ -198,16 +203,16 @@ $android-official: #a2c53d;
     color: $sass-primary;
 }
 
-.hover-canvas:hover{
-    color: $canvas-primary;
-}
-
 .hover-json:hover{
     color: $json-primary;
 }
 
 .hover-veb:hover{
     color: $veb-primary;
+}
+
+.hover-java:hover{
+    color: $java-primary;
 }
 
 .trans-md{

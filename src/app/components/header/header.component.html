@@ -5,7 +5,7 @@
             <h1 class="display-4 m-a-1" *ngIf="pageUrl === 'home'">eŠkola veba</h1>
             <h1 class="display-1 m-a-1" *ngIf="pageUrl === 'about'"><i class="material-icons md-192">group</i></h1>
             <h1 class="display-4 m-a-1" *ngIf="pageUrl === 'about'">O nama</h1>
-            <h1 class="display-1 m-a-1" *ngIf="pageUrl != 'home' || pageUrl != 'about'">{{logo}}</h1>
+            <h1 class="display-1 m-a-1" *ngIf="pageUrl != 'home' || pageUrl != 'about'" [innerHTML]="logo"></h1>
             <h1 class="display-2 m-a-1" *ngIf="pageUrl != 'home' || pageUrl != 'about'">{{heading}}</h1>
         </div>
     </div>

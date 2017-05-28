@@ -23,7 +23,7 @@
 			<div class="card text-xs-center course-card" [ngClass]="'hover-' + course.id|lowercase">
 				<div class="card-block">
 					<blockquote class="card-blockquote">
-						<h1 class="display-2 font-weight-bold">{{course.logo}}</h1>
+						<h1 class="display-2 font-weight-bold" [innerHTML]="course.logo"></h1>
 						<br>
 						<br>
 						<h2 class="h2">{{course.name}}</h2>

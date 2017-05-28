@@ -2,12 +2,19 @@
     {
         "name": "HTML",
         "id": "html",
-        "logo": "< >",
+        "logo": "<i class='fa fa-html5' aria-hidden='true'></i>",
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
-        "detailsText": "Detalji o HTML-u",
+        "detailsText": "Kurs je u pripremi.",
         "lessons": [
+            {
+                "name": "Uvod u HTML",
+                "url": "html_uvod",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
             {
                 "name": "Linkovi",
                 "url": "html_linkovi",
@@ -119,7 +126,7 @@
     {
         "name": "CSS",
         "id": "css",
-        "logo": "{ }",
+        "logo": "<i class='fa fa-css3' aria-hidden='true'></i>",
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
@@ -1144,7 +1151,7 @@
     {
         "name": "PHP",
         "id": "php",
-        "logo": "<?>",
+        "logo": "P",
         "type": "course",
         "lang": "application/x-httpd-php",
         "displayLang": "PHP",
@@ -1239,6 +1246,24 @@
                 "url": "veb_uvod",
                 "type": "lesson",
                 "parentCourse": "veb",
+                "sublessons": null
+            }
+        ]
+    },
+    {
+        "name": "Java",
+        "id": "java",
+        "logo": "<i class='fa fa-coffee' aria-hidden='true'></i>",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "U pripremi",
+        "lessons": [
+            {
+                "name": "Interfejsi u Javi",
+                "url": "java_uvod",
+                "type": "lesson",
+                "parentCourse": "java",
                 "sublessons": null
             }
         ]
