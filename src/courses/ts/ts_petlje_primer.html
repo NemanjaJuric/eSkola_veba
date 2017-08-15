@@ -1,0 +1,26 @@
+﻿Object.prototype.objCustom = function() {};
+Array.prototype.arrCustom = function() {};
+ 
+ let s1: string = 'Ako se koristi samo for...in dobija se: ';
+ let s2: string = 'Ako se koristi for...in uz uslov da te osobine ne smeju da budu nasleđene dobija se: ';
+ let s3: string = 'Ako se koristi samo for...of dobija se: ';
+ 
+ let niz = [3, 5, 7]; niz.foo = 'hello';
+ for ( let i in niz) 
+ { 
+ s1 = s1 + i + ', '; 
+ } 
+ 
+ for (let i in niz) 
+ { 
+ if (iterable.hasOwnProperty(i)) { s2 = s2 + i +', '; } 
+ } 
+ 
+ for (let i of niz) 
+ { 
+ s3 = s3 + i +', '; 
+ } 
+ 
+ alert(s1); 
+ alert(s2); 
+ alert(s3);

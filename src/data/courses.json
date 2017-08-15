@@ -1201,6 +1201,41 @@
                 "type": "lesson",
                 "parentCourse": "ts",
                 "sublessons": null
+            },
+            {
+                "name": "Petlje u jeziku TypeScript",
+                "url": "ts_petlje",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Funkcije u jeziku TypeScript",
+                "url": "ts_funkcije",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Imenski prostori i moduli",
+                "url": "ts_imenski_prostori_i_moduli",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Objektno orijentisano programiranje",
+                "url": "ts_objektno_orijentisano_programiranje",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejsi",
+                "url": "ts_interfejsi",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
             }
         ]
     },

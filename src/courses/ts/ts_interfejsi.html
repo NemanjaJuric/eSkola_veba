@@ -1,0 +1,369 @@
+﻿<h1>Interfejsi</h1>
+Interfejs je programska struktura koja pruža mehanizam da se definiše koja polja i metode objekat mora da implementira.<!-- Interfejs je programska struktura koja definiše svojstva koja objekat mora da poseduje  /programu/ /da obejktu nametne (naredi, definišiše) koja svojstva mora da poseduje/ -->
+On sadrži deklaracije polja i metoda ali ne i njihove implementacije. Na ovaj način moguće je deklarisati tip promeniljive koji je opisan u interfejsu. Ako objekat poseduje sva svojstva kao što su definisana u interfejsu onda objekat implementira interfejs. Interfejs se deklariše korišćenjem ključne reči <b>interface</b>. Sintaksa za deklaraciju i definiciju interfejsa je:
+<xmp class = "primer_ta">  
+interface ime_interfejsa
+{ 
+    ime_polja_1: tip_polja_1;
+    ...
+    ime_polja_n: tip_polja_n;
+
+    deklaracija_metoda_1;
+    ...
+    deklaracija_metoda_n;
+}
+ </xmp>
+ Kako to izgleda na primeru:
+ <xmp class = "primer_ta"> 
+interface Film
+{ 
+    ime: string;
+    žanr: string;
+    dužina: number;
+    sinhronizovano: boolean;
+
+    uvodna_špica(): void; // drugi način da se deklariše metod:  uvodna_špica:() => void;
+}
+
+let dobar_film: Film = {
+
+    ime: 'Poslednji Samuraj',
+    žanr: 'Istorijski',
+    dužina: 154,
+    sinhronizovano: true,
+
+    uvodna_špica(): void
+    { 
+        alert('Sixteenth century presents movie from awarderd director Edward Zwick.');
+    }
+}
+
+
+dobar_film.uvodna_špica();
+ </xmp>
+U ovom primeru objekata <b>dobar_film</b> implementira interfejs <b>Film</b>. Pokušajem dodavanje još nekog polja ili metoda (npr. polja <b>zarada</b>) u objekat <b>dobar_film</b> kojmpajler bi izbacio poruku:
+<div class = "napomena">Type '{ ime: string; žanr: string; dužina: number; sinhronizovano: true; zarada: any; uvodna_špica(): v...' is not assignable to type 'Film'.<br> Object literal may only specify known properties, and 'zarada' does not exist in type 'Film'.
+<br><br>Svaki objekat koji implementira interfejs mora imati isti broja polja i metoda  kao interfejs. Deklaracije njihovih polja i metode moraju da se poklapaju (to podrazumeva i ista imena). 
+</div>
+Korišćenjem znaka <span class = "primer_text">?</span> u interfejsu  označava se da je polje ili metod opciono tj. da ga objekt može i ne mora sadržati. Dodeljivanjem modifikatora <b>readonly</b> polju interfejsa naglašava se da se vrednost tog polja ne može menjati nakon kreiranja objekta. 
+<xmp class = "primer_ta">  
+interface Telefon
+{ 
+    readonly model: string;
+    readonly kompanija: string;
+    težina: number;
+    zemlja_porekla ?: string;
+
+    zvono: () => void;
+
+    govorna_pošta?: () => void ;
+}
+
+let telefon_1: Telefon = {
+
+    model: 'Nexus5',
+    kompanija: 'LG',
+    težina: 103,
+    zemlja_porekla: 'Republika Južna Koreja',
+
+    zvono(): void
+        {
+            alert( ' Habataitara modoranai to itte\n Mezashita no wa aoi aoi ano sora\n\n "Kanashimi" wa mada oboerarezu\n Setsunasa wa ima tsukami hajimeta\n "Anata" e to daku kono kanjou mo Ima\n "kotoba"  ni kawatte iku ');
+        },
+
+    govorna_pošta (): void
+    {
+        alert('Molmo Vas ostavite poruku posle zvučnog signala. Tuturutu.....');
+    }
+}
+
+
+let telefon_2: Telefon = {
+
+    model: 'Iphone100',
+    kompanija: 'Apple',
+    težina: 5,
+
+    zvono(): void {
+        alert('Come on over in my direction\n So thankful for that, its such a blessin, yeah\n Turn every situation into Heaven, yeah\n(Oh, you are...)\n My sunrise on the darkest day\n Got me feelin some kind of way');
+        }
+}
+
+telefon_1.zvono();
+
+telefon_1.težina = 187;
+
+alert(telefon_1.težina);
+
+telefon_2.zvono();
+</xmp>
+U ovom primeru objekti <b>telefon_1</b> i <b>telefon_2</b> imeplementiraju interfejs <b>Telefon</b>. <br> Polje <b>zemlja_porekla</b> i metod <b>govorna_pošta</b> su opcioni i zato jedan objekat ih sadrži a drugi ne <br>( inače bi oba objekta morala da sadrže isti broj polja i metoda jer implementiraju isti interfejs).
+Pri pokušaju  izmeni vrednosti polja <b>model</b> i <b>kompanija</b> objekta  komprajler vraća poruku:<br><br><span class = "primer_text"> Cannot assign to 'model' because it is a constant or a read-only property </span>.
+<br><br>
+<b>TIPOVI FUNKCIJA</b>
+<br><br>
+Pored opisa svojstva objekta  interfejsi takođe mogu da opišu tipove funkcije. Da bi se opisao tip funkcije potrebno je da interfejs sadrži potpis funkcije. Sintaksa je:
+<xmp class = "primer_ta">  
+interface ime_interfejsa
+{ 
+    (ime_par_1:tip_par_1,...,ime_par_n:tip_par_n):tip_povratne_vrednost
+}
+ </xmp>
+ Kada se definiš interfejs se koristi na isti način kao što se koristili na objketima.
+ <xmp class = "primer_ta">  
+interface Funkcija_pretrage
+{ 
+    (izvor_pretrage:string, predmet_pretrage:string):boolean
+}
+
+let moja_funkcija_pretrage: Funkcija_pretrage = function (izvor_pretrage:string, predmet_pretrage:string ):boolean
+                            { 
+                           let result = izvor_pretrage.search(predmet_pretrage);
+                           return result > -1;
+                            }
+                            
+alert(moja_funkcija_pretrage('Srbija je jedan od najvećih izvoznika malina u svetu ','malina'));
+ </xmp>
+ U ovom primeru funkcija <b>moja_funkcija_pretrage</b> implementira interfejs <b>tip_funkcije</b> tj. tip funkcije je <b>tip_funkcije</b>. Potpis funkcije mora da odgovara potpisu funkcije definisane u interfejsu. Imena parametara ne moraju da budu ista.
+ <br><br>
+<b>INTERFEJS I NIZOVI<!-- Indeksibilni tipovi --></b>
+<br><br>
+Pomoću interfejsa moguće je definisati vrstu indeksa i tip vrednosti koju niz čuva. Indeks može biti broj ili niska karaktera.<!-- Indeksibilni tipovi --> Sintaksa je:
+<xmp class = "primer_ta">  
+  interface ime_interfejsa
+{ 
+    [indeks: number_ili_string]: tip_vrednosti_koju_čuva_niz;
+}
+ </xmp>
+Da bi se naznačilo da je polje interfejsa niz koriste se <span class = "primer_text"> []</span>. Unutar koji se navodi ime i tip indeksa.
+
+<xmp class = "primer_ta">  
+interface niz_čiji_su_indeksi_stringovi
+{ 
+   [indeks: string]: number; 
+}
+
+interface niz_čiji_su_indeksi_brojevi
+{ 
+   [indeks: number]: number; 
+}
+
+let Ocene: niz_čiji_su_indeksi_stringovi = {} ;
+
+let Ocene_1: niz_čiji_su_indeksi_brojevi = {} ;
+
+Ocene['Matematika'] = 5;
+Ocene['Istorija'] = 5;
+Ocene['Ruski'] = 4;
+Ocene['Srpski'] = 4;
+
+Ocene_1[0] = 5;
+Ocene_1[1] = 5;
+Ocene_1[2] = 4;
+Ocene_1[3] = 4;
+
+for (let i in Ocene){
+	alert(i + " = " + Ocene[i]);
+}
+
+for (let i = 0; i < 4; i++)
+{ 
+   alert('Vrednost elementa niza Ocene_1 sa indeskom '+ i + " je " + Ocene_1[i]); 
+}
+
+alert(typeof Ocene);
+ </xmp>
+U ovom primeru definisana su dva interfejsa. Interfejs <b>niz_čiji_su_indeksi_stringovi</b> opsiuje niz čiji indeksi moraju biti stringovi. Interfejs <b>niz_čiji_su_indeksi_brojevi</b> opisuje niz čiji indeksi moraju biti brojevi.
+Pošto se u deklaraciji navede da niz implementira interfejs potrebno je inicijalizovati niz pomoću <span class = "primer_text"> {}</span>  jer se radi o <b>objektu</b> (u programskom jeziku TypeScript nizovi su objekti).
+ <div class = "napomena">Upotreba for-in petlje je jedan od način da se prođe kroz niz čiji indeksi su stringovi. Nizovi sa string indeksima mogu se upotrebiti za implementacij heš mapa i rečnika.</div>
+ <h3>Nasleđivanje</h3>
+ Kao i kod klasa interfejs može da nasledi drugi interfjes. Za razliku od klasa interfejs može da nasledi više drugih interfejsa. Da bi jedan interfesj nasledio drugi koristi se ključna reč <b>extends</b>. Sintaksa je:
+ <xmp class = "primer_ta">  
+  interface ime_interfejsa extends ime_interfejsa_koji_se_nasleđuje
+{ 
+   
+}
+ </xmp>
+ Ako jedan interfejs nasleđuje više interfejsa onda je sintaksa:
+ <xmp class = "primer_ta"> 
+   interface ime_interfejsa extends ime_int_1, ime_int_2, .... , ime_int_n
+{ 
+   
+}
+ </xmp>
+ U narednom primeru može se videti primer nasleđivanja interfejsa.
+  <xmp class = "primer_ta"> 
+interface Sport
+{
+    ime_tima: string;
+    broj_igrača: number;
+
+}
+
+interface Klub
+{ 
+
+    vrednost: number;
+    marketing: boolean;
+
+}
+interface Fudbal extends Sport, Klub
+{ 
+    ime_golmana: string;
+    učešće_u_ligi_šampiona: boolean;
+
+    himna: () => void;
+
+} 
+
+let moj_sport: Sport = {
+
+    ime_tima: 'najbolji tim',
+    broj_igrača: 3
+}
+
+
+let engleski_klub: Fudbal = {
+    
+    ime_golmana: 'Jirži Dudek',
+    ime_tima: 'Liverpul',
+    broj_igrača: 22,
+    vrednost: 250000000,
+    učešće_u_ligi_šampiona: true,
+    marketing: false,
+
+    himna () : void
+        {
+        alert(' When you walk through a storm, hold your head up high \n And dont be afraid of the dark\n At the end of the storm, theres a golden sky\n And the sweet, silver song of a lark');
+       }
+}
+
+let Freestyler:Klub = {
+
+    vrednost: 100000,
+    marketing: true
+}
+
+engleski_klub.himna();
+ </xmp>
+ Interfejs <b>Fudbal</b> nasleđuje interfejse <b>Sport</b> i <b>Klub</b>. Takođe u njemu su deklarisana polja <b>ime_golmana</b>, <b>učešće_u_ligi_šampiona</b> i metod <b>himna</b>. Zbog toga objekata <b>engleski_klub</b> koji implementira interfejs <b>Fudbal</b> sadrži sva polja i metode deklarisana u ova 3 interfejsa.
+ Za razliku od njega preostala dva objekta sadrže samo polja koja su deklarisana u interfejsima koje implementiraju.
+ <br><br>
+ Interfejs može da nasleđuje i klase.
+ <xmp class = "primer_ta">  
+class Primer_klase
+ {
+    polje_1: string;
+    polje_2: string;
+    polje_3: number;
+
+    constructor(polje_1: string, polje_3: number)
+    { 
+        this.polje_1 = polje_1;
+        this.polje_3 = polje_3;
+    }
+
+    metod_1(): void
+    { 
+        alert('Ovo je metod klase Primer_klase.');
+    }
+
+}
+
+interface Primer_interfejsa extends Primer_klase
+{ 
+
+    polje_interfejsa: boolean;
+
+}
+
+let objekat_klase = new Primer_klase('Vrednsot polja_1', 1);
+
+let objekat_interfejsa: Primer_interfejsa = {
+
+    polje_1: 'Hello world!',
+    polje_2: 'Hello wolrd for second time.',
+    polje_3: 5,
+    polje_interfejsa: true,
+
+    metod_1()
+    { 
+        alert('Ovo je metoda objekta koji implementira interfejs Primer_interfejsa.');
+    }
+}
+
+objekat_klase.metod_1();
+
+objekat_interfejsa.metod_1();
+ </xmp>
+ Interfejs nasleđuje sva svojstva klase ali ne i njihove implementacije. U ovom primeru interfejs <b>Primer_interfejsa</b> je nasledio od klase <b>Primer_klase</b> metod <b>metod_1</b> tj. njegov deklaraciju ne i implementaciju.
+ Zbog toga se pozivi metoda objekata <b>objekat_klase</b> i <b>objekat_interfejsa</b> razlikuju. Jedan objekat pripada klasi a drugi implementira interfejs.
+  <br><br>Klasa takođe može da implementira interfejs.
+   <h3>Implementacija interfejsa od strane klase</h3>
+ Kao što eksplicitno kreirani objekti mogu da implementiraju interfejs tako  mogu i objekti koji pripadaju određenoj klasi. Na početku lekcije je izloženo da objekat implementira interfejs ako strogo sadrži deklaracije svojstava kao u interfejsu.
+ Na isti način klasa implementira interfejs ako im se deklaracije svojstava poklapaju. Da bi klasa implementirala interfejs koristi se ključna reč <b>implements</b>.<br><br> Sintaksa je:
+ <xmp class = "primer_ta">  
+  class ime_klase implements ime_interfejsa
+{ 
+   
+}
+ </xmp>
+  <xmp class = "primer_ta">  
+ interface Video_igre
+{
+    ime: string;
+    izdavač: string;
+    razvojni_studio: string;
+    žanr: string;
+    budzet: number;
+    zarada: number;
+
+
+}
+
+class Zabava implements Video_igre
+{ 
+
+    ime: string;
+    izdavač: string;
+    razvojni_studio: string;
+    žanr: string;
+    budzet: number;
+    zarada: number;
+
+    constructor(ime: string, razvojni_studio: string, žanr: string)
+    { 
+        this.ime = ime;
+        this.razvojni_studio = razvojni_studio;
+        this.žanr = žanr;
+    }
+}
+
+
+let strategija = new Zabava('Rome Total War', 'Creative Assembly','Strategija');
+
+let strategija_1: Video_igre = {
+
+    ime: 'Warcraft 3: Frozen Throne',
+    izdavač: 'Blizzard Entertaiment',
+    razvojni_studio:  'Blizzard Entertaiment',
+    žanr: 'Real-time strategija',
+    budzet: 5000000,
+    zarada: 143000000,
+}
+
+alert(strategija.ime);
+
+alert(strategija_1.ime);
+</xmp>
+Klasa <b>Zabava</b> implementira interfejs <b>Video_igre</b>. Ova klasa implementira sva svojstva interfejsa jedino svojstvo koje ne podleže ovom pravilu je konstruktor klase (konstruktor je statičko svojstvo klase)! 
+ <div class = "zadatak"><b>Zadatak9:</b><br>
+a) Napisati interfejs <b>Automobil</b> koja sadrži polja <b>model</b>, <b>proizvоđač</b>, <b>serijski_broj_motora</b>, <b>registracija</b>  i metod <b>srednja brzina</b>. 
+Napraviti objekat koji implementira interfejs <b>Automobil</b>. Prikazati svojstva objekta kao vid provera da li je zadatak dobro urađen.
+<br><br>
+b) Napisati interfejse <b>Nebesko_telo</b> i <b>Planeta</b>. Interfjes <b>Planeta</b> nasleđuje interfejs <b>Nebesko_telo</b> koji sadrži polja <b>ime</b>, <b>masa</b>, <b>poljuprečnik</b> i metod <b>sila_gravitacije</b>.
+Interfjes <b>Planeta</b> sadrži polja <b>tip_planete</b>,<b>sistem</b> i <b>pogodna_za_ljudski_život</b>. Metod <b>sila_gravitacije</b> ispisuje silu gravitacije nebskog tela. Napraviti objekte koji implementiraju ova dva interfejsa i testirati.
+<br><br>
+c) Napisati interfejs <b>Piramida</b> i klasu <b>Pravilna_četvorostrana_piramida</b> koja ga implemenira. Interfejs mora da sadrži deklaracije polja koja opisuju dužinu stranice i ivice.
+ Interfejs takođe sadrži deklaracije metoda koje računaju površinu, zapreminu i visinu piramide. Testirati nad obejktima klase i interfejsa pozivima njihovih metoda.
+</div>

@@ -1,0 +1,460 @@
+﻿<h1>Funkcije</h1>
+<br> 
+Funkcija predstavlja blok koda koji je logički organizovan tako da vrši neki zadatak. Jednom kada se definiše može se više puta pozivati što kôd čini ponovo upotrebljvim. Funkcije igraju bitnu ulogu u programiranju što uključuje i TypeScript.
+One doprinose modularnosti programa i čine program preglednim i lakšim za održavanje. <br><br> Sintaksa zdeklaracije i definicije funkcije je:
+<xmp class = "primer_ta">  
+ function Ime_Funkcije (parametar_1:tip_parametra_1, parametar_2:tip_parametra_2, ... , parametar_n:tip_parametra_n):tip_povratne_vrednosti
+   {
+   //iskazi
+   
+   return povratna_vrednost;
+   }
+ </xmp>
+ <ul style="list-style-type:circle">
+  <li>Da bi deklarisali funkciju koristi se ključna reč <b>function</b></li>
+  <li>Deklaracija funkcije predstavlja <!--kôd ne može da stane -->:<span class = "primer_text"> function Ime_Funkcije (...):tip_povratne_vrednosti </span><br> dok ostatak tj. blok koda predstavlja definiciju ili telo funkcije (koristi se još termin implementacija).</li>
+  <li><span class = "primer_text">Ime_Funkcije</span> predstavlja ime koje želimo da funkcija ima.</li>
+  <li>Promenljive <span class = "primer_text">parametar_1, ..., parametar_n </span>  su promenljive koje se koriste u telu funkcije i predstavljaju vrednosti koje se prosleđuju funkciji pri njenom pozivu.</li>
+  <li>Vrednost koju funkcija vraća posle poziva naziva se <span class = "primer_text">povratna vrednost</span>.</li>
+  <li>Ključna reč <b>return</b> se koristi kako bi naznačili funkciji koja vrednost predstavlja povratnu vrednost. Ako funkcija nema povratnu vrednost onda se ne koristi <b>return</b> a <span class = "primer_text">tip_povratne_vrednosti</span> je void.</li>
+  <li>Poziv funkcije <span class = "primer_text">Ime_Funkcije</span> predstavlja <span class = "primer_text">Ime_Funkcije(arg_1,arg_2, ... arg_n)</span></li>
+</ul> 
+ 
+ <div class = "napomena">Promenljive u deklaraciji funkcije se nazivaju parametri. Promenljive koje se prosleđuju kao vrednosti funkcije pri njenom pozivu nazivaju se argumenti. Potpis funkcije definiše ulaz i izlaz funkcije ili metoda. On sadrži tipove parametara i povratne vrednosti<!--Može da uključuje povratnu vrednost, tip povratne vrednosti, parametre i njihovi tipovi-->.</div>
+ 
+ Pri deklaraciji funkcije moguće je izostaviti <span class = "primer_text">tip_parametra</span> i <span class = "primer_text">tip_povratne_vrednosti</span> , u tom slučaju kompajler smatra da su tipa <b>any</b>.
+ 
+ <xmp class = "primer_ta">  
+ function kvadrat_broja(x:number):number
+{ 
+  return x * x;
+}
+alert(kvadrat_broja(11));
+ </xmp>
+ 
+Kada nisu deklarisani tipovi kompajler će na osnovu argumenta da odredi o kom se tipu radi. Kompajler svaki parametar ili povratnu vrednosti koja nema deklarisan tip deklariše da je tipa any.
+ 
+ <xmp class = "primer_ta">  
+ function kvadrat_broja(x)
+{ 
+  return x * x;
+}
+alert(kvadrat_broja(11));
+ </xmp>
+<div class = "napomena">Kada nije poznat tip povratne vrednosti ili povratna vrednost funkcije može da ima više tipova tada je najbolja izostaviti tip povratne vrednosti u deklaraciji funkcije. U tom slučaju će tip povratne vrednosti funkcije automatski biti deklarisan kao any. </div>
+ <xmp class = "primer_ta">  
+function f(x: number)
+{
+  if (x == 1)
+    return 7;
+  else if (x == 2)
+    return 'Ovo je string';
+  else return false;  
+}
+
+alert(f(1)+ ' je tipa ' + typeof(f(1)));
+alert(f(2)+ ' je tipa ' + typeof(f(2)));
+alert(f(100)+' je tipa '+ typeof(f(100)));
+</xmp>
+Ovo je primer funkcije kojoj povratna vrednost može da bude različitog tipa.
+<h3>Tip funkcije</h3>
+Kao što promenljive imaju tipove tako i funkcije imaju svoje tipove. Tip funkcije se sastoji od dva dela kojima je određen: prvi deo predstavlju tipovi parametara funkcije a drugi deo predstavlja tip povratne vrednosti. U nastavku je napravljeno poređenje između deklaracije promenljive i deklaracije funkcije.<br><br> 
+<span class = "primer_text"> let moja_promenljiva:tip_promenljive </span><br><br>
+<span class = "primer_text"> let moja_funkcija:(p_1:tip_p_1, ..., p_n:tip_p_n) => tip_povratne_vrednosti </span><br><br>
+Za deklaraciju ove funkcije nije korišćena klučna reč <b>function</b> već lambda operatora <span class = "primer_text">=></span>.<br>
+Kao što promenljivoj možemo da dodelimo vrednost pomoću operatora <span class = "primer_text">=</span> tako možemo i funkciji definiciju na osnovu koje računa povratnu vrednost.<br><br>
+<span class = "primer_text"> let moja_promenljiva:tip_promenljive = vrednost_promenljive </span><br><br>
+<span class = "primer_text"> let moja_funkcija:(p_1:tip_p_1,..., p_n:tip_p_n) => tip_povratne_vrednosti = function(p_1:tip_p_1,...,p_n:tip_p_n){//skup_iskaza;return povratna_vrednost;}</span><br><br>
+Ako bi prethodni primer bio zapisan pomoću ove sintakse:
+ <xmp class = "primer_ta">  
+let kvadrat_broja:(x:number) => number =
+function (x:number)
+{ 
+  return x * x;
+ }
+alert(kvadrat_broja(11));
+ </xmp>
+Operator lambda <span class = "primer_text">=></span> se može iskoristi umesto ključne reči <b>function</b> kako bi deklarisali i definisali funkciju.
+ <xmp class = "primer_ta">  
+let kvadrat_broja =(x:number): number =>
+{ 
+  return x * x;
+ }
+alert(kvadrat_broja(11));
+ </xmp>
+ Ovako deklarisane i definisane funkcije se još nazivaju lambda funkcije zbog upotrebe lambda operatora.
+ <h3>Vrste parametara u funkciji</h3>
+ U TypeScript-u, za svaki parametar koji je deklarisan u funkciji očekuje se argument. Vrednost argumenta može da bude i <b>null</b> ili <b>undefined</b>. Kompajler pri pozivu funkcije proverava da li broj argumenata fukcije odgovara broju njenih parametara. U programskom jeziku TypeScript postoje četri vrste parametara:
+ obavezni, neobavezni (optional), podrazumevani (default) i niz parametara(rest).<br><br>
+ <b>NEOBAVEZNI PARAMETRI</b><!--Mislim da je u ovom slučaju prikladnije koristiti engleske reči, uvek mogu zameniti --><br><br>
+ Da bi neki parametar funkcije označili kao neobavezan tj. da nije obavazno da funkciji eksplicitno prosledimo argument, koristimo znak <span class = "primer_text">?</span>. Znak <span class = "primer_text">?</span> se navodi<!--dodaje --> odmah posle imena parametra. U nastavku je neveden primer koji prikazuje upotrebu neobaveznih parametara.
+ <xmp class = "primer_ta">  
+ function moja_funkcija (ime:string, prezime:string, srednje_ime?:string): string
+   {
+        let r:string;
+
+        if(srednje_ime)
+        return r=ime + ' ' + srednje_ime + ' ' +prezime;
+        else		
+        return r=ime + ' ' + prezime;
+   } 
+   alert(moja_funkcija('Petar','Petrović','Njegoš'));
+   alert(moja_funkcija('Fridrih','Gaus'));
+ </xmp>
+ Ovaj primer sadrži dva poziva funkcije moja_funkcija. Prvi poziv funkcije sadrži tri argumenta dok drugi poziv funkcije dva jer nije unet treći argument koji je namenjen za neobavezni parametar.
+ <div class = "napomena">U deklaraciji funkcije neobavezni parametar ne može da stoji ispred obaveznog parametra. Zbog toga se navodi kao poslednji na listi parametara. Ako se funkciji ne prosledi argument koji je namenjen neobaveznom parametru onda kompajler funkciji prosleđuje taj argument koji ima vrednost <b>undefined</b>. Tako da funkciji uvek bude prosleđen broj argumenata koji odgovara broju njenih parametara.</div>
+ <xmp class = "primer_ta">  
+ function opasna_funkcija(x:number, y?:number):any
+  { 
+   if(y==undefined)
+   return typeof(y);
+   else
+   return x+y;
+}
+ alert(opasna_funkcija(999,1)); 
+ alert(opasna_funkcija(999));
+ </xmp>
+ Kao što je u primeru prikazano ako se funkciji eksplicitno ne prosledi argument neobaveznog parametra onda to kompajler uradi. Korišćenjem operatora typeof može se proveriti da je vrednost tog argumenta baš undefined. Pošto je undefined podtip svakog tipa pa nema konflikta između tipa argumenta i tipa njegovog parametra.
+ <br><br>
+ TypeScript dozvoljava da jedna deklaracija funkcije ima više neobaveznih parametara koji se navode jedan za drugim. U situaciji kada se jednom neobaveznom parametru prosledi argument a drugom ne kompajler ne može da prepozna kom neobaveznom parametru je namenjen taj argument. Zbog toga kompajler prosleđuje argument prvom dostupnom neobaveznom parametru na listi.
+ Ovaj problem se rešava tako što neobaveznim parametrima kojima ne želimo da prosledimo konkretnu vrednost prosledimo vrednost <b>undefined</b>.
+  <xmp class = "primer_ta">  
+ function opasna_funkcija(x:number, y?:number, z?:number,d?:number):any
+  { 
+   if(y==undefined)
+   return typeof(y);
+   else
+   if(d==undefined)
+   return typeof(d);
+   else return x+y+d;
+}
+ alert(opasna_funkcija(999,1,undefined,121)); 
+ alert(opasna_funkcija(999));
+ </xmp>
+ <b>PARAMETRIM SA PODRAZUMEVANIM VREDNOSTIMA</b> <br><br>
+ Parametri kojima je dodeljena vrednost ( kao što dodeljujemo promenljivima tokom pisanja programa) u deklaraciji funkcije nazivamo parametri sa podrazumevanim vrednostima. Ako se parametru koji ima podrazumevanu vrednost ne prosledi argument funkcije ili mu se prosledi vrednost <b>undefined</b> onda će njegova vrednost u telu funkcije baš biti njegova podrazumevana vrednost.
+ <xmp class = "primer_ta"> 
+ function moja_funkcija (ime:string, prezime:string, srednje_ime:string = 'Nemanjić'): string
+   {
+        let r:string;
+
+        if(srednje_ime)
+        return r=ime + ' ' + srednje_ime + ' ' +prezime;
+        else		
+        return r=ime + ' ' + prezime;
+   } 
+   alert(moja_funkcija('Petar','Petrović','Njegoš'));
+   alert(moja_funkcija('Fridrih','Gaus'));
+ </xmp>
+   <xmp class = "primer_ta"> 
+ function opasna_funkcija(x:number, y:number = -998):any
+  { 
+   if(y==undefined)
+   return typeof(y);
+   else
+   return x+y;
+}
+ alert(opasna_funkcija(999,1)); 
+ alert(opasna_funkcija(999,undefined));
+ </xmp>
+ <b>NIZ PARAMETARA</b> <br><br>
+ Niz parametara (rest parameters) se koriste kada funkciji želimo da prosledimo više argumenata istog tipa ili nismo sigurni koliko će argumenata kasnije funkciji biti prosleđeno. Da bi neki parametar bio deklarisani kao niz parametara koriste se 
+ <span class = "primer_text"> ... </span> koje stoje ispred imena niza parametara posle kojeg ide tip vrednosti i <span class = "primer_text"> [] </span> kako bi naglasili da se radi o nizu parametara. Sintaksa je: <span class = "primer_text"> ... ime:tip[] </span> <br><br>Zapis deklaracije funkcije koji sadrži niz parametara<br><br>
+ <span class = "primer_text"> function moja_funkcija(...niz_parametara:tip_niza_parametara[], običan_parametar:tip_običnog_parametra):tip_povratne_vrednosti </span>
+ <div class = "napomena">Funkcija svoje argument čuva u okviru objekta <b>arguments</b>. Objekat <b>arguments</b> je lokalna promenljiva koja postoji samo u okviru tela funkcije. Argumentima funkcije možemo da pristupamo kao arguments[0], arguments[1] itd.
+ u zavisnosti koliko je u deklaraciji funkcije navedeno parametara. Objekat <b>arguments</b> nije niz ali poseduje određene osobine koje postoje kod niza. Jedan od načina da se pristupi parametrima u okviru niza <span class = "primer_text"> niz_parametara</span> je korišćenjem for petlje. </div>
+  <xmp class = "primer_ta">  
+ function funkcija_br_99 (x:number, y: number,... NIZ:string[]):string
+ {
+ let s:string='Vrednosti koje smo prosledili funkcija_br_99 su: '+ x + ', ' + y + ', ';
+
+ for (let i = 0; i < NIZ.length;i++)
+   {
+   s = s + NIZ[i] + ' ,';
+   }
+
+ s = s.substring(0, s.length - 1);
+
+ return s;
+ }
+alert(funkcija_br_99(5, -4, 'Ove', 'stringove', 'smo', 'prosledili', 'parametru', 'koji', 'je', 'niz', '.', 'Možemo', 'da', 'ovako', 'nastavimo', 'doveka.'));
+ </xmp>
+ U ovom primeru <span class = "primer_text">funkcija_br_99</span> ima niz parametara koji se zove NIZ i tipa je string. U funkciji je korišćena for petlja kako bi bilo pristupljeno svim članovima niza NIZ. Funkcija substring se koristi da se od početnog string dobije neki njegov deo.
+ <div class = "napomena">Niz parametara se uvek deklariše na kraju liste parametara i ne može sadržati elemente različitih tipova. Deklaracija funkcije može da sadrži samo jedan niz parametara. Ako se pri pozivu funkcije ne proslede argumenti nizu parametara onda će kompajler napraviti prazan niz.</div>
+ <h3>Anonimne funkcije</h3>
+ Funkcije koje nemaju ime nazivaju se anonimne funkcije. One se deklarišu tokom pokretanja programa jer nemaju ime koje je potrebno za deklaraciju funkcije. Jedini način da se pristupi anonimni funkcijama posle njihovog kreiranja jeste da im se dodeli promenljiva.
+ Anonimne funkcije poseduju parametre, telo funkcije i povratnu vrednost kao i svaka standardna funkcija. <br><br>Sintaksa za anonimnu funkciju je:<br><br>
+ 
+ <span class = "primer_text">let ime_promenljive = function( parametri ):tip_povratne_vrednosti{...}</span><br>
+ Primer anonimne funkcije.
+ <xmp class = "primer_ta">  
+let anonimna_funkcija=function(...brojevi:number[]):number
+  {
+  let s: number=0;
+
+  for (let i = 0; i < brojevi.length; i++)
+  { 
+    s = s + brojevi[i]; 
+  }  
+  
+  return s / brojevi.length;
+}
+alert('Srednja vrednost  vrednosti argumenata anonimne funkcije je ' + anonimna_funkcija(1,56,89,67,12));
+alert('Srednja vrednost vrednosti argumenata anonimne funkcije je ' + anonimna_funkcija(13,21,1,0,8,8,12,999)); 
+ </xmp>
+<h3>Parametarske funkcije</h3>
+Parametarska funkcija(<b>Callback function</b>) je funkcija koja je prosleđena drugoj funkciji kao parametar. U programskom jeziku TypeScript funkcije su tipa <b>Object</b> i tretiraju se kao i svi drugi objekti (String, Array, Number, itd.) pošto su i same objekti.
+ To znači da se mogu čuvati u promenljivama, proslediti kao argument funkcijama, biti kreirane u okviru druge funkcije ili vraćene kao povratna vrednost funkcije. Iz istog razloga funkcije možemo tretirati kao parametre neke druge funkcije jer su parametri u suštini promenljive.
+ <br><br>Potpuna deklaracija funkcije koja za parametar ima funkciju je:<br><br>
+ <span class = "primer_text"> function moja_funkcija (par_fun:(...) => tip_pov_vrednosti): tip_pov_vrednosti</span><br><br>
+ 
+ Moguće je izostaviti iz deklaracije parametarske funkcije tip povratne vrednosti, tip parametara pa čak i same parametre. Ovo se obično radi u situacijama kad nije poznat broj parametara funkcije koja se prosleđuje funkciji <span class = "primer_text"> moja_funkcija</span> ili je želja da se ostavi mogućnost da mogu da se proslede funkcije sa različitim brojem parametara.
+ <br><br>
+ Onda je sintaksa:
+ <br><br>
+ <span class = "primer_text"> function moja_funkcija ( par_fun): tip_pov_vrednosti</span><br>
+ <div class = "napomena">Kao i kod promenljivih potpuna deklaracija funkcija je najpoželjnija jer smanjuje mogućnost da dođe greške u daljem pisanju koda. Zbog toga preporuka je da pisanje koda  bude što više tipizirano uključujući i deklaracije funkcija a da pritom se zadrži željena funkcionalnost koda.</div>
+ U nastavku je prikazani su primeri ova dva pristupa.
+ <xmp class = "primer_ta">  
+function stepen_broja(p, q)
+{ 
+  let s = p;
+  for (let i = 0; i < q ;i++)
+    {
+    s = s * p; 
+    }
+  return s;
+}
+
+function f2(p, q)
+{ 
+  return p - q;
+}
+
+function f(x1:number,x2:number, par_funkcija:(y1:number,y2:number) => number)
+{ 
+
+  return par_funkcija(x1, x2);
+
+}
+
+alert(f(2, 5, f2));
+alert(f(2, 5,stepen_broja));
+ </xmp>
+ Ako se izostavi potpuna deklaracija parametarkse funkcije.
+  <xmp class = "primer_ta">  
+function stepen_broja(p, q)
+{ 
+  let s = p;
+  for (let i = 0; i < q ;i++)
+    {
+    s = s * p; 
+    }
+  return s;
+}
+
+function f2(p, q)
+{ 
+  return p - q;
+}
+
+function f3(x, y, z=5)
+{ 
+  return x + y + z;
+}
+
+
+function f(x1:number,x2:number, par_funkcija)
+{ 
+
+  
+  return par_funkcija(x1, x2);
+
+}
+
+alert(f(2, 5, f2));
+alert(f(2, 5, stepen_broja));
+alert(f(2, 5, f3));
+ </xmp>
+ U ovom primeru funkciji <b>f</b> je moguće proslediti kao argument funkciju  koja ima 2 ili 3 parametra. Ovo je moguće uraditi jer parametarska funkcija funkcije <b>f</b> nema potpunu deklaraciju tj. nisu navedeni parametri funkcije <span class = "primer_text"> par_funkcija</span>.<br>
+ <div class = "napomena">Kada se funkcija prosleđuje kao argument navodi se samo njeno ime. Ako se prosledi funkcija sa njenim argumentima onda se prosleđuje vrednost i komprajler će javiti grešku da očekuje funkciju a ne vrednost. Ne postoji ograničenje koliko deklaracija funkcije može sadržati parametarskih funkcija niti kojim redosledom moraju biti navedene.</div>
+ Primer funkcije koja kao povratnu vrednost vraća drugu funkciju.
+
+<xmp class = "primer_ta">  
+function f()
+{ 
+
+  function f1()
+   {
+    return 'Ovo je funkcija koja za povratnu vrednost ima funkciju';  
+   }
+   
+  return f1();
+  
+}
+
+
+alert(f());
+ </xmp>
+ <h3>Preopterećenje funkcije</h3>  <!--Ili polimorfne funkcije jer function overloading je vrsta polimorfizma tj. ad hoc polimorfizma -->
+ U programskom jeziku TypeScript funkcija ima osobinu da se ponaša drugačije u zavisnosti od argumenata koji su joj prosleđeni. Posledica toga je da u programu možemo da imamo više funkcija sa istim imenom a različitim implementacijama. Ova osobina funkcija se naziva preopterećenje funkcije ili na engleskom <b>function overloading</b>.
+ Da bi neku funkciju preopteretili potrebno je uraditi sledeće:<br><br>
+ <b>-Prvi korak- </b> Deklarisati više funkcija koje imaju isto ime ali različite potpise. Potpisi funkcija se razlikuju ako je ispunjen jedan od naredna tri uslova.<br>
+ <ul style="list-style-type:circle">
+  <li>Deklaracije funkcije imaju isti broj parametara ali jedan od druge se razlikuju makar u jednom tipu parametra</li>
+  <li>Razlikuju se po broju parametara</li>
+  <li>Razliku se po rasporedu parametara tj. po tipu parametra koji odgovara mestu na listi parametara</li>
+</ul> 
+<b>-Drugi korak- </b>Navodi se još jedna deklaracija funkcije sa istim imenom iza koje odmah ide definicija funkcije. Tipovi parametara ove funkcije treba da budu <b>any</b> ako se tipovi razlikuju u prethodnim deklaracijam funkcije . Ako se ne razlikuju, tipovi parametara funkcije su isti kao u prethodnim deklaracijama funkcije. Isto pravilo se odnosi i za tip povratne vrednosti funkcije.
+Ako se prethodne deklaracije funkcija razlikuju u broju parametara onda broj obaveznih parametara jednak je broju parametara deklaracije funkcije koja ima najmanji broj parametara. Broj neobaveznih parametara jednak je razlici broja parametara deklaracije funkcije koja ima najviše parametara i deklaracije funkcije koja ima najmanje parametara.
+<br><b>-Treći korak- </b> Napraviti poziv funkcije kako bi proverili da li je preopterećena.<!--Treći korak suvišan? -->
+<br><br>U naredna dva primera je prikazana upotreba preopterećenja funkcije.
+<xmp class = "primer_ta">  
+function sabiranje (x: string, y: string): string;
+function sabiranje (x: number, y: number): number;
+
+function sabiranje(x: any, y: any): any
+{
+return x + y;
+}
+
+alert('Prvi poziv funkcije sabiranje sabira  brojeve i rezultat je: ' + sabiranje(1,99));
+alert('Drugi poziv funkcije sabiranje sabira  string-ove i rezultat je: ' + sabiranje('Užice je najveći grad ', 'Zlatiborskog okruga.'));
+</xmp>
+<xmp class = "primer_ta">  
+function mera(x:string): string;
+function mera(x:number): string;
+function mera(x:number, x1:number): string;
+function mera(x: number, x1: number, x2: number): string;
+
+function mera(x: any, x1?: number, x2?: number): string
+{
+      
+  if (arguments.length == 1 && typeof (x) == 'string') 
+    return 'Dužina stringa je: ' + x.length;
+  else if (arguments.length == 2)
+    return 'Površina pravougaonika je: ' + x * x1;
+  else if (arguments.length == 3)
+    return 'Zapremina kvadra je: ' + x * x1* x2;
+  else
+    return 'Dužina stranice je: ' + x;        
+   }
+alert(mera(6));
+alert(mera('Ijejasu Tokugava'));
+alert(mera(11, 17));
+alert(mera(2, 4, 8));
+</xmp>
+<div class = "napomena"> Funkcija koje je preopterećena ima više deklaracija ali samo jedno telo funkcije. U slučaju da je više funkcija sa istim imenom deklarisano
+ i definisano kompajler će javiti grešku <b>duplicate function implementation</b>. Za razliku od nekih drugih programskih jezika gde više deklaracija istoimene funkcije podrazumeva i više implementacija, u programskom jeziku TypeScript to nije moguće. Kada se TypeScript kôd transkompilira u JavaScript kod potpisi deklaracija funkcija se ne razlikuju. Treba razlikovati pojmove preopterećenja funkcije i osobine parametara funkcije. Neka od rešenja problema moguće je implementirati i preko jedne i preko druge osobine.</div>
+ <h3>Rekurzivne funkcije</h3>
+ Funkcija je rekurzivna ako poziva samu sebe. Postoje dve vrste rekurzije posredna i neposredna.<!--Indirektan i direktna--> Kod neposredne rekurzije funkcija u svojoj implementaciji sadrži poziv same sebe. Kod posredne rekurzije funkcija u svojoj implementaciji sadrži poziv rekurzivne funkcije koja u svojoj implementaciji sadrži poziv početne funkcije (ili poziv rekurzivne funkcije koja u svojoj implementaciji sadrži  poziv početne funkcije).
+ Rekurzivne funkcije predstavljaju bitan koncept u programiranju. Jedna od njihovih upotreba je u implementaciji grupe algoritama koja ima naziva podeli pa vladaj (divide and conquer). Takođe imaju veliku upotrebu u pristupu rešavanja problema koji se zove dinamičko programiranje.
+ Rekurzivne funkcije mogu da se upotrebe umesto petlje u kodu jer mogu da vrše istu ulogu.<br><br>
+ 
+ Svaka rekurzivna funkcija da bi bila upotrebiljiva u kodu mora da ima jedan ili više <b>bazičnih slučajeva</b> koji zajedno obezbeđuju izlaz iz rekurzije. U suprotnom bez <b>bazičnih slučajeva</b> svaka rekurzivna funkcija bi postala beskonačna petlja.
+ <b>Bazični slučajevi</b> naglašavaju rekurzivnoj funkciji u kom slučaju treba da prestane sa pozivima same sebe i tom prilikom se vraća povratnu vrednost koja je konstantna. Implementacija <b>bazičnih slučajeva</b> se vrši pomoću iskaza <b>if</b>.
+ <br><br>
+ <!--Ne znam bas kako bi ovde opisao sintaksu rekurzivne funkcije? -->
+ U nastavku navedeni su primeri direktnih i indirektnih rekurzivnih funkcija.
+ <xmp class = "primer_ta">  
+let unos1 = document.createElement("input");
+document.body.appendChild(unos1);
+
+let dugme1 = document.createElement("button");
+document.body.appendChild(dugme1);
+dugme1.textContent = "Računaj";
+
+dugme1.onclick = function () {
+
+     let i: number=+unos1.value; 
+     alert(faktorijel(i));
+
+  } 
+
+
+
+function faktorijel(n: number): number
+  { 
+    if (n == 0 || n == 1)// bazični slučaj
+        return 1;
+    else return n*faktorijel(n - 1);
+  }
+</xmp>
+Neposredna rekurzivna funkcija  koja računa faktorijel unetog broja.
+ <xmp class = "primer_ta">  
+let unos1 = document.createElement("input");
+document.body.appendChild(unos1);
+let unos2 = document.createElement("input");
+document.body.appendChild(unos2);
+
+let dugme1 = document.createElement("button");
+document.body.appendChild(dugme1);
+dugme1.textContent = "Računaj";
+
+dugme1.onclick = function () {
+
+    let i: number = +unos1.value; 
+    let j: number = +unos2.value;
+     alert(uzajamno_prosti(i,j));
+
+  } 
+
+
+
+
+function uzajamno_prosti(p:number, q:number) {
+    if (q == 0)
+        return (p == 1);
+   return uzajamno_prosti(q, p % q);
+}
+
+</xmp>
+Neposredna rekurzivna funkcija  koja ispituje da li su dva uneta broja uzajamno prosta.
+ <xmp class = "primer_ta">  
+let unos1 = document.createElement("input");
+document.body.appendChild(unos1);
+
+let dugme1 = document.createElement("button");
+document.body.appendChild(dugme1);
+dugme1.textContent = "Računaj";
+
+dugme1.onclick = function () {
+
+    let i: number = +unos1.value; 
+
+     alert(paran(i));
+
+  } 
+
+
+
+function paran (x: number): boolean
+     {
+    if (x == 0)
+        return true;
+    else
+      return neparan(Math.abs(x) - 1);
+
+    }
+
+ 
+
+function neparan(x: number): boolean
+    {
+       if (x == 0)
+         return false;
+       else
+         return paran(Math.abs(x) - 1);
+    }
+
+</xmp>
+Dve posredno rekurzivne funkcije  koja ispituju da li je unet broj paran ili neparan.
+<div class = "napomena">Rekurzivne funkcije mogu biti veoma korisne u implementaciji rešenja problema ali treba biti oprezan prilikom njihovg korišćenja. Može se javiti problem da rekurzivna funkcija postane beskonačna petlja.  Prilikom korišćenja rekurzivnih funkcija može doći do nestanka radne memorije jer
+ rekurzivne funkcije mogu da imaju jako veliku složenost, dosta njih eksponencijalnu. Verovatnoća da se ovo desi se povećava što više poziva rekurzivna funkcija ima. Zbog toga treba uvesti brojač i postavit gornju granicu koliko rekurzivnih poziva funkcija može obaviti nako čega se automatski izlazi iz rekurzije. Takođe treba odlučiti
+ kada je efikasno koristiti rekurzivne funkcije jer npr. prolazak kroz niz korišćenjem petlje je brže nego korišćenje rekurzivne funkcije.</div>
+ <div class = "zadatak"><b>Zadatak7:</b><br>
+a)Napisati program koji rekurzivno računa približnu vrednost zlatnog preseka. U program se unosi prirodan broj n koji predstavlja broj iteracija rekurzije.
+<br>
+b)Napisati program koji za uneti prirodan broj n ispisuje n-ti član fibonačijevog niza.<br>
+c)Napisati funkcijiju koja nema ograničen broja parametara. Parametri su tipa string. Funkcija računa ukupan broj karaktera svih unetih argumenata.
+</div>

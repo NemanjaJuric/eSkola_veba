@@ -1,0 +1,259 @@
+﻿<textarea class = "primer_ta" rows = "259" disabled>
+//a)
+class Bankovni_račun
+    {   
+    ime: string;
+    prezime: string;
+    private readonly šifra: string;
+    private stanje_na_računu: number;
+    dozvoljen_minus: number = 30000;
+
+    constructor( ime: string, prezime: string, šifra: string, stanje_na_računu: number)
+    { 
+        this.ime = ime;
+        this.prezime = prezime;
+        this.šifra = šifra;
+        this.stanje_na_računu = stanje_na_računu;
+    }
+
+
+    podizanje_sa_računa(suma: number, šifra: string, ulazak_u_minus: boolean): any {
+        if (this.šifra == šifra) {
+            if (this.stanje_na_računu - suma > 0) {
+                this.stanje_na_računu = this.stanje_na_računu - suma;
+                return suma;
+            } else if (ulazak_u_minus && this.stanje_na_računu + this.dozvoljen_minus - suma > 0) {
+                this.stanje_na_računu = this.stanje_na_računu - suma;
+                this.dozvoljen_minus = this.dozvoljen_minus - (this.stanje_na_računu - suma);
+                return suma;
+            } else return 'Nije moguće podići toliku količinu novca pokušajte ponovo. Vaša Užička banka misli na Vas.';
+        }
+        else return 'Šifra nije ispravna molim Vas pokušajte ponovo.';
+}
+
+    provera_stanja_računa(šifra:string):number
+            {
+        if (this.šifra == šifra)
+            return this.stanje_na_računu;   
+            }
+}
+
+let moj_račun = new Bankovni_račun('Nikola', 'Tesla', '123456789', 505789);
+
+alert(moj_račun.provera_stanja_računa('123456789'));
+alert(moj_račun.podizanje_sa_računa(530000, '123456789', true));
+alert(moj_račun.provera_stanja_računa('123456789'));
+
+alert(moj_račun.podizanje_sa_računa(530000, '123456789', false));
+
+alert(moj_račun.podizanje_sa_računa(1000000, '123456789', false));
+
+//b
+class Kompleksan_broj
+{  
+
+     private x: number;
+     private y: number;
+
+    constructor( x: number, y: number)
+        { 
+        this.x = x;
+        this.y = y;
+        }
+
+    get get_x():number
+    { 
+        return this.x;
+    }
+
+    set set_x(x: number)
+    { 
+        this.x = x;
+    }
+
+    get get_y():number
+    { 
+        return this.y;
+    }
+
+    set set_y(y: number)
+    { 
+        this.y = y;
+    }
+
+    zapis_kompleksnog_broja():string
+    {  
+        return 'z= '+ this.x + ' + ' + this.y + 'i' ;
+    }
+
+    static modul_kompleksnog_broja(z_1:Kompleksan_broj):number
+    { 
+        return Math.sqrt(z_1.x * z_1.x + z_1.y * z_1.y);
+    }
+
+    static sabiranje_kom_brojeva(z_1:Kompleksan_broj,z_2:Kompleksan_broj):Kompleksan_broj
+          {      
+        let z_3:Kompleksan_broj=new Kompleksan_broj(0,0); 
+        z_3.x = z_1.x + z_2.x;
+        z_3.y = z_1.y + z_2.y;
+        return z_3;
+         }
+          
+    static oduzimanje_kom_brojeva(z_1:Kompleksan_broj,z_2:Kompleksan_broj):Kompleksan_broj
+          {      
+        let z_3: Kompleksan_broj=new Kompleksan_broj(0,0);  
+        z_3.x = z_1.x - z_2.x;
+        z_3.y = z_1.y - z_2.y;
+        return z_3;
+         }
+         
+    static množenje_kom_brojeva(z_1:Kompleksan_broj,z_2:Kompleksan_broj):Kompleksan_broj
+          {      
+        let z_3: Kompleksan_broj=new Kompleksan_broj(0,0); 
+        z_3.x = z_1.x*z_2.x - z_1.y*z_2.y;
+        z_3.y = z_1.x*z_2.y + z_1.y*z_2.x;
+        return z_3;
+          }       
+
+    static deljenje_kom_brojeva(z_1:Kompleksan_broj,z_2:Kompleksan_broj):Kompleksan_broj
+          {      
+        let z_3: Kompleksan_broj=new Kompleksan_broj(0,0); 
+        z_3.x = (z_1.x*z_2.x + z_1.y*z_2.y)/Kompleksan_broj.modul_kompleksnog_broja(z_2);
+        z_3.y = (-z_1.x * z_2.y + z_1.y * z_2.x)/Kompleksan_broj.modul_kompleksnog_broja(z_2) ;
+        return z_3;
+          }
+    static konjugovan_kom_broj(z_1:Kompleksan_broj):Kompleksan_broj
+          { 
+        let z_3: Kompleksan_broj=new Kompleksan_broj(0,0); 
+        z_3.x = z_1.x ;
+        z_3.y = -z_1.y;
+        return z_3;
+         }  
+
+    static argument_kom_broj_u_stepenima(z_1:Kompleksan_broj):number
+          { 
+         
+         let c: number ;
+         let s: number; 
+         
+         if (z_1.x == 0)
+             c = 0; else c = (z_1.x / Kompleksan_broj.modul_kompleksnog_broja(z_1));
+         if (z_1.y == 0)
+             s = 0; else s = (z_1.y / Kompleksan_broj.modul_kompleksnog_broja(z_1));
+                  
+         if (c == 0 && s == 0)
+             return 0;
+         else if (c == 0 && s == 1)
+             return 90;
+         else if (c == -1 && s == 0)
+             return 180;
+         else if (c == 0 && s == -1)
+             return 270;
+
+             else
+             if (c > 0 && s > 0)
+               {
+             return ((Math.asin(z_1.y / Kompleksan_broj.modul_kompleksnog_broja(z_1))*180)/Math.PI);
+               } else if (s > 0 && c < 0)
+                       {
+                          return ((Math.acos(z_1.x / Kompleksan_broj.modul_kompleksnog_broja(z_1)) *180)/Math.PI);
+                       } else if (s < 0 && c < 0)
+                           {
+                             return ((-Math.asin(z_1.y / Kompleksan_broj.modul_kompleksnog_broja(z_1))*180)/Math.PI +180) ;
+                           } else  return (-(Math.acos(z_1.x / Kompleksan_broj.modul_kompleksnog_broja(z_1))*180)/Math.PI + 360);
+            }  
+  
+          
+}
+
+let z_1 = new Kompleksan_broj(0.1 ,-1);
+
+let z_2 = new Kompleksan_broj(0, 5);
+
+let z_3: Kompleksan_broj = Kompleksan_broj.množenje_kom_brojeva(z_1, z_2);
+
+let z_4: Kompleksan_broj = Kompleksan_broj.sabiranje_kom_brojeva(z_1, z_2);
+
+
+alert(z_1.zapis_kompleksnog_broja());
+
+alert(z_2.zapis_kompleksnog_broja());
+
+alert(Kompleksan_broj.modul_kompleksnog_broja(z_3));
+
+alert(z_4.zapis_kompleksnog_broja());
+
+alert(Kompleksan_broj.argument_kom_broj_u_stepenima(z_1));
+
+//c
+class Trougao
+{ 
+    a: number;
+    b: number;
+    c: number;
+
+    constructor(a: number, b: number, c: number)
+    { 
+
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    površina():number
+    { 
+        let s: number = (this.a + this.b + this.c) / 2;
+        return  Math.sqrt(s * (s - this.a) * (s - this.b)* (s - this.c));
+    }
+
+    obim(): number
+    { 
+        return this.a + this.b + this.c;
+    }
+
+}
+
+class Jednakostranični extends Trougao
+{ 
+
+
+ površina():number
+    { 
+        return (this.a*this.a*Math.sqrt(3))/4;
+    }
+
+}
+
+class Jednakokraki extends Trougao
+{ 
+
+ površina():number
+    {   if(this.a==this.b)
+     return (this.c * Math.sqrt((this.c * this.c) / 4 + this.b * this.b)) / 2;
+     else if (this.a == this.c)
+     return (this.b * Math.sqrt((this.b * this.b) / 4 + this.a * this.a)) / 2;
+        else (this.a * Math.sqrt((this.a * this.a) / 4 + this.b * this.b)) / 2;
+    }
+
+}
+
+class Pravougli extends Trougao
+
+ {
+    površina(): number {
+        if (this.a > this.b && this.a > this.c)
+            return this.c * this.b/2;
+        else if (this.b > this.a && this.b > this.c)
+            return this.c * this.a/2;
+        else return this.b * this.a/2;
+                      }
+}
+
+let t = new Trougao(6, 8, 10);
+
+let g = new Pravougli (6, 8, 10);
+
+alert(t.površina());
+
+alert(g.površina());
+</textarea>

@@ -1,0 +1,149 @@
+﻿<textarea class = "primer_ta" rows = "149" disabled>
+//a)
+interface Automobil
+{ 
+    model: string;
+    proizvođač: string;
+    seriski_broj_motora: string;
+    registracija: boolean;
+
+    srednja_brzina:(pređeni_put:number, vreme:number)=> number;
+}
+
+let japanac: Automobil =
+    {
+      model: 'JUKE',
+      proizvođač: 'Nissan',
+      seriski_broj_motora: 'EJ25E4',
+      registracija: true,
+
+      srednja_brzina (pređeni_put: number, vreme: number) : number
+        {
+          return pređeni_put/vreme;
+        } 
+    }
+
+alert(japanac.model);
+
+alert(japanac.srednja_brzina(157,1.1));
+
+//b
+interface Nebesko_telo
+{ 
+    ime: string;
+    masa: number; //10^22kg
+    poluprečnik: number; //km
+
+    sila_gravitacije: ()=> void;
+}
+
+interface Planeta extends Nebesko_telo
+{ 
+    tip_planete: string;
+    sistem: string;
+    pogodna_za_ljudski_život: boolean;
+}
+
+let luna: Nebesko_telo =
+    {
+        ime: 'Mesec',
+        masa: 7.342,
+        poluprečnik: 1737.1,
+
+        sila_gravitacije: () : void
+        {
+                alert('Sila gravitacije Maseca je 1.62 m/s2 ');
+        }
+    }
+
+let naša_planeta: Planeta =
+    {
+        ime: 'Zemlja',
+        masa: 597.2,
+        poluprečnik: 6378,
+        tip_planete: 'Terestrial',
+        sistem: 'Sunčeve',
+        pogodna_za_ljudski_život: true,
+
+        sila_gravitacije(): void
+        {
+                alert('Sila gravitacije Zemlje je 9.807 m/s2 ');
+        }
+    }    
+
+alert(naša_planeta.ime);
+
+naša_planeta.sila_gravitacije();
+
+alert(luna.ime);
+
+luna.sila_gravitacije();
+
+//c
+interface Piramida
+{ 
+    a: number;
+    b: number;
+
+    površina_piramide: () => number;
+    zapremina_piramide: () => number;
+    visina_piramide: () => number;
+}
+
+class Pravilna_četvorostrana_piramida implements Piramida
+{ 
+    a: number;
+    b: number;
+
+    constructor(a: number, b: number)
+    { 
+        this.a = a;
+        this.b = b;
+    }
+    
+    površina_piramide (): number
+    {
+        return this.a * this.a + 2 *(this.a*Math.sqrt(this.b*this.b-this.b*this.b/4));
+    }
+
+    visina_piramide (): number
+    {
+        return Math.sqrt(this.b * this.b - (this.a * this.a)/2);
+    }
+
+    zapremina_piramide () : number
+    {
+        return (this.a * this.a * this.visina_piramide()) / 3;
+    }
+    
+}
+
+let pravilna_trostrana_jednakoivična: Piramida =
+{
+        a:8,
+        b:8,
+
+        površina_piramide(): number
+        { 
+            return pravilna_trostrana_jednakoivična.a * pravilna_trostrana_jednakoivična.a * Math.sqrt(3);
+        },
+
+        zapremina_piramide (): number
+        { 
+            return pravilna_trostrana_jednakoivična.a * pravilna_trostrana_jednakoivična.a / (Math.sqrt(3) * 4);
+        },
+
+        visina_piramide (): number
+        { 
+            return pravilna_trostrana_jednakoivična.a * Math.sqrt(2 / 3);
+        }
+}
+
+let p = new Pravilna_četvorostrana_piramida(4,8);
+
+alert(pravilna_trostrana_jednakoivična.površina_piramide());
+alert(pravilna_trostrana_jednakoivična.zapremina_piramide());
+
+alert(p.površina_piramide());
+alert(p.zapremina_piramide());
+</textarea>

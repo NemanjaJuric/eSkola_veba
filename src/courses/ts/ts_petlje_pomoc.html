@@ -1,0 +1,50 @@
+﻿<textarea class = "primer_ta" rows = "50" disabled>
+//a)
+let dugme1 = document.createElement("button");
+dugme1.textContent = "Računaj";
+document.body.appendChild(dugme1);
+
+let unos1 = document.createElement("input");
+document.body.appendChild(unos1);
+
+let j: number=1;
+
+dugme1.onclick = function ()
+    {
+
+    let s: number = +unos1.value;
+
+      while (s > 0)
+       {
+         j = j * s;
+         s--;
+       }  
+     alert(j);
+    }
+//b
+
+let niz:number[][]=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+
+
+let i: number =0;
+let j: number = 1; 
+
+for (let b1: number = 0;b1<5 ;b1++)
+{
+ 
+  for (let b2: number = 0; b2<5 ;b2++)
+    {
+  j = j + i;
+  niz[b1][b2] = i;
+  i = j - i;
+    }
+}
+
+let k: number=0;
+
+while (k<5){ 
+
+  alert(niz[k][k])
+  k++;
+}
+</textarea>

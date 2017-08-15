@@ -1,0 +1,41 @@
+﻿abstract class Jezik
+{ 
+
+    ime_pisma: string;
+    broj_govorornika: number;
+    broj_karaktera: number;
+
+    constructor(ime_pisma: string, broj_govorornika: number)
+    { 
+        this.ime_pisma = ime_pisma;
+        this.broj_govorornika = broj_govorornika;
+    }
+    
+    abstract predstavljanje(ime:string): void;
+}
+
+class Japanski extends Jezik
+{ 
+    
+    
+    predstavljanje(ime:string)
+    { 
+        alert('私の名前を挨拶するのは'+ ime+'。お会いできてうれしいです。');
+    }
+}
+
+class Srpski extends Jezik
+{ 
+       
+    predstavljanje(ime:string)
+    { 
+        alert('Pozdrav moje ime je '+ ime+' i drago mi je da te upoznajem.');
+    }
+}
+
+let j = new Japanski('Kanđi, Hiragana, Katakana', 125);
+let s = new Srpski('Ćirilica, Latinica', 12);
+
+j.predstavljanje('Amaterasu');
+
+s.predstavljanje('Dušan');

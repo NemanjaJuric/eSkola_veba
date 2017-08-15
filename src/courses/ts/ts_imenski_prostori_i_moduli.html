@@ -1,0 +1,369 @@
+﻿<h1>Imenski prostori i moduli</h1><!-- Ili samo moduli jer su pre namepsace ustvari bili internal modul-->
+U programskom jeziku TypeScript imenski prostori i moduli predstavljaju način da se kôd bolje organizuje i upotrebi. Njihova upotreba dolazi najviše do izražaja prilikom pravljenja složenih i obimnih aplikacija.
+Oni razbijaju<!-- ili jednostavno izbaciti razbijaju--> kôd i enkapsuliraju<!-- organizuju, grupišu--> u logički povezane i funkcionalne celine. Imenski prostori se uglavnom koriste <!-- upotrebljavaju--> pri razvoju aplikacija sa klijentske strane kao što su veb aplikacije.
+Nasuprot tome moduli se uglavnom koriste pri razvoju aplikacija sa serverske strane.<!-- upotrebom NodeJS-->
+<h2>Imenski prostori</h2>
+Prilikom rada na velikim projektima, pogotovu sa spoljašnjim bibliotekama, može doći do situacija da npr. dve promenljive, klase itd. dele isto ime. Tokom kompilacije koda kompajler će izbaciti grešku.
+Ovo može da se spreči upotrebom imenskih prostora (<b>namespace</b>). Na ovaj način npr. dve promenljive iako imaju isto ime pripadaju različitim imenskim prostorima što omogućava da ih TypeScript razlikuje. 
+Progamski jezik JavaScript sve deklaracije promenljivih smešta u globalni domen<!-- sumnjiva definicija-->. Za razliku od njega ako imenski prostor sadrži implementacijski kôd, <!-- kôd za implementaciju--> 
+onda se taj kôd enkapsulira u okviru strukture kojoj je dodeljena globalna promenljiva koja ima isto imenom kao imenski prostor. Na ovaj način se imenski prostor "ponaša" kao objekat gde su svojstva upravo promenljive, klase itd. koje su definisane u njemu.
+Da bi se deklarisao imenski prostor koristi se ključna reč <b>namespace</b>. Sintaksa je:
+<xmp class = "primer_ta">  
+namespace ime_imenskog_prostora
+{ 
+    // Deklaracije i implementacije promenljivih, klasa, funkcija itd
+}
+ </xmp>
+Da bi se promenljivama, klasama, interfejsima itd. moglo pristupiti izvan imenskog prostora moraju se označiti ključnom rečju <b>export</b>. Izvan imenskog prostora njima se pristupa na isti način kao što se pristupa svojstvima objekta, pomoću <span class = "primer_text">.</span> notacije.
+Sintaksa je:<br><br><span class = "primer_text">ime_imenskog_prostora.ime_klase</span><br><br>
+Ako se imenski prostor nalazi u drugoj TypeScript datoteci onda se navod i :
+<xmp class = "primer_ta">  
+/// <reference path = "apsolutna_putanja_fajla" /> 
+</xmp>
+Može da se navede i relativna putanja u odnosu na datoteku<!-- fajl--> iz koje se pristupa. U nastavku primer imenskog prostora.
+ <xmp class = "primer_ta">  
+namespace moj_imenski_prostor
+{ 
+    export class moja_klasa
+     {
+        ime_polja_1: string;
+        ime_polja_2: number;
+        ime_polja_3: string;
+
+        constructor(ime_polja_1: string, ime_polja_2: number )
+        { 
+            this.ime_polja_1 = ime_polja_1;
+            this.ime_polja_2 = ime_polja_2;
+        }
+        
+        metod_1():void
+        { 
+            alert('Ovaj metod pripada objektu klase koja se zove moja_klasa i nalazi u imenskom prostoru moj_imenski_prostor.');
+        }
+     }
+}
+
+
+
+
+namespace moj_imenski_prostor_1
+{ 
+   export let moj_objekat = new moj_imenski_prostor.moja_klasa('Pozdrav iz imenskog prostora moj_imenski_prostor!', 10);
+    
+}
+
+
+
+
+let moj_objekat_1 = new moj_imenski_prostor.moja_klasa('Ovaj obejkat se nalazi u telu programa.', 9);
+
+
+moj_imenski_prostor_1.moj_objekat.metod_1();
+
+moj_objekat_1.metod_1();
+</xmp>
+ Ovde se oba imenska prostora <b>moj_imenski_prostor</b> i <b>moj_imenski_prostor_1</b> nalaze u istoj ts datoteci. Da bi se pozvao konstruktor klase <b>moja_klasa</b> koja se nalazi u imenskom prostoru <b>moj_imenski_prostor</b> 
+ potrebno je prvo navesti ime imenskog prostora kome pripada, <span class = "primer_text"> . </span> notaciju pa tek onda poziv konstruktora. Da bi se moglo pristupiti objektu <b>moj_objekat</b> izvan imenskog prostora <b>moj_imenski_prostor_1</b>
+ potrebno je u deklaraciji objekta navesti <b>export</b>. Na kraju na osnovu poziva metoda <b>metod_1</b>  može se videti razlika između pristupa objektu na osnovu toga gde se nalazi (oba objekta pripadaju istoj klasi, na isti način su kreirana ali jedan se nalazi u telu programa a drugi u imenskom prostoru <b>moj_imenski_prostor_1</b>).
+ <br><br>
+ Takođe je moguće definisati jedan imenski prostor unutar drugog. Ovakav imenski prostor se još naziva ugnježdenim.
+ <xmp class = "primer_ta">  
+namespace imenski_prostor_1
+{
+   export namespace imenski_prostor_2
+   { 
+
+      export function ime_funkcije(): void
+       { 
+           alert('Ova funkcija se nalazi u imenskom prostoru imenski_prostor_2 koji se nalazi u imenskom prostoru imenski_prostor_1.');
+       }
+    
+   }
+
+
+}
+
+
+imenski_prostor_1.imenski_prostor_2.ime_funkcije();
+ </xmp>
+Pre poziva funkcije <b>ime_funkcije</b> potrebno je navesti imena imenskih prostora u kojima se nalazi.
+<div class = "napomena">Da bi se moglo pristupiti ugnježdenom imenskom prostoru potrebno je u njegov deklaraciji navesti <b>export</b>. Pravilo pristupa koje se odnosi za promenljive, klase itd. važi i za ugenjždene imenske prostore. Zbog toga ugnježdeni imenski prostor <b>imenski_prostor_2</b> u svojoj deklaraciji sadrži ključnu reč <b>export</b>.</div>
+Imenski prostor se može podeliti na više TypeScript datoteka ako kôd postane previše obiman.<br><br> <b>Prilikom kompilacije sve TypeScript datoteke uključujući i datoteke imenskog prostora se grupišu u jednu JavaScript datoteku.</b><br><br>
+<b>Prvi_deo_obimnog_imenskog_prostor.ts</b>
+ <xmp class = "primer_ta">  
+namespace IMENSKI_PROSTOR
+{
+    export const pi: number = 3.14;
+
+    let ime_promenljive: string = 'Ovo promenljivoj se ne može pristupiti izvan imenskog prostora jer nije navedeno export!';
+
+    export class Primer_klase
+    { 
+        ime_polja_1: string;
+
+        constructor(ime_polja_1: string)
+        { 
+            this.ime_polja_1 = ime_polja_1;
+        }
+    }
+}
+ </xmp>
+<b>Drugi_deo_obimnog_imenskog_prostor.ts</b>
+ <xmp class = "primer_ta"> 
+/// <reference path = "Obiman_imenski_prostor_prvi_deo.ts" />
+
+namespace IMENSKI_PROSTOR
+{
+    
+    export class Primer_klase_1
+    { 
+        polje_1_klase_1: string;// može i ovde da stoji ime_polja_1 jer se radi o različitim klasama
+        polje_2_klase_1: string;
+        polje_3_klase_1: number;
+
+        constructor(polje_1_klase_1: string, polje_3_klase_1: number)
+        { 
+            this.polje_1_klase_1 = polje_1_klase_1;
+            this.polje_3_klase_1 = polje_3_klase_1;
+        }
+    }
+
+
+    export function funkcija_1():void
+    { 
+        alert('Ova funkcija se nalazi u imenskom prostoru IMENSKI_PROSTOR i datoteci Drugi_deo_obimnog_imenskog_prostor.ts');
+    }
+
+}
+ </xmp>
+<b>Poslednji_deo_obimnog_imenskog_prostor.ts</b>
+ <xmp class = "primer_ta"> 
+/// <reference path = "Prvi_deo_obimnog_imenskog_prostor.ts" />
+/// <reference path = "Drugi_deo_obimnog_imenskog_prostor.ts" />
+
+namespace IMENSKI_PROSTOR
+{
+    
+  export  interface primer_interfejsa
+    { 
+        ime: string;
+        prezime: string;
+          
+    }
+
+  export namespace ugnježdeni_imenski_prostor
+  { 
+      export const koren_iz_dva = 1.4123;
+  } 
+}
+ </xmp>
+<b>Glavno_telo_programa.ts</b>
+<xmp class = "primer_ta"> 
+/// <reference path = "Prvi_deo_obimnog_imenskog_prostor.ts" />
+/// <reference path = "Drugi_deo_obimnog_imenskog_prostor.ts" />
+/// <reference path = "Poslednjie_deo_obimnog_imenskog_prostor.ts" />
+
+function obim_kruga(poluprečnik:number):number
+{ 
+    return 2 * poluprečnik * IMENSKI_PROSTOR.pi;
+}
+
+
+
+let moj_objekat = new IMENSKI_PROSTOR.Primer_klase_1('Neki string.', 6);
+
+
+
+function dijagonala_kvadrata(stranic_kvadrata:number) : number
+{ 
+    return stranic_kvadrata * IMENSKI_PROSTOR.ugnježdeni_imenski_prostor.koren_iz_dva;
+}
+
+
+
+class klasa_3 extends IMENSKI_PROSTOR.Primer_klase_1
+{ 
+    još_neko_polje: boolean;
+
+    constructor(polje_1_klase_1: string, polje_3_klase_1: number, još_neko_polje: boolean)
+    { 
+        super(polje_1_klase_1, polje_3_klase_1);
+        this.još_neko_polje = još_neko_polje;
+    }
+}
+
+
+
+
+let moj_objekat_1 = new klasa_3('Nije važno', 8, true);
+
+
+alert(obim_kruga(1 / 2));
+
+alert(dijagonala_kvadrata(1));
+
+alert(moj_objekat.polje_1_klase_1);
+
+alert(moj_objekat_1.još_neko_polje);
+
+IMENSKI_PROSTOR.funkcija_1();
+ </xmp>
+Na ovom primeru je prikazano kako je moguće koristiti promenljive, funkcije, konsturktore klasa itd. koje se nalaze u različitim datotekama. Upotrebom promenljivih, nasleđivanjem klasa, pozivima funkcija i konstruktora klasa pokazano je da ovo funkcioniše.
+Na ovaj način moguće je upotrebiti i imenske prostore koji se nalaze u različitim datotekam. Kôd programa koji je razmešten u više datoteka se uglavno organizuje u logički povezane celine npr. u jednoj datoteci su samo klase, u drugoj datoteci su funkcije itd.
+<br><br>
+Prethodni primer sadrži više TypeScript datoteka koje je potrebno objediniti kako bi kompilacija prošla uspešno. Ovo može da se uradi upotrebom opcije <span class = "primer_text">--out</span> koja postoji u kompajleru.
+
+Sintaksa naredbe u komandnoj liniji je :<br><br>
+<span class = "primer_text"> tsc --outFile ime_izlazne_JavaScript_datoteke.js ime_datoteke_gde_se nalaze_adrese_ostalih_TypeScript_datoteka.ts</span><br><br> ili <br><br>
+<span class = "primer_text"> tsc --outFile ime_izlazne_JavaScript_datoteke.js ime_datoteke_1.ts ime_datoteke_2.ts ime_datoteke_n.ts</span><br><br>
+Postoje dva načina da se izda naredba kompajleru. <br><br>
+1) Navodi se ime JavaScript datoteke iza koje sledi ime TypeScript datoteke u kojoj se nalaze adrese ostalih TypeScript datoteka. Na ovaj način kompajler automatski može da pronađe i uključi ostale TypeScript datoteke. Na prethodnom primeru to bi izgledalo ovako:
+<br><br><span class = "primer_text"> tsc --outFile JavaScript_datoteka.js Glavno_telo_programa.ts</span><br><br>
+2) Navodi se ime JavaScript datoteke iza koje slede imena svih ostalih TypeScript datoteke. Na taj način se kompajleru  eksplicitno saopštava koje sve TypeScript datoteke treba da objedini. Na prethodnom primeru to bi izgledalo ovako:
+<br><br><span class = "primer_text"> tsc --outFile JavaScript_datoteka.js  Poslednji_deo_obimnog_imenskog_prostor.ts Drugi_deo_obimnog_imenskog_prostor.ts Prvi_deo_obimnog_imenskog_prostor.ts Glavno_telo_programa.ts</span> <br><br>
+<div class = "napomena">Počevši od verzije 1.5 TypeScript unutrašnje module naziva imenskim prostorima a spoljašnje module jednostavno modulima.</div>
+<h2>Moduli</h2>
+Moduli se koriste kako bi se enkapsulirao kôd i locirao tokom izvršavanja programa. Oni predstavljaju mehanizam da se poveže više TypeScript datoteka i definiše veza imezmeđu njih. Između TypeScript datoteke i modula postoji 1-1 korispodencija što znači da jedan modul predstavlja tačno jednu TypeScript datoteku <!-- ili JavaScript ovo treba razjasniti-->.
+Ovo je jedna od glavnih razlika u odnosu na imenske prostor kojih je moglo biti više u jednoj TypeScript datoteci. Ono po čemu se još razlikuj moduli od imenskih prostora je da umesto jedne JavaScript datoteke nakon kompilacije svaka TypeScript datoteka se transkompilira u zasebnu i zavisnu JavaScript datoteku.
+Da bi se kôd mogao izvršavati između ovih zavisnih JavaScript datoteka potrebno ih je nekako povezati. Ovo može da se uradi tako što se iz jedne glavne JavaScript datoteke učitavaju sve ostale zavisne JavaScript datoteke. Za ovo je potrebno učitati module<!-- učitača-->.
+U zavisnosti od toga o kojoj vrsti aplikacije se radi učitavaju moduli se vrši pomoću sledećih <b>JavaScript biblioteka</b>:<br><br>
+<ul style="list-style-type:circle">
+  <li>RequireJS -ako je upitanju klijentske strana </li>
+  <li>CommonJS -ako je upitanju serverska strana </li>
+</ul> <br>
+Kao i kod imenskih prostora upotrebom ključne reči <b>export</b> kôd (promenljive, klase, interfejs, imenski prostori itd.) modula postoja dostupan drugim modulima. Da bi ovaj kôd mogao da se koristi u okviru drugog modula potrebno je koristiti ključnu reč <b>import</b>.
+Na ovaj način definisana je veza između dva modula.<br>
+<b>Modul.ts</b>
+<xmp class = "primer_ta">  
+export let promenljiva_1: string = 'Obična promenljiva iz modula Modul.';
+
+export class Klasa_1
+{ 
+
+    polje_1: string;
+    polje_2: number;
+    constructor(polje_1: string, polje_2: number)
+    { 
+
+    }
+
+}
+ </xmp>
+ Postoje i drugi načini da se kôd označi za <b>export</b>. Naredne 3 sintakse imaju isti efekat:
+ <br>
+ <br>
+ <span class = "primer_text">export let promenljia_1: string = 'Obična promenljiva';</span>
+ <br>
+ <br>
+ <span class = "primer_text">export { promenljia_1 };</span>
+ <br>
+ <br>
+ <span class = "primer_text">export { promenljia_1 as drugo_ime_promenljive };</span>
+ <br>
+ <br>
+ Treća sintaksa omogućava da se definiše ime pod kojim će da se koristi kôd u drugim modulima. U ovom primeru promenljiva <b>promenljiva_1</b> će u drugim modulima imati ime <b>drugo_ime_promenljive</b>. na isti način navedene tri sintakse se mogu koristiti kada su upitanju imena klasa, funkcija, interfejsa itd.
+ Takođe moguće je eksportovati <!-- izvesti-->kôd koji se nalazi u drugom modulu pomoću naredbe:<br> <br>
+ <span class = "primer_text">export {ime_onog_što_se_eksportuje} from "./ime_modula";</span>
+ <br><br>
+ ili
+ <br><br>
+ <span class = "primer_text">export {ime_onog_što_se_eksportuje as novo_ime} from "./ime_modula;"</span><br><br>
+ ako je potrebno eksportovati sav kôd koji je označen kao <b>export</b> onda se koristi naredba: 
+ <br><br>
+ <span class = "primer_text">export * from "./ime_modula";</span> <br> <br>
+<b>Modul_1.ts</b>
+<xmp class = "primer_ta">  
+export * from "./Modul";
+
+export function funkcija_modula_1()
+{ 
+    'Ovo je funkcija modula_1';
+}
+
+export interface Interfejs_1
+{ 
+    polje_1:string
+}
+
+const e:number=2.73;
+ </xmp>
+Nakon učitavanja modula <b>Modul_1</b> u drugi modul moguće je koristiti <b>funkcija_modula_1</b>, <b>Interfejs_1</b>, <b>promenljiva_1</b> i <b>Klasa_1</b>. <b>Klasa_1</b> i <b>promenljiva_1</b> su dostupne jer je upotrebljena naredba <b>export * from "./Modul"</b>. Umesto ove naredbe mogle su se upotrebiti naredbe:
+<br>
+<br>
+<span class = "primer_text">export {Klasa_1} from "./Modul";</span><br><br>
+<span class = "primer_text">export {promenljiva_1} from "./Modul";</span>
+<br>
+<br>
+Za učitavanje<!-- uvoženje--> drugih modula koristi se ključna reč <b>import</b>. Može se upotrebiti jedna od naredne 3 naredbe:<br><br>
+<span class = "primer_text">import {ime_onog_što_se_učitava} from "./ime_modula";</span>
+<br><br>
+<span class = "primer_text">import {ime_onog_što_se_učitava as novo_ime} from "./ime_modula"</span>
+<br><br>
+<span class = "primer_text">import * from "./ime_modula";</span>
+<br><br>
+Prva naredba učitava pojedinačnu promenljivu, klasa, funkcija itd. iz modula. Druga naredba isto radi ali samo što dodeli promenljivoj, klasi, funkciji itd. novo ime. Poslednja naredba učitava sve promenljive, klase, funkcije koje u svojoj deklaraciji sadrže <b>export</b>. (označene su za export)
+<b>Glavni_modul.ts</b>
+<xmp class = "primer_ta">  
+import * from "./Modul_1";
+
+let objekat_1 = new Klasa_1('Vrednost polja_1', 9);
+
+funkcija_modula_1();
+
+alert(jedan*5);
+
+alert(promenljiva_1);
+ </xmp>
+<b>Modul_1.ts</b> osim svog koda eksportuje i kôd iz modula <b>Modul</b> zbog toga je moguće koristiti promenljivu <b>promenljiva_1</b> i pozivati konstruktora klase <b>Klasa_1</b>.<br>
+Ovaj kôd je se mogao zapisati i na drugi način:
+<xmp class = "primer_ta">  
+import {e} from "./Modul_1";
+import {funkcija_modula_1} from "./Modul_1";
+
+import {promenljiva_1} from "./Modul";
+import {Klasa_1} from "./Modul";
+
+let objekat_1 = new Klasa_1('Vrednost polja_1', 9);
+
+funkcija_modula_1();
+
+alert(jedan*5);
+
+alert(promenljiva_1);
+</xmp>
+<div class = "napomena">Za razliku od imenskih prostora da bi se koristio kôd drugog modula nije potrebna <span class = "primer_text">.</span> notacija. Promenljivama, funkcijama, klasama itd. se pristupa navođenjem samo imena kao da se svi nalaze uokviru jedne TypeScript datoteke. </div>
+Na kraju sve napisane TypeScript datoteke treba kompajllirati. U ovoj lekciji to su <b>Glavni_modul.ts</b>, <b>Modul_1.ts</b>, <b>Modul.ts</b>. Modul <b>Glavni_modul.ts</b> je glavna TypeScript datoteka koja sadrži adrese ostalih TypeScript datoteka koje pripadaju istom programu. Da bi se kompajlirale navedene TypeScript datoteke  potrebno je upotrebiti opciju <span class = "primer_text">--module</span> koja postoji u kompajleru.
+
+<br><br>
+Ako se upotrebljava <b>AMD</b> onda je komandna linija: <br> <span class = "primer_text">tsc --module amd ime_glavne_TypeScript_datoteke.ts</span><br><br>
+Ako se upotrebljava <b>CommonJS</b> onda je komandna linija: <br> <span class = "primer_text">tsc --module commonjs ime_glavne_TypeScript_datoteke.ts</span><br><br>
+
+Na prethodnom primeru to bi izgledalo:<br> <span class = "primer_text">tsc --module amd Glavni_modul.ts</span><br>
+Nakon kompilacije svaki modul tj. svaka TypeScript datoteka postaje zasebna JavaScript datoteka.
+<div class = "napomena">AMD (Asynchronous Module Definition) je specifikacija za programski jezik JavaScript. On definiše interfejs za programiranje aplikacija koji definiše module (module koda) i njihovu zavisnost koje onda učitava asinhrono ako je potrebno.
+RequireJS je jedna od JavaScript biblioteka koja implementira AMD.</div>
+
+
+Ako je potrebno eksportovati i u drugom modulu učitati samo jednu klasu , funkciju, interfejs, imenski prostor ili enum može se koristiti <span class = "primer_text">export =</span> i <span class = "primer_text">import = require()</span> naredbe.
+<br><br><b>Funkcije_kruga.ts</b>
+<xmp class = "primer_ta">  
+const pi:number=3.14;
+
+    function površina_kruga(r:number):number
+      {
+      return r*r*pi;
+      }
+
+    function obim_kruga(r:number):number
+      {
+     return 2*r*pi;
+      }
+
+export = površina_kruga;
+</xmp>
+<b>Glavno_telo_programa.ts</b>
+<xmp class = "primer_ta">  
+import Površina_kruga = require("./Funkcije_kruga");
+
+alert(Površina_kruga(1));
+</xmp>

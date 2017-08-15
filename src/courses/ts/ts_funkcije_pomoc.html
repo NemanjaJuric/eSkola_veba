@@ -1,0 +1,64 @@
+﻿<textarea class = "primer_ta" rows = "64" disabled>
+//a)
+let dugme1 = document.createElement("button");
+document.body.appendChild(dugme1);
+dugme1.textContent = "Računaj";
+
+dugme1.onclick = function () {
+
+    let i: number = +unos1.value; 
+
+     alert(zlatni_presek(i));
+
+  } 
+
+
+
+function zlatni_presek (n:number):number
+  {
+    if (n == 0)
+        return 1;
+    else return 1 + 1/zlatni_presek(n-1);
+  }
+  
+//b
+let unos1 = document.createElement("input");
+document.body.appendChild(unos1);
+
+let dugme1 = document.createElement("button");
+document.body.appendChild(dugme1);
+dugme1.textContent = "Računaj";
+
+dugme1.onclick = function () {
+
+    let i: number = +unos1.value; 
+    let s: string = 'Prvih ' + i + 'članova niza su: ';
+     alert(fibonači(i));
+    
+  } 
+
+
+function fibonači(n:number):number
+  {
+    if(n == 0||n == 1)
+        return 0;
+    else if(n == 2)
+      return 1;
+   else
+      return fibonači(n - 1) + fibonači(n - 2);
+  }
+  
+//c
+function f(...n:string[]):number
+{
+
+    let s: string='';
+    for (let i = 0; i < arguments.length;i++)
+     {
+        s = s + arguments[i];
+    }
+
+      return s.length;
+  }
+
+</textarea>

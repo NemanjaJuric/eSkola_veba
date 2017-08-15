@@ -1,0 +1,52 @@
+﻿interface Sport
+{
+    ime_tima: string;
+    broj_igrača: number;
+
+}
+
+interface Klub
+{ 
+
+    vrednost: number;
+    marketing: boolean;
+
+}
+interface Fudbal extends Sport, Klub
+{ 
+    ime_golmana: string;
+    učešće_u_ligi_šampiona: boolean;
+
+    himna: () => void;
+
+} 
+
+let moj_sport: Sport = {
+
+    ime_tima: 'najbolji tim',
+    broj_igrača: 3
+}
+
+
+let engleski_klub: Fudbal = {
+    
+    ime_golmana: 'Jirži Dudek',
+    ime_tima: 'Liverpul',
+    broj_igrača: 22,
+    vrednost: 250000000,
+    učešće_u_ligi_šampiona: true,
+    marketing: false,
+
+    himna () : void
+        {
+        alert(' When you walk through a storm, hold your head up high \n And dont be afraid of the dark\n At the end of the storm, theres a golden sky\n And the sweet, silver song of a lark');
+       }
+}
+
+let Freestyler:Klub = {
+
+    vrednost: 100000,
+    marketing: true
+}
+
+engleski_klub.himna();
