@@ -1165,7 +1165,7 @@
         "type": "course",
         "lang": "application/typescript",
         "displayLang": "TypeScript",
-        "detailsText": "Detalji o TypeScript-u",
+        "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
         "lessons": [
             {
                 "name": "Uvod u TypeScript",
