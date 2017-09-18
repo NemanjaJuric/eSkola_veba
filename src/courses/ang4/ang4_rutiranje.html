@@ -1,0 +1,201 @@
+<h1>Rutiranje u radnom okviru Angular</h1>
+<iframe src="https://embed.plnkr.co/hCIDsY3AZkozBN42hJ2Y/" frameborder="0" width="100%" height="500px"></iframe>
+Trenutno je korisnički interfejs pretrpan komponentama koje su razbacane na jednoj strani i potrebno je obezbediti bolju navigaciju jer je zanemarena vizuelna strana. <br/><br/>
+Korišćene su razne direktive za izmenu delova stranica, ali je sve i dalje na jednoj stranici.<br/>
+Šta ako je potrebno imati aplikaciju gde treba da se prikažu nekoliko stranica kao, na primer, stranice osobe i računi zasebno. <br/><br/>
+Do sada za ovo je bilo potrebno više HTML dokumenata kao što je dokument "index.html" ali više nije, jer je Angular tim izgradio Angular ruter, imajući na umu komponentizaciju i koji dozvoljava
+izmenu URL adrese a da i dalje se koristi ista stranica, vršeći izmene samo u glavnom delu te stranice. <br/><br/>
+Ovo je momenat kada rutiranje ima posebnu važnost i omogućava izgrađivanje navigacije, dozvoljavajući razdvajanje različitih područja interfejsa na različite stranice, koje su međusobno povezane mrežom hiperveza i veb adresa.
+<br/><br/>
+Treba razmotriti sledeći primer da bi se bolje razumelo šta je Angular rutiranje. 
+<br/>
+Na vrhu stranice se nalazi nekoliko dugmeta, koji ne rade u ovom trenutku.<br/>
+Za sada se sve stranice učitavaju u glavnoj komponenti: PocetnaKomponenta, OsobeKomponenta i RacuniKomponenta. Trebalo bi ih razdvojiti na više različitih stranica. <br/>
+To je nešto što se može poboljšati i bilo lepo kad bi postojale odvojene stranice. <br/>
+<br/>
+Gde treba registrovati putanje ka tim stranicama? Modul "app.module.ts" se čini kao dobro mesto zato što se ovde konfiguriše cela aplikacija a i u njoj su već konfigurisane komponente.<br/>
+Bilo bi dobro mesto za informisanje radnog okvira Angular koje rute aplikacija ima.<br/>
+Iznad dekoratora NgModule, dodati konstantu i nazvati je <span class="primer_text">ruteAplikacije</span> gde bi trebalo definisati sve rute aplikacije.<br/>
+Ova konstanta je, u stvari, jedan niz ruta i trebalo bi da bude specijalnog tipa objekata <span class="primer_text">Routes</span>, koji bi trebalo uvesti iz biblioteke <span class="primer_text">@angular/router</span> na sledeći način<br/>
+<xmp class = "primer_ta"> 
+import { Routes } from '@angular/router';
+
+const ruteAplikacije: Routes = [];
+</xmp>
+Potrebno je u taj niz dodati sve rute koje se nalaze u aplikaciji. Svaka ruta je JavaScript objekat u ovom nizu.<br/>
+Kako konfigurisati rutu u aplikaciji? Treba da prati specifičan šablon ili strukturu za Angular da bi mogao da ga koristi 
+i toj strukturi je uvek potrebna putanja (eng. path), tj. ono što je upisano posle domena i ta putanja bi trebalo da je tipa string.
+Na primer, na sledeći način se dodaje putanja "/osobe"
+<xmp class = "primer_ta"> 
+import { Routes } from '@angular/router';
+
+const ruteAplikacije: Routes = [
+	{ path: 'osobe' }
+]
+</xmp> 
+<div class = "napomena">
+<b>Napomena:</b>Nije potrebna kosa crta ispred imena putanje, zato što bi bila netačno definisana.
+</div>
+Treba definisati i šta je potrebno da se desi kada se dostigne ova putanja. Za sada se ništa ne dešava. Jeste definisana putanja ali ništa nije nakačeno za nju.<br/>
+Treba nakačiti komponentu tako da se na taj način informiše Angular o tome kada je dostignuta ova putanja i da u tom trenutku određena komponenta treba biti učitana.<br/>
+Konkretno, za putanju "osobe" treba nakačiti komponentu <span class="primer_text">OsobeKomponenta</span>
+<xmp class = "primer_ta">
+import { Routes } from '@angular/router';
+
+const ruteAplikacije: Routes = [
+	{ path: 'osobe', component: OsobeKomponenta }
+]
+</xmp> 
+Na isti način se dodaju i ostale putanje za komponente <span class="primer_text">PocetnaKomponenta</span> i <span class="primer_text">RacuniKomponenta</span>
+<xmp class = "primer_ta">
+import { Routes } from '@angular/router';
+
+const ruteAplikacije: Routes = [
+	{ path: '', component: PocetnaKomponenta }
+	{ path: 'osobe', component: OsobeKomponenta }
+	{ path: 'racuni', component: RacuniKomponenta }
+]
+</xmp> 
+Kako će Angular znati kad da koristi ovu konstantu? Ove rute bi za sad bile ignorisane od strane radnog okvira Angular.<br/>
+Treba registrovati nekako ove putanje u aplikaciji, a to se radi dodavanjem u niz imports, takođe, u "app.module.ts".<br/>
+Potrebno je dodati modul RouterModule koji se uvozi iz biblioteke <span class="primer_text">@angular/router</span>. 
+<xmp class = "primer_ta"> 
+import { Routes, RouterModule } from '@angular/router';
+
+const ruteAplikacije: Routes = [
+	{ path: '', component: PocetnaKomponenta }
+	{ path: 'osobe', component: OsobeKomponenta }
+	{ path: 'racuni', component: RacuniKomponenta }
+]
+@NgModule({
+	imports: [ RouterModule ]
+})
+</xmp>
+Sa svim do sada dodatim, putanje i dalje nisu registrovane. <br/>
+Modul <span class="primer_text">RouterModule</span> ima specijalnu metodu koja se zove <span class="primer_text">forRoot()</span> koja kao argument uzima 
+prethodno definisanu konstantu svih putanja i na taj način su registrovane sve putanje u aplikaciji.<br/>
+<xmp class = "primer_ta"> 
+import { Routes, RouterModule } from '@angular/router';
+
+const ruteAplikacije: Routes = [
+	{ path: '', component: PocetnaKomponenta }
+	{ path: 'osobe', component: OsobeKomponenta }
+	{ path: 'racuni', component: RacuniKomponenta }
+]
+@NgModule({
+	imports: [ RouterModule.forRoot(ruteAplikacije) ]
+})
+</xmp>
+Nedostajući deo je mesto za pružanje izabranih komponenti. <br/>
+Zato što u glavnoj komponenti ostale komponente se i dalje dodaju pomoću njihovih selektora.  <br/>
+Radni okvir Angular zna da ukucavanjem "/osobe" posle imena domena treba da učita komponentu <span class="primer_text">OsobeKomponenta</span>, ali kako da zna gde da je učita?
+Pravo mesto gde treba učitati komponente je u glavnoj komponenti ili nekoj komponenti gde treba da se nalazi glavni deo aplikacije, 
+ne dodavajući pomoću selektora komponente već pomoću specijalne direktive <span class="primer_text">RouterOutlet</span>. 
+<br/>
+<span class="primer_text">RouterOutlet</span> je direktiva rezervisanog polja u kome će biti date različite komponenete na čije putanje je korisnik kliknuo. 
+<br/>
+<xmp class = "primer_ta"> 
+	<router-outlet></router-outlet>
+</xmp>
+
+<h2>Navigacija pomoću direktive RouterLinks</h2>
+Za sada je moguće upravljati putanjama samo ako se ručno ukuca u URL adresi putanja do određene stranice.<br/>
+Nije nimalo pogodno samo na taj način upravljati navigacijom, već bi bilo dobro da je moguće i klikom na jedan od linkova prikazati sadržaj neke komponente.<br/><br/>
+Prva stvar koja pada na pamet je da se doda u <span class="primer_text">href</span> atributu etikete <span class="primer_text"><a></span> putanja do stranice.<br/>
+Na taj način će aplikacija raditi, ali će učitavati celu aplikaciju iznova. <br/>
+To nije najbolje ponašanje aplikacije, zato što ponovo pokreće aplikaciju na svaku navigaciju.<br/>
+Ovo je način kako ne treba implementirati navigaciju u radnom okviru Angular. <br/> Na koji način je treba implementirati?<br/>
+Postoji posebna direktiva koju radni okvir Angular nudi. 
+Umesto <span class="primer_text">href</span> atributa, treba koristiti specijalnu direktivu koja se zove <span class="primer_text">routerLink</span>.<br/>
+Direktiva <span class="primer_text">RouterLink</span> se upotrebljava kao atributna direktiva koja pomaže da se HTML kontrole ponašaju 
+kao dugmad linkova koji vode do različitih ruta specifikovanjem jedinstvenog naziva, kojim je svaka putanja konfigurisana.
+<br/><br/>
+Sintaksa direktive <span class="primer_text">routerLink</span> je prilično jasna. 
+Sa desne strane znaka jednakosti direktiva očekuje niz naziva rute koji odgovara imenovanoj ruti i opciono imenovanim podrutama unutar prethodne, ka kojima se vrši navigacija. <br/>
+U većini slučajeva je to jedna jedinstvena vrednost niza. 
+<xmp class = "primer_ta"> 
+<ul>
+	<li><a routerLink="/">Početna</a></li>
+	<li><a routerLink="/osobe">Osobe</a></li>
+	<li><a routerLink="/racuni">Računi</a></li>
+</ul>
+</xmp>
+Definicija <span class="primer_text">routerLink</span>, takođe, ostavlja prostora za deklarativno dodavanje parametara, 
+pa mogu se pokrenuti i dinamičke rute u toku pokretanja aplikacije.
+<xmp class = "primer_ta"> 
+	<li><a [routerLink]="['/racuni', 11]">Računi</a></li>
+</xmp>
+<br/>
+Sada klikom na link se samo učitava stranica, a ne cela aplikacija. To je zato što direktiva <span class="primer_text">routerLink</span> hvata klik elementa, 
+sprečava podrazumevano ponašanje (što bi bilo slanje zahteva serveru), 
+a umesto toga analizira šta je upisano kao vrednost direktive <span class="primer_text">routerLink</span> i proverava da li postoji putanja u konfiguraciji svih putanja.
+<br/>
+
+
+<h2>Stilizovanje aktivnog linka</h2>
+Angular pruža specijalnu direktivu za stilizovanje aktivnog linka koja se zove <span class="primer_text">routerLinkActive</span> direktiva. <br/>
+Pogodna stvar kod ove direktive je što se može koristiti kao atribut bilo kog elementa.<br/>
+Na klik svakog od linka aktivira se stil klasa (na primer "aktivanLink") ako se doda ova direktiva. <br/>
+<xmp class = "primer_ta"> 
+<nav>
+	<a routerLink="/" routerLinkActive="aktivanLink">Početna</a>
+	<a routerLink="/osobe" routerLinkActive="aktivanLink">Osobe</a>
+	<a routerLink="/racuni" routerLinkActive="aktivanLink">Računi</a>
+</nav>
+</xmp>
+Ova direktiva uzima sve sadržane komponente koje se nalaze u URL adresi pa zbog toga je link ka početnoj stranici uvek aktivan.<br/>
+To se može ispraviti ako se doda parametar direktive <span class="primer_text">routerLinkActive</span>, 
+koji se zove <span class="primer_text">routerLinkActiveOptions</span> vezivanjem podataka pomoću parametra unosa.<br/>
+Sa desne strane znaka jednakosti se unosi JavaScript objekat
+sa prostom konfiguracijom <br/><span class="primer_text">exact: true</span> koji je rezervisan parametar i 
+prosto govori radnom okviru da ako se samo na ovoj putanji nalazi da učita odgovarajuću komponentu. 
+<br/>
+
+<h2>Prosleđivanje dinamičkih parametara u rutama</h2>
+Umesto ručnog unošenja u putanji, parametri se mogu dodati i dinamički
+<xmp class = "primer_ta"> 
+{ path: 'osobe/:id', component: OsobaKomponenta }
+</xmp>
+Dvotačka informiše radni okvir Angular da je ovo dinamički deo putanje.
+<br/>
+Na koji način se pristupa podatku koji se šalje preko URL adrese?<br/>
+Potrebno je injektirati objekat ActivatedRoute u komponentu koji treba uvesti iz biblioteke <span class="primer_text">@angular/router</span>.<br/>
+<xmp class = "primer_ta"> 
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
+</xmp>
+Injektiranjem ovog objekta, dobija se pristup trenutno aktivnoj ruti. <br/>
+Konkretno, objekat <span class="primer_text">ActivatedRoute</span> koji je injektiran daje pristup parametru <span class="primer_text">id</span> koji je prosleđen u URL adresi.<br/>
+Kroz metodu <span class="primer_text">ngOnInit()</span> može se preuzeti podatak iz URL adrese na sledeći način
+<xmp class = "primer_ta">
+ngOnInit(){
+	this.osoba = {
+		id: this.route.snapshot.params['id'],
+		ime: this.route.snapshot.params['ime']
+	};
+}
+</xmp> 
+U HTML dokumentu se može koristiti sada taj podatak
+<xmp class = "primer_ta">
+Osoba {{ osoba.ime }} je učitana!
+</xmp> 
+Ako su učitani podaci na stranici i ako se upišu novi, Angular to ne zna da prepozna. <br/>
+Dobro je da neće učitati opet stranicu i uništiti stare podatke ako se već nalazi u toj komponenti.<br/>
+<br/>
+I dalje se mogu ažurirati novi podaci. Za prvu inicijalizaciju je dobro koristiti parametar <span class="primer_text">snapshot</span>. <br/>
+Ako je potrebno da se na svaku izmenu ažuriraju podaci sa stranice potreban je drugačiji pristup. <br/>
+U metodi <span class="primer_text">ngOnInit()</span> koristi se sledeće
+<xmp class = "primer_ta">
+this.route.params.subscribe( (params: Params) => { 
+		this.osoba.id = params['id']; 
+		this.osoba.ime = params['ime']; 
+		} 
+	);
+</xmp> 
+Sada radni okvir prepoznaje učitavanje podataka na stranici i kada su upisani novi podaci.
+<br/>
+<div class = "zadatak">
+<b>Zadatak:</b>Dodati navigaciju tako da klikom na dugme "Letovi" se učitava sadržaj komponente LetoviKomponenta, 
+a klikom na dugme "Pretraga letova" se učitava sadržaj komponente PretragaLetovaKomponenta (koju treba kreirati i prebaciti div blok iz LetoviKomponenta). <br/>
+Opciono: Dodati da se klikom na jednu od stavki iz liste letova učita komponenta DetaljiOLetuKomponenta.
+Dodati stil "aktivanLink" i pomoću direktive routerLinkActive stilizovati aktivan link. 
+</div>

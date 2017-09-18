@@ -6,7 +6,7 @@ $jq-primary: #0097a7;
 $php-primary: #5C6BC0;
 $bs-primary: #5a4181;
 $ang-primary: #c3002f;
-$ang2-primary: #c3002f;
+$ang4-primary: #c3002f;
 $veb-primary: #47789e;
 $ts-primary: #294e80;
 $sass-primary: #cf649a;
@@ -115,8 +115,8 @@ $android-official: #a2c53d;
     background-color: $ang-primary !important;
 }
 
-.bkg-ang2{
-    background-color: $ang2-primary !important;
+.bkg-ang4{
+    background-color: $ang4-primary !important;
 }
 
 .bkg-php{
@@ -187,8 +187,8 @@ $android-official: #a2c53d;
     color: $ang-primary;
 }
 
-.hover-ang2:hover{
-    color: $ang2-primary;
+.hover-ang4:hover{
+    color: $ang4-primary;
 }
 
 .hover-php:hover{

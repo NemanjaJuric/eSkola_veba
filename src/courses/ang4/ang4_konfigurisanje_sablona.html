@@ -1,0 +1,113 @@
+<h1>Konfigurisanje šablona iz klase komponente</h1>
+<iframe src="https://embed.plnkr.co/vdHt8SAIrFCVvSLCoMDO/"frameborder="0" width="100%" height="500px"></iframe>
+<h2>Konfigurisanje šablona</h2>
+Prikaz sadržaja komponente se definiše pomoću šablona. To je jedini parametar koji je obavezan u komponenti. <br>
+U prethodnoj lekciji je obrađeno kako se on ugrađuje u komponentu
+
+<span style="color: red"><xmp class = "primer_ta">template: `<h1>Zdravo svete iz Angular komponente!</h1>` </xmp></span>
+
+Takođe, izgled koda šablona je isti kao običan HTML dokument, uz dodatnu sintaksu šablona
+radnog okvira Angular. Kada aplikacija postane složenija, vrlo je moguće da i HTML šablon postane složeniji.
+Čitljivost koda će biti teža ako je sve u jednoj datoteci. Rešenje je staviti ceo HTML šablon u jednu datoteku, a korišćenjem parametra <span class="primer_text">templateUrl</span> ukazati na ime te datoteke koja sadrži HTML oznaku komponente.
+Na primer, ako je ime komponente "glavna.komponenta.ts", HTML šablon sačuvati u datoteku pod nazivom "glavna.komponenta.html" i u komponenti umesto parametra <span class="primer_text">template</span> bi se koristio parametar 
+<span class="primer_text">templateUrl</span>, a vrednost tog parametra će biti ime tog HTML šablona (glavna.komponenta.html) pod jednostrukim navodnicima.
+
+<span style="color: red"><xmp class = "primer_ta">templateUrl: 'putanja-do-datoteke/zdravo-svete.komponenta.html'</xmp></span>
+
+<h2>Kapsuliranje CSS stilova</h2>
+Za svaku napisanu Angular komponentu, mogu se definisati CSS stilovi koji stilizuju HTML šablone.
+Jedan od načina je definisanje parametra <span class="primer_text">styles</span> u dekoratoru komponente. Njegova vrednost je niz CSS kodova koji se primenjuju samo u toj komponenti, ako nije drugačije definisano.
+Stilovi se mogu učitati u komponentu i iz spoljašnjih CSS datoteka pomoću parametra <span class="primer_text">styleUrls</span>. Njegova vrednost je niz CSS datoteka.
+<div class = "napomena"><b>Napomena:</b>Definisanjem CSS stilova unutar komponente učinićemo da komponenta bude lakša za deljenje i održavanje.</div>
+Postoje tri različita načina za definisanje CSS stila za komponente:<br/>
+<dl>
+<dt><b>Parametar <span class="primer_text">styles</span></b></dt>
+<dd>Ovaj parametar će upotrebiti niz koji sadrži CSS pravila i primeniće ih na oznaku šablona, ugrađujući pravila na početak dokumenta. 
+<xmp class = "primer_ta">
+@Component({
+	selector: 'moja-aplikacija',
+	styles: [`p { color: yellow; } h1 { text-align: center; }`]
+})
+</xmp>
+</dd>
+<dt><b>Parametar <span class="primer_text">styleUrls</span></b></dt>
+<dd>Isto kao parametar <span class="primer_text">styles</span> i ovaj parametar će koristiti niz, ali će svaki predstavljati link ka spoljašnjoj CSS datoteci. Ovaj parametar se može upotrebiti zajedno sa prethodnim parametrom.
+<xmp class = "primer_ta">
+@Component({
+	selector: 'moja-aplikacija',
+	styleUrls: ['putanja-do-datoteke/stil.css']
+})
+</xmp>
+</dd>
+<dt><b>Umetnuti stilovi</b></dt>
+<dd>
+Uključivanjem CSS pravila u sam šablon
+<xmp class = "primer_ta">
+@Component({
+	selector: 'moja-aplikacija',
+	template: `
+		<style> p { color: green; } </style>
+		<p>Ovo je primer umetnutog stila!</p>		
+	`
+})
+</xmp>
+</dd>
+</dl>
+<h2>Različiti nivoi kapsuliranja prikaza</h2>
+Zahvaljujući oblasnom stilizovanju, mogu se primeniti CSS stilovi na elemente koji se nalaze u komponenti, a ne primenjuju se van nje.
+<br/>
+Angular će ugraditi ove stilove na početak dokumenta, a na taj način mogu da utiču i na elemente iz drugih komponenti aplikacije. 
+<br/>
+Sve to možemo sprečiti podešavanjem različitih nivoa kapsuliranja prikaza. Potrebno je uvesti iz biblioteke <span class="primer_text">@angular/core</span> enum ViewEncapsulation, u dekoratoru Component definisati 
+novi parametar encapsulation i upotrebiti neku od vrednosti enuma.
+<br/>
+Njegove vrednosti su:
+<ul>
+<li><b>Emulated</b> - Postavlja CSS pravila u jedan blok definisan selektorom koji ukazuje na komponentu.
+<br/>
+<xmp class = "primer_ta">
+@Component({
+	selector: 'zdravo-svete',
+	template: `<h1>Zdravo svete!</h1>`
+	styles: [`h1 { color: green; }`],
+	encapsulation: ViewEncapsulation.Emulated
+})
+</xmp>
+</li>
+<li><b>Native</b> - koristi implementaciju "Shadow DOM" (o kom neće biti reči u ovom kursu) pretraživača prikačivši "shadow DOM" u selektor komponente i smestivši prikaz komponente unutar njega.<br/>
+<div class = "napomena"><b>Napomena:</b>Samo nekoliko pretraživača podržava "Shadow DOM" u ovom trenutku.</div>
+<xmp class = "primer_ta">
+@Component({
+	selector: 'zdravo-svete',
+	template: `<h1>Zdravo svete!</h1>`
+	styles: [`h1 { color: green; }`],
+	encapsulation: ViewEncapsulation.Native
+})
+</xmp>
+</li>
+<li><b>None</b> - Stilovi će biti ugrađeni u zaglavlje dokumenta nepromenjeni.
+<br/>
+<xmp class = "primer_ta">
+@Component({
+	selector: 'zdravo-svete',
+	template: `<h1>Zdravo svete!</h1>`
+	styles: [`h1 { color: green; }`],
+	encapsulation: ViewEncapsulation.None
+})
+</xmp>
+</li>
+</ul>
+Testiranjem svake od vrednosti, može se videti na koji način su stilovi ugrađeni u dokument i na koji način se mogu ograničiti stilovi u aplikaciji upotrebom različitih nivoa kapsuliranja prikaza.
+<div class = "zadatak">
+<b>Zadatak:</b>U svakom direktorijumu iz zadatka iz prethodne lekcije dodati odgovarajuće spoljašnje html i css datoteke.
+U datoteci "zaglavlje.komponenta.html" dodati listu sa stavkama Letovi i Pretraga letova. 
+Zatim dodati stilove u datoteci "zaglavlje.komponenta.css" i primeniti ih na dodatu listu (na primer, pomeriti listu od vrha stranice 50px, 
+postaviti stavke u jednom redu i na tag <a> primeniti sledeće stilove: 
+padding: 10px 25px 10px 25px;
+background-color: blue;
+color: white;
+text-decoration: none;
+font-weight: bold;
+).
+</div>
+<div class = "napomena"><b>Napomena:</b>U veb alatu Plunker se mora pisati cela putanja do datoteke.</div>

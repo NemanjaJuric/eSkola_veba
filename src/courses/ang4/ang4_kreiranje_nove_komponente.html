@@ -1,0 +1,37 @@
+<h1>Angular Komponente</h1>
+<h2>Kreiranje nove komponente</h2>
+<br/><br/>
+<iframe src="https://embed.plnkr.co/LdlJzEXPxBtzArUZSff0/" frameborder="0" width="100%" height="500px"></iframe>
+<br/><br/>
+Selektor druge komponente se ne dodaje u datoteci "index.html", već u datoteci "glavna.komponenta.html".
+Napraviti novi direktorijum i nazvati ga "zdravo-svete". U direktorijumu kreirati datoteke: "zdravo-svete.komponenta.ts", "zdravo-svete.komponenta.html" i "zdravo-svete.komponenta.css".<br>
+U datoteci "zdravo-svete.komponenta.ts" definisati klasu
+<xmp class = "primer_ta">
+export class ZdravoSveteKomponenta {
+}
+</xmp> 
+Da bi radni okvir razumeo da se radi o komponenti, a ne običnoj klasi, dodati dekorator <span class = "primer_text">@Component({})</span>.
+Pošto TypeScript ne sadrži ovaj dekorator, potrebno je uvesti ga iz biblioteke <span class = "primer_text">@angular/core</span>. <br/>
+Sada treba konfigurisati komponentu pomoću parametara "selector" i "template":
+<xmp class = "primer_ta">
+import { Component } from "@angular/core";
+@Component({
+	selector: 'zdravo-svete',
+	template: `<h1>Zdravo svete iz Angular komponente!</h1>`
+})
+export class ZdravoSveteKomponenta {
+
+}
+</xmp>
+Da bi komponenta bila vidljiva, treba je uvesti u datoteku <span class = "primer_text">app.module.ts</span> i deklarisati je.
+<div class = "napomena"><b>Napomena: </b>Pomoću Angular CLI kreiranje komponenti je jednostavno, kucajući u konzoli sledeći kod <br/>
+<span class = "primer_text"> ng generate component ime-komponente</span> (ili skraćeno <span class = "primer_text">ng g c ime-komponente)</span>
+</div>
+
+
+<div class = "zadatak">
+<b>Zadatak:</b>Kreirati 5 Angular komponenti: ZaglavljeKomponenta, LetoviKomponenta, ListaLetovaKomponenta, DetaljiOLetuKomponenta i UpravljanjeListomLetovaKomponenta.<br/>
+Zatim kreirati direktorijume zaglavlje i letovi koji treba da se nalaze u app direktorijumu. <br/>
+U direktorijumu letovi kreirati dva direktorijuma: lista-letova i detalji-o-letu, a u direktorijumu lista-letova kreirati direktorijum upravljanje-listom-letova.<br/>
+</div>
+<div class = "napomena"><b>Napomena:</b>Deklarisati i uvesti sve komponente u glavni modul.</div>

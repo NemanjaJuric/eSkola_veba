@@ -1,0 +1,150 @@
+<h1>Angular 4</h1>
+<br/>
+<h2>Uvod</h2>
+Angular 4 je  radni okvir programskog jezika JavaScript. Koristi se za razvoj modernih veb aplikacija 
+koje su zasnovane na dizajnu arhitekture koji se sastoji od veb komponenata 
+međusobno povezanih pomoću njihovog posebnog U/I interfejsa.
+<br/><br/>
+Sastoji se od nekoliko biblioteka. Neke od njih čine osnovu radnog okvira, a neke su opcione.
+<br/><br/>
+Angular omogućava kreiranje reaktivnih jednostranih aplikacija (eng. Single Page Applications - SPA).
+Prednost korišćenja jednostranih aplikacija je, pre svega, njihova brzina odgovora koja je ekvivalentna
+brzini desktop aplikacija. Takođe, takve aplikacije mogu da rade i bez internet konekcije i imaju sposobnost 
+samostalnog osvežavanja.
+<br/><br/>
+Prethodne verzije radnog okvira Angular su Angular 1 (poznat još i kao AngularJS) i
+Angular 2.<br/>
+Radni okvir Angular 1 je postao jedan od popularnijih JavaScript radnih okvira za razvoj veb aplikacija.
+Njegovi nedostaci su postali previše istaknuti čim bi aplikacija postala veća i složenija. 
+<br/><br/>
+Umesto ažuriranja verzije Angular 1, nastao je Angular 2 koji je kompletna prerada verzije Angular 1, predstavljajući potpuno novu arhitekturu aplikacije
+izgrađenu od nule u programskom jeziku TypeScript. TypeScript je nadskup programskog jezika JavaScript 
+kreiran od strane kompanije Microsoft. <br>
+Nastao je kao potreba da se nadogradi postojeći JavaScript i podržan je u modernim operativnim sistemima.
+Zbog nekih nedostataka programskog jezika JavaScript, TypeScript je implementiran kao njegov nadskup i kompilira se nazad u JavaScript. 
+Svi postojeći JavaScript fajlovi su validni TypeScript fajlovi. <br/>
+Najbitnija novina je uvođenje tipova podatka, kao i klasa i modula. 
+Tako je dodavanjem ovih funkcija u JavaScript omogućeno da se aplikacije pišu u 
+modernom objektno orijentisanom programskom jeziku. <br/>
+Većina poznatih razvojnih okruženja imaju podršku za TypeScript (Visual studio, Eclipse, Intellij Idea, 
+Web storm, Sublime Text, Atom, Visual studio Code itd.).
+Razlog zašto se preporučuje TypeScript za razvoj Angular aplikacija zasnovan je na činjenici da je sam Angular napisan na ovom jeziku.
+<br/>
+<div class = "napomena"><b>Napomena:</b>Više o samom jeziku TypeScript možete saznati u zasebnom kursu.</div>
+<br/>
+Angular 4 je unapređena verzija verzije Angular 2.<br/> 
+<div class = "napomena"><b>Napomena:</b>Za učenje verzija Angular 2 i 4, nije potrebno predznanje verzije Angular 1.</div>
+<div class = "napomena"><b>Napomena:</b>Angular 3 verzija je preskočena zbog konflikta između brojeva verzija.</div>
+<br/>
+Funkcije radnog okvira Angular 4 obuhvataju sve što je potrebno modernoj veb aplikaciji: <br/>
+<ul>
+<li>interoperabilnost komponente,</li>
+<li>univerzalnu podršku za više platformi i uređaja, </li>
+<li>fleksibilnost, </li>
+<li>napredan mehanizam rutera sa podrškom za razdvajanje i komponentiranje definicija rute itd.</li>
+</ul>
+
+<h2>Veb komponente</h2>
+Angular aplikacije su napravljene od komponenti. Komponenta se sastoji od HTML šablona i klase komponente, dizajniranih da budu upotrebljeni zajedno za razvoj elemenata funkcije sa višim nivoom vizuelne 
+izražajnosti i mogućnošću ponovne upotrebe.
+<br/>
+Napraviti direktorijum "src". U njemu će se čuvati svi fajlovi koji se tiču aplikacije. <br/>
+Zatim kreirati direktorijum unutar direktorijuma "src" koji pod nazivom "app" i u njemu sačuvati datoteku "glavna.komponenta.ts".
+U datoteci "glavna.komponenta.ts" uneti sledeći kod:
+<xmp class = "primer_ta">
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'moja-aplikacija',
+  template: `<h1>Zdravo svete!</h1>`
+})
+export class GlavnaKomponenta { }
+</xmp> 
+<div class = "napomena"><b>Napomena:</b>Vrednost šablona nije pod znacima navodnika, već se koriste znaci za akcentovanje.</div>
+Predstavljen je primer najjednostavnije komponente koja prikazuje tekst na ekranu "Zdravo svete!". <br/> 
+U prvom delu koda je uvezen najosnovniji tip i funkcija koja će biti potrebna za razvoj osnovne komponente.<br/>
+Svaka komponenta sadrži dekorator @Component funkciju, koja je uvezena iz biblioteke <span class = "primer_text">@angular/core</span>.<br/>
+Postoji nekoliko vrsta dekoratora, a svi su prepoznatljivi po simbolu @, koji se upotrebljava kao prefiks.<br/>
+U primeru ukazujemo kompilatoru da je klasa GlavnaKomponenta, u stvari, Angular komponenta.<br/>
+Klasa kontrolera koja je kreirana pruža sve što je potrebno za instanciranje objekta. <br/>
+U dekoratoru se nalazi selektor "moja-aplikacija", 
+a svojstvo šablona definiše unutrašnju HTML strukturu napravljene komponente. 
+Prilagođeni elementi koji kapsuliraju HTML šablone su osnova veb komponenata.<br/>
+Element <span class = "primer_text">moja-aplikacija</span> se nalazi u datoteci "index.html" i pozivom aplikacije 
+se pomoću ovog elementa poziva kreirana veb komponenta, tj. "index.html" je stranica koja se prikazuje u pretraživaču. 
+<xmp class = "primer_ta">
+<moja-aplikacija>Učitava se aplikacija...</moja-aplikacija>
+</xmp>
+Kreirati HTML datoteku u osnovnom direktorijumu radnog prostora pod nazivom
+"index.html", a zatim u nju dodati kod koji sadrži Angular 4 biblioteke koje su potrebne za razvoj Angular aplikacije
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moja prva Angular aplikacija</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body>
+    <base href="/">
+    <moja-aplikacija>Učitava se aplikacija...</moja-aplikacija>
+  </body>
+</html>
+</xmp>
+Element <span class = "primer_text">moja-aplikacija</span> u datoteci "index.html" nije običan element. To je Angular komponenta sa definisanim selektorom moja-aplikacija.
+<h2>Korenski (glavni) modul</h2>
+Angular aplikacije su modularne. Svaka Angular aplikacija ima bar jedan modul, tzv. korenski (glavni) modul. <br/>
+On služi za razvoj aplikacije, deklarišući komponente. Za sada on deklariše samo komponentu GlavnaKomponenta.
+<xmp class = "primer_ta">
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ ],
+  declarations: [ GlavnaKomponenta ],
+  exports:      [ GlavnaKomponenta ],
+  bootstrap:    [ GlavnaKomponenta ]
+})
+export class AppModule { }
+</xmp>
+NgModule je dekorator (uvozimo ga iz biblioteke <span class = "primer_text">@angular/core</span>), koji vraća metadata objekat čije osobine opisuju modul. 
+Najvažnije osobine su:
+<ul>
+<li>imports - drugi moduli čije izvezene klase su potrebne u šablonima komponenata u ovom modulu</li>
+<li>providers - servisi koji postaju dostupni svim komponentama u aplikaciji</li>
+<li>declarations - prikazane klase koje pripadaju ovom modulu. 
+Angular sadrži tri tipa takvih klasa: komponente (eng. components), direktive (eng. directives) i filtere (eng. pipes)</li>
+<li>exports - podskup deklaracija koje bi trebale da budu vidljive u šablonima komponenata u drugim modulima</li>
+<li>bootstrap - instancira klasu kontrolera koja se prosleđuje kao argument i koristi je za konstrukciju cele aplikacije</li>
+</ul>
+Aplikacija se pokreće tako što u trećoj TypeScript datoteci (sačuvati je u direktorijumu "src" pod nazivom "main.ts") bi se uneo sledeći kod koji se kompilira i pokreće u pretraživaču.
+<xmp class = "primer_ta">
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+</xmp>
+JavaScript, takođe, ima module za upravljanje JavaScript objektima. Oni su potpuno različiti od Angular modula.
+<br/>
+Štaviše, Angular je skup JavaScript modula (u daljem tekstu ćemo ih nazivati bibliotekama) o kojima je bilo reči u uvodu.
+<br/>
+Ime svake Angular biblioteke počinje prefiksom <span class = "primer_text">@angular</span>. Instaliraju se pomoću npm paketa, 
+a u aplikaciju se uvoze pomoću ključne reči <i>import</i>.  
+<br/>
+U programskom jeziku JavaScript svaka datoteka je modul i svi objekti definisani u toj datoteci pripadaju tom modulu.
+<br/>
+

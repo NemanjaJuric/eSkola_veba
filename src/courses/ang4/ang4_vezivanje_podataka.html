@@ -1,0 +1,221 @@
+<h1>Vezivanje podataka</h1>
+<iframe src="https://embed.plnkr.co/76mGOTg7hNxcu6wmb8qD/" frameborder="0" width="100%" height="500px"></iframe>
+Vezivanje podataka predstavlja proces komunikacije između korisničkog interfejsa aplikacije i TypeScript koda. <br>
+Dokle god je moguće uvlačiti i izvlačiti vrednosti iz HTML dokumenta, aplikacija je lakša za unos i ispis podataka. Jednostavno deklarišući izvorni (koji se nalazi u TypeScript dokumentu) 
+i krajnji  (koji se nalazi u HTML dokumentu) element, pomoću radnog okvira Angular, podaci se mogu vezati i prikazati u aplikaciji.<br>
+Dakle, dodavanjem oznaka za vezivanje u HTML šablon, radni okvir odradi posao i veže obe strane. <br>
+Postoje 3 različita tipa vezivanja koji se razlikuju po smeru kretanja podataka, a 4 vrste vezivanja podataka: 
+<br>
+jednosmerno: od izvora do prikaza, od prikaza do izvora i 
+dvosmerno vezivanje podataka (od izvora podataka do prikaza i nazad). 
+<br><br>
+Od izvora do prikaza podataka može se predstaviti interpolacijom niske karaktera i vezivanjem podataka pomoću parametra unosa.
+<br>
+Od prikaza do izvora podataka se može predstaviti vezivanjem događaja pomoću parametra ispisa. <br>
+Na lakim primerima će biti predstavljeno kako Angular rešava problem injektiranja podataka u komponentu i iz nje. 
+
+
+
+<h2>Interpolacija stringa</h2>
+<xmp class = "primer_ta">
+@Component({
+	selector: 'moja-aplikacija',
+	template: `<p>Moje ime je {{ ime }}.</p>`
+})
+export class GlavnaKomponenta{
+ ime: string = "Petar";
+}
+</xmp>
+Tekst između duplih vitičastih zagrada je u većini slučajeva neki od parametara komponente. Radni okvir Angular umesto imena ubacuje vrednost tog parametra koji se definiše u klasi komponente. <br/>
+Između zagrada može biti i neki izraz, koji radni okvir Angular pretvara u string i intrepolira rezultat tog izraza u element.
+<br>
+<span class = "primer_text"> <p>4+5 = {{ 4+5 }}</p> </span>
+<br/>
+Na ekranu će prikazati 4 + 5 = 9. <br>
+Dakle, sve što se nađe između duplih vitičastih zagrada Angular pretvara u tip string.
+
+
+
+<h2>Vezivanje podataka pomoću parametra unosa</h2>
+Ovaj način vezivanja podataka se najćešće koristi postavljanjem vrednosti parametra elementa na vrednost parametra komponente. <br>
+Klasa koja modeluje komponentu će sadržati funkciju za podešavanje vrednosti za parametar, koji će reagovati na promene u vrednosti ažuriranjem tog parametra u klasi. <br/>
+Pomoću radnog okvira Angular i vezivanja podataka pomoću parametra unosa mogu se podešavati atributi i nazivi klasa elemenata u HTML-u ili primena stilova na elemente.
+Primer takvog vezivanja je postavljanje vrednosti <span class="primer_text">src</span> parametra elementa <span class="primer_text">img</span> na vrednost parametra komponente urlSlike:
+<xmp class = "primer_ta">
+<img [src]="urlSlike">
+</xmp>
+U drugom primeru element <span class="primer_text">button</span> će omogućiti atribut disabled ukoliko je vrednost izraza "omoguceno" Bulove vrednosti "true". <br/>
+Kod ispod prikazuje omogućavanje klika na dugme 5 sekundi posle učitavanja stranice:
+<xmp class = "primer_ta">
+<button type="button" [disabled]="!omoguceno">Klikni me za 5 sekundi</button>
+export class GlavnaKomponenta{
+	omoguceno: boolean = false;
+    constructor() {
+		setTimeout(() => {
+			this.omoguceno = true;
+		}, 5000)
+	}
+}
+</xmp>
+Treći primer prikazuje kako sadržaj div elementa menja boju pomoću parametra tipa string čija je vrednost neka od boja (black, red, blue itd.) i koji je definisan u klasi koja modeluje komponentu. <br>
+<xmp class = "primer_ta">
+<div [style.color]="mojaBoja">Ovo je jedan div blok crvene boje definisane vezivanjem podataka pomoću parametra ispisa!</div>
+export class GlavnaKomponenta{
+	mojaBoja: string = "red";
+}
+</xmp>
+Često se pravi konfuzija između interpolacije i vezivanja pomoću parametra ispisa u smislu u kom trenutku koji tip vezivanja treba iskoristiti.<br/>
+Interpolacija je alternativa vezivanju podataka pomoću parametra ispisa u mnogo slučajeva. 
+U slučaju kada je vrednost parametra elementa tipa string onda mogu oba, a ako je neki drugi tip onda je najbolje koristiti vezivanje podataka pomoću parametra ispisa. 
+<br/>
+<xmp class = "primer_ta"> <img [src]="urlSlike"> <=> <img src="{{ urlSlike }}"> </xmp>
+
+
+<h2>Vezivanje događaja pomoću parametra ispisa</h2>
+U prethodnom delu lekcije objašnjeno je korišćenje interpolacije teksta i vezivanje podataka pomoću parametra unosa koji služe za vezivanje podataka od izvora do prikaza. 
+Sada će biti obrađeno vezivanje podataka u suprotnom smeru: od prikaza do izvora podataka.<br>
+Korisnici veb aplikacija korsite razne akcije kao što je upisivanje teksta u polja za unos, biranje stavki iz liste, potvrđivanje nekog događaja pritiskom na dugme itd.
+<br>
+Jedini način da se sazna o akcijama korisnika je da se pažljivo prati svaki događaj tog korisnika kao što je pritiskanje tastera,pokreti pokazivača, klik ili dodir na ekranu...
+<br>
+Sintaksa vezivanja događaja sadrži ime događaja između zagrada sa leve strane znaka jednakosti i izraz pod znacima navodnika sa desne strane.
+<xmp class = "primer_ta">
+<button (click)="sacuvaj()">Sačuvaj</button>
+</xmp>
+je primer vezivanja događaja pomoću parametra ispisa, koji prikazuje da klikom na dugme se poziva metoda <span class="primer_text">sacuvaj()</span> koja se nalazi u klasi komponente.
+<br>
+Alternativa sintaksi vezivanja događaja da se ime događaja stavi između zagrada je dodavanje prefiksa "on-" poznata kao kanonska forma vezivanja događaja.
+Prethodni primer u kanonskoj formi bi bio
+<xmp class = "primer_ta">
+<button on-click="sacuvaj()">Sačuvaj</button>
+</xmp>
+Da bi se bolje razumelo vezivanje događaja pomoću parametra ispisa najbolje će se objasniti na primeru u kom se na klik dugmeta menja tekst unutar elementa paragraf. <br>
+
+<xmp class = "primer_ta">
+@Component({
+	selector: "app-status",
+	template: `
+		<button type="text" (click)="promenaStatusa()">Promeni status</button>
+		<p>{{ statusAplikacije }}</p>
+	`
+})
+export class AppStatusComponent{
+	statusAplikacije: string = "Moja aplikacija ne koristi vezivanje događaja pomoću parametra ispisa";
+	promenaStatusa(){
+		this.statusAplikacije = "Moja aplikacija koristi vezivanje događaja pomoću parametra ispisa";
+	}
+}
+</xmp>
+U klasi komponente, kreiran je parametar <span class="primer_text">statusAplikacije</span> koji je tipa string i koji ispisuje rezultat "Moja aplikacija ne koristi vezivanje događaja pomoću parametra ispisa".
+Takođe,  dodata je i metoda <span class="primer_text">promenaStatusa()</span>  koja se poziva u HTML šablonu koristeći sintaksu vezivanja događaja pomoću parametra ispisa. 
+Klikom na dugme menja se vrednost parametra <span class="primer_text">statusAplikacije</span> u "Moja aplikacija koristi vezivanje događaja pomoću parametra ispisa". 
+<br>
+Vezivanje prenosi informaciju o elementu pomoću tog događaja, uključujući i vrednost podatka, koristeći objekat događaja koji se zove <span class="primer_text">$event</span>.
+<br>
+Razmotrimo sledeći primer
+<xmp class = "primer_ta">
+@Component({
+	selector: "app-status",
+	template: `
+		<input type="text" (input)="azuriranjeStatusa($event)">
+		<p>{{ status }}</p>
+	`
+})
+export class AppStatusComponent{
+	status = "";
+	azuriranjeStatusa(event){
+		this.status = (<HTMLInputElement>event.target).value;
+	}
+}
+</xmp>
+Parametri ispisa se mogu pronaći mapirani u događajima interakcije koji su već poznati, kao što su click, mouseover, mouseout, focus itd.
+<br>
+
+
+<h2>Dvosmerno vezivanje podataka</h2>
+Dvosmerno vezivanje podataka je veoma bitna forma vezivanja podataka koja kombinuje vezivanje podataka pomoću parametra unosa i 
+vezivanje događaja pomoću parametra ispisa u jednom, koristeći direktivu <span class="primer_text">ngModel</span> ( koja će biti obrađena u sledećoj lekciji ).
+<br>
+Pre korišćenja direktive <span class="primer_text">ngModel</span> u dvosmernom vezivanju, potrebno je uvesti modul <span class="primer_text">FormsModule</span> i dodati ga u listu modula u datoteci <span class="primer_text">app.module.ts</span>.
+<br>
+Ovaj modul se može uvesti na sledeći način:
+<xmp class = "primer_ta">
+import { NgModule } from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; 
+
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule  
+  ],
+  /* ostali moduli... */
+})
+export class AppModule { }
+</xmp> 
+U dvosmernom vezivanju podataka, vrednost parametra putuje do polja za unos iz komponente kao kod vezivanja podataka pomoću parametra unosa.
+Kucajući novu vrednost u polju za unos, podatak se vraća do komponente, menjajući vrednost parametra kao kod vezivanja događaja pomoću parametra ispisa.
+<br>
+Dakle, model klase će ažurirati svoje stanje čim bude ažurirana vrednost kontrole šablona.
+<br>
+Radni okvir Angular nudi specijalnu sintaksu dvosmernog vezivanja
+<xmp class = "primer_ta">
+<input type="text" [(ngModel)]="ime" placeholder="Unesite Vaše ime...">
+</xmp> 
+koja kombinuje sintaksu parametra unosa [x], sa sintaksom parametra ispisa (x).
+<br>
+Iako je većina procesa upravljanja podacima u radnom okviru Angular jednosmerna, 
+uprvljanje šablonima pruža dovoljno prostora za dvosmerno vezivanje podataka pomoću direktive <span class="primer_text">ngModel</span>.
+<br>
+<h2>Dodavanje objekta i njegov prikaz</h2>
+Kreirati datoteku "osoba.model.ts"" i u njoj uneti sledeći kod
+<xmp class = "primer_ta">
+export class Osoba{
+	constructor(public ime:string, public prezime: string, public godina: number){
+	
+	}
+}
+</xmp>
+Dodata je klasa Osoba sa parametrima ime, prezime i godina. Da bi se dodata klasa koristila u drugim datotekama, potrebno je uvesti je na sledeći način
+<xmp class = "primer_ta">
+import { Osoba } from 'putanja-do-datoteke/osoba.model'; 
+</xmp>
+Da bi joj dodelili vrednosti, na primer u komponenti "glavna.komponenta.ts", potrebno je parametru, na primer osoba, dodeliti mu tip objekta Osoba, a zatim inicijalizovati mu vrednosti
+<xmp class = "primer_ta">
+import { Component } from '@angular/core';
+import { Osoba } from 'putanja-do-datoteke/osoba.model'; 
+
+@Component({
+	selector: 'moja-aplikacija',
+	template: `
+			Ime i prezime: {{ osoba.ime }} {{ osoba.prezime }} 
+			<br/> 
+			Godina: {{ osoba.godina }} `
+})
+export class GlavnaKomponenta{
+	osoba: Osoba = {
+		ime: Petar,
+		prezime: Petrović,
+		godina: 35
+	}
+}
+</xmp>
+U slučaju da postoji niz osoba, može se kreirati niz koji bi sadržao niz objekata tipa Osoba
+<xmp class = "primer_ta">
+export class GlavnaKomponenta{
+	osobe: Osoba[] = {
+		new Osoba(ime: Petar, prezime: Petrović, godina: 35),
+		new Osoba(ime: Marko, prezime: Marković, godina: 43)
+	}
+}
+</xmp>
+<div class = "zadatak">
+<b>Zadatak:</b>
+Kreirati interfejs Let, koji treba da sadrži parametre id, od, do i vreme. 
+U datoteci "lista-letova.komponenta.ts" uvesti interfejs Let, zatim kreirati niz "letovi", dodeliti mu tip Let[] i njenim parametrima dodeliti neke vrednosti (na primer, id: 1, od: Beograd, do: Beč, vreme: 20.09.2017.). 
+Interpolacijom stringa ili vezivanjem podataka pomoću parametra unosa prikazati te vrednosti.
+U datoteci "lista-letova.komponenta.html", posle prikazanih prethodnih podataka, kreirati polja za unos za mesto polaska, mesto odlaska i vreme. 
+Dodati i dugme "Dodaj let", gde se unosom nekih vrednosti u poljima za unos i klikom na dugme dodaju unete vrednosti u niz letova (koristiti JavaScript funkciju "push")
+i brišu upisane vrednosti iz polja za unos.
+</div>

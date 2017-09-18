@@ -1,0 +1,86 @@
+<h1>Komunikacija između komponenata pomoću ulaznih i izlaznih parametara</h1>
+<iframe src="https://embed.plnkr.co/bmoGmNgz2Qw4obuWebSU/" frameborder="0" width="100%" height="500px"></iframe>
+Do sada, glavni fokus je bio na izrazu vezivanja koji se nalazi sa desne strane deklaracije vezivanja. Na toj poziciji se nalazi izvor vezivanja podataka.<br/>
+U ovoj lekciji biće reči o vezivanju sa ciljnim kontrolama, koje su parametri direktiva, a nalaze se sa leve strane deklarisanja vezivanja.<br/>
+Ovi parametri direktiva moraju biti deklarisani sa dekoratorima <span class = "primer_text">input</span> i <span class = "primer_text">output</span>.<br/>
+U sledećem primeru <span class = "primer_text">urlSlike</span> i <span class = "primer_text">sacuvaj()</span> se nalaze sa desne strane znaka jednakosti, ali nisu  ulazni i izlazni parametri komponente. 
+Oni su izvorni podaci njihovih vezivanja.<br/>
+Ciljne kontrole su <span class = "primer_text">img</span> i <span class = "primer_text">button</span> elementi.
+<br/>
+<xmp class = "primer_ta">
+<img [src]="urlSlike">
+<button (click)="sacuvaj()">Sačuvaj</button>
+</xmp>  
+U sledećem primeru instanca objekta Osoba se nalazi u drugoj komponenti i ona je ciljna kontrola vezivanja sa leve strane znaka jednakosti
+<xmp class = "primer_ta">
+import { Component } from '@angular/core';
+import { Osoba } from 'putanja-do-datoteke/osoba.model'; 
+
+@Component({
+	selector: 'moja-aplikacija',
+	template: `<osoba [osobaEl]="oznacenaOsoba()" (promeniGodisteOsobe)="promenjenoGodisteOsobe()"></osoba>`
+})
+export class GlavnaKomponenta{
+	osoba: Osoba = {
+		ime: Petar,
+		prezime: Petrović,
+		godina: 35
+	}
+}
+</xmp>  
+OsobaKomponenta.osobaEl i OsobaKomponenta.promeniGodisteOsobe su sa leve strane deklaracije vezivanja. 
+OsobaKomponenta.osobaEl je ciljna kontrola vezivanja podataka pomoću parametra unosa, 
+a OsobaKomponenta.promeniGodisteOsobe je ciljna kontrola vezivanja događaja pomoću parametra ispisa.<br/>
+Ciljni parametri moraju biti označeni <span class = "primer_text">Input</span> ili <span class = "primer_text">Output</span> dekoratorom.
+<xmp class = "primer_ta">
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Osoba } from 'putanja-do-datoteke/osoba.model'; 
+
+@Component({
+	selector: 'osoba',
+	template: ``
+})
+export class OsobaKomponenta{
+	@Input()  osobaEl: Osoba;
+	@Output() promeniGodisteOsobe = new EventEmitter<Osoba>();
+}
+</xmp> 
+Ulazni parametri primaju vrednosti podataka, dok izlazni parametri se otkrivaju pomoću emitovanja događaja. <br/>
+Takođe, ne treba zaboraviti uvesti iz biblioteke <span class = "primer_text">@angular/core</span> klase <span class = "primer_text">Input, Output i EventEmitter</span>.<br/>
+<span class = "primer_text">EventEmitter</span> je ugrađena klasa koja obezbeđuje pordršku za emitovanje podataka i prijavljivanje korisnika za te promene.<br/>
+Drugi način identifikovanja parametara je preko meta podataka direktive, kao u sledećem primeru
+<xmp class = "primer_ta">
+@Component({
+	inputs: ['osobaEl'],
+	outputs: ['promeniGodisteOsobe']
+})
+</xmp> 
+Ponekad ime ulaznog ili izlaznog parametra može biti drugačije od imena u komponenti. Za tako nešto se koriste alijasi, kao u sledećem primeru
+<xmp class = "primer_ta">
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Osoba } from 'putanja-do-datoteke/osoba.model'; 
+
+@Component({
+	selector: 'osoba',
+	template: ``
+})
+export class OsobaKomponenta{
+	@Input('osobaEl')  osoba: Osoba;
+	@Output('promeniGodisteOsobe') godisteOsobe = new EventEmitter<Osoba>();
+}
+</xmp> 
+
+<h2>Lokalne reference u šablonima</h2>
+U lekciji "Vezivanje podataka" je obrađeno kako se mogu vezivati podaci u šablonima korišćenjem interpolacije podataka sa sintaksom dvostrukih zagrada. <br/>
+Pored toga, prilično često će se koristiti i imenovani indentifikatori koji imaju prefiks simbola tarabe (#) u elementima koji pripadaju komponenti ili čak i običnim HTML kontrolama.<br/>
+Ovi identifikatori reference koriste se za referenciranje elemenata u objektnom modelu dokumenta ili direktiva unutar šablona.<br/>
+<xmp class = "primer_ta">
+<input #ime placeholder="Unesi ime prijatelja... ">
+<button (click)="dodajPrijatelja(ime.value)">Dodaj</button>
+</xmp> 
+<div class = "zadatak">
+<b>Zadatak:</b>U datoteci 'lista-letova.komponenta.ts' ima previše linija koda. Kako se projekat razvija, tako se i kod uvećava. <br/>
+Najbolje bi bilo staviti u posebnu komponentu 'upravljanje-listom-letova.komponenta.ts' deo komponente ListaLetovaKomponenta  koji se tiče dodavanja letova. <br/>
+Proslediti podatke iz podređene UpravljanjeListomLetova u nadređenu ListaLetovaKomponenta podatke o dodatom letu i dodati u listu letova. <br/>
+Iz nadređene u podređenu komponentu proslediti podatak koji je poslednji ID. <br/>
+</div>

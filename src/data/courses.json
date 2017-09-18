@@ -1240,14 +1240,99 @@
         ]
     },
     {
-        "name": "Angular 2",
-        "id": "ang2",
+        "name": "Angular 4",
+        "id": "ang4",
         "logo": "A",
         "type": "book",
         "lang": "",
         "displayLang": "",
-        "detailsText": "U pripremi",
-        "lessons": null
+        "detailsText": "Angular 4 je radni okvir programskog jezika JavaScript. Koristi se za razvoj modernih veb aplikacija koje su zasnovane na dizajnu arhitekture koji se sastoji od veb komponenata međusobno povezanih pomoću njihovog posebnog U/I interfejsa. ",
+        "lessons": [
+            {
+                "name": "Uvod u Angular 4",
+                "url": "ang4_uvod",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Podešavanje radnog prostora",
+                "url": "ang4_podesavanje_radnog_prostora",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Kreiranje nove komponente",
+                "url": "ang4_kreiranje_nove_komponente",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Konfigurisanje šablona",
+                "url": "ang4_konfigurisanje_sablona",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Vezivanje podataka",
+                "url": "ang4_vezivanje_podataka",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Direktive",
+                "url": "ang4_direktive",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Filteri",
+                "url": "ang4_filteri",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Prosleđivanje podataka",
+                "url": "ang4_prosledjivanje_podataka",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Servisi i ubrizgavanje zavisnosti",
+                "url": "ang4_servisi_i_injektiranje_zavisnosti",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Rutiranje",
+                "url": "ang4_rutiranje",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Asinhroni servisi",
+                "url": "ang4_asinhroni_servisi",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            },
+            {
+                "name": "Angular 4 projekat",
+                "url": "ang4_projekat",
+                "type": "lesson",
+                "parentCourse": "ang4",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "JSON",

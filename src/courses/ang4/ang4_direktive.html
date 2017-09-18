@@ -1,0 +1,158 @@
+<h1>Angular direktive</h1>
+<iframe src="https://embed.plnkr.co/bmoGmNgz2Qw4obuWebSU/" frameborder="0" width="100%" height="500px"></iframe>
+Angular 4 definiše direktive kao komponente bez prikaza. U stvari, komponenta je direktiva sa prikazom povezanog šablona. <br>
+Ova razlika izmedu direktiva i komponenata je upotrebljena jer su direktive 
+istaknuti deo radnog okvira Angular i svim direktivama potrebne su druge direktive 
+da bi postojale. Direktiva je klasa sa dekoratorom <span class="primer_text">@Directive</span>. <br>
+Skloni su pojavljivanju u tagu elementa kao atribut elementa, ponekad kao ime ali najčešće kao ciljna kontrola nekog 
+vezivanja podataka.<br>
+Postoje, pored komponenti, još dve vrste direktiva: strukturalne i atributne.
+<br>
+Strukturalne direktive menjaju raspored dodavanjem, uklanjanjem i menjanjem elemenata u objektnom modelu 
+dokumenta (eng. DOM). 
+<br>
+Atributne direktive menjaju izgled ili ponašanje nekog postojećeg elementa. U šablonima oni izgledaju kao obični 
+HTML atributi, otuda i njihov naziv.
+<br>
+Direktiva ngModel, koja implementira dvosmerno vezivanje podataka, je primer atributne direktive.
+<xmp class = "primer_ta">
+<input [(ngModel)]="ime">
+</xmp>
+Angular ima nekoliko direktiva koje, takođe, menjaju raspored strukture (npr. ngSwitch) ili 
+prilagođavaju aspekte elementa u objektnom modelu dokumenta i komponente (npr. ngStyle i ngClass).
+
+<h2>Ugrađene direktive</h2>
+Ranije verzije radnog okvira Angular sadržale su preko 70 ugrađenih direktiva. Ovoliki broj direktiva nije potreban, 
+najčešće se mogu ostvariti isti rezultati sa Angular sistemom vezivanja. <br>
+
+<h3>Ugrađene atributne direktive</h3>
+Atributne direktive prilagođavaju ponašanje HTML elemenata, atributa, parametara i komponenti. 
+Mnogi Angular moduli definišu svoje atributne direktive.
+Najčešće korišćene ugrađene atributne direktive su: <br>
+<b>ngStyle</b> - dodaju i uklanjaju HTML stilove, a takođe i omogućavaju vezivanje CSS stilova procenjivanjem sopstvenog objekta ili izraza. 
+<xmp class = "primer_ta">
+@Component({
+	selector: "app-direktive",
+	template: `
+			<p [ngStyle]="{ `color`: mojaBoja, `font-size`: mojaVelicinaFonta }">Ovaj paragraf je zelene boje, sa slovima veličine 20 piksela</p>
+		`
+	})
+export class NgStyleKomponenta{
+	mojaBoja: string = "green";
+	mojaVelicinaFonta: string = "20px";
+}
+</xmp>
+<b>ngClass</b> - dodaju i uklanjaju CSS klase, omogućavaju definisanje naziva klasa programski u elementu objektnog modela dokumenta, 
+koristeći deklarativnu sintaksu.
+<xmp class = "primer_ta">
+@Component({
+	selector: "app-direktive",
+	template: `
+			<p [ngClass]="{ mojaKlasa: mojaBoja === 'green' }">Ovaj paragraf je zelene boje, sa pozadinom narandžaste boje.</p>
+		`,
+	styles: [ `.mojaKlasa{ background-color: orange } `]
+	})
+export class NgClassKomponenta{
+
+	constructor(){
+		mojaBoja: string = "green";
+	}
+	
+}
+</xmp>
+<b>ngModel</b> - dvosmerno vezivanje podataka 
+
+<h3>Ugrađene strukturalne direktive</h3>
+Strukturalne direktive su odgovorne za raspored HTML elemenata. <br>
+One oblikuju strukturu u objektnom modelu dokumenta,
+dodavanjem, uklanjanjem i manipulisanjem elementima.<br>
+Najčešće korišćene ugrađene strukturalne direktive su:
+<br>
+<b>ngIf</b> - uslovno dodaju ili uklanjaju elemente iz objektnog modela dokumenta
+<xmp class = "primer_ta">
+@Component({
+	selector: "app-direktive",
+	template: `
+			<button (click)="vidljivParagraf = true">Klikni me</button>
+			<p *ngIf="vidljivParagraf">Ovaj paragraf je vidljiv samo ako se prethodno klikne na dugme iznad!</p>
+		`,
+	})
+export class NgIfKomponenta{
+	vidljivParagraf: boolean = false;
+}
+</xmp>
+<b>ngFor</b> - ponavljanje obrasca za svaku stavku iz liste 
+<xmp class = "primer_ta">
+import { Osoba } from 'putanja-do-dokumenta/osoba.model';
+@Component({
+	selector: "app-direktive",
+	template: `
+			<ul>
+				<li *ngFor="let osoba of osobe">{{ osoba.ime }} {{ osoba.prezime }} </li>
+			</ul>
+		`,
+	})
+export class NgForKomponenta{
+	osobe: Osoba[] = [
+		new Osoba('Petar', 'Petrović'),
+		new Osoba('Nenad','Nenadović'),
+		new Osoba('Marko','Marković'),
+		new Osoba('Ivana','Ivanović')
+	]
+}
+</xmp>
+<b>ngSwitch</b> - skup direktiva koje se menjaju među alternativnim prikazima
+<br>
+<span class="primer_text">NgSwitch</span> direktiva se koristi za menjanje šablona unutar specifičnog skupa, u zavisnosti od uslova koji je potreban 
+za prikaz svakog od njih. <br>
+<span class="primer_text">NgSwitch</span> će izračunati konkretni izraz, zatim promeniti i prikazati podređene elemente koji su označeni direktivom 
+atributa <span class="primer_text">NgSwitchCase</span>, čija se vrednost podudara sa vrednošću koju je kreirao izraz definisan u osnovnom ngSwitch elementu. <br>
+Potrebno je posebno pomenuti podređeni element označen atributnom direktivom <span class="primer_text">NgSwitchDefault</span>. <br>
+Ovaj atribut kvalifikuje šablon koji će biti prikazan kada se nijedna vrednost od onih koje su definisane atributom 
+<span class="primer_text">NgSwitchCase</span> ne podudara sa osnovnim uslovnim izrazom. <br>
+<span class="primer_text">NgSwitch</span> je, u stvari, skup tri direktive: <span class="primer_text">NgSwitch</span>, <span class="primer_text">NgSwitchCase</span> i <span class="primer_text">NgSwitchDefault</span> što se može videti iz primera
+<xmp class = "primer_ta">
+<div [ngSwitch]="vremenskaPrognoza">
+	<template ngSwitchCase="danas"> {{ vremeDanas }} </template>
+	<template ngSwitchCase="sutra"> {{ vremeSutra}} </template>
+	<template ngSwitchCase="prekosutra">  {{ vremePrekosutra}} </template>
+	<template ngSwitchDefault> Odaberite dan </template>
+</div>
+</xmp>
+
+<h2>Kreiranje prilagođenih direktiva</h2>
+
+Direktive omogućavaju dodavanje naprednih ponašanja u elementima objektnog modela dokumenta.<br>
+Deklarisanje i implementiranje prilagođenih direktiva su prilično laki.
+Potrebno je uvesti klasu <span class="primer_text">Directive</span> i time obezbediti funkcionalnosti dekoratora u povezanoj klasi kontrolera:
+<xmp class = "primer_ta">
+import { Directive } from '@angular/core';
+</xmp>
+Zatim treba definisati klasu kontrolera koja je označena dekoratorom <span class="primer_text">Directive</span>, u kojoj se deklariše selector direktive
+<xmp class = "primer_ta">
+import { Directive } from '@angular/core';
+
+@Directive({
+	selector: '[ime-selektora]'
+})
+export class Direktiva{
+}
+</xmp> 
+Selektor može biti deklarisan kao: <br>
+<ul>
+<li>'ime-selektora' - ime elementa, </li>
+<li>'.ime-selektora' - naziv klase, </li>
+<li>'[ime-selektora]' naziv atributa, </li>
+<li>'[atribut="vrednost"]' nazivom i vrednošću atributa</li>
+<ul>
+i još nekoliko deklaracija koji se veoma retko koriste.
+<div class = "zadatak">
+<b>Zadatak:</b>Koristeći Angular direktive izlistati sve letove u listi letova, a klikom na jedan od letova iz liste treba da se pojavi dugme "Detalji o letu".
+</div>
+
+
+
+
+
+
+
