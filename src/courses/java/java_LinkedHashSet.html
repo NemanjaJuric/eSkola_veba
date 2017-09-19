@@ -1,0 +1,76 @@
+<h1> Klasa LinkedHashSet</h1>
+<br>Za razliku od <b>HashSet</b> klase koja ne garantuje redosled skladištenja objekata, klasa <b>LinkedHashSet </b>održava povezanu listu elemenata skupa koje skladišti redosledom kojim se umecu. Iz navedenog razloga, moguce je pristupiti elementima ovakvog skupa pomocu iteratora, a da pritom oni budu nabrajani redosledom kojim su uneti. </br>
+<br>Klasa <b>LinkedHashSet</b> je genericka klasa koja se definiše na sledeci nacin:</br>
+<xmp class = "primer_ta"> Class LinkedHashSet <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
+<br>Klasa <b>LinkedHashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, što znaci da klasa <b>LinkedHashSet</b> može koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sadži klasa <b>LinkedHashSet</b> prikazani su u tabeli 11.</br>
+<br><b>Tabela 11.</b> LinkedHashSet konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Konstruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>LinkedHashSet()</td>
+<td>Pravi prazan skup. </td>
+</tr>
+<tr>
+<td>LinkedHashSet(Collection ?extends E kolekcija)</td>
+<td>Pravi skup i inicijalizuje elementima kolekcije.</td>
+</tr>
+<tr>
+<td>LinkedHashSet(int kapacitet)</td>
+<td>Pravi skup sa zadatim kapacitetom. </td>
+</tr>
+<tr>
+<td>HashSet(int kapacitet, float popunjenost)</td>
+<td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa.  </td>
+</tr>
+<tr>
+<td>LinkedHashSet(int kapacitet, float popunjenost)</td>
+<td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>LinkedHashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 11, a zatim dodati elemente koristeci metodu <b>add()</b>. </br>
+<br><b>Primer 14:</b> Upotreba klase LinkedHashSet</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+class LinkedHashSetPrimer {
+	    public static void main(String[] args) { 
+	 	 // Kreiranje LinkedHashSet objekta 
+	 	 LinkedHashSet<String> set = new LinkedHashSet<>(); 
+	  
+	 	 // Dodavanje stringova u skup – ilisutracija metoda add()
+	 	 set.add("London"); 
+	 	 set.add("Sarajevo"); 
+	 	 set.add("Vranje"); 
+	 	 set.add("Trst"); 
+	 	 set.add("Beograd"); 
+	 	 set.add("New York"); 
+	  
+	 	 System.out.println(set); 
+	  
+	 	 // Ispis elemenata malim slovima 
+	 	 for (Object element: set) 
+	 	   System.out.print(((String) element).toLowerCase() + ","); 
+	    } 
+} </xmp>
+<br>Rezultat programa: </br>
+<xmp class = "primer_ta"> 
+[London, Sarajevo, Vranje, Trst, Beograd, New York]
+london,sarajevo,vranje,trst,beograd,new york </xmp>
+<br>Klasa <b>LinkedHashSet</b> implementira interfejs <b>Set</b>, što znaci da duplikati elemanata nisu dopušteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b>, i element se ne dodaje. 
+Kolekcija tipa <b>LinkedHashSet</b> može se takode koristiti za skladištanje objekata klase koje programer sam kreira.  </br>
+
+<br>Važne osobine <b>LinkedHashSet</b> klase: </br>
+<ol>
+<li><b>LinkedHashSet</b> kolekcija  skaldišti objekte redosledom kojim se dodaju.  </li>
+<li><b>LinkedHashSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
+<li>Iterator uvek obilazi elemente redosledom kojim su elementi dodati u  kolekciju. </li>
+</ol>
+

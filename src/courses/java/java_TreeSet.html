@@ -1,0 +1,142 @@
+<h1> Klasa LinkedHashSet</h1>
+<br>Za razliku od <b>HashSet</b> i <b>LinkedHashSet</b> kolekcije, <b>TreeSet</b> je sortirana kolekcija. Ova klasa skadišti podatke u strukturu koja ima oblik hijerarhijskog stabla. Objekti se smeštaju na stablo sortirani rastucim redosledom. Sortiranje je postignuto korišcenjem stabla kao strukture podataka. Svaki put kada se element doda u stablo, biva smešten na odgovarajucu poziciju u skladu sa sortiranjem. Prema tome, iterator uvek obilazi elemente u sortiranom poretku. </br>
+
+
+<br>Klasa <b>TreeSet</b> je genericka klasa koja se definiše na sledeci nacin:</br>
+<xmp class = "primer_ta"> Class TreeSet <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
+<br>Klasa <b>TreeSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, što znaci da klasa <b>TreeSet</b> može koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sadži klasa <b>TreeSet</b> prikazani su u tabeli 12.</br>
+<br><b>Tabela 12.</b> TreeSet konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Konstruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>TreeSet()</td>
+<td>Pravi prazno stablo. </td>
+</tr>
+<tr>
+<td>TreeSet(Collection <?extends E> kolekcija)</td>
+<td>Pravi stablo popunjeno elementima kolekcije.</td>
+</tr>
+<tr>
+<td>TreeSet(Comparator <?super E> komparator)</td>
+<td>Pravi prazno stablo koje ce biti uredeno na nacin koji odreduje komparator. </td>
+</tr>
+<tr>
+<td>TreeSet(SortedSet<E> ureden skup)</td>
+<td>Pravi stablo od elemenata uredenog skupa. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>TreeSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 12, a zatim dodati elemente korišcenjem metode <b>add().</b> Dodavanje elementa u stablo je sporije od dodavanja u heš-tabelu, ali je još uvek mnogo brže od dodavanja na pravu poziciju u nizu ili povezanoj listi. Ako stablo sadrži <b>n</b> elemenata, potrebno je u proseku <b>log2 n</b> poredenja za pronalaženje ispravne pozicije novog elementa. Na primer, ako stablo vec sadrži 1000 elemenata, dodavanje novog elementa zahteva oko 10 poredenja. 
+Konstruktor <b>TreeSet(Comparator komparator)</b> pravi stablo uredeno na nacin koji odreduje komparator. Komparator zapravo odreduje šta tacno znaci sortirani redosled. Ukoliko je potrebno elemente skupa urediti drugacije od „prirodnog poretka“ onda se konstruktoru skupa zadaje objekat koji implementira interfejs <b>Comparator.</b> Interfejs <b>Comparator</b> definiše nacin poredenja dva objekta.  <b>Comparator</b> je genericki interfejs koji definiše dve metode:</br>
+<br><b>Tabela 13.</b> Metode interfejsa Comaprator</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>int compare(T obj1, T Obj2)</td>
+<td>Utvrduje redosled dva elementa. Metoda vraca nulu ako su dva objekta jednaka. Ako je ob1 veci od ob2 metoda vraca pozitivan broj, u suprotnom vraca negativan. Ukoliko se tipovi objekata ne mogu porediti, generiše se izuzetak <b>ClassCastExeption.</b> </td>
+</tr>
+<tr>
+<td>boolean equals(Object obj)</td>
+<td>Proverava da li je pozivajucu komparator jednak objektu obj. Metoda vraca vrednost <b>true</b>, ako su obj i pozivajucu objekat tipa Comparator i ako oba definišu isti redosled objekata. U suprotnom, metoda vraca <b>false.</b>  </td>
+</tr>
+</tbody>
+</table>
+<br><b>Primer 15: </b> Upotreba klase TreeSet  </br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class PrimerZaTreeSet {
+
+		public static void main(String[] args) {
+			
+		        //Kreiranje objekta ciji su elemetni rasporedeni u obliku stabla 		
+                        TreeSet<String> ts = new TreeSet<String>(); 
+			
+			// dodavanje elemenata u stablo 
+			ts.add("F");
+			ts.add("E");
+			ts.add("D");
+			ts.add("C");
+			ts.add("B");
+			ts.add("A");
+			
+		       // Prikazivanje elemenata 
+		       for (String element:ts)
+		    	System.out.print(element + " "); 		    	
+    }		
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+A B C D E F</xmp>
+<br><b>Primer 16: </b> Sortiranje elemenata u obrnutom poretku  </br>
+<xmp class = "primer_ta">
+import java.util.*;
+public class MojKomparator implements Comparator<String>{
+	// Obrnuti komparator za znakovne nizove
+
+	// Redefinisanje metoda compare()  - metoda comapreTo() klase String poredi dva znakovna niza. Metodu compateTo ne poziva objekat aStr vec bStr. Tako se dobija obrnuti redosled poredenja.
+
+	public int compare(String a, String b){
+		
+		String aStr, bStr;
+		aStr = a;
+		bStr = b; 
+		// Obrtanje poredenja 
+		return bStr.compareTo(aStr);			
+	}
+}
+public class PrimerZaTreeSetComparator {
+
+		public static void main(String[] args) {
+			
+	//Kreiranje objekta ciji su elemetni rasporedeni u obliku stabla.  Stablo ce biti uredeno na nacin koji odreduje komparator 
+
+	       TreeSet<String> ts = new TreeSet<String>(new MojKomparator()); 
+			
+		// dodavanje elemenata u stablo – ilustracija metoda add()
+			ts.add("F");
+			ts.add("E");
+			ts.add("D");
+			ts.add("C");
+			ts.add("B");
+			ts.add("A");
+			
+	      // Prikazivanje elemenata pomocu iteratora
+		    Iterator itr = ts.iterator(); 
+		    while(itr.hasNext()){
+		    	String element = (String) itr.next();
+		    	System.out.print(element + " ");	
+		  }
+	} </xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+F E D C B A</xmp>
+Klasa <b>TreeSet</b> implementira interfejs <b>Set</b>, što znaci da duplikati elemanata nisu dopušteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b>, i element se ne dodaje. 
+
+<br>Cinjenica da su elementi skupa tipa <b>TreeSet</b> sortirani i da takav skup ne sadrži diplikate može biti vrlo korisna u nekim situacijama. Na primer, ukoliko je potrebno sortirati objekte u nekoj kolekciji <b>k</b> tipa <b>String</b> i pri tom ukloniti duplikate u njoj, to se može uraditi na jednostavan nacin.</br> 
+
+<br><b>Primer 17: </b> Izbacivanje duplikata iz kolekcije stringova upotrebom klase TreeSet  </br>
+<xmp class = "primer_ta">
+TreeSet<String> s = new TreeSet<String>();
+	s.addAll(k); </xmp>
+
+<br>Važne osobine <b>TreeSet</b> klase: </br>
+<ol>
+<li><b>TreeSet</b> kolekcija  skaldišti objekte rastucim redosledom.  </li>
+<li><b>TreeSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
+<li>Iterator uvek obilazi elemente u sortiranom poretku. </li>
+</ol>
+

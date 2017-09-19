@@ -1,0 +1,6 @@
+<h1> Razlike izmedu klasa HashSet, LinkedHashSet i TreeSet</h1>
+<ol>
+<li>1.   Klasa <b>HashSet</b>  - Ne dozvoljava duplikate objekata. Osnovna odlika ove strukture podataka je da obezbeduje vrlo efikasne operacije nalaženja, dodavanja i brisanja elemenata. Ovaj skup ne garantuje nikakav redosled elemenata. Zato jedan iterator za skup <b>HashSet</b> obilazi elemente u nepredvidljivom redosledu, koji cak može biti potpuno drugaciji nakon dodavanja novog elementa skupa. Ukoliko vam je nophodna kolekcija za brzo pretraživanje, nezavisno od velicine skupa podataka, upotrebite <b>HashSet kolekciju.</b></li>
+<li>2. Klasa <b>LinkedHashSet</b> - Ne dozvoljava duplikate objekata. Za razliku od <b>HashSet</b> klase koja ne garantuje redosled skladištenja objekata, klasa <b>LinkedHashSet</b> održava povezanu listu elemenata skupa koje skladišti redosledom kojim se umecu. Iz navedenog razloga, moguce je pristupiti elementima ovakvog skupa pomocu iteratora, a da pritom budete sigurni da ce oni biti nabrajani redosledom kojim su uneti.  </li>
+<li>3. Klasa <b>TreeSet</b>  - Ne dozvoljava duplikate objekata. Ova klasa ima dodatnu osobinu da su njeni elementi uredeni u rastucem poretku. Takode, iterator za ovaj skup uvek prolazi u rastucem poretku. Za utvrdivanje jednakosti ova kolekcija koristi metodu <b>compare()</b> interfejsa <b>Comparator.</b> </li>
+</ol>

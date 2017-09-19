@@ -1,0 +1,531 @@
+<h1> Algoritmi za rad sa kolekcijama i mapama</h1>
+<br>U paketu <b>java.util</b> definisano je više algoritama za rad sa kolekcijama i mapama. Oni obavljaju operacije nad kolekcijama i mapama i defisani su kao staticke metode unutar klase <b>Collections.</b> Spisak algoritama prikazan je u tabeli 19. </br>
+<br><b>Tabela 19.</b> Algoritmi za rad sa kolekcijama i mapama </br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+<tr>
+<td>static &lt;T&gt; Boolean
+&nbsp;addAll(Collection &lt;? Super T&gt; kolekcija, T&hellip;elementi)
+</td>
+<td>
+Dodaje elemente u kolekciju . Vraca <strong><em>true</em></strong> ukoliko dodavanje uspe, <strong><em>false</em></strong> u protivnom.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Queue&lt;T&gt;
+&nbsp;&nbsp; asLifoQueue(deque&lt;T&gt; red)
+</td>
+<td>
+Preslikava elemente izvornog reda red u nov red tipa ,,poslednji u&scaron;ao, prvi izlazi&ldquo;(LIFO).
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; int binarySearch
+(List&lt;? Extends T&gt; lista, T vrednost,&nbsp; Comprarator&lt;? Super T&gt; komprarator)
+</td>
+<td>
+Na listi uredenoj prema kompraratoru traži vrednost. Vraca položaj vrednostina listi, ili negativnu vrednost ako je ne nade.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; int binarySearch
+&nbsp;&nbsp; (List&lt;? Extends Comparable &lt;? Super T&gt;&gt; lista, T vrednost)
+</td>
+<td>
+Na listi traži vrednost. Lista mora biti sortirana. Vraca položaj vrednosti na listi a negativnu vrednost ako je ne nade.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;E&gt; Collection &lt;E&gt;
+&nbsp; checkedColection(Collection &lt;E&gt; kolekcija, Class &lt;E&gt; t)
+</td>
+<td>
+Kolekcija preslikavau bezbedan tip. Poku&scaron;aj dodavanja kolekciji po tipu nekompatabilnog elementa prouzrokuje izuzetak <strong><em>ClassCastException</em></strong>.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;E&gt; List &lt;E&gt;
+&nbsp; checkedList (List&lt;E&gt; lista, Class&lt;E&gt; t)
+</td>
+<td>
+Listu preslikava u bezbedan tip. Poku&scaron;aj dodavanja listi po tipu nekompatabilnih elemenata prouzrokuje izuzetak <strong><em>ClassCastException.</em></strong>
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; Map&lt;K, V&gt;
+&nbsp; checkedMap(Map&lt;K ,V&gt; mapa, Class&lt;K&gt; tipKljuca,Class&lt;V&gt; tip Vrednosti)
+</td>
+<td>
+Mapu preslikava u bezbedan tip. Poku&scaron;aj dodavanja mapi po tipu nekompatabilnog elementa prouzrokuje izuzet <strong><em>ClassCastException</em></strong>.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;E&gt; List &lt;E&gt;
+&nbsp; checkedSet(Set&lt;E&gt; skup, Class &lt;E&gt; t)
+</td>
+<td>
+Sortiran skup preslikava u bezbedan tip. Poku&scaron;aj dodavanja skupu po tipu nekompatibilnog elementa prouzrokuje izuzetak <strong><em>ClassCastException</em></strong>.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; Map&lt;K, V&gt;
+&nbsp; checkedSortedMap(Map&lt;K ,V&gt; mapa,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SortedMap&lt;K,V&gt; mapa,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class&lt;K&gt; tipKljuca,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Class&lt;V&gt; tip Vrednosti)
+</td>
+<td>
+Sortiranu mapu preslikava u bezbedan tip. Poku&scaron;aj dodavanja mapi po tipu nekompatabilnog elementa prouzrokuje izuzet <strong><em>ClassCastException</em></strong>.
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+static &lt;E&gt; SortedSet&lt;E&gt;
+&nbsp; checkedSortedSet(SortedSet&lt;E&gt; skup,Class&lt;E&gt; t)
+</td>
+<td>
+Sortiran skup preslikava u bezbedan tip. Poku&scaron;aj dodavanja skupupo tipu nekompatabilnog elementa prouzrokuje izuzetak <strong><em>ClassCastException</em></strong>.
+</td>
+</tr>
+<tr>
+<td>
+static&lt;T&gt;
+&nbsp; void copy(List&lt;? Super T&gt; lista1, List&lt;? Extends T&gt; lista2)
+</td>
+<td>
+Kopira elemente liste2 u listu1.
+</td>
+</tr>
+<tr>
+<td>
+static boolean disjoint(Collection&lt;?&gt; a, Collection &lt;?&gt; b)
+</td>
+<td>
+Poredi elemente kolekcije a sa elementima kolekcije b. Vraca<strong><em> true </em></strong>ako kolekcije nemaju zajednickih elemenata (tj. ako je njihov presek prazan skup). U protivnom vraca <strong><em>false</em></strong>.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt;&nbsp;&nbsp; Enumeration&lt;T&gt; emptyEnumeration( )
+</td>
+<td>
+Vraca prazno nabrajanje, tj. nabrajanje bez elemanata (Novina u JDK 7.)
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt;Iterator&lt;T&gt; emptyIterator( )
+</td>
+<td>
+Vraca prazan iterator, tj. iterator bez elemanata. (Novina u JDK 7.)
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; List&lt;T&gt; emptyList ( )
+</td>
+<td>
+Vraca nepromenljiv prazan objekat klase List zadatog tipa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; ListIterator&lt;T&gt; emptyListIterator ( )
+</td>
+<td>
+Vraca prazan iterator za listu, tj. iterator bez elemenata. (Novina u JDK 7.)
+</td>
+</tr>
+<tr>
+<td>
+static K&gt;, V&gt; Map&lt;K,V&gt; emptyMap ( )
+</td>
+<td>
+Vraca nepromenljiv prazan objekat klase Map zadatog tipa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Set&lt;T&gt; emptySet ( )
+</td>
+<td>
+Vraca nepromenljiv prazan objekat klase Set zadatog tipa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Enumeration&lt;T&gt;
+&nbsp; enumeration(Collection&lt;T&gt;&nbsp; kolekcija)
+</td>
+<td>
+Vraca objekat tipa Enumeration koji se sastoji od elemanata kolekcije. 
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; void fill(List&lt;? Super T&gt; lista,T obj)
+</td>
+<td>
+Dodeljuje obj svakom elementu liste.
+</td>
+</tr>
+<tr>
+<td>
+static int frequency (Collection&lt;?&gt; kolekcija,Object obj)
+</td>
+<td>
+Vraca broj primeraka objekata obj u kolekciji.
+</td>
+</tr>
+<tr>
+<td>
+static int indexOfSubList (List&lt;?&gt;lista, List&lt;?&gt; podlista)
+</td>
+<td>
+U listi traži prvi primerak podliste. Vraca indeks prvog pronadenog primerka ili &ndash; 1 ako ne pronade poklapanje.
+</td>
+</tr>
+<tr>
+<td>
+static int lastIndexOfSubList (List&lt;?&gt; lista, List&lt;?&gt; podlista)
+</td>
+<td>
+U listi traži poslednji primerak podliste. Vraca indeks poslednjeg pronadenog primerka ili &ndash; 1 ako ne pronade poklapanje.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; ArrayList&lt;T&gt; list (Enumeration&lt;T&gt; nabrajanje)
+</td>
+<td>
+Vraca objekat klase ArrayList koji sadrži elemente nabrajanja.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; T max 
+&nbsp; (Collection&lt;? extends T&gt; kolekcija, Comparator&lt;? super T&gt; komparator)
+</td>
+<td>
+Vraca najveci element kolekcije&nbsp; odreden pomocu komparatora.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T extends Object &amp; Comparable
+&nbsp; &lt;? Super T&gt;&gt; T max (Collection
+&nbsp;&nbsp;&nbsp; &lt;? extends T&gt; kolekcija)
+</td>
+<td>
+Vraca najveci element kolekcije prema prirodnom redosledu. Kolekcija ne mora biti sortirana.
+</td>
+</tr>
+<tr>
+<td>
+static T min (Collection 
+&nbsp; &lt;? extends T&gt; kolekcija , Comparator
+&nbsp;&nbsp;&nbsp; &lt;? super T&gt; komparator)
+</td>
+<td>
+Vraca najmanji element kolekcije odreden pomocu komparatora. Kolekcija ne mora biti sortirana.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T extends Object &amp; Comparable
+&nbsp; &lt;? Super T&gt;&gt; T min (Collection
+&nbsp;&nbsp;&nbsp; &lt;? extends T&gt; kolekcija)
+</td>
+<td>
+Vraca najmanji elemnt kolekcije prema prirodnom redosledu.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; List &lt;T&gt; nCopiest (int broj,T obj)
+</td>
+<td>
+Vraca broj kopija objekta obj iznepromenljive liste. Broj mora biti jednak nuli ili veci od nuli.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; boolean replaceAll&nbsp; (List&lt;T&gt; lista, T staro, T novo)
+</td>
+<td>
+U listi zamenjuje novim sve primerke starog. Vraca true ako je do&scaron;lo do barem jedne zamene, false u protivnom.
+</td>
+</tr>
+<tr>
+<td>
+static void reverse (List&lt;T&gt; lista)
+</td>
+<td>
+Obrce redosled liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Comparator&lt;T&gt; 
+reverseOrder (Comparator&lt;T&gt;komparator)
+</td>
+<td>
+Vraca inverzni komparator (u odnosu na komparator koji je prosleden kao parametar ), tj. vraceni komarator obrce rezultat poredenja napravljenog pomocu komparatora.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Comparator&lt;T&gt; reverseOrder ( )
+</td>
+<td>
+Vraca inverzni komparator (komparator koji obrce rezultat poredenja dva elementa).
+</td>
+</tr>
+<tr>
+<td>
+static void rotate (List&lt;T&gt; lista, int broj)
+</td>
+<td>
+Rotira listu za broj mesta udesno. Da biste listu rotirali ulevo, zadajte negativan broj.
+</td>
+</tr>
+<tr>
+<td>
+static void shuffle (List&lt;T&gt; lista, Random r)
+</td>
+<td>
+Me&scaron;a (nasumicno) redosled elemanata liste koristeci r kao izvor slucajnih brojeva.
+</td>
+</tr>
+<tr>
+<td>
+static void shuffle (List&lt;T&gt; lista
+</td>
+<td>
+Me&scaron;a (nasumicno) redosled elemanata liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Set &lt;T&gt; singleton (T obj)
+</td>
+<td>
+Vraca obj kao nepromenljiv skup. To je jednostavan nacin za konvertovanje pojedinacnog objekta u skup.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; List&lt;T&gt; singletonList (T obj)
+</td>
+<td>
+Vraca obj kao nepromenljivu listu. To je jednostavan nacin za konvertovanje&nbsp; pojedinacnog objekta u listu.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; Map&lt;K, V&gt; singletonMap (K kljuc, V vrednost)
+</td>
+<td>
+Vraca par Kljuc/vrednost kao nepromenljivu mapu. To je jednostavan nacin za kovertovanje pojedinacnog para.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; void sort (List &lt;T&gt; lista, 
+Comparator&lt;? Super T&gt; komparator)
+</td>
+<td>
+Ureduje elemente liste prema komparatoru.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T extends Comparable&lt;? Super T&gt;&gt;
+&nbsp; void sort (List &lt;T&gt; lista)
+</td>
+<td>
+Ureduje elemente liste prirodnim redosledom.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; void swap (List&lt;T&gt; lista int indeks 1, int indeks2)
+</td>
+<td>
+Zamenjuje elemente liste ciji su indeksi indeks 1 i indeks2
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Collection&lt;T&gt;
+&nbsp; synchronizedCollection (Collection&lt;T&gt; kolekcija)
+</td>
+<td>
+Vraca sinhronizovanu kolekciju bezbednu za vi&scaron;enitni pristup, ciji su elementi&nbsp; reference na elemente kolekcije.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; List&lt;T&gt; synchronizedList (List&lt;T&gt; lista)
+</td>
+<td>
+Vraca sinhronizovanu listu bezbednu za vi&scaron;enitni pristup, ciji su element reference na elemente liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; Map&lt;K, V&gt; synchronizedMap (Map&lt;K, V&gt; mapa)
+</td>
+<td>
+Vraca sinhronizovanu mapu bezbednu za vi&scaron;enitni pristup, ciji su elementi reference na elemente liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Set &lt;T&gt; synchronizedSet(Set&lt;T&gt; skup)
+</td>
+<td>
+Vraca sinhronizovani skup bezbedan za vi&scaron;enitni pristup, ciji su elementi refernce na elemente skupa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; SortedMap&lt;K, V&gt;
+&nbsp; synchronizedSortedMap (SortedMap&lt;K, V&gt; uredenaMapa)
+</td>
+<td>
+Vraca sinhronizovanu uredenu mapu bezbednu za vi&scaron;enitni pristup, ciji su elementi reference na elemente sortirane mape uredenaMapa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; SortedSet &lt;T&gt;
+&nbsp; synchronizedSortedSet (SortedSet&lt;T&gt; uredeniskup)
+</td>
+<td>
+Vraca sinhronizovan uredeni skup bezbedan za vi&scaron;enitni pristup, ciji su elementi reference&nbsp; na elemente sortiranog skupa uredeniSkup.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Collection unmodifiable
+&nbsp; Collection (Collection&lt;?extends T&gt; Kolekcija)
+</td>
+<td>
+Vraca nepromenljivu kolekciju bezbednu za vi&scaron;enitni pristup, ciji su elementi reference na elemente liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; List&lt;K, V&gt; unmodifiableList 
+&nbsp;&nbsp;&nbsp;&nbsp; (List&lt;? Extends T&gt; lista)
+</td>
+<td>
+Vraca nepromenljivu listu bezbednu za vi&scaron;enitni pristup, ciji su elementi reference na elemente liste.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K, V&gt; Map&lt;K, V&gt;
+&nbsp; unmodifiableMap (Map&lt;? Extends K, ? extends V&gt; mapa)
+</td>
+<td>
+Vraca nepromenljivu mapu bezbednu za vi&scaron;enitni pristupe, ciji su elementi reference na elemente mape.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; Set&lt;T&gt; unmodifiableSet (Set &lt;? Extends T&gt; skup)
+</td>
+<td>
+Vraca nepromenljiv skup bezbedan za vi&scaron;enitni pristup, ciji su elemnti reference na elemente&nbsp; skupa.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;K,V&gt; SortedMap &lt;K, V&gt; 
+&nbsp;unmodifiableSortedMap (SortedMap&lt;K, 
+&nbsp;&nbsp; ? extends V&gt; uredenamapa)
+</td>
+<td>
+Vraca nepromenljivu uredenu mapu ciji su elenti zadati uredenommapom.
+</td>
+</tr>
+<tr>
+<td>
+static &lt;T&gt; SortedSet&lt;T&gt; 
+&nbsp;&nbsp;&nbsp;&nbsp; unmodifiableSortedSet&lt;T&gt;(SortedSet uredeniskup)
+&nbsp;
+</td>
+<td>
+Vraca nepromenljiv uredeni skup ciji su elemnti zadati uredenimskupom.
+</td>
+</tr>
+</tbody>
+</table>
+<br><b>Primer:</b> Upotreba algoritama nad LinkedList kolekcijom</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class AlgoritmiZaRadSaKolekcijama {
+
+	public static void main(String[] args) {
+	//Pravi i inicijalizuje povezanu listu 
+		LinkedList<Integer>ll = new LinkedList<Integer>();
+		ll.add(-8);
+		ll.add(20);
+		ll.add(-20);
+		ll.add(8);	
+	// Ispis sadrzaja lsite
+		System.out.print("Sadrzaj liste: ");
+		for (int i:ll)
+			System.out.print(i + " ");
+		System.out.println();	
+	// Sortiranje liste 
+		
+	  Collections.sort(ll);
+		System.out.print("Sortirana lista:: ");
+		for (int i:ll)
+			System.out.print(i + " ");
+		System.out.println();  
+	// Prinalazenje pozicije elementa   
+	  Collections.binarySearch(ll,8);
+	  System.out.print("8 je na poziciji " + Collections.binarySearch(ll,8) + " u listi");
+	  System.out.println();  	
+	// Nasumicno mesanje sadrzaja liste
+		Collections.shuffle(ll);
+		
+	// Prikazivanje sadrzaja liste 
+		System.out.print("Sadrzaj liste nakon mesanja: ");
+		for (int i:ll)
+			System.out.print(i + " ");
+		System.out.println();
+	// Pronalazenje najvece i najmanje vrednosti 
+		System.out.println();
+		System.out.println("Najmanja vrednost: " + Collections.min(ll));
+		System.out.println("Najveca vrednost: " + Collections.max(ll))	
+	}
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Sadrzaj liste: -8 20 -20 8 
+Sortirana lista:: -20 -8 8 20 
+8 je na poziciji 2 u listi
+Sadrzaj liste nakon mesanja: 8 -8 20 -20 
+
+Najmanja vrednost: -20
+Najveca vrednost: 20 </xmp>

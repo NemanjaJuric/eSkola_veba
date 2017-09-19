@@ -1,0 +1,102 @@
+<h1>Klasa HashSet </h1>
+<br>Klasa <b>HashSet</b> pravi kolekciju ciji se elementi cuvaju u obliku heš-tabele. Heš-tabela cuva podatke koristeci heširanje (eng. hashing) U mehanizmu heširnja, na osnovu vrednosti zadatog kljuca izracunava se jedinstvena vrednost, tzv. heš-kod (eng. hash-code). Heš-kod se zatim koristi kao indeks za smeštanje podataka koji su pridruženi kljucu. Heš-kod se automatski izracunava na osnovu izvornog kljuca. Prednost heširanja je to što vreme izvršavanja metoda <b>add()</b>, <b>contains()</b>, <b>remove()</b> i <b>size()</b> ostaje isto, cak i u slucaju velikih skupova.  Kako postupak izracunavanja heš-koda  ne omogucava formiranje uredenih skupova, skup <b>HashSet</b> ne garantuje nikakav redosled elemenata. Zato jedan iterator za skup <b>HashSet</b> obilazi elemente u nepredvidljivom redosledu, koji cak može biti potpuno drugaciji nakon dodavanja novog elementa skupa. Ovo naravno nije ogranicenje, ukoliko redosled nabrajanja elemenata nije bitan za rešavanje problema. </br>
+<br>Klasa <b>HashSet</b> je genericka klasa koja se definiše na sledeci nacin:</br>
+<xmp class = "primer_ta"> Class HashSet <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
+<br>Klasa <b>HashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, što znaci da klasa <b>HashSet</b> može koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sadži klasa HashSet prikazani su u tabeli 10.</br>
+<br><b>Tabela 10.</b> HashSet konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Konstruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>HashSet()</td>
+<td>Pravi prazna skup. </td>
+</tr>
+<tr>
+<td>HashSet(Collection ?extends E kolekcija)</td>
+<td>Pravi skup i inicijalizuje elementima kolekcije.</td>
+</tr>
+<tr>
+<td>HashSet(int kapacitet)</td>
+<td>Pravi skup sa zadatim kapacitetom. </td>
+</tr>
+<tr>
+<td>HashSet(int kapacitet, float popunjenost)</td>
+<td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa.  </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>HashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 11, a zatim dodati elemente koristeci metodu <b>add()</b>. Poslednji konstruktor, <b>HashSet(int kapacitet, float popunjenost)</b>, pravi skup i inicijalizuje kapacitet i popunjenost skupa. U ovom slucaju pounjenost skupa je vrednost izmedu 0.0 i 1.0. Šta ova vrednost predstavlja? Kada broj elemenata u skupu postane veci od kapaciteta skupa pomnoženog s njegovom popunjenošcu, skup tipa <b>HashSet</b> se proširuje. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. </br>
+<br><b>Primer 13:</b> Upotreba klase HashSet</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class PrimerHashSet {
+public static void main(String[] args) {
+
+// Kreiranje objekta tipa HashSet
+HashSet<String> set1 = new HashSet<>();
+
+// Dodavanje objekata u set1 - ilustracija metoda add()
+set1.add("Beograd");
+set1.add("Vranje");
+set1.add("Nis");
+set1.add("Cacak");
+set1.add("Novi Sad");
+
+System.out.println("Sadrzaj skupa1: " + set1);
+System.out.println("Broj elemenata u skupu:" + set1.size() );
+
+// Brisanje objekata iz HashSet objekta - ilsutracija metoda remove()
+set1.remove("Nis");
+System.out.println("\nSadrzaj skupa1 nakon brisanja objekta: " + set1);
+System.out.println("Broj elemenata u skupu:" + set1.size());
+
+// Kreiranje objekta tipa HashSet
+HashSet<String> set2 = new HashSet<String>();
+
+// Dodavanje objekata u set2 - ilustracija metoda add()
+set2.add("Pariz");
+set2.add("London");
+set2.add("Milano");
+
+// Dodavanje elemenata u skupa2 skupu1 - Ilustracija metoda addAll()
+set1.addAll(set2); 
+System.out.println("\nSadrzaj skupa1 nakon dodavanja elemenata iz skupa2:  " + set1); 
+
+// Brisanje svih elemenata iz skupa2 - ilustracija metoda remvoveAll()
+set1.removeAll(set2); 
+System.out.println("Sadrzaj skupa1 nakon brisanja elemenata iz skupa2: " 
+		 	   + set1); 
+		 
+		    } 
+} </xmp>
+<br>Rezultat programa: </br>
+<xmp class = "primer_ta"> 
+Sadrzaj skupa1: [Vranje, Cacak, Novi Sad, Nis, Beograd]
+Broj elemenata u skupu:5
+
+Sadrzaj skupa1 nakon brisanja objekta: [Vranje, Cacak, Novi Sad, Beograd]
+Broj elemenata u skupu:4
+
+Sadrzaj skupa2: [Pariz, London, Milano]
+Broj elemenata u skupu:3
+
+Da li je se Milano nalazi u skupu2?  true
+
+Sadrzaj skupa1 nakon dodavanja elemenata iz skupa2:  [Vranje, Cacak, Pariz, Novi Sad, London, Beograd, Milano]
+Sadrzaj skupa1 nakon brisanja elemenata iz skupa2: [Vranje, Cacak, Novi Sad, Beograd]</xmp>
+Kako se elementi ne skaldište redosledom kojim se dodaju, pokretanjem programa možete dobiti razlicite razultate. Klasa <b>HashSet</b> implementira interfejs <b>Set</b>, što znaci da duplikati elemanata nisu dopušteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b> i element se ne dodaje. 
+<br>Kao što je vec naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, i kolekcija tipa <b>HashSet</b> se može koristiti za skladištanje objekata klasa koje programer sam kreira.</br>
+<br>Važne osobine <b>HashSet</b> klase: </br>
+<ol>
+<li><b>HashSet</b> kolekcija ne skaldišti objekte redosledom kojim se dodaju.  </li>
+<li><b>HashSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
+<li> Obezbeduje vrlo efikasne operacije nalaženja, dodavanja i brisanja elemenata.   </li>
+</ol>
+

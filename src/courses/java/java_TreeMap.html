@@ -1,0 +1,162 @@
+<h1>Klasa TreeMap </h1>
+Klasa <b>TreeMap</b> za smeštaj podataka koristi hijerarhijsko stablo. Ova klasa pruža efikasan nacin za cuvanje uredenih parova kljuc/vrednost, zbog  cega  omogucava brzo ucitavanje podataka. Za razliku od <b>HashMape</b> ova klasa garantuje da ce njeni  elementi biti razvrstani  prema rastucem redosledu kljuceva. Klasa <b>TreeMap</b> imlementira intefejs <b>Map</b> i <b>SortedMap</b>, što znaci da klasa <b>TreeSet</b> može koristiti sve metode definisane ovim interfejsima
+ <br>Klasa <b>TreeMap </b> je genericka klasa koji se deklariše na sledeci nacin:
+<xmp class = "primer_ta"> Class TreeMap  <K,V>  </xmp>
+gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Konstruktori koje sadži klasa <b>TreeMap </b> prikazani su u tabeli 18.  </br>
+<br><b>Tabela 17.</b>TreeMap  konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Kontruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>TreeMap()</td>
+<td>Pravi praznu mapu u obliku stabla koja je uredena po prirodnom redosledu kljuceva.   </td>
+</tr>
+<tr>
+<td>TreeMap(Map<?extends K, ?extends V>mapa) </td>
+<td>Pravi mapu u obliku stable i  inicijalizije je stavkama iz mape, koje ureduje prirodnim redosledom. </td>
+</tr>
+<tr>
+<td>TreeMap(Comparator<?super K> komparator>) </td>
+<td>Pravi praznu mapu u obliku stable uredenu pomocu komapratora.</td>
+</tr>
+<tr>
+<td>TreeMap(SortedMap<K,?extends V> uredena mapa)</td>
+<td>Pravi mapu u obliku stable i I iniscjalizuje je vrednostima iz uredenemape, održavajuci isti redosled stavki. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>TreeMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 17, a  zatim dodati elemente koristeci metodu <b>put().</b> </br>
+<br><b>Primer 22:</b> Upotreba klase TreeMap</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class PrimerZaTreeMap {
+
+	public static void main(String[] args) {
+		//Pravljenje mape u oblikustabla - povezivanje imena osobe sa stanjem tekuceg racuna 
+		TreeMap <String, Double> tm = new TreeMap<String, Double>();
+		
+		// Stavljanje elemenata u mapu - ilustracija metoda put()
+		tm.put("Nevena Petrovic", new Double(5857.34));
+		tm.put("Maja Pavlovic", new Double(255.84));
+		tm.put("Vladimir Gojkovic", new Double(1378.37));
+		tm.put("Ana Kojic", new Double(99.32));
+		tm.put("Teodora Mancic", new Double(-585.34));
+		
+		// Formiranje skupa stavki mape - ilustracija metoda entrySet()
+		Set<Map.Entry<String, Double>> skup= tm.entrySet();
+		
+		// Prikazivanje skupa - ilustracija metoda getKey() i getValue()
+		
+		for (Map.Entry<String, Double>element:skup ){
+			System.out.print(element.getKey() + ":");
+			System.out.println(element.getValue());
+			
+		}
+		System.out.println();
+		
+		// Deponovanje 2000 na racun Maje Pavlovic - ilustracija metoda get()
+		double stanje = tm.get("Maja Pavlovic");
+		tm.put("Maja Pavlovic", stanje + 2000);
+		
+		// Provera stanja na racunu Maje Pavlovic
+		System.out.println("Novo stanje racuna Maje Pavlovic:"+ tm.get("Maja Pavlovic"));
+		
+		// Brisanje objekta iz mape - islutracija metoda remove()
+		tm.remove("Ana Kojic");
+		System.out.println("Sadrzaj mape nakon brisanja Ane Kojic:");
+		System.out.println(tm);	
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Ana Kojic:99.32
+Maja Pavlovic:255.84
+Nevena Petrovic:5857.34
+Teodora Mancic:-585.34
+Vladimir Gojkovic:1378.37
+
+Novo stanje racuna Maje Pavlovic:2255.84
+Sadrzaj mape nakon brisanja Ane Kojic:
+{Maja Pavlovic=2255.84, Nevena Petrovic=5857.34, Teodora Mancic=-585.34, Vladimir Gojkovic=1378.37}</xmp>
+<br>Dakle, klasa <b>TreeMap</b> ureduje kljuceve. U ovom slucaju oni nisu poredani po prezimenima vec po imenima. Ukoliko je potrebno urediti kljuceve po prezimenima, potrebno je da u trenutku pravljenja mape zadate komparator.</br>
+<br><b>Primer 23:</b> Upotreba komapratora za sortiranje racuna  </br>
+<xmp class = "primer_ta">
+import java.util.*;
+
+// Upotreba komparatora za sortiranje racuna prema prezimenu vlasnika
+public class MojKomarator implements Comparator<String> {
+
+       //  redefinisananje metoda comapre
+		public int compare(String a, String b) {
+			int i,j, k;
+			String aStr=a;
+			String bStr=b; 	
+		
+      // Pronalazenje indeksa pocetka prezimena
+		i = aStr.lastIndexOf(' ');
+		j= bStr.lastIndexOf(' ');
+		k = aStr.substring(i).compareTo(bStr.substring(j));
+		// ako se prezimena poklapaju, poredenje imena i prezimena zajedno
+		if (k==0) 
+			return aStr.compareTo(bStr);
+		else 
+	         	return k;
+		}				
+}
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+public class TreeMapPrimer {
+
+	public static void main(String[] args) {
+		//Pravljenje mape u obliku stabla - povezivanje imena osobe sa stanjem tekuceg racuna 
+		TreeMap <String, Double> tm = new TreeMap<String, Double>(new MojKomarator());
+		
+		// Stavljanje elemenata u mapu - ilustracija metoda put()
+		tm.put("Nevena Petrovic", new Double(5857.34));
+		tm.put("Maja Pavlovic", new Double(255.84));
+		tm.put("Vladimir Gojkovic", new Double(1378.37));
+		tm.put("Ana Gojkovic", new Double(99.32));
+		tm.put("Teodora Mancic", new Double(-585.34));
+		
+		// Formiranje skupa stavki mape - ilustracija metoda entrySet()
+		Set<Map.Entry<String, Double>> skup= tm.entrySet();
+		
+		// Prikazivanje skupa - ilustracija metoda getKey() i getValue()
+		
+		for (Map.Entry<String, Double>element:skup ){
+			System.out.print(element.getKey() + ":");
+			System.out.println(element.getValue());
+			
+		}
+		System.out.println();
+		
+		// Deponovanje 2000 na racun Maje Pavlovic - ilustracija metoda get()
+		double stanje = tm.get("Maja Pavlovic");
+		tm.put("Maja Pavlovic", stanje + 2000);
+		
+		// Provera stanja na racunu Maje Pavlovic
+		System.out.println("Novo stanje racuna Maje Pavlovic:"+ tm.get("Maja Pavlovic"));
+		
+		// Brisanje objekta iz mape - islutracija metoda remove()
+		tm.remove("Ana Kojic");
+		System.out.println("Sadrzaj mape nakon brisanja Ane Kojic:");
+		System.out.println(tm);	
+}</xmp>
+<br>Klasa <b>MojKomparator</b> poredi dva znakovna  niza koji sadrže imena i prezimena. To radi tako što prvo poredi prezimena. Najpre traži indeks  razmaka u svakom ulaznom znakovnom nizu, a zatim poredi podnizove svakog elementa koji pocinju tim indeksom. U slucaju da su prezimena ista, sortiranje se vrši po imenu. Zbog toga je u primeru, „Ana Gojkovic“ ispred „Vladimira Gojkovica“.</br>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta"> 
+Ana Gojkovic:99.32
+Vladimir Gojkovic:1378.37
+Teodora Mancic:-585.34
+Maja Pavlovic:255.84
+Nevena Petrovic:5857.34
+
+Novo stanje racuna Maje Pavlovic:2255.84
+Sadrzaj mape nakon brisanja Ane Kojic:
+{Ana Gojkovic=99.32, Vladimir Gojkovic=1378.37, Teodora Mancic=-585.34, Maja Pavlovic=2255.84, Nevena Petrovic=5857.34}</xmp>

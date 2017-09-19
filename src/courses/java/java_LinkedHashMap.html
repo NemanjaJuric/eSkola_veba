@@ -1,0 +1,95 @@
+ <h1>Klasa LinkedHashMap </h1>
+Klasa <b>LinkedHashMap</b> proširuje klasu <b>HashMap.</b> Ona održava povezanu listu stavki mape redosledom njihovog umetanja u mapu, što omogucava pristupanje elementima mape po istom redosledu.
+ <br>Klasa <b>LinkedHashMap </b> je genericka klasa koji se deklariše na sledeci nacin:
+<xmp class = "primer_ta"> Class LinkedHashMap  <K,V>  </xmp>
+gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Konstruktori koje sadži klasa <b>LinkedHashMap </b> prikazani su u tabeli 18.  </br>
+<br><b>Tabela 18.</b> LinkedHashMap konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Kontruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td> LinkedHashMap </td>
+<td> Pravi praznu heš-mapu.  </td>
+</tr>
+<tr>
+<td>LinkedHashMap(Map<?extends K, ?extends V>mapa) </td>
+<td>Pravi heš-mapu i inicijalizije je vrednostima iz mape. </td>
+</tr>
+<tr>
+<td>HashMap(int kapacitet)</td>
+<td>Pravi heš-mapu sa zadatim kapacitetom. </td>
+</tr>
+<tr>
+<td>HashMap(int kapacitet, float popunjenost) </td>
+<td>Pravi heš-mapu i inicijalizuje kapacitet i popunjenost mape.  </td>
+</tr>
+<tr>
+<td>HashMap(int kapacitet, float popunjenost, boolean redosled) </td>
+<td>Pravi heš-mapu i inicijalizuje kapacitet i popunjenost mape.Omogucava da zadate da li ce se elementima mape pristupiti po redosledu umetanja, ili redosledu poslednjeg iscitavanja.  </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>LinkedHashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 17, a zatim dodati elemente koristeci metod <b>put().</b> Kao što je objašnjeno, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. Poslednji konstruktor, <b>HashMap(int kapacitet, float popunjenost, boolean redosled)</b>, omogucava zadavanje redosleda pristupanja. Ukoliko parameter redosled ima vrednost <b>true</b> koristi se redosled poslednjeg pristupanja. Ukoliko parameter ima vrednost <b>false</b>, koristi se redosled umetanja.</br>
+<br>Klasa <b> LinkedHashMap</b> dodaje jednu svoju metodu:</br>
+<xmp class = "primer_ta"> 
+Protected boolean removeEldestEntry(Map.Entry<K,V>stavka)</xmp>
+<br>Ovu metodu pozivaju metode <b>put()</b> i <b>putAll()</b>. Najstarija stavka mape prosleduje se parametrom stavka. Standardna metod vraca <b>false</b> i ne radi ništa, ali ukoliko se redefiniše ova metoda, može se  postoci da <b>LinkedHashMap</b> ukloni najstariju stavku iz mape. Da bi se to postiglo neophodno je da redefinsiana metoda vrati <b>true.</b> Da bi se zadržala najstarija stavka mape, redefinisana metoda treba da vrati <b>false.</b>  </br>
+<br><b>Primer 24:</b> Upotreba klase LinkedHashMap</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+
+public class PrimerZaLinkedHashMap {
+
+	public static void main(String[] args) {
+		// Kreiranje objekata tipa LinkedHashMap 
+		LinkedHashMap<String, Double> linkedHashMap = new LinkedHashMap<String, Double>();
+		// dodavanje elemenata - ilustracija metoda put()
+		linkedHashMap.put("Marija Kojic", new Double(9.89));
+		linkedHashMap.put("Petar Petrovic", new Double(6.8));
+		linkedHashMap.put("Ana Stajic", new Double(10.00));
+		linkedHashMap.put("Teodora Mancic", new Double(7.21));
+		linkedHashMap.put("Vojin Janjic", new Double(8.2));
+
+		// Prikazivanje sadrzaja linkedHashMape
+		System.out.println("Sadrzaj LinkedHashMape: " + linkedHashMap);
+
+	        // Pronalazenje prosecne ocena za Anu Stajic - ilustracija metoda get()
+		System.out.println("\nProsecna ocena Ane Stajic: "
+				+ linkedHashMap.get("Ana Stajic"));
+                // Velicina LinkedHashMape - ilustracija metoda size()
+		System.out.println("\nVelicina LinkedHashMape: " + linkedHashMap.size());
+		// Provera da li je linkedHashMapa prazna - ilustacij ametoda isEmpty()
+		System.out.println("\nDa li je LinkedHashMapa prazna? : " + linkedHashMap.isEmpty());
+ 		//Provera da li linkedHashMapa sadrzi kljuc ili vrednost - ilustracija metoda containsKey(), containsValue()
+		System.out.println("\nLinkedHashMap sadrzi Nevenu Stajic? : " + linkedHashMap.containsKey("Nevena Stajic"));
+		System.out.println("LinkedHashMap sadrzi prosecnu ocenu 10.0? : " + linkedHashMap.containsValue(10.0));
+		// Brisanje objekta iz mape- ilustracija metoda remove()
+		System.out.println("\nBrisanje Teodore Mancic iz mape: ") linkedHashMap.remove("Teodora Mancic");
+		System.out.println("Sadrzaj mape nakon brisanja elemenata " + linkedHashMap);
+	        // Brisanje mape - ilustracija metoda clear()
+		linkedHashMap.clear();
+		System.out.println("Sadrzaj mape nakon brisanja sadrzaja: " + linkedHashMap);
+	}
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Sadrzaj LinkedHashMape: { Marija Kojic=9.89, Petar Petrovic=6.8, Ana Stajic=10.0, Teodora Mancic=7.21, Vojin Janjic=8.2}
+
+Prosecna ocena Ane Stajic: 10.0
+
+Velicina LinkedHashMape: 5
+
+Da li je LinkedHashMapa prazna? : false
+
+LinkedHashMap sadrzi Nevenu Stajic? : false
+LinkedHashMap sadrzi prosecnu ocenu 10.0? : true
+
+Brisanje Teodore Mancic iz mape:
+Sadrzaj mape nakon brisanja elemenata {Ana Stajic=10.0, Marija Kojic=9.89, Petar Petrovic=6.8, Vojin Janjic=8.2}
+Sadrzaj mape nakon brisanja sadrzaja: {}</xmp>

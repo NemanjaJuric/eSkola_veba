@@ -1,0 +1,51 @@
+<h1>Interfejs SortedSet  </h1>
+<br>Interfejs <b>SortedSet</b> nasleduje interfejs <b>Set</b> i deklariše ponašanje rastuce uredenog skupa.</br> 
+<br><b>SortedSet</b> je genericki interfejs koji se deklariše na sledeci nacin:</br>
+<xmp class = "primer_ta"> Interface SortedSet <E> </xmp>
+gde <b>E</b> oznacava tip objekta koji ce uredeni skup sadržati.
+<br></br>
+<br>Pored metoda definisane interfejsom <b>Set</b>, interfejs <b>SortedSet</b> deklariše i sopstvene metode nabrojane u tabeli 5. </br>
+<br><b>Tabela 5.</b> Metode definisane interfesjom SortedSet</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>Comparator <? super E> comparator()</td>
+<td>Vraca komparator uredenog skupa. Ako je skup prirodno urešden, vraca se vrednost <b>null.</b> </td>
+</tr>
+<tr>
+<td>E first()</td>
+<td>Vraca prvi element uredenog skupa.</td>
+</tr>
+<tr>
+<td>SortedSet<E> headSet(E kraj)  </td>
+<td>Vraca podskup uredenog skupa i to od pocetka skupa do elementa kraj -1. </td>
+</tr>
+<tr>
+<td>E last() </td>
+<td>Vraca poseldnji element uredenog skupa. </td>
+</tr>
+<tr>
+<td>SortedSet<E> subSet(E pocetak, E kraj) </td>
+<td>Vraca podskup uredenog skupa i to od elementa pocetak pa do elementa kraj -1. </td>
+</tr>
+<tr>
+<td>SortedSet<E> tailSet(E pocetak)</td>
+<td>Vraca podskup uredenog skupa i to od elementa pocetak pa do kraja skupa. </td>
+</tr>
+</tbody>
+</table>
+<br>Interfejs <b>SortedSet</b> definiše metode koje olakšavaju rad sa skupovima. Prvi element skupa dobija se korišcenjem metoda <b>first()</b>, poslednji metodom <b>last(),</b> dok se podskup uredenog skupa može dobiti korišcenjem metoda <b>subSet(), headSet()</b>, ili <b>tailSet().</b> </br>
+
+<br>Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
+<ol> 
+<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna.   </li>
+<li><b>IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument. </li>  
+<li><b>NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja null objekata u skup. </li>
+<li><b>NoSuchElementExeption </b>– Ovaj izuzetak se generiše kada u skupu nema elemenata. </li>  
+</ol>

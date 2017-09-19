@@ -1,0 +1,77 @@
+<h1>Klasa LinkedList</h1>
+<br>Objekti klase <b>ArrayList</b> imaju veliki nedostatak, uklanjanje elemenata iz sredine je skupa operacija jer svi elementi koji slede moraju da se pomere ka pocetku niza. Isto važi i za umetanje elemenata u sredinu. Ovaj problem rešava dvostuko ulancana lista. Dvostruko ulancane liste imaju elemente koji sadrže referencu na naredni i prethodni element. Klasa <b>LinkedList</b> predstavlja dvostruko ulancanu listu. Unos novog objekta kod dvostruko ulancane liste svodi se na jednostavno ažuriranje dve reference: prethodni element liste treba da ukaže na novi uneti objekat, koji treba da ukljuci referencu na sledeci element, naravno ako takav element postoji. Takode, i uklanjanje elemenata iz sredine povezane liste svodi se na ažuriranje referenci. Elementima lancane liste može se pristupiti pomocu iteratora.</br>
+<br>Klasa <b>LinkedList</b> je genericka klasa koja se definiše na sledeci nacin: </br>
+<xmp class = "primer_ta"> Class LinkedList <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
+<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b>,<b> Iterable</b>, <b>Queue</b> i <b>Deque</b> što znaci da  klasa <b>LinkedList</b> može koristiti sve metode definisane ovim interfejsima. </br>
+<br>Konstruktori koje sadži klasa <b>LinkedList</b> prikazani su u tabeli 10.</br>
+<br><b>Tabela 10.</b> LinkedList konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Konstruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>LinkedList()</td>
+<td>Pravi praznu listu. </td>
+</tr>
+<tr>
+<td>LinkedList(Collection C)</td>
+<td>Pravi listu i inicijalizuje je elementima kolekcije C. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>LinkedList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 10, a zatim dodati elemente pomocu metode <b>add()</b>. </br>
+<br><b>Primer 12:</b> Upotreba LinkedList klase.  </br>
+<xmp class = "primer_ta">
+import java.util.*;
+public class PrimerZaLinkedList {
+
+	public static void main(String[] args) {
+            // Kreiranje povezane liste 
+		LinkedList<String> lista = new LinkedList<String>();
+		
+		// Dodavanje elemenata – ilustracija metoda add()
+		lista.add("A");
+		lista.add("B");
+		lista.add("C");
+		lista.add("D");
+		lista.add("E");
+		lista.add("F");
+		lista.add("G");
+        
+		lista.add(1,"A2");
+		System.out.println("Prvobitni sadrzaj povezane liste " + lista);
+		
+		// Uklanjnje elemenata iz povezane liste
+		lista.remove(2);
+		// Uklanjnje drugog elementa pomocu iteratora  
+		
+		ListIterator <String> itr = lista.listIterator();
+		itr.next(); 
+		itr.next();		
+		itr.remove();
+		
+		System.out.println("Sadrzaj povezane liste nakon uklanjanja elemenata " + lista);
+		
+		// Uklanjanje prvog i poslednjeg elementa pomocu metoda removeFirst(), removeLast()
+		lista.removeFirst();
+		lista.removeLast();
+		System.out.println("Sadrzaj povezane liste nakon uklanjanja prvog i poslendnjeg elemenata " + lista);
+		
+		// Ocitavanje i zadavanje vrednosti elementa 
+		String vrednost = lista.get(2);
+		lista.set(2, vrednost + " se promenio");
+		System.out.println("Povezana lista posle menjanja:" + lista);</xmp>
+
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Prvobitni sadrzaj povezane liste [A, A2, B, C, D, E, F, G]
+Sadrzaj povezane liste nakon uklanjanja elemenata [A, C, D, E, F, G]
+Sadrzaj povezane liste nakon uklanjanja prvog i poslendnjeg elemenata [C, D, E, F]
+Povezana lista posle menjanja:[C, D, E se promenio, F] </xmp>
+Kao što je vec naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, kolekcija tipa <b>LinkedList</b> može se takode koristiti za skladištanje objekata klase koje programer sam kreira. 
+<br></br>

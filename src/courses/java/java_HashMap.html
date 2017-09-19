@@ -1,0 +1,86 @@
+<h1>Klasa HashMap</h1>
+<br> Ova klasa impelentira interfejs <b>Map</b>, a podatke cuva u heš-tabeli. Zbog toga je, kao i kod klase <b>HashSet</b>, vreme izvršavanja osnovih operacija, kao što su <b>get()</b> i <b>put()</b>, isto bez obzira na velicinu mape. Takode, heš-mape ne garantuju odredeni redosled ocitavanja elemenata iz mape, što znaci da iterator nece citati elemente redosledom kojim su elementi umetnuti u mapu.</br>
+ <br>Klasa <b>HashMap</b> je genericka klasa koji se deklariše na sledeci nacin:
+<xmp class = "primer_ta"> Class HashMap <K,V>  </xmp>
+gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Konstruktori koje sadži klasa <b>HashMap</b> prikazani su u tabeli 17.  </br>
+<br><b>Tabela 17.</b> HashMap konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Kontruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>HashMap()</td>
+<td>Pravi praznu heš-mapu.  </td>
+</tr>
+<tr>
+<td>HashMap(Map<?extends K, ?extends V>mapa) </td>
+<td>Pravi mapu i inicijalizije je vrednostima iz mape. </td>
+</tr>
+<tr>
+<td>HashMap(int kapacitet)</td>
+<td>Pravi mapu sa zadatim kapacitetom.</td>
+</tr>
+<tr>
+<td>HashMap(int kapacitet, float popunjenost)</td>
+<td>Pravi mapu i inicijalizuje kapacitet i popunjenost mape. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>HashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 17, a zatim dodati elemente koristeci metodu <b>put()</b>. Kao što je vec pomenuto, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. </br>
+<br><b>Primer 21:</b> Upotreba klase HashMap</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class PrimerZaHashMap {
+
+	public static void main(String[] args) {
+		//Pravljenje hes-mape - povezivanje imena osobe sa stanjem tekuceg racuna 
+		HashMap <String, Double> hm = new HashMap<String, Double>();
+		
+		// Stavljanje elemenata u mapu - ilustracija metoda put()
+		hm.put("Nevena Petrovic", new Double(5857.34));
+		hm.put("Maja Pavlovic", new Double(255.84));
+		hm.put("Vladimir Gojkovic", new Double(1378.37));
+		hm.put("Ana Kojic", new Double(99.32));
+		hm.put("Teodora Mancic", new Double(-585.34));
+		
+		// Formiranje skupa stavki mape - ilustracija metoda entrySet()
+		Set<Map.Entry<String, Double>> skup= hm.entrySet();
+		
+		// Prikazivanje skupa - ilustracija metoda getKey() i getValue()
+		
+		for (Map.Entry<String, Double>element:skup ){
+			System.out.print(element.getKey() + ":");
+			System.out.println(element.getValue());
+			
+		}
+		System.out.println();
+		
+		// Deponovanje 2000 na racun Maje Pavlovic - ilustracija metoda get()
+		double stanje = hm.get("Maja Pavlovic");
+		hm.put("Maja Pavlovic", stanje + 2000);
+		
+		// Provera stanja na racunu Maje Pavlovic
+		System.out.println("Novo stanje racuna Maje Pavlovic:"+ hm.get("Maja Pavlovic"));
+		
+		// Brisanje objekta iz mape - islutracija metoda remove()
+		hm.remove("Ana Kojic");
+		System.out.println("Sadrzaj mape nakon brisanja Ane Kojic:");
+		System.out.println(hm);}
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Maja Pavlovic:255.84
+Vladimir Gojkovic:1378.37
+Teodora Mancic:-585.34
+Nevena Petrovic:5857.34
+Ana Kojic:99.32
+
+Novo stanje racuna Maje Pavlovic:2255.84
+Sadrzaj mape nakon brisanja Ane Kojic:
+{Maja Pavlovic=2255.84, Vladimir Gojkovic=1378.37, Teodora Mancic=-585.34, Nevena Petrovic=5857.34}</xmp>
+<br>Kako se elementi ne skladište redosledom kojim se dodaju, pokretanjem programa možete dobiti razlicite razultate. Obratite pažnju na to kako je deponovan novac na racun „Maje Pavlovic“. Metoda <b>put()</b> automatski zamenjuje postojecu vrednost novom vrednošcu koja je povezana sa zadatim kljucem. To znaci sledece, kada se racun ažurira, heš-mapa ce i dalje  sadržati samo jedan racun za osobu „Maja Pavlovic“. </br>

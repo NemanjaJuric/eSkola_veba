@@ -1,0 +1,96 @@
+<h1>Interfejs Deque </h1>
+<br>Interfejs <b>Deque</b> deklariše ponašanje reda sa dva kraja. Ovaj red funkcioniše kao standardni red (eng. queue) po principu ”prvi koji ude, prvi izlazi“ (eng. FIFO – first in – first out), ili kao stek, po principu „poslednji koji ude, prvi izlazi“ (eng LIFO – last in – last out).</br>
+<br><b>Deque</b> je genericki interfejs koji se deklariše na sledeci nacin:</br>
+
+<xmp class = "primer_ta"> Interface Deque<E> </xmp>
+gde <b>E</b> oznacava tip objekta koji ce red tipa <b>Deque</b> sadržati.
+ <br>Ovaj interfejs nasleduje interfejs <b>Queue</b> i dodaje metode definisane u tabeli 7.  </br>
+<br><b>Tabela 7.</b> Metode definisane interfesjom Deque</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>void addFirst(E obj)</td>
+<td>Smešta obj na pocetak reda tipa <b>Deque</b>. Generiše izuzetak<b> IlegalStateExeption</b> ako više nema mesta u redu ogranicenog kapaciteta. </td>
+</tr>
+<tr>
+<td>void addLast(E obj)</td>
+<td>Smešta obj na kraj reda. Generiše izuzetak <b>IlegalStateExeption</b> ako više nema mesta u redu ogranicenog kapaciteta. </td>
+</tr>
+<tr>
+<td>Iterator descending Iterator()</td>
+<td>Vraca iterator koji pomera s kraja reda na pocetak. Drugim recima vraca obrnuti iterator. </td>
+</tr>
+<tr>
+<td>E getFirst()</td>
+<td>Vraca prvi element u redu. Taj objekat se ne uklanja iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+</tr>
+<tr>
+<td>E getLast()</td>
+<td>Vraca poslednji element u redu. Taj objekat se ne uklanja iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan.  </td>
+</tr>
+<tr>
+<td>boolean offerFirst(E obj)</td>
+<td>Pokušava da doda obj na pocetak reda. Metoda vraca <b>true</b> ako uspe da doda obj u red, u suprotnom vraca <b>false. </b>  </td>
+</tr>
+<tr>
+<td>boolean offerLast(E obj)</td>
+<td>Pokušava da doda obj na kraj reda. Metoda vraca <b>true</b> ako uspe da doda obj u red, u suprotnom vraca <b>false.</b>  </td>
+</tr>
+<tr>
+<td>E peekFirst()</td>
+<td>Vraca element koji se nalazi na pocetku reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda.  </td>
+</tr>
+<tr>
+<td>E peekLast()</td>
+<td>Vraca element koji se nalazi na kraju reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda. </td>
+</tr>
+<tr>
+<td>E pollFirst()</td>
+<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda vraca <b>null</b> ako je red prazan. </td>
+</tr>
+<tr>
+<td>E pollLast()</td>
+<td> Vraca element koji se nalazi na kraju reda, uklanjajuci ga iz reda. Metoda vraca <b>null</b> ako je red prazan.</td>
+</tr>
+<tr>
+<td>E pop()</td>
+<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+</tr>
+<tr>
+<td>void push(E obj)</td>
+<td> Postavlja obj na pocetak reda. Generiše izuzetak <b>IlegalStateExeption</b> ako više nema mesta u redu koji je ogranicenog kapaciteta.</td>
+</tr>
+<tr>
+<td> E removeFirst() </td>
+<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+</tr>
+<tr>
+<td>boolean removeFirstOccurrence(Object obj) </td>
+<td>Uklanja prvi primerak objekta obj iz reda. Metoda vraca <b>true</b> ako se izvrši uspesno, odnosno <b>false</b> ako red ne sadrži objekat obj.  </td>
+</tr>
+<tr>
+<td>E removeLast() </td>
+<td>Vraca element koji se nalazi na kraju reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+</tr>
+<tr>
+<td>boolean removeLastOccurrence(Object obj)</td>
+<td>Uklanja poslednji  primerak objekta obj iz reda. Metoda vraca <b>true</b> ako se izvrši uspesno, odnosno <b>false</b> ako red ne sadrži objekat obj. </td>
+</tr>
+</tbody>
+</table>
+<br>Klasa koja implementira interfejs <b>Deque </b>može imati ogranicen kapacitet, odnosno u takav red se može dodati samo ogranicen broj elemenata. U slucaju da je red popunjem, svaki pokušaj dodavanja novog elementa zavrsice se neuspehom. Postoje po dve metode koje dodaju element na pocetak i kraj reda. Razlika je u tome što metode <b>addFirst()</b> i <b>addLast()</b> generišu izuzetak <b>IlegalStateExeption()</b> ako je red sa ogranicenim kapacitetom popunjen, dok metode <b>offreFirst(),</b> i <b>offerLast()</b> vracaju <b>false</b> ako se u red ne može dodati novi element. Metoda <b>descendingIterator()</b> vraca iterator koji omogucava pristupanje elementima reda obrnutim redosledom. Takode, ovaj interfejs sadrži metode <b>push()</b> i <b>pop()</b>, što omogucava da klase koje implementiraju interfejs <b>Deque</b> rade kao stek. </br>
+
+<br>Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
+<ol> 
+<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna.   </li>
+<li><b> IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument. </li>  
+<li><b> NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja null objekata u red. </li>
+<li><b>NoSuchElementExeption </b>– Ovaj izuzetak se generiše kada u redu nema elemenata. </li>  
+<li><b>IlegalStateExeption</b>  - Ovaj izuzetak se generiše pri pokušsaju  dodavanja novog elementa u red fiksne dužine koji je popunjen. </li>
+</ol>

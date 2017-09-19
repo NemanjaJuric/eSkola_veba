@@ -1,0 +1,116 @@
+<h1>Interfejsi Iterable, Iterator i ListIterator  </h1>
+<br>Sve klase kolekcija realizuju interfejs <b>Iterable</b>. To znaci da se elementi svake kolekcije mogu pozvati <b>for –each</b> verzijom <b>for</b> petlje. Opšti oblik <b>for-each</b> verzije <b>for</b > petlje prikazan je u primeru 5.</br> 
+<br><b>Primer 5:</b> For-each verzija for petlje</br>
+<xmp class = "primer_ta"> 
+for(Tip nazivPromenljive: naziv_kolekcije){
+// rad sa elementima
+ } </xmp>
+<br>Ovo je kraci i jednostavniji nacin za prolazak kroz kolekciju. Medutim,  <b>for – each </b>verzijom <b>for</b> petlje nije moguce menjati ili izlistati elemente u obrnutom poretku. U tom slucaju koristi se <b>iterator</b>. Iterator je objekat koji realizuje interfejs <b>Iterator</b> ili <b>ListIterator</b>. Interfejs <b>Iterator</b> omogucava prolazak kroz kolekciju i omogucava ucitavanje ili uklanjanje elemenata iz nje. Sa druge strane, interfejs <b>ListIterator</b> proširuje interfejs <b>Iterator</b> i omogucava prolaz kroz listu u oba smera, kao i menjanje njenih elemenata.</br>
+<br><b>Iterator</b> i <b>ListIterator</b> su genericki interfejs koji se deklarišu na sledeci nacin:</br>
+<xmp class = "primer_ta">  
+Interface Iterator <E>
+Interface ListIterator <E> </xmp>
+gde <b>E</b> oznacava tip objekata kojima se pristupa. 
+<br>Metode koje deklariše interfejs <b>Iterator</b> prikazane su u tabeli 2.</br>
+<br><b>Tabela 2.</b> Metode interfejsa Iterator<br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>boolean hasNext()</td>
+<td>Vraca <b>true</b> ako ima još elemenata u kolekciji.  U suprotnom vraca <b>false.</b> </td>
+</tr>
+<tr>
+<td>E next()	</td>
+<td>Vraca sledeci element. Ako takvog elementa nema, generiše izuzetak <b>NoSuchElementExeption.</b></td>
+</tr>
+<tr>
+<td> void remove() </td>
+<td> Briše tekuci element. Pri pokušaju da se pozove metoda <b>remove()</b> kojoj ne prethodi poziv metode <b>next()</b>, generiše se izuzetak <b>IllegalStateExeption().</b></td>
+</tr>
+</tbody>
+</table>
+<br>Metode koje deklariše interfejs <b>ListIterator</b> prikazane su u tabeli 3.</br>
+<br><b>Tabela 3.</b> Metode interfejsa ListIterator</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metoda</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>boolean hasNext()</td>
+<td>Vraca <b>true</b> ako ima još elemenata u kolekciji.  U suprotnom vraca <b>false.</b> </td>
+</tr>
+<tr>
+<td>E next()	</td>
+<td>Vraca sledeci element. Ako takvog elementa nema, generiše izuzetak <b>NoSuchElementExeption.</b></td>
+</tr>
+<tr>
+<td> void remove() </td>
+<td> Briše tekuci element. Pri pokušaju da se pozove metoda <b>remove()</b> kojoj ne prethodi poziv metode <b>next()</b>, generiše se izuzetak <b>IllegalStateExeption().</b></td>
+</tr>
+<tr>
+<td> void add(E objekat)	</td>
+<td> Umece objekat na trenutnu poziciju u listi (ispred elemetna koji ce biti vracen sledecim pozivom metode <b>next() </b> )</td>
+</tr>
+<tr>
+<td> boolean hasPrevious()	</td>
+<td>Vraca <b>true</b> ako postoji prethodni elemenata u kolekciji.  U suprotnom vraca vrednost <b>false.</b></td>
+</tr>
+<tr>
+<td>int nextIndex() </td>
+<td>Vraca indeks sledeceg elementa. Ako takvog elementa nema, vraca velicinu liste. </td>
+</tr>
+<tr>
+<td>E previous() </td>
+<td>Vraca prethodni element. Ako takvog elementa nema generiše izuzetak <b>NoSuchElementExeption.</b></td>
+</tr>
+<tr>
+<td>int previousIndex()</td>
+<td>Vraca indeks prethodnog elementa. Ako takvog elementa nema, vraca -1. </td>
+</tr>
+<tr>
+<td>void set(E objekat)</td>
+<td>Dodeljuje objekat tekucem elementu, tj. onom koji je poslednji vracen pomocu metoda <b>next()</b> i <b>previous().</b> </td>
+</tr>
+</tbody>
+</table>
+<br>Može se posmatrati kao da su Java iteratori na pozicijama izmedu elemenata. Pri pozivu metoda <b>next()</b>, iterator preskace preko sledeceg elementa, i vrace referencu na element preko kog je upravo prešao.</br> 
+<br>Ukoliko je potrebno posetiti sve elemente kolekcije, neophodno je:</br>
+<ol>
+<li>1. Kreirati iterator koji pokazuje na pocetak kolekcije koristeci metod <b>iterator()</b> (metoda <b>Collection</b> interfejsa)  </li>
+<li> 2. Uspostaviti petlju koja treba da se vrti sve dok metoda <b>hasNext()</b> vraca vrednost <b>true.</b> </li>
+<li> 3. Pozovati metodu <b>next()</b> unutar petlje da bi se dobila referenca na sledeci element kolekcije. </li>
+</ol>
+<br><b>Primer 6:</b> Posecivanje svih elemenata kolekcije pomocu iteratora   </br>
+<xmp class = "primer_ta"> 
+Collection<Tip> c = …; // definisanje kolekcije c
+Iterator iter = c.iterator(); // kreiranje iteratora 
+while(iter.hasNext()){ 
+Tip element = iter.next(); // referenca na naredni element
+// Radi se nešto sa elementom
+} </xmp>
+<br> Brisanje elemenata ostvaruje se korišcenjem metode <b>remove()</b>. Metod <b>remove()</b> interfejsa Iterator uklanja element vracen poslednjim pozivom metoda <b>next()</b>. Primer 7. ilustruje uptrebu metode <b>remove()</b>.</br> 
+<br><b>Primer 7:</b> Brisanje elementa upotrebom iteratora</br> 
+<xmp class = "primer_ta"> 
+Iterator it = c.iterator();// kreiranje iteratora
+it.next(); // preskakanje prvog elementa
+it.remove(); // brisanje elementa </xmp>
+Postoji veza izmedu poziva metoda <b>next()</b> i <b>remove()</b>. Nije ispravno pozvati metod <b>remove()</b> ako nije prethodio poziv metoda <b>next().</b> Ukoliko se metoda <b>remove()</b> pozove dva puta, generisace se izuzetak - <b>IllegalStateException.</b>  Dakle, ukoliko je potrebno izbrisati dva susedna elementa, nije ispravno  pozvati:
+<xmp class = "primer_ta"> 
+it.remove();
+it.remove(); // Greška! </xmp>
+Umesto toga, prvo se poziva metod <b>next()</b> kako bi iterator prešao preko elementa koji treba ukloniti, pa tek onda se pozviva metod <b>remove().</b> Dakle, potrebno je uraditi sledece:
+<xmp class = "primer_ta"> 
+it.remove();
+it.next();
+it.remove(); </xmp>
+<br> Iterator za kolekcije koje implementiraju interfejs <b>List</b> može se dobiti i pozivanjem metode <b>listIterator().</b> Kao što je vec naglašeno ovaj iterator omogucava da se elementima liste pristupa u oba smera. Dakle, kao što je prikazano u tabeli 3, za razliku od interfejsa <b>Iterator</b>, interfejs <b>ListIterator</b> poseduje metodu <b>add()</b> koja dodaje element ispred tekuce pozicije iteratora. <b>ListIterator</b> poseduje i dva metoda koji mogu da se koriste za obilaženje liste unazad - <b>previus()</b> i <b>hasPrevious().</b> Takode, interfejs <b>ListIterator</b> poseduje metod koji vraca indeks tekuce pozicije. Zapravo, kako iteratori konceptualno pokazuju izmedu elemenata, postoje dva takva metoda -   <b>nextIndex()</b> koji vraca celobrojni indeks elementa koji ce biti vracen narednim pozivom metoda <b>next()</b>, i <b>previousIndex()</b> koji vraca indeks elementa koji ce biti vracen narednim pozivom metoda <b>previous().</b> Na kraju, metod <b>set()</b> zamenjuje poslednji element vracen pozivom metoda <b>next()</b> ili <b>previous() </b>novim elementom.</br>

@@ -1,0 +1,37 @@
+<h1>Interfejs Map.Entry</h1>
+Ovaj interfejs omogucava rad sa stavkama  mape. 
+<b>Map.Entry</b> je genericki interfejs koji se deklariše na sledeci nacin:
+<xmp class = "primer_ta"> Interface Map.Entry<K,V>  </xmp>
+gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Metode koje definiše intefejs <b>Map.Entry</b> prikazane su u tabeli 16. </br>
+<br><b>Tabela 16.</b> Metode interfejsa Map.Enrty</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metod</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>boolean equals (Object obj)</td>
+<td>Vraca <b>true</b> ako objekat obj koji implementira interfejs <b>Map.Entry</b> sadrži isti kljuc I vrednost kao pozivajuci objekat. </td>
+</tr>
+<tr>
+<td> K getKey ( )</td>
+<td>Vraca kljuc svake mape. </td>
+</tr>
+<tr>
+<td>V getValue ( ) </td>
+<td>Vraca vrednost svake mape. </td>
+</tr>
+<tr>
+<td>int hashCode ( ) </td>
+<td>Vraca heš-kljuc svake mape.  </td>
+</tr>
+<tr>
+<td>V setValue  (Object vrednost)  </td>
+<td>Stavki mape dodeljuje vrednost. Ako vrednost nije odgovarajuceg tipa, metoda generiše izuzetak <b>ClassCastException.</b> Ako ima drugih problema s vrednošcu generiše se izuzetak <b>IllegalArgumentException.</b> Ako je zadata vrednost <b>null,</b> a mapa to ne dozvoljava, generiše se izuzetak<b> NullPointerException.</b> Ako se mapa ne može menjati, generiše se izuzetak <b>UnsupportedOperationException.</b>  </td>
+</tr>
+</tbody>
+</table>

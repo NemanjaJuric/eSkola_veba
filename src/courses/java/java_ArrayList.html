@@ -1,0 +1,181 @@
+<h1>Klasa ArrayList</h1>
+<br>Za razliku od standarnih nizova u programskom jeziku Java koji su fiksne dužine, klasa <b>ArrayList</b> podržava dinamicke nizove za skladištanje podataka koji po potrebi mogu da rastu. Dinamicki niz sa kojim se rukuje može da sadrži bilo koji tip objekta. Ukoliko treba da se radi sa dinamickim nizom prostog tipa opet se koristi ova klasa jer svakom prostom tipu podatka automatski se pridružuje odgovarajuci objekat – omotac prostog tipa. Dakle, klasa <b>ArrayList</b> predstavlja niz promenljive dužine koji sadrži reference objekata. Kada se lista popuni, kolekcija se automatski povecava, kada se objekti sa liste uklone, velicina može da se smanji. Operacija povcanja kapaciteta vrlo je zahtevna, jer se kreira nova kolekcija koja sadrži sve elemente koji vec postoje u datoj kolekciji, s tim da se ostavlja prazan prostor za eventualne nove elemente liste, a postojeca kolekcija se potom briše iz memorije. Zbog toga je <b>ArrayList</b> kolekcija nešto sporija od obicnih nizova.</br> 
+<br>Klasa <b>ArrayList</b> je genericka klasa koja se definiše na sledeci nacin: </br>
+<xmp class = "primer_ta"> Class ArrayList <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
+<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b> i <b>Iterable</b>, što znaci da  klasa <b>ArrayList</b> može koristiti sve metode definisane ovim interfejsima. </br>
+<br>Konstruktori koje sadži klasa ArrayList prikazani su u tabeli 9.</br>
+<br><b>Tabela 9.</b> ArrayList konstruktori</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Konstruktor</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>ArrayList()	</td>
+<td>Pravi praznu listu. </td>
+</tr>
+<tr>
+<td>ArrayList(Collection C)</td>
+<td>Pravi listu i inicijalizuje je elementima kolekcije C. </td>
+</tr>
+<tr>
+<td>ArrayList(int kapacitet)</td>
+<td>Pravi listu koja ima definisan pocetni kapacitet. </td>
+</tr>
+</tbody>
+</table>
+<br>Da bi objekat tipa <b>ArrayList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu, a zatim dodati elemente koristeci metod <b>add()</b>. Metod <b>add()</b> ne kopira instancu objekta u kolekciju, vec samo skladišti memorijsku adresu objekta koji se dodaje. Brojanje elemenata u <b>ArrayList</b> objektu pocinje od 0. Ukoliko je unapred poznat broj objekata u <b>ArrayList</b> objektu, moguce je kreirati instancu objekta pomocu konstruktora koji alocira odgovoarajucu kolicinu memorije prilikom kreiranja. </br>
+<br><b>Primer 8:</b> Upotreba konstruktora koji pravi listu sa definisanim pocetnim kapacitetom </br>
+<xmp class = "primer_ta">
+ArrayList <Tip> nazivListe = new ArrayList<Tip>(broj_objekata)</xmp>
+U ovom primeru <b>Tip</b> predstavlja tip objekata koji se skladišti u listi, a <b>broj_objekata</b> je broj objekata u <b>ArrayList</b> objektu. 
+<br></br>
+<br><b>Primer 9:</b> Ilustracija metoda add(), size() i remove() nad ArrayList kolekcijom </br>
+<xmp class = "primer_ta">
+import java.util.*;
+public class PrimerArrayList {
+	
+	public static void main(String[] args) {
+                // kreiranje prazne liste
+	   	ArrayList <String> lista = new ArrayList<String>();
+
+                // racunanje pocetne velicine liste – primena metoda size()
+  	   	int pocetnaVelicinaListe = lista.size();
+		System.out.println("Pocetna velicina liste: " + pocetnaVelicinaListe) ;
+
+                // Dodavanje elemenata listi – ilustracija metoda add()
+                lista.add("A");
+    		lista.add("B");
+		lista.add("C"); 
+		lista.add(3,"D");
+                int velicinaListeNakonPrvogDodavanja = lista.size();
+    	        System.out.println("Velicina liste nakon dodavanja elemenata: " + velicinaListeNakonPrvogDodavanja);
+
+               // Prikazivanje liste
+               System.out.println("Sadrzaj liste:" + lista);
+ 
+               // Uklanjanje elemenata iz liste – ilustracija metoda remove() 
+               lista.remove(2);
+               lista.remove("B");
+               System.out.println("Sadrzaj liste nakon brisanja elemenata: "+ lista);
+               System.out.println("Velicina liste: " + lista.size());</xmp>
+
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta"> 
+Pocetna velicina liste: 0
+Velicina liste nakon dodavanja elemenata: 4
+Sadrzaj liste:[A, B, C, D]
+Sadrzaj liste nakon brisanja elemenata: [A, D]
+Velicina liste: 2</xmp>
+<br><b>Primer 10:</b> Konverzija sadržaja liste tipa ArrayList u niz.</br>
+<xmp class = "primer_ta"> 
+import java.util.*;
+public class KonverzijaListeUNiz {
+
+	public static void main(String[] args) {
+         // pravljenje liste tipa ArrayList
+		 ArrayList<Integer> al= new ArrayList<Integer>();
+		  
+        // Dodavanje elemenata 
+		 al.add(5);
+		 al.add(10);
+		 al.add(15);
+		 al.add(20);
+		 
+        // Prikazivanje liste
+		 System.out.println("Sadrzaj liste al:" + al);
+		 
+	//Pretvaranje u niz – ilsutracija metoda toArray()
+		 Integer ia[] = new Integer[al.size()];
+		 ia = al.toArray(ia);
+	         int zbir=0;
+
+        // Sabiranje elemenata niza for-each verzijom for petlje
+	       for(int i:ia) 
+                    zbir+=i;
+	    System.out.println("Zbir je :" + zbir);
+	}
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Sadrzaj liste al:[5, 10, 15, 20]
+Zbir je: 50 </xmp>
+Kolekcije nisu ogranicene iskljucivo na Javine ugradene objekte. Kao što je vec naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira.
+<br></br>
+<br><b>Primer 11:</b> Smeštanje objekata korisnickih klasa u kolekciju tipa ArrayList</br>
+<xmp class = "primer_ta">
+import java.util.*;
+public class Adresa {
+
+      // Ova klasa kreira objekat tipa Adresa koji sadrzi atribute ime, ulica, grad, drzava, I postanski broj
+
+	private String ime; 
+	private String ulica;
+	private String grad;
+	private String drzava;
+	private String postanskiBroj;
+    
+	Adresa(String i, String u, String pb, String g, String d){
+		ime = i;
+		ulica = u;
+		grad = g;
+		drzava = d; 	
+		postanskiBroj = pb;
+		}
+	public String toString(){
+		return ime +"\n" + ulica + "\n"+ postanskiBroj + " " + grad + " " + drzava;  }	
+}
+import java.util.*;
+public class ListaAdresa {
+
+	public static void main(String[] args) {
+		
+	// Kreiranje prazne liste
+		ArrayList<Adresa> lista = new ArrayList<Adresa> (); 	
+
+        // Kreiranje objekata tipa Adresa 
+		Adresa osoba1 = new Adresa("Petar Petrovic", "Nehurova 11 ", "1100", "Beograd", "Srbija");
+		Adresa osoba2 = new Adresa("Koja Kojic", "Karadordeva 15 ", "2100", "Novi Sad", "Srbija");
+		Adresa osoba3 = new Adresa("Mika Mikic", "Pazinska 22 ", "17500", "Vranje", "Srbija");
+		Adresa osoba4 = new Adresa("Vojin Vukic", "Sarjevska 8 ", "3200", "Cacak", "Srbija");	
+
+        // Dodavanje elemenata u objekat tipa ArrayList-ilustracija metoda add()
+		lista.add(osoba1);
+		lista.add(osoba2);
+		lista.add(osoba3);
+		lista.add(osoba4);	
+
+      // Prikazivanje sadrzaja liste for-each verzijom for petlje
+		for(Adresa element:lista){
+			System.out.println(element + "\n");
+		} 
+		System.out.println(); 
+}</xmp>
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta">
+Petar Petrovic
+Nehurova 11 
+1100 Beograd Srbija
+
+Koja Kojic
+Karadordeva 15 
+2100 Novi Sad Srbija
+
+Mika Mikic
+Pazinska 22 
+17500 Vranje Srbija
+
+Vojin Vukic
+Sarjevska 8 
+3200 Cacak Srbija</xmp>
+U ovom primeru elementima kolekcije pristupa se pomoci <b>for-each</b> verzije <b>for</b> petlje. To je moguce zato što klasa <b>ArrayList</b> implementira interfejs <b>Iterable.</b> 
+<br></br>
+<br>Ponekad je potrebno raditi sa podlistom date liste. Podlista liste može se dobiti metodom <b>sublist()</b> interfejsa <b>List.</b> Ova metoda vraca podlistu koja obuhvata deo liste izmedu zadatih pozicija, ukljucujuci prvu i ne ukljucujuci drugu poziciju. </br>
+<br><b>Primer 12:</b> Kreiranje podliste<br>
+<xmp class = "primer_ta">
+ArrayList<Adresa>podlista = new ArrayList<Adresa>(lista.subList(2, 4));</xmp>
+U ovom primeru podlista je kreirana pomocu konstruktora koji kreira i inicijalizuje listu elementima date kolekcije, pri cemu je kolekcija podlista koja se dobija metodom <b>subList()</b> interfejsa <b>List.</b> 

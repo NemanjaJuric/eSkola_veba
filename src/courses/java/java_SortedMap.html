@@ -1,0 +1,42 @@
+<h1>Interfejs SortedMap</h1>
+<br>Interfejs <b>SortedMap</b> proširuje interfejs <b>Map</b> i održava raspored stavki po rastucem redosledu kljuceva.</br>
+ <b>SortedMap</b> je genericki interfejs koji se deklariše na sledeci nacin:
+<xmp class = "primer_ta"> Interface SortedMap<K,V>  </xmp>
+gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Metode koje definiše intefejs <b>SortedMap</b> prikazane su u tabeli 15. </br>
+<br><b>Tabela 15.</b> Metode interfejsa SortedMap</br>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metod</th> 
+<th>Opis</th>
+</tr>
+<tr>
+<tbody>
+	<tr>
+<td>Comparator <? Super K>Comparator ( )</td>
+<td>Vraca komparator uredene mape. Ako je mapa uredena prema prirodnom redosledu, vraca vrednost <b>null.</b> </td>
+</tr>
+<tr>
+<td>K first key ( )</td>
+<td>Vraca prvi kljuc uredene mape.</td>
+</tr>
+<tr>
+<td>SortedMap<K, V> headMap (K kraj) </td>
+<td>Vraca uredenu podmapu stavki ciji su kljucevi manji od argumenta kraj. </td>
+</tr>
+<tr>
+<td>K lastKey( )</td>
+<td>Vraca poslednji kljuc mape.</td>
+</tr>
+<tr>
+<td>SortedMap<K, V> subMap (K pocetak, K kraj)</td>
+<td>Vraca mapu stavki s kljucevima koji pripadaju opsegu izmedu vrednosti pocetak I kraj -1. </td>
+</tr>
+<tr>
+<td>SortedMap<K, V> tailMap (K pocetak)</td>
+<td>Vraca podmapu stavki s kljucevima vecim od argumenta pocetak -1. </td>
+</tr>
+</tbody>
+</table>
+<br>Uredene mape omogucavaju veoma efikasan rad sa podmapama. Podskupovi mape mogu se dobiti primenom metoda <b>headMap()</b>, <b>tailMap()</b> ili <b>subMap().</b> Dobijene podmape sadrže reference na elemente izvorne mape, što znaci da menjanje elemenata podmape menja istovremeno odgovarajuci element mape, i obrnuto.  </br>

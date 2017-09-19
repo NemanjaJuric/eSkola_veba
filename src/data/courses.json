@@ -1380,8 +1380,176 @@
         "detailsText": "U pripremi",
         "lessons": [
             {
-                "name": "Interfejsi u Javi",
+                "name": "Interfejsi u programskom jeziku Java",
                 "url": "java_uvod",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Kolekcije u programskom jeziku Java",
+                "url": "java_kolekcije",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Kolekcijski interfejsi",
+                "url": "java_kolekcijski_interfejsi",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs Collection",
+                "url": "java_collection",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejsi Iterable, Iterator, ListIterator",
+                "url": "java_iterable",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs List",
+                "url": "java_list",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs Set",
+                "url": "java_set",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs SortedSet",
+                "url": "java_sortedSet",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs Queue",
+                "url": "java_queue",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs Deque",
+                "url": "java_deque",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa ArrayList",
+                "url": "java_ArrayList",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa LinkedList",
+                "url": "java_LinkedList",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Razlika između ArrayList i LinkedList",
+                "url": "java_RazlikaLinkedListArrayList",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa HashSet",
+                "url": "java_HashSet",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa LinkedHashSet",
+                "url": "java_LinkedHashSet",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa TreeSet",
+                "url": "java_Treeset",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Razlike između klasa HashSet, LinkedHashSet i TreeSet",
+                "url": "java_Razlika_Set_Kolekcija",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs Map",
+                "url": "java_Map",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs SortedMap",
+                "url": "java_SortedMap",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejs MapEntry",
+                "url": "java_MapEntry",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa HashMap",
+                "url": "java_HashMap",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa TreeMap",
+                "url": "java_TreeMap",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa LinkedHashMap",
+                "url": "java_LinkedHashMap",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Razlike izmedu HashMap, TreeMap i LinkedHashMap klase",
+                "url": "java_Mape_Razlike",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Algoritmi za rad sa kolekcijama i mapama",
+                "url": "java_algoritmi",
                 "type": "lesson",
                 "parentCourse": "java",
                 "sublessons": null

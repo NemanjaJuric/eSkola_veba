@@ -8,10 +8,10 @@
             <span class="menu__course h3 d-block m-t-1 m-b-1" (click)="setRoute('course-details', course.id, null)">{{course.name}}</span>
             <ul>
                 <li *ngFor="let lesson of course.lessons" class="menu__item">
-                    <span class="menu__lesson h5 d-block m-l-1" (click)="setRoute('course', course.id, lesson.url)">{{lesson.name}}</span>
+                    <span class="menu__lesson h5 d-block m-l-1" (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, lesson.url)">{{lesson.name}}</span>
                     <ul>
                         <li *ngFor="let sublesson of lesson.sublessons" class="menu__item">
-                            <span class="menu__lesson h5 d-block m-l-3" (click)="setRoute('course', course.id, sublesson.url)">{{sublesson.name}}</span>
+                            <span class="menu__lesson h5 d-block m-l-3" (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, sublesson.url)">{{sublesson.name}}</span>
                         </li>
                     </ul>
                 </li>
