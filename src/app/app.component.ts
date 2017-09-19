@@ -10,8 +10,8 @@ import { GoogleAnalyticsService } from './services/google-analytics.service';
 })
 export class AppComponent {
   constructor(
-    private schoolService: SchoolService, 
-    private router: Router, 
+    private schoolService: SchoolService,
+    private router: Router,
     private routeService: RouteService,
     public googleAnalyticsService: GoogleAnalyticsService) { };
 
@@ -86,14 +86,16 @@ export class AppComponent {
           case 'ts':
             this.browserColor = '#294e80';
             break;
-          case 'ang2':
+          case 'ang4':
             this.browserColor = '#c3002f';
+            break;
+          case 'java':
+            this.browserColor = '#BF360C';
             break;
           case 'veb':
             this.browserColor = '#47789e';
             break;
         }
-
     }
     metaTheme.setAttribute('content', this.browserColor);
   }

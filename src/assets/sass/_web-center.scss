@@ -1,6 +1,9 @@
 .code-panel{
     border: 1px solid $light-gray;
-    margin: 10px;
+    margin: 0;
+    @media (max-width:768px){
+        margin-bottom: 10px;
+    }
 }
 
 .code-panel-editor{
