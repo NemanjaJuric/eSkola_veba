@@ -1,10 +1,10 @@
-<h1>Klasa ArrayList</h1>
-<br>Za razliku od standarnih nizova u programskom jeziku Java koji su fiksne du�ine, klasa <b>ArrayList</b> podr�ava dinamicke nizove za skladi�tanje podataka koji po potrebi mogu da rastu. Dinamicki niz sa kojim se rukuje mo�e da sadr�i bilo koji tip objekta. Ukoliko treba da se radi sa dinamickim nizom prostog tipa opet se koristi ova klasa jer svakom prostom tipu podatka automatski se pridru�uje odgovarajuci objekat � omotac prostog tipa. Dakle, klasa <b>ArrayList</b> predstavlja niz promenljive du�ine koji sadr�i reference objekata. Kada se lista popuni, kolekcija se automatski povecava, kada se objekti sa liste uklone, velicina mo�e da se smanji. Operacija povcanja kapaciteta vrlo je zahtevna, jer se kreira nova kolekcija koja sadr�i sve elemente koji vec postoje u datoj kolekciji, s tim da se ostavlja prazan prostor za eventualne nove elemente liste, a postojeca kolekcija se potom bri�e iz memorije. Zbog toga je <b>ArrayList</b> kolekcija ne�to sporija od obicnih nizova.</br> 
-<br>Klasa <b>ArrayList</b> je genericka klasa koja se defini�e na sledeci nacin: </br>
+﻿<h1>Klasa ArrayList</h1>
+Za razliku od standarnih nizova u programskom jeziku Java koji su fiksne dužine, klasa <b>ArrayList</b> podržava dinamičke nizove za skladištanje podataka koji po potrebi mogu da rastu. Dinamički niz sa kojim se rukuje može da sadrži bilo koji tip objekta. Ukoliko treba da se radi sa dinamičkim nizom prostog tipa opet se koristi ova klasa jer svakom prostom tipu podatka automatski se pridružuje odgovarajući objekat – omotač prostog tipa. Dakle, klasa <b>ArrayList</b> predstavlja niz promenljive dužine koji sadrži reference objekata. Kada se lista popuni, kolekcija se automatski povećava, kada se objekti sa liste uklone, veličina može da se smanji. Operacija povećanja kapaciteta vrlo je zahtevna, jer se kreira nova kolekcija koja sadrži sve elemente koji vec postoje u datoj kolekciji, s tim da se ostavlja prazan prostor za eventualne nove elemente liste, a postojeća kolekcija se potom briše iz memorije. Zbog toga je <b>ArrayList</b> kolekcija nešto sporija od običnih nizova.</br> 
+<br>Klasa <b>ArrayList</b> je generička klasa koja se definiše na sledeci nacin: </br>
 <xmp class = "primer_ta"> Class ArrayList <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldi�ti.
-<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b> i <b>Iterable</b>, �to znaci da  klasa <b>ArrayList</b> mo�e koristiti sve metode definisane ovim interfejsima. </br>
-<br>Konstruktori koje sad�i klasa ArrayList prikazani su u tabeli 9.</br>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
+<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b> i <b>Iterable</b>, što znači da  klasa <b>ArrayList</b> može koristiti sve metode definisane ovim interfejsima. </br>
+<br>Konstruktori koje sadži klasa ArrayList prikazani su u tabeli 9.</br>
 <br><b>Tabela 9.</b> ArrayList konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -24,16 +24,15 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldi�ti.
 </tr>
 <tr>
 <td>ArrayList(int kapacitet)</td>
-<td>Pravi listu koja ima definisan pocetni kapacitet. </td>
+<td>Pravi listu koja ima definisan početni kapacitet. </td>
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>ArrayList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu, a zatim dodati elemente koristeci metod <b>add()</b>. Metod <b>add()</b> ne kopira instancu objekta u kolekciju, vec samo skladi�ti memorijsku adresu objekta koji se dodaje. Brojanje elemenata u <b>ArrayList</b> objektu pocinje od 0. Ukoliko je unapred poznat broj objekata u <b>ArrayList</b> objektu, moguce je kreirati instancu objekta pomocu konstruktora koji alocira odgovoarajucu kolicinu memorije prilikom kreiranja. </br>
-<br><b>Primer 8:</b> Upotreba konstruktora koji pravi listu sa definisanim pocetnim kapacitetom </br>
+<br>Da bi objekat tipa <b>ArrayList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu, a zatim dodati elemente koristeći metod <b>add()</b>. Metod <b>add()</b> ne kopira instancu objekta u kolekciju, već samo skladišti memorijsku adresu objekta koji se dodaje. Brojanje elemenata u <b>ArrayList</b> objektu počinje od 0. Ukoliko je unapred poznat broj objekata u <b>ArrayList</b> objektu, moguće je kreirati instancu objekta pomoću konstruktora koji alocira odgovoarajuću količinu memorije prilikom kreiranja. </br>
+<br><b>Primer 8:</b> Upotreba konstruktora koji pravi listu sa definisanim početnim kapacitetom </br>
 <xmp class = "primer_ta">
 ArrayList <Tip> nazivListe = new ArrayList<Tip>(broj_objekata)</xmp>
-U ovom primeru <b>Tip</b> predstavlja tip objekata koji se skladi�ti u listi, a <b>broj_objekata</b> je broj objekata u <b>ArrayList</b> objektu. 
-<br></br>
+U ovom primeru <b>Tip</b> predstavlja tip objekata koji se skladišti u listi, a <b>broj_objekata</b> je broj objekata u <b>ArrayList</b> objektu.</br>
 <br><b>Primer 9:</b> Ilustracija metoda add(), size() i remove() nad ArrayList kolekcijom </br>
 <xmp class = "primer_ta">
 import java.util.*;
@@ -43,11 +42,11 @@ public class PrimerArrayList {
                 // kreiranje prazne liste
 	   	ArrayList <String> lista = new ArrayList<String>();
 
-                // racunanje pocetne velicine liste � primena metoda size()
+                // racunanje pocetne velicine liste – primena metoda size()
   	   	int pocetnaVelicinaListe = lista.size();
 		System.out.println("Pocetna velicina liste: " + pocetnaVelicinaListe) ;
 
-                // Dodavanje elemenata listi � ilustracija metoda add()
+                // Dodavanje elemenata listi – ilustracija metoda add()
                 lista.add("A");
     		lista.add("B");
 		lista.add("C"); 
@@ -58,7 +57,7 @@ public class PrimerArrayList {
                // Prikazivanje liste
                System.out.println("Sadrzaj liste:" + lista);
  
-               // Uklanjanje elemenata iz liste � ilustracija metoda remove() 
+               // Uklanjanje elemenata iz liste – ilustracija metoda remove() 
                lista.remove(2);
                lista.remove("B");
                System.out.println("Sadrzaj liste nakon brisanja elemenata: "+ lista);
@@ -71,7 +70,7 @@ Velicina liste nakon dodavanja elemenata: 4
 Sadrzaj liste:[A, B, C, D]
 Sadrzaj liste nakon brisanja elemenata: [A, D]
 Velicina liste: 2</xmp>
-<br><b>Primer 10:</b> Konverzija sadr�aja liste tipa ArrayList u niz.</br>
+<br><b>Primer 10:</b> Konverzija sadržaja liste tipa ArrayList u niz.</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
 public class KonverzijaListeUNiz {
@@ -89,7 +88,7 @@ public class KonverzijaListeUNiz {
         // Prikazivanje liste
 		 System.out.println("Sadrzaj liste al:" + al);
 		 
-	//Pretvaranje u niz � ilsutracija metoda toArray()
+	//Pretvaranje u niz – ilsutracija metoda toArray()
 		 Integer ia[] = new Integer[al.size()];
 		 ia = al.toArray(ia);
 	         int zbir=0;
@@ -104,9 +103,9 @@ public class KonverzijaListeUNiz {
 <xmp class = "primer_ta">
 Sadrzaj liste al:[5, 10, 15, 20]
 Zbir je: 50 </xmp>
-Kolekcije nisu ogranicene iskljucivo na Javine ugradene objekte. Kao �to je vec nagla�eno, kolekcije mogu da uskladi�te svaku vrstu objekata, pa i objekte klasa koje programer sam kreira.
+Kolekcije nisu ograničene iskljucivo na Javine ugrađene objekte. Kao što je već naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira.
 <br></br>
-<br><b>Primer 11:</b> Sme�tanje objekata korisnickih klasa u kolekciju tipa ArrayList</br>
+<br><b>Primer 11:</b> Smeštanje objekata korisničkih klasa u kolekciju tipa ArrayList</br>
 <xmp class = "primer_ta">
 import java.util.*;
 public class Adresa {
@@ -149,7 +148,7 @@ public class ListaAdresa {
 		lista.add(osoba3);
 		lista.add(osoba4);	
 
-      // Prikazivanje sadrzaja liste for-each verzijom for petlje
+       // Prikazivanje sadrzaja liste for-each verzijom for petlje
 		for(Adresa element:lista){
 			System.out.println(element + "\n");
 		} 
@@ -172,10 +171,10 @@ Pazinska 22
 Vojin Vukic
 Sarjevska 8 
 3200 Cacak Srbija</xmp>
-U ovom primeru elementima kolekcije pristupa se pomoci <b>for-each</b> verzije <b>for</b> petlje. To je moguce zato �to klasa <b>ArrayList</b> implementira interfejs <b>Iterable.</b> 
+U ovom primeru elementima kolekcije pristupa se pomoću <b>for-each</b> verzije <b>for</b> petlje. To je moguće zato što klasa <b>ArrayList</b> implementira interfejs <b>Iterable.</b> 
 <br></br>
-<br>Ponekad je potrebno raditi sa podlistom date liste. Podlista liste mo�e se dobiti metodom <b>sublist()</b> interfejsa <b>List.</b> Ova metoda vraca podlistu koja obuhvata deo liste izmedu zadatih pozicija, ukljucujuci prvu i ne ukljucujuci drugu poziciju. </br>
+Ponekad je potrebno raditi sa podlistom date liste. Podlista liste može se dobiti metodom <b>sublist()</b> interfejsa <b>List.</b> Ova metoda vraća podlistu koja obuhvata deo liste izmedu zadatih pozicija, uključujući prvu i ne uključujući drugu poziciju. </br>
 <br><b>Primer 12:</b> Kreiranje podliste<br>
 <xmp class = "primer_ta">
 ArrayList<Adresa>podlista = new ArrayList<Adresa>(lista.subList(2, 4));</xmp>
-U ovom primeru podlista je kreirana pomocu konstruktora koji kreira i inicijalizuje listu elementima date kolekcije, pri cemu je kolekcija podlista koja se dobija metodom <b>subList()</b> interfejsa <b>List.</b> 
+U ovom primeru podlista je kreirana pomoću konstruktora koji kreira i inicijalizuje listu elementima date kolekcije, pri čemu je kolekcija podlista koja se dobija metodom <b>subList()</b> interfejsa <b>List.</b> 

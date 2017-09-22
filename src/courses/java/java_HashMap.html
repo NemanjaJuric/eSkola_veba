@@ -1,9 +1,9 @@
-<h1>Klasa HashMap</h1>
-<br> Ova klasa impelentira interfejs <b>Map</b>, a podatke cuva u heš-tabeli. Zbog toga je, kao i kod klase <b>HashSet</b>, vreme izvršavanja osnovih operacija, kao što su <b>get()</b> i <b>put()</b>, isto bez obzira na velicinu mape. Takode, heš-mape ne garantuju odredeni redosled ocitavanja elemenata iz mape, što znaci da iterator nece citati elemente redosledom kojim su elementi umetnuti u mapu.</br>
- <br>Klasa <b>HashMap</b> je genericka klasa koji se deklariše na sledeci nacin:
+ï»¿<h1>Klasa HashMap</h1>
+Ova klasa impelentira interfejs <b>Map</b>, a podatke Äuva u heÅ¡-tabeli. Zbog toga je, kao i kod klase <b>HashSet</b>, vreme izvrÅ¡avanja osnovih operacija, kao Å¡to su <b>get()</b> i <b>put()</b>, isto bez obzira na veliÄinu mape. TakoÄ‘e, heÅ¡-mape ne garantuju odredeni redosled oÄitavanja elemenata iz mape, Å¡to znaÄi da iterator neÄ‡e Äitati elemente redosledom kojim su elementi umetnuti u mapu.</br>
+ <br>Klasa <b>HashMap</b> je generiÄka klasa koji se deklariÅ¡e na sledeci nacin:
 <xmp class = "primer_ta"> Class HashMap <K,V>  </xmp>
-gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadrati. 
-<br>Konstruktori koje sadi klasa <b>HashMap</b> prikazani su u tabeli 17.  </br>
+gde <b>K</b> oznaÄava tip kluÄeva, a <b>V </b> tip vrednosti koje Ä‡e mapa sadrÅ¾ati. 
+<br>Konstruktori koje sadÅ¾i klasa <b>HashMap</b> prikazani su u tabeli 17.  </br>
 <br><b>Tabela 17.</b> HashMap konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -15,10 +15,10 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadra
 <tbody>
 	<tr>
 <td>HashMap()</td>
-<td>Pravi praznu heš-mapu.  </td>
+<td>Pravi praznu heÅ¡-mapu.  </td>
 </tr>
 <tr>
-<td>HashMap(Map<?extends K, ?extends V>mapa) </td>
+<td>HashMap(Map&lt;?extend K, ?extends V&gt;map)</td>
 <td>Pravi mapu i inicijalizije je vrednostima iz mape. </td>
 </tr>
 <tr>
@@ -31,7 +31,7 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadra
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>HashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 17, a zatim dodati elemente koristeci metodu <b>put()</b>. Kao što je vec pomenuto, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. </br>
+<br>Da bi objekat tipa <b>HashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoÄ‡u konstruktora iz tabele 17, a zatim dodati elemente koristeÄ‡i metodu <b>put()</b>. Kao Å¡to je vec pomenuto, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost â€“ 0,75. Podrazumevani kapacitet je  16. </br>
 <br><b>Primer 21:</b> Upotreba klase HashMap</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
@@ -83,4 +83,4 @@ Ana Kojic:99.32
 Novo stanje racuna Maje Pavlovic:2255.84
 Sadrzaj mape nakon brisanja Ane Kojic:
 {Maja Pavlovic=2255.84, Vladimir Gojkovic=1378.37, Teodora Mancic=-585.34, Nevena Petrovic=5857.34}</xmp>
-<br>Kako se elementi ne skladište redosledom kojim se dodaju, pokretanjem programa moete dobiti razlicite razultate. Obratite panju na to kako je deponovan novac na racun „Maje Pavlovic“. Metoda <b>put()</b> automatski zamenjuje postojecu vrednost novom vrednošcu koja je povezana sa zadatim kljucem. To znaci sledece, kada se racun aurira, heš-mapa ce i dalje  sadrati samo jedan racun za osobu „Maja Pavlovic“. </br>
+Kako se elementi ne skladiÅ¡te redosledom kojim se dodaju, pokretanjem programa moÅ¾ete dobiti razliÄite razultate. Obratite paÅ¾nju na to kako je deponovan novac na raÄun â€Maje Pavlovicâ€œ. Metoda <b>put()</b> automatski zamenjuje postojeÄ‡u vrednost novom vrednoÅ¡cu koja je povezana sa zadatim kljuÄem. To znaÄi sledeÄ‡e, kada se raÄun aÅ¾urira, heÅ¡-mapa Ä‡e i dalje  sadrÅ¾ati samo jedan raÄun za osobu â€Maja Pavlovicâ€œ. </br>

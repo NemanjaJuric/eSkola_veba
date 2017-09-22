@@ -1,10 +1,10 @@
-<h1>Interfejs SortedSet  </h1>
-<br>Interfejs <b>SortedSet</b> nasleduje interfejs <b>Set</b> i deklari�e pona�anje rastuce uredenog skupa.</br> 
-<br><b>SortedSet</b> je genericki interfejs koji se deklari�e na sledeci nacin:</br>
+﻿<h1>Interfejs SortedSet  </h1>
+Interfejs <b>SortedSet</b> nasleđuje interfejs <b>Set</b> i deklariše ponašanje rastuće uređenog skupa.</br> 
+<br><b>SortedSet</b> je generički interfejs koji se deklariše na sledeći način:</br>
 <xmp class = "primer_ta"> Interface SortedSet <E> </xmp>
-gde <b>E</b> oznacava tip objekta koji ce uredeni skup sadr�ati.
+gde <b>E</b> oznčava tip objekta koji će uređeni skup sadržati.
 <br></br>
-<br>Pored metoda definisane interfejsom <b>Set</b>, interfejs <b>SortedSet</b> deklari�e i sopstvene metode nabrojane u tabeli 5. </br>
+Pored metoda definisane interfejsom <b>Set</b>, interfejs <b>SortedSet</b> deklariše i sopstvene metode nabrojane u tabeli 5. </br>
 <br><b>Tabela 5.</b> Metode definisane interfesjom SortedSet</br>
 <table class = "tabela">
 <thead>
@@ -14,38 +14,62 @@ gde <b>E</b> oznacava tip objekta koji ce uredeni skup sadr�ati.
 </tr>
 <tr>
 <tbody>
-	<tr>
-<td>Comparator <? super E> comparator()</td>
-<td>Vraca komparator uredenog skupa. Ako je skup prirodno ure�den, vraca se vrednost <b>null.</b> </td>
+<tr>
+<td width="272">
+<p>Comparator &lt;? super E&gt; comparator()</p>
+</td>
+<td width="281">
+<p>Vraća komparator uređenog skupa. Ako je skup prirodno ure&scaron;đen, vraća se vrednost <b>null.</b>
+</td>
 </tr>
 <tr>
-<td>E first()</td>
-<td>Vraca prvi element uredenog skupa.</td>
+<td width="272">
+<p>E first()</p>
+</td>
+<td width="281">
+<p>Vraća prvi element uređenog skupa.</p>
+</td>
 </tr>
 <tr>
-<td>SortedSet<E> headSet(E kraj)  </td>
-<td>Vraca podskup uredenog skupa i to od pocetka skupa do elementa kraj -1. </td>
+<td width="272">
+<p>SortedSet&lt;E&gt; headSet(E kraj)</p>
+</td>
+<td width="281">
+<p>Vraća podskup uređenog skupa i to od početka skupa do elementa kraj -1.</p>
+</td>
 </tr>
 <tr>
-<td>E last() </td>
-<td>Vraca poseldnji element uredenog skupa. </td>
+<td width="272">
+<p>E last()</p>
+</td>
+<td width="281">
+<p>Vraća poseldnji element uređenog skupa.</p>
+</td>
 </tr>
 <tr>
-<td>SortedSet<E> subSet(E pocetak, E kraj) </td>
-<td>Vraca podskup uredenog skupa i to od elementa pocetak pa do elementa kraj -1. </td>
+<td width="272">
+<p>SortedSet&lt;E&gt; subSet(E početak, E kraj)</p>
+</td>
+<td width="281">
+<p>Vraća podskup uređenog skupa i to od elementa početak pa do elementa kraj -1.</p>
+</td>
 </tr>
 <tr>
-<td>SortedSet<E> tailSet(E pocetak)</td>
-<td>Vraca podskup uredenog skupa i to od elementa pocetak pa do kraja skupa. </td>
+<td width="272">
+<p>SortedSet&lt;E&gt; tailSet(E početak)</p>
+</td>
+<td width="281">
+<p>Vraća podskup uređenog skupa i to od elementa početak pa do kraja skupa.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<br>Interfejs <b>SortedSet</b> defini�e metode koje olak�avaju rad sa skupovima. Prvi element skupa dobija se kori�cenjem metoda <b>first()</b>, poslednji metodom <b>last(),</b> dok se podskup uredenog skupa mo�e dobiti kori�cenjem metoda <b>subSet(), headSet()</b>, ili <b>tailSet().</b> </br>
+<br>Interfejs <b>SortedSet</b> definiše metode koje olakšavaju rad sa skupovima. Prvi element skupa dobija se korišćenjem metoda <b>first()</b>, poslednji metodom <b>last(),</b> dok se podskup uređenog skupa može dobiti korišćenjem metoda <b>subSet(), headSet()</b>, ili <b>tailSet().</b> </br>
 
-<br>Izuzeci koji se generi�u prilikom rada sa ovim metodama su:</br>
-<ol> 
-<li><b>ClassCastExeption</b> � Ovaj izuzetak se generi�e kada su dva objekta medusobno nekompatibilna.   </li>
-<li><b>IlegalArgumentExeption</b> � Ovaj izuzetak se generi�e ukoliko je metodi prosleden nedozvoljeni argument. </li>  
-<li><b>NullPointerExeption </b>� Ovaj izuzetak se generi�e pri poku�aju sme�tanja null objekata u skup. </li>
-<li><b>NoSuchElementExeption </b>� Ovaj izuzetak se generi�e kada u skupu nema elemenata. </li>  
-</ol>
+<br>Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
+<ul style="list-style-type:circle">
+<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna   </li>
+<li><b>IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument </li>  
+<li><b>NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja <b>null</b> objekata u skup </li>
+<li><b>NoSuchElementExeption </b>– Ovaj izuzetak se generiše kada u skupu nema elemenata </li>  
+</ul>

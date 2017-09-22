@@ -1,21 +1,19 @@
-<h1>Interfejsi</h1>
-<br>U programskom jeziku Java, interfejs je referentni tip, slican klasi, koji sadr�i pona�anje koje klasa treba da implementira. Dakle, upotrebom rezervisane reci <b>interface</b> mo�e se odrediti �ta klasa treba da radi, ali ne i kako to treba da izvede. Interfejsi se koriste za postizanje pune apstrakcije - pomocu njih se mo�e potpuno apstrakovati nacin pristupa klasi. Takode, uz pomoc interfejsa moguce je postici i neki vid vi�estrukog nasledivanja. </b>
+﻿<h1>Interfejsi</h1>
+U programskom jeziku Java, interfejs je referentni tip, sličan klasi, koji sadrži ponašanje koje klasa treba da implementira. Dakle, upotrebom rezervisane reči <b>interface</b> može se odrediti šta klasa treba da radi, ali ne i kako to treba da izvede. Interfejsi se koriste za postizanje pune apstrakcije - pomoću njih se može potpuno apstrakovati način pristupa klasi. Takođe, uz pomoc interfejsa moguće je postići i neki vid višestrukog nasleđivanja.
 <h2> Odnos klase i interfejsa </h2>
-<br>Promenljive se mogu deklarisati kao reference objekata koji koriste interfejs umesto tipa klase. Takva promenljiva mo�e da referencira instancu bilo koje klase koja je realizovala zadati interfejs. Referentna promenljiva intefejsa zna samo za metode iz deklaracije interfejsa, i ona ne mo�e pristupiti nijednom drugom clanu klase.<br>
+Promenljive se mogu deklarisati kao reference objekata koji koriste interfejs umesto tipa klase. Takva promenljiva može da referencira instancu bilo koje klase koja je realizovala zadati interfejs. Referentna promenljiva intefejsa zna samo za metode iz deklaracije interfejsa, i ona ne može pristupiti nijednom drugom clanu klase.<br>
 <br>Razlika izmedu klase i intefejsa:</br>
-<ol> 
-<li> 1. Od interfejsa se ne mo�e kreirati objekat (instanca) - interfejsi ne sadr�e konstruktore, s toga nije moguce kreirati objekat (instancu). </li>
-<li> 2. Za razliku od klase koje mo�e naslediti samo jednu klasu, interfejs mo�e naslediti vi�e interfejsa. Dakle, moguce je vi�estruko nasledivanje interfejsa.  </li>
-<li> 3. Za razliku od klase koje sadr�i atribute objekata, interfejs mo�e sadr�ati samo konstante. 
-Na taj nacin moguce je uvesti zajednicke konstante u vi�e klasa.  
+<ul style="list-style-type:circle">
+<li> od interfejsa se ne može kreirati objekat (instanca) - interfejsi ne sadrže konstruktore, s toga nije moguće kreirati objekat (instancu); </li>
+<li> za razliku od klase koje može naslediti samo jednu klasu, interfejs može naslediti više interfejsa. Dakle, moguće je višestruko nasleđivanje interfejsa; </li>
+<li>za razliku od klase koje sadrži atribute objekata, interfejs može sadržati samo konstante. Na taj način moguće je uvesti zajednicke konstante u više klasa.  
 </li>
-</ol>
+</ul>
 
-<br>Odnos izmedu klase i interfejsa prikazan je na slici 1. Kao �to je prikazano na slici, klasa nasleduje drugu klasu, interfejs nasleduje drugi interfejs, ali klasa implementira interfejs. </br>
+Odnos izmedu klase i interfejsa prikazan je na slici 1. Kao što je prikazano na slici, klasa nasleđuje drugu klasu, interfejs nasleđuje drugi interfejs, ali klasa implementira interfejs.
 <img src="courses/java/slika_master.jpg">
-
 <h2>Definisanje interfejsa</h2>
-Za definisanje interfejsa koristi se kljucna rec <b>interface</b>. Op�ti oblik definicije interfejsa izgleda kao u primeru 1.
+Za definisanje interfejsa koristi se ključna rec <b>interface</b>. Opšti oblik definicije interfejsa izgleda kao u primeru 1.
 <br></br>
 <b>Primer 1:</b>  Definisanje interfejsa
 <xmp class = "primer_ta"> 
@@ -23,46 +21,51 @@ pristup interface ime {
 // proizvoljan broj deklaracija apstratknih metoda
 // proizvoljan broj konstanti
 }</xmp>
-Ovde je specifikator pristupa ili <b>public</b> ili ga nema. Ukoliko specifikator nije naznacen koristi se podrazumevani pristup i u tom slucaju interfejs je dosptupan samo drugim clanovima svog paketa. Kada se oznaci specifikatorom <b>public</b>, interfejs postaje javno dostupan. Ime interfejsa moze biti bilo koji indentifikator. Unutar deklaracije interfejsa mogu se definisati iskljucivo apstraktne metode i promenljive. Podrazumeva se da su pomenute promenljive oznacene specifikatorima <b>final</b> ili <b>static</b>, �to znaci da ih klasa svojom realizacijom ne mo�e menjati. Takode, one moraju biti inicijalizovane konstantama. Ako je sam interfejs definisan kao javan, i sve metode, odnosno promenljive, podrazumevano su javne. 
+Ovde je specifikator pristupa ili <b>public</b> ili ga nema. Ukoliko specifikator nije naznačen koristi se podrazumevani pristup i u tom slučaju interfejs je dosptupan samo drugim članovima svog paketa. Kada se označi specifikatorom <b>public</b> interfejs postaje javno dostupan. Ime interfejsa može biti bilo koji indentifikator. Unutar deklaracije interfejsa mogu se definisati isključivo apstraktne metode i promenljive. Podrazumeva se da su pomenute promenljive označene specifikatorima <b>final</b> ili <b>static</b>, što znači da ih klasa svojom realizacijom ne može menjati. Takođe, one moraju biti inicijalizovane konstantama. Ako je sam interfejs definisan kao javan, i sve metode, odnosno promenljive, podrazumevano su javne. 
 <h2>Realizovanje interfejsa</h2>
-<br>Kada je interfejs definisan, svaka klasa ga mo�e realizovati. Interfejs se realizuje pomocu kljucne reci <b>implements</b>. Da bi realizovala neki interfejs, klasa mora da defini�e sve metode deklarisane u interfejsu, pri cemu one moraju biti deklarisane kao javne. Ako klasa realizuje interfejs, ali ne realizuje u potpunosti metode koje su u njemu definisane, onda se mora deklarisati kao <b>apstraktna</b>. Klasa mo�e da realizuje i vi�e od jednog interfejsa, i na taj nacin se obezbeduje neki vid vi�estrukog nasledivanja. Ukoliko klasa realizuje vi�e od jednog interfejsa, njihova imena se razdvajaju zarezima.</br>
-<br></br>
-Op�ti oblik klase koja realizuje odredeni interfejs izgleda kao u primeru 2.
-<br><b>Primer 2: </b>Op�ti oblik klase koja realizuje interfejs</br>
+Kada je interfejs definisan, svaka klasa ga može realizovati. Interfejs se realizuje pomocu kljucne reci <b>implements</b>. Da bi realizovala neki interfejs, klasa mora da definiše sve metode deklarisane u interfejsu, pri čemu one moraju biti deklarisane kao javne. Ako klasa realizuje interfejs, ali ne realizuje u potpunosti metode koje su u njemu definisane, onda se mora deklarisati kao <b>apstraktna</b>. Klasa može da realizuje i više od jednog interfejsa, i na taj način se obezbeduje neki vid višestrukog nasleđivanja. Ukoliko klasa realizuje više od jednog interfejsa, njihova imena se razdvajaju zarezima.</br>
+<br> Opšti oblik klase koja realizuje odredeni interfejs izgleda kao u primeru 2.</br>
+<b>Primer 2: </b>Opšti oblik klase koja realizuje interfejs
 <xmp class = "primer_ta">
  pristup class imeKlase implements naziv_interfejsa{
- // telo klase
+             // telo klase
   }</xmp>
-<br>Ovde se pristup ili ne koristi ili je <b>public</b>. Ukoliko klasa realizuje vi�e od jednog interfejsa, njihova imena se razdvajaju zarezom. Klase koje realizuju interfejs mogu da defini�u i sopstvene dodatne clanove. Primer 3. ilustruje nacin realizovanja interfejsa.</br>
+
+Ovde se pristup ili ne koristi ili je <b>public</b>. Ukoliko klasa realizuje više od jednog interfejsa, njihova imena se razdvajaju zarezom. Klase koje realizuju interfejs mogu da definišu i sopstvene dodatne članove. Primer 3. ilustruje nacin realizovanja interfejsa.</br>
 <br><b>Primer 3:</b> Realizovanje interfejsa </br>
 <xmp class = "primer_ta">
 public interface A {
 
-// deklaracija apstraktnog metoda radi1()
-void radi1();
+	// deklaracija apstraktnog metoda radi1()
+	void radi1();
 
-// deklaracija apstraktnog metoda radi2()
-void radi2();
+	// deklaracija apstraktnog metoda radi2()
+	void radi2();
 }
+
 public class MojaKlasa {
 
-// definisanje apstraktnog metoda radi1()
-public void radi1(){
-System.out.println("Realizovanje metode radi1().");}
-// definisanje apstraktnog metoda radi2()
-public void radi2(){
-System.out.println("Realizovanje metode radi2().");}	
+        // definisanje apstraktnog metoda radi1()
+          public void radi1(){
+          System.out.println("Realizovanje metode radi1().");
+        }
+                  
+        // definisanje apstraktnog metoda radi2()
+          public void radi2(){
+          System.out.println("Realizovanje metode radi2().");
+         }	
 }
+
 public class ProbaInterfesja {
 
-     public static void main(String[] args) {
+        public static void main(String[] args) {
     
 // Kreiranje instance klase MojaKlasa, i pozivanje metoda radi1() i radi2() nad kreiranim objektom. 
 	
-MojaKlasa ob = new MojaKlasa(); 
-     	ob.radi1();
-    	ob.radi2();
-}
+              MojaKlasa ob = new MojaKlasa(); 
+     	         ob.radi1();
+    	         ob.radi2();
+       }
 } </xmp>
 Rezultat programa: 
 <xmp class = "primer_ta">
@@ -70,24 +73,22 @@ Rezultat programa:
  Realizovanje metode radi2().
 </xmp>
 
-<h2> Nasledivanje inerfejsa </h2>
-<br>Kao �to je vec nagla�eno,  jedan interfejs mo�e da nasledi drugi. To se ostvaruje pomocu kljucne reci <b>extends.</b> Sintaksa nasledivanja interfejsa ista je kao i sintaksa prilikom nasledivanja klase. Kada klasa realizuje interfejs koji nasleduje drugi interfejs, ona mora da defini�e sve metode iz lanca nasledivanja. Primer 4. ilustruje nacin nasledivanja interfejsa.</br> 
-<br><b>Primer 4:</b> Nasledivanje interfesja  </br>
+<h2> Nasleđivanje inerfejsa </h2>
+Kao što je već naglašeno,  jedan interfejs može da nasledi drugi. To se ostvaruje pomoću ključne reci <b>extends.</b> Sintaksa nasleđivanja interfejsa ista je kao i sintaksa prilikom nasleđivanja klase. Kada klasa realizuje interfejs koji nasleđuje drugi interfejs, ona mora da definiše sve metode iz lanca nasleđivanja. Primer 4. ilustruje način nasleđivanja interfejsa.</br> 
+<br><b>Primer 4:</b> Nasleđivanje interfesja</br>
 <xmp class = "primer_ta">
-//Interfejs A koji sadr�i metode radi1(), i radi2().
-
-public interface A {
+//Interfejs A koji sadrži metode radi1(), i radi2().
+ public interface A {
 	void radi1();
 	void radi2();
 }
+
 //Interfejs B koji nasleduje interfejs A, i dodaje metodu radi3().
-
-public interface B extends A {
-void radi3(); 
-
+ public interface B extends A {
+        void radi3(); 
 }
-// Kreiranje klase MojaKlasa koja implementira  interfejs B. Kao �to je nagla�eno, ona mora da defini�e sve metode iz interfejsa A i B.
 
+// Kreiranje klase MojaKlasa koja implementira  interfejs B. Kao što je naglašeno, ona mora da definiše sve metode iz interfejsa A i B.
 public class MojaKlasa implements B {
 	
 public void radi1(){
@@ -100,8 +101,7 @@ public void radi2(){
 
 public void radi3(){
 	System.out.println("Realizovanje metode radi3().");
-}
-
+       }
 }
 
 // Kreirajnje klase ProbaInterfejsa, koja najpre kreira objekat klase MojKlasa, a zatim poziva metode radi1(), radi2(), radi3() nad kreiranim objektom.
@@ -113,14 +113,14 @@ public class ProbaInterfesja {
       ob.radi1();
       ob.radi2();
       ob.radi3();
-	}
+       }
 } </xmp>
 Rezultat programa: 
 <xmp class = "primer_ta">
 Realizovanje metode radi1().
 Realizovanje metode radi2().
 Realizovanje metode radi3(). </xmp>
-Ukoliko se iz klase <b>MojaKlasa</b> ukloni realizacija metode <b>radi1()</b> ili <b>radi2()</b>,  nakon pokretanja programa dobija se gre�ka:
+Ukoliko se iz klase <b>MojaKlasa</b> ukloni realizacija metode <b>radi1()</b> ili <b>radi2()</b>,  nakon pokretanja programa dobija se greška:
 <xmp class = "primer_ta">
 Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
 	The type MojaKlasa must implement the inherited abstract method A.radi2()
@@ -128,6 +128,5 @@ Exception in thread "main" java.lang.Error: Unresolved compilation problem:
 	at MojaKlasa.radi2(MojaKlasa.java:1)
 	at ProbaInterfesja.main(ProbaInterfesja.java:7) </xmp>
 
-<div class = "napomena"> 
-Klasa ne nasleduje interfejs, klasa <b>implementira</b>, odnosno <b>realizuje</b> interfejs. Takode, da bi metoda iz interfejsa bila realizovana, ona mora biti deklarisana kao <b> javna (public).</b> Klasa mora da defini�e sve metode deklarisane u interfejsu koji implementira, ili mora biti deklarisana kao <b>apstraktna.</b> Za razliku od klase, interfejsi podr�avaju vi�estruko nasledivanje, pri cemu klasa koja realizuje interfejs koji nasleduje drugi interfejs, mora da defini�e sve metode iz lanca nasledivanja. 
-</div>
+<br>Dakle, klasa ne nasleđuje interfejs, klasa <b>implementira</b>, odnosno <b>realizuje</b> interfejs. Takođe, da bi metoda iz interfejsa bila realizovana, ona mora biti deklarisana kao <b> javna (public).</b> Klasa mora da definiše sve metode deklarisane u interfejsu koji implementira, ili mora biti deklarisana kao <b>apstraktna.</b> Za razliku od klase, interfejsi podržavaju višestruko nasleđivanje, pri ćemu klasa koja realizuje interfejs koji nasleđuje drugi interfejs, mora da definiše sve metode iz lanca nasleđivanja. 
+</br>

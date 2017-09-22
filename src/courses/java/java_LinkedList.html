@@ -1,10 +1,10 @@
-<h1>Klasa LinkedList</h1>
-<br>Objekti klase <b>ArrayList</b> imaju veliki nedostatak, uklanjanje elemenata iz sredine je skupa operacija jer svi elementi koji slede moraju da se pomere ka pocetku niza. Isto vai i za umetanje elemenata u sredinu. Ovaj problem rešava dvostuko ulancana lista. Dvostruko ulancane liste imaju elemente koji sadre referencu na naredni i prethodni element. Klasa <b>LinkedList</b> predstavlja dvostruko ulancanu listu. Unos novog objekta kod dvostruko ulancane liste svodi se na jednostavno auriranje dve reference: prethodni element liste treba da ukae na novi uneti objekat, koji treba da ukljuci referencu na sledeci element, naravno ako takav element postoji. Takode, i uklanjanje elemenata iz sredine povezane liste svodi se na auriranje referenci. Elementima lancane liste moe se pristupiti pomocu iteratora.</br>
-<br>Klasa <b>LinkedList</b> je genericka klasa koja se definiše na sledeci nacin: </br>
+ï»¿<h1>Klasa LinkedList</h1>
+Objekti klase <b>ArrayList</b> imaju veliki nedostatak, uklanjanje elemenata iz sredine je skupa operacija jer svi elementi koji slede moraju da se pomere ka poÄetku niza. Isto vaÅ¾i i za umetanje elemenata u sredinu. Ovaj problem reÅ¡ava dvostuko ulanÄana lista. Dvostruko ulanÄane liste imaju elemente koji sadrÅ¾e referencu na naredni i prethodni element. Klasa <b>LinkedList</b> predstavlja dvostruko ulanÄanu listu. Unos novog objekta kod dvostruko ulanÄane liste svodi se na jednostavno aÅ¾uriranje dve reference: prethodni element liste treba da ukaÅ¾e na novi uneti objekat, koji treba da ukljuÄi referencu na sledeÄ‡i element, naravno ako takav element postoji. TakoÄ‘e, i uklanjanje elemenata iz sredine povezane liste svodi se na aÅ¾uriranje referenci. Elementima lanÄane liste moÅ¾e se pristupiti pomocu iteratora.</br>
+<br>Klasa <b>LinkedList</b> je genericka klasa koja se definiÅ¡e na sledeÄ‡i naÄin: </br>
 <xmp class = "primer_ta"> Class LinkedList <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
-<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b>,<b> Iterable</b>, <b>Queue</b> i <b>Deque</b> što znaci da  klasa <b>LinkedList</b> moe koristiti sve metode definisane ovim interfejsima. </br>
-<br>Konstruktori koje sadi klasa <b>LinkedList</b> prikazani su u tabeli 10.</br>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldiÅ¡ti. 
+<br>Ova klasa realizuje interfejse <b>Collection</b>, <b>List</b>,<b> Iterable</b>, <b>Queue</b> i <b>Deque</b> Å¡to znaÄi da  klasa <b>LinkedList</b> moÅ¾e koristiti sve metode definisane ovim interfejsima. </br>
+<br>Konstruktori koje sadÅ¾i klasa <b>LinkedList</b> prikazani su u tabeli 10.</br>
 <br><b>Tabela 10.</b> LinkedList konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -24,7 +24,7 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>LinkedList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 10, a zatim dodati elemente pomocu metode <b>add()</b>. </br>
+<br>Da bi objekat tipa <b>LinkedList</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoÄ‡u konstruktora iz tabele 10, a zatim dodati elemente pomoÄ‡u metode <b>add()</b>. </br>
 <br><b>Primer 12:</b> Upotreba LinkedList klase.  </br>
 <xmp class = "primer_ta">
 import java.util.*;
@@ -34,7 +34,7 @@ public class PrimerZaLinkedList {
             // Kreiranje povezane liste 
 		LinkedList<String> lista = new LinkedList<String>();
 		
-		// Dodavanje elemenata – ilustracija metoda add()
+		// Dodavanje elemenata â€“ ilustracija metoda add()
 		lista.add("A");
 		lista.add("B");
 		lista.add("C");
@@ -73,5 +73,5 @@ Prvobitni sadrzaj povezane liste [A, A2, B, C, D, E, F, G]
 Sadrzaj povezane liste nakon uklanjanja elemenata [A, C, D, E, F, G]
 Sadrzaj povezane liste nakon uklanjanja prvog i poslendnjeg elemenata [C, D, E, F]
 Povezana lista posle menjanja:[C, D, E se promenio, F] </xmp>
-Kao što je vec naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, kolekcija tipa <b>LinkedList</b> moe se takode koristiti za skladištanje objekata klase koje programer sam kreira. 
+Kao Å¡to je veÄ‡ naglaÅ¡eno, kolekcije mogu da uskladiÅ¡te svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, kolekcija tipa <b>LinkedList</b> moÅ¾e se takoÄ‘e koristiti za skladiÅ¡tanje objekata klase koje programer sam kreira. 
 <br></br>

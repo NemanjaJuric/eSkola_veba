@@ -1,10 +1,10 @@
-<h1>Klasa HashSet </h1>
-<br>Klasa <b>HashSet</b> pravi kolekciju ciji se elementi cuvaju u obliku heš-tabele. Heš-tabela cuva podatke koristeci heširanje (eng. hashing) U mehanizmu heširnja, na osnovu vrednosti zadatog kljuca izracunava se jedinstvena vrednost, tzv. heš-kod (eng. hash-code). Heš-kod se zatim koristi kao indeks za smeštanje podataka koji su pridrueni kljucu. Heš-kod se automatski izracunava na osnovu izvornog kljuca. Prednost heširanja je to što vreme izvršavanja metoda <b>add()</b>, <b>contains()</b>, <b>remove()</b> i <b>size()</b> ostaje isto, cak i u slucaju velikih skupova.  Kako postupak izracunavanja heš-koda  ne omogucava formiranje uredenih skupova, skup <b>HashSet</b> ne garantuje nikakav redosled elemenata. Zato jedan iterator za skup <b>HashSet</b> obilazi elemente u nepredvidljivom redosledu, koji cak moe biti potpuno drugaciji nakon dodavanja novog elementa skupa. Ovo naravno nije ogranicenje, ukoliko redosled nabrajanja elemenata nije bitan za rešavanje problema. </br>
-<br>Klasa <b>HashSet</b> je genericka klasa koja se definiše na sledeci nacin:</br>
+ï»¿<h1>Klasa HashSet </h1>
+Klasa <b>HashSet</b> pravi kolekciju Äiji se elementi Äuvaju u obliku heÅ¡-tabele. HeÅ¡-tabela Äuva podatke koristeÄ‡i heÅ¡iranje (eng. hashing), U mehanizmu heÅ¡irnja, na osnovu vrednosti zadatog kljuÄa izraÄunava se jedinstvena vrednost, tzv. heÅ¡-kod (eng. hash-code). HeÅ¡-kod se zatim koristi kao indeks za smeÅ¡tanje podataka koji su pridruÅ¾eni kljuÄu. HeÅ¡-kod se automatski izraÄunava na osnovu izvornog kljuÄa. Prednost heÅ¡iranja je to Å¡to vreme izvrÅ¡avanja metoda <b>add()</b>, <b>contains()</b>, <b>remove()</b> i <b>size()</b> ostaje isto, Äak i u sluÄaju velikih skupova.  Kako postupak izraÄunavanja heÅ¡-koda  ne omoguÄ‡ava formiranje ureÄ‘enih skupova, skup <b>HashSet</b> ne garantuje nikakav redosled elemenata. Zato jedan iterator za skup <b>HashSet</b> obilazi elemente u nepredvidljivom redosledu, koji Äak moÅ¾e biti potpuno drugaÄiji nakon dodavanja novog elementa skupa. Ovo naravno nije ograniÄenje, ukoliko redosled nabrajanja elemenata nije bitan za reÅ¡avanje problema. </br>
+<br>Klasa <b>HashSet</b> je generiÄka klasa koja se definiÅ¡e na sledeÄ‡i nacin:</br>
 <xmp class = "primer_ta"> Class HashSet <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
-<br>Klasa <b>HashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, što znaci da klasa <b>HashSet</b> moe koristiti sve metode definisane ovim interfejsima.  
-<br>Konstruktori koje sadi klasa HashSet prikazani su u tabeli 10.</br>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldiÅ¡ti. 
+<br>Klasa <b>HashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, Å¡to znaÄi da klasa <b>HashSet</b> moÅ¾e koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sadÅ¾i klasa HashSet prikazani su u tabeli 10.</br>
 <br><b>Tabela 10.</b> HashSet konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -32,7 +32,7 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>HashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 11, a zatim dodati elemente koristeci metodu <b>add()</b>. Poslednji konstruktor, <b>HashSet(int kapacitet, float popunjenost)</b>, pravi skup i inicijalizuje kapacitet i popunjenost skupa. U ovom slucaju pounjenost skupa je vrednost izmedu 0.0 i 1.0. Šta ova vrednost predstavlja? Kada broj elemenata u skupu postane veci od kapaciteta skupa pomnoenog s njegovom popunjenošcu, skup tipa <b>HashSet</b> se proširuje. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. </br>
+<br>Da bi objekat tipa <b>HashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoÄ‡u konstruktora iz tabele 11, a zatim dodati elemente koristeÄ‡i metodu <b>add()</b>. Poslednji konstruktor, <b>HashSet(int kapacitet, float popunjenost)</b>, pravi skup i inicijalizuje kapacitet i popunjenost skupa. U ovom sluÄaju popunjenost skupa je vrednost izmedu 0.0 i 1.0. Å ta ova vrednost predstavlja? Kada broj elemenata u skupu postane veci od kapaciteta skupa pomnoÅ¾enog s njegovom popunjenoÅ¡cu, skup tipa <b>HashSet</b> se proÅ¡iruje. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost â€“ 0,75. </br>
 <br><b>Primer 13:</b> Upotreba klase HashSet</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
@@ -91,12 +91,11 @@ Da li je se Milano nalazi u skupu2?  true
 
 Sadrzaj skupa1 nakon dodavanja elemenata iz skupa2:  [Vranje, Cacak, Pariz, Novi Sad, London, Beograd, Milano]
 Sadrzaj skupa1 nakon brisanja elemenata iz skupa2: [Vranje, Cacak, Novi Sad, Beograd]</xmp>
-Kako se elementi ne skaldište redosledom kojim se dodaju, pokretanjem programa moete dobiti razlicite razultate. Klasa <b>HashSet</b> implementira interfejs <b>Set</b>, što znaci da duplikati elemanata nisu dopušteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b> i element se ne dodaje. 
-<br>Kao što je vec naglašeno, kolekcije mogu da uskladište svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, i kolekcija tipa <b>HashSet</b> se moe koristiti za skladištanje objekata klasa koje programer sam kreira.</br>
-<br>Vane osobine <b>HashSet</b> klase: </br>
-<ol>
-<li><b>HashSet</b> kolekcija ne skaldišti objekte redosledom kojim se dodaju.  </li>
-<li><b>HashSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
-<li> Obezbeduje vrlo efikasne operacije nalaenja, dodavanja i brisanja elemenata.   </li>
-</ol>
-
+Kako se elementi ne skaldiÅ¡te redosledom kojim se dodaju, pokretanjem programa moÅ¾ete dobiti razlicite razultate. Klasa <b>HashSet</b> implementira interfejs <b>Set</b>, Å¡to znaci da duplikati elemanata nisu dopuÅ¡teni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b> i element se ne dodaje. 
+<br>Kao Å¡to je veÄ‡ naglaÅ¡eno, kolekcije mogu da uskladiÅ¡te svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, i kolekcija tipa <b>HashSet</b> se moÅ¾e koristiti za skladiÅ¡tanje objekata klasa koje programer sam kreira.</br>
+<br>VaÅ¾ne osobine <b>HashSet</b> klase: </br>
+<ul style="list-style-type:circle">
+<li><b>HashSet</b> kolekcija ne skaldiÅ¡ti objekte redosledom kojim se dodaju </li>
+<li><b>HashSet</b> kolekcija ne dozvoljava dupliranje elemenata </li>
+<li> ObezbeÄ‘uje vrlo efikasne operacije nalaÅ¾enja, dodavanja i brisanja elemenata   </li>
+</ul>

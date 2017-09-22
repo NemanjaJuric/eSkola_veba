@@ -1,9 +1,9 @@
-<h1>Interfejs Map</h1>
-<br>Mape (eng. Maps) predstavljaju objekat u kojem se cuvaju veze izmedu parova kljuc/vrednost, pri cemu kljuc mora biti jedinstven, a vrednost se mo�e duplirati. Mape su strukture podataka koje se koriste za efikasno nala�enja nekog elementa upotrebom kljuca.</br>
-Interfejs <b>Map</b> povezuje jedinstvene kljuceve sa vrednostima. <b>Map</b> je genericki interfejs koji se deklari�e na sledeci nacin:
+﻿<h1>Interfejs Map</h1>
+Mape (eng. Maps) predstavljaju objekat u kojem se čuvaju veze između parova ključ/vrednost, pri čemu ključ mora biti jedinstven, a vrednost se može duplirati. Mape su strukture podataka koje se koriste za efikasno nalaženja nekog elementa upotrebom ključa.</br>
+Interfejs <b>Map</b> povezuje jedinstvene ključeve sa vrednostima. <b>Map</b> je generički interfejs koji se deklariše na sledeci način:
 <xmp class = "primer_ta"> Interface Map<K,V>  </xmp>
-gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadr�ati. 
-<br>Metode koje defini�e intefejs <b>Map</b> prikazane su u tabeli 14. </br>
+gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sadržati. 
+<br>Metode koje definiše intefejs <b>Map</b> prikazane su u tabeli 14. </br>
 <br><b>Tabela 14.</b> Metode interfejsa Map</br>
 <table class = "tabela">
 <thead>
@@ -15,43 +15,43 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadr�a
 <tbody>
 	<tr>
 <td>void clear()</td>
-<td>Uklanja sve parove kljuc/ vrednost iz mape. </td>
+<td>Uklanja sve parove ključ/ vrednost iz mape. </td>
 </tr>
 <tr>
 <td>boolean containsKey(Object kljuc)</td>
-<td>Vraca <b>true</b> ako mapa sadr�i kljuc, u suprotnom vraca vrednost <b>false.</b></td>
+<td>Vraća <b>true</b> ako mapa sadrži ključ, u suprotnom vraća vrednost <b>false.</b></td>
 </tr>
 <tr>
 <td> boolean containsValue(Object vrednost)</td>
-<td>Vraca <b>true</b> ako mapa sadr�i vrednost, u suprotnom vraca vrednost <b>false.</b> </td>
+<td>Vraca <b>true</b> ako mapa sadrži vrednost, u suprotnom vraca vrednost <b>false.</b> </td>
 </tr>
 <tr>
 <td>Set<Map.Entry<K,V>>entrySet()</td>
-<td>Vraca objekat tipa <b>Set</b> koji sadr�i stavke mape.Taj skup se sastoji od objekata tipa <b>MapEntry.</b> To znaci da ova metoda omogucava prikaz sadr�aja mape u obliku skupa.</td>
+<td>Vraća objekat tipa <b>Set</b> koji sadrži stavke mape. Taj skup se sastoji od objekata tipa <b>MapEntry.</b> To znači da ova metoda omogućava prikaz sadržaja mape u obliku skupa.</td>
 </tr>
 <tr>
 <td>boolean equals(Object obj)</td>
-<td>Vraca <b>true</b> ako mapa sadr�i iste stavke kao i mapa obj. U suprotnom vraca <b>false.</b> </td>
+<td>Vraća <b>true</b> ako mapa sadrži iste stavke kao i mapa obj. U suprotnom vraća <b>false.</b> </td>
 </tr>
 <tr>
 <td>V get (Object kljuc)</td>
-<td>Vraca vrednost koja odgovara kljucu zadatom parametrom kljuc. Ako ne pronade kljuc, vraca  <b>null.</b>  </td>
+<td>Vraca vrednost koja odgovara ključu zadatom parametrom ključ. Ako ne pronađe kljuc, vraca  <b>null.</b>  </td>
 </tr>
 <tr>
 <td>int hascode()  </td>
-<td>Vraca he�-kljuc za pozivajucu mapu. </td>
+<td>Vraća heš-ključ za pozivajuću mapu. </td>
 </tr>
 <tr>
 <td>boolean isEmpty() </td>
-<td>Vraca <b>true</b> ako je mapa prazna, u suprotnom vraca vrednost false. </td>
+<td>Vraća <b>true</b> ako je mapa prazna, u suprotnom vraća vrednost <b> false</b>. </td>
 </tr>
 <tr>
 <td>Set<K>keySet() </td>
-<td> Vraca objekat tipa <b>Set</b> koji sadr�i kljuceve mape. Ova metoda omogucava prikaz kljuceva mape u obliku skupa. </td>
+<td> Vraća objekat tipa <b>Set</b> koji sadrži ključeve mape. Ova metoda omogućava prikaz ključeva mape u obliku skupa. </td>
 </tr>
 <tr>
 <td>V put(K kljuc, V vrednost) </td>
-<td>Unosi novu stavku u mapu, pri cemu nova vrednost zamenjuje postojecu vrednost koja odgovara zadatom kljucu. Ako zadati kljuc ne postoji, metoda vraca null. Ako kljuc postoji vraca prethodnu vrednost koja je s njim povezana.  </td>
+<td>Unosi novu stavku u mapu, pri čemu nova vrednost zamenjuje postojeću vrednost koja odgovara zadatom ključu. Ako zadati ključ ne postoji, metoda vraca <b>null.</b> Ako ključ postoji vraća prethodnu vrednost koja je s njim povezana.  </td>
 </tr>
 <tr>
 <td>void putAll(Map<?extends K,? extends V>mapa) </td>
@@ -63,12 +63,12 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadr�a
 </tr>
 <tr>
 <td>int size() </td>
-<td>Vraca broj parova kljuc/vrednost u mapi. </td>
+<td>Vraća broj parova ključ/vrednost u mapi. </td>
 </tr>
 <tr>
 <td>Collection <V> values() </td>
-<td>Vraca kolekciju koja se sastoji od vrednosti iz mape. Ova metoda omogucava prikazivanje sadr�aja mape u obliku kolekcije.  </td>
+<td>Vraća kolekciju koja se sastoji od vrednosti iz mape. Ova metoda omogućava prikazivanje sadržaja mape u obliku kolekcije.  </td>
 </tr>
 </tbody>
 </table>
-<br>Dve najva�nije metode ovog interfejsa su <b>get()</b> i <b>put().</b>  Metoda <b>put()</b> umece par kljuc/vrednost u mapu, dok metoda <b>get()</b> ucitava vrednost iz mape koja odgovara zadatom kljucu. Takode, mape ne impelmenitaju interfejs <b>Collection</b>, pa nisu kolekcije, ali postoje metode kojima mo�ete sadr�aj mape preslikati u kolekciju. Tome slu�e metode <b>entrySet()</b>, <b>keySet()</b> i <b>values().</b>  </br>
+<br>Dve najvažnije metode ovog interfejsa su <b>get()</b> i <b>put().</b>  Metoda <b>put()</b> umeće par ključ/vrednost u mapu, dok metoda <b>get()</b> učitava vrednost iz mape koja odgovara zadatom kljuću. Takođe, mape ne impelmenitaju interfejs <b>Collection</b>, pa nisu kolekcije, ali postoje metode kojima možete sadržaj mape preslikati u kolekciju. Tome služe metode <b>entrySet()</b>, <b>keySet()</b> i <b>values().</b>  </br>

@@ -1,10 +1,10 @@
-<h1>Klasa ArrayDeque </h1>
-<br>Klasa <b>ArrayDeque</b> predstavlja dinimicki niz neogranicenog kapaciteta, odnosno red. Ovaj red funkcioni�e kao standardni red (eng. queue) po principu �prvi koji ude, prvi izlazi� (eng. FIFO � first in � first out), ili kao stek, po principu �poslednji koji ude, prvi izlazi� (eng LIFO � last in � last out). Dodavanje elemenata u sredinu nije podr�ano.</br>
-<br>Klasa <b>ArrayDeque</b> je genericka klasa koja se defini�e na sledeci nacin:</br>
+﻿<h1>Klasa ArrayDeque </h1>
+Klasa <b>ArrayDeque</b> predstavlja dinimički niz neograničenog kapaciteta, odnosno red. Ovaj red funkcioniše kao standardni red (eng. queue) po principu ”prvi koji uđe, prvi izlazi“ (eng. FIFO – first in – first out), ili kao stek, po principu „poslednji koji uđe, prvi izlazi“ (eng LIFO – last in – last out). Dodavanje elemenata u sredinu nije podržano.</br>
+<br>Klasa <b>ArrayDeque</b> je generička klasa koja se definiše na sledeći način:</br>
 <xmp class = "primer_ta"> Class ArrayDeque <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldi�ti. 
-<br>Klasa <b>ArrayDeque</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Deque</b>, �to znaci da klasa <b>ArrayDeque</b> mo�e koristiti sve metode definisane ovim interfejsima.  
-<br>Konstruktori koje sad�i klasa <b>ArrayDeque</b> prikazani su u tabeli 14.</br>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
+<br>Klasa <b>ArrayDeque</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Deque</b>, što znači da klasa <b>ArrayDeque</b> može koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sadži klasa <b>ArrayDeque</b> prikazani su u tabeli 14.</br>
 <br><b>Tabela 14.</b> ArrayDeque konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -13,22 +13,32 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldi�ti.
 <th>Opis</th>
 </tr>
 <tr>
-<tbody>
-	<tr>
-<td>ArrayDeque()</td>
-<td>Pravi prazan red cekanja ciji je pocetni kapacitet 16. </td>
+<td width="181">
+<p>ArrayDeque()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="377">
+<p>Pravi prazan red čekanja čiji je početni kapacitet 16.</p>
+</td>
 </tr>
 <tr>
-<td>ArrayDeque(int kapacitet)</td>
-<td>Pravi red cekanja sa zadatim pocetnim kapacitetom.</td>
+<td width="181">
+<p>ArrayDeque(int kapacitet)</p>
+</td>
+<td width="377">
+<p>Pravi red čekanja sa zadatim početnim kapacitetom.</p>
+</td>
 </tr>
 <tr>
-<td>ArrayDeque(Collection <?extends E> kolekcija)) </td>
-<td>Pravi red cekanja koji se inicijalizuj elementima kolekcije prosledene parametrom kolekcija. </td>
+<td width="181">
+<p>ArrayDeque(Collection &lt;?extends E&gt; kolekcija))</p>
+</td>
+<td width="377">
+<p>Pravi red čekanja koji se inicijalizuj elementima kolekcije prosleđene parametrom <em>kolekcija</em>.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<br>Da biste bi objekat tipa <b>ArrayDeque</b> bio kreiran, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 13. U svim navedenim slucajevima, kapacitet <b>ArrayDeque</b> objekata se povecava kada se red popuni elementima. </br>
+<br>Da bi objekat tipa <b>ArrayDeque</b> bio kreiran, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 13. U svim navedenim slučajevima, kapacitet <b>ArrayDeque</b> objekata se povećava kada se red popuni elementima. </br>
 <br><b>Primer 20:</b>Upotreba ArrayDeque klase </br>
 <xmp class = "primer_ta"> 
 import java.util.*;
@@ -39,7 +49,7 @@ public class PrimerZaArrayDeque {
 
 		ArrayDeque<String> adg = new ArrayDeque<String>();
 		
-		// Objekat tipa ArrayDeque koristimo kao stek � ilustracija metoda push()
+		// Objekat tipa ArrayDeque koristimo kao stek – ilustracija metoda push()
 		adg.push("A");
 		adg.push("B");
 		adg.push("F");		
@@ -56,13 +66,11 @@ public class PrimerZaArrayDeque {
 <br>Rezultat programa:</br>
 <xmp class = "primer_ta"> 
 Praznjenje steka: G  F  B  A   </xmp>
-U ovom primeru klasa <b>ArrayDeque</b> je upotrebljena za izradu steka. Kao �to je prikazano u rezultatu programa, element koj je poslednji u�ao u red, prvi je iza�ao iz njega. U ovom primeru kori�cenje su metode <b>Deque</b> instefejsa. 
-<br></br>
-<br>Va�ne osobine <b>ArrayDeque </b> klase: </br>
-<ol>
-<li> Za razliku od obicnog reda, moguce je dodavati i brisati elemente sa oba kraja reda u kolekciji tipa <b>ArrayDeque </b> </li>
-<li> <b>ArrayDeque </b> je red neogranicenog kapaciteta.  </li>
-<li> <b>ArrayDeque</b> je brzi od <b>Steka</b> i <b>LinkedList</b> kolekcije. </li>
-<li> <b>Null</b> objekti su dopu�teni. </li>
-</ol>
-
+U ovom primeru klasa <b>ArrayDeque</b> je upotrebljena za izradu steka. Kao što je prikazano u rezultatu programa, element koj je poslednji ušao u red, prvi je izašao iz njega. U ovom primeru korišćene su metode <b>Deque</b> instefejsa.  </br>
+<br>Važne osobine <b>ArrayDeque </b> klase: </br>
+<ul style="list-style-type:circle">
+<li> Za razliku od običnog reda, moguće je dodavati i brisati elemente sa oba kraja reda u kolekciji tipa <b>ArrayDeque </b> </li>
+<li> <b>ArrayDeque </b> je red neograničenog kapaciteta  </li>
+<li> <b>ArrayDeque</b> je brži od <b>Steka</b> i <b>LinkedList</b> kolekcije </li>
+<li> <b>Null</b> objekti su dopušteni </li>
+</ul>

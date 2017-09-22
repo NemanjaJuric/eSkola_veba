@@ -1,10 +1,10 @@
-<h1>Interfejs Deque </h1>
-<br>Interfejs <b>Deque</b> deklariše ponašanje reda sa dva kraja. Ovaj red funkcioniše kao standardni red (eng. queue) po principu ”prvi koji ude, prvi izlazi“ (eng. FIFO – first in – first out), ili kao stek, po principu „poslednji koji ude, prvi izlazi“ (eng LIFO – last in – last out).</br>
-<br><b>Deque</b> je genericki interfejs koji se deklariše na sledeci nacin:</br>
+ï»¿<h1>Interfejs Deque </h1>
+Interfejs <b>Deque</b> deklariÅ¡e ponaÅ¡anje reda sa dva kraja. Ovaj red funkcioniÅ¡e kao standardni red (eng. queue) po principu â€prvi koji uÄ‘e, prvi izlaziâ€œ (eng. FIFO â€“ first in â€“ first out), ili kao stek, po principu â€poslednji koji uÄ‘e, prvi izlaziâ€œ (eng LIFO â€“ last in â€“ last out).</br>
+<br><b>Deque</b> je generiÄki interfejs koji se deklariÅ¡e na sledeÄ‡i nacin:</br>
 
 <xmp class = "primer_ta"> Interface Deque<E> </xmp>
-gde <b>E</b> oznacava tip objekta koji ce red tipa <b>Deque</b> sadrati.
- <br>Ovaj interfejs nasleduje interfejs <b>Queue</b> i dodaje metode definisane u tabeli 7.  </br>
+gde <b>E</b> oznaÄava tip objekta koji Ä‡e red tipa <b>Deque</b> sadrÅ¾ati.
+ <br>Ovaj interfejs nasleÄ‘uje interfejs <b>Queue</b> i dodaje metode definisane u tabeli 7.  </br>
 <br><b>Tabela 7.</b> Metode definisane interfesjom Deque</br>
 <table class = "tabela">
 <thead>
@@ -16,81 +16,81 @@ gde <b>E</b> oznacava tip objekta koji ce red tipa <b>Deque</b> sadrati.
 <tbody>
 	<tr>
 <td>void addFirst(E obj)</td>
-<td>Smešta obj na pocetak reda tipa <b>Deque</b>. Generiše izuzetak<b> IlegalStateExeption</b> ako više nema mesta u redu ogranicenog kapaciteta. </td>
+<td>SmeÅ¡ta obj na poÄetak reda tipa <b>Deque</b>. GeneriÅ¡e izuzetak<b> IlegalStateExeption</b> ako viÅ¡e nema mesta u redu ograniÄenog kapaciteta. </td>
 </tr>
 <tr>
 <td>void addLast(E obj)</td>
-<td>Smešta obj na kraj reda. Generiše izuzetak <b>IlegalStateExeption</b> ako više nema mesta u redu ogranicenog kapaciteta. </td>
+<td>SmeÅ¡ta obj na kraj reda. GeneriÅ¡e izuzetak <b>IlegalStateExeption</b> ako viÅ¡e nema mesta u redu ograniÄenog kapaciteta. </td>
 </tr>
 <tr>
 <td>Iterator descending Iterator()</td>
-<td>Vraca iterator koji pomera s kraja reda na pocetak. Drugim recima vraca obrnuti iterator. </td>
+<td>VraÄ‡a iterator koji pomera s kraja reda na poÄetak. Drugim recima vraÄ‡a obrnuti iterator. </td>
 </tr>
 <tr>
 <td>E getFirst()</td>
-<td>Vraca prvi element u redu. Taj objekat se ne uklanja iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+<td>VraÄ‡a prvi element u redu. Taj objekat se ne uklanja iz reda. Metoda generiÅ¡e izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
 </tr>
 <tr>
 <td>E getLast()</td>
-<td>Vraca poslednji element u redu. Taj objekat se ne uklanja iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan.  </td>
+<td>VraÄ‡a poslednji element u redu. Taj objekat se ne uklanja iz reda. Metoda generiÅ¡e izuzetak <b>NoSuchElementExeption</b> ako je red prazan.  </td>
 </tr>
 <tr>
 <td>boolean offerFirst(E obj)</td>
-<td>Pokušava da doda obj na pocetak reda. Metoda vraca <b>true</b> ako uspe da doda obj u red, u suprotnom vraca <b>false. </b>  </td>
+<td>PokuÅ¡ava da doda obj na poÄetak reda. Metoda vraÄ‡a <b>true</b> ako uspe da doda obj u red, u suprotnom vraÄ‡a <b>false. </b>  </td>
 </tr>
 <tr>
 <td>boolean offerLast(E obj)</td>
-<td>Pokušava da doda obj na kraj reda. Metoda vraca <b>true</b> ako uspe da doda obj u red, u suprotnom vraca <b>false.</b>  </td>
+<td>PokuÅ¡ava da doda obj na kraj reda. Metoda vraÄ‡a <b>true</b> ako uspe da doda obj u red, u suprotnom vraÄ‡a <b>false.</b>  </td>
 </tr>
 <tr>
 <td>E peekFirst()</td>
-<td>Vraca element koji se nalazi na pocetku reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda.  </td>
+<td>VraÄ‡a element koji se nalazi na poÄetku reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda.  </td>
 </tr>
 <tr>
 <td>E peekLast()</td>
-<td>Vraca element koji se nalazi na kraju reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda. </td>
+<td>VraÄ‡a element koji se nalazi na kraju reda, odnosno <b>null</b> ako je red prazan. Objekat se ne uklanja iz reda. </td>
 </tr>
 <tr>
 <td>E pollFirst()</td>
-<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda vraca <b>null</b> ako je red prazan. </td>
+<td>VraÄ‡a element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda vraÄ‡a <b>null</b> ako je red prazan. </td>
 </tr>
 <tr>
 <td>E pollLast()</td>
-<td> Vraca element koji se nalazi na kraju reda, uklanjajuci ga iz reda. Metoda vraca <b>null</b> ako je red prazan.</td>
+<td> VraÄ‡a element koji se nalazi na kraju reda, uklanjajuÄ‡i ga iz reda. Metoda vraÄ‡a <b>null</b> ako je red prazan.</td>
 </tr>
 <tr>
 <td>E pop()</td>
-<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+<td>VraÄ‡a element koji se nalazi na pocetku reda, uklanjajuÄ‡i ga iz reda. Metoda generiÅ¡e izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
 </tr>
 <tr>
 <td>void push(E obj)</td>
-<td> Postavlja obj na pocetak reda. Generiše izuzetak <b>IlegalStateExeption</b> ako više nema mesta u redu koji je ogranicenog kapaciteta.</td>
+<td> Postavlja obj na pocetak reda. GeneriÅ¡e izuzetak <b>IlegalStateExeption</b> ako viÅ¡e nema mesta u redu koji je ograniÄenog kapaciteta.</td>
 </tr>
 <tr>
 <td> E removeFirst() </td>
-<td>Vraca element koji se nalazi na pocetku reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+<td>Vraca element koji se nalazi na poÄetku reda, uklanjajuÄ‡i ga iz reda. Metoda generiÅ¡e izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
 </tr>
 <tr>
 <td>boolean removeFirstOccurrence(Object obj) </td>
-<td>Uklanja prvi primerak objekta obj iz reda. Metoda vraca <b>true</b> ako se izvrši uspesno, odnosno <b>false</b> ako red ne sadri objekat obj.  </td>
+<td>Uklanja prvi primerak objekta obj iz reda. Metoda vraÄ‡a <b>true</b> ako se izvrÅ¡i uspesno, odnosno <b>false</b> ako red ne sadrÅ¾i objekat obj.  </td>
 </tr>
 <tr>
 <td>E removeLast() </td>
-<td>Vraca element koji se nalazi na kraju reda, uklanjajuci ga iz reda. Metoda generiše izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
+<td>VraÄ‡a element koji se nalazi na kraju reda, uklanjajuÄ‡i ga iz reda. Metoda generiÅ¡e izuzetak <b>NoSuchElementExeption</b> ako je red prazan. </td>
 </tr>
 <tr>
 <td>boolean removeLastOccurrence(Object obj)</td>
-<td>Uklanja poslednji  primerak objekta obj iz reda. Metoda vraca <b>true</b> ako se izvrši uspesno, odnosno <b>false</b> ako red ne sadri objekat obj. </td>
+<td>Uklanja poslednji  primerak objekta obj iz reda. Metoda vraÄ‡a <b>true</b> ako se izvrÅ¡i uspesno, odnosno <b>false</b> ako red ne sadrÅ¾i objekat obj. </td>
 </tr>
 </tbody>
 </table>
-<br>Klasa koja implementira interfejs <b>Deque </b>moe imati ogranicen kapacitet, odnosno u takav red se moe dodati samo ogranicen broj elemenata. U slucaju da je red popunjem, svaki pokušaj dodavanja novog elementa zavrsice se neuspehom. Postoje po dve metode koje dodaju element na pocetak i kraj reda. Razlika je u tome što metode <b>addFirst()</b> i <b>addLast()</b> generišu izuzetak <b>IlegalStateExeption()</b> ako je red sa ogranicenim kapacitetom popunjen, dok metode <b>offreFirst(),</b> i <b>offerLast()</b> vracaju <b>false</b> ako se u red ne moe dodati novi element. Metoda <b>descendingIterator()</b> vraca iterator koji omogucava pristupanje elementima reda obrnutim redosledom. Takode, ovaj interfejs sadri metode <b>push()</b> i <b>pop()</b>, što omogucava da klase koje implementiraju interfejs <b>Deque</b> rade kao stek. </br>
+<br>Klasa koja implementira interfejs <b>Deque </b>moÅ¾e imati ograniÄen kapacitet, odnosno u takav red se moÅ¾e dodati samo ograniÄen broj elemenata. U sluÄaju da je red popunjem, svaki pokuÅ¡aj dodavanja novog elementa zavrsiÄ‡e se neuspehom. Postoje po dve metode koje dodaju element na poÄetak i kraj reda. Razlika je u tome Å¡to metode <b>addFirst()</b> i <b>addLast()</b> generiÅ¡u izuzetak <b>IlegalStateExeption()</b> ako je red sa ograniÄenim kapacitetom popunjen, dok metode <b>offreFirst(),</b> i <b>offerLast()</b> vraÄ‡aju <b>false</b> ako se u red ne moÅ¾e dodati novi element. Metoda <b>descendingIterator()</b> vraÄ‡a iterator koji omogucava pristupanje elementima reda obrnutim redosledom. TakoÄ‘e, ovaj interfejs sadrÅ¾i metode <b>push()</b> i <b>pop()</b>, Å¡to omoguÄ‡ava da klase koje implementiraju interfejs <b>Deque</b> rade kao stek. </br>
 
-<br>Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
-<ol> 
-<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna.   </li>
-<li><b> IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument. </li>  
-<li><b> NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja null objekata u red. </li>
-<li><b>NoSuchElementExeption </b>– Ovaj izuzetak se generiše kada u redu nema elemenata. </li>  
-<li><b>IlegalStateExeption</b>  - Ovaj izuzetak se generiše pri pokušsaju  dodavanja novog elementa u red fiksne duine koji je popunjen. </li>
-</ol>
+<br>Izuzeci koji se generiÅ¡u prilikom rada sa ovim metodama su:</br>
+<ul style="list-style-type:circle">
+<li><b>ClassCastExeption</b> â€“ Ovaj izuzetak se generiÅ¡e kada su dva objekta medusobno nekompatibilna  </li>
+<li><b> IlegalArgumentExeption</b> â€“ Ovaj izuzetak se generiÅ¡e ukoliko je metodi prosleÄ‘en nedozvoljeni argument </li>  
+<li><b> NullPointerExeption </b>â€“ Ovaj izuzetak se generiÅ¡e pri pokuÅ¡aju smeÅ¡tanja <b>null</b> objekata u red </li>
+<li><b>NoSuchElementExeption </b>â€“ Ovaj izuzetak se generiÅ¡e kada u redu nema elemenata </li>  
+<li><b>IlegalStateExeption</b>  - Ovaj izuzetak se generiÅ¡e pri pokuÅ¡aju  dodavanja novog elementa u red fiksne duÅ¾ine koji je popunjen </li>
+</ul>

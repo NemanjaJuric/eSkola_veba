@@ -1,13 +1,24 @@
-<h1>Kolekcije u programskom jeziku Java</h1>
-Ukoliko broj objekata za re�avanje odredenog problema nije unapred poznat, ili postoji mogucnost da ce broj objekata biti promenljiv, onda postoji i problem njihovog sme�tanja u memoriju. U programskom jeziku Java re�enje tog problema predstavljaju kolekcije - objekti koji se koriste za sme�tanje i manipulisanje nedefinisanim brojem objekata. Postoje vi�e razlicitih tipova kolekcija koje se koriste. Razlicite vrste kolekcija imaju razlicite nacine manipulisanja podacima koje sadr�e. Takode, razlicite vrste kolekcija imaju razlicite nivoe efikasnosti odradivanja razlicitih operacija. 
-Kolekcije u programskom jeziku Java deo su Javinog paketa <b>java.util</b>, pa je za rad sa njima neophdno uvesti ovaj paket. U okviru ovog paketa postoji vi�e vrsta kolekcija:
-<br></br>
-<ol> 
-<li> 1. <b>Liste </b>(eng. List) � Lista je kolekcija u kojoj su objekti linearno uredeni, odnosno definsian je redosled objekata kolekcije po kome je odreden prvi objekat, drugi objekat, itd. Lista mo�e da sadr�i duplirane elemente.  </li>
-<li>2. <b>Skupovi</b> (eng. Set) -  Osnovno svojstvo skupa je da ne postoje duplikati objekata u skupu. U skupu se u op�tem slucaju ne podrazumeva da medu clanovima skupa postoji bilo kakav medusobni poredak.   </li>
-<li>3. <b>Redovi</b> (eng. Queue) � Redovi se koriste za skladi�tenje objekata koji se ureduju po principu FIFO - first-in, first-out, odnosno po redosledu ubicivanja i uzimanja elemenata iz kolekcije.  </li>
-</ol>
-<br>Zajednicka svojstva ovih kolekcija se defini�u u interfejsima, a njihova implementacija (primena) se realizuje u vidu odgovarajucih klasa prikazanih na slici 3.</br>
+﻿<h1>Kolekcije u programskom jeziku Java</h1>
+Ukoliko broj objekata za rešavanje određenog problema nije unapred poznat, ili postoji mogućnost da će broj objekata biti
+promenljiv, onda postoji i problem njihovog smeštanja u memoriju. U programskom jeziku Java rešenje tog problema predstavljaju
+kolekcije - objekti koji se koriste za smeštanje i manipulisanje nedefinisanim brojem objekata. Postoje više različitih tipova
+kolekcija koje se koriste. Različite vrste kolekcija imaju različite načine manipulisanja podacima koje sadrše. Takođe, različite
+vrste kolekcija imaju različite nivoe efikasnosti odrađivanja različitih operacija.</br>
+<br>Kolekcije u programskom jeziku Java deo su Javinog paketa <b>java.util</b>, pa je za rad sa njima neophdno uvesti ovaj
+paket. U okviru ovog paketa postoji više vrsta kolekcija:</br>
+<ul style="list-style-type:circle">
+    <li><b>Liste </b>(eng. List) - Lista je kolekcija u kojoj su objekti linearno uređeni, odnosno definsian je redosled objekata
+        kolekcije po kome je određen prvi objekat, drugi objekat, itd. Lista može da sadrži duplirane elemente. </li>
+    <li><b>Skupovi</b> (eng. Set) - Osnovno svojstvo skupa je da ne postoje duplikati objekata u skupu. U skupu se u opštem slucaju
+        ne podrazumeva da među članovima skupa postoji bilo kakav međusobni poredak. </li>
+    <li><b>Redovi</b> (eng. Queue) - Redovi se koriste za skladištenje objekata koji se uređuju po principu FIFO - first-in,
+        first-out, odnosno po redosledu ubacivanja i uzimanja elemenata iz kolekcije. </li>
+</ul>
+
+<br>Zajednička svojstva ovih kolekcija se definišu u interfejsima, a njihova implementacija (primena) se realizuje u vidu
+odgovarajućih klasa prikazanih na slici 3.</br>
 <img src="courses/java/slika3.jpg">
-<br>Takode, u okviru ovog paketa definisano je vi�e interfejsa i klasa za rad sa mapama (slika 4). Mape (eng. Maps) predstavljaju objekat u kome se cuvaju veze izmedu parova kljuc/vrednost, pri cemu kljuc mora biti jedinstven, a vrednost se mo�e duplirati. Mape su strukture podataka koje se koriste za efikasno nala�enja nekog elementa upotrebom kljuca. </br>
+<br>Takođe, u okviru ovog paketa definisano je više interfejsa i klasa za rad sa mapama (slika 4). Mape (eng. Maps) predstavljaju
+objekat u kome se čuvaju veze izmedu parova ključ/vrednost, pri čemu ključ mora biti jedinstven, a vrednost se može duplirati.
+Mape su strukture podataka koje se koriste za efikasno nalaženja nekog elementa upotrebom ključa. </br>
 <img src="courses/java/Mape_Java.png">

@@ -1,9 +1,9 @@
-<h1>Interfejs Map.Entry</h1>
-Ovaj interfejs omogucava rad sa stavkama  mape. 
-<b>Map.Entry</b> je genericki interfejs koji se deklariše na sledeci nacin:
+ï»¿<h1>Interfejs Map.Entry</h1>
+Ovaj interfejs omoguÄ‡ava rad sa stavkama  mape. 
+<b>Map.Entry</b> je generiÄki interfejs koji se deklariÅ¡e na sledeÄ‡i naÄin:
 <xmp class = "primer_ta"> Interface Map.Entry<K,V>  </xmp>
-gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadrati. 
-<br>Metode koje definiše intefejs <b>Map.Entry</b> prikazane su u tabeli 16. </br>
+gde <b>K</b> oznacava tip kluÄeva, a <b>V </b> tip vrednosti koje Ä‡e mapa sadrÅ¾ati. 
+<br>Metode koje definiÅ¡e intefejs <b>Map.Entry</b> prikazane su u tabeli 16. </br>
 <br><b>Tabela 16.</b> Metode interfejsa Map.Enrty</br>
 <table class = "tabela">
 <thead>
@@ -13,25 +13,45 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadra
 </tr>
 <tr>
 <tbody>
-	<tr>
-<td>boolean equals (Object obj)</td>
-<td>Vraca <b>true</b> ako objekat obj koji implementira interfejs <b>Map.Entry</b> sadri isti kljuc I vrednost kao pozivajuci objekat. </td>
+<tr>
+<td width="266">
+<p>boolean equals (Object obj)</p>
+</td>
+<td width="300">
+<p>VraÄ‡a <b>true</b> ako objekat obj koji implementira interfejs Map.Entry sadrÅ¾i isti kljuÄ I vrednost kao pozivajuÄ‡i objekat.</p>
+</td>
 </tr>
 <tr>
-<td> K getKey ( )</td>
-<td>Vraca kljuc svake mape. </td>
+<td width="266">
+<p>K getKey ( )</p>
+</td>
+<td width="300">
+<p>VraÄ‡a kljuÄ svake mape.</p>
+</td>
 </tr>
 <tr>
-<td>V getValue ( ) </td>
-<td>Vraca vrednost svake mape. </td>
+<td width="266">
+<p>V getValue ( )</p>
+</td>
+<td width="300">
+<p>VraÄ‡a vrednost svake mape.</p>
+</td>
 </tr>
 <tr>
-<td>int hashCode ( ) </td>
-<td>Vraca heš-kljuc svake mape.  </td>
+<td width="266">
+<p>int hashCode ( )</p>
+</td>
+<td width="300">
+<p>VraÄ‡a he&scaron;-kljuÄ svake mape.</p>
+</td>
 </tr>
 <tr>
-<td>V setValue  (Object vrednost)  </td>
-<td>Stavki mape dodeljuje vrednost. Ako vrednost nije odgovarajuceg tipa, metoda generiše izuzetak <b>ClassCastException.</b> Ako ima drugih problema s vrednošcu generiše se izuzetak <b>IllegalArgumentException.</b> Ako je zadata vrednost <b>null,</b> a mapa to ne dozvoljava, generiše se izuzetak<b> NullPointerException.</b> Ako se mapa ne moe menjati, generiše se izuzetak <b>UnsupportedOperationException.</b>  </td>
+<td width="266">
+<p>V setValue&nbsp; (Object vrednost)</p>
+</td>
+<td width="300">
+<p>Stavki mape dodeljuje vrednost. Ako vrednost nije odgovarajuÄ‡eg tipa, metoda generi&scaron;e izuzetak <b>ClassCastException</b>. Ako ima drugih problema s vredno&scaron;cu generi&scaron;e se izuzetak <b>IllegalArgumentException</b>. Ako je zadata vrednost <b>null</b>, a mapa to ne dozvoljava, generi&scaron;e se izuzetak <b>NullPointerException.</b> Ako se mapa ne moÅ¾e menjati, generi&scaron;e se izuzetak <b>UnsupportedOperationException </b>.</p>
+</td>
 </tr>
 </tbody>
 </table>

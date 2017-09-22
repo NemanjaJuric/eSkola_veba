@@ -1,11 +1,11 @@
-<h1>Klasa HashSet </h1>
-<br>Klasa <b>HashSet</b> pravi kolekciju ciji se elementi cuvaju u obliku heö-tabele. Heö-tabela cuva podatke koristeci heöiranje (eng. hashing) U mehanizmu heöirnja, na osnovu vrednosti zadatog kljuca izracunava se jedinstvena vrednost, tzv. heö-kod (eng. hash-code). Heö-kod se zatim koristi kao indeks za smeötanje podataka koji su pridruûeni kljucu. Heö-kod se automatski izracunava na osnovu izvornog kljuca. Prednost heöiranja je to öto vreme izvröavanja metoda <b>add()</b>, <b>contains()</b>, <b>remove()</b> i <b>size()</b> ostaje isto, cak i u slucaju velikih skupova.  Kako postupak izracunavanja heö-koda  ne omogucava formiranje uredenih skupova, skup <b>HashSet</b> ne garantuje nikakav redosled elemenata. Zato jedan iterator za skup <b>HashSet</b> obilazi elemente u nepredvidljivom redosledu, koji cak moûe biti potpuno drugaciji nakon dodavanja novog elementa skupa. Ovo naravno nije ogranicenje, ukoliko redosled nabrajanja elemenata nije bitan za reöavanje problema. </br>
-<br>Klasa <b>HashSet</b> je genericka klasa koja se definiöe na sledeci nacin:</br>
-<xmp class = "primer_ta"> Class HashSet <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldiöti. 
-<br>Klasa <b>HashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, öto znaci da klasa <b>HashSet</b> moûe koristiti sve metode definisane ovim interfejsima.  
-<br>Konstruktori koje sadûi klasa HashSet prikazani su u tabeli 10.</br>
-<br><b>Tabela 10.</b> HashSet konstruktori</br>
+Ôªø<h1> Klasa  PriorityQueue </h1>
+Klasa <b>PriorityQueue</b> defini≈°e red ƒçekanja ƒçijim elementima prioritet odreƒëuje zadati komparator. Ako prilikom definisanja reda nije zadat komparator, koristi se podrazumevani komparator za tip podataka koji se sme≈°taju u red. Podrazumevani komparator sla≈æe elemente reda rastuƒáim poretkom. Tako ƒáe na poƒçetku reda biti najmanja vrednost. Ukoliko zadate svoj namenski komparator mo≈æete zadati drugaƒçiji redosled ƒçekanja u redu. Tipiƒçna upotreba reda sa prioritetom je za rasporƒëivanje poslova. Svaki posao ima prioritet. Poslovi se dodaju proizvoljnim redom. Kad god treba zapoƒçeti novi posao, iz reda se uklanja posao najvi≈°eg prioriteta. </br>
+<br>Klasa <b>PriorityQueue</b> je generiƒçka klasa koja se defini≈°e na sledeƒái naƒçin:</br>
+<xmp class = "primer_ta"> Class PriorityQueue <E> </xmp>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldi≈°ti. 
+<br>Klasa <b>PriorityQueue</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Queue</b>, ≈°to znaƒçi da klasa <b>PriorityQueue</b> mo≈æe koristiti sve metode definisane ovim interfejsima.  
+<br>Konstruktori koje sad≈æi klasa <b>PriorityQueue</b> prikazani su u tabeli 13.</br>
+<br><b>Tabela 13.</b> PriorityQueue konstruktori</br>
 <table class = "tabela">
 <thead>
 <tr>
@@ -15,88 +15,135 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldiöti.
 <tr>
 <tbody>
 	<tr>
-<td>HashSet()</td>
-<td>Pravi prazna skup. </td>
+<td>PriorityQueue()</td>
+<td>Pravi prazan red ƒçekanja ƒçiji je poƒçetni kapacitet 11. </td>
 </tr>
 <tr>
-<td>HashSet(Collection ?extends E kolekcija)</td>
-<td>Pravi skup i inicijalizuje elementima kolekcije.</td>
+<td>PriorityQueue (int kapacitet)</td>
+<td>Pravi stablo popunjeno elementima kolekcije.</td>
 </tr>
 <tr>
-<td>HashSet(int kapacitet)</td>
-<td>Pravi skup sa zadatim kapacitetom. </td>
+<td> PriorityQueue (Comparator &lt;?super E&gt; komparator)</td>
+<td>Pravi red ƒçekanja koji se inicijalizuj elementima kolekcije prosleƒëene parametrom kolekcija. </td>
 </tr>
 <tr>
-<td>HashSet(int kapacitet, float popunjenost)</td>
-<td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa.  </td>
+<td>PriorityQueue (PriorityQueue&lt;?extends E&gt; kolekcija)</td>
+<td>Pravi red ƒçekanja koji se inicijalizuj elementima kolekcije prosleƒëene parametrom kolekcija.</td>
+</tr>
+<tr>
+<td>PriorityQueue(SortedSet&lt;?extends E&gt; kolekcija )</td>
+<td>Pravi red ƒçekanja koji se inicijalizuje elementima kolekcije prosleƒëene parametrom kolekcija.</td>
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>HashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 11, a zatim dodati elemente koristeci metodu <b>add()</b>. Poslednji konstruktor, <b>HashSet(int kapacitet, float popunjenost)</b>, pravi skup i inicijalizuje kapacitet i popunjenost skupa. U ovom slucaju pounjenost skupa je vrednost izmedu 0.0 i 1.0. äta ova vrednost predstavlja? Kada broj elemenata u skupu postane veci od kapaciteta skupa pomnoûenog s njegovom popunjenoöcu, skup tipa <b>HashSet</b> se proöiruje. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost ñ 0,75. </br>
-<br><b>Primer 13:</b> Upotreba klase HashSet</br>
+<br>Da bi objekat tipa <b>PriorityQueue</b> bio kreiran, neophodno je prvo kreirati njegovu instancu pomoƒáu konstruktora iz tabele 13. U svim ovim sluƒçajevima kapacitet se poveƒáava kada se objekat tipa <b>PriorityQueue</b> popuni elementima.</br>
+<br><b>Primer 18:</b> Upotreba klase PriorityQueue <br>
 <xmp class = "primer_ta"> 
-import java.util.*;
-public class PrimerHashSet {
-public static void main(String[] args) {
+import java.util.PriorityQueue;
 
-// Kreiranje objekta tipa HashSet
-HashSet<String> set1 = new HashSet<>();
+public class PriorityQueuePrimer {
 
-// Dodavanje objekata u set1 - ilustracija metoda add()
-set1.add("Beograd");
-set1.add("Vranje");
-set1.add("Nis");
-set1.add("Cacak");
-set1.add("Novi Sad");
-
-System.out.println("Sadrzaj skupa1: " + set1);
-System.out.println("Broj elemenata u skupu:" + set1.size() );
-
-// Brisanje objekata iz HashSet objekta - ilsutracija metoda remove()
-set1.remove("Nis");
-System.out.println("\nSadrzaj skupa1 nakon brisanja objekta: " + set1);
-System.out.println("Broj elemenata u skupu:" + set1.size());
-
-// Kreiranje objekta tipa HashSet
-HashSet<String> set2 = new HashSet<String>();
-
-// Dodavanje objekata u set2 - ilustracija metoda add()
-set2.add("Pariz");
-set2.add("London");
-set2.add("Milano");
-
-// Dodavanje elemenata u skupa2 skupu1 - Ilustracija metoda addAll()
-set1.addAll(set2); 
-System.out.println("\nSadrzaj skupa1 nakon dodavanja elemenata iz skupa2:  " + set1); 
-
-// Brisanje svih elemenata iz skupa2 - ilustracija metoda remvoveAll()
-set1.removeAll(set2); 
-System.out.println("Sadrzaj skupa1 nakon brisanja elemenata iz skupa2: " 
-		 	   + set1); 
-		 
-		    } 
+	public static void main(String[] args) {
+	// Kreiranje objekata tipa PriorityQueue koji sadrzi objekte tipa Integer
+		PriorityQueue<Integer> red = new PriorityQueue<Integer>(); 
+		
+		// Dodavanje objekata tipa Integer u red ‚Äì ilustracija metoda offer()
+		red.offer(5);
+		red.offer(8);
+		red.offer(22);
+		red.offer(1);
+		red.offer(29);
+		
+		// Ispisivanje sadrzaja reda	
+		System.out.print("Sadrzaj reda: ");
+		 for(Integer element: red){
+			 
+			System.out.print(element + " ");	 }
+	}
 } </xmp>
-<br>Rezultat programa: </br>
+<br>Rezultat programa:</br>
 <xmp class = "primer_ta"> 
-Sadrzaj skupa1: [Vranje, Cacak, Novi Sad, Nis, Beograd]
-Broj elemenata u skupu:5
+Sadrzaj reda: 1 5 22 8 29 </xmp>
+U ovom primeru kor≈°ƒáen je podrazumevani komparator za objekte tipa <b>Integer</b>. Kao ≈°to je veƒá nagla≈°eno, moguƒáe je kreirati i sopstveni komparator i na taj naƒçin zadati drugaƒçiji redosled ƒçekanja u redu. 
+<br></br>
+<br><b>Primer 19:</b> Upotreba komparatora u PriorityQueue kolekciji <br>
+</xmp>
+<xmp class = "primer_ta"> 
+public class Zaposleni {
 
-Sadrzaj skupa1 nakon brisanja objekta: [Vranje, Cacak, Novi Sad, Beograd]
-Broj elemenata u skupu:4
+// Ova klasa kreira objekat tipa Zaposleni koji sadrzi ime i prezime zaposlenog kao i njegovu zaradu
+	    String ime_i_prezime;
+	    int zarada;
+	    public Zaposleni(String ime_i_prezime, int zarada{
+	        this.ime_i_prezime = ime_i_prezime;
+	 
+	        this.zarada = zarada; }
+	 
+	    public String toString(){
+	        return ime_i_prezime +" : "+zarada;
+	    }
+	} </xmp>
+<xmp class = "primer_ta">
+import java.util.Comparator;
 
-Sadrzaj skupa2: [Pariz, London, Milano]
-Broj elemenata u skupu:3
+public class KomparatorZaPriorityQueue implements Comparator<Zaposleni>{
+	 // Ova klasa implementira interfejs Comparator i sortira zaposlene po zaradi
+	 // redefinsanje metoda compare - metoda poredi zaposlene po zaradi 
+	    public int compare(Zaposleni z1, Zaposleni z2)
+	    {
+	        return z1.zarada - z2.zarada;
+	    }
+	} </xmp>
+<xmp class = "primer_ta"> 
+import java.util.PriorityQueue;
 
-Da li je se Milano nalazi u skupu2?  true
+import java.util.PriorityQueue;
 
-Sadrzaj skupa1 nakon dodavanja elemenata iz skupa2:  [Vranje, Cacak, Pariz, Novi Sad, London, Beograd, Milano]
-Sadrzaj skupa1 nakon brisanja elemenata iz skupa2: [Vranje, Cacak, Novi Sad, Beograd]</xmp>
-Kako se elementi ne skaldiöte redosledom kojim se dodaju, pokretanjem programa moûete dobiti razlicite razultate. Klasa <b>HashSet</b> implementira interfejs <b>Set</b>, öto znaci da duplikati elemanata nisu dopuöteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b> i element se ne dodaje. 
-<br>Kao öto je vec naglaöeno, kolekcije mogu da uskladiöte svaku vrstu objekata, pa i objekte klasa koje programer sam kreira. Dakle, i kolekcija tipa <b>HashSet</b> se moûe koristiti za skladiötanje objekata klasa koje programer sam kreira.</br>
-<br>Vaûne osobine <b>HashSet</b> klase: </br>
-<ol>
-<li><b>HashSet</b> kolekcija ne skaldiöti objekte redosledom kojim se dodaju.  </li>
-<li><b>HashSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
-<li> Obezbeduje vrlo efikasne operacije nalaûenja, dodavanja i brisanja elemenata.   </li>
-</ol>
+public class PrimerZaPriorityQueue {
 
+	public static void main(String[] args) {
+		// Kreirajmo objekat tipa PriorityQueue
+		PriorityQueue<Zaposleni> zaposleni = new PriorityQueue<Zaposleni>(5, new KomparatorZaPriorityQueue()); 
+		
+		// Dodavanje objekata tipa Zaposleni u red 
+		zaposleni.offer(new Zaposleni("Petar Kojic", 68521));
+		zaposleni.offer(new Zaposleni("Marija Spasic", 35458));
+		zaposleni.offer(new Zaposleni("Ivana Janjic", 75210));
+		zaposleni.offer(new Zaposleni("Pavle Vukovic", 18700));
+		zaposleni.offer(new Zaposleni("Radovan Rakic", 55210));
+		
+// Dohvatanje elemenata sa vrha reda, isustracija metoda poll(), i element()
+		
+	 System.out.println("Dohvatanje elemenata sa vrha reda: ");
+
+        System.out.println(zaposleni.poll());      
+        System.out.println("Velicina reda nakon dohvatanja elementa: " + zaposleni.size());
+        System.out.println(zaposleni.poll());     
+        System.out.println("Velicina reda nakon dohvatanja elementa: " + zaposleni.size());
+        System.out.println(zaposleni.poll());    
+        System.out.println("Velicina reda nakon dohvatanja elementa: " + zaposleni.size());
+        System.out.println(zaposleni.element());   
+        System.out.println("Velicina reda nakon dohvatanja elementa: " + zaposleni.size());
+        System.out.println(zaposleni.element());
+        System.out.println("Velicina reda nakon dohvatanja elementa: " + zaposleni.size());
+  
+        // Provera velicine reda
+        
+        System.out.println("Velicina reda: " + zaposleni.size());
+	}
+}</xmp>
+
+<br>Rezultat programa:</br>
+<xmp class = "primer_ta"> 
+Dohvatanje elemenata sa vrha reda: 
+Pavle Vukovic : 18700
+Velicina reda nakon dohvatanja elementa: 4
+Marija Spasic : 35458
+Velicina reda nakon dohvatanja elementa: 3
+Radovan Rakic : 55210
+Velicina reda nakon dohvatanja elementa: 2
+Petar Kojic : 68521
+Velicina reda nakon dohvatanja elementa: 2
+Petar Kojic : 68521
+Velicina reda nakon dohvatanja elementa: 2
+Velicina reda: 2</xmp>

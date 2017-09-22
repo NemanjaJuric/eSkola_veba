@@ -1,10 +1,9 @@
-<h1>Interfejs List  </h1>
-<br>Interfejs List proširuje interfejs <b>Collection</b>, i deklariše ponašanje kolekcije koja sadri sekvencu elemenata. Elementi se mogu umetati  ili im se moe pristupati na osnovu njhovog poloaju u listi, pomocu indeksa cija vrednost pocinje od nule. Lista moe da sadri duplikate elemenata. </br>
-<br>List je genericki interfejs koji se deklariše na sledeci nacin:</br>
+ï»¿<h1>Interfejs List  </h1>
+Interfejs <b>List</b> proÅ¡iruje interfejs <b>Collection</b>, i deklariÅ¡e ponaÅ¡anje kolekcije koja sadrÅ¾i sekvencu elemenata. Elementi se mogu umetati  ili im se moÅ¾e pristupati na osnovu njhovog poloÅ¾aja u listi, pomoÄ‡u indeksa Äija vrednost poÄinje od nule. Lista moÅ¾e da sadrÅ¾i duplikate elemenata. </br>
+<br>List je genericki interfejs koji se deklariÅ¡e na sledeci nacin:</br>
 <xmp class = "primer_ta"> Interface List <E> </xmp>
- gde <b>E</b> oznacava tip objekta koji ce kolekcija sadrati.
-<br></br>
-<br> Osim metoda definisanih interfejsom <b>Collection</b> prikazanih u tabeli 1,  interfejs <b>List</b> definiše i svoje metode prikazane u tabeli 4. </br>  
+ gde <b>E</b> oznaÄava tip objekta koji Ä‡e kolekcija sadrÅ¾ati.
+<br> Osim metoda definisanih interfejsom <b>Collection</b> prikazanih u tabeli 1,  interfejs <b>List</b> definiÅ¡e i svoje metode prikazane u tabeli 4. </br>  
 <br><b>Tabela 4.</b> Metode definisane interfejsom List </br>
 <table class = "tabela">
 <thead>
@@ -15,61 +14,99 @@
 <tr>
 <tbody>
 	<tr>
-<td>void add(int indeks, E obj)</td>
-<td>Na mesto zadato indeksom, umece navedeni objekat. Umetanjem se ne gubi nijedan element.  </td>
+<td width="322">
+<p>void add(int indeks, E obj)</p>
+</td>
+<td width="237">
+<p>Na mesto zadato indeksom, umeÄ‡e navedeni objekat. Umetanjem se ne gubi nijedan element.</p>
+</td>
 </tr>
 <tr>
-<td>boolean addAll(int indeks, Collection<? extends E> kolekcija)</td>
-<td>Umece sve elemente kolekcije u listu na mesto zadato indeksom. Umetanjem se ne gubi nijedan element. Ukoliko se umetanje uspešno obavi, vraca <b>true</b>, u suprotnom vraca <b>false.</b></td>
+<td width="322">
+<p>boolean addAll(int indeks, Collection&lt;? extends E&gt; kolekcija)</p>
+</td>
+<td width="237">
+<p>UmeÄ‡e sve elemente kolekcije u listu na mesto zadato indeksom. Umetanjem se ne gubi nijedan element. Ukoliko se umetanje uspe&scaron;no obavi, vraÄ‡a <b>true</b>, u suprotnom vraÄ‡a <b>false.</b></p>
+</td>
 </tr>
 <tr>
-<td> E get(int indeks) </td>
-<td>Vraca objekat zadatog indeksa sa liste.  </td>
+<td width="322">
+<p>E get(int indeks)</p>
+</td>
+<td width="237">
+<p>VraÄ‡a objekat zadatog indeksa sa liste.</p>
+</td>
 </tr>
 <tr>
-<td>int indexOf(Object obj) </td>
-<td> Vraca indeks prve pojave navedenog objekta u kolekciji, ili -1  ukoliko lista ne sadi navedeni objekat. </td>
+<td width="322">
+<p>int indexOf(Object obj)</p>
+</td>
+<td width="237">
+<p>VraÄ‡a indeks prve pojave navedenog objekta u kolekciji, ili -1&nbsp; ukoliko lista ne sadÅ¾i navedeni objekat.</p>
+</td>
 </tr>
 <tr>
-<td>int lastIndexOf(Object obj) </td>
-<td>Vraca indeks poslednje pojave navedenog objekta u listi, ili -1  ukoliko lista ne sadi navedeni objekat.</td>
+<td width="322">
+<p>int lastIndexOf(Object obj)</p>
+</td>
+<td width="237">
+<p>VraÄ‡a indeks poslednje pojave navedenog objekta u listi, ili -1&nbsp; ukoliko lista ne sadÅ¾i navedeni objekat.</p>
+</td>
 </tr>
 <tr>
-<td>ListIterator<E>  listIterator()</td>
-<td>Vraca iterator liste.</td>
+<td width="322">
+<p>ListIterator&lt;E&gt;&nbsp; listIterator()</p>
+</td>
+<td width="237">
+<p>VraÄ‡a iterator liste.</p>
+</td>
 </tr>
 <tr>
-<td>ListIterator<E> listIterator(int indeks)</td>
-<td>Vraca iterator liste koji pocinje od mesta zadatog parametrom indeks.  </td>
+<td width="322">
+<p>ListIterator&lt;E&gt; listIterator(int indeks)</p>
+</td>
+<td width="237">
+<p>VraÄ‡a iterator liste koji poÄinje od mesta zadatog parametrom indeks.</p>
+</td>
 </tr>
 <tr>
-<td>E remove(int indeks)</td>
-<td>Iz liste briše element zadatog indeksa. Metoda vraca uklonjeni element.</td>
-</tr>
-<td>E remove(int indeks) </td>
-<td>Iz liste briše element zadatog indeksa. Metoda vraca uklonjeni element. </td>
-</tr>
-</tr>
-<td> E set(int indeks, E obj)</td>
-<td>Postavlja obj u listu na mesto zadato indeksom.   </td>
-</tr>
-</tr>
-<td>List<E> subList(int fromIndex, int toIndex) </td>
-<td> Vraca podlistu koja obuhvata deo liste izmedu zadatih pozicija, ukljucujuci prvu i ne ukljucujuci drugu poziciju  </td>
+<td width="322">
+<p>E remove(int indeks)</p>
+</td>
+<td width="237">
+<p>Iz liste bri&scaron;e element zadatog indeksa. Metoda vraÄ‡a uklonjeni element.</p>
+</td>
 </tr>
 <tr>
+<td width="322">
+<p>E set(int indeks, E obj)</p>
+</td>
+<td width="237">
+<p>Postavlja obj u listu na mesto zadato indeksom.</p>
+</td>
+</tr>
+<tr>
+<td width="322">
+<p>List&lt;E&gt; subList(int fromIndex, int toIndex)</p>
+<p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>&nbsp;</strong></p>
+</td>
+<td width="237">
+<p>VraÄ‡a podlistu koja obuhvata deo liste izmeÄ‘u zadatih pozicija, ukljuÄujuÄ‡i prvu i ne ukljuÄujuÄ‡i drugu poziciju.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <br>
-Kao što je prikazano u tabeli 4, verzijama metoda <b>add()</b> i <b>addAll()</b> definisanim interfejsom <b>Collection</b>, interfejs <b>List</b> dodaje metode <b>add(int, E)</b> i <b>addAll(int, Collection)</b> kojima se elementi unose na mesto zadato indeksom. Takode, interfejs <b>List</b> menja semantiku metoda <b>add(int, E)</b> i <b>addAll(int, Collection)</b> definisanih u interfesju <b>Collection</b> tako da one dodaju elemente na kraj liste. 
-<br>Do objekta smeštenog na odredenoj lokaciji moe se doci metodom <b>get(),</b> dok se indeks odredenog objekta moe dobiti pomocu metode <b>indexOf(),</b> ili <b>lastIndexOf().</b> Kada je indeks odredenog objekta poznat, moe se metodom <b>set() </b>postaviti odredena vrednost na indeksom zadatoj lokaciji. Takode, podlista odredene liste moe se dobiti metodom <b>sublist()</b>, navodenjem  pocetnog i krajnjeg indeksa podliste. 
+Kao Å¡to je prikazano u tabeli 4, verzijama metoda <b>add()</b> i <b>addAll()</b> definisanim interfejsom <b>Collection</b>, interfejs <b>List</b> dodaje metode <b>add(int, E)</b> i <b>addAll(int, Collection)</b> kojima se elementi unose na mesto zadato indeksom. TakoÄ‘e, interfejs <b>List</b> menja semantiku metoda <b>add(int, E)</b> i <b>addAll(int, Collection)</b> definisanih u interfesju <b>Collection</b> tako da one dodaju elemente na kraj liste. 
+<br>Do objekta smeÅ¡tenog na odreÄ‘enoj lokaciji moÅ¾e se doÄ‡i metodom <b>get(),</b> dok se indeks odreÄ‘enog objekta moÅ¾e dobiti pomoÄ‡u metode <b>indexOf(),</b> ili <b>lastIndexOf().</b> Kada je indeks odreÄ‘enog objekta poznat, moÅ¾e se metodom <b>set() </b>postaviti odreÄ‘ena vrednost na indeksom zadatoj lokaciji. TakoÄ‘e, podlista odreÄ‘ene liste moÅ¾e se dobiti metodom <b>sublist()</b>, navoÄ‘enjem  poÄetnog i krajnjeg indeksa podliste. 
 </br>
-
-<br> Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
-<ol> 
-<li><b>UnsupportedOperationExeption</b> – Ovaj izuzetak se generiše kada kolekcija ne moe da se promeni. </li>
-<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna.   </li>
-<li><b> IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument. </li>  
-<li><b> NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja <b>null</b> objekata listi. </li>
-<li><b>IndexOutOfBoundsExeption</b> -  Ovaj izuzetak se generiše ukoliko se upotrebi indeks neispravne vrednosti. </li>  
-</ol>
+<br> Izuzeci koji se generiÅ¡u prilikom rada sa ovim metodama su:</br>
+<ul style="list-style-type:circle">
+<li><b>UnsupportedOperationExeption</b> â€“ Ovaj izuzetak se generiÅ¡e kada kolekcija ne moÅ¾e da se promeni </li>
+<li><b>ClassCastExeption</b> â€“ Ovaj izuzetak se generiÅ¡e kada su dva objekta medusobno nekompatibilna   </li>
+<li><b> IlegalArgumentExeption</b> â€“ Ovaj izuzetak se generiÅ¡e ukoliko je metodi prosleden nedozvoljeni argument </li>  
+<li><b> NullPointerExeption </b>â€“ Ovaj izuzetak se generiÅ¡e pri pokuÅ¡aju smeÅ¡tanja <b>null</b> objekata listi </li>
+<li><b>IndexOutOfBoundsExeption</b> -  Ovaj izuzetak se generiÅ¡e ukoliko se upotrebi indeks neispravne vrednosti </li>  
+</ul>

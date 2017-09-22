@@ -1,9 +1,9 @@
- <h1>Klasa LinkedHashMap </h1>
-Klasa <b>LinkedHashMap</b> proöiruje klasu <b>HashMap.</b> Ona odrûava povezanu listu stavki mape redosledom njihovog umetanja u mapu, öto omogucava pristupanje elementima mape po istom redosledu.
- <br>Klasa <b>LinkedHashMap </b> je genericka klasa koji se deklariöe na sledeci nacin:
+Ôªø <h1>Klasa LinkedHashMap </h1>
+Klasa <b>LinkedHashMap</b> pro≈°iruje klasu <b>HashMap.</b> Ona odr≈æava povezanu listu stavki mape redosledom njihovog umetanja u mapu, ≈°to omoguƒáava pristupanje elementima mape po istom redosledu.
+ <br>Klasa <b>LinkedHashMap </b> je generiƒçka klasa koji se deklari≈°e na sledeƒái nacin:
 <xmp class = "primer_ta"> Class LinkedHashMap  <K,V>  </xmp>
-gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadrûati. 
-<br>Konstruktori koje sadûi klasa <b>LinkedHashMap </b> prikazani su u tabeli 18.  </br>
+gde <b>K</b> oznaƒçava tip kluƒçeva, a <b>V </b> tip vrednosti koje ce mapa sadr≈æati. 
+<br>Konstruktori koje sad≈æi klasa <b>LinkedHashMap </b> prikazani su u tabeli 18.  </br>
 <br><b>Tabela 18.</b> LinkedHashMap konstruktori</br>
 <table class = "tabela">
 <thead>
@@ -15,31 +15,31 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadrûa
 <tbody>
 	<tr>
 <td> LinkedHashMap </td>
-<td> Pravi praznu heö-mapu.  </td>
+<td> Pravi praznu he≈°-mapu.  </td>
 </tr>
 <tr>
-<td>LinkedHashMap(Map<?extends K, ?extends V>mapa) </td>
-<td>Pravi heö-mapu i inicijalizije je vrednostima iz mape. </td>
+<td>LinkedHashMap(Map&lt;?extends K, ?extends V&gt;mapa </td>
+<td>Pravi he≈°-mapu i inicijalizije je vrednostima iz mape. </td>
 </tr>
 <tr>
 <td>HashMap(int kapacitet)</td>
-<td>Pravi heö-mapu sa zadatim kapacitetom. </td>
+<td>Pravi he≈°-mapu sa zadatim kapacitetom. </td>
 </tr>
 <tr>
 <td>HashMap(int kapacitet, float popunjenost) </td>
-<td>Pravi heö-mapu i inicijalizuje kapacitet i popunjenost mape.  </td>
+<td>Pravi he≈°-mapu i inicijalizuje kapacitet i popunjenost mape.  </td>
 </tr>
 <tr>
 <td>HashMap(int kapacitet, float popunjenost, boolean redosled) </td>
-<td>Pravi heö-mapu i inicijalizuje kapacitet i popunjenost mape.Omogucava da zadate da li ce se elementima mape pristupiti po redosledu umetanja, ili redosledu poslednjeg iscitavanja.  </td>
+<td>Pravi he≈°-mapu i inicijalizuje kapacitet i popunjenost mape. Omoguƒáava da zadate da li ce se elementima mape pristupiti po redosledu umetanja, ili redosledu poslednjeg i≈°ƒçitavanja.  </td>
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>LinkedHashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 17, a zatim dodati elemente koristeci metod <b>put().</b> Kao öto je objaönjeno, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost ñ 0,75. Podrazumevani kapacitet je  16. Poslednji konstruktor, <b>HashMap(int kapacitet, float popunjenost, boolean redosled)</b>, omogucava zadavanje redosleda pristupanja. Ukoliko parameter redosled ima vrednost <b>true</b> koristi se redosled poslednjeg pristupanja. Ukoliko parameter ima vrednost <b>false</b>, koristi se redosled umetanja.</br>
+<br>Da bi objekat tipa <b>LinkedHashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoƒáu konstruktora iz tabele 17, a zatim dodati elemente koristeƒái metod <b>put().</b> Kao ≈°to je obja≈°njeno, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost ‚Äì 0,75. Podrazumevani kapacitet je  16. Poslednji konstruktor, <b>HashMap(int kapacitet, float popunjenost, boolean redosled)</b>, omoguƒáava zadavanje redosleda pristupanja. Ukoliko parameter redosled ima vrednost <b>true</b> koristi se redosled poslednjeg pristupanja. Ukoliko parameter ima vrednost <b>false</b>, koristi se redosled umetanja.</br>
 <br>Klasa <b> LinkedHashMap</b> dodaje jednu svoju metodu:</br>
 <xmp class = "primer_ta"> 
 Protected boolean removeEldestEntry(Map.Entry<K,V>stavka)</xmp>
-<br>Ovu metodu pozivaju metode <b>put()</b> i <b>putAll()</b>. Najstarija stavka mape prosleduje se parametrom stavka. Standardna metod vraca <b>false</b> i ne radi niöta, ali ukoliko se redefiniöe ova metoda, moûe se  postoci da <b>LinkedHashMap</b> ukloni najstariju stavku iz mape. Da bi se to postiglo neophodno je da redefinsiana metoda vrati <b>true.</b> Da bi se zadrûala najstarija stavka mape, redefinisana metoda treba da vrati <b>false.</b>  </br>
+Ovu metodu pozivaju metode <b>put()</b> i <b>putAll()</b>. Najstarija stavka mape prosleƒëuje se parametrom stavka. Standardna metod vraƒáa <b>false</b> i ne radi ni≈°ta, ali ukoliko se redefini≈°e ova metoda, mo≈æe se  postiƒái da <b>LinkedHashMap</b> ukloni najstariju stavku iz mape. Da bi se to postiglo neophodno je da redefinsiana metoda vrati <b>true.</b> Da bi se zadr≈æala najstarija stavka mape, redefinisana metoda treba da vrati <b>false.</b>  </br>
 <br><b>Primer 24:</b> Upotreba klase LinkedHashMap</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
@@ -77,7 +77,7 @@ public class PrimerZaLinkedHashMap {
 		System.out.println("Sadrzaj mape nakon brisanja sadrzaja: " + linkedHashMap);
 	}
 }</xmp>
-<br>Rezultat programa:</br>
+Rezultat programa:
 <xmp class = "primer_ta">
 Sadrzaj LinkedHashMape: { Marija Kojic=9.89, Petar Petrovic=6.8, Ana Stajic=10.0, Teodora Mancic=7.21, Vojin Janjic=8.2}
 

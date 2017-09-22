@@ -1,9 +1,9 @@
-<h1>Interfejs SortedMap</h1>
-<br>Interfejs <b>SortedMap</b> pro�iruje interfejs <b>Map</b> i odr�ava raspored stavki po rastucem redosledu kljuceva.</br>
- <b>SortedMap</b> je genericki interfejs koji se deklari�e na sledeci nacin:
+﻿<h1>Interfejs SortedMap</h1>
+Interfejs <b>SortedMap</b> proširuje interfejs <b>Map</b> i održava raspored stavki po rastućem redosledu ključeva.</br>
+ <b>SortedMap</b> je generički interfejs koji se deklariše na sledeći način:
 <xmp class = "primer_ta"> Interface SortedMap<K,V>  </xmp>
-gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadr�ati. 
-<br>Metode koje defini�e intefejs <b>SortedMap</b> prikazane su u tabeli 15. </br>
+gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+<br>Metode koje definiše intefejs <b>SortedMap</b> prikazane su u tabeli 15. </br>
 <br><b>Tabela 15.</b> Metode interfejsa SortedMap</br>
 <table class = "tabela">
 <thead>
@@ -12,31 +12,53 @@ gde <b>K</b> oznacava tip kluceva, a <b>V </b> tip vrednosti koje ce mapa sadr�a
 <th>Opis</th>
 </tr>
 <tr>
-<tbody>
-	<tr>
-<td>Comparator <? Super K>Comparator ( )</td>
-<td>Vraca komparator uredene mape. Ako je mapa uredena prema prirodnom redosledu, vraca vrednost <b>null.</b> </td>
+<td>
+Comparator &lt;? Super K&gt;Comparator ( )
+</td>
+<td>
+Vraća komparator uređene mape. Ako je mapa uređena prema prirodnom redosledu, vraća vrednost <b>null</b>
+</td>
 </tr>
 <tr>
-<td>K first key ( )</td>
-<td>Vraca prvi kljuc uredene mape.</td>
+<td>
+K first key ( )
+</td>
+<td>
+Vraća prvi ključ uređene mape.
+</td>
 </tr>
 <tr>
-<td>SortedMap<K, V> headMap (K kraj) </td>
-<td>Vraca uredenu podmapu stavki ciji su kljucevi manji od argumenta kraj. </td>
+<td>
+SortedMap&lt;K, V&gt; headMap (K kraj)
+</td>
+<td>
+Vraća uređenu podmapu stavki čiji su ključevi manji od argumenta <em>kraj.</em>
+</td>
 </tr>
 <tr>
-<td>K lastKey( )</td>
-<td>Vraca poslednji kljuc mape.</td>
+<td>
+K lastKey( )
+</td>
+<td>
+Vraća poslednji ključ mape.
+</td>
 </tr>
 <tr>
-<td>SortedMap<K, V> subMap (K pocetak, K kraj)</td>
-<td>Vraca mapu stavki s kljucevima koji pripadaju opsegu izmedu vrednosti pocetak I kraj -1. </td>
+<td>
+SortedMap&lt;K, V&gt; subMap (K početak, K kraj)
+</td>
+<td>
+Vraća mapu stavki s ključevima koji pripadaju opsegu između vrednosti <em>početak I kraj -1</em>.
+</td>
 </tr>
 <tr>
-<td>SortedMap<K, V> tailMap (K pocetak)</td>
-<td>Vraca podmapu stavki s kljucevima vecim od argumenta pocetak -1. </td>
+<td>
+SortedMap&lt;K, V&gt; tailMap (K početak)
+</td>
+<td>
+Vraća podmapu stavki s ključevima većim od argumenta <em>početak -1</em>.
+</td>
 </tr>
 </tbody>
 </table>
-<br>Uredene mape omogucavaju veoma efikasan rad sa podmapama. Podskupovi mape mogu se dobiti primenom metoda <b>headMap()</b>, <b>tailMap()</b> ili <b>subMap().</b> Dobijene podmape sadr�e reference na elemente izvorne mape, �to znaci da menjanje elemenata podmape menja istovremeno odgovarajuci element mape, i obrnuto.  </br>
+<br>Urđene mape omogućavaju veoma efikasan rad sa podmapama. Podskupovi mape mogu se dobiti primenom metoda <b>headMap()</b>, <b>tailMap()</b> ili <b>subMap().</b> Dobijene podmape sadrže reference na elemente izvorne mape, što znači da menjanje elemenata podmape menja istovremeno odgovarajući element mape, i obrnuto.  </br>

@@ -1,8 +1,9 @@
-<h1>Interfejs  Collection </h1>
-Interfejs <b>Collection</b> je osnovni interfejs Javinih kolekcija. Ovaj interfejs defini�e osnovne metode koje ima svaka kolekcija. <b>Collection</b> je genericki interfejs koji se deklari�e na sledeci nacin:
+﻿<h1>Interfejs  Collection </h1>
+Interfejs <b>Collection</b> je osnovni interfejs Javinih kolekcija. Ovaj interfejs definiše osnovne metode koje ima svaka kolekcija. <b>Collection</b> je generički interfejs koji se deklariše na sledeći način:
 <xmp class = "primer_ta"> Interface Collection <E> </xmp>
-gde <b> E </b> oznacava tip objekta koji ce kolekcija sadr�ati. Po�to sve kolekcije implementiraju ovaj interfejs, poznavanje njegovih metoda je kljucno za razumevanje op�tih principa rada sa kolekcijama. Metode definisane interfejsom <b>Collection</b> prikazane su u tabeli 1.
-<br></br>
+gde <b> E </b> označava tip objekta koji ce kolekcija sadržati.
+<br> Pošto sve kolekcije implementiraju ovaj interfejs, poznavanje njegovih metoda je ključno za razumevanje opštih principa rada sa kolekcijama. Metode definisane interfejsom <b>Collection</b> prikazane su u tabeli 1.</br>
+
 <br><b>Tabela 1.</b> Metode Collection interfejsa </br>
 <table class = "tabela">
 <thead>
@@ -12,80 +13,139 @@ gde <b> E </b> oznacava tip objekta koji ce kolekcija sadr�ati. Po�to sve kolekc
 </tr>
 <tr>
 <tbody>
-	<tr>
-<td>boolean add(E objekat)</td>
-<td>Dodaje objekat u kolekciju. Ako operacija uspe, vraca vrednost <b> true.</b> U suprotnom vraca <b>false.</b> </td>
+<td width="54%">
+<p>boolean add(E objekat)</p>
+</td>
+<td width="45%">
+<p>Dodaje objekat u kolekciju. Ako operacija uspe, vraća vrednost <b>true</b>. U suprotnom vraća <b>false</b>.</p>
+</td>
 </tr>
 <tr>
-<td>boolean addAll(Collection<? extends E>  kolekcija)</td>
-<td>Dodaje sve elemente navedene kolekcije na kraj liste, u poretku kojim ih vraca iterator za kolekciju c.
-Ako operacija uspe, vraca vrednost <b>true</b>. U suprotnom vraca <b>false.</b>
+<td width="54%">
+<p>boolean addAll(Collection&lt;? extends E&gt;&nbsp; kolekcija)</p>
+</td>
+<td width="45%">
+<p>Dodaje sve elemente navedene kolekcije na kraj liste, u poretku kojim ih vraća iterator za kolekciju c.</p>
+<p>Ako operacija uspe, vraća vrednost <b>true </b>. U suprotnom vraća <b>false </b>.</p>
+</td>
 </tr>
 <tr>
- </td>
-<td> void clear()	</td>
-<td> Bri�e sve elemente iz liste. </td>
+<td width="54%">
+<p>void clear()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="45%">
+<p>Bri&scaron;e sve elemente iz liste.</p>
+</td>
 </tr>
 <tr>
-<td> boolean contains(Object o)</td>
-<td> Vraca <b>true </b> ako kolekcija sadr�i sve elemente kolekcije. U suprotnom vraca vrednost <b>false.</b> </td>
+<td width="54%">
+<p>boolean contains(Object o)</p>
+</td>
+<td width="45%">
+<p>Vraća <b>true</b> ako lista sadži navedeni element.</p>
+</td>
 </tr>
 <tr>
-<td>boolen containsAll((Collection<?> kolekcija) </td>
-<td>Vraca <b>true</b> ako kolekcija sadr�i sve elemente kolekcije. U suprotnom vraca vrednost <b>false.</b> </td>
+<td width="54%">
+<p>boolen containsAll(Collection&lt;?&gt; kolekcija)</p>
+</td>
+<td width="45%">
+<p>Vraća <b>true</b> ako kolekcija sadrži sve elemente kolekcije. U suprotnom vraća vrednost <b>false.</b></p>
+</td>
 </tr>
 <tr>
-<td>boolean equals(Object obj)</td>
-<td>Ako su obj i kolekcija jednaki, vraca <b>true</b>, u suprotnom vraca  <b>false.</b> </td>
+<td width="54%">
+<p>boolean equals(Object obj)</p>
+</td>
+<td width="45%">
+<p>Ako su obj i kolekcija jednaki, vraća <b>true,</b> u suprotnom vraća&nbsp; <b>false.</b></p>
+</td>
 </tr>
 <tr>
-<td>int hasCode()</td>
-<td>Vraca kljuc za he�iranje kolekcija. </td>
+<td width="54%">
+<p>int hasCode()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="45%">
+<p>Vraća ključ za he&scaron;iranje kolekcija.</p>
+</td>
 </tr>
 <tr>
-<td>boolean isEmpty()</td>
-<td> Vraca <b>true</b> ako je lista prazna, u suprotnom vraca <b>false</b>.</td>
-</tr>
-<td>Iterator<E> iterator()	 </td>
-<td>Vraca iterator za pozivajucu kolekciju.  </td>
-</tr>
-</tr>
-<td> boolean remove(Object o)</td>
-<td> Bri�e jednu instancu objekta o iz kolekcije. Ako operacija uspe, vraca vrednost <b> true</b>. U suprotnom vraca <b>false.</b> </td>
-</tr>
-</tr>
-<td>boolean removeAll(Collection <?> kolekcija)</td>
-<td> Uklanja sve objekte iz kolekcije. Vraca <b>true</b> ako je operacija uspela, u suprotnom vraca <b>false.</b>  </td>
+<td width="54%">
+<p>boolean isEmpty()</p>
+</td>
+<td width="45%">
+<p>Vraća <b>true</b> ako je lista prazna, u suprotnom vraća <b>false</b>.</p>
+</td>
 </tr>
 <tr>
-<td>boolean retainAll(Collection<?> c)</td>
-<td>Zadr�ava u kolekciji samo elemente koji su sadr�ani u navedenoj kolekciji c. </td>
+<td width="54%">
+<p>Iterator&lt;E&gt; iterator()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="45%">
+<p>Vraća iterator za pozivajuću kolekciju.</p>
+</td>
 </tr>
 <tr>
-<td>int size()</td>
-<td>Vraca broj elemenata u kolekciji. </td>
+<td width="54%">
+<p>boolean remove(Object o)</p>
+</td>
+<td width="45%">
+<p>Bri&scaron;e jednu instancu objekta o iz kolekcije. Ako operacija uspe, vraća vrednost <b>true</b>. U suprotnom vraća <b>false</b></p>
+</td>
 </tr>
 <tr>
-<td>Object[] toArray()</td>
-<td>Vraca niz koji sadr�i sve elemente kolekcije. Elementi niza su kopije elemenata kolekcije. </td>
+<td width="54%">
+<p>boolean removeAll(Collection &lt;?&gt; kolekcija)</p>
+</td>
+<td width="45%">
+<p>Uklanja sve objekte iz kolekcije. Vraća <b>true</b> ako je operacija uspela, u suprotnom vraća <b>false</b>.</p>
+</td>
 </tr>
 <tr>
-<td><T>T[] toArray(T niz[])</td>
-<td> Vraca niz koji sadr�i kopije samo onih elemenata kolekcije ciji tip odgovara elementima niza. Ako velicina niza odgovara broju elemenata koji se poklapaju, oni se vracaju u niz. Ako je velicina niza manja od broja elemenata koji se poklapaju, vraca se novi niz pocetne velicine. Kada je velicina niza veca od broja elemenata koji se poklapaju, element niza iza poslednjeg clana kolekcije dobija vrednost null. Ukoliko bilo koji element kolekcije ima tip drugaciji od podtipa niz, generi�e se izuzetak <b> ArrayStoreExeption()</b></td>
+<td width="54%">
+<p>boolean retainAll(Collection&lt;?&gt; c)</p>
+</td>
+<td width="45%">
+<p>Zadržava u kolekciji samo elemente koji su sadržani u navedenoj kolekciji c.</p>
+</td>
+</tr>
+<tr>
+<td width="54%">
+<p>int size()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="45%">
+<p>Vraća broj elemenata u kolekciji.</p>
+</td>
+</tr>
+<tr>
+<td width="54%">
+<p>Object[] toArray()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</td>
+<td width="45%">
+<p>Vraća niz koji sadrži sve elemente kolekcije. Elementi niza su kopije elemenata kolekcije.</p>
+</td>
+</tr>
+<tr>
+<td width="54%">
+<p>&lt;T&gt;T[] toArray(T niz[])</p>
+</td>
+<td width="45%">
+<p>Vraća niz koji sadrži kopije samo onih elemenata kolekcije čiji tip odgovara elementima niza. Ako veličina niza odgovara broju elemenata koji se poklapaju, oni se vraćaju u niz. Ako je veličina niza manja od broja elemenata koji se poklapaju, vraća se novi niz početne veličine. Kada je veličina niza veća od broja elemenata koji se poklapaju, element niza iza poslednjeg člana kolekcije dobija vrednost <b>null.</b> Ukoliko bilo koji element kolekcije ima tip drugačiji od podtipa niz, generi&scaron;e se izuzetak&nbsp; <b>ArrayStoreExeption()</b></p>
+</td>
 </tr>
 </tbody>
 </table>
 <br>
-<br>Dakle, objekat ili grupa objekata mo�e se dodati u kolekciju pomocu metode <b>add() </b>i <b>addAll()</b>, pri cemu se vodi racuna da objekat, odnosno objekti koji se dodaju u kolekciju budu kompatibilani sa tipom podataka koji kolekcija ocekuje. Metode <b>remove()</b> i <b>removeAll()</b> se koriste za brisanje objekta ili grupe objekata iz kolekcije, dok metoda <b>retailAll()</b> uklanja sve elemente izuzev onih iz zadate grupe. Brisanje svih elemenata kolekcije posti�e se metodom <b>clear().</b></br>
-<br>Da li kolekcija sadr�i odredeni objekat ili sve elemetne druge kolekcije mo�e se utvrditi kori�cenjem metode <b>contains() </b> i <b>containsAll()</b>. Da li je kolekcija prazna, utvrduje se metodom <b>isEmpty()</b>, a broj njenih elemenata dobija se pozivom metode <b>size().</b></br> 
-<br>Ponekad se sadr�aj kolekcije mo�e bolje obraditi pomocu nizova. Preslikavanje izmedu kolekcija i nizova mo�e se ostvariti kori�cenjem metoda <b>toArray()</b>i <b>toArray(T niz[]).</b> Prva metoda vraca niz objekata tipa Object, a druga niz elemenata istog tipa T. Druga metoda je cesto pogodnija zato �to vraca niz tra�enog tipa.</br> 
-<br>Jo� jedna veoma va�na metoda jeste metoda <b>interator()</b> koja vrace iterator za kolekciju. Iteratori se cesto koriste pri radu sa kolekcijama. 
+Dakle, objekat ili grupa objekata može se dodati u kolekciju pomoću metode <b>add() </b>i <b>addAll()</b>, pri čemu se vodi računa da objekat, odnosno objekti koji se dodaju u kolekciju budu kompatibilani sa tipom podataka koji kolekcija očekuje. Metode <b>remove()</b> i <b>removeAll()</b> se koriste za brisanje objekta ili grupe objekata iz kolekcije, dok metoda <b>retailAll()</b> uklanja sve elemente izuzev onih iz zadate grupe. Brisanje svih elemenata kolekcije postiže se metodom <b>clear().</b></br>
+<br>Da li kolekcija sadrži određeni objekat ili sve elemetne druge kolekcije može se utvrditi korišćenjem metode <b>contains() </b> i <b>containsAll()</b>. Da li je kolekcija prazna, utvrđuje se metodom <b>isEmpty()</b>, a broj njenih elemenata dobija se pozivom metode <b>size().</b></br> 
+<br>Ponekad se sadržaj kolekcije može bolje obraditi pomoću nizova. Preslikavanje izmedu kolekcija i nizova može se ostvariti korišćenjem metoda <b>toArray()</b>i <b>toArray(T niz[]).</b> Prva metoda vraća niz objekata tipa <b>Object</b>, a druga niz elemenata istog tipa <b> T.</b> Druga metoda je često pogodnija zato što vraća niz traženog tipa.</br> 
+<br>Još jedna veoma važna metoda jeste metoda <b>interator()</b> koja vraća iterator za kolekciju. Iteratori se često koriste pri radu sa kolekcijama. 
 </br>
-<br> Izuzeci koji se generi�u prilikom rada sa ovim metodama su:</br>
-<ol> 
-<li><b>UnsupportedOperationExeption</b> � Ovaj izuzetak se generi�e kada kolekcija ne mo�e da se promeni. </li>
-<li><b>ClassCastExeption</b> � Ovaj izuzetak se generi�e kada su dva objekta medusobno nekompatibilna.   </li>
-<li><b>IlegalArgumentExeption</b> � Ovaj izuzetak se generi�e ukoliko je metodi prosleden nedozvoljeni argument. </li>  
-<li><b> NullPointerExeption </b>� Ovaj izuzetak se generi�e pri poku�aju sme�tanja null objekata u kolekciju u kojoj  <b>null</b> elementi nisu dozvoljeni. </li>
-<li><b>IlegalStateExeption </b> - Ovaj izuzetak se generi�e pri poku�aju dodavanja novog elementa  vec popunjenoj kolekciji - kolekciji fiksne duzine. </li>  
-</ol>
+<br> Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
+<ul style="list-style-type:circle">
+<li><b>UnsupportedOperationExeption</b> – Ovaj izuzetak se generiše kada kolekcija ne može da se promeni </li>
+<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna   </li>
+<li><b>IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument </li>  
+<li><b> NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja <b>null</b> objekata u kolekciju u kojoj  <b>null</b> elementi nisu dozvoljeni</li>
+<li><b>IlegalStateExeption </b> - Ovaj izuzetak se generiše pri pokušaju dodavanja novog elementa  vec popunjenoj kolekciji - kolekciji fiksne dužine </li>  
+</ul>

@@ -1,11 +1,11 @@
-<h1> Klasa LinkedHashSet</h1>
-<br>Za razliku od <b>HashSet</b> klase koja ne garantuje redosled skladištenja objekata, klasa <b>LinkedHashSet </b>odrava povezanu listu elemenata skupa koje skladišti redosledom kojim se umecu. Iz navedenog razloga, moguce je pristupiti elementima ovakvog skupa pomocu iteratora, a da pritom oni budu nabrajani redosledom kojim su uneti. </br>
-<br>Klasa <b>LinkedHashSet</b> je genericka klasa koja se definiše na sledeci nacin:</br>
+ï»¿<h1> Klasa LinkedHashSet</h1>
+Za razliku od <b>HashSet</b> klase koja ne garantuje redosled skladiÅ¡tenja objekata, klasa <b>LinkedHashSet </b>odrÅ¾ava povezanu listu elemenata skupa koje skladiÅ¡ti redosledom kojim se umeÄ‡u. Iz navedenog razloga, moguÄ‡e je pristupiti elementima ovakvog skupa pomoÄ‡u iteratora, a da pritom oni budu nabrajani redosledom kojim su uneti. </br>
+<br>Klasa <b>LinkedHashSet</b> je generiÄka klasa koja se definiÅ¡e na sledeci naÄin:</br>
 <xmp class = "primer_ta"> Class LinkedHashSet <E> </xmp>
-U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti. 
-<br>Klasa <b>LinkedHashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, što znaci da klasa <b>LinkedHashSet</b> moe koristiti sve metode definisane ovim interfejsima.  
-<br>Konstruktori koje sadi klasa <b>LinkedHashSet</b> prikazani su u tabeli 11.</br>
-<br><b>Tabela 11.</b> LinkedHashSet konstruktori</br>
+U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldiÅ¡ti. 
+<br>Klasa <b>LinkedHashSet</b> realizuje interfejse<b> Collection</b>, <b>Iterable</b> i <b>Set</b>, Å¡to znaÄi da klasa <b>LinkedHashSet</b> moÅ¾e koristiti sve metode definisane ovim interfejsima.  </br>
+<br>Konstruktori koje sadÅ¾i klasa <b>LinkedHashSet</b> prikazani su u tabeli 11.</br>
+<b>Tabela 11.</b> LinkedHashSet konstruktori</br>
 <table class = "tabela">
 <thead>
 <tr>
@@ -30,13 +30,9 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 <td>HashSet(int kapacitet, float popunjenost)</td>
 <td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa.  </td>
 </tr>
-<tr>
-<td>LinkedHashSet(int kapacitet, float popunjenost)</td>
-<td>Pravi skup i inicijalizuje kapacitet i popunjenost skupa. </td>
-</tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>LinkedHashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomocu konstruktora iz tabele 11, a zatim dodati elemente koristeci metodu <b>add()</b>. </br>
+<br>Da bi objekat tipa <b>LinkedHashSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoÄ‡u konstruktora iz tabele 11, a zatim dodati elemente koristeÄi metodu <b>add()</b>. </br>
 <br><b>Primer 14:</b> Upotreba klase LinkedHashSet</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
@@ -45,7 +41,7 @@ class LinkedHashSetPrimer {
 	 	 // Kreiranje LinkedHashSet objekta 
 	 	 LinkedHashSet<String> set = new LinkedHashSet<>(); 
 	  
-	 	 // Dodavanje stringova u skup – ilisutracija metoda add()
+	 	 // Dodavanje stringova u skup â€“ ilisutracija metoda add()
 	 	 set.add("London"); 
 	 	 set.add("Sarajevo"); 
 	 	 set.add("Vranje"); 
@@ -64,13 +60,12 @@ class LinkedHashSetPrimer {
 <xmp class = "primer_ta"> 
 [London, Sarajevo, Vranje, Trst, Beograd, New York]
 london,sarajevo,vranje,trst,beograd,new york </xmp>
-<br>Klasa <b>LinkedHashSet</b> implementira interfejs <b>Set</b>, što znaci da duplikati elemanata nisu dopušteni. Metoda <b>add()</b> u tom slucaju vraca vrednost <b>false</b>, i element se ne dodaje. 
-Kolekcija tipa <b>LinkedHashSet</b> moe se takode koristiti za skladištanje objekata klase koje programer sam kreira.  </br>
+Klasa <b>LinkedHashSet</b> implementira interfejs <b>Set</b>, Å¡to znaÄi da duplikati elemanata nisu dopuÅ¡teni. Metoda <b>add()</b> u tom sluÄaju vraÄ‡a vrednost <b>false</b>, i element se ne dodaje. 
+Kolekcija tipa <b>LinkedHashSet</b> moÅ¾e se takoÄ‘e koristiti za skladiÅ¡tanje objekata klase koje programer sam kreira.  </br>
 
-<br>Vane osobine <b>LinkedHashSet</b> klase: </br>
-<ol>
-<li><b>LinkedHashSet</b> kolekcija  skaldišti objekte redosledom kojim se dodaju.  </li>
-<li><b>LinkedHashSet</b> kolekcija ne dozvoljava dupliranje elemenata.  </li>
-<li>Iterator uvek obilazi elemente redosledom kojim su elementi dodati u  kolekciju. </li>
-</ol>
-
+<br>VaÅ¾ne osobine <b>LinkedHashSet</b> klase: </br>
+<ul style="list-style-type:circle">
+<li><b>LinkedHashSet</b> kolekcija  skaldiÅ¡ti objekte redosledom kojim se dodaju  </li>
+<li><b>LinkedHashSet</b> kolekcija ne dozvoljava dupliranje elemenata  </li>
+<li>Iterator uvek obilazi elemente redosledom kojim su elementi dodati u  kolekciju </li>
+</ul>
