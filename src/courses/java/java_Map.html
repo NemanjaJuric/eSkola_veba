@@ -11,116 +11,63 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 <th>Metod</th> 
 <th>Opis</th>
 </tr>
-<td width="275">
-<p>void clear()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-</td>
-<td width="283">
-<p>Uklanja sve parove ključ/ vrednost iz mape.</p>
-</td>
+<tr>
+<tbody>
+	<tr>
+<td>void clear()</td>
+<td>Uklanja sve parove ključ/ vrednost iz mape. </td>
 </tr>
 <tr>
-<td width="275">
-<p>boolean containsKey(Object kljuc)</p>
-</td>
-<td width="283">
-<p>Vraća <b>true</b> ako mapa sadrži ključ, u suprotnom vraća vrednost <b>false.</b></p>
-</td>
+<td>boolean containsKey(Object kljuc)</td>
+<td>Vraća <b>true</b> ako mapa sadrži ključ, u suprotnom vraća vrednost <b>false.</b></td>
 </tr>
 <tr>
-<td width="275">
-<p>boolean containsValue(Object vrednost)</p>
-</td>
-<td width="283">
-<p>Vraća <b> true</b> ako mapa sadrži vrednost, u suprotnom vraća vrednost <b>false.</b></p>
-</td>
+<td> boolean containsValue(Object vrednost)</td>
+<td>Vraca <b>true</b> ako mapa sadrži vrednost, u suprotnom vraca vrednost <b>false.</b> </td>
 </tr>
 <tr>
-<td width="275">
-<p>Set&lt;Map.Entry&lt;K,V&gt;&gt;entrySet()</p>
-</td>
-<td width="283">
-<p>Vraća objekat tipa <b>Set</b> koji sadrži stavke mape.Taj skup se sastoji od objekata tipa <b>MapEntry.</b> To znači da ova metoda omogućava prikaz sadržaja mape u obliku skupa.</p>
-</td>
+<td>Set<Map.Entry<K,V>>entrySet()</td>
+<td>Vraća objekat tipa <b>Set</b> koji sadrži stavke mape. Taj skup se sastoji od objekata tipa <b>MapEntry.</b> To znači da ova metoda omogućava prikaz sadržaja mape u obliku skupa.</td>
 </tr>
 <tr>
-<td width="275">
-<p>boolean equals(Object obj)</p>
-</td>
-<td width="283">
-<p>Vraća <b>true</b> ako mapa sadrži iste stavke kao i mapa <em>obj</em>. U suprotnom vraća <b>false</b>.</p>
-</td>
+<td>boolean equals(Object obj)</td>
+<td>Vraća <b>true</b> ako mapa sadrži iste stavke kao i mapa obj. U suprotnom vraća <b>false.</b> </td>
 </tr>
 <tr>
-<td width="275">
-<p>V get (Object kljuc)</p>
-</td>
-<td width="283">
-<p>Vraća vrednost koja odgovara ključu zadatom parametrom <b>ključ</b>>. Ako ne pronađe ključ, vraća&nbsp; <strong><em>null</em></strong>.</p>
-</td>
+<td>V get (Object kljuc)</td>
+<td>Vraca vrednost koja odgovara ključu zadatom parametrom ključ. Ako ne pronađe kljuc, vraca  <b>null.</b>  </td>
 </tr>
 <tr>
-<td width="275">
-<p>int hascode()</p>
-</td>
-<td width="283">
-<p>Vraća he&scaron;-ključ za pozivajuću mapu.</p>
-</td>
+<td>int hascode()  </td>
+<td>Vraća heš-ključ za pozivajuću mapu. </td>
 </tr>
 <tr>
-<td width="275">
-<p>boolean isEmpty()</p>
-</td>
-<td width="283">
-<p>Vraća <b>true </b> ako je mapa prazna, u suprotnom vraća vrednost <b>false.</b></p>
-</td>
+<td>boolean isEmpty() </td>
+<td>Vraća <b>true</b> ako je mapa prazna, u suprotnom vraća vrednost <b> false</b>. </td>
 </tr>
 <tr>
-<td width="275">
-<p>Set&lt;K&gt;keySet()</p>
-</td>
-<td width="283">
-<p>Vraća objekat tipa <b>Set</b> koji sadrži ključeve mape. Ova metoda omogućava prikaz ključeva mape u obliku skupa.</p>
-</td>
+<td>Set<K>keySet() </td>
+<td> Vraća objekat tipa <b>Set</b> koji sadrži ključeve mape. Ova metoda omogućava prikaz ključeva mape u obliku skupa. </td>
 </tr>
 <tr>
-<td width="275">
-<p>V put(K kljuc, V vrednost)</p>
-</td>
-<td width="283">
-<p>Unosi novu stavku u mapu, pri čemu nova vrednost zamenjuje postojeću vrednost koja odgovara zadatom ključu. Ako zadati ključ ne postoji, metoda vraća <b>null.</b> Ako ključ postoji vraća prethodnu vrednost koja je s njim povezana.</p>
-</td>
+<td>V put(K kljuc, V vrednost) </td>
+<td>Unosi novu stavku u mapu, pri čemu nova vrednost zamenjuje postojeću vrednost koja odgovara zadatom ključu. Ako zadati ključ ne postoji, metoda vraca <b>null.</b> Ako ključ postoji vraća prethodnu vrednost koja je s njim povezana.  </td>
 </tr>
 <tr>
-<td width="275">
-<p>void putAll(Map&lt;?extends K,? extends V&gt;mapa)</p>
-</td>
-<td width="283">
-<p>Unosi u proizvoljnu mapu sve vrednosti iz mape.</p>
-</td>
+<td>void putAll(Map<?extends K,? extends V>mapa) </td>
+<td>Unosi u proizvoljnu mapu sve vrednosti iz mape. </td>
 </tr>
 <tr>
-<td width="275">
-<p>V remove(Object kljuc)</p>
-</td>
-<td width="283">
-<p>Uklanja stavku čiji je ključ zadat parametrom kljuc.</p>
-</td>
+<td>V remove(Object kljuc) </td>
+<td>Uklanja stavku ciji je kljuc zadat parametrom kljuc.  </td>
 </tr>
 <tr>
-<td width="275">
-<p>int size()</p>
-</td>
-<td width="283">
-<p>Vraća broj parova ključ/vrednost u mapi.</p>
-</td>
+<td>int size() </td>
+<td>Vraća broj parova ključ/vrednost u mapi. </td>
 </tr>
 <tr>
-<td width="275">
-<p>Collection &lt;V&gt; values()</p>
-</td>
-<td width="283">
-<p>Vraća kolekciju koja se sastoji od vrednosti iz mape. Ova metoda omogućava prikazivanje sadržaja mape u obliku kolekcije.</p>
-</td>
+<td>Collection <V> values() </td>
+<td>Vraća kolekciju koja se sastoji od vrednosti iz mape. Ova metoda omogućava prikazivanje sadržaja mape u obliku kolekcije.  </td>
 </tr>
 </tbody>
 </table>
