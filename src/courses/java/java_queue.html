@@ -1,10 +1,9 @@
-<h1>Interfejs Queue </h1>
-<br>Red (eng. queue) je kolekcija u kojoj se elementi cuvaju pre obrade. Elementi se iz reda mogu dohvatiti ili ukloniti samo sa vrha reda. To znaci, da nije moguce preskociti pocetni element i dohvatiti ili ukloniti neki drugi element iz reda. Sa druge strane, dodavanje elementa moguce je samo na kraj reda, pod uslovom da za element ima dovoljno mesta u redu.</br>
-<br><b>Queue</b> je genericki interfejs koji se deklari�e na sledeci nacin:</br>
-
+﻿<h1>Interfejs Queue </h1>
+Red (eng. queue) je kolekcija u kojoj se elementi čuvaju pre obrade. Elementi se iz reda mogu dohvatiti ili ukloniti samo sa vrha reda. To znači, da nije moguće preskočiti početni element i dohvatiti ili ukloniti neki drugi element iz reda. Sa druge strane, dodavanje elementa moguće je samo na kraj reda, pod uslovom da za element ima dovoljno mesta u redu.</br>
+<br><b>Queue</b> je genericki interfejs koji se deklariše na sledeći nacin:</br>
 <xmp class = "primer_ta"> Interface Queue<E> </xmp>
-gde <b>E </b>oznacava tip objekta koji ce red sadr�ati.
- <br>Ovaj interfejs nasleduje interfejs <b>Collection</b> i dodaje metode definisane u tabeli 6.  </br>
+gde <b>E </b> označava tip objekta koji će red sadržati.
+ <br>Ovaj interfejs nasleđuje interfejs <b>Collection</b> i dodaje metode definisane u tabeli 6.  </br>
 <br><b>Tabela 6.</b> Metode definisane interfesjom Queue</br>
 <table class = "tabela">
 <thead>
@@ -14,34 +13,54 @@ gde <b>E </b>oznacava tip objekta koji ce red sadr�ati.
 </tr>
 <tr>
 <tbody>
-	<tr>
-<td>E element()</td>
-<td>Vraca element koji se nalazi na vrhu reda, pri cemu se taj element se ne uklanja. Ako je red na cekanju prazan, generi�e se izuzetak <b>NoSuchElementExeption.</b> </td>
+<tr>
+<td width="267">
+<p>E element()</p>
+</td>
+<td width="291">
+<p>Vraća element koji se nalazi na vrhu reda, pri čemu se taj element ne uklanja. Ako je red na čekanju prazan, generi&scaron;e se izuzetak <b>NoSuchElementExeption</b></p>
+</td>
 </tr>
 <tr>
-<td>boolean offfer(E obj)</td>
-<td>Poku�ava da doda objekat obj u red i vraca <b>true</b> ukoliko je operacija uspela, u suprotnom, vraca <b>false.</b> </td>
+<td width="267">
+<p>boolean offfer(E obj)</p>
+</td>
+<td width="291">
+<p>Poku&scaron;ava da doda objekat obj u red i vraća <b>true</b> ukoliko je operacija uspela, u suprotnom, vraća <b>false</b>.</p>
+</td>
 </tr>
 <tr>
-<td>E peek()</td>
-<td>Vraca element koji se nalazi na vrhu reda. Ako je red prazan, vraca null. Element se ne uklanja.  </td>
+<td width="267">
+<p>E peek()</p>
+</td>
+<td width="291">
+<p>Vraća element koji se nalazi na vrhu reda. Ako je red prazan, vraća <b>null</b>. Element se ne uklanja.</p>
+</td>
 </tr>
 <tr>
-<td>E poll() </td>
-<td>Vraca element koji se nalazi na vrhu reda, uklanjajuci pri tom taj element. Ako je red prazan, vraca <b>null.</b>  </td>
+<td width="267">
+<p>E poll()</p>
+</td>
+<td width="291">
+<p>Vraća element koji se nalazi na vrhu reda, uklanjajući pri tom taj element. Ako je red prazan, vraća <b>null</em></b>
+</td>
 </tr>
 <tr>
-<td>E remove()</td>
-<td>Uklanja element koji se nalazi na vrhu reda i pri tom ga vraca kao rezultat metode. Ako je red prazan, generi�e se izuzetak <b>NoSuchElementExeption.</b>  </td>
-</tr>
+<td width="267">
+<p>E remove()</p>
+</td>
+<td width="291">
+<p>Uklanja element koji se nalazi na vrhu reda i pri tom ga vraća kao rezultat metode. Ako je red prazan, generi&scaron;e se izuzetak <b>NoSuchElementExeption</b></p>
+</td>
+</tr>	
 </tbody>
 </table>
-<br>Postoje dve metode koje ucitavaju i vade element iz reda � <b>poll()</b> i <b>remove()</b>. Razlika izmedu ovih metoda je u tome �to metoda <b>poll()</b> vraca <b>null </b>ako je red prazan, a metoda <b>remove()</b> generi�e izuzetak <b>NoSuchElementExeption.</b> Takode, postoje i dve metode koje ucitavaju ali ne vade element iz reda � <b>peek()</b> i <b>element().</b> Kao i kod prethodnih metoda, prva metoda vraca <b>null</b> ako je red prazan, dok  druga metoda generi�e izuzetak. Kako postoje redovi fiksne du�ine koji se mogu napuniti, metoda <b>offer() </b> poku�ava da doda element u red. Dakle, ukoliko je red pun, ova metoda ce vratiti vrednost <b>false.</b>  </br>
+<br>Postoje dve metode koje učitavaju i vade element iz reda – <b>poll()</b> i <b>remove()</b>. Razlika između ovih metoda je u tome što metoda <b>poll()</b> vraća <b>null </b>ako je red prazan, a metoda <b>remove()</b> generiše izuzetak <b>NoSuchElementExeption.</b> Takođe, postoje i dve metode koje učitavaju ali ne vade element iz reda – <b>peek()</b> i <b>element().</b> Kao i kod prethodnih metoda, prva metoda vraća <b>null</b> ako je red prazan, dok  druga metoda generiše izuzetak. Kako postoje redovi fiksne dužine koji se mogu napuniti, metoda <b>offer() </b> pokušava da doda element u red. Dakle, ukoliko je red pun, ova metoda će vratiti vrednost <b>false.</b>  </br>
 
-<br>Izuzeci koji se generi�u prilikom rada sa ovim metodama su:</br>
-<ol> 
-<li><b>ClassCastExeption</b> � Ovaj izuzetak se generi�e kada su dva objekta medusobno nekompatibilna.   </li>
-<li><b>IlegalArgumentExeption</b> � Ovaj izuzetak se generi�e ukoliko je metodi prosleden nedozvoljeni argument. </li>  
-<li><b>NullPointerExeption </b>� Ovaj izuzetak se generi�e pri poku�aju sme�tanja null objekata u red. </li>
-<li><b>NoSuchElementExeption </b>� Ovaj izuzetak se generi�e kada u redu nema elemenata. </li>  
-</ol>
+<br>Izuzeci koji se generišu prilikom rada sa ovim metodama su:</br>
+<ul style="list-style-type:circle">
+<li><b>ClassCastExeption</b> – Ovaj izuzetak se generiše kada su dva objekta medusobno nekompatibilna   </li>
+<li><b>IlegalArgumentExeption</b> – Ovaj izuzetak se generiše ukoliko je metodi prosleden nedozvoljeni argument </li>  
+<li><b>NullPointerExeption </b>– Ovaj izuzetak se generiše pri pokušaju smeštanja null objekata u red </li>
+<li><b>NoSuchElementExeption </b>– Ovaj izuzetak se generiše kada u redu nema elemenata </li>  
+</ul>
