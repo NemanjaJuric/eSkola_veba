@@ -1499,6 +1499,20 @@
                 "sublessons": null
             },
             {
+                "name": "Klasa PriorityQueue",
+                "url": "java_PriorityQueue",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Klasa ArrayDeque",
+                "url": "java_ArrayDeque",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
                 "name": "Interfejs Map",
                 "url": "java_Map",
                 "type": "lesson",
