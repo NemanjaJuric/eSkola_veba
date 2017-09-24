@@ -2,7 +2,7 @@
 Klasa <b>LinkedHashMap</b> proširuje klasu <b>HashMap.</b> Ona održava povezanu listu stavki mape redosledom njihovog umetanja u mapu, što omogućava pristupanje elementima mape po istom redosledu.
  <br>Klasa <b>LinkedHashMap </b> je generička klasa koji se deklariše na sledeći nacin:
 <xmp class = "primer_ta"> Class LinkedHashMap  <K,V>  </xmp>
-gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje ce mapa sadržati. 
+gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sadržati. 
 <br>Konstruktori koje sadži klasa <b>LinkedHashMap </b> prikazani su u tabeli 18.  </br>
 <br><b>Tabela 18.</b> LinkedHashMap konstruktori</br>
 <table class = "tabela">
@@ -14,7 +14,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje ce mapa sadr
 <tr>
 <tbody>
 	<tr>
-<td> LinkedHashMap </td>
+<td width="380"> LinkedHashMap() </td>
 <td> Pravi praznu heš-mapu.  </td>
 </tr>
 <tr>
@@ -22,20 +22,20 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje ce mapa sadr
 <td>Pravi heš-mapu i inicijalizije je vrednostima iz mape. </td>
 </tr>
 <tr>
-<td>HashMap(int kapacitet)</td>
+<td>LinkedHashMap(int kapacitet)</td>
 <td>Pravi heš-mapu sa zadatim kapacitetom. </td>
 </tr>
 <tr>
-<td>HashMap(int kapacitet, float popunjenost) </td>
+<td>LinkedHashMap(int kapacitet, float popunjenost) </td>
 <td>Pravi heš-mapu i inicijalizuje kapacitet i popunjenost mape.  </td>
 </tr>
 <tr>
-<td>HashMap(int kapacitet, float popunjenost, boolean redosled) </td>
+<td>LinkedHashMap(int kapacitet, float popunjenost, boolean redosled) </td>
 <td>Pravi heš-mapu i inicijalizuje kapacitet i popunjenost mape. Omogućava da zadate da li ce se elementima mape pristupiti po redosledu umetanja, ili redosledu poslednjeg iščitavanja.  </td>
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>LinkedHashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 17, a zatim dodati elemente koristeći metod <b>put().</b> Kao što je objašnjeno, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. Poslednji konstruktor, <b>HashMap(int kapacitet, float popunjenost, boolean redosled)</b>, omogućava zadavanje redosleda pristupanja. Ukoliko parameter redosled ima vrednost <b>true</b> koristi se redosled poslednjeg pristupanja. Ukoliko parameter ima vrednost <b>false</b>, koristi se redosled umetanja.</br>
+<br>Da bi objekat tipa <b>LinkedHashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 17, a zatim dodati elemente koristeći metod <b>put().</b> Kao što je objašnjeno, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. Poslednji konstruktor, <b>LinkedHashMap(int kapacitet, float popunjenost, boolean redosled)</b>, omogućava zadavanje redosleda pristupanja. Ukoliko parameter redosled ima vrednost <b>true</b> koristi se redosled poslednjeg pristupanja. Ukoliko parameter ima vrednost <b>false</b>, koristi se redosled umetanja.</br>
 <br>Klasa <b> LinkedHashMap</b> dodaje jednu svoju metodu:</br>
 <xmp class = "primer_ta"> 
 Protected boolean removeEldestEntry(Map.Entry<K,V>stavka)</xmp>

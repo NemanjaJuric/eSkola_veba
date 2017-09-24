@@ -14,7 +14,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 <tr>
 <tbody>
 	<tr>
-<td>void clear()</td>
+<td width="400">void clear()</td>
 <td>Uklanja sve parove ključ/ vrednost iz mape. </td>
 </tr>
 <tr>
@@ -23,10 +23,10 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 </tr>
 <tr>
 <td> boolean containsValue(Object vrednost)</td>
-<td>Vraca <b>true</b> ako mapa sadrži vrednost, u suprotnom vraca vrednost <b>false.</b> </td>
+<td>Vraća <b>true</b> ako mapa sadrži vrednost, u suprotnom vraća vrednost <b>false.</b> </td>
 </tr>
 <tr>
-<td>Set<Map.Entry<K,V>>entrySet()</td>
+<td>Set&lt;Map.Entry&lt;K,V&gt;&gt;entrySet()</td>
 <td>Vraća objekat tipa <b>Set</b> koji sadrži stavke mape. Taj skup se sastoji od objekata tipa <b>MapEntry.</b> To znači da ova metoda omogućava prikaz sadržaja mape u obliku skupa.</td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 <td>Vraća <b>true</b> ako je mapa prazna, u suprotnom vraća vrednost <b> false</b>. </td>
 </tr>
 <tr>
-<td>Set<K>keySet() </td>
+<td>Set&lt;K&gt;keySet() </td>
 <td> Vraća objekat tipa <b>Set</b> koji sadrži ključeve mape. Ova metoda omogućava prikaz ključeva mape u obliku skupa. </td>
 </tr>
 <tr>
@@ -54,7 +54,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 <td>Unosi novu stavku u mapu, pri čemu nova vrednost zamenjuje postojeću vrednost koja odgovara zadatom ključu. Ako zadati ključ ne postoji, metoda vraca <b>null.</b> Ako ključ postoji vraća prethodnu vrednost koja je s njim povezana.  </td>
 </tr>
 <tr>
-<td>void putAll(Map<?extends K,? extends V>mapa) </td>
+<td>void putAll(Map&lt;?extends K,? extends V&gt;mapa) </td>
 <td>Unosi u proizvoljnu mapu sve vrednosti iz mape. </td>
 </tr>
 <tr>
@@ -66,7 +66,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 <td>Vraća broj parova ključ/vrednost u mapi. </td>
 </tr>
 <tr>
-<td>Collection <V> values() </td>
+<td>Collection &lt;V&gt; values()</td>
 <td>Vraća kolekciju koja se sastoji od vrednosti iz mape. Ova metoda omogućava prikazivanje sadržaja mape u obliku kolekcije.  </td>
 </tr>
 </tbody>

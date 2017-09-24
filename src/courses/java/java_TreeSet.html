@@ -14,10 +14,10 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 <th>Kontruktor</th> 
 <th>Opis</th>
 </tr>
-<td width="180">
+<td width="450">
 <p>TreeSet()</p>
 </td>
-<td width="378">
+<td width="180">
 <p>Pravi prazno stablo.</p>
 </td>
 </tr>
@@ -48,7 +48,7 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 </tbody>
 </table>
 <br>Da bi objekat tipa <b>TreeSet</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 12, a zatim dodati elemente korišćenjem metode <b>add().</b> Dodavanje elementa u stablo je sporije od dodavanja u heš-tabelu, ali je još uvek mnogo brže od dodavanja na pravu poziciju u nizu ili povezanoj listi. Ako stablo sadrži <b>n</b> elemenata, potrebno je u proseku <b>log2 n</b> poređenja za pronalaženje ispravne pozicije novog elementa. Na primer, ako stablo već sadrži 1000 elemenata, dodavanje novog elementa zahteva oko 10 poređenja. 
-<br>Konstruktor <b>TreeSet(Comparator komparator)</b> pravi stablo uređeno na način koji određuje komparator. Komparator zapravo određuje šta tačno znači sortirani redosled. Ukoliko je potrebno elemente skupa urediti drugačije od „prirodnog poretka“ onda se konstruktoru skupa zadaje objekat koji implementira interfejs <b>Comparator.</b> Interfejs <b>Comparator</b> definiše način poredenja dva objekta.  <b>Comparator</b> je genericki interfejs koji definiše dve metode:</br>
+<br>Konstruktor <b>TreeSet(Comparator komparator)</b> pravi stablo uređeno na način koji određuje komparator. Komparator zapravo određuje šta tačno znači sortirani redosled. Ukoliko je potrebno elemente skupa urediti drugačije od „prirodnog poretka“ onda se konstruktoru skupa zadaje objekat koji implementira interfejs <b>Comparator.</b> Interfejs <b>Comparator</b> definiše način poredenja dva objekta.  <b>Comparator</b> je generički interfejs koji definiše dve metode:</br>
 <br><b>Tabela 13.</b> Metode interfejsa Comaprator</br>
 <table class = "tabela">
 <thead>
@@ -58,7 +58,7 @@ U ovoj deklaraciji <b>E</b> je tip objekata koji se skaldišti.
 </tr>
 <tr>
 <tbody>
-<td width="183">
+<td width="250">
 <p>int compare(T obj1, T Obj2)</p>
 </td>
 <td width="383">

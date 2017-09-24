@@ -1,6 +1,6 @@
 ﻿<h1>Klasa HashMap</h1>
-Ova klasa impelentira interfejs <b>Map</b>, a podatke čuva u heš-tabeli. Zbog toga je, kao i kod klase <b>HashSet</b>, vreme izvršavanja osnovih operacija, kao što su <b>get()</b> i <b>put()</b>, isto bez obzira na veličinu mape. Takođe, heš-mape ne garantuju odredeni redosled očitavanja elemenata iz mape, što znači da iterator neće čitati elemente redosledom kojim su elementi umetnuti u mapu.</br>
- <br>Klasa <b>HashMap</b> je generička klasa koji se deklariše na sledeci nacin:
+Ova klasa impelentira interfejs <b>Map</b>, a podatke čuva u heš-tabeli. Zbog toga je, kao i kod klase <b>HashSet</b>, vreme izvršavanja osnovih operacija, kao što su <b>get()</b> i <b>put()</b>, isto bez obzira na veličinu mape. Takođe, heš-mape ne garantuju određeni redosled očitavanja elemenata iz mape, što znači da iterator neće čitati elemente redosledom kojim su elementi umetnuti u mapu.</br>
+ <br>Klasa <b>HashMap</b> je generička klasa koja se deklariše na sledeći način:
 <xmp class = "primer_ta"> Class HashMap <K,V>  </xmp>
 gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sadržati. 
 <br>Konstruktori koje sadži klasa <b>HashMap</b> prikazani su u tabeli 17.  </br>
@@ -31,7 +31,7 @@ gde <b>K</b> označava tip klučeva, a <b>V </b> tip vrednosti koje će mapa sad
 </tr>
 </tbody>
 </table>
-<br>Da bi objekat tipa <b>HashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 17, a zatim dodati elemente koristeći metodu <b>put()</b>. Kao što je vec pomenuto, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. </br>
+<br>Da bi objekat tipa <b>HashMap</b> bio kreiran i popunjen, neophodno je prvo kreirati njegovu instancu pomoću konstruktora iz tabele 17, a zatim dodati elemente koristeći metodu <b>put()</b>. Kao što je već pomenuto, popunjenost mape je vrednost izmedu 0.0 i 1.0. Ukoliko koeficijent popunjenosti nije zadat konstruktorom, koristi se podrazumevana vrednost – 0,75. Podrazumevani kapacitet je  16. </br>
 <br><b>Primer 21:</b> Upotreba klase HashMap</br>
 <xmp class = "primer_ta"> 
 import java.util.*;
