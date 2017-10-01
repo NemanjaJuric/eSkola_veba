@@ -8,7 +8,7 @@
 
 .code-panel-editor{
     margin: 10px;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 150px);
     @media (max-width:768px){
         height: calc(100vh - 150px);
     }
@@ -19,7 +19,7 @@ input[type='file']{
 }
 
 .code-panel-preview{
-    height: calc(100vh - 180px);
+    height: calc(100vh - 150px);
     border: 1px solid $light-gray;
     margin: 10px;
 }
@@ -100,7 +100,6 @@ input[type='file']{
 }
 
 .converter-wrapper{
-    @media (max-width:768px){
-        margin-bottom: 80px !important;
-    }
+    height: calc(100vh - 130px);
+    overflow-y: auto;
 }

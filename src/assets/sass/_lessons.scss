@@ -67,9 +67,18 @@
         margin: 0 auto;
         width: 80%;
     }
+    .img-lg{
+        width: 80%;
+    }
+    .img-md{
+        width: 60%;
+    }
+    .img-sm{
+        width: 40%;
+    }
     @media(max-width: 768px){
         img{
-            width: 100%;
+            width: 100% !important;
         }
     }
 }

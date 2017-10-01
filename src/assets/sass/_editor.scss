@@ -1,12 +1,12 @@
 .CodeMirror{
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5em;
     height: 100%;
     font-family: $editor-font;
     background-color: #f7f7f7;
     border: none;
     @media(max-width: 768px){
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 

@@ -29,7 +29,6 @@
 				[ngClass]="{'bottom-navigation__button_hover':activeTool === button.func}">
 					<i class="material-icons md-36">{{button.icon}}</i>
 			</button>
-			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.func"></div>
 		</div>
 	</div>
 	<div *ngIf="page === 'ts-compiler'">
@@ -39,7 +38,6 @@
 				(click)="click('ts-compiler', button.func)">
 					<i class="material-icons md-36">{{button.icon}}</i>
 			</button>
-			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.tool"></div>
 		</div>
 	</div>
 	<div *ngIf="page === 'sass-compiler'">
@@ -49,7 +47,6 @@
 				(click)="click('sass-compiler', button.func)">
 					<i class="material-icons md-36">{{button.icon}}</i>
 			</button>
-			<div class="bottom-navigation__ripple" *ngIf="activeTool === button.tool"></div>
 		</div>
 	</div>
 	<div *ngIf="page === 'lessons-input'">

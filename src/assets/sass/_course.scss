@@ -1,5 +1,5 @@
 .lesson-text{
-    height: calc(100vh - 170px);
+    height: calc(100vh - 140px);
     overflow-y: auto;
     line-height: 1.5em;
     font-size: 18px;
@@ -23,7 +23,7 @@
 }
 
 .lesson-preview{
-    height: calc(50vh - 180px);
+    height: calc(50vh - 150px);
     margin-top: 10px !important;
     iframe{
         width: 100%;
