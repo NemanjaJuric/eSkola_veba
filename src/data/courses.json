@@ -1156,7 +1156,33 @@
         "lang": "application/x-httpd-php",
         "displayLang": "PHP",
         "detailsText": "U pripremi",
-        "lessons": null
+        "lessons": [
+            {
+                "name": "Uvod u PHP",
+                "url": "php_uvod",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            }
+        ]
+    },
+    {
+        "name": "MySQL",
+        "id": "sql",
+        "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
+        "type": "course",
+        "lang": "text/x-mysql",
+        "displayLang": "SQL",
+        "detailsText": "U pripremi",
+        "lessons": [
+            {
+                "name": "Uvod u SQL",
+                "url": "sql_uvod",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "TypeScript",
@@ -1381,7 +1407,7 @@
         "lessons": [
             {
                 "name": "Interfejsi u programskom jeziku Java",
-                "url": "java_uvod",
+                "url": "java_interfejsi",
                 "type": "lesson",
                 "parentCourse": "java",
                 "sublessons": null

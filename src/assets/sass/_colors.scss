@@ -3,7 +3,7 @@ $html-primary: #d32f2f;
 $css-primary: #1673b6;
 $js-primary: #e6b130;
 $jq-primary: #0097a7;
-$php-primary: #5C6BC0;
+$php-primary: #3F51B5;
 $bs-primary: #5a4181;
 $ang-primary: #c3002f;
 $ang4-primary: #c3002f;
@@ -14,6 +14,7 @@ $canvas-primary: #009688;
 $json-primary: #607d8b;
 $about-primary: #00a961;
 $java-primary: #BF360C;
+$sql-primary: #7986CB;
 $web-center-primary: #37474F;
 
 $material-dark-gray: #37474F;
@@ -131,6 +132,10 @@ $android-official: #a2c53d;
     background-color: $java-primary !important;
 }
 
+.bkg-sql{
+    background-color: $sql-primary !important;
+}
+
 .bkg-ts{
     background-color: $ts-primary !important;
 }
@@ -213,6 +218,10 @@ $android-official: #a2c53d;
 
 .hover-java:hover{
     color: $java-primary;
+}
+
+.hover-sql:hover{
+    color: $sql-primary;
 }
 
 .trans-md{

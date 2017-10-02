@@ -6,9 +6,6 @@
     width: 100%;
     text-align: center;
     z-index: 10;
-    // @media (max-width: 768px){
-    //     padding: 5px;
-    // }
 }
 
 .bottom-navigation__button{
@@ -32,7 +29,6 @@
 .bottom-navigation__button:hover{
     color: $light;
     padding: 0; 
-    border-bottom: 7px solid rgba($light, 0.5);
 }
 
 .bottom-navigation__button_hover{

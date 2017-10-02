@@ -116,11 +116,11 @@
     ],
     "lessonsInputButtons": [
         {
-            "name": "Kompajliraj",
-            "func": "runCompiler",
-            "icon": "settings",
-            "dataToggle": "",
-            "dataTarget": ""
+            "name": "Pomoć",
+            "func": "help",
+            "icon": "lightbulb_outline",
+            "dataToggle": "modal",
+            "dataTarget": "#helpModal"
         }
     ]
 }
