@@ -4,15 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
+import { CodeRunnerService} from '../../services/code-runner.service';
 import { Course } from '../../classes/course';
 import { Lesson } from '../../classes/lesson';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { LessonsInputComponent } from '../lessons-input/lessons-input.component';
-import '../../../libs/sass/sass.js';
 
 declare var $: any;
-declare var alasql: any;
-declare var Sass: any;
 
 @Component({
   selector: 'course',
@@ -23,6 +21,7 @@ export class CourseComponent implements OnInit {
   constructor(
     private schoolService: SchoolService,
     private routeService: RouteService,
+    private codeRunnerService: CodeRunnerService,
     private router: Router,
     private elmRef: ElementRef) {
   }
@@ -140,118 +139,8 @@ export class CourseComponent implements OnInit {
     } else if (fullscreen === true) {
       var preview = window.open("");
     }
-    if (this.course === 'php') {
-      this.previewPHPCode(preview, code);
-    } else if (this.course === 'ts') {
-      this.previewTSCode(preview);
-    } else if (this.course === 'sql') {
-      this.previewSQLCode(preview, code);
-    } else if (this.course === 'sass') {
-      this.previewSassCode(preview, code);
-    } else {
-      preview.window.document.write(code);
-    }
+    this.codeRunnerService.run(preview, this.code, this.course);
     preview.window.document.close();
-  }
-
-  previewPHPCode(preview, code) {
-    $.ajax({
-      url: "http://phpfiddle.org/api/run/code/json",
-      type: "post",
-      data: "code=" + encodeURIComponent(code),
-      cache: false,
-      dataType: "json",
-      success: function (data) {
-        if (data.result) {
-          preview.window.document.write(data.result);
-        }
-        if (data.error) {
-          preview.window.document.write(data.result);
-        }
-      }
-    })
-  }
-
-  previewTSCode(preview) {
-    this.setInputStorage();
-    this.compile();
-    var out = localStorage.getItem('output');
-    if (preview.window.document.body.hasChildNodes) {
-      var body = preview.window.document.getElementsByTagName('body')[0];
-      while (body.firstChild) {
-        body.removeChild(body.firstChild);
-      }
-    }
-    var script = preview.window.document.createElement("script");
-    script.textContent = out;
-    preview.window.document.body.appendChild(script);
-    this.clearStorage();
-  }
-
-  previewSQLCode(preview, code) {
-    let tables = alasql('SHOW TABLES FROM alasql');
-    tables.forEach(table => {
-      alasql('DROP TABLE ' + table.tableid);
-    });
-    let res = null;
-    let lines = code.split('\n');
-    for (let i = 0; i < lines.length; i++) {
-      if (i !== lines.length - 1) {
-        alasql(lines[i]);
-      } else {
-        res = alasql(lines[i])
-      }
-    }
-    preview.window.document.write(this.makeTable(res));
-  }
-
-  makeTable(data) {
-    let table = '<table style="border: 1px solid black; border-collapse: collapse; width: 100%;">';
-    let row = data[0];
-    let thead = '<thead>';
-    table += thead;
-    let tr = '<tr>';
-    table += tr;
-    for (let column in row) {
-      let th = '<th style="border: 1px solid black;">';
-      table += th;
-      let text = column;
-      table += text;
-      let thClose = '</th>';
-      table += thClose;
-    }
-    let trClose = '</tr>';
-    table += trClose;
-    let theadClose = '</thead>';
-    table += theadClose;
-    let tbody = '<tbody>';
-    table += tbody;
-    data.forEach(row => {
-      let tr = '<tr>';
-      table += tr;
-      for (let column in row) {
-        let td = '<td style="border: 1px solid black;">';
-        table += td;
-        let text = row[column];
-        table += text;
-        let tdClose = '</td>';
-        table += tdClose;
-      }
-      let trClose = '</tr>';
-      table += trClose;
-    });
-    let tbodyClose = '</tbody>';
-    table += tbodyClose;
-    let tableClose = '</table>';
-    table += tableClose;
-    return table;
-  }
-
-  previewSassCode(preview, code) {
-    let sass = new Sass();
-    sass.compile(code, function (result) {
-      preview.window.document.write(result.text.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp;'));
-    });
   }
 
   fullScreen: Boolean = false;
@@ -280,31 +169,8 @@ export class CourseComponent implements OnInit {
     }
   }
 
-  setInputStorage() {
-    if (this.code != null && this.code.length > 0) {
-      localStorage.setItem('input', this.code);
-    }
-  }
-
-  clearStorage() {
-    localStorage.removeItem('input');
-    localStorage.removeItem('output');
-  }
-
-  compile() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.id = 'javaScript';
-    var scriptString = `
-            tsc();
-        `;
-    script.innerHTML = scriptString;
-    document.body.appendChild(script);
-    setTimeout(() => document.body.removeChild(document.getElementById('javaScript')), 200);
-  }
-
   ngOnDestroy() {
-    this.clearStorage();
+    this.codeRunnerService.clearStorage();
   }
 
 

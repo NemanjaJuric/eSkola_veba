@@ -30,6 +30,7 @@ import { WebCenterComponent } from './components/web-center/web-center.component
 
 import { RouteService } from './services/route.service';
 import { SchoolService } from './services/school.service';
+import { CodeRunnerService } from './services/code-runner.service';
 import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 import { SanitizerPipe } from './pipes/sanitizer.pipe';
@@ -113,7 +114,12 @@ const routes = [
     CodemirrorModule,
     ColorPickerModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, RouteService, SchoolService, GoogleAnalyticsService],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }, 
+    RouteService, 
+    SchoolService, 
+    CodeRunnerService,
+    GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
