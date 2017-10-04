@@ -43,6 +43,7 @@
         "../node_modules/codemirror/mode/clike/clike.js",
         "../node_modules/codemirror/mode/markdown/markdown.js",
         "../node_modules/codemirror/mode/sql/sql.js",
+        "../node_modules/codemirror/mode/sass/sass.js",
         "../node_modules/codemirror/addon/edit/closetag.js",
         "../node_modules/codemirror/addon/fold/xml-fold.js",
         "../node_modules/codemirror/addon/selection/active-line.js",

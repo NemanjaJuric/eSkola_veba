@@ -14,6 +14,7 @@ import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/mode/sass/sass';
 import 'codemirror/mode/sql/sql';
+import 'codemirror/mode/sass/sass';
 import 'codemirror/addon/edit/closetag';
 import 'codemirror/addon/fold/xml-fold';
 import 'codemirror/addon/selection/active-line';
@@ -133,7 +134,7 @@ export class EditorComponent implements OnInit {
       this.lang = 'application/typescript';
       this.allowedExtensions = ['.ts', '.js'];
     } else if (page === 'sass-compiler') {
-      this.lang = 'application/x-httpd-php';
+      this.lang = 'text/x-sass';
       this.allowedExtensions = ['.sass', '.css'];
     } else {
       this.lang = 'application/x-httpd-php';

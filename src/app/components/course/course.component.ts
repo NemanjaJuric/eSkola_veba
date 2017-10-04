@@ -8,9 +8,11 @@ import { Course } from '../../classes/course';
 import { Lesson } from '../../classes/lesson';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { LessonsInputComponent } from '../lessons-input/lessons-input.component';
+import '../../../libs/sass/sass.js';
 
 declare var $: any;
 declare var alasql: any;
+declare var Sass: any;
 
 @Component({
   selector: 'course',
@@ -144,6 +146,8 @@ export class CourseComponent implements OnInit {
       this.previewTSCode(preview);
     } else if (this.course === 'sql') {
       this.previewSQLCode(preview, code);
+    } else if (this.course === 'sass') {
+      this.previewSassCode(preview, code);
     } else {
       preview.window.document.write(code);
     }
@@ -241,6 +245,13 @@ export class CourseComponent implements OnInit {
     let tableClose = '</table>';
     table += tableClose;
     return table;
+  }
+
+  previewSassCode(preview, code) {
+    let sass = new Sass();
+    sass.compile(code, function (result) {
+      preview.window.document.write(result.text.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp;'));
+    });
   }
 
   fullScreen: Boolean = false;

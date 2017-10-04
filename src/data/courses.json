@@ -1149,6 +1149,24 @@
         ]
     },
     {
+        "name": "Sass",
+        "id": "sass",
+        "logo": "<i class='fa fa-paint-brush' aria-hidden='true'></i>",
+        "type": "course",
+        "lang": "text/x-sass",
+        "displayLang": "SASS",
+        "detailsText": "U pripremi",
+        "lessons": [
+            {
+                "name": "Uvod u Sass",
+                "url": "sass_uvod",
+                "type": "lesson",
+                "parentCourse": "sass",
+                "sublessons": null
+            }
+        ]
+    },
+    {
         "name": "PHP",
         "id": "php",
         "logo": "P",
@@ -1381,7 +1399,7 @@
     {
         "name": "Veb",
         "id": "veb",
-        "logo": "W",
+        "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
         "type": "book",
         "lang": "",
         "displayLang": "",
