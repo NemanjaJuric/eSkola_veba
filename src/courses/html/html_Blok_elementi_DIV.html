@@ -1,0 +1,98 @@
+﻿<h1> <b> Blok elementi - &ltdiv&gt </b> </h1>
+
+<br>Karakteristično za blok elemente je da se njihov 
+sadržaj ispisuje uvek u novom redu. Mogu unutar sebe da sadrže druge blok i linijske elemente. 
+Blok elementi su &lth1&gt, &ltp&gt,...
+Jedan od blok elemenata je &ltdiv&gt koji nam pomaže da promenimo deo teksta onako kako nama odgovora.
+
+<ul> Tri osnovna svojstva &ltdiv&gt  etikete:
+  <li> style - definisanje CSS svojstva.
+  <li> class - određuje naziv klase za pristup elementu iz CSS-a ili JavaScripta.
+  <li> id - jedinstveni identifikator za pristup elementu iz CSS-a ili JavaScripta.
+ </ul>
+
+
+<xmp class = "primer_ta">
+
+
+Primer:
+
+<div>
+<p>Sadržaj...</p>
+</div>
+
+</xmp>
+
+<br> Jednostavno stavljanje sadržaja unutar &ltdiv&gt ne menja ništa.
+
+<br> Jedan od najčešćih razloga za korišćenje &ltdiv&gt elementa je promena stilova. 
+Možete primeniti stilove na sam element ili na bilo koji element u njemu ugrađen.
+
+<xmp class = "primer_ta">
+
+
+Primer:
+
+
+<div style="width:200px;background:#F9EECF;border:1px dotted black;text-align:center">
+<p>Sadržaj...</p>
+</div>
+
+</xmp>
+
+<br> U ovom primeru je korišćen style atribut, dok ćemo u sledećem koristiti i class.
+
+
+<xmp class = "primer_ta">
+
+
+Primer:
+
+<style>
+div.generic {width:200px;background:#D8FBD6;border:1px dotted black;padding:8px;}
+div.generic ul {color:green;}
+</style>
+<div class="generic">
+<p>Sadržaj...</p>
+<ul>
+<li>Stavka 1</li>
+<li>Stavka 2</li>
+<li>Stavka 3</li>
+</ul>
+</div>
+
+</xmp>
+
+<br>U sledećem primeru pokazaću kako međusobno ugraditi &ltdiv&gt elemente. 
+Svaki od njih može imati različite stilove.
+
+
+
+<xmp class = "primer_ta">
+
+
+Primer:
+
+<style>
+div.generic {width:200px;background:#D8FBD6;border:1px dotted black;padding:8px;}
+div.generic div {width:50%;background:#75CE6F;color:white;border:1px dotted green;text-align:left;padding:3px;}
+</style>
+<div class="generic">
+<p>Sadržaj...</p>
+<div>
+<p>Ugrađen DIV ...</p>
+</div>
+</div>
+
+
+
+</xmp>
+
+
+<div class = "zadatak">
+<b>Zadatak:</b>
+Promeniti zelenu boju ugrađenog &ltdiv&gt u boju po izboru. 
+</div>
+
+
+

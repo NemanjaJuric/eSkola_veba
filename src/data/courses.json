@@ -16,6 +16,69 @@
                 "sublessons": null
             },
             {
+                "name": "Struktura HTML dokumenta",
+                "url": "html_Struktura_HTML_dokumenta",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Title",
+                "url": "html_Title",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Paragraf",
+                "url": "html_Paragraf",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Font",
+                "url": "html_Font",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Novi red",
+                "url": "html_Novi_red",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Naslovi",
+                "url": "html_Headings",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Komentari",
+                "url": "html_Komentari_u_HTMLu",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Blok elementi",
+                "url": "html_Blok_elementi_DIV",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
+                "name": "Linijski elementi",
+                "url": "html_Linijski_element_Span",
+                "type": "lesson",
+                "parentCourse": "html",
+                "sublessons": null
+            },
+            {
                 "name": "Linkovi",
                 "url": "html_linkovi",
                 "type": "lesson",
