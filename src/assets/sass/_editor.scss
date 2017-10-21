@@ -1,5 +1,6 @@
 .CodeMirror{
     font-size: 16px;
+    font-weight: 600;
     line-height: 1.5em;
     height: 100%;
     font-family: $editor-font;
@@ -104,6 +105,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 .editor-buttons{
   button{
     color: rgba($light, 0.8);
+    padding-top: 2px;    
   }
   button:hover{
     color: $light;
@@ -111,7 +113,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 }
 
 .editor-header{
-  height: 40px;
+  height: 30px;
 }
 
 .editor-footer{
