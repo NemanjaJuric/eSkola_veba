@@ -2,7 +2,7 @@
     {
         "name": "HTML",
         "id": "html",
-        "logo": "<i class='fa fa-html5' aria-hidden='true'></i>",
+        "logo": "< >",
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
@@ -189,7 +189,7 @@
     {
         "name": "CSS",
         "id": "css",
-        "logo": "<i class='fa fa-css3' aria-hidden='true'></i>",
+        "logo": "{ }",
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
@@ -770,7 +770,7 @@
         ]
     },
     {
-        "name": "Bootstrap",
+        "name": "Bootstrap 3",
         "id": "bs",
         "logo": "B",
         "type": "course",
@@ -1040,6 +1040,16 @@
         ]
     },
     {
+        "name": "Bootstrap 4",
+        "id": "bs4",
+        "logo": "B",
+        "type": "course",
+        "lang": "text/html",
+        "displayLang": "HTML",
+        "detailsText": "U pripremi",
+        "lessons": []
+    },
+    {
         "name": "AngularJS",
         "id": "ang",
         "logo": "A",
@@ -1212,141 +1222,6 @@
         ]
     },
     {
-        "name": "Sass",
-        "id": "sass",
-        "logo": "<i class='fa fa-paint-brush' aria-hidden='true'></i>",
-        "type": "course",
-        "lang": "text/x-sass",
-        "displayLang": "SASS",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod u Sass",
-                "url": "sass_uvod",
-                "type": "lesson",
-                "parentCourse": "sass",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "PHP",
-        "id": "php",
-        "logo": "P",
-        "type": "course",
-        "lang": "application/x-httpd-php",
-        "displayLang": "PHP",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod u PHP",
-                "url": "php_uvod",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "MySQL",
-        "id": "sql",
-        "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
-        "type": "course",
-        "lang": "text/x-mysql",
-        "displayLang": "SQL",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod u SQL",
-                "url": "sql_uvod",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "TypeScript",
-        "id": "ts",
-        "logo": "TS",
-        "type": "course",
-        "lang": "application/typescript",
-        "displayLang": "TypeScript",
-        "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
-        "lessons": [
-            {
-                "name": "Uvod u TypeScript",
-                "url": "ts_uvod",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Promenljive u TypeScript-u",
-                "url": "ts_promenljive",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Tipovi podataka u TypeScript-u",
-                "url": "ts_tipovi_podataka",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Operatori u TypeScript-u",
-                "url": "ts_operatori",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Kontrola toka programa i rukovanje izuzecima",
-                "url": "ts_kontrola_toka_programa_i_rukovanje_izuzecima",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Petlje u jeziku TypeScript",
-                "url": "ts_petlje",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Funkcije u jeziku TypeScript",
-                "url": "ts_funkcije",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Imenski prostori i moduli",
-                "url": "ts_imenski_prostori_i_moduli",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Objektno orijentisano programiranje",
-                "url": "ts_objektno_orijentisano_programiranje",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejsi",
-                "url": "ts_interfejsi",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            }
-        ]
-    },
-    {
         "name": "Angular 4",
         "id": "ang4",
         "logo": "A",
@@ -1442,6 +1317,115 @@
         ]
     },
     {
+        "name": "Vue.js",
+        "id": "vue",
+        "logo": "V",
+        "type": "course",
+        "lang": "text/html",
+        "displayLang": "HTML",
+        "detailsText": "U pripremi",
+        "lessons": []
+    },
+    {
+        "name": "TypeScript",
+        "id": "ts",
+        "logo": "TS",
+        "type": "course",
+        "lang": "application/typescript",
+        "displayLang": "TypeScript",
+        "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
+        "lessons": [
+            {
+                "name": "Uvod u TypeScript",
+                "url": "ts_uvod",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Promenljive u TypeScript-u",
+                "url": "ts_promenljive",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Tipovi podataka u TypeScript-u",
+                "url": "ts_tipovi_podataka",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Operatori u TypeScript-u",
+                "url": "ts_operatori",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Kontrola toka programa i rukovanje izuzecima",
+                "url": "ts_kontrola_toka_programa_i_rukovanje_izuzecima",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Petlje u jeziku TypeScript",
+                "url": "ts_petlje",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Funkcije u jeziku TypeScript",
+                "url": "ts_funkcije",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Imenski prostori i moduli",
+                "url": "ts_imenski_prostori_i_moduli",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Objektno orijentisano programiranje",
+                "url": "ts_objektno_orijentisano_programiranje",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            },
+            {
+                "name": "Interfejsi",
+                "url": "ts_interfejsi",
+                "type": "lesson",
+                "parentCourse": "ts",
+                "sublessons": null
+            }
+        ]
+    },
+    {
+        "name": "Sass",
+        "id": "sass",
+        "logo": "S",
+        "type": "course",
+        "lang": "text/x-sass",
+        "displayLang": "SASS",
+        "detailsText": "U pripremi",
+        "lessons": [
+            {
+                "name": "Uvod u Sass",
+                "url": "sass_uvod",
+                "type": "lesson",
+                "parentCourse": "sass",
+                "sublessons": null
+            }
+        ]
+    },
+    {
         "name": "JSON",
         "id": "json",
         "logo": "J",
@@ -1460,22 +1444,32 @@
         ]
     },
     {
-        "name": "Veb",
-        "id": "veb",
-        "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
+        "name": "PHP",
+        "id": "php",
+        "logo": "< ? >",
+        "type": "course",
+        "lang": "application/x-httpd-php",
+        "displayLang": "PHP",
+        "detailsText": "U pripremi",
         "lessons": [
             {
-                "name": "Kako radi veb",
-                "url": "veb_uvod",
+                "name": "Uvod u PHP",
+                "url": "php_uvod",
                 "type": "lesson",
-                "parentCourse": "veb",
+                "parentCourse": "php",
                 "sublessons": null
             }
         ]
+    },
+    {
+        "name": "Laravel",
+        "id": "lara",
+        "logo": "L",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "U pripremi",
+        "lessons": []
     },
     {
         "name": "Java",
@@ -1676,5 +1670,71 @@
                 "sublessons": null
             }
         ]
+    },
+    {
+        "name": "Spring",
+        "id": "spring",
+        "logo": "S",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "U pripremi",
+        "lessons": []
+    },
+    {
+        "name": "Express js",
+        "id": "express",
+        "logo": "E",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "U pripremi",
+        "lessons": []
+    },
+    {
+        "name": "MySQL",
+        "id": "sql",
+        "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
+        "type": "course",
+        "lang": "text/x-mysql",
+        "displayLang": "SQL",
+        "detailsText": "U pripremi",
+        "lessons": [
+            {
+                "name": "Uvod u SQL",
+                "url": "sql_uvod",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            }
+        ]
+    },
+    {
+        "name": "Veb",
+        "id": "veb",
+        "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
+        "lessons": [
+            {
+                "name": "Kako radi veb",
+                "url": "veb_uvod",
+                "type": "lesson",
+                "parentCourse": "veb",
+                "sublessons": null
+            }
+        ]
+    },
+    {
+        "name": "Ustaljeni obrasci",
+        "id": "dp",
+        "logo": "<i class='fa fa-cogs' aria-hidden='true'></i>",
+        "type": "book",
+        "lang": "",
+        "displayLang": "",
+        "detailsText": "U pripremi",
+        "lessons": []
     }
 ]

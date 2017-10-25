@@ -77,11 +77,20 @@ export class AppComponent {
           case 'bs':
             this.browserColor = '#5a4181';
             break;
+          case 'bs4':
+            this.browserColor = '#5a4181';
+            break;
           case 'ang':
             this.browserColor = '#c3002f';
             break;
+          case 'vue':
+            this.browserColor = '#41b883';
+            break;
           case 'php':
             this.browserColor = '#5C6BC0';
+            break;
+          case 'lara':
+            this.browserColor = '#fb503b';
             break;
           case 'ts':
             this.browserColor = '#294e80';
@@ -92,8 +101,20 @@ export class AppComponent {
           case 'java':
             this.browserColor = '#BF360C';
             break;
+          case 'spring':
+            this.browserColor = '#6db33f';
+            break;
+          case 'express':
+            this.browserColor = '#1976D2';
+            break;
+          case 'sql':
+            this.browserColor = '#7986CB';
+            break;
           case 'veb':
             this.browserColor = '#47789e';
+            break;
+          case 'dp':
+            this.browserColor = '#546E7A';
             break;
         }
     }

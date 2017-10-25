@@ -4,12 +4,12 @@
 			<div class="card text-xs-center bkg-light">
 				<div class="card-block">
 					<blockquote class="card-blockquote">
-						<h1 class="h1 m-t-2 line-height-md">
+						<h2 class="h2 m-t-2 line-height-md">
 							Najpopularnije veb tehnologije na jednom mestu
-						</h1>
-						<h3 class="h3 m-a-2 line-height-md">
+						</h2>
+						<h4 class="h4 m-a-2 line-height-md">
 							eŠkola veba je elektronska platforma za interaktivno učenje veb programiranja kroz pažljivo osmišljenje kurseve
-						</h3>
+						</h4>
 					</blockquote>
 				</div>
 			</div>
@@ -23,10 +23,10 @@
 			<div class="card text-xs-center course-card" [ngClass]="'hover-' + course.id|lowercase">
 				<div class="card-block">
 					<blockquote class="card-blockquote">
-						<h1 class="display-2 font-weight-bold" [innerHTML]="course.logo"></h1>
+						<h1 class="display-3 font-weight-bold" [innerHTML]="course.logo"></h1>
 						<br>
 						<br>
-						<h2 class="h2">{{course.name}}</h2>
+						<h3 class="h3">{{course.name}}</h3>
 					</blockquote>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 			<div class="techonolgie-wrapper">
 				<div class="technologie-image" [ngStyle]="{'background-image': 'url(' + tech.url + ')' }"></div>
 				<div class="language m-a-2">
-					<h1 class="h1">{{tech.name}}</h1>
+					<h1 class="h2">{{tech.name}}</h1>
 				</div>
 			</div>
 		</div>

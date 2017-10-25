@@ -4,16 +4,21 @@ $css-primary: #1673b6;
 $js-primary: #e6b130;
 $jq-primary: #0097a7;
 $php-primary: #3F51B5;
+$lara-primary: #fb503b;
 $bs-primary: #5a4181;
+$bs4-primary: #5a4181;
 $ang-primary: #c3002f;
 $ang4-primary: #c3002f;
+$vue-primary: #41b883;
 $veb-primary: #47789e;
+$dp-primary: #546E7A;
 $ts-primary: #294e80;
 $sass-primary: #cf649a;
-$canvas-primary: #009688;
 $json-primary: #607d8b;
 $about-primary: #00a961;
 $java-primary: #BF360C;
+$spring-primary: #6db33f;
+$express-primary: #1976D2;
 $sql-primary: #7986CB;
 $web-center-primary: #37474F;
 
@@ -112,6 +117,10 @@ $android-official: #a2c53d;
     background-color: $bs-primary !important;
 }
 
+.bkg-bs4{
+    background-color: $bs4-primary !important;
+}
+
 .bkg-ang{
     background-color: $ang-primary !important;
 }
@@ -120,16 +129,36 @@ $android-official: #a2c53d;
     background-color: $ang4-primary !important;
 }
 
+.bkg-vue{
+    background-color: $vue-primary !important;
+}
+
 .bkg-php{
     background-color: $php-primary !important;
+}
+
+.bkg-lara{
+    background-color: $lara-primary !important;
 }
 
 .bkg-veb{
     background-color: $veb-primary !important;
 }
 
+.bkg-dp{
+    background-color: $dp-primary !important;
+}
+
 .bkg-java{
     background-color: $java-primary !important;
+}
+
+.bkg-spring{
+    background-color: $spring-primary !important;
+}
+
+.bkg-express{
+    background-color: $express-primary !important;
 }
 
 .bkg-sql{
@@ -142,10 +171,6 @@ $android-official: #a2c53d;
 
 .bkg-sass{
     background-color: $sass-primary !important;
-}
-
-.bkg-canvas{
-    background-color: $canvas-primary !important;
 }
 
 .bkg-json{
@@ -188,6 +213,10 @@ $android-official: #a2c53d;
     color: $bs-primary;
 }
 
+.hover-bs4:hover{
+    color: $bs4-primary;
+}
+
 .hover-ang:hover{
     color: $ang-primary;
 }
@@ -196,8 +225,16 @@ $android-official: #a2c53d;
     color: $ang4-primary;
 }
 
+.hover-vue:hover{
+    color: $vue-primary;
+}
+
 .hover-php:hover{
     color: $php-primary;
+}
+
+.hover-lara:hover{
+    color: $lara-primary;
 }
 
 .hover-ts:hover{
@@ -216,8 +253,16 @@ $android-official: #a2c53d;
     color: $veb-primary;
 }
 
+.hover-dp:hover{
+    color: $dp-primary;
+}
+
 .hover-java:hover{
     color: $java-primary;
+}
+
+.hover-express:hover{
+    color: $express-primary;
 }
 
 .hover-sql:hover{
