@@ -37,10 +37,10 @@ export class AppComponent {
     }
   }
 
-  private pageUrl: string;
-  private courseUrl: string;
-  private showMore: boolean;
-  private browserColor: string;
+  pageUrl: string;
+  courseUrl: string;
+  showMore: boolean;
+  browserColor: string;
 
   changeBrowserTheme(): void {
     var metaTheme = document.getElementsByName('theme-color')[0];

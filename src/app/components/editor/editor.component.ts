@@ -83,18 +83,18 @@ export class EditorComponent implements OnInit {
     };
   }
 
-  private editorCode: string;
-  private config: Object;
-  private wordCount: number;
-  private lineCount: number;
-  private pageUrl: string;
-  private courseUrl: string;
-  private course: Course;
-  private lesson: string;
-  private documentName: string;
-  private extension: string;
-  private fullScreen: boolean;
-  private showCodeMirror: boolean = false;
+  editorCode: string;
+  config: Object;
+  wordCount: number;
+  lineCount: number;
+  pageUrl: string;
+  courseUrl: string;
+  course: Course;
+  lesson: string;
+  documentName: string;
+  extension: string;
+  fullScreen: boolean;
+  showCodeMirror: boolean = false;
 
   @Output() codeChange = new EventEmitter();
 

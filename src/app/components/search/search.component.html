@@ -1,6 +1,6 @@
 <div class="search-wrapper">
     <div class="search-input-group" [@toggleSearch]="showSearchInd">
-        <input type="text" class="form-control search-input" placeholder="&#xF002; &nbsp; Pretraga" [(ngModel)]="searchString" (keyup)="initSearch()">
+        <input type="text" class="form-control search-input" placeholder="Pretraga" [(ngModel)]="searchString" (keyup)="initSearch()">
         <div class="search-result-wrapper" *ngIf="showSearchInd && (searchResult.length > 0 || searchHistory.length > 0)" [@toggleSearchResults]="showSearchInd">
             <div class="search-result-body">
                 <span class="searchHistory__heading" *ngIf="searchString.length > 0 && searchResult.length === 0"><i class="material-icons md-24 search-icon">error_outline</i> Nema rezultata</span>

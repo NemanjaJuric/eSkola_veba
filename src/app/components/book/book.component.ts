@@ -22,8 +22,8 @@ export class BookComponent implements OnInit {
     private elmRef: ElementRef
   ) { };
 
-  private previous: string;
-  private next: string;
+  previous: string;
+  next: string;
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -44,7 +44,7 @@ export class BookComponent implements OnInit {
     $(this.elmRef.nativeElement).find('.lesson-text').scrollTop(0);
   }
 
-  private lessonText: string;
+  lessonText: string;
 
   getLessonText(url: string): void {
     this.schoolService.getLessonText(url)

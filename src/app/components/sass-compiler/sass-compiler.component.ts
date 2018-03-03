@@ -11,8 +11,8 @@ export class SassCompilerComponent {
 
   constructor() { }
 
-    private sassCode: string;
-    private cssCode: string;
+    sassCode: string;
+    cssCode: string;
 
     click(event): void {
         if (event.page != 'sass-compiler') {

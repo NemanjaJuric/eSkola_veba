@@ -9,6 +9,7 @@ import { Course } from '../../classes/course';
 import { Lesson } from '../../classes/lesson';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { LessonsInputComponent } from '../lessons-input/lessons-input.component';
+import { Subscription } from 'rxjs/Rx';
 
 declare var $: any;
 
@@ -16,7 +17,7 @@ declare var $: any;
   selector: 'course',
   templateUrl: './course.component.html'
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent implements OnInit, OnDestroy {
 
   constructor(
     private schoolService: SchoolService,
@@ -27,12 +28,17 @@ export class CourseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.subscribe(event => {
+    this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd && this.routeService.course != null && this.routeService.lesson != null) {
         this.initComponent();
       }
     });
     this.initComponent();
+  }
+
+  ngOnDestroy() {
+    this.codeRunnerService.clearStorage();
+    this.routerSubscription.unsubscribe();
   }
 
   initComponent() {
@@ -42,16 +48,17 @@ export class CourseComponent implements OnInit {
     this.getLessonSiblings(this.routeService.lesson, this.routeService.course);
   }
 
-  private course: string;
-  private lesson: Lesson;
-  private previous: string;
-  private next: string;
-  private jsCode: string;
-  private allowedExtensions: Array<string> = [];
+  course: string;
+  lesson: Lesson;
+  previous: string;
+  next: string;
+  jsCode: string;
+  allowedExtensions: Array<string> = [];
+  routerSubscription: Subscription;
 
-  @Input() private lessonText;
-  @Input() private code: string;
-  @Input() private lessonHelp: string;
+  @Input() lessonText;
+  @Input() code: string;
+  @Input() lessonHelp: string;
 
   getExtension(course) {
     switch (course) {
@@ -168,10 +175,5 @@ export class CourseComponent implements OnInit {
         break;
     }
   }
-
-  ngOnDestroy() {
-    this.codeRunnerService.clearStorage();
-  }
-
 
 }

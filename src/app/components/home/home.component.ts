@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
         window.scrollTo(0, 0);
     }
 
-    private courses: Array<Course>;
-    private technologies: Array<Technologie>;
+    courses: Array<Course>;
+    technologies: Array<Technologie>;
 
     getCourses(): void {
         this.schoolService.getCourses().subscribe(data => this.courses = data);

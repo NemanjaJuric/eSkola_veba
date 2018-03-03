@@ -10,9 +10,9 @@ export class AboutComponent implements OnInit {
 
   constructor(private schoolService: SchoolService) { };
 
-  private persons: Array<Person>;
-  private personsMainPosition: Array<Person>;
-  private personsOtherPosition: Array<Person>;
+  persons: Array<Person>;
+  personsMainPosition: Array<Person>;
+  personsOtherPosition: Array<Person>;
 
   ngOnInit() {
     this.getProgrammers();

@@ -1,0 +1,90 @@
+<h1>Slanje parametara preko URL</h1>
+
+<h2>Dinamičke rute</h2>
+
+U prethodnoj lekciji objašnjeno je kreiranje statičkih (fiksnih) ruta.  Korišćenjem dinamičkih ruta, moguće je prosleđivanje parametara kroz rute.<br>
+Sledi prost primer prosleđivanja proizvoljnog broja kroz parametar <b>id</b>
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.get('/:id', function(req, res){
+   res.send('Ovo je id prosleđen kroz URL ' + req.params.id);
+});
+app.listen(2020);
+</xmp>
+Poziv testiramo iz pretražovača sa npr. <br>
+<span class = "primer_text">http://localhost:2020/1389</span> <br><br>
+
+Prikaz treba da bude kao na slici:<br>
+<br><img src="./slanje_parametara_preko_URL/URL_id.png" class="img-fluid"><br><br>
+
+<div class = "napomena">Parametar "1389" može se zameniti bilo sa čim drugim i odgovor će biti odgovarajući.</div>
+
+<h2>Složeniji oblici ruta</h2>
+Sledeći primeri pokazuju kako se može poslati vise parametara kroz URl:<br><br>
+
+Primer 1:
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.get('/studenti/:ime/:id', function(req, res) {
+   res.send('id studenta: ' + req.params.id + ', ime studenta: ' + req.params.ime);
+});
+app.listen(2020);
+</xmp>
+
+Poziv testiramo iz pretražovača sa npr. <br>
+<span class = "primer_text">http://localhost:2020/studenti/Srboljub/1389</span> <br><br>
+
+Prikaz treba da bude kao na slici:<br>
+<br><img src="./slanje_parametara_preko_URL/URL_id_name_1.png" class="img-fluid"><br><br>
+
+Primer 2:
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.get('/studenti', function(req, res) {
+   res.send('id studenta: ' + req.query.id + ', ime studenta: ' + req.query.ime);
+});
+app.listen(2020);
+</xmp>
+
+Poziv testiramo iz pretražovača sa npr. <br>
+<span class = "primer_text">http://localhost:2020/studenti?ime=Srboljub&id=1389</span> <br><br>
+
+Prikaz treba da bude kao na slici:<br>
+<br><img src="./slanje_parametara_preko_URL/URL_id_name_2.png" class="img-fluid"><br><br>
+
+<div class = "napomena">Simbolom <b>&</b> se pored parametara <b>id</b> i <b>ime</b> može dodati još proizvoljan broj parametara koji će se naći u <b>req.query</b> objektu.</div>
+
+<h2>Regularni izrazi</h2>
+Moguće je primeniti regularne izraze na URL kako bi se vršila selekcija zahteva koji će biti prihvaćeni. Na primer ako pretpostavimo da <b>id</b> mora da bude  trocifren broj, to se može definisati na sledeći način:
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.get('/student/:id([0-9]{3})', function(req, res) {
+   res.send('id studenta: ' + req.params.id);
+});
+app.listen(2020);
+</xmp>
+
+Poziv testiramo iz pretražovača sa npr. <br>
+<span class = "primer_text">http://localhost:2020/student/123</span> <br><br>
+
+Prikaz treba da bude kao na slici:<br>
+<br><img src="./slanje_parametara_preko_URL/URL_id_regexp.png" class="img-fluid"><br><br>
+
+<h2>Hvatanje nedefinisanih ruta</h2>
+Ako zahtev ne odgovara ni jednoj definisanoj ruti umesto odgovora <b>"Cannot GET /zahtevana-ruta"</b> može se definisati odgovor sa status kodom 400 (Not found - nije pronađeno) tako što se za rutu <b>' * '</b> definiše odgovor:
+
+<xmp class = "primer_ta">
+app.get('*', function(req, res) {
+   res.send('Neispravan URL');
+});
+</xmp>
+
+<div class = "napomena">Definisanje odgovora za rutu <b>' * '</b> mora biti poslednja definisana ruta u nizu.</div>

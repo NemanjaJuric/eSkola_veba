@@ -1,0 +1,50 @@
+<h1>Uvod u Vue</h1>
+
+Vue ili VueJS je radni okvir programskog jezika JavaScript koji služi za pravljenje  veb aplikacija, korisničkih interfejsa a može se koristiti i za izradu jednostranih aplikacija(eng- Single Page Applications).  Ono što je specifično za Vue je da se pomoću Vue radnog okvira može uticati isključivo na vizuelni deo veb aplikacije odnosno  vizuelni sloj(eng - view layer).  Drugim rečima, Vue se koristi kao deo funkcionalnosti koje obezbedjuje prednji kraj veba(eng- front end) i direktno utiče na ono što će korisnik da vidi na veb strani.<br><br>
+Verzija Vue radnog okvira koju ćemo koristiti je verzija Vue2. Kod koji se piše prilikom korišćenja radnog okvira Vue je Javascript kod. Usled te činjenice dolazimo do zaključka da je Vue veoma reaktivan. Kada pokrenemo veb aplikaciju napravljenu pomoću Vue radnog okvira, stiče se utisak da se ogroman broj veb strana smenjuje pred očima korisnika, dok zapravo JavaScript kontroliše delove veb strane koji se prikazuju(ovo je pojednostavljeno i koncept jednostranih aplikacija).<br> <br> 
+Zašto baš JavaScript? JavaScript se izvršava u pregledaču, nije potrebno uspostaviti komunikaciju sa serverom i nema čekanja na odgovor od strane servera ukoliko je potrebno da se neki deo veb aplikacije zameni(eng - rerendering). Ovo omogućava veb aplikaciji da bude veoma reaktivna na promene i da omogući odlično korisničko iskustvo(eng - UserExperience).
+<div class = "napomena">Preduslov za učenje radnog okvira Vue podrazumeva naprednije znanje jezika HTML, CSS i JavaScript. </div>
+<h2>Instalacija</h2>
+Postoji nekoliko načina kako možemo početi sa radom. Najjednostavniji način je da u postojeću html stranu unutar ubacimo etiketu:<br>
+<span class="primer_text">
+ &ltscript src="https://unpkg.com/vue@2.5.13/dist/vue.js"&gt&lt/script&gt</span>
+<br>
+Stranu https://unpkg.com/vue@2.5.13/dist/vue.js smo preuzeli sa zvaničnog sajta radnog okvira Vue. Na sajtu radnog okvira Vue, u delu "Installation" postoji deo "#CDN" klikom na "unpkg" direktno odlazimo na traženu veb stranu. <br>
+Link ka delu sajta je:<br>
+<a href="https://vuejs.org/v2/guide/installation.html">Vue instalacija</a>.
+<h2>Prva aplikacija</h2>
+Kao i pri učenju bilo kog drugog programskog jezika ili radnog okvira, prvi program koji najčešće pišemo je program koji ispisuje "Zdravo svete". To će i ovde biti slučaj.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>{{title}}</p>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Zdravo svete'
+                       }
+                        });
+    </script>
+</body>
+</html>
+</xmp>
+
+HTML kod je donekle prepoznatljiv. Kod koji je u vezi sa radnim okvirom Vue se nalazi unutar script etiketa unutar ekikete body. 
+<xmp class = "primer_ta">
+ new Vue({
+            el: '#app',
+            data: {
+                title: 'Zdravo svete'
+                       }
+                        });
+</xmp>
+Svaka Vue aplikacija započinje sa delom "new Vue". Na taj način mi kreiramo Vue instancu(objekat) koristeći funkciju(konstruktor) Vue kojoj prosleđujemo JavaScript objekat. U našem slučaju JavaScript objekat ima svojstva "el" i "data". Svojstvo "el" označava na koji deo html koda će ova Vue instanca da utiče. S obzirom da je vrednost el svojstva baš #app primećujemo da se to odnosi na div etiketu unutar html koda čiji je id upravo "app".Drugim rečima naša Vue instanca utiče na sadržaj unutar ovog diva.<br>
+Svojstvo data za vrednost uzima JavaScript objekat i unutar tog objekta se nalaze podaci koji će cirkulisati u okviru sadržaja naše div etikete. U ovom konkretnom slučaju, svojstvo "title" će direktno biti povezano sa konstrukcijom "{{title}}" unutar div etikete na koju utičemo.Neophodno je da se nazivi "title" poklapaju kao i da se unutar html koda "title" nadje unutar dvostrukih vitičastih zagrada.
+<div class = "zadatak">Isprobati kako promena vrednosti "title" svojstva unutar Vue instance utiče na promenu paragrafa unutar div etikete na koju naša Vue instanca utiče.Umesto postojećeg teksta ispisati neki drugi i videti kako to utiče na paragraf.</div>   

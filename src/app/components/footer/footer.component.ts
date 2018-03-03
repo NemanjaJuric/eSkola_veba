@@ -27,10 +27,10 @@ export class FooterComponent implements OnInit {
     this.lessonUrl = this.routeService.lesson;
   }
 
-  private url: string;
-  private pageUrl: string;
-  private courseUrl: string;
-  private lessonUrl: string;
-  private year = new Date().getFullYear();
+  url: string;
+  pageUrl: string;
+  courseUrl: string;
+  lessonUrl: string;
+  year = new Date().getFullYear();
 
 }

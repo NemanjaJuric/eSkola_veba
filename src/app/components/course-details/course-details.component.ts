@@ -41,12 +41,12 @@ export class CourseDetailsComponent implements OnInit {
     }
   }
 
-  private courseUrl: string;
-  private courses: Array<Course>;
-  private course: Course;
-  private numOfLessons: number;
-  private animatedNumber: number;
-  private detailsText: string;
+  courseUrl: string;
+  courses: Array<Course>;
+  course: Course;
+  numOfLessons: number;
+  animatedNumber: number;
+  detailsText: string;
 
   startCourse() {
     this.routeService.setRoute(this.course.type, this.courseUrl, this.course.lessons[0].url);

@@ -22,7 +22,7 @@ export class ModalComponent implements OnInit {
 
     @ViewChild('closeButton') closeButton: ElementRef;
 
-    private theme: string;
+    theme: string;
 
     setTheme(course) {
         if (course != null) {

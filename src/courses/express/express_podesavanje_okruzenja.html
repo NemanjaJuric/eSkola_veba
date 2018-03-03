@@ -1,0 +1,63 @@
+<h1>Podešavanje okruženja za rad<h1>
+
+<h2>Uvod</h2>
+
+<b>Express.js</b> je framework (programski okvir) tj. standardni serverski okvir za Node.js. Razvio ga je TJ Holowaychuk, a održavan je od strane Node.js fondacije. Za razumevanje istog, potrebno je osnovno poznavanje HTML, JavaScript kao i klijent-server arhitekture.
+
+<h2>Osnovno</h2>
+
+Potrebno je instalirati tekstualni editor (npr. <b>Notepad++</b> za <b>Windows</b>, <b>Vim</b> za <b>LINUX</b>) ili <b>WebStorm</b>, <b>Visual Studio</b> itd. za kucanje programskog koda.
+Takođe treba intalirati <b>Node</b> (za odgovarajuci operativni sistem) koji se može pronaći na:
+<br><span class = "primer_text"><a href = "https://nodejs.org/en/download/" target="_blank">https://nodejs.org/en/download/</a></span><br><br>
+
+Testirati zatim, da li je instalacija uspešno završena tj. kreirati <b>main.js</b> fajl sa sledećim kodom:
+<xmp class = "primer_ta">
+/*Test program u node.js*/
+console.log("Zdravo svete!");
+ </xmp>
+
+a zatim iz <b>Command Prompt (CMD)</b> pokrenuti program komandom:
+<br><span class = "primer_text">> node main.js</span>
+
+<div class = "napomena">
+Karakter '>' na početku označava samo da je u pitanju komandna linija, ne treba ga unositi tj. nije deo komande.
+</div>
+
+Ako je sve u redu, ispis u konzoli će biti:
+<br><img src="courses/express/podesavanje_okruzenja/zdravo_svete.png" class="img-fluid"><br>
+
+<h2>Instaliranje paketa</h2>
+
+Za instaliranje paketa u Node najčešće se koristi <b>Node Package Manager (npm)</b>, a postoje dva načina da se paket instalira:<br>
+1. Globalno  (za instaliranje razvojnih alata) komandom:
+<br><span class = "primer_text">> npm install -g &lt;ime-paketa&gt;</span><br>
+2. Lokalno (za instaliranje razvojnih okvira - framework i biblioteka) bez dela –g komandom:
+<br><span class = "primer_text">> npm install &lt;ime-paketa&gt;</span><br>
+gde se &lt;ime-paketa&gt; zameni sa imenom paketa koji instaliramo.
+
+<h2>Inicijalizacija projekta i instaliranje paketa express</h2>
+
+Iz CMD kreirati novi folder, nazvati ga <b>hello-world</b> i ući u isti:
+<br><span class = "primer_text">
+> mkdir hallo-world <br>
+> cd hallo-world
+</span><br><br>
+
+Zatim, kreirati <b>package.json</b> inicijalni fajl komandom:
+<br><span class = "primer_text">
+> npm init
+</span><br><br>
+
+Pritiskajući <b>enter</b> preskočiti ili popuniti odgovarajuće informacije, nakon čega je kreiran package.json fajl a prikaz u CMD treba da izgleda ovako:
+<br><img src="courses/express/podesavanje_okruzenja/npm_init_output.png" class="img-fluid"><br>
+
+Sada ostaje da se instalira <b>express</b> komandom:
+<br><span class = "primer_text">
+> npm install --save express
+</span><br><br>
+
+Express je instaliran u folderu node_modules.<br>
+<b>--save</b> (može zameniti sa <b>–S</b>) znači da će informacija o tome da projekat zavisi od paketa express biti dodata u package.json fajl. Kada je potrebno preneti projekat na neko drugo mesto, ne treba prenositi folder node_modules već samo na novom mestu sledećom komandom instalirati sve pakete od kojih projekat zavisi:
+<br><span class = "primer_text">
+> npm install
+</span><br><br>

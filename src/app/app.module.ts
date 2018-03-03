@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { CodemirrorModule } from 'ng2-codemirror';
-import { ColorPickerModule } from 'angular2-color-picker';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';

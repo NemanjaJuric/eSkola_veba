@@ -44,13 +44,13 @@ export class NavigationComponent implements OnInit {
         }
     }
 
-    private url: string;
-    private pageUrl: string;
-    private courseUrl: string;
-    private lessonUrl: string;
-    private navigationBackground: String;
-    private navigationShadow: boolean;
-    private menuIcon: boolean;
+    url: string;
+    pageUrl: string;
+    courseUrl: string;
+    lessonUrl: string;
+    navigationBackground: String;
+    navigationShadow: boolean;
+    menuIcon: boolean;
 
     @ViewChild(MenuComponent) menu: MenuComponent;
 

@@ -1,0 +1,105 @@
+<h1>Pug</h1>
+
+<h2>Šta je pug?</h2>
+
+Pug je šablon za Express koji treba da pojednostavi HTML kod, tj. daleko čitljiviji pug kod se renderuje u HTML kod i takav se šalje klijentu. <br><br>
+
+Pug se instalira komandom:<br>
+<span class = "primer_text">npm install --save pug</span><br>
+i nije potrebno posebno ga učitati sa require, već samo treba postaviti pug kao šablon koji će se koristiti, kao i folder gde će se nalaziti <b>.pug</b> fajlovi. U ovom slučaju taj folder je zadat na primer relativnom putanjom "./views" u odnosu na <b>index.js</b> fajl gde je i neophodno dodati kod:
+
+<xmp class = "primer_ta">
+app.set('view engine', 'pug');
+app.set('views','./views');
+</xmp>
+
+U folderu views kreirati fajl .pug fajl sa imenom na primer <b>moj_prvi_view.pug</b> i kodom:
+<xmp class = "primer_ta">
+doctype html
+html
+   head
+      title = "Moj prvi pug"
+   body
+      p.myclass#myid Zdravo svete!
+</xmp>
+
+Kada se get pozivom sa rutom npr. "/moj_prvi_template"
+<xmp class = "primer_ta">
+app.get('/moj_prvi_template', function(req, res){
+   res.render('moj_prvi_view');
+});
+</xmp>
+renderuje sadržaj moj_prvi_view.pug fajla, klijentu će biti zapravo poslat HTML:
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Moj prvi pug</title>
+   </head>
+   
+   <body>
+      <p class = "myclass" id = "myid">Zdravo Svete!</p>
+   </body>
+</html>
+</xmp>
+
+<h2>Prosleđivanje parametara</h2>
+
+Moguće je dinamičko korišćenje šablona tj. pri renderovanju .pug fajlova, za prikaz proslediti neke proizvoljne vrednosti na sldeći način:
+
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.set('view engine', 'pug');
+app.set('views','./views');
+
+app.get('/dinamicki_template', function(req, res){
+   res.render('dinamicki_view', {
+      name: "eŠkola veba", 
+      url:"http://edusoft.matf.bg.ac.rs/eskola_veba"
+   });
+});
+
+app.listen(2020);
+</xmp>
+
+Ovde se za get poziv sa rutom "/dinamicki_template" klijentu vraća dinamicki_view.pug fajl kojem se pri renderovanju prosleđuju vrednosti parametara <b>name</b> i <b>url</b>. dinamicki_view.pug se nalazi u folderu views i izgleda na primer ovako:
+
+<xmp class = "primer_ta">
+html
+   head
+      title=name
+   body
+      h1=name
+      a(href = url) URL
+</xmp>
+
+Testiramo iz pretražovača sa:<br>
+<span class = "primer_text">http://localhost:2020/dinamicki_template</span> <br><br>
+
+Prikaz treba da bude kao na slici:<br>
+<br><img src="./pug/view_with_params.png" class="img-fluid"><br><br>
+
+<h2>Ispitivanje uslova</h2>
+
+U zavisnosti od određenih uslova, renderovani .pug fajl moze da nosi različit prikaz. To se reguliše if/else ispitivanjem na primer:
+
+<xmp class = "primer_ta">
+html
+   head
+      title Primer ispitivanja uslova
+   body
+      if(student)
+         h1 Zdravo, #{student.ime}
+      else
+         a(href = "/prijavljivanje") Uloguj se!
+</xmp>
+
+U slučaju da je klijent (student) uspošno ulogovn tj. objekat student je različit od null, biće prikazana odgovarajuća poruka, a u suprotnom biće prikazan link ka ruti "/prijavljivanje" kojom se klijent šalje na stranu gde može da se uloguje.<br>
+objekat student se prosleđuje kao drugi argument funkcije render:
+<xmp class = "primer_ta">
+res.render('/dinamicki_view',{
+   student: {ime: "Milan", starost: "20"}
+});
+</xmp>

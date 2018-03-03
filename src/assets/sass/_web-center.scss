@@ -62,7 +62,8 @@ input[type='file']{
     color: $material-light-gray !important;
     position: relative !important;
     top: -150px !important;
-    margin: auto !important;
+    left: 0 !important;
+    margin: 0 auto !important;
     z-index: 5 !important;
     input{
         border: 2px solid $material-light-gray !important;

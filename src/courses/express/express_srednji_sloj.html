@@ -1,0 +1,72 @@
+<h1>Srednji sloj</h1>
+
+<h2>Funkcije srednjeg sloja (Middleware functions)</h2>
+
+Funkcije srednjeg sloja imaju pristup objektima <b>req</b> i <b>res</b> kao i sledećoj funkciji u nizu <b>next</b>. Ove funkcije se koriste da izvreše izmene na req i res objektima, kao na primer parsiranje tela zahteva (request body), dodavanje zaglavlja odgovora (response headers), logovanje bitnih informacija itd.<br><br>
+
+Sledi primer proste funkcije srednjeg sloja koja se poziva za svaki zahtev sa rutom "/test" koji pristigne serveru i u konzoli ispisuje poruku "Pirstigao je novi zahtev", a zatim ako je u pitanju get zahtev, klijentu će biti poslat odgovor "Uspešno obrađen zahtev".
+
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+app.use('/test', function(req, res, next){
+   console.log("Pirstigao je novi zahtev");
+
+   //Poziv ove funkcije govori da je neophodna dalja obrada zahteva
+   //u sledećoj funkciji u nizu
+   next();
+});
+
+app.get('/test', function(req, res){
+   res.send('Uspešno obrađen zahtev');
+});
+app.listen(2020);
+</xmp>
+
+<h2>Redosled funkcija</h2>
+
+Redosled u kome su funkcije upisane u fajl je redosled po kome će iste biti izvršene, pa u vezi sa tim,  odgovarajuće rute moraju biti konzistentne.<br><br>
+
+Primer:
+<xmp class = "primer_ta">
+var express = require('express');
+var app = express();
+
+//Ova funkcija će biti pozvana za svaki zahtev
+//bez obzira koji je tip zahteva i koja ruta je u pitanju
+app.use(function(req, res, next){
+    console.log("Početak");
+    next();
+});
+
+//Odgovor koji će biti poslat klijentu
+//ako je u pitanju get zahtev sa '/test' rutom
+app.get('/test', function(req, res, next){
+    res.send("Odgovor na get zahtev");
+    next();
+});
+
+//Odgovor koji će biti poslat klijentu
+//ako je u pitanju post zahtev sa '/test' rutom
+app.post('/test', function(req, res, next){
+    res.send("Odgovor na post zahtev");
+    next();
+});
+
+//Funkcija koja se poziva na kraju u svakom slučaju
+app.use('/', function(req, res){
+    console.log('Kraj');
+});
+
+app.listen(2020);
+</xmp>
+
+<div class = "napomena">Osim funkcija srednjeg sloja,
+ mogu se koristiti i vec postojeći moduli kao na primer:<br>
+body-parser <br>
+cookie-parser <br>
+express-session <br>
+multer <br>
+O nekima će biti više reči u nekoj od narednih lekcija.
+</div>

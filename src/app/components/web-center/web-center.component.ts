@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, 
 import { FormsModule } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
 import { Http } from '@angular/http';
-import { ColorPickerModule } from 'angular2-color-picker';
-import { ColorPickerService } from 'angular2-color-picker';
 import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
 import { EditorComponent } from '../../components/editor/editor.component';
@@ -32,10 +30,10 @@ export class WebCenterComponent implements OnInit {
         }
     }
 
-    private func: string = 'editor';
-    private color: string = "#607d8b";
-    private code: string;
-    private allowedExtensions: Array<string>;
+    func: string = 'editor';
+    color: string = "#607d8b";
+    code: string;
+    allowedExtensions: Array<string>;
 
     click(event) {
         if (event.page != 'web-center') {
@@ -70,7 +68,7 @@ export class WebCenterComponent implements OnInit {
 
     }
 
-    private inputText = "";
+    inputText = "";
 
     latToCyr() {
         var text: string = this.inputText;
@@ -316,15 +314,15 @@ export class WebCenterComponent implements OnInit {
         return null;
     }
 
-    private val1 = '16';
-    private val2 = '16';
-    private val3 = '1';
-    private val4;
-    private val5;
-    private val6;
-    private val7;
-    private val8;
-    private val9;
+    val1 = '16';
+    val2 = '16';
+    val3 = '1';
+    val4;
+    val5;
+    val6;
+    val7;
+    val8;
+    val9;
 
     convert(button) {
         switch (button) {

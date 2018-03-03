@@ -37,11 +37,11 @@ export class SearchComponent implements OnInit {
         private routeService: RouteService,
         private el: ElementRef) { }
 
-    private searchString: string;
-    private courses: Array<Course>;
-    private searchResult = [];
-    private showSearchInd: boolean;
-    private searchHistory = [];
+    searchString: string;
+    courses: Array<Course>;
+    searchResult = [];
+    showSearchInd: boolean;
+    searchHistory = [];
 
     ngOnInit() {
         this.schoolService.getCourses().subscribe(data => this.courses = data);

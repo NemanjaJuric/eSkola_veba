@@ -30,14 +30,14 @@ export class BottomNavigationComponent implements OnInit {
     this.schoolService.getLessonsInputButtons().subscribe(data => this.lessonsInputButtons = data);
   }
 
-  private courseButtons: Array<Button>;
-  private bookButtons: Array<Button>;
-  private webCenterButtons: Array<Button>;
-  private tsCompilerButtons: Array<Button>;
-  private sassCompilerButtons: Array<Button>;
-  private lessonsInputButtons: Array<Button>;
-  private page: string;
-  private activeTool: string = 'editor';
+  courseButtons: Array<Button>;
+  bookButtons: Array<Button>;
+  webCenterButtons: Array<Button>;
+  tsCompilerButtons: Array<Button>;
+  sassCompilerButtons: Array<Button>;
+  lessonsInputButtons: Array<Button>;
+  page: string;
+  activeTool: string = 'editor';
 
   @Output() clickEmit: EventEmitter<any> = new EventEmitter();
 

@@ -22,9 +22,9 @@ export class TsCompilerComponent implements OnInit, OnDestroy {
         this.clearStorage();
     }
 
-    private tsCode: string;
-    private jsCode: string;
-    private allowedExtensions: Array<string> = ['.ts', '.js'];
+    tsCode: string;
+    jsCode: string;
+    allowedExtensions: Array<string> = ['.ts', '.js'];
 
     getOutputStorage() {
         if (localStorage.getItem('output') != null) {

@@ -56,8 +56,8 @@
         "../node_modules/codemirror/addon/edit/closebrackets.js",
         "../node_modules/codemirror/addon/edit/matchtags.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

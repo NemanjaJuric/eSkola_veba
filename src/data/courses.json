@@ -1324,7 +1324,15 @@
         "lang": "text/html",
         "displayLang": "HTML",
         "detailsText": "U pripremi",
-        "lessons": []
+        "lessons": [
+            {
+                "name": "Uvod u Vue.js",
+                "url": "vue_uvod",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "TypeScript",
@@ -1689,7 +1697,15 @@
         "lang": "",
         "displayLang": "",
         "detailsText": "U pripremi",
-        "lessons": []
+        "lessons": [
+            {
+                "name": "Podesavanje okruzenja",
+                "url": "express_podesavanje_okruzenja",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "MySQL",

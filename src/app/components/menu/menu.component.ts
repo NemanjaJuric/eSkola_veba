@@ -26,9 +26,9 @@ export class MenuComponent implements OnInit {
         this.getCourses();
     }
 
-    private courses: Array<Course>;
-    private year: number = new Date().getFullYear();
-    public showMenu: boolean;
+    courses: Array<Course>;
+    year: number = new Date().getFullYear();
+    showMenu: boolean;
 
     getCourses(): void {
         this.schoolService.getCourses().subscribe(data => this.courses = data);

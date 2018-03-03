@@ -43,17 +43,17 @@ export class HeaderComponent implements OnInit {
         this.subscription = timer.subscribe(t => { this.headerState = 'active'; });
     }
 
-    private url: string;
-    private pageUrl: string;
-    private courseUrl: string;
-    private lessonUrl: string;
-    private courses: Array<Course>;
-    private course: Course;
-    private heading: string;
-    private logo: string;
-    private headerState: string = "inactive";
-    private subscription: any;
-    private location = 'about'
+    url: string;
+    pageUrl: string;
+    courseUrl: string;
+    lessonUrl: string;
+    courses: Array<Course>;
+    course: Course;
+    heading: string;
+    logo: string;
+    headerState: string = "inactive";
+    subscription: any;
+    location = 'about'
 
     getCourseData(): void {
         this.schoolService.getCourses().subscribe(data => {
