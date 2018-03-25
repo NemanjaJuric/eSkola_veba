@@ -1,0 +1,82 @@
+<h1>Objekti i klase</h1>
+
+<p style="text-align: justify;">Članovi klase mogu biti statički, oni koji u definiciji sadrže modifikator <b>static</b>,
+ili nestatički (objektni).
+Već je pomenuto da klasa opisuje objekte sa zajedničkim osobinama i da svaki objekat neke klase
+ima istu strukturu, koja se sastoji od promenljivih (atributa) i metoda definisanih unutar njegove
+klase. Preciznije je reći da nestatički deo neke klase opisuje objekte koji pripadaju toj klasi. To
+znači da će promenljive koja ne sadrže <b>static</b> dobiti svoje aktuelne vrednosti pri kreiranju
+konkretnog objekta. Pri tom različiti objekti mogu imati različite vrednosti za tu promenljivu. Za
+statička polja aktuelne vrednosti se nalaze u samoj klasi i iste su za sve objekte.
+Stoga se statičke promenljive i metode mogu koristiti nezavisno od objekta klase u kojoj su
+definisane. Pristupa im se tako što se navede ime klase, zatim operator tačka i ime promenljive ili
+metode.<br>
+Što se tiče metoda, najpoznatiji primer statičke metode je metoda <b>main()</b>. Ona mora biti <b>static</b>
+jer se poziva pre kreiranja bilo kakvog objekta.
+Međutim, važno napomenuti da statičke metode imaju neka ograničenja i to:
+</p>
+<ul>
+  <li>mogu direktno pozivati samo druge statičke metode,</li>
+  <li>mogu direktno pristupati samo statičkim podacima,</li>
+  <li>u njima se ne mogu koristiti ključne reči <b>this</b> i <b>super</b>.</li>
+</ul>
+Primer 21 prikazuje klasu koja sadrži statičku metodu, statičke promenljive i statički blok za
+inicijalizaciju.<br>
+
+<b>Primer 21.</b> – Statičke promenljive i statički blok
+<xmp class = "primer_ta" title="">
+class Test {
+    //statičke promenljive
+    static int x = 5;
+    static int y;
+    //metoda za ispis vrednosti promenljivih
+    static void stampaj() {
+      System.out.println("x je " + x);
+      System.out.println("y je " + y);
+    }
+    //statički blok
+    static {
+      System.out.println("Statički blok za inicijalizaciju.");
+      y = x * 5;
+    }
+    public static void main(String[] args) {
+      stampaj();
+    }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+  Statički blok za inicijalizaciju.
+  x je 5
+  y je 25
+ </xmp>
+<p style="text-align: justify;">Dakle, pošto se učita klasa Test, izvršavaju se svi njeni elementi označeni kao <b>static</b>. Najpre se
+promenljivoj x dodeli vrednost 5, zatim se izvršava blok označen sa static koji ispisuje poruku i
+dodeljuje promenljivoj y vrednost x*5. Potom se poziva metoda <b>main()</b> koja poziva metodu
+stampaj(). <br>
+U primeru 22 biće prikazan slučaj kada se statičkoj metodi i promenljivoj pristupa preko imena
+klase u kojoj su definisani.</p>
+<b>Primer 22.</b> – Statičke promenljive i statički blok
+<xmp class = "primer_ta" title="">
+class Stampanje {
+  //statičke promenljive
+  static int x = 5;
+  static int y = 30;
+  //statička metoda
+  static void pozovi() {
+    System.out.println("x je " + x);
+  }
+}
+class Test {
+  public static void main(String[] args) {
+    //pozivanje statičke metode
+    Stampanje.pozovi();
+    System.out.println("y je " + Stampanje.y);
+  }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+  x je 5
+  y je 30
+ </xmp>

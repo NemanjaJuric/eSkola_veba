@@ -1,0 +1,178 @@
+
+<h1>Literali</h1>
+<p style="text-align: justify;">Literali (engl. <i>literals</i>) se koriste da izraze konkretne vrednosti bilo kog tipa unutar programa.
+Literal može biti konstantna vrednost primitivnog tipa ili String objekta.
+</p>
+<h2>Celobrojni literali</h2>
+<p style="text-align: justify;">Celi brojevi su verovatno najčešći tip podataka u programiranju. Svaka celobrojna vrednost
+predstavlja celobrojni literal. Za celobrojne literale važi sledeće:
+
+<ul>
+  <li>celobrojne vrednosti mogu biti izražene dekadnim, oktalnim ili heksadekadnim
+literalima,</li>
+  <li>dekadni - nikada ne počinju cifrom 0, </li>
+  <li>oktalni - počinju cifrom 0</li>
+  <li>heksadekadni - počinju znacima 0x ili 0X, </li>
+  <li>literali tipa long imaju sufiks L ili l.</li>
+</ul>
+<br>
+Celobrojni literali su tipa int ili long, u zavisnosti od njihove vrednosti. Tako će broj 6 biti tipa int. Ukoliko iz nekog razloga želimo da on ipak bude sačuvan kao long tip, koristimo sledeći zapis 6L (ili 6l).
+<br>
+Primeri celobrojnih Literala:
+<xmp class = "primer_ta" title="">
+  int a = 75; // u dekadnom sistemu tipa int
+  int b = 0113; // u oktalnom sistemu tipa int
+  int c = 0x4b; // u heksadekadnom tipa int
+  long d = 3242442422662l; // u dekadnom sistemu tipa long
+  long e = 03535353L; //u oktalnom sistemu tipa long
+</xmp>
+</p>
+<h2>Literali za brojeve u pokretnom zarezu</h2>
+<p style="text-align: justify;">Brojevi u pokretnom zarezu (realni brojevi) predstavljaju vrednosti iz dekadnog sistema koje
+sadrže i decimalni deo. Oni se mogu prikazivati u pozicionom ili naučnom formatu. Pozicioni
+format se sastoji od celobrojnog dela, decimalne tačke i decimalnog dela. Naučni format koristi
+broj u pokretnom zarezu, napisan u poyicionom formatu, kojem sledi sufiks koji označava stepen
+broja 10 s kojim treba pomnožiti navedeni broj. Stepen broja 10 označava se slovom e ili E, iza
+kojeg sledi pozitivan ili negativan ceo broj.
+<br>
+Za ove literale važi sledeće:
+<ul>
+  <li>predstavljaju brojeve sa decimalama, stoga oni uključuju i decimalnu tačku ili e karakter,</li>
+  <li>literali za brojeve u pokretnom zarezu su podrazumevano tipa double, može stajati sufiks
+  D ili d,</li>
+  <li>literali za brojeve u pokretnom zarezu tipa flaot sadrži sufiks F ili f .</li>
+</ul>
+<br>
+Svaki realni literal je tipa double, bez obzira na njegovu preciznost. Ukoliko želimo da bude tipa float, neophodno je na kraj broja dopisati slovo F ili f.
+<br>
+Primeri literala za brojeve u pokretnom zarezu:
+<xmp class = "primer_ta" title="">
+  double num1 = 3.01e25; // 3.01 * 10^25
+  double num2 = 7.69852;
+  float num3 = 18e5f;
+</xmp>
+</p>
+<h2>Logički literali</h2>
+<p style="text-align: justify;">Logički literali su jednostavni. Postoje samo dve vrednosti koje podatak tipa boolean može imati: true i false. Vrednosti true i false ne pretvaraju se ni u kakav numerički ekvivalent. Literal true nije jedinica, niti je literal false jednak null.
+  U jeziku Java se logički literali mogu dodeliti samo promenljivama tipa Boolean ili koristiti u izrazima s logičkim operatorima.
+</p>
+<h2>Znakovni i String literali</h2>
+<p style="text-align: justify;">Znakovi u programskom jeziku Java mogu biti karakter ili neki od takoyvanih, nevidljivih karaktera. To su 16-bitne vrednosti koje se mogu pretvariti u cele brojeve i obrađivati pomoću celobrojnih operatora, na primer operatorima za sabiranje i oduzimanje.
+ Mogu biti predstavljeni karakterom u jednostrukim navodnicima (‘a’, ‘$’, ‘5’) ili tzv. escape sekvencama.
+Za ove literale važi sledeće:
+<ul>
+  <li>znakovni literali predstavljaju konstante od jednog karaktera, između jednostrukih
+navodnika,</li>
+  <li>String literali predstavljaju više karaktera, između dvostrukih navodnika,</li>
+  <li>bilo koji karakter može se izraziti njegovim numeričkim ASCII kodom stavljajući karakter '\', a zatim ASCII kôd zapisan u oktalnom ili heksadekadnom zapisu.</li>
+</ul>
+
+Primeri znakovnih i String literala:
+<xmp class = "primer_ta" title="">
+  char a = '\u0041'; // heksadekadni k&ocirc;d karaktera iz UNICODE skupa (slova A)
+  char b = 'a';
+  String s = "zdravo svete";
+</xmp>
+
+Kontrolnim znakovima se u programima predstavljaju sa nekoliko znakova koji se nalaze unutar apostrofa.
+U Tabeli 3. prikazani su kontrolni (specijalni) znakovni tipovi sa svojim nazivima na engleskom i opisom.
+</p>
+<p style="align-text: center;"><b>Tabela 3. </b> &ndash;&nbsp; Specijalni znakovni literali</p>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Literali</th>
+  <th>Opis</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>'\n'</p>
+</td>
+<td width="358">
+<p>novi red (newline)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\r'</p>
+</td>
+<td width="358">
+<p>povratak na početak reda (carriage return)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\f'</p>
+</td>
+<td width="358">
+<p>sledeća strana (formfeed)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\b'</p>
+</td>
+<td width="358">
+<p>brisanje znaka levo od kursora (backspace)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\s'</p>
+</td>
+<td width="358">
+<p>razmak (space)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\t'</p>
+</td>
+<td width="358">
+<p>tabulator (tab)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\''</p>
+</td>
+<td width="358">
+<p>jednostruki navodnik</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\"'</p>
+</td>
+<td width="358">
+<p>dvostruki navodnik</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\\'</p>
+</td>
+<td width="358">
+<p>kosa crta nalevo (backslash)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\ddd'</p>
+</td>
+<td width="358">
+<p>oktalni k&ocirc;d karaktera</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>'\uxxx'</p>
+</td>
+<td width="358">
+<p>heksadekadni k&ocirc;d karaktera iz UNICODE skupa</p>
+</td>
+</tr>
+</tbody>
+</table>

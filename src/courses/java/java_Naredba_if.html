@@ -1,0 +1,118 @@
+<h1>Naredba <b>if</b></h1>
+
+<p style="text-align: justify;">Java podržava dve uslovne naredbe: <b>if</b> i <b>switch</b>. Pomoću njih se upravlja izvršavanjem programa
+na osnovu uslova koji su poznati samo u vreme izvršavanja.</p>
+
+
+
+<p style="text-align: justify;">Naredba <b>if</b> je naredba za uslovno grananje, koja omogućava da se program usmeri na jednu od dve
+različite putanje. Opšti oblik naredbe <b>if</b> izgleda ovako:</p>
+
+  <div class = "napomena">
+  if (uslov) naredba1;<br>
+  else naredba2;
+  </div>
+
+<p style="text-align: justify;">Unutar naredbe <b>if</b>, svaka naredba može da bude prosta naredba ili složen iskaz unutar vitičastih
+zagrada. Uslov je svaki izraz koji vraća vrednost tipa <b>boolean</b>. Odredba <b>else</b> nije obavezna.
+Naredba <b>if</b> radi na sledeći način: testira dati uslov, koliko je on tačan (<b>true</b>) izvršava se naredba1,
+ukoliko je uslov netačan (<b>false</b>) izvršava se naredba2 (ukoliko postoji odredba else).
+U primeru 4. proverava se da li je vrednost promenljive a manja od 15 i ispisuje odgovarajuću
+poruku ukoliko je uslov ispunjen.</p>
+
+<b>Primer 4.</b> – Ispitivanje uslova
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+    int a = 10; // inicijalizacija promenljive
+    // ukoliko je uslov ispunjen ispisuje se poruka
+    if (a < 15)
+    System.out.print("Uslov je tačan!");
+  }
+}
+</xmp>
+Pri pokretanju ovog programa na ekranu se ispisuje poruka:
+<xmp class = "primer_ta" title="">
+Uslov je tačan!  </xmp>
+
+<p style="text-align: justify;">Izraz koji upravlja naredbom <b>if</b> najčešće sadrži operatore za poređenje, ali to nije obavezno.
+Naredbom <b>if</b> može se upravljati i samo pomoću promenljive tipa <b>boolean</b>.
+U primeru 5. ilustruje se upotrebu uslova u obliku promenljive tipa <b>boolean</b> i odredbe <b>else</b>.</p>
+
+<b>Primer 5.</b> – Ispitivanje uslova kroz if-else naredbu
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+    boolean parnost = false; // inicijalizacija promenljive
+    // ukoliko je uslov ispunjen ispisuje se prva poruka
+    // u suprotnom ispisuje se poruka iz naredbe else
+    if (parnost)
+      System.out.print("Broj je paran!");
+    else
+      System.out.print("Broj je neparan!");
+  }
+</xmp>
+Pri pokretanju ovog programa na ekranu se ispisuje poruka:
+<xmp class = "primer_ta" title="">
+Broj je neparan!!  </xmp>
+
+<p style="text-align: justify;">Mogućnost da se jedna naredba <b>if</b> umetne unutar druge naredbe <b>if</b> ili <b>else</b> naziva se ugnježdeno
+uslovljavanje. Kod ovog tipa uslovljavanja potrebno je voditi računa da se naredba <b>else</b> uvek
+odnosi na najbližu naredbu <b>if</b> u istom bloku, koja je slobodna (tj. nije već povezana sa nekom
+drugom else naredbom).
+U primeru 6. prikazano je ugnježdeno uslovljavanje i grupisanje <b>if</b> i <b>else</b> naredbe.</p>
+
+<b>Primer 6.</b> – Ugnežđeno uslovljavanje
+<xmp class = "primer_ta" title="">
+if(i == 10) {
+  if(j < 20) a = b;
+    if(k > 100) c = d;
+    else a = c;
+}
+else a = d;
+</xmp>
+<p style="text-align: justify;">
+  Unutrašnje else se odnosi na <b>if</b> (k > 100), jer je to najbliže slobodno <b>else</b> unutar istog bloka. Poslednja odredba <b>else</b> je povezana sa if( i == 10).
+   Iako je prvo slobodno <b>if</b>(j < 20), ono ne može biti povezano sa poslednjim <b>else</b> jer nisu u istom bloku.
+<br>
+<br>
+  Stepenasta naredba <b>if – else – if</b> zasniva se na sekvenci ugnježdenih uslova i izgleda ovako:
+
+<div class = "napomena">
+  if (uslov1) naredba1;<br>
+  else if (uslov2) naredba2;<br>
+  else if (uslov3) naredba3;<br>
+  .<br>
+  .<br>
+  .<br>
+  else naredba;<br>
+</div>
+<p style="text-align: justify;">Naredba <b>if</b> se izvršava odozgo na dole sve dok jedan od uslova ne bude ispunjen, tada se izvršava
+naredba koja prati taj uslov. Ukoliko nijedan od uslova nije ispunjen izvršava se naredba iz krajnje
+<b>else</b> odredbe. Dakle, krajnja <b>else</b> odredba je zapravo podrazumevana akcija, ukoliko nje nema, a
+svi drugi uslovi su <b>false</b> nista se ne dešava.
+U primeru 7. prikazuje se upotreba stepenaste <b>if – else – if</b> naredbe, ispisuje se ocena na osnovu
+osvojenih bodova.</p>
+
+<b>Primer 7.</b> – Stepenasto uslovljavanje if-else-if
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+      int bodovi = 22; // inicijalizacija promenljive
+      // redom se proveravaju uslovi sve do prvog koji je ispunjen
+      if (bodovi < 10) {
+            System.out.println("nedovoljan 1");
+      } else if (bodovi >= 10 && bodovi < 20) {
+            System.out.println("dovoljan 2");
+      } else if (bodovi >= 20 && bodovi < 30) {
+            System.out.println("dobar 3");
+      } else if (bodovi >= 30 && bodovi < 40) {
+            System.out.println("vrlo dobar 4");
+      } else if (bodovi >= 40 && bodovi < 50) {
+            System.out.println("odličan 5");
+      } else {
+            System.out.println("Pogrešan unos!");
+      }
+  }
+}
+</xmp>

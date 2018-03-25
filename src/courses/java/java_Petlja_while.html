@@ -1,0 +1,42 @@
+<h1>Petlja <b>while</b></h1>
+
+<p style="text-align: justify;"><b>While</b> petlja je najosnovnija petlja programskog jezika Java. Ona ciklično izvršava naredbu ili
+blok naredbi sve dok je upravljački izraz tačan. Opšti oblik izgleda ovako:</p>
+
+  <div class = "napomena">
+  while (uslov) { <br>
+    //kôd koji se izvršava <br>
+  }
+  </div>
+
+<p style="text-align: justify;">Konstrukcija <b>while</b> se sastoji od bloka naredbi i uslova. Uslov se prvo ispituje – ako je uslov tačan,
+naredbe unutar bloka se izvršavaju. Ovo se ponavlja sve dok uslov ne postane netačan. Zbog toga što while petlja proverava uslov pre nego što izvrši blok naredbi, upravljačka struktura je često
+poznata i kao pred-test petlja. Uslov može da bude svako logički izraz.
+<br><br>
+Za razliku od <b>for</b> petlje, kod while petlje promenljivu moramo prethodno definisati. Ova petlja se,
+u zavisnosti od uslova i promenljive koju odredimo, može izvršiti ni jednom, jednom ili više puta.
+U primeru 12. će kroz <b>while</b> petlju biti ispisani brojevi od 15 do 20.</p>
+
+<b>Primer 12.</b> – jednostavna <b>while</b> petlja
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String args[]) {
+      int i = 15; // inicijalizacija promenljive
+
+      //počevši od inicijalne vrenosti za i, proverava se uslov
+      //dok je i < 21 ispisuju se vrednosti, zatim se i uvećava za 1
+      while (i < 21) {
+        System.out.println(i);
+        i++;
+      }
+  }
+</xmp>
+Pri pokretanju ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+15<br>
+16<br>
+17<br>
+18<br>
+19<br>
+20 <br>
+ </xmp>

@@ -1,0 +1,152 @@
+<h1>Metode</h1>
+
+<p style="text-align: justify;">Koncept potprograma je sve prisutan u programskim jezicima, ali se pojavljuje pod različitim
+imenima: metoda, procedura, funkcija i slično. Njegova glavna svrha je to da se složeni program
+podeli u manje delove koji se mogu lakše i nezavisno razvijati. Osim što je deo programa i što
+obično obavlja jednostavniji zadatak, potprogram ima sličnu logičku strukturu kao glavni program.
+<br><br>
+Metode (engl. <i>methods</i>) su potprogrami koji obavljaju neki specifični zadatak. Sastoje se od niza
+naredbi i promenljivih koje predstavljaju neku funkcionalnu celinu. Metoda mora imati
+jedinstveno ime koje se može koristiti na različitim mestima u programu kao zamena za ceo niz
+naredbi. Za korišćenje metode koristi se termin "pozivanje" metode. Pri svakom pozivu izvršava
+se niz naredbi koje sadrži ta metoda. Pre početka izvršavanja naredbi, metodi se mogu proslediti
+neke vrednosti koje se nazivaju argumenti metode. Takođe, na kraju izvršavanja naredbi, metoda
+može imati povratnu vrednost koja se vraća kao rezultat.
+</p>
+
+<h2>Kreiranje metode</h2>
+
+<p style="text-align: justify;">Metoda se sastoji iz dva dela: zaglavlja i tela metode. Telo metode se sastoji od niza naredbi
+između vitičastih zagrada. Zaglavlje metode sadrži sve informacije koje su neophodne za
+pozivanje metode.
+Opšti oblik pisanja metoda u programskom jeziku Java i opis svih pojmova iz njene sintakse:</p>
+<div class = "napomena">
+  modifikator povratniTip imeMetode (listaParametara ) {<br>
+      //telo metode <br>
+  }
+</div>
+<ul>
+  <li><b>modifikator</b> - određuje nivo pristupa metode, tj. definiše odakle se metoda može videti
+(npr. public, private, protected...),</li>
+  <li><b>povratniTip</b> - pokazuje kog tipa će biti povratna vrednost metode, ukoliko metoda vraća
+neku vrednost (int, double, float, ..., String, ArrayList...). Ukoliko metoda ne vraća neku
+konkretnu vrednost, ona je tipa void,</li>
+  <li><b>imeMetode</b> - ovo je ime metode, koje bi po neformalnoj konvenciji trebalo da opisuje šta
+je funkcija metode,</li>
+  <li><b>listaParametara</b> - predstavljaju ulazne podatke metoda koji se obrađuju naredbama u telu
+  metode,</li>
+  <li><b>telo metode</b> - sadrži blok naredbi koje se izvršavaju pozivanjem metode.</li>
+</ul>
+
+
+<h2>Pozivanje metode</h2>
+
+<p style="text-align: justify;">Kreiranjem neke metode definiše se se kako ona radi, ali se ne izvršava sve dok se ne pozove na
+nekom mestu u program. Pozivanje metode programskom jeziku Java može imati tri oblika.
+Prvi i osnovni oblik je:</p>
+
+<div class = "napomena">
+imeMetode (listaArgumenata );
+</div>
+
+<p style="text-align: justify;">Dakle, kada u programu, na mestu gde je potrebno izvršiti neki zadatak, navedemo ime metode i
+argumente u zagradi. Ovaj način pozivanja metode je moguć samo ukoliko se naredba poziva i
+definicija metode nalaze u istoj klasi.
+U okviru primera 17. kreirana je metoda minDvaBroja() unutar iste klase u okviru koje je pozvana.</p>
+</p>
+
+<b>Primer 17.</b> – Kreiranje i pozivanje metode
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String[] args) {
+      int a = 20;
+      int b = 8;
+      //pozivanje metode
+      int c = minDvaBroja(a, b);
+      System.out.println("Minimum je " + c);
+    }
+    //metoda koja upoređuje dve prosleđene vrednosti i vraća minimum
+    public static int minDvaBroja(int n1, int n2) {
+      int min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+    }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+Minimum je 8
+ </xmp>
+<p style="text-align: justify;">Kada se poziva metoda koja je definisana u drugoj klasi, korsti se notacija sa tačkom. Pri tom, način
+pozivanja takve metode zavisi od toga da li je ta metoda statička(klasna) ili nestatička(objektna).
+Ukoliko je metoda definisana modifikatorom static, ona pripada celoj klasi u kojoj je kreirana i
+poziva se na ovaj način:</p>
+<div class = "napomena">
+imeKlase.imeMetode (listaArgumenata );
+</div>
+
+<p style="text-align: justify;">Gde je <b>imeKlase</b> u ovom pozivu ime one klase u kojoj je definisana metoda koja se poziva. Treći
+način pozivanja metode se koristi za nestatičke metode koje pripadaju pojedinim objektima, a ne
+celoj klasi. Zato se one moraju pozivati uz odgovarajuće objekte. Opšti oblik poziva nestatičke
+metode iz druge klase je – </p>
+<div class = "napomena">
+imeObjekta.imeMetode (listaArgumenata );
+</div>
+<p style="text-align: justify;">
+U ovom zapisu <b>imeObjekta</b> predstavlja referentnu promenljivu koja pokazuje na onaj objekat za
+koji se poziva metoda.</p>
+
+<h2>Preopterećenje metoda</h2>
+
+<p style="text-align: justify;">Situaciju u kojoj neka klasa sadrži dve metode koje imaju isto ime, ali različite parametre naziva
+se preopterećenje metoda (engl. overloading). Ovo je jedna od najkorisnijih osobina Java
+programskog jezika i jedan od načina na koji Java podržava polimorfizam. Preopterećene metode
+se razlikuju po tipu ili broji parametara. Kada se pozove jedna od metoda, na osnovu tipa ili broja
+argumenata utvrđuje se o kojoj verziji metode je reč, zatim se izvršavaju naredbe u okviru te
+metode. Ako bi, gledajući prethodni primer, bilo potrebno da se izračuna minimum dva broja koja
+su tipa double, taj problem bi bio rešen koristećenjem postupka preopterećenja metoda.
+U primeru 18. ilustrovana je upotreba preopterećenja metoda.</p>
+
+
+<b>Primer 18.</b> – Preopterećenje metoda
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String[] args) {
+      int a = 20;
+      int b = 8;
+      double c = 3.6;
+      double d = 7.1;
+      //poziv iste metode sa različitim tipovima promenljivih
+      int rez1 = minDvaBroja(a, b);
+      double rez2 = minDvaBroja(c, d);
+      System.out.println("Minimum je " + rez1);
+      System.out.println("Minimum je " + rez2);
+    }
+    //metoda koja upoređuje dve vrednosti tipa int i vraća minimum
+    public static int minDvaBroja(int n1, int n2) {
+      int min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+    }
+    //metoda koja upoređuje dve vrednosti tipa double i vrća minimum
+    public static double minDvaBroja(double n1, double n2) {
+      double min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+  }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+  Minimum je 8
+  Minimum je 3.6
+ </xmp>

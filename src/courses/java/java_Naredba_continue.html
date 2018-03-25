@@ -1,0 +1,32 @@
+<h1>Naredba <b>continue</b></h1>
+
+<p style="text-align: justify;">Nekada je potrebno da se ciklus petlje skrati, da se u određenom trenutku neke naredbe preskoče i
+tok prebaci na kraj petlje. Takve situacije se rešavaju pomoću continue naredbe. U okviru <b>while</b> i
+do–while petlje ova naredba preusmerava tok programa na izraz za proveru uslova koji upravlja
+petljom. Kod <b>for</b> petlje naredba <b>continue</b> šalje tok programa na izraz za iteraciju, zatim se
+proverava uslov i nastavlja dalje.<br>
+Primer 15. ilustruje upotrebu continue naredbe kroz for petlju.</p>
+
+<b>Primer 15.</b> – Upotreba <b>continue</b> naredbe
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+    int[] numbers = { 10, 20, 30, 40, 50 };
+
+    //for-each petljom ispisuju se el. niza,za x==30 naredba
+    //continue preskače korak za ispisivanje i petlja nastavlja
+    dalje
+    for (int x : numbers) {
+      if (x == 30)
+      continue;
+      System.out.print(x + " ");
+    }
+  }
+}
+</xmp>
+Ovaj program će dati sledeći izlaz:
+<xmp class = "primer_ta" title="">
+10 20 40 50
+ </xmp>
+<p style="text-align: justify;">Naredbom <b>continue</b> u ovom primeru se preskoči slučaj kada promenljiva x ima vrednost 30, tako
+da taj element niza neće biti ispisan na ekranu.</p>

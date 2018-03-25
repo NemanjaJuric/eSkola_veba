@@ -1,0 +1,176 @@
+<h1>Objekti i klase</h1>
+
+<p style="text-align: justify;">Objekat (engl.<i>object</i>) je najvažniji pojam za shvatanje objektno-orjentisanog koncepta
+programiranja. <br>
+Prostim opažanjem može se uočiti bezbroj primera objekata iz stvarnog života - knjiga, mačka,
+bicikl, sto, automobil, telefon... Za sve te objekte može se reći da imaju jedinstveni identitet i
+svojstva - stanje i ponašanje.<br>
+Ako bi se za primer objekta uzela mačka, može se primetiti da ona ima svoja stanja (ime, boju,
+starost, rasu) i razna ponašanja (spavanje, mjaukanje, trčanje, grebanje), pored toga ne mogu se
+naći dve identične mačke, pa ima i svoj jedinstveni identitet. Automobil, takođe, ima stanja (boju,
+brzinu, marku) i svoja ponašanja (kretanje, ubrzavanje, kočenje). Pošto dva automobila istog tipa,
+iste boje i sa istim dodacima izgledaju identično, oni moraju da imaju identifikacioni broj po kome
+će se razlikovati.<br>
+Softverski objekti su konceptualno vrlo slični objektima iz realnog života, oni mogu predstavljati
+ne samo realne, nego i apstraktne entitete (npr.bankarski sistem) iz odgovarajućeg problemskog
+domena.<br>
+Svaki objekat u programiranju – ima svoj jedinstveni <b>identitet</b>, svoje <b>stanje</b> (engl. <i>state</i>) i <b>ponašanje</b>
+(engl.<i> behavior</i> ):
+</p>
+<ul>
+  <li><b>Stanje</b> - (svojstva, atributi) predstavljaju polja podataka sa svojim trenutnim vrednostima; </li>
+  <li><b>Ponašanje</b> - (akcije, operacije) definiše se metodama;</li>
+  <li><b>Identitet</b> - nekog objekta se odnosi na neko njegovo svojstvo po kojem se on razlikuje od
+  bilo kojeg drugog objekta.</li>
+</ul>
+
+<p style="text-align: justify;">Po definiciji objekat je određeni primerak ili instanca (engl.<i> instance</i> ) neke klase.
+Klasa (engl. <i>class</i>) je šablon ili nacrt po kojem se kreiraju objekti. U stvarnom svetu svakodnevno
+se nailazi na razne primerke jedne iste vrste. Postoje na hiljade automobila iste marke i istog
+modela i svaki je napravljen po istom šablonu sa istim karakteristikama. U softverskom svetu se
+kaže se da je jedan auto primerak (instanca) klase automobila. Svaka klasa poseduje informacije o
+osobinama objekta koje se čuvaju u instancama promenljivih.
+Klasa definiše sadržaj objekta (karakteristike i ponašanja), ali ga ne popunjava, tj. ne daje
+konkretne vrednosti atributima. Klasa je softverski opis objekta. Ona definiše sadržaj i strukturu
+objekta koji se, na osnovu toga, može kreirati. Popunjavanjem sadržaja i strukture dobija se
+pojedinačni objekat. Dok klasa definiše od čega se sastoji neki objekat, objekat je stvarni primerak
+klase. Na primer, recept za pravljenje soka od višnje je analogno klasi, a sam sok od višnje, koji
+može da se pije, je objekat.
+Na kraju, važno je zapamtiti da u programiranju klasa definišu novi tip podataka.</p>
+
+<h2>Opšti oblik klase</h2>
+
+<p style="text-align: justify;">Metoda se sastoji iz dva dela: zaglavlja i tela metode. Telo metode se sastoji od niza naredbi
+između vitičastih zagrada. Zaglavlje metode sadrži sve informacije koje su neophodne za
+pozivanje metode.
+Opšti oblik pisanja metoda u programskom jeziku Java i opis svih pojmova iz njene sintakse:</p>
+<div class = "napomena">
+  modifikator povratniTip imeMetode (listaParametara ) {
+      //telo metode
+  }
+</div>
+<ul>
+  <li><b>modifikator</b> - određuje nivo pristupa metode, tj. definiše odakle se metoda može videti
+(npr. public, private, protected...),</li>
+  <li><b>povratniTip</b> - pokazuje kog tipa će biti povratna vrednost metode, ukoliko metoda vraća
+neku vrednost (int, double, float, ..., String, ArrayList...). Ukoliko metoda ne vraća neku
+konkretnu vrednost, ona je tipa void,</li>
+  <li><b>imeMetode</b> - ovo je ime metode, koje bi po neformalnoj konvenciji trebalo da opisuje šta
+je funkcija metode,</li>
+  <li><b>listaParametara</b> - predstavljaju ulazne podatke metoda koji se obrađuju naredbama u telu
+  metode,</li>
+  <li><b>telo metode</b> - sadrži blok naredbi koje se izvršavaju pozivanjem metode.</li>
+</ul>
+
+
+<h2>Pozivanje metode</h2>
+
+<p style="text-align: justify;">Kreiranjem neke metode definiše se se kako ona radi, ali se ne izvršava sve dok se ne pozove na
+nekom mestu u program. Pozivanje metode programskom jeziku Java može imati tri oblika.
+Prvi i osnovni oblik je:</p>
+
+<div class = "napomena">
+imeMetode (listaArgumenata );
+</div>
+
+<p style="text-align: justify;">Dakle, kada u programu, na mestu gde je potrebno izvršiti neki zadatak, navedemo ime metode i
+argumente u zagradi. Ovaj način pozivanja metode je moguć samo ukoliko se naredba poziva i
+definicija metode nalaze u istoj klasi.
+U okviru primera 17. kreirana je metoda minDvaBroja() unutar iste klase u okviru koje je pozvana.</p>
+</p>
+
+<b>Primer 17.</b> – Kreiranje i pozivanje metode
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String[] args) {
+      int a = 20;
+      int b = 8;
+      //pozivanje metode
+      int c = minDvaBroja(a, b);
+      System.out.println("Minimum je " + c);
+    }
+    //metoda koja upoređuje dve prosleđene vrednosti i vraća minimum
+    public static int minDvaBroja(int n1, int n2) {
+      int min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+    }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+Minimum je 8
+ </xmp>
+<p style="text-align: justify;">Kada se poziva metoda koja je definisana u drugoj klasi, korsti se notacija sa tačkom. Pri tom, način
+pozivanja takve metode zavisi od toga da li je ta metoda statička(klasna) ili nestatička(objektna).
+Ukoliko je metoda definisana modifikatorom static, ona pripada celoj klasi u kojoj je kreirana i
+poziva se na ovaj način:</p>
+<div class = "napomena">
+imeKlase.imeMetode (listaArgumenata );
+</div>
+
+<p style="text-align: justify;">Gde je <b>imeKlase</b> u ovom pozivu ime one klase u kojoj je definisana metoda koja se poziva. Treći
+način pozivanja metode se koristi za nestatičke metode koje pripadaju pojedinim objektima, a ne
+celoj klasi. Zato se one moraju pozivati uz odgovarajuće objekte. Opšti oblik poziva nestatičke
+metode iz druge klase je – </p>
+<div class = "napomena">
+imeObjekta.imeMetode (listaArgumenata );
+</div>
+<p style="text-align: justify;">
+U ovom zapisu <b>imeObjekta</b> predstavlja referentnu promenljivu koja pokazuje na onaj objekat za
+koji se poziva metoda.</p>
+
+<h2>Preopterećenje metoda</h2>
+
+<p style="text-align: justify;">Situaciju u kojoj neka klasa sadrži dve metode koje imaju isto ime, ali različite parametre naziva
+se preopterećenje metoda (engl. overloading). Ovo je jedna od najkorisnijih osobina Java
+programskog jezika i jedan od načina na koji Java podržava polimorfizam. Preopterećene metode
+se razlikuju po tipu ili broji parametara. Kada se pozove jedna od metoda, na osnovu tipa ili broja
+argumenata utvrđuje se o kojoj verziji metode je reč, zatim se izvršavaju naredbe u okviru te
+metode. Ako bi, gledajući prethodni primer, bilo potrebno da se izračuna minimum dva broja koja
+su tipa double, taj problem bi bio rešen koristećenjem postupka preopterećenja metoda.
+U primeru 18. ilustrovana je upotreba preopterećenja metoda.</p>
+
+
+<b>Primer 18.</b> – Preopterećenje metoda
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String[] args) {
+      int a = 20;
+      int b = 8;
+      double c = 3.6;
+      double d = 7.1;
+      //poziv iste metode sa različitim tipovima promenljivih
+      int rez1 = minDvaBroja(a, b);
+      double rez2 = minDvaBroja(c, d);
+      System.out.println("Minimum je " + rez1);
+      System.out.println("Minimum je " + rez2);
+    }
+    //metoda koja upoređuje dve vrednosti tipa int i vraća minimum
+    public static int minDvaBroja(int n1, int n2) {
+      int min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+    }
+    //metoda koja upoređuje dve vrednosti tipa double i vrća minimum
+    public static double minDvaBroja(double n1, double n2) {
+      double min;
+      if (n1 > n2)
+      min = n2;
+      else
+      min = n1;
+      return min;
+  }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+  Minimum je 8
+  Minimum je 3.6
+ </xmp>

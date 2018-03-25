@@ -1489,8 +1489,218 @@
         "detailsText": "U pripremi",
         "lessons": [
             {
+                "name": "Uvod u programski jezik Java",
+                "url": "java_Dobrodosli",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Podesavanje okruznja",
+                "url": "java_Podesavanje_okruzenja",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Moj prvi program",
+                "url": "java_Moj_prvi_program",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Elementi jezika java",
+                "url": "java_Elementi_jezika_java",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Primitivni tip podataka",
+                "url": "java_Primitivni_tip_podataka",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Referentni tip podataka",
+                "url": "java_Referentni_tip_podataka",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Identifikatori",
+                "url": "java_Identifikatori",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Literali",
+                "url": "java_Literali",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Operatori",
+                "url": "java_Operatori",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Ključne reci",
+                "url": "java_Kljucne_reci",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Komentari",
+                "url": "java_Komentari",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Modifikatori",
+                "url": "java_Modifikatori",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Naredba if",
+                "url": "java_Naredba_if",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Naredba switch",
+                "url": "java_Naredba_switch",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Petlja for",
+                "url": "java_Petlja_for",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Petlja while",
+                "url": "java_Petlja_while",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Petlja do-while",
+                "url": "java_Petlja_do-while",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Naredba break",
+                "url": "java_Naredba_break",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Naredba continue",
+                "url": "java_Naredba_continue",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Naredba return",
+                "url": "java_Naredba_return",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Metode",
+                "url": "java_Metode",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Objekti i klase",
+                "url": "java_Objekti_i_klase",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Opsti oblik klase i kreiranje objekta",
+                "url": "java_Opsti_oblik_klase_i_kreiranje_objekta",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Vrste promenljivih",
+                "url": "java_Vrste_promenljivih",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Staticki i nestaticki clanovi klase",
+                "url": "java_Staticki_i_nestaticki_clanovi_klase",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Konstruktori i kljucna rec this",
+                "url": "java_Konstruktori_i_kljucna_rec_this",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Nasledjivanje",
+                "url": "java_Nasledjivanje",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Polimorfizam",
+                "url": "java_Polimorfizam",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Apstrakcija",
+                "url": "java_Apstrakcija",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
+                "name": "Enkapsulacija",
+                "url": "java_Enkapsulacija",
+                "type": "lesson",
+                "parentCourse": "java",
+                "sublessons": null
+            },
+            {
                 "name": "Interfejsi u programskom jeziku Java",
-                "url": "java_interfejsi",
+                "url": "java_Interfejsi",
                 "type": "lesson",
                 "parentCourse": "java",
                 "sublessons": null
@@ -1701,6 +1911,55 @@
             {
                 "name": "Podesavanje okruzenja",
                 "url": "express_podesavanje_okruzenja",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Početak rada",
+                "url": "express_pocetak_rada",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Rutiranje",
+                "url": "express_rutiranje",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Slanje parametara",
+                "url": "express_slanje_parametara_preko_URL",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Srednji sloj",
+                "url": "express_srednji_sloj",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Formulari",
+                "url": "express_formulari",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Statički fajlovi",
+                "url": "express_staticki_fajlovi",
+                "type": "lesson",
+                "parentCourse": "express",
+                "sublessons": null
+            },
+            {
+                "name": "Pug",
+                "url": "express_pug",
                 "type": "lesson",
                 "parentCourse": "express",
                 "sublessons": null

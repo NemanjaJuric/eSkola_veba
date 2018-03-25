@@ -1,0 +1,49 @@
+<h1>Petlja <b>do-while</b></h1>
+
+<p style="text-align: justify;">Kod <b>while</b> petlje uslov prekida se proverava na početku svake iteracije. U nekim slučajevima,
+međutim, pogodnije je proveriti taj uslov na kraju svakog izvršavanja tela petlje. U takvim
+slučajevima koristi se <b>do-while</b> petlja, koja uslov prekida proverava na kraju, a na početku se
+nalazi ključna reč do.
+Opšti oblik ove petlje je:</p>
+
+  <div class = "napomena">
+    do {
+      //kôd koji se izvršava
+    } while (uslov);
+  </div>
+
+<p style="text-align: justify;">Ovo znači da se kôd mora uvek izvršiti prvo i onda se procenjuje izraz ili test stanja. Ako je tačno,
+izvršava se telo petlje ponovo. Ovaj proces se ponavlja sve dok izraz ima tačnu vrednost.
+<br><br>
+U primeru 13. prikazana je upotreba <b>do-while</b> petlje.</p>
+
+<b>Primer 13.</b> – jednostavna <b>do-while</b> petlja
+<xmp class = "primer_ta" title="">
+public class Test {
+    public static void main(String args[]) {
+      int i = 10; // inicijalizacija promenljive
+
+      // prvo se izvršavaju naredbe, zatim proverava uslov i sve dok
+      //je uslov ispunjen naredbe se ciklicno ponavljaju
+      do {
+        System.out.print(i);
+        i--;
+      } while (i > 0);
+    }
+}
+</xmp>
+Po izvršavanju programa na ekranu se ispisuju brojevi od 10 do 1:
+<xmp class = "primer_ta" title="">
+10 9 8 7 6 5 4 3 2 1
+ </xmp>
+
+ Petlja iz prethodnog primera može se napisati i na sledeći način:
+
+ <xmp class = "primer_ta" title="">
+   do{
+     System.out.println(i);
+   } while(--i > 0 );
+ </xmp>
+ <p style="text-align: justify;">U ovom primeru u okviru uslova kombinuju se dva izraza - prvi umanjuje vrednost promenljive
+ za jedan, zatim se ta nova vrednost upoređuje sa nulom. Ako je uslov ispunjen, petlja se nastavlja,
+ u suprotnom se više ne izvršava.</p>

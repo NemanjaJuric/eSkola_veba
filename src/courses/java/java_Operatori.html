@@ -1,0 +1,483 @@
+
+<h1>Operatori</h1>
+<p style="text-align: justify;">Operatori (engl. <i>operators</i>) omogućavaju izvršavanje operacija nad promenljivim dajući pri tom određeni rezultat.
+<br><br>
+<b>Aritmetički operatori</b> su operatori koji se mogu primenjivati na vrednosti bilo kog numeričkog tipa - byte, short, int, long, float, double. U aritmetičke operatore spadaju pet binarnih --, +, *, /, % i dva unarna operatora ++, --. Primenjivanje binarnih operatora odgovara matematičkim operacijama - sabiranje, oduzimanje, množenje, osim u slućaju deljenja.
+U programskom jeziku Java operatorom / vrši se celobrojno deljenje (na primer, pri deljenu vrednosti 5 / 2 rezultat bi bio 2, dok se razlomljeni deo odbacuje). <br>
+Neka promenljiva a ima vrednost 10 i promenljiva b vrednost 5, u Tabeli 4. opisani su svi aritmetički operatori.
+
+<p style="align-text: center;"><b>Tabela 4. </b> &ndash;&nbsp; Aritmetički operatori</p>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Opis</th>
+  <th>Primer</th>
+  </tr>
+  </thead>
+<tbody>
+  <td width="102">
+  <p><strong>+</strong></p>
+  </td>
+  <td width="379">
+  <p>Binarni operator koji vraća vrednost zbira dva broja</p>
+  </td>
+  <td width="143">
+  <p>a + b bilo bi 15</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>-</strong></p>
+  </td>
+  <td width="379">
+  <p>Binarni operator koji vraća vrednost razlike dva broja</p>
+  </td>
+  <td width="143">
+  <p>a &ndash; b bilo bi 5</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>*</strong></p>
+  </td>
+  <td width="379">
+  <p>Binarni operator koji vraća vrednost proizvoda dva broja</p>
+  </td>
+  <td width="143">
+  <p>a * b bilo bi 50</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>/</strong></p>
+  </td>
+  <td width="379">
+  <p>Binarni operator koji vraća celobrojnu vrednost količnika dva broja, a eventualne decimale odbacuje</p>
+  </td>
+  <td width="143">
+  <p>a / b bilo bi 2</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>%</strong></p>
+  </td>
+  <td width="379">
+  <p>Binarni operator daje ostatak pri deljenju dve vrednosti</p>
+  </td>
+  <td width="143">
+  <p>a % b bilo bi 0</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>++</strong></p>
+  </td>
+  <td width="379">
+  <p>Unarni operator koji daje vrednost uvećanu za 1 </p>
+  </td>
+  <td width="143">
+  <p>a++ bilo bi 11</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>--</strong></p>
+  </td>
+  <td width="379">
+  <p>Unarni operator koji daje vrednost umanjenu za 1 </p>
+  </td>
+  <td width="143">
+  <p>a-- bilo bi 11</p>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+
+  <br>
+<b>Relacijski operatori</b> se koriste za upoređivanje vrednosti bilo kog numeričkog tipa ili tipa char. Ovi operatori vraćaju vrednost true ili false (tipa boolean). Kada se upoređuju znakovi tipa char,tj. karakteri, zapravo se porede njihove numeričke Unicode vrednosti (na primer, 'a'<'z' vraća vrednost true, jer kôd znaka a ima manju vrednost od kôda znaka z).
+<br>Neka promenljiva a ima vrednost 10 i promenljiva b vrednost 5, u Tabeli 5. opisani su svi relacijski operatori.
+<p style="align-text: center;"><b>Tabela 5. </b> &ndash;&nbsp; Relacijski operatori</p>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Opis</th>
+  <th>Primer</th>
+  </tr>
+  </thead>
+<tbody>
+  <tr>
+  <td width="102">
+  <p><strong>==</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li su dve vrednosti jednake i ako jesu vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a == b) bi bilo netačno</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>!=</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li su dve vrednosti različite ako jesu vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a != b) bi bilo netačno</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>&gt;</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li je leva vrednost veća od desne i ako jeste vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a &gt; b) bi bilo tačno</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>&lt;</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li je leva vrednost manja od desne i ako jeste vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a &lt; b) bi bilo tačno</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>&gt;=</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li je leva vrednost veća ili jednaka desnoj i ako jeste vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a &gt;= b) bi bilo tačno</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="102">
+  <p><strong>&lt;=</strong></p>
+  </td>
+  <td width="379">
+  <p>Proverava da li je leva vrednost manja ili jednaka desnoj i ako jeste vraća vrednost true, u suprotnom false</p>
+  </td>
+  <td width="143">
+  <p>(a &lt;= b) bi bilo tačno</p>
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  <br>
+  <b>Logički operatori</b> se primenjuju na logičke izraze i daju isto logičke vrednost.
+  Neka promenljiva a ima vrednost true i promenljiva b vrednost false, u Tabeli 6. opisani su svi logički operatori.
+  <p style="align-text: center;"><b>Tabela 6. </b> &ndash;&nbsp; Logički operatori</p>
+  <table class="tabela">
+    <thead>
+    <tr>
+    <th>Operator</th>
+    <th>Opis</th>
+    <th>Primer</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+<td width="101">
+<p>&nbsp;</p>
+<p><strong>&amp;&amp;</strong></p>
+</td>
+<td width="378">
+<p>Logičko I (konjunkcija) - binarni logički operator koji daje rezultat true kada su oba izraza true, u svakom dugom slučaju vraća false</p>
+</td>
+<td width="142">
+<p>(a &amp;&amp; b)&nbsp; bi bilo netačno</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p>&nbsp;</p>
+<p><strong>||</strong></p>
+</td>
+<td width="378">
+<p>Logičko ILI (disjunkcija) - binarni logički operator koji daje rezultat true kada je bar jedan od izraza true, u suprotnom daje false</p>
+</td>
+<td width="142">
+<p>(a || b)&nbsp; bi bilo tačno</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p>&nbsp;<strong>!</strong></p>
+</td>
+<td width="378">
+<p>Negacija - unarni logički operator koji vraća true kada se primeni na operandu koja ima vrednost false i obrnuto.</p>
+</td>
+<td width="142">
+<p>!(a &amp;&amp; b)&nbsp; bi bilo tačno</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Operatori nad bitovima</b> se mogu primenjivati nad tipovima int, long, short, char i byte.
+<br> Neka je a = 60 i b = 13 u binarnom zapisu ovi brojevi su a = 0011 1100 i b = 0000 1101, u Tabeli 7. opisani su svi bitovski operatori.
+  <p style="align-text: center;"><b>Tabela 7. </b> &ndash;&nbsp; Bitovski operatori</p>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Opis</th>
+  <th>Primer</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="101">
+<p><strong>&amp;</strong></p>
+</td>
+<td width="376">
+<p>Bitovsko I (Konjukcija nad bitovima) - prepisuje jedinice iz binarnog zapisa u rezultat ukoliko one postoje u obe operande</p>
+</td>
+<td width="142">
+<p>(a &amp; b)&nbsp;</p>
+<p>bi bilo 12, &scaron;to je zapisano binarno -</p>
+<p>0000 1100&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>|</strong></p>
+</td>
+<td width="376">
+<p>Bitovsko ILI (Disjunkcija nad bitovima) - prepisuje jedinice iz binarnog zapisa u rezultat ukoliko one postoje u bar jednoj operandi</p>
+</td>
+<td width="142">
+<p>(a | b)</p>
+<p>&nbsp;bi bilo 61, &scaron;to je zapisano binarno - 0011 110</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>^</strong></p>
+</td>
+<td width="376">
+<p>Bitovsko ekskluzivno ILI - prepisuje jedinice iz binarnog zapisau rezultat ukoliko one postoje u samo jednoj operandi, u drugoj ne</p>
+</td>
+<td width="142">
+<p>(a ^ b)&nbsp;</p>
+<p>bi bilo 49, &scaron;to je zapisano binarno - 0011 0001</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>~</strong></p>
+</td>
+<td width="376">
+<p>Bitovski unarni operator koji daje inverzni binarni zapis datog broja, tamo gde su jedinice u rezultat upisuje nule i tamo gde su nule u rezultat upisuje jedinice&nbsp;</p>
+</td>
+<td width="142">
+<p>( ~ a)&nbsp;</p>
+<p>bi bilo -61, &scaron;to je binarno zapisano - 1100 0011</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>&lt;&lt;</strong></p>
+</td>
+<td width="376">
+<p>Levo pomeranje (&scaron;iftovanje) &mdash; primenom ovog operatora bitovi prve operande se pomeraju u levo za broj pozicija naveden kao druga operanda.</p>
+</td>
+<td width="142">
+<p>(a &lt;&lt; 2)&nbsp;</p>
+<p>bi bilo 240, &scaron;to je binarno zapisano - 1111 0000</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>&gt;&gt;</strong></p>
+</td>
+<td width="376">
+<p>Desno pomeranje (&scaron;iftovanje) &mdash; primenom ovog operatora bitovi prve operande se pomeraju u desno za broj pozicija naveden kao druga operandai.</p>
+</td>
+<td width="142">
+<p>(a &gt;&gt; 2)&nbsp;</p>
+<p>bi bilo 15, &scaron;to je binarno zapisano - 1111</p>
+</td>
+</tr>
+<tr>
+<td width="101">
+<p><strong>&gt;&gt;&gt;</strong></p>
+</td>
+<td width="376">
+<p>Desno pomeranje (&scaron;iftovanje) &mdash; primenom ovog operatora bitovi prve operande se pomeraju u desno za broj pozicija naveden kao druga operanda. Na početna upražnjena mesta upisuju se nule</p>
+</td>
+<td width="142">
+<p>(a &gt;&gt;&gt; 2)&nbsp; bi bilo 15, &scaron;to je binarno zapisano -</p>
+<p>0000 1111&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>Operator izbora</b> ima sledeći oblik:
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>   izraz1 ? izraz2 : izraz3; </th>
+  </tr>
+  </thead>
+  </table>
+  Najpre se izračunava izraz1, ako on ima vrednost true, onda se izračunava vrednost izraza izraz2 i to je rezultat čitavog uslovnog izraza, u suprotnom se izračunava vrednost izraz3 i to je rezultat uslovnog izraza.
+   <br><br>
+  <b>Operator dodele</b> je binarni operatori koji neku vrednost pridružuje datoj promenljivoj i obeležava se simbolom =. Za većinu binarnih operatora postoje odgovarajući složeni operatori dodele +=, -=,
+  /=, %=, &= itd.
+  U Tabeli 8. su opisani svi operatori dodele koji se koriste u jeziku Java.
+    <p style="align-text: center;"><b>Tabela 8. </b> &ndash;&nbsp; Operatori dodele</p>
+  <table class="tabela">
+    <thead>
+    <tr>
+    <th>Operator</th>
+    <th>Opis</th>
+    <th>Primer</th>
+    </tr>
+    </thead>
+  <tbody>
+  <tr>
+  <td width="100">
+  <p><strong>=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi vrednost operande ili izraza sa desne strane.&nbsp;</p>
+  </td>
+  <td width="141">
+  <p>c = a + b&nbsp; vrednost zbira a i b će biti dodeljena promenljivoj c&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>+=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi vrednost zbira leve i desne operande</p>
+  </td>
+  <td width="141">
+  <p>c += a&nbsp;</p>
+  <p>je ekvivalentno sa&nbsp; c = c + a&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>-=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi vrednost razlike leve i desne operande&nbsp;</p>
+  </td>
+  <td width="141">
+  <p>c -= a&nbsp;</p>
+  <p>je ekvivalentno sa&nbsp;</p>
+  <p>c = c - a&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>*=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi vrednost proizvoda leve i desne operande</p>
+  </td>
+  <td width="141">
+  <p>c *= a</p>
+  <p>je ekvivalentno sa&nbsp; c = c * a&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>/=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi vrednost celobrojnog deljenja leve i desne operande</p>
+  </td>
+  <td width="141">
+  <p>c /= a&nbsp;</p>
+  <p>je ekvivalentno sa&nbsp;</p>
+  <p>c = c / a&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>%=</strong></p>
+  </td>
+  <td width="375">
+  <p>Dodeljuje levoj operandi ostatak pri deljenju leve i desne operande</p>
+  </td>
+  <td width="141">
+  <p>c %= a&nbsp;</p>
+  <p>je ekvivalentno sa&nbsp;</p>
+  <p>c = c % a&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>&lt;&lt;=</strong></p>
+  </td>
+  <td width="375">
+  <p>Pomeranje u levo za broj desne operande</p>
+  </td>
+  <td width="141">
+  <p>c &lt;&lt;= 2 je isto kao i&nbsp; c = c &lt;&lt; 2&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>&gt;&gt;=</strong></p>
+  </td>
+  <td width="375">
+  <p>Pomeranje u desno za broj desne operande</p>
+  </td>
+  <td width="141">
+  <p>c &gt;&gt;= 2 je isto kao i&nbsp; c = c &gt;&gt; 2&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>&amp;=</strong></p>
+  </td>
+  <td width="375">
+  <p>Bitovsko I sa operatorom dodele - primenjuje se na levu i desnu operandu, a rezultat sme&scaron;ta u levu&nbsp;</p>
+  </td>
+  <td width="141">
+  <p>c &amp;= 2 je isto kao i&nbsp; c = c &amp; 2</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>^=</strong></p>
+  </td>
+  <td width="375">
+  <p>Bitovsko ekskluzivno ILI sa operatorom dodele - primenjuje se na levu i desnu operandu, a rezultat sme&scaron;ta u levu&nbsp;</p>
+  </td>
+  <td width="141">
+  <p>c ^= 2 je isto kao i c = c ^ 2&nbsp;</p>
+  </td>
+  </tr>
+  <tr>
+  <td width="100">
+  <p><strong>|=</strong></p>
+  </td>
+  <td width="375">
+  <p>Bitovsko ILI sa operatorom dodele - primenjuje se na levu i desnu operandu, a rezultat sme&scaron;ta u levu&nbsp;</p>
+  </td>
+  <td width="141">
+  <p>c |= 2 je isto kao i c = c | 2</p>
+  </td>
+  </tr>
+  </tbody>
+  </table>

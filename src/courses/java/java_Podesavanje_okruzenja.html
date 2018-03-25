@@ -1,0 +1,63 @@
+<h1>Podešavanje okruženja</h1>
+
+<p style="text-align: justify;">Kada se govori o Javi važno napraviti razliku između Java programskog jezika i Java platforme.
+<br><br>Java programski jezik je formalni jezik za prezentaciju računarskih programa, pomoću njega se
+računaru, čoveku čitljivim tekstom, daju instrukcije i naredbe za izvršenje različitih zadataka.
+<br>
+<br> Kada
+se napiše program on se ne izvršava direktno na računaru već pomoću standardizovanog okruženja
+koje se zove Java platforma. Najpre Java prevodilac (javac) prevodi program sa izvornog koda u
+bajtkod koji razume Java virtualna mašina (Java Virtual Machine - JVM) i na njoj se program
+izvršava. Java interpreter tumači bajtkod i izvršava akcije koje su specificirane u bajtkodu, unutar
+JVM. Java platforma pored Java virtualne mašine podrazumeva i skup unapred definisanih Java
+klasa koje postoje pri svakoj instalaciji Jave. Ove klase su dostupne za korišćenje od strane Java
+programa. Java platforma se još i naziva izvršno okruženje (Java Runtime Environment - JRE).
+
+<br><br>Za razvoj aplikacija potreban je Java Development Kit - JDK. On se sastoji od Java Runtime
+Environment-a i alata za razvoj, prevođenje, praćenje i debagovanje aplikacija. Ako se za JRE
+kaže da je to okruženje za pokretanje Java programa, onda JDK predstavlja okruženje za razvijanje
+i pokretanje Java programa.<br><br>
+<h4>1. Instalicija JDK-a</h4>
+JDK se može preuzeti <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">ovde</a>.
+Iz ponuđene liste, treba izabrati onu instalaciju koja odgovara operativnom sistemu koji se koristi
+na datom računaru (x86 je instalacija za 32-bitnu, a x64 za 64-bitnu mašinu). Da bi preuzimanje
+bilo moguće, potrebno je označiti opciju Accept License Agreement. Trenutno aktuelna verzija je
+jdk-8u5 (slika 2.1).<br><br>
+
+Kada je instalaciona (.exe) datoteka preuzeta, potrebno je dvoklikom na nju pokrenuti instalaciju.
+Zatim, prateći uputstvo, dovoljno je prihvatati ponuđena podešavanja, prelazeći na sledeći korak
+klikom na Next (slike 2.2 i 2.3).
+<img src="courses/java/jdk12.jpg" class="img-md">
+<img src="courses/java/korak12k.jpg" class="img-md">
+<img src="courses/java/korak34k.jpg" class="img-md">
+<br>
+Kada se došlo do završnog koraka, trebalo bi da u izabranom direktorijumu (ako smo prihvaćena podrazumenavana podešavanja C:\Program Files\Java) postoje dva nova foldera "jre1.8.0_51" i "jdk1.8.0_51".
+<br><br>
+Pored instalacije JDK potrebno je dodati putanju do jdk1.8.0_51 direktorijuma u PATH environment promenljivu. Na taj način kompajler i interpreter se mogu pokretati bilo gde, bez navođenja putanja do njih.
+<br><br>
+<h4>2. Podešavanje JAVA_HOME promenljive</h4>
+Koraci za pode&scaron;avanje ove putanje su sledeći:
+<ul>
+<li>desni klik na <em>"Computer</em>",</li>
+<li>zatim klik na <em>"Properties"</em>&reg;<em>"Advanced system settings"</em>,</li>
+<li>izabrati <em>"Environment Variables"</em>&reg;<em>"System variables"</em>&reg;<em>"New" </em>(slika 2.4) ,</li>
+<li>kreirati novu promenljivu <em>"JAVA_HOME" </em>, a kao vrednost postaviti putanju do lokacije gde se nalazi instalacija JDK na računaru (slika 2.5) ,</li>
+<li>izabrati "PATH" sistemsku promenljivu, a zatim izmeniti postojeću vrednost Path promenljive, dodavanjem sledećeg izraza ;%JAVA_HOME%\bin (slika 2.6).</li>
+</ul>
+<img src="courses/java/jhome2.jpg" class="img-md">
+<img src="courses/java/jhome3.jpg" class="img-md">
+<img src="courses/java/jhome4.jpg" class="img-md">
+<p style="text-align: justify;">
+<h4>3. Instalacija Eclipse IDE</h4>
+Za kreiranje programa potreban je i razvojni alat, u kome će se pisati izvorni kôd i pokretati program. Programerima su na raspolaganju mnoga grafička razvojna okruženja NetBeans, Eclipse, DrJava, BlueJ, JCreator, itd. Među ovim okruženjima ne može se izdvojiti jedno koje je najbolje, jer svako ima svoje prednosti i mane, a izbor je najčešće stvar ličnog ukusa. Za potrebe ovog elektronskog kursa korišćen je razvojni alat - Eclipse IDE (slika 2.7).
+<img src="courses/java/eclipse1.jpg" class="img-md">
+Nakon uspešnog preuzimanja, potrebno je raspakovati paket na željenoj lokaciji i u folderu pronaći eclipse.exe datoteku, pa dvoklikom na nju otvoriti razvojno okruženje. Pri pokretanju
+eclipse.exe najpre treba izabrati Workspase, tj. folder u kome će se čuvati vaš java projekat. Može se ostaviti podrazumevani, ponuđeni direktorijum ili izabrati željeni.
+
+<img src="courses/java/eclipse2.jpg" class="img-md">
+
+Kada je instaliran JDK, podešena JAVA_HOME varijabla, preuzet i pokrenut Eclipse razvojni alat, može se reći da je okruženje podešeno za kreiranje prvog programa u jeziku Java.
+
+<br>
+
+</p></p>

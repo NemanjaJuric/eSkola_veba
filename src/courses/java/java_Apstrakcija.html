@@ -1,0 +1,83 @@
+<h1>Apstrakcija</h1>
+
+<p style="text-align: justify;">Mehanizmom nasleđivanja klase mogu da budu povezane hijerarhijskim vezama (superklasapotklasa).
+Potklasa nasleđuje sva svojstva (atribute i metode) svih superklasa u hijerarhiji. Klase
+na višim hijerarhijskim nivoima su uopštenije, tj. sadrže opštija svojstva koja važe za veći broj
+potklasa. Ponekad, superklasa postane toliko uopštena da ona ne može da ima direktnu svoju
+primenu u vidu nekog objekta. Takva klasa se onda naziva apstraktnom klasom.<br>
+Apstraktna klasa je klasa koja je deklarisana ključnom reči <b>abstract</b> i ne može da kreira svoje
+objekte. Potreba za apstraktnom klasom proizilazi iz potrebe za kreiranjem apstraktnih metoda,
+koje omogućavaju korišćenje prednosti polimorfizma.<br><br>
+Za potrebe pojašnjavanja ovog koncepta može se razmotriti primer gde bi bazna klasa bila klasa
+Povrs i njenje polimorfne metode <b>obim()</b> i <b>povrsina()</b>, a izvedene klase Krug i Pravougaonik. Telo
+metoda bi u baznoj klasi ostalo prazno, jer nije moguće implementirati ga, pošto ne postoji
+univerzalni način za računanje površine površi kada se ne zna o kojoj površ je reč. Međutim,
+prisustvo tog metoda u baznoj klasi je neophodno, jer to zahteva polimorfizam. Takav metod
+moguće je proglasiti apstraktnim. To se čini navođenjem ključne reči abstract ispred povratnog
+tipa metoda i tačka-zarez (;) umesto tela metoda:</p>
+<div class = "napomena">
+abstract double povrsina();
+
+
+<p style="text-align: justify;">Ako klasa ima bar jednu apstraktnu metodu i sama postaje apstraktna, te se i u prvom redu njene
+definicije, ispred reči <b>class</b>, mora navesti ista ključna reč, <b>abstract</b>. Ukoliko se u klasi, koja je
+izvedena iz neke apstraktne klase, ne predefinišu sve apstraktne nasleđene metode, onda će i sama
+izvedena klasa biti apstraktna, i u tom slučaju neće biti moguće kreiranje ni objekata izvedene
+klase.</p>
+<b>Primer 29.</b> – Apstrakcija
+<xmp class = "primer_ta" title="">
+public abstract class Povrs{
+    public abstract double obim();
+    public abstract double povrsina();
+}
+  //klasa pravougaonik izvedena iz klase Povrs
+class Pravougaonik extends Povrs{
+    private double a;
+    private double b;
+    //konstruktor
+    public Pravougaonik(double a, double b) {
+      this.a = a;
+      this.b = b;
+    }
+    //implementacija apstraktnog metoda za racunanje obima pravougaonika
+    double obim() {
+      return 2 * a + 2 * b;
+    }
+    //impl. apstraktnog metoda za racunanje povrsine pravougaonika
+    double povrsina() {
+      return a * b;
+    }
+}
+// klasa Krug izvedena iz klase Provs
+class Krug extends Povrs {
+    private double r;
+    //konstruktor
+    public Krug(double r) {
+      this.r = r;
+    }
+    //implementacija apstraktnog metoda za racunanje obima kruga
+    double obim() {
+      return 2 * r * Math.PI;
+    }
+    // implementacija apstraktnog metoda za racunanje povrsine kruga
+    double povrsina() {
+      return r * r * Math.PI;
+    }
+}
+class Test {
+    public static void main(String args[]) {
+      Povrs p = new Pravougaonik(2, 3);
+      System.out.println("obim pravougaonika je " + p.obim());
+      Povrs s = new Krug(3);
+      System.out.println("obim kruga je " + s.obim());
+    }
+}
+</xmp>
+Nakon pokretanja ovog programa dobija se poruka:
+<xmp class = "primer_ta" title="">
+  obim pravougaonika je 10.0
+  obim kruga je 18.84955592153876
+</xmp>
+
+Važno je zapamtiti da apstraktne metode ne smeju biti privatne (<b>private</b>), jer u tom slučaju neće
+biti nasleđene, pa se ne mogu predefinisati u izvedenim klasama.

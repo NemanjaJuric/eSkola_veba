@@ -1,0 +1,103 @@
+<h1>Naredba <b>for</b></h1>
+
+<p style="text-align: justify;">Kako je pri kreiranju programa nekada potrebno izvršiti određene naredbe više puta, u
+programskim jezicima obezbeđene su strukture koje omogućavaju ciklično izvršavanje naredbi. U
+programskom jeziku Java u tu svrhu koriste se sledeće naredbe: naredba <b>for</b>, while i do-while.</p>
+
+
+
+<p style="text-align: justify;">Petlja <b>for</b> koristi se za ciklično izvršavanje bloka naredbi više puta. Preporučuje se korišćenje ove
+petlje kada unapred znamo koliko puta treba izvršiti neki deo koda. Postoje dva oblika <b>for</b> petlje -
+prvi je tradicionalni oblik koji se koristi od prve verzije Jave, drugi oblik nazivamo „<b>for-each</b>” i
+postoji od JDK 5.
+Opšti oblik tradicionalne naredbe <b>for</b> izgleda ovako:</p>
+
+  <div class = "napomena">
+    for (inicijalizacija; uslov; iteracija) {<br>
+    //kôd koji se izvršava <br>
+    }
+  </div>
+
+<p style="text-align: justify;">Ukoliko je potrebno da se izvršava samo jedna naredba vitičaste zagrade nisu neophodne. Petlja
+<b>for</b> funkcioniše na sledeći način:
+Prvi korak je inicijalizacija (engl.<i>initialization</i>) koji se izvršava pri ulasku u petlju i on se izvršava
+samo jednom. To je izraz kojim se zadaje neka početna vrednost kontrolne promenljive. Zatim se
+izvršava uslov (engl.<i>condition</i>), to je izraz postavljen pomoću relacijskih operatora, koji
+ima <b>boolean</b> vrednost. Ukoliko je uslov ispunjen izvršiće se kôd, a potom će se kontrolnoj
+promenljivoj dodeliti nova vrednost koju definišemo na mestu iteracija. Ukoliko uslov nije
+ispunjen izlazi se iz <b>for</b> petlje i program nastavlja dalje. Iteracija je uglavnom operator kojim se
+menja vrednost kontrolne promenljive, najčešće je uvećavanje ili smanjenje za jedan
+(increment/decrement). Dakle, ciklus se ponavlja, svaki put uz proveravanje uslova, izvršavanje
+tela petlje i izvršavanja iterativnog izraza, sve dok uslov ne postane neispunjen.<br>
+U primeru 9. koristeći <b>for</b> petlju ispisuju se brojevi od 1 do 10.</p>
+
+<b>Primer 9.</b> – jednostavna <b>for</b> petlja
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+      //i se umanjuje za 1 sve dok je i>10 i svaki put kada je uslov
+      //ispunjen ispisuje se vrednost promenljive i
+      for (int i = 10; i > 0; i--)
+          System.out.println(i);
+  }
+}
+</xmp>
+
+<p style="text-align: justify;">U ovom primeru kontrolna promenljiva je deklarisana unutar for petlje, time je obezbeđeno da ova
+promenljiva postoji samo unutar petlje. Dakle, kada je ovu promenljivu potrebno koristiti izvan
+<b>for</b> petlje, nikako ne sme biti deklarisana unutar petlje pri inicijlizaciji, jer ona prestaje da postoji
+po završetku petlje.<br><br>
+Kada je potrebno da izraz za iteraciju ili inicijalizaciju sadrži više naredbi, taj slučaj se rešava
+pomoću zareza. U odeljku za iteraciju ili inicijalizaciju moguće je uneti više izraza odvojenih
+zarezom. To je obično slučaj kada petljom upravljaju dve ili više promenljivih.
+U primeru 10. prikazana je <b>for</b> petlja kojom upravljaju dve promenljive.</p>
+
+<b>Primer 10.</b> – Dve promenljive u <b>for</b> petlji
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+      //i se povećava,a j umanjuje za 1 i
+      // sve dok je i < j stampaju se vrednosti obe promenljive
+      for (int i = 1, j = 4; i < j; i++, j--) {
+          System.out.println("i = " + i);
+          System.out.println("j = " + j);
+      }
+  }
+}
+</xmp>
+Pri pokretanju ovog programa dobija se ispis:
+<xmp class = "primer_ta" title="">
+  i = 1 <br>
+  j = 4 <br>
+  i = 2 <br>
+  j = 3  </xmp>
+
+<p style="text-align: justify;">Počev od JDK 5, definisana je i „<b>for-each</b>” verzija za petlju <b>for</b>. Ova petlja namenjena je strogo
+sekvencijalnom kretanju kroz kolekcije objekata (kao što je niz) od njenog početka do kraja. Opšti
+oblik „<b>for-each</b>” verzije petlje videti u nastavku:</p>
+<div class = "napomena">
+  for (tip iteraciona promenljiva : kolekcija)) {<br>
+  //kôd koji se izvršava <br>
+  }
+</div>
+
+<p style="text-align: justify;">
+U ovoj deklaraciji tip označava tip promenljive, a iteraciona promenljiva je ime promenljive koja
+će primati elemente kolekcije, jedan po jedan od njeno početka pa do kraja. U svakom ciklusu
+iteraciona promenljiva prima vrednost jednog elementa kolekcije, zatim se izvršava blok naredbi,
+ciklusi se ponavljaju onoliko puta koliko ima elemenata u datoj kolekciji. Pošto iteraciona
+promenljiva prima vrednost elemenata kolekcije, ona mora biti istog tipa kao i tip elemenata
+kolekcije.<br>
+Kroz primer 11. može se videti upotreba „<b>for-each</b>” petlje.</p>
+
+<b>Primer 11.</b> – Jednostavna <b>for-each</b> petlja
+<xmp class = "primer_ta" title="">
+public class Test {
+  public static void main(String args[]) {
+    int brojevi[] = { 1, 2, 3, 4, 5 };
+    //„for-each” prolazi kroz niz i ispisuje svaki element
+    for (int i : brojevi)
+    System.out.println("i = " + i);
+  }
+}
+ </xmp>

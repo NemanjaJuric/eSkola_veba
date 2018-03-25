@@ -1,0 +1,176 @@
+<h1>Kontruktori i ključna reč <b>this</b></h1>
+<h2>Kontruktori</h2>
+<p style="text-align: justify;">Kao što je već pomenuto operator new u trenutku izvršavanja dodeljuje memoriju objektu. Opšti
+oblik upotrebe ovog operatora je:</p>
+
+  <div class = "napomena">
+  promenljiva = new imeKlase( );
+  </div>
+
+<p style="text-align: justify;">U ovom izrazu promenljiva je istog tipa kao i objekat koji se kreira, a imeKlase je klasa čija se
+instanca kreira. Pomoću imena klase iza koga slede zagrade zadaje se konstruktor klase.
+Konstruktor (engl. constructor) je specijalni tip metode koji se koristi da inicijalizuje objekt.
+Konstruktor se poziva u trenutku kreiranja objekta. On konstruiše vrednosti, tj. obezbeđuje podatke
+za objekt i otuda mu to ime. Svaka klasa ima bar jedan konstruktor. Ukoliko programer eksplicitno
+ne kreira konstruktor za neku klasu, kompajler će automatski dodati podrazumevani (engl.<i> default</i>)
+konstruktor.
+Postoje dva definisana pravila za konstruktore.
+<ul>
+  <li>Ime konstruktora mora biti isto kao ime njegove klase.
+</li>
+  <li>Konstruktor ne sme vraćati nikakav određeni tip.</li>
+</ul>
+</p>
+
+<b>Primer 23.</b> – Upotreba konsruktora
+<xmp class = "primer_ta" title="">
+class Kutija {
+    double sirina;
+    double visina;
+    double dubina;
+
+    // konstruktor koji dodeljuje iste vrednosti atributima za svaki objekat
+    Kutija() {
+      sirina = 5;
+      visina = 5;
+      dubina = 5;
+    }
+    // metoda koja vraća zapreminu
+    double zapremina() {
+    return sirina * visina * dubina;
+    }
+}
+class Test7 {
+    public static void main(String[] args) {
+        //kreiranje kutije čije su dimenzije zadate konstruktorom
+        Kutija mojaKutija = new Kutija();
+        double zapremina;
+
+        // pozivanje metode za izracunavanje zapremine
+        zapremina = mojaKutija.zapremina();
+        System.out.println("Zapremina je " + zapremina);
+    }
+}
+</xmp>
+Po izvršavanju programa na ekranu se ispisuje:
+<xmp class = "primer_ta" title="">
+Zapremina je 125.0
+ </xmp>
+
+ <p style="text-align: justify;">Podrazumevani konstruktor obezbeđuje podrazumevane vrednosti za objekt, i to 0 za numeričke
+promenljive, <b>false</b> za logičke promenljive,<b> \u0000</b> za znakovne promenljive, <b>null</b> za klasni tip
+promenljive.<br>
+Kako konstruktor u ovom primeru nije preterano upotrebljiv, jer svim kutijama dodeljuje iste
+dimenzije, potrebno je definisati konstruktor koji kreira objekte različitih dimenzija. U jednoj klasi
+dozvoljeno je definisati više konstruktora i po potrebi pozivati odgovarajući.
+
+U primeru 24 prikazana je upotreba konstruktora sa parametrima.
+</p>
+
+<b>Primer 24.</b> – Upotreba konsruktora sa parametrima
+<xmp class = "primer_ta" title="">
+class Kutija {
+  double sirina;
+  double visina;
+  double dubina;
+  // konstruktor koji dodeljuje iste vrednosti atributima za svaki objekat
+  Kutija() {
+    sirina = 5;
+    visina = 5;
+    dubina = 5;
+  }
+  // konstruktor sa parametrima
+  Kutija(double s, double v, double d) {
+    sirina = s;
+    visina = v;
+    dubina = d;
+  }
+  double zapremina() {
+    return sirina * visina * dubina;
+  }
+}
+class Test1 {
+    public static void main(String[] args) {
+      // kreiranje objekta pomoću konstruktor sa parametrima
+      Kutija mojaKutija1 = new Kutija(10, 15, 20);
+      Kutija mojaKutija2 = new Kutija(5, 8, 4);
+      double zapremina;
+      zapremina = mojaKutija1.zapremina();
+      System.out.println("Zapremina je " + zapremina);
+      zapremina = mojaKutija2.zapremina();
+      System.out.println("Zapremina je " + zapremina);
+    }
+}
+
+</xmp>
+Po izvršavanju programa na ekranu se ispisuje:
+<xmp class = "primer_ta" title="">
+  Zapremina je 3000.0
+  Zapremina je 160.0
+ </xmp>
+
+  <p style="text-align: justify;">U Test klasi kreirana su dva objekta klase Kutija, pomoću konstruktora sa parametrima. Pri pozivu
+konstruktora, svaki objekat se inicijalizuje vrednostima parametara konstruktora.</p>
+
+<h2>ključna reč this</h2>
+<p style="text-align: justify;">Ključna reč <b>this</b>  u programskom jeziku Java koja se koristi kao referenca na objekat date klase.
+Parametrima konstruktora često se daju ista imena koja imaju objektni atributi klase, pa je
+neophodno napraviti razliku između lokalne promenljive i atributa objekta. To se postiže
+umetanjem prefiksa <b>this</b>  uz objektne atribute.</p>
+<b>Primer 25.</b> – Upotreba ključne reči this
+<xmp class = "primer_ta" title="">
+class Kutija {
+    double sirina;
+    double visina;
+    double duzina;
+
+    // konstruktor sa paremetrima i ključna reč this
+    Kutija(double sirina, double visina, double duzina) {
+        this.sirina = sirina;
+        this.visina = visina;
+        this.duzina = duzina;
+  }
+}
+</xmp>
+<p style="text-align: justify;">"U primeru 25 nazivi objektnih atributa i parametara konstruktora su isti. Iz tog razloga bi došlo
+do greške i kreirani objekti ne bi dobili željene vrednosti za njihove atribute širinu, visinu i dužinu,
+da se ključnom rečju <b>this</b> nije napravila razlika između naziva atributa i parametara.<br>
+Pored toga, rezervisana reč this može biti upotrebljena da pozove konstruktor date klase. Naime,
+kada klasa ima više konstruktora, a želi se ponovna upotreba konstruktora koristi se - <b>this()</b>. Treba
+imati u vidu jedno ograničenje kada se o ovoj upotrebi radi - poziv nekog konstruktora pomoću
+this mora biti prva naredba u drugom konstruktoru.
+Primer 26 ilustruje upotrebu ključne reči this pri pozivu drugog konstruktora.</p>
+<b>Primer 26.</b> – Upotreba ključne reči this u drugom konstruktoru
+<xmp class = "primer_ta" title="">
+class Kutija {
+    double sirina;
+    double visina;
+    double duzina;
+    // konstruktor sa parametrima
+    Kutija(double sirina, double visina, double duzina) {
+        this.sirina = sirina;
+        this.visina = visina;
+        this.duzina = duzina;
+    }
+    // konstruktor koji poziva konstruktor sa parametrima
+    Kutija() {
+        this(4, 6, 8);
+    }
+    double zapremina() {
+        return sirina * visina * duzina;
+    }
+}
+class Test {
+  public static void main(String[] args) {
+      // poziv konstruktor koji poziva konstruktor
+      Kutija mojaKutija = new Kutija();
+      double zapremina;
+      zapremina = mojaKutija.zapremina();
+      System.out.println("Zapremina je " + zapremina);
+  }
+}
+</xmp>
+Po izvršavanju programa na ekranu se ispisuje:
+<xmp class = "primer_ta" title="">
+Zapremina je 192.0
+ </xmp>

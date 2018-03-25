@@ -1,0 +1,95 @@
+
+<h1>Modifikatori</h1>
+<p style="text-align: justify;">
+  Modifikatori (engl. modifiers) su ključne reči koje stoje u definiciji klasa, metoda ili
+  promenljivih i bliže ih određuju. Modifikatori su opcioni i njihov redosled nije bitan. U nekim
+  situacijama su implicitno definisani, tj. podrazumeva se njihovo korišćenje. U programskom jeziku
+  Java se modifikatori mogu podeliti na dve grupe, oni koji se koriste za kontrolu pristupa i ostali
+  modifikatori.
+</p>
+<h2>Modifikatori pristupa</h2>
+<p style="text-align: justify;">U programskom jeziku Java se koristi nekoliko modifikatora za određivanje nivoa pristupa nekoj
+klasi, metodi ili promenljivoj.<br>
+Postoje 4 modifikatora pristupa i sledi opis za svaki od njih.
+</p>
+<ul>
+<li><b>private</b> - označava da je metoda ili promenljiva uz koju stoji vidljiva samo unutar klase u
+kojo je definisana, znači da joj se iz druge klase ne može pristupati. Klase i interfejsi ne
+mogu da budu private.
+<xmp class = "primer_ta">
+  public class Auto {
+  private String boja;
+  private int brzina;
+  ...
+  }
+}</xmp>
+</li>
+
+<li><b>public</b> - označava da je klasa, metoda ili promenljiva uz koju stoji javna, dakle, može joj
+se pristupati iz bilo koje klase.
+<xmp class = "primer_ta">
+  //metoda main() je uvek public
+  public void main (String[] arguments){
+  ...
+  }
+</xmp></li>
+
+<li><b>protected</b> - označava da je metoda ili promenljiva vidljiva unutar klase u kojoj je
+definisana, u potklasama koje su izvedene (nasleđene) od te klase i paketa unutar kojeg se
+ta klasa nalazi.
+<xmp class = "primer_ta">
+  class Vrata {
+  //metoda je protected
+  protected boolean otvoriVrata(Vrata d) {
+  ...
+  }
+  }</xmp></li>
+
+<li><b>podrazumevani pristupni modifikator</b> - je zapravo slučaj kada pri deklaraciji ne stavimo
+modifikator, tada je metoda ili promenljiva deklarisana bez modifikatora vidljiva u svim
+klasama na nivou paketa.
+</li>
+</ul></p>
+
+<h2>Ostali modifikatori</h2>
+<p style="text-align: justify;">
+  Pored modifikatora pristupa, u programskom jeziku Java je dostupno i nekoliko modifikatora koji
+  specificiraju odgovarajuće karakteristike određenih promenljivih, metoda ili klasa.
+</p>
+<ul>
+<li><b>static</b> - se koristi uz promenljive i metode. Promenljiva uz koju stoji modifikator static
+postoji i kada nije kreirana instanca te klase - one se jos naziva klasne promenljiva (engl.
+class variable). Metoda uz koju stoji modifikator static može biti pozivana preko imena
+klase i kada nema kreiranih instanci te klase - one se još nazivaju klasne metode (engl.
+class methods).</li>
+
+<li><b>final</b> - se koristi uz promenljive, metode i klase. Promenljiva uz koju stoji final modifikator
+se inicijalizuje samo jednom, vrednost se ne menja. Kod promenljivih referentnog tipa sa
+modifikatorom final obezbeđuje da se ta promenljiva ne može preorjentisati da pokazuje
+na neki drugi objekat. Metode uz koju stoji final modifikator ne može biti redefinisana u
+okviru neke potklase. Iz klasa uz koju stoji final modifikator ne može se kreirati potklasa. </li>
+
+<li><b>abstract</b> - se koristi uz metode i klase. Metode uz koju stoji abstract modifikator je
+deklarisana bez implementacije. Definicija te metode se mora obezbediti u okviru neke
+neapstraktne podklase. Ako klasa sadrži bar jednu abstract metodu mora biti abstract. Ako
+je klasa abstract ne mora da sadrži abstract metode. Klasa uz koju stoji abstract
+modifikator ne može biti instancirana tj. ne može kreirati objekte te klase. Apstraktne klase
+služe isključivo da budu nasleđene.</li>
+
+<li><b>synchronized</b> - se koristi za metode. Dve niti ne mogu simultano da izvršavaju metodu.</li>
+<li><b>native</b> - se koristi u specijalnim situacijama, kada je potreban pristup naredbama
+operativnog sistema ili procesora, odnosno nekim metodama i nekom kodu koji nije Java
+kôd. Sprečavanje kompajlera da tumači ono što se nalazi u okviru te metode, postiže se
+modifikatorom native, koji komunicira sa kompajlerom omogućavajući da unutra postoji
+kôd koji nije kôd programskog jezika Java.</li>
+<li><b>volatile</b> - koristi se za promenljive. Vrednost se moze menjati nezavisno od Java programa,
+kompajler ne prati njene promene.</li>
+
+<li><b>transient</b> - je sigurnosni mehanizam, odnosi se isključivo na promenljive, i komunicira sa
+promenljivom koja ima modifikator transient tako da ona ne može da napusti virtuelnu
+mašinu. Bilo kakvo snimanje klase u kojoj se nalazi promenljiva tipa transient, ili puštanje
+kroz mrežu instance klase koja u sebi ima promenljivu transient, će prouzrokovati da ta
+promenljiva nestane iz klase, dakle neće više postojati, odnosno povećava sigurnost te
+promenljive. Promenljiva može da postoji samo u okviru virtuelne mašine.</li>
+
+</ul></p>

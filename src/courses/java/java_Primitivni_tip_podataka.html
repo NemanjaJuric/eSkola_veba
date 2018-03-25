@@ -1,0 +1,195 @@
+
+<h1>Primitivni tip podataka</h1>
+<p style="text-align: justify;">U programskom jeziku Java je definisano osam elementarnih tipova podataka: bajt (<b>byte</b>), kratak celobrojni (<b>short</b>), celobrojni (<b>int</b>), dugačak celobrojni (<b>long</b>), znakovni (<b>char</b>), broj u pokretnom zarezu (<b>float</b>), broj u pokretnom zarezu dvostruke tačnosti (<b>double</b>) i logički tip (<b>boolean</b>).
+<img src="courses/java/primitivniTip.jpg"  class="img-md">
+<br><br>
+Primitivni tipovi predstavljaju jednostavne vrednosti, a ne složene objekte.
+Iako je Java u principu potpuno objektno orijentisana, njeni primitivni tipovi podataka to nisu.
+Svi primitivni tipovi imaju tačno određenu veličinu memorije u bajtovima za zapisivanje odgovarajućih vrednosti.
+ Zbog toga svi primitivni tipovi podataka imaju tačno definisan opseg vrednosti koje im pripadaju.
+</p>
+<h3>1.1. Celi brojevi</h3>
+<p style="text-align: justify;">U jeziku Java su definisana četiri tipa celobrojnih podataka: <strong>byte</strong>, <strong>short</strong>, <strong>int</strong> i <strong>long</strong>. Sve su to pozitivni i negativni brojevi sa predznakom. Dužinu celobrojnog tipa podataka ne treba shvatati kao količinu memorije koju on zauzima, već kao pona&scaron;anje koje on nameće promenljivama i izrazima tog tipa. Izvr&scaron;no okruženje jezika Java je slobodno da koristi bilo koju veličinu sve dok se tipovi podataka pona&scaron;aju onako kako su deklarisani. Veličina i opseg celobrojnih tipova podataka &scaron;iroko variraju i prikazani su u tabeli 1.</p>
+<p style="align-text: center;"><b>Tabela 1.</b> &ndash;&nbsp; Opseg vrednosti celobrojnih tipova podataka</p>
+
+<table class = "tabela">
+<thead>
+<tr>
+<th>Tip</th>
+<th>Veličina</th>
+<th>Opseg vrednosti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="78">
+<p><strong>long</strong></p>
+</td>
+<td width="96">
+<p>64</p>
+</td>
+<td width="450">
+<p>od -9.223.372.036.854.775.808 do 9.223.372.036.854.775.807</p>
+</td>
+</tr>
+<tr>
+<td width="78">
+<p><strong>int</strong></p>
+</td>
+<td width="96">
+<p>32</p>
+</td>
+<td width="450">
+<p>od -2.147.483.648 do 2.147.483.647</p>
+</td>
+</tr>
+<tr>
+<td width="78">
+<p><strong>short</strong></p>
+</td>
+<td width="96">
+<p>16</p>
+</td>
+<td width="450">
+<p>od -32.768 do 32.767</p>
+</td>
+</tr>
+<tr>
+<td width="78">
+<p><strong>byte</strong></p>
+</td>
+<td width="96">
+<p>8</p>
+</td>
+<td width="450">
+<p>od -128 do 127</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p style="text-align: justify;"><b>byte</b> &ndash; najmanji celobrojni tip podatka, to je 8-bitni ceo broj u opsegu -128 do 127. Podrazumevana vrednost promenljive tipa <strong>byte</strong> je 0. Promenljive tipa <strong>byte</strong> posebno su korisne pri radu s tokovima podataka sa mreže ili iz datoteke. Promenljive tipa <strong>byte</strong> deklari&scaron;e se pomoću rezervisane reči <strong>byte</strong>, na sledeći način:
+<br>
+<span class = "primer_text">
+  byte a;
+  byte b;
+</span>
+<br><br>
+<b>short</b> – je 16-bitni broj s predznakom. Opseg vrednosti mu je između -32.768 i 32.767.
+Podrazumevana vrednost promenljive tipa short je 0. Verovatno je to tip koji se  najmanje koristi.<br>
+<span class = "primer_text">
+ short s; 	  short t;
+</span>
+<br><br>
+<b>int</b> – tip celobrojnih podataka koji se najčešće koristi. To je 32-bitni ceo broj s predznakom, čiji je opseg vrednosti od -2.147.483.648 do 2.4832.147.647. Podrazumevana vrednost promenljive tipa int je 0. Promenljiva tipa int se često koristi za upravljanje petljama i za indeksiranje nizova.
+<br>
+ <span class = "primer_text">
+ int i;
+ int j;
+ </span>
+<br><br>
+<b>long</b> – je 64-bitni ceo broj sa predznakom koji je pogodan kada tip int nije dovoljan za datu vrednost. Podrazumevana vrednost promenljive tipa long je 0. Opseg vrednosti tipa long veoma je velik. To ga čini pogodnim kada treba raditi sa veoma velikim brojevima.
+<br>
+<span class = "primer_text">
+ long l;
+ long k;
+ </span>
+ <br><br>
+ <h3>1.2. Brojevi u pokretnom zarezu </h3>
+
+<p style="text-align: justify;">Brojevi u pokretnom zarezu poznatiji kao realni brojevi koriste se za izračunavanje izraza gde je potreban i decimalan deo. Postoje dva tipa brojeva u pokretnom zarezu: float i double, koji predstavljaju brojeve jednostruke i dvostruke tačnosti. Njihova veličina i opseg vrednosti prikazani su u tabeli 2.
+</p>
+<p style="align-text:center;"><b>Tabela 2.</b> &ndash;&nbsp;Opseg vrednosti realnih tipova podataka</p>
+<table class = "tabela">
+  <thead>
+  <tr>
+  <th>Tip</th>
+  <th>Veličina</th>
+  <th>Opseg vrednosti</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="78">
+<p><strong>double</strong></p>
+</td>
+<td width="96">
+<p>64</p>
+</td>
+<td width="450">
+<p>od 4.9e-324 do 1.8e+308</p>
+</td>
+</tr>
+<tr>
+<td width="78">
+<p><strong>float</strong></p>
+</td>
+<td width="96">
+<p>32</p>
+</td>
+<td width="450">
+<p>od 1,4e-045 do 3,4e+038</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<b>float</b> – predstavlja brojeve sa jednostrukom tačnošću i zauzima 32 bita memorije. Podrazumevana vrednost promenljive tipa float je 0.0f. Rad sa brojevima jednostruke tačnosti na nekim procesorima je brži i zahteva dva puta manje memorije od brojeva dvostruke tačnosti, ali rezultati postaju netačni kada su argumenti vrlo veliki ili vrlo mali. Promenljive tipa float korisne su potrebne vrednosti s decimalnim delom, ali ne i velika preciznost.
+<br>
+<span class = "primer_text">
+ float f;
+ float l;
+</span>
+<br><br>
+<b>double</b> – decimalni broja, dvostruke tačnosti, zauzima 64 bita memorije. Podrazumevana vrednost promenljive tipa double je 0.0d. Računanje sa brojevima dvostruke tačnosti na nekim savremenim procesorima, optimizovanim za brže matematičke proračune, brže je nego sa brojevima jednostruke tačnosti. Na primer, matematičke funkcije sin(), cos()  i sqrt() kao rezultat daju vrednosti tipa double. Kada tokom mnogobrojnih iteracija treba održati tačnost ili raditi sa brojevima koje imaju više značajnih cifara, najbolji je tip double.
+<br>
+<span class = "primer_text">
+ double d;
+</span><br>
+ <h3>1.3. Znakovi</h3>
+
+<p style="text-align: justify;">U programskom jeziku Java je char tip koji se koristi za predstavljanje znakova. Međutim treba imati u vidu da char u programskom jeziku Java nije isto što i char u jezicima C i C++. U jezicima C i C++ tip char je veličine 8 bitova. To nije slučaj u programskom jeziku Java, jer Java za predstavljanje znakova koristi standard Unicode. Unicode definiše potpun skup međunarodnih znakova koji može da prikaže znake iz svih svetskih jezika. Za jedinstveno predstavljanje svakog znaka Unicode koristi 16 bitova – zato u jeziku Java tip char zauzima 16 bitova. Opseg vrednosti tipa char je između 0 i 65536, nema negativnih vrednosti. U primeru 2. ilustrovana je upotreba promenljive tipa char.
+<p><b>Primer 2.</b> – Upotreba proemnljive tipa char </p>
+<xmp class = "primer_ta">
+public class PrimerChar {
+
+  public static void main(String[] args) {
+    char ch2 = 'Y'; // inicijalizacija promenljive
+    char ch1 = 88; // kod za slovo X
+    // ispis vrednosti prom. tipa char
+    System.out.println("ch1 i ch2: " + ch1 + " " + ch2);
+  }
+}</xmp>
+Nakon pokretanja ovog programa, na ekranu se ispisuj:
+<br>
+<span class = "primer_text">
+ch1 i ch2: X Y
+</span>
+</p>
+
+<h3>1.4. Logičke vrednosti</h3>
+
+<p style="text-align: justify;">Za logičke vrednosti u jeziku Java koristi se primitivni tip podataka boolean. Može imati samo jednu od dve moguće vrednosti true (tačno) ili false (netačno). Podrazumevana vrednost promenljive tipa boolean je false. Vrednost tog tipa daju svi operatori za poređenje. Tip boolean je takođe obavezan tip u uslovnim izrazima koji upravljaju kontrolnim naredbama, kao što su if , for, while.
+<br>
+<b>Primer 3.</b> prikazuje upotrebu logičke vrednosti.
+<xmp class = "primer_ta">
+public class PrimerBoolean {
+
+  public static void main(String[] args) {
+  	 	boolean b; // deklaracija promenljive
+      // ispisuje podrazumevanu vrednost prom. tipa boolean
+  	 	System.out.println("Vrednost b je: " + b);
+  	 	b = true;
+      // ispisuje novu dodeljenu vrednost prom. tipa boolean
+  	 	System.out.println("Vrednost b je: " + b);
+   	}
+  }
+}</xmp>
+
+<br>Nakon pokretanja ovog programa, na ekranu se ispisuje:
+<br>
+<span class = "primer_text">
+  Vrednost b je: false
+  <br>
+  Vrednost b je: true
+</span></p>
