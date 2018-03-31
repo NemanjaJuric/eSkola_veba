@@ -1,0 +1,82 @@
+<html>
+        <head>
+            <title>VueJs</title>
+            <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"> </script>
+        </head>
+        <body>
+                <div id="app">
+                   
+                        <form>
+                        <fieldset>
+                        <legend>Izaberi priloge:</legend>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="kecap"/>
+                        Kecap</label><br>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="senf"/>
+                        Senf</label><br>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="majonez"/>
+                        Majonez</label><br>
+                        <ul><li v-for="prilog in nizPriloga">{{prilog}}</li></ul>
+                        <input type="submit" value="Izaberi"/>
+                        </fieldset>
+                        <hr>
+                        <input
+                        type="checkbox"
+                        v-model="toggle"
+                        v-bind:true-value="a"
+                        v-bind:false-value="b"
+                      ><label for="">Checkbox</label>
+                      <p>{{toggle}}</p>
+                        <fieldset>
+                            <legend>Izaberi pol</legend>
+                            <label>
+                            <input type="radio" v-model="pol" value="muski"/>
+                            Muski
+                            </label><br>
+                            <label>
+                            <input type="radio" v-model="pol" value="zenski"/>
+                            Zenski
+                            </label> <br>
+                            <label>
+                            <input type="radio" v-model="pol" value="neodredjeno"/>
+                            Ne zelim da odgovorim
+                            </label>
+                            </fieldset>
+                            <p>Izabrani pol:{{pol}}</p>
+                            <hr>
+                            <fieldset>
+                                <legend>Izaberi zemlju</legend>
+                                <select  v-model="izabranaZemlja">
+                                    <option>Japan</option>
+                                    <option>India</option>
+                                    <option>Canada</option>
+                                    </select>
+                                </fieldset>
+                                <div>
+                                    {{izabranaZemlja}}
+                                    </div>
+                        </form>
+                        
+                         
+                </div>
+        <script>
+            new Vue({
+        el:'#app',
+        data:{
+            nizPriloga:[],
+            pol:'',
+            izabranaZemlja: undefined,
+            toggle:'toggle',
+            a:'a',
+            b:'b'
+    
+            },
+        methods:{
+      
+      }
+    });
+        </script>
+        </body>
+    </html>

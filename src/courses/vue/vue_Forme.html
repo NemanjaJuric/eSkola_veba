@@ -1,0 +1,97 @@
+<h1>Forme</h1>
+U ovom lekciji upoznaćemo se sa formama i načinom na koji možemo da manipulišemo elementima formi uz pomoć Vue radnog okvira<br>
+Za razliku od prethodih lekcija gde smo imali više manjih primera neke od elemenata formi ćemo najbolje savladati ako se ti elemetni nadju zajedno u okviru većeg primera. Sa nekim elementima formi kao što je tekstualno polje smo se već upoznali. Sada ćemo se upoznati sa još nekim najčešće korišćenim.
+<xmp class = "primer_ta">
+<html>
+        <head>
+            <title>VueJs</title>
+            <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"> </script>
+        </head>
+        <body>
+                <div id="app">
+                   
+                        <form>
+                        <fieldset>
+                        <legend>Izaberi priloge:</legend>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="kecap"/>
+                        Kecap</label><br>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="senf"/>
+                        Senf</label><br>
+                        <label>
+                        <input type="checkbox" v-model="nizPriloga" value="majonez"/>
+                        Majonez</label><br>
+                        <ul><li v-for="prilog in nizPriloga">{{prilog}}</li></ul>
+                        <input type="submit" value="Izaberi"/>
+                        </fieldset>
+                        <hr>
+                        <input
+                        type="checkbox"
+                        v-model="toggle"
+                        v-bind:true-value="a"
+                        v-bind:false-value="b"
+                      ><label for="">Checkbox</label>
+                      <p>{{toggle}}</p>
+                        <fieldset>
+                            <legend>Izaberi pol</legend>
+                            <label>
+                            <input type="radio" v-model="pol" value="muski"/>
+                            Muski
+                            </label><br>
+                            <label>
+                            <input type="radio" v-model="pol" value="zenski"/>
+                            Zenski
+                            </label> <br>
+                            <label>
+                            <input type="radio" v-model="pol" value="neodredjeno"/>
+                            Ne zelim da odgovorim
+                            </label>
+                            </fieldset>
+                            <p>Izabrani pol:{{pol}}</p>
+                            <hr>
+                            <fieldset>
+                                <legend>Izaberi zemlju</legend>
+                                <select  v-model="izabranaZemlja">
+                                    <option>Japan</option>
+                                    <option>India</option>
+                                    <option>Canada</option>
+                                    </select>
+                                </fieldset>
+                                <div>
+                                    {{izabranaZemlja}}
+                                    </div>
+                        </form>
+                        
+                         
+                </div>
+        <script>
+            new Vue({
+        el:'#app',
+        data:{
+            nizPriloga:[],
+            pol:'',
+            izabranaZemlja: undefined,
+            toggle:'toggle',
+            a:'a',
+            b:'b'
+    
+            },
+        methods:{
+      
+      }
+    });
+        </script>
+        </body>
+    </html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+Posmatrajmo sada pojednačno svaki od elemenata koji čine ovu html formu.<br>
+U prvoj grupi elemenata imamo dugmad za čekiranje(eng. checkbox). Primetimo da se klikom na neko dugme pojavljuje nenumerisana lista elemenata koji su čekirani.Klikom na dugme element je dodat u listu a ako element nije označen neće se pojaviti u listi. Ova funkcionalnost se obezbedjuje na sledeći način. Pre svega primetimo da je svaki od elemenata na koji možemo da kliknemo vezan za niz nizPriloga. Niz nizPriloga je podatak koji se nalazi u okviru bazne Vue instance i na početku je prazan.<br>
+Takodje, primetimo da se za vrednost svaki od dugmeta za čekiranje (atribut value) uzima string "kecap","senf" ili "majonez". Klikom na dugme za čekiranje vrednost tog dugmeta odnosno vrednost atributa value se ubacuje u niz nizPriloga, odnosno, u pozadini se poziva push metoda koja smešta vrednost(value) dugmeta za čekiranje u taj niz. Prema tome, kada kliknemo npr. na dugme Kecap u nizPriloga će biti smeštena vrednost "kecap". <br>
+Komandom <br>
+&ltul&gt&ltli v-for="prilog in nizPriloga"&gt{{prilog}}&lt/li&gt&lt/ul&gt <br>
+iščitavamo elemente niza i smeštamo ih u niz. Direktivom v-for,kao što smo se već upoznali, omogućujemo da se iščitavanje elemenata niza odvija dinamički.<br>
+Posmatrajmo sada sledeće dugme za čekiranje - "Dugme". Klikom na dugme naizmenično primećujemo da se ispod ispisuju slova "a" i "b". Dugme je direktivom v-model vezano za podatak iz Vue instance toggle.Toggle na početku kao vrednost uzima prazan string. Komandom v-bind:true-value="a" omogućavamo da klikom na dugme(prilikom čekiranja dugme ima logičku vrednost true) vrednost(value) bude "a". Analogno važi za vrednost "b" odnosno za situaciju kada dugme nije čekirano. Primetimo da u ovom slučaju ulogu igra direktiva v-bind.<br>
+Sledeći na redu su radio dugmići.  Primetimo da su uz pomoć v-model direktive  radio dugmići vezani za podatak pol iz Vue instance. Pol za početak ima za vrednost prazan string. Klikom na radio dugme podatak pol uzima vrednost radio dugmeta na koji smo kliknuli. Primećujemo da se ta vrednost uz pomoć string intepolacije ispisuje u paragrafu ispod.<br>
+Na kraju, posmatrajmo padajući meni sa opcijama u vezi sa državama. Padajući meni smo direktivom v-model vezali za podatak izabranaZemlja iz Vue instance. Klikom na neku od opcija za vrednost podatka izabranaZemlja biće uzet tekst unutar option etikete(pošto nemamo ovde value atributa unutar option etikete). 

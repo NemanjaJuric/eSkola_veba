@@ -30,7 +30,7 @@ Aplikacija radi tako što se u prvoj linij koda pristupi modulu express funkcijo
 Prvi argument funkcije get jeste stirng kojim se zadaje ruta '/' (u sledećem delu biće više reči o rutama) dok je drugi argument funkcija (callback function) koja će biti pozvana kada server bude dobio get zahtev sa zadatom rutom.<br>
 Ta funkcija ima argumente <b>req</b> (skraćeno od request - zahtev) i <b>res</b> (skraćeno od response - odgovor).<br>
 Objekat req predstavlja Http zahtev sa raznim propertima koji nose informacije o zahtevu.<br>
-Objekat res predstavlja Http odgovor koji će server poslati kada dobije Http zahtev, a funkcijom <b>res.send()</b> u ovom slučaju klijentu će biti poslat objekat koji predstavlja poruku "Zdravo svete!".<br><br>
+Objekat res predstavlja Http odgovor koji će server poslati kada dobije Http zahtev, a funkcijom <b>res.send()</b> u ovom slučaju klijentu će biti poslat objekat koji nosi poruku "Zdravo svete!".<br><br>
 
 Funkcija app.listen definisana sa:<br>
 <span class = "primer_text">app.listen(port, [host], [backlog], [callback]);</span><br>

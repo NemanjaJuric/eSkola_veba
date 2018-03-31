@@ -2,7 +2,7 @@
 
 <h2>Funkcije srednjeg sloja (Middleware functions)</h2>
 
-Funkcije srednjeg sloja imaju pristup objektima <b>req</b> i <b>res</b> kao i sledećoj funkciji u nizu <b>next</b>. Ove funkcije se koriste da izvreše izmene na req i res objektima, kao na primer parsiranje tela zahteva (request body), dodavanje zaglavlja odgovora (response headers), logovanje bitnih informacija itd.<br><br>
+Funkcije srednjeg sloja imaju pristup objektima <b>req</b> i <b>res</b> kao i sledećoj funkciji u nizu <b>next</b>. Ove funkcije se koriste da izvrše izmene na req i res objektima, kao na primer parsiranje tela zahteva (request body), dodavanje zaglavlja odgovora (response headers), logovanje bitnih informacija itd.<br><br>
 
 Sledi primer proste funkcije srednjeg sloja koja se poziva za svaki zahtev sa rutom "/test" koji pristigne serveru i u konzoli ispisuje poruku "Pirstigao je novi zahtev", a zatim ako je u pitanju get zahtev, klijentu će biti poslat odgovor "Uspešno obrađen zahtev".
 

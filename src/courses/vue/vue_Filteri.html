@@ -1,0 +1,90 @@
+<h1>Filteri</h1>
+Filteri predstavljaju sintaksnu funkcionalnost koja utiče na prikaz html elemenata na strani. Tačnije, filteri pomažu da se transformiše ono što će na strani da se prikaže a da pristiže iz Vue instance. Ne dolazi do transformacije samih podataka već samo do transformacije prikaza. Filteri dakle ne menjaju podatke već samo utiču na njihov prikaz na veb strani. Unutar Vue radnog okvira ne postoje ugradjeni filteri,prema tome sve filtere ćemo morati sami da napravimo. Neka je zadat sledeći primer:
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>{{tekst}}</p>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tekst: 'Zdravo svete'
+                       }
+        
+                        });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Prikaži</button>
+<br>
+Ideja je da tekstualni prikaz bude ispisan veliki slovima, ali ne želimo da menjamo sam podatak u okviru Vue instance.
+
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>{{tekst | velikaSlova}}</p>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tekst: 'Zdravo svete'
+                       },
+            filters:{
+                        velikaSlova(value){
+                                   return value.toUpperCase();           
+                                                              }
+                        }
+                        });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Prikaži</button><br>
+
+Filtere dodajemo u okviru Vue instance. Ključna reč je filters i njen sadržaj prosledjujemo Vue instance tj. filters će biti element objekta odnosno Vue instance.  Svojstvu filters(kao i što je slučaj sa podacima) prosledjujemo metode koje će vršiti filtriranje. U našem slučaju želimo da napravimo takav filter koji će da prebacuje sva slova u velika i u skladu sa tim smo metodu nazvali velikaSlova. Metodi za filtriranje se uvek prosledjuje ulazni parametar(value u našem slučaju) koji predstavlja vrednost nad kojom će se vršiti filtriranje. Unutar tela metode nad ulaznom vrednošću(value) pozivamo JavaScript metodu toUpperCase koja sva slova prebacuje u velika. Ta izmenjena vrednost ulaznog parametra value će biti izlazna vrednost. Na kraju, u okviru html koda potrebno je da dodamo {{tekst | velikaSlova}}. Na taj način nad podatkom tekst(prikazanim pomoću string interpolacije) primenjen je filter velikaSlova.<br>
+Filtere je moguće i nadovezivati. 
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>{{tekst | velikaSlova|malaSlova}}</p>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                tekst: 'Zdravo svete'
+                       },
+            filters:{
+                        velikaSlova(value){
+                                   return value.toUpperCase();           
+                                                              },
+                        malaSlova(value){
+                                  return value.toLowerCase();
+                                                        }
+                        }
+                        });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Prikaži</button><br>
+
+Dodali smo novi filter malaSlova u okviru filters svojstva. Obratimo sada pažnju na to kako filter radi. Novi filter malaSlova prebacuje slova u mala. Konstrukcija {{tekst | velikaSlova|malaSlova}} predstavlja nadovezivanje filtera. Nadovezivanje se vrši sekvencijalno. U našem konkretnom slučaju na podatak tekst primenjujemo filter velikaSlova čime sadržaj teksta prebacujemo u velika slova. Nakon toga, na taj transformisani sadržaj primenjujemo filter malaSlova tj. na sadržaj tekst | velikaSlova primenjujemo filter malaSlova. Prema tome nakon prve transformacije sadržaj teksta će biti ZDRAVO SVETE, a nakon druge zdravo svete.<br>

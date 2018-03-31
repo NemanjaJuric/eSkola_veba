@@ -45,7 +45,7 @@ renderuje sadržaj moj_prvi_view.pug fajla, klijentu će biti zapravo poslat HTM
 
 <h2>Prosleđivanje parametara</h2>
 
-Moguće je dinamičko korišćenje šablona tj. pri renderovanju .pug fajlova, za prikaz proslediti neke proizvoljne vrednosti na sldeći način:
+Moguće je dinamičko korišćenje šablona tj. pri renderovanju .pug fajlova, za prikaz proslediti neke proizvoljne vrednosti na sledeći način:
 
 <xmp class = "primer_ta">
 var express = require('express');
@@ -75,7 +75,7 @@ html
       a(href = url) URL
 </xmp>
 
-Testiramo iz pretražovača sa:<br>
+Testiramo iz pretraživača sa:<br>
 <span class = "primer_text">http://localhost:2020/dinamicki_template</span> <br><br>
 
 Prikaz treba da bude kao na slici:<br>
@@ -96,8 +96,8 @@ html
          a(href = "/prijavljivanje") Uloguj se!
 </xmp>
 
-U slučaju da je klijent (student) uspošno ulogovn tj. objekat student je različit od null, biće prikazana odgovarajuća poruka, a u suprotnom biće prikazan link ka ruti "/prijavljivanje" kojom se klijent šalje na stranu gde može da se uloguje.<br>
-objekat student se prosleđuje kao drugi argument funkcije render:
+U slučaju da je klijent (student) uspešno ulogovan tj. objekat student je različit od null, biće prikazana odgovarajuća poruka, a u suprotnom biće prikazan link ka ruti "/prijavljivanje" kojom se klijent šalje na stranu gde može da se uloguje.<br>
+Objekat student se prosleđuje kao drugi argument funkcije render:
 <xmp class = "primer_ta">
 res.render('/dinamicki_view',{
    student: {ime: "Milan", starost: "20"}

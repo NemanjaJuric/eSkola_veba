@@ -1331,6 +1331,55 @@
                 "type": "lesson",
                 "parentCourse": "vue",
                 "sublessons": null
+            },
+            {
+                "name": "Vue i objektni model dokumenta",
+                "url": "vue_VueIObjektniModelDokumenta",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Vue i objektni model dokumenta-dogadjaji",
+                "url": "vue_Vue_i_objektni_model_dokumenta_dogadjaji",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Vue i Objektni model dokumenta - dvosmerno vezivanje podataka i dinamicko stilizovanje",
+                "url": "vue_i_Objektni_model_dokumenta-dvosmerno_vezivanje_podataka_i_dinamicko_stilizovanje",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Kondicionali i liste",
+                "url": "vue_Kondicionali_i_liste",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Komponente",
+                "url": "vue_Komponente",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Forme",
+                "url": "vue_Forme",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
+            },
+            {
+                "name": "Filteri",
+                "url": "vue_Filteri",
+                "type": "lesson",
+                "parentCourse": "vue",
+                "sublessons": null
             }
         ]
     },
@@ -1486,7 +1535,7 @@
         "type": "book",
         "lang": "",
         "displayLang": "",
-        "detailsText": "U pripremi",
+        "detailsText": "Ono što se želelo postići programskim jezikom Java, a što je najvećim delom i ostvareno, predstavlja povezivanje velikog broja različitih domena, tako da se omogućava funkcionisanje aplikacionog servera i funkcionisanje mobilnog telefona, kreiranje naučnih programa, razvoj softvera, implementacija međuplanetarne navigacije i još mnogo štošta... – James Gosling",
         "lessons": [
             {
                 "name": "Uvod u programski jezik Java",
@@ -1944,8 +1993,8 @@
                 "sublessons": null
             },
             {
-                "name": "Formulari",
-                "url": "express_formulari",
+                "name": "Pug",
+                "url": "express_pug",
                 "type": "lesson",
                 "parentCourse": "express",
                 "sublessons": null
@@ -1958,8 +2007,8 @@
                 "sublessons": null
             },
             {
-                "name": "Pug",
-                "url": "express_pug",
+                "name": "Formulari",
+                "url": "express_formulari",
                 "type": "lesson",
                 "parentCourse": "express",
                 "sublessons": null

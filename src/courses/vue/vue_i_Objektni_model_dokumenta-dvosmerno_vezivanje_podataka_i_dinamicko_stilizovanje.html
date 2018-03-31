@@ -1,0 +1,317 @@
+<h1>Vue i Objektni model dokumenta- dvosmerno vezivanje podataka i dinamičko stilizovanje</h1>
+Do sada se komunikacija izmedju html elemenata i Vue instance odvijala na dva načina. U prvom smo, kao što je slučaj sa string interpolacijom, slali podatke iz Vue instance u html prikaz. S druge strane pomoću dogadja komunikacija se odvijala u suprotnom smeru tj. nakon nekog dogadjaja došlo je do promena unutar Vue instance što je kasnije uticalo i na prikaz na ekranu. Sada ćemo obratiti slučaj kada se obe stvari dešavaju istovremeno odnosno kada postoji uzajamna konstantna komunikacija izmedju ue instance i html elemenata. Takvu vrstu komunikacije nazivamo dvosmerno vezivanje podataka.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+ <input type="text" v-model="ime">
+<p>{{ime}}</p>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                ime:'Pera'
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+Ovo se jednostavno može postići uz pomoć direktive v-model kojoj prosledjujemo željeni podatak. U našem slučaju to je podatak ime. Vezivanje podataka je dvosmerno iz razloga što se  nakon unošenja teksta u input polje odvija jedan smer komunikacije(iz html elementa ka Vue instanci) čime se menja vrednost podatka ime.A nakon toga promena podatka ime unutar Vue instance dovodi do toga da se unutar paragrafa pomoću string interpolacije menja reprezentacija podatka ime tj. {{ime}}(iz Vue instance ka html elementu).
+<br><br>
+<div class = "napomena">Pre nego što predjemo na dinamičko stiliozovanje veb strane navedimo još par napomena u vezi sa direktivama. Postoji jednostavniji način da zapisujemo odredjene direktive.Primera radi, direktivu v-on:click možemo zapisati jednostavnije tako što ćemo da izostavimo v-on i da zapišemo  @click.Sa druge strane zapis v-bind:href možemo zapisati kao :href </div>
+Sada prelazimo na dinamičko stilizovanje sa CSS klasama.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .probna{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveno{
+                    background-color: red;
+                }
+                .plavo{
+                    background-color:blue;
+                }
+                .zeleno{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="probna"></div>
+<div class="probna"></div>
+<div class="probna"></div>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                ime:'Pera'
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+Primećujemo da su nam zadata tri div elementa sa klasom probna čija smo svojstva definisali u okviru style etiketa.
+Omogućićemo da se klikom na jedan od kvadrata boja naizmenično menja iz crvene u sivu i obratno.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .pocetniKvadrat{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveniKvadrat{
+                    background-color: red;
+                }
+                .plaviKvadrat{
+                    background-color:blue;
+                }
+                .zeleniKvadrat{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="pocetniKvadrat" @click="crvena=!crvena" :class="{crveniKvadrat:crvena}"></div>
+<div class="pocetniKvadrat"></div>
+<div class="pocetniKvadrat"></div>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                crvena:false
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+Kao podatak Vue instance dodali smo podatak crvena i vrednost mu postavili na false. Dalje smo komandom @click="crvena=!crvena" obezbedili da se klikom na div etiketu odnosno na kvadrat vrednost te logičke promenljive menja iz false u true i obratno.Na kraju smo komandom :class="{crveniKvadrat:crvena}" za atribut class vezali odredjeno ponašanje. Sledeća stvar je prosto sintaksa Vue radnog okvira.Prosledili smo objekat "{crveniKvadrat:crvena}" čiji je ključ neka postojeća CSS klasa(crveniKvadrat u ovom slučaju) a vrednost logička promenljiva koja određuje da li će div etiketa sadržati CSS klasu crveniKvadrat.S obzirom da je crvena logička promenljiva,kada ona uzme vrednost true div etiketa će imati klasu crveniKvadrat u svom sastavu a u suprotnom neće.Prema tome klikom na dugme crvena se npr. menja iz false u true i automatski se :class komandom dodaje CSS klasa div etiketi a samim tim se pozadinska boja postavlja na crvenu.<br><br>
+Napravimo sada kombinaciju dinamičkog stilizovanja i dvosmernog vezivanja podataka.Šta ako želimo da dinamički odredimo koja će tačno klasa da se pridodaje div etiketi a ne samo da li će jedna postojeća da se dodaje ili ne?
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .pocetniKvadrat{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveniKvadrat{
+                    background-color: red;
+                }
+                .plaviKvadrat{
+                    background-color:blue;
+                }
+                .zeleniKvadrat{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="pocetniKvadrat" @click="crvena=!crvena" :class="{crveniKvadrat:crvena}"></div>
+<div class="pocetniKvadrat" :class="boja"></div>
+<div class="pocetniKvadrat"></div>
+<input type="text" v-model="boja"><br>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                crvena:false,
+                boja:'zeleniKvadrat'
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+
+Na ovaj način smo omogućili da se unošenjem teksta naziva CSS klase u input element direktno doda odgovorajauća CSS klasa div etiketi.U ovom slučaju nismo morali da prosledjujemo objekat uz :class. Na ovaj način će logička vrednost uvek biti postavljena na true.Takodje, možemo na ovaj način div etiketi da pridružimo više klasa.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .pocetniKvadrat{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveniKvadrat{
+                    background-color: red;
+                }
+                .plaviKvadrat{
+                    background-color:blue;
+                }
+                .zeleniKvadrat{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="pocetniKvadrat" @click="crvena=!crvena" :class="{crveniKvadrat:crvena}"></div>
+<div class="pocetniKvadrat" :class="boja"></div>
+<div class="pocetniKvadrat"  :class="[boja,{crveniKvadrat:crvena}]"></div>
+<input type="text" v-model="boja"><br>
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                crvena:false,
+                boja:'zeleniKvadrat'
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+Na ovaj način, trećoj div etiketi, prosledili smo dve klase u okviru niza. Pored klase koja je povezana sa podatkom boja dodali smo i klasu crveniKvadrat ako je vrednost logičke promenljive true.<br>
+Sada ćemo videti na koji način možemo da utičemo na stilizovanje bez upotrebe CSS klasa.Vratimo se na početni primer.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .probna{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveno{
+                    background-color: red;
+                }
+                .plavo{
+                    background-color:blue;
+                }
+                .zeleno{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="probna" :style="{backgroundColor:boja}"></div>  
+<div class="probna"></div>
+<div class="probna"></div>
+<input type="text" v-model="boja">
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                boja:'zeleniKvadrat'
+                       }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+Želimo da utičemo samo na jedan css stil.
+Direktivom smo se vezali za atribut style i sintaksa je sledeća - :style="{backgroundColor:boja}".Prosledili smo objekat čiji je ključ CSS stil koji želimo a vrednost upravo vrednost koju taj stil uzima. Na ovaj način boja pozadine se menja u zavisnosti od vrednosti koju uzima boja a pošto je boja dvosmernopovezana sa input poljem to znači da unošenjem CSS boje koju želimo u input polje menjaće se boja kvadrata.<br><br>
+Objekte koji utiču na stil ne moramo dodavati isključivo unutar html koda. Mogu se naći i unuta Vue instance.Sada je pravo vreme da uvedemo novo svojstvo- computed.
+<div class = "napomena">Computed svojstvo je mešavina data i methods svojstava. Unutar njega će se naći metode koje će izvršavati logiku izračunavanja koristeći najčešće data podatke, a u html kodu će se prosledjivati kao što se prosledjuju podaci, a ne kao poziv metode. </div>
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+ <style>
+                .probna{
+                    width:100px;
+                    height: 100px;
+                    background-color:grey;
+                    display: inline-block;
+                    margin:10px;
+
+                }
+                .crveno{
+                    background-color: red;
+                }
+                .plavo{
+                    background-color:blue;
+                }
+                .zeleno{
+                    background-color:green;
+                }
+            </style>
+</head>
+<body>
+<div id="app">
+ <div class="probna" :style="{backgroundColor:boja}"></div>  
+<div class="probna"></div>
+<div class="probna" :style="mojStil"></div>
+<input type="text" v-model="boja">
+<input type="text" v-model="sirina">
+ </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                boja:'green',
+                 
+                 sirina:100
+                       },
+computed:{
+            mojStil:function(){
+                return{
+                    'background-color':this.boja,
+                    width:this.sirina+'px'
+                }
+            }
+        }
+                       });
+    </script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button><br>
+U okviru svojstva computed imamo metodu mojStil koja kao povratnu vrednost ima objekat u okviru koga se odredjuju boja pozadine i širina. Na kraju tu metodu(naziv ne poziv) prosledjujemo direktivi koja se vezuje za style atribut u okviru div etikete.Na sirinu utiče drugo input polje koje je takodje dvosmerno vezano za odgovarajući podatak isto kao i prvo input polje koje je vezano za podatak boja.

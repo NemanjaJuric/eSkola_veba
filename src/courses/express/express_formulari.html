@@ -48,7 +48,7 @@ Linija<br>
 <span class = "primer_text">button(type = "submit") Pošalji</span><br>
 predstavlja dugme čijim se klikom formular <br>
 <span class = "primer_text">form(action = "/prijava", method = "POST")</span><br>
-šalje POST zahtevom na server sa rutom "/prijava" i telom zahteva koje sadrži unete podatke o osobi koja posnosi prijavu.<br><br>
+šalje POST zahtevom na server sa rutom "/prijava" i telom zahteva koji sadrži unete podatke o osobi koja podnosi prijavu.<br><br>
 
 Testiranje se može uraditi na sledeći način:
 <xmp class = "primer_ta">
@@ -99,5 +99,5 @@ app.post('/prijava', function(req, res){
     }
 });
 </xmp>
-Ako parametar <b>godine</b> jeste broj, klijentu će biti poslat odgovor sa status kodom 200 tj. OK i porukom "Vaša prijava je prihvaćena!".<br>
+onda ako parametar <b>godine</b> jeste broj, klijentu će biti poslat odgovor sa status kodom 200 tj. OK i porukom "Vaša prijava je prihvaćena!".<br>
 Ako parametar <b>godine</b> nije broj, klijentu će biti poslat odgovor sa status kodom 400 tj. Bad request (Loš zahtev)  i porukom "Godine moraju biti broj!".<br>
