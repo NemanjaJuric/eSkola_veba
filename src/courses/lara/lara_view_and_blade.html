@@ -1,0 +1,163 @@
+<h1>View and blade </h1>
+
+<br>
+Blade je jednostavan, ali veoma jak alat Laravela i služi za pravljenje interfejs šablona, što će biti prikazano pravljenjem jednostavne stranice.<br><br>
+
+Views folder se nalazi u resources folderu. Tu se čuva html kod stranice. Svi potrebni css i JavaScript fajlovi čuvaju se u public folderu.
+
+U ovoj lekciji biće kreiran prvo statički deo, a zatim i dinamički deo stranice. Biće napravljen kontroler sa nazivom MyController. 
+
+Kreirajte folder pages u folderu views. Tu napravite master.blade.php fajl(možemo ga nazvati i drugačije). To će biti osnova koju će naslediti
+
+sve druge stranice. Sada napišite sledeći kod za master.blade.php stranicu. Ne zaboravite, putanja je  //resources/views/pages/master.blade.php.
+
+<xmp class = "primer_ta">
+
+<!DOCTYPE html>
+<html>
+ <head>
+  @yield('head')
+  <link rel='stylesheet' href='/css/style.css'>
+  <title>
+   @yield('title')
+  </title>
+ </head>
+ <body>
+  <div class="container">
+  <div class="heading">
+  @yield('heading')
+  </div>
+  <div class="content">
+  @yield('content')
+  </div>
+  <div class="footer">@yield('footer')</div>
+  </div>
+ </body>
+</html>
+
+
+</xmp>
+
+Kao sto primećujete yield funkcija koja se koristi biće pozvana sa @. Ova funkcija doslovno nešto generiše. Html kod je podeljen na celine yield funkcijom.
+
+Css fajl se čuva u public/css folderu i može se nazvati style.css. Kod će biti:
+<xmp class = "primer_ta">
+
+html, body {
+height: 100%;
+}
+body {
+margin: 10;
+padding: 10;
+width: 90%;
+display:compact;
+font-weight: 100;
+font-family: 'Lato';
+font-size: 22px;
+}
+.container {
+text-align:left;
+display: table-cell;
+vertical-align: middle;
+}
+.content {
+text-align:left;
+display: inline-block;
+}
+.footer {
+text-align:right;
+display:compact;
+font-family: 'Lato';
+font-size: 14px;
+color: red;
+}
+.heading {
+text-align:center;
+font-size: 136px;
+text-height:max-size;
+color:indianred;
+}
+.h1 {
+text-align:center;
+font-size: 66px;
+font-family:fantasy;
+color:tomato;
+}
+.h2 {
+text-align:center;
+font-size: 46px;
+font-family:cursive;
+color:coral;
+}
+
+</xmp>
+
+Naredni kod predstavlja umetnost.blade.php fajl. 
+
+<xmp class = "primer_ta"> 
+
+@extends('pages.master')
+@stop
+@section('head')
+<!--<link rel='stylesheet' href='/css/style.css'>-->
+@stop
+@section('title')
+Ovo je neka stranica
+@stop
+@section('heading')
+{{ $ime }} {{ $profesija }}
+@stop
+@section('content')
+<div class='h1'>
+Umetnička sloboda je dar.
+</div>
+<p>
+Dovoljno je nekoliko sekundi inspiracije. Dovoljno je nekoliko sekundi inspiracije.
+Dovoljno je nekoliko sekundi inspiracije. Dovoljno je nekoliko sekundi inspiracije.
+Dovoljno je nekoliko sekundi inspiracije.
+</p>
+<div class='h2'>
+Inspiracija
+</div>
+<p>
+između jave i sna
+</p>
+@stop
+@section('footer')
+Home of Katrin
+@stop
+
+</xmp>
+
+Korišćena je funkcija extend što znači da se u svaku stranicu uključuje ceo master.blade.php fajl. Korišćene su još dve funkcije, section i stop, pri čemu svaka sekcija
+
+ima svoj sadržaj. Unutar head sekcije ubačen je link kojim se uključuje css. Međutim, kako je stil ubačen u master.blade.php, nema potrebe da se ubacuje
+
+u fajl umetnost.blade.php (zakomentarisani deo koda). U sekciji heading piše sledeće
+<span class = "primer_text">
+
+@section('heading')
+{{ $ime }} {{ $profesija }}
+@stop
+</span>
+
+<div class = "napomena">
+{{ $ime }} u Laravelu je isto što i echo $name; u php.
+</div>
+
+ Ime i profesija su nazivi promenljivih koje se koriste u kontroleru. Podsetite se, kontroler se zove MyController.
+ 
+ <xmp class = "primer_ta"> 
+public function about() {
+return view('pages.about')->with([
+'ime'=>'Pera',
+'profesija'=>'Pisac'
+]);
+}
+</xmp>
+
+Kako aplikacija izgleda? Aplikacija će biti pokrenuta sa http://127.0.0.1:8000/umetnost.
+
+<img src="courses/lara/images/blade.png">
+
+<br>

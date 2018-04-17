@@ -1,0 +1,158 @@
+<h1>Autentifikacija</h1>
+
+<br>Napravite novi projekat koji se zove login. Neophodno je pokrenuti easy php server i oba servera unutar njega, http i database server.
+
+Neophodno je pozicionirati se u eds-www folder iz komandnog prozora.
+
+<img src="courses/lara/images/novi.png">
+
+Novi laravel projekat kreira se sa <b>laravel new</b>. Neka se novi projekat zove login i sa laravel new login linijom iz komnadnog prozora on je kreiran.
+
+U phpMyAdmin treba kreirati bazu login. U .env fajlu umesto homestead u DB_DATABASE treba zameniti login, umesto homestead u DB_USERNAME treba napisati root, a
+
+DB_PASSWORD treba ostaviti prazno. Nakon što je kreirana baza, treba se vratiti u komandni prozor i sa cd login treba se pozicionirati u kreirani folder.
+
+Sa php artisan serve pokreće se server Laravela, a da je uspešno pokrenut proverava se na <a href="http://127.0.0.1:8000">adresi</a>. Otvoriće se podrazumevana welcome stranica.
+
+Potrebno je otvoriti novi komandni prozor i komandom <xmp class = "primer_ta"> php artisan make:auth </xmp>
+
+napraviti niz foldera koji će biti potrebni za logovanje. Kada se osveži
+
+stranica koja je dobijena pokretanjem aplikacije, pojaviće se polja login i register u gornjem desnom uglu. Forme su zadate.
+
+<img src="courses/lara/images/login.png"><br>
+<img src="courses/lara/images/register.png"><br>
+
+Trenutno ovo funkcioniše samo vizuelno, a da bi same forme imale smisla, potrebno je kreirati migracije.
+
+Otvorićemo fajl database\migrations\2014_10_12_000000_create_users_table.php. 
+
+<xmp class = "primer_ta">
+
+
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+}
+?>
+
+ </xmp>
+ 
+ Može se dodati još kolona npr. username i još neke. Polje timestamps služi da registruje momenat kada je korisnik registrovan u sistemu.
+ 
+ Za početak se može definisati dužina stringa za polje name. Otvorićemo App\Provides folder i u njemu AppServiceProvider.php fajl. Nephodno je pozvati klasu shema, pa treba
+ 
+ dodati <xmp class = "primer_ta">use Illuminate\Support\Facades\Schema;</xmp> ispod <span class = "primer_text"> use Illuminate\Support\ServiceProvider; </span>.
+
+ Nakon toga u funkciji boot treba pozvati objekat shema i njegovu metodu u kojoj će se zadati dužina stringa, dakle piše se
+ 
+ <span class = "primer_text"> schema::defaultStringLenght(100); </span>. Komandom php artisan migrate u komandnom prozoru biće kreirana migraciona tabela. Nakon što se osveži
+ 
+ phpMyAdmin pojavile su se 3 nove tabele u bazi. Trenutno je sve završeno što je trebalo uraditi sa phpMyAdmin bazom.
+ 
+ Vratimo se sada na stranicu koja je dobijena pokretanjem aplikacije i sada se može registrovati prvi korisnik koji će se pojaviti u bazi login u tabeli users. 
+ 
+ Login stranica se može dodatno našminkati da bi sve savršeno funkcionisalo. U routes/web.php fajlu kod
+ 
+ 
+<xmp class = "primer_ta"> 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+ </xmp>
+
+treba zameniti kodom
+
+<xmp class = "primer_ta"> 
+
+Route::get('/', function () {
+    return view('home');
+});
+
+ </xmp>
+ 
+ Sada se nakon http://127.0.0.1:8000 otvara stranica i piše da ste logovani iako niste.
+ 
+<img src="courses/lara/images/logovani.png">
+
+To se može jednostavno rešiti. Treba se pozicionirati u home.blade.php fajl, koji se nalazi u views/layouts folderu. Koristeći blade sintaksu, 
+
+ako je neko gost, treba ga odvesti na login starnicu. Za to se koristi @guest blade sintaksa. Treba dodati sledeći deo koda:
+
+<xmp class = "primer_ta"> 
+
+	@guest
+		@include('auth.login')
+    @else
+        You are logged in!
+    @endguest
+
+ </xmp>
+ Sada home.blade.php fajl izgleda ovako:
+ 
+ <xmp class = "primer_ta"> 
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    @guest
+                      @include('auth.login')
+                    @else
+                      You are logged in!
+                    @endguest
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
+ </xmp>
+ Nakon ovih izmena, login stranica lepo funkcioniše.
+<br>
