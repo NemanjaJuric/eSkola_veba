@@ -1,0 +1,72 @@
+<h1>Rutiranje</h1>
+
+<br>Gde se zapravo nalazi stranica koja se otvara sa <span class = "primer_text"> http://127.0.0.1:8000 </span>?
+
+Izgled stranice nalazi se u folderu views, koji se nalazi u folderu resources. Welcome.blade.php fajl predstavlja 
+
+izgled stranice koja se otvara sa <span class = "primer_text"> http://127.0.0.1:8000 </span>.
+
+Otvorite sada folder rotes i web.php fajl! Ovde se definišu putanje za veb aplikaciju. 
+
+<img src="courses/lara/images/welcome.png" >
+
+Sa <span class = "primer_text"> return view('welcome') </span> dobija se izgled stranice welcome iz welcome.blade.php. Može se pozvati neka druga stranica iz resorces/views,
+
+na primer stranica about.php koja se pravi u folderu views. Kasnije će biti napravljena stranica about.blade.php koristeći jednostavan html kod. Ako se sada u fajlu routes/web.php kod  
+
+<xmp class = "primer_ta">
+Route::get('/', function () {
+return view('welcome');
+});
+</xmp>
+zameni kodom 
+<xmp class = "primer_ta">
+Route::get('/', function () {
+echo "Hello World";
+});
+</xmp>
+
+nakon što se osveži stranica, dobiće se ispis Hello World. Šta se dešava ako se nakon porta 8000 doda jos nešto? Na primer, napraviti view koji će se prikazati nakon
+
+<span class = "primer_text"> http://127.0.0.1:8000/about  </span>zahteva. U routes/web.php fajl treba dodati sledeći deo koda:
+
+<xmp class = "primer_ta">
+Route::get('about', function () {
+return view('about')";
+});
+</xmp>
+
+Dakle, otvoriće se stranica about.blade.php koja se pravi i čuva u resources/views folderu. Ona će imati jednostavan html kod. npr.
+
+<xmp class = "primer_ta"> 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	About Us
+</body>
+
+</html>
+
+ </xmp>
+ 
+ Nakon što se pokrene ova jednostavna aplikacija, dobija se sledeće:
+ <img src="courses/lara/images/about1.png" >
+ <br><br>
+
+ Naravno, mogu se preneti još neki parametri koji ne moraju biti fiksni. 
+  <img src="courses/lara/images/parametri.png" >
+ Parametar naslov se prosleđuje funkciji. Aplikacija se može pokrenuti i dobija se sledeće:
+ 
+ <img src="courses/lara/images/pobeda.png" >
+ 
+ Primetite, aplikacija je pokrenuta sa <span class = "primer_text"> http://127.0.0.1:8000/pobeda-kosarkasa </span>
+ Sada naslov može biti nešto drugo i dobija se:
+ 
+ <img src="courses/lara/images/prognoza.png" >
+ 
+ Upravo tu promenu putanje, koja se dozvoljava bez ekplicitno naglašene promene putanje u kodu, omogućava parametarsko rutiranje.
+<br>

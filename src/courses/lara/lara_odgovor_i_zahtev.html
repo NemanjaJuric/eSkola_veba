@@ -1,0 +1,86 @@
+<h1>Zahtevi i odgovori</h1>
+<br>
+
+U nekoj od prethodnih lekcija prikazan je najjednostavniji oblik zahteva i odgovora i to sledećim kodom u web.php fajlu:
+
+<xmp class = "primer_ta"> 
+Route::get('/', function () {
+  
+   echo "Hello World";
+});
+ </xmp>
+
+Sada će biti napravljen TestController koji izgleda ovako:
+
+<xmp class = "primer_ta"> 
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Routing\Controller;
+
+class TestController extends Controller
+{
+    //
+    protected $request;
+
+    public function testRequest(Request $request){
+
+		$this->request = $request;
+		$uri = $request->path();
+		$url = $request->url();
+		var_dump($url);
+		var_dump($uri);
+	}
+}
+?>
+ </xmp>
+
+ U web.php fajl dodaćemo deo koda za rutiranje:
+ 
+ <xmp class = "primer_ta"> 
+
+	Route::get('test', 'TestController@testRequest');
+
+ </xmp>
+ Ako se pokrene aplikacija sa http://localhost:8000/test, dobiće se izlaz <b>string(26) "http://127.0.0.1:8000/test" string(4) "test"</b>.
+ 
+ Ako se pokrene sa <b>http://localhost:8000/test/hagudu/class=5/school=Don%20Bosco</b>, odgovor će biti 
+ 
+ <b>string(60) "http://localhost:8000/test/hagudu/class=5/school=Don%20Bosco" string(38) "test/hagudu/class=5/school=Don%20Bosco"</b>. Naravno, pre pokretanja aplikacije
+ 
+ u web.php fajlu treba dodati 
+ 
+ <xmp class = "primer_ta"> 
+
+	Route::get('test/{name}/{class}/{school}', 'TestController@testRequest');
+
+ </xmp>
+ 
+ Ako treba prikazati url putanju, u kontroler treba da dodati <span class = "primer_text"> $url = $request->url(); </span>. Odgovor zahteva biće pun naziv putanje.
+ 
+ Sledi prikaz nekoliko metoda koje mogu biti korisne ako je zadata forma.
+ 
+  <xmp class = "primer_ta"> 
+	$name = $request->input('name');
+	
+	$input = $request->only('username', 'password');
+	
+    $input = $request->except('credit_card');	
+ </xmp>
+ 
+ Preko rutiranja i kontrolera šalje se zahtev, a onda se dobija odgovor. U prethodnim lekcijama je prikazano da odgovor može biti tekst ako se navede
+ 
+   <xmp class = "primer_ta"> 
+
+	Route::get('first', function () {
+	return "Hello World"
+});
+
+	
+ </xmp>
+  u web.php fajlu. Takođe, odgovor može biti view koji se nalazi u folderu resources. Poseban vid odgovora može se dobiti redirekcijom, što će biti obrađeno u sledećoj lekciji.
+<br>

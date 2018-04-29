@@ -1,0 +1,36 @@
+<h1>Redirekcija</h1>
+
+<br>
+
+Laravel ima korisnu funkciju redirect() pomoću koje se može "skočiti" na željenu stranicu, a korisno je i za vraćanje određenih podataka. Na primer
+
+ako korisnik pogrešno unese lozinku prilikom prijavljivanja, ponovo će se vratiti na login stranicu sa porukom da je pogrešno unete lozinka.
+
+Najjednostavniji način redirekcije je korišćenje funkcije redirect() i to na sledeći način:
+
+<xmp class = "primer_ta"> 
+
+Route::get('redirekcija',function(){
+   return redirect('umetnost');
+});
+
+ </xmp>
+ 
+ Ovaj deo koda se kuca u web.php fajlu i nakon pokretanja aplikacije sa http://127.0.0.1:8000/redirekcija, otvara se stranica http://127.0.0.1:8000/umetnost.
+ 
+<img src="courses/lara/images/blade.png" >
+
+Takođe je koristan metod <span class = "primer_text">redirect()->back()</span>, specijalno u slučajevima kada je pogrešna validacija podataka. Tada se ova 
+
+metoda koristi za vraćanje na prethodnu stranicu, a kao što je pomenuto, to može biti login stranica u slučaju pogrešno unete lozinke ili korisničckog imena.  
+
+Na metod redirect() može se dodati još jedna metoda, ali čak i više njih. Na primer:
+
+<xmp class = "primer_ta"> 
+
+return redirect()->back()->with('error', 'Something went wrong.'); 
+
+</xmp>
+
+U ovom slučaju za prethodni primer može se ispisati poruka o pogrešno unetim podacima.
+<br>

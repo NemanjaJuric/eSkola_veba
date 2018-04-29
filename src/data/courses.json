@@ -1646,7 +1646,71 @@
         "lang": "",
         "displayLang": "",
         "detailsText": "U pripremi",
-        "lessons": []
+        "lessons": [
+            {
+                "name": "Instalacija",
+                "url": "lara_instalacija",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Rutiranje",
+                "url": "lara_rutiranje",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Kontroleri",
+                "url": "lara_kontroleri",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "View and blade",
+                "url": "lara_view_and_blade",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Redirekcija",
+                "url": "lara_redirekcija",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Odgovor i zahtev",
+                "url": "lara_odgovor_i_zahtev",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Konekcija i migracije",
+                "url": "lara_konekcijaImigracije",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Tipovi podataka i rad sa tabelama i kolonama",
+                "url": "lara_tipovi_podataka_rad_sa_tabelama_i_kolonama",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            },
+            {
+                "name": "Autentifikacija",
+                "url": "lara_autentifikacija",
+                "type": "lesson",
+                "parentCourse": "lara",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "Java",
