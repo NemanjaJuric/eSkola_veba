@@ -37,9 +37,9 @@
 
 .code-preview-full{
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
-    width: calc(100vw - 20px);
-    height: calc(100vh - 140px);
+    right: 0;
+    height: calc(100vh - 110px);
     z-index: 9;
 }

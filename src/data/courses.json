@@ -1047,7 +1047,71 @@
         "lang": "text/html",
         "displayLang": "HTML",
         "detailsText": "U pripremi",
-        "lessons": []
+        "lessons": [
+            {
+                "name": "Uvod u Bootstrap 4",
+                "url": "bs4_uvod",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Obrada teksta",
+                "url": "bs4_obrada_teksta",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Boje teksta",
+                "url": "bs4_boje_teksta",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Rad sa tebelama",
+                "url": "bs4_rad_sa_tabelama",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Rad sa slikama",
+                "url": "bs4_rad_sa_slikama",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Jumbotron",
+                "url": "bs4_jumbotron",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Polja za obaveštenja",
+                "url": "bs4_polja_za_obavestenja",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Rad sa dugmićima",
+                "url": "bs4_rad_sa_dugmicima",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Grupisanje dugmića",
+                "url": "bs4_grupisanje_dugmica",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            }
+        ]
     },
     {
         "name": "AngularJS",
@@ -1510,8 +1574,64 @@
         "detailsText": "U pripremi",
         "lessons": [
             {
-                "name": "Uvod u PHP",
-                "url": "php_uvod",
+                "name": "Datum i vreme",
+                "url": "php_Datum_i_Vreme",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Dodavanje fajlova",
+                "url": "php_dodavanje_fajlova",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Filteri",
+                "url": "php_filteri",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Izuzeci",
+                "url": "php_izuzeci",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Kolačići",
+                "url": "php_kolacici",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Rukovanje greškama",
+                "url": "php_rukovanje_greskama",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Sesije",
+                "url": "php_sesije",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Uključivanje fajlova",
+                "url": "php_upravljanje_fajlovima",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Višedimenzioni nizovi",
+                "url": "php_visedimenzioni_nizovi",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null

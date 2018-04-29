@@ -1,0 +1,163 @@
+<h1>Polja za obaveštenja</h1>
+<br>
+Sva polja za obaveštenja u radnom okruženju Bootstrap 4 (engl. Alerts) su pridružena u klasi <span class="primer_text">.alert</span>
+ koja se dodaje elementu <span class="primer_text">&ltdiv&gt</span>.
+<br>
+U zavisnosti od toga kog tipa je obaveštenje postoje sledeće klase:
+<ul>
+  <li>klasa <span class="primer_text">.alert-success</span></li>
+  <li>klasa <span class="primer_text">.alert-info</span></li>
+  <li>klasa <span class="primer_text">.alert-warning</span></li>
+  <li>klasa <span class="primer_text">.alert-danger</span></li>
+  <li>klasa <span class="primer_text">.alert-primary</span></li>
+  <li>klasa <span class="primer_text">.alert-secondary</span></li>
+  <li>klasa <span class="primer_text">.alert-light</span></li>
+  <li>klasa <span class="primer_text">.alert-dark</span></li>
+</ul>
+Svaka od navedenih klasa se navodi kao vrednost atributa <span class="primer_text">class</span>
+ali na sledeći način:
+<br>
+<span class="primer_text">&ltdiv class="alert alert-dark"&gt</span>, dakle navodi
+se uvek nakon klase <span class="primer_text">.alert</span>.
+<br>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Obaveštenja</h2>
+        <div class="alert alert-success">
+          <strong>Uspešno izvršeno!</strong> Ova klasa zadaje zelenu boju pozadine i tamnozelenu boju teksta.
+        </div>
+        <div class="alert alert-info">
+          <strong>Ovo je neka informacija!</strong> Ova klasa zadaje plavu boju pozadine i tamnoplavu boju teksta.
+        </div>
+        <div class="alert alert-warning">
+          <strong>Pažnja!</strong> Ova klasa zadaje žutu boju pozadine i tamnožutu boju teksta.
+        </div>
+        <div class="alert alert-danger">
+          <strong>Opasna akcija!</strong> Ova klasa zadaje crvenu boju pozadine i bordo boju teksta.
+        </div>
+        <div class="alert alert-primary">
+          <strong>Primarna informacija!</strong> Ova klasa zadaje plavu boju pozadine i mastilo-plavu boju teksta.
+        </div>
+        <div class="alert alert-secondary">
+          <strong>Sekundarna informacija!</strong> Ova klasa zadaje sivu boju pozadine i tamnosivu boju teksta.
+        </div>
+        <div class="alert alert-dark">
+          <strong>Tamna klasa:</strong> Tamno siva obaveštenja sa još tamnijom bojom teksta.
+        </div>
+        <div class="alert alert-light">
+          <strong>Svetla klasa:</strong> Jedva vidljiva siva boja pozadine obaveštenja i tekst svetlo sive boje.
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Linkovi u obaveštenjima (engl. Alert links)</h2>
+Da bismo dobili link sa bojom koja odgovara boji obaveštenja, u okviru elementa <span class="primer_text">&lta&gt</span>
+dodamo klasu <span class="primer_text">.alert-link</span>.
+<br>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="alert alert-info">
+          Više informacija na <a href="http://www.edusoft.matf.bg.ac.rs/" class="alert-link">ovom linku</a>.
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Zatvarajuća obaveštenja (engl. Closing Alerts)</h2>
+Za ovakav tip obaveštenja važi da ih je moguće ugasiti nakon čitanja. To omogućava klasa
+<span class="primer_text">.alert-dismissible</span> koju dodajemo u okviru <span class="primer_text">&ltdiv&gt</span> elementa.
+ Potrebno je još dodati <span class="primer_text">class="close"</span> i <span class="primer_text">data-dismiss="alert"</span> u okviru elementa
+ <span class="primer_text">&ltbutton&gt</span> ili u okviru elementa <span class="primer_text">&lta&gt</span>.
+<br>
+ <xmp class="primer_ta">
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <meta charset="utf-8">
+       <title></title>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     </head>
+     <body>
+       <div class="container">
+         <div class="alert alert-info">
+           Više informacija na <a href="http://www.edusoft.matf.bg.ac.rs/" class="alert-link">ovom linku</a>.
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <!-- &times; je HTML entitet za znak puta(x) -->
+         </div>
+       </div>
+     </body>
+   </html>
+ </xmp>
+ <button class="button_copy">Vidi primer</button>
+ <br>
+ <h2>Obaveštenja sa animacijom (engl. Animated alerts)</h2>
+ Obaveštenja sa animacijom podrazumevaju obaveštenja koja prilikom zatvaranja imaju dodatu animaciju.
+ Da obaveštenje polako nestaje se omogućava klasama <span class="primer_text">.fade</span> i <span class="primer_text">.show</span>.
+ <br>
+  <div class="napomena">
+   Klasa <span class="primer_text">.show</span> mora biti navedena ako se navodi klasa
+   <span class="primer_text">.fade</span> inače samo obaveštenje na početku ne bi bilo vidljivo.
+ </div>
+ <br>
+  <xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      </head>
+      <body>
+        <div class="container">
+          <div class="alert alert-info fade show">
+            <!-- Samo smo dodali klase .fade i .show -->
+            Više informacija na <a href="http://www.edusoft.matf.bg.ac.rs/" class="alert-link">ovom linku</a>.
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        </div>
+      </body>
+    </html>
+  </xmp>
+  <button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti polje sa obaveštenjem koje će biti žute boje, dodati link za prelazak na željenu stranicu.
+  Dodati dugme kojim se polje može ugasiti. Ovo polje treba biti rašireno po celom ekranu.
+</div>

@@ -1,0 +1,133 @@
+<h1>Rukovanje greškama</h1>
+Rukovanje greškama je važan deo programa. Ako u programu nedostaje kod koji proverava greške, Vaš program može da izgleda neprofesionalno i može dovesti do pucanja programa. <br>
+U PHP je jednostavno rukovati greškama.
+<h2>Funkcija die()</h2>
+<xmp class = "primer_ta">
+<?php
+$fajll = fopen("primer.txt","r");
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+Ako fajl ne postoji program ce izbaciti upozorenje.
+
+
+Da bismo sprečili da korisnik dobije upozorenje o grešci, proveravamo da li datoteka postoji, pre nego što pokušamo da pristupimo.
+<xmp class = "primer_ta">
+<?php
+if(!file_exists("primer.txt")){
+	die("Fajl nije pronadjen");
+}
+else{
+	$fajl = fopen("primer.txt","r");
+	echo "Uspešno otvoren fajl";
+}
+?>
+</xmp>
+Sada, ako fajl ne postoji, dobićemo poruku: "Fajl nije pronađen". <br>
+Koristeći tehniku kao u primeru iznad, možemo da zaustavimo program kad god se pojavi greska i da korisniku izbacimo razumljivu poruku.
+Međutim, kada program prijavi grešku zaustavljanje programa nekad nije najbolje rešenje. <br>
+Možemo da napišemo našu funkciju koja upravlja greškama. Funkcija može da primi 5 argumenata od kojih su 2 obavezna.
+<br>
+Sintaksa: <br>
+<span class = "primer_text">error_function(error_level,error_message, error_file,error_line,error_context);</span> <br>
+<b>error_level, error_message</b> su obavezni argumenti.
+<table class = "tabela">
+<thead>
+<tr>
+<th>Argument</th><th>Objašnjenje</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>error_level</td><td>Obavezan argument. Predstavlja nivo izeštaja za grešku. Uvek se za vrednost uzima broj. U tabeli ispod pogledati šta koji broj označava</td></tr>
+<tr><td>error_message</td><td>Obavezan argument. Prestavlja poruku koja se šalje korisniku</td></tr>
+<tr><td>error_file</td><td>Nije obavezan argument. Prestavlja ime fajla u kome se javila greska.</td></tr>
+<tr><td>error_line</td><td>Nije obavezan argument. Prestavlja liniju u kojoj je pronadjena greška.</td></tr>
+<tr><td>error_context</td><td>Nije obavezan argument. Prestavlja sve promenljive i njihove vrednosti u kojima se javila greška.</td></tr>
+</tbody>
+</table>
+Nivo izveštaja predstavlja vrstu greške za koju se može koristiti deo programa za obradu grešaka.
+<table class = "tabela">
+<thead>
+<tr>
+<th>Vrednost</th><th>Objašnjenje</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><b>E_ERROR</b><br>Fatalna greška. Izvršenje programa se zaustavlja</td></tr>
+<tr><td>2</td><td><b>E_WARNING</b><br>Nije fatalna greška. Izvršenje programa se neće zaustaviti</td></tr>
+<tr><td>8</td><td><b>E_NOTICE</b></td>Program je pronašao nešto što bi moglo da bude greška, ali može se d</tr>
+<tr><td>256</td><td><b>E_USER_ERROR</b><br>Fatalna greška napravljena od strane korisnika. Ovo je kao E_ERROR postavljena od strane programera koristeći funkciju trigger_error().</td></tr>
+<tr><td>512</td><td><b>E_USER_WARNING</b><br>Nije fatalna greška napravljena od strane korisnika. Ovo je kao E_WARNING postavljena od strane programera koristeći funkciju trigger_error().</td></tr>
+<tr><td>1024</td><td><b>E_USER_NOTICE</b><br> Ovo je kao E_NOTICE postavljena od strane programera koristeći funkciju trigger_error().</td></tr>
+<tr><td>4096</td><td><b>E_RECOVERABLE_ERROR</b><br>Fatalna greška. Ovo je kao E_ERROR, ali se može upravljati njom definisanjem funkcije set_error?handler().</td></tr>
+<tr><td>8191</td><td><b>E_ALL</b><br>Sve greške i upozorenja</td></tr>
+</tbody>
+</table>
+Sada da napravimo funkciju kojom upravljamo greškama.
+<xmp class = "primer_ta">
+<?php
+function handleError($errno,$errstr,$error_file,$error_line){
+	echo "<b>Error:</b> [$errno] $errstr - $error_file:$error_line<br>";
+	echo "Kraj programa";
+	die();
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+Ovo je bio jednostavan primer funkcije za upravljanje greškama. Kada se aktivira, izbaciće nivo greške, poruku, fajl i liniju u kojoj se pojavila greška. <br>
+Sada kad smo definisali funkciju, korišćenjem funkcije <b>set_error_handler()</b> omogućujemo da ona upravlja greškama.
+ <xmp class = "primer_ta">
+<?php
+function handleError($errno,$errstr){
+	echo "<b>Error:</b> [$errno] $errstr";
+}
+set_error_handler("handleError");
+echo($test)
+?>
+</xmp>
+Rezultat ovog programa biće:
+<br>
+<span class = "primer_text">Error: [8] Undefined variable: test </span>
+<br>
+<h2>Funkcija trigger_error()</h2>
+U programu gde korisnik unosi podatke korisno je aktivirati gresku, kada dodje do neželjenog unosa. U PHP se to radi uz pomoć funkcije <b>trigger_error()</b>.
+<br>
+<b>Primer:</b>
+ <xmp class = "primer_ta">
+<?php
+$test = 2;
+if($test>=1){
+	trigger_error("Vrednost promenljive test mora biti manje od 1");
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+Grešku možemo da aktiviramo bilo gde u programu, i dodavanjem drugog argumenta funkciji, možemo precizirati kog tipa je greška.
+<br>
+Mogući tipovi:
+<ul>
+	<li>E_USER_ERROR</li>
+	<li>E_USER_WARNING</li>
+	<li>E_USER_NOTICE - podrazumevana vrednost</li>
+</ul>
+<b>Primer:</b>
+<br>
+U prethodnom primeru smo aktivirali grešku ako je vrednost promenljive veća od 1, ako je greška tipa E_USER_WARNING koristimo funkciju za upravljanje greškama.
+<xmp class = "primer_ta">
+<?php
+function handleError($errno,$errstr){
+	echo "<b>Error:</b> [$errno] $errstr";
+}
+set_error_handler("handleError",E_USER_WARNING);
+
+$test = 5;
+if($test>=1){
+	trigger_error("Vrednost mora da bude manja od 1",E_USER_WARNING);
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "zadatak">
+Dodeliti vrednost dvema promenljivama deljenik i delilac. Ako je promenljivoj delilac dodeljena nula koristeći funkciju trigger_error() izbaciti grešku tipa E_USER_WARNING sa porukom da nije dozvoljeno deljenje nulom.
+</div>

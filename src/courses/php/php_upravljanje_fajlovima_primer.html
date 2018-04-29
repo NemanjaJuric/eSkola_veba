@@ -1,0 +1,7 @@
+<?php
+$fajl = fopen("tmp.txt","r");
+$velicina_fajla = filesize("tmp.txt");
+$text_fajla = fread($fajl,$velicina_fajla);
+fclose($fajl);
+echo text_fajla;
+?>
