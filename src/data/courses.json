@@ -1110,6 +1110,13 @@
                 "type": "lesson",
                 "parentCourse": "bs4",
                 "sublessons": null
+            },
+            {
+                "name": "Bedž",
+                "url": "bs4_bedz",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
             }
         ]
     },
