@@ -8,7 +8,7 @@
         "displayLang": "HTML",
         "detailsText": "Kurs je u pripremi.",
         "lessons": [
-            {
+        {
                 "name": "Uvod u HTML",
                 "url": "html_uvod",
                 "type": "lesson",
