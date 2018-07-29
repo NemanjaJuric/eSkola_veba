@@ -2217,7 +2217,7 @@
         "lessons": [
             {
                 "name": "Popunjavanje i pregled tabele",
-                "url": "sql_Popunjavanje_i_pregled_tabele_05",
+                "url": "sql_Popunjavanje_i_pregled_tabele",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null
