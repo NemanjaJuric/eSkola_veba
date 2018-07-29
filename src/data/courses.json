@@ -2216,8 +2216,8 @@
         "detailsText": "U pripremi",
         "lessons": [
             {
-                "name": "Uvod u SQL",
-                "url": "sql_uvod",
+                "name": "Popunjavanje i pregled tabele",
+                "url": "sql_Popunjavanje_i_pregled_tabele_05",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null
