@@ -1,0 +1,90 @@
+<h1>Dodavanje fajlova</h1>
+U PHP je lako dodavanje fajlova na server. Međutim, sa lakoćom, dolazi problem bezbednosti, zato treba biti dosta obazriv prilikom dodavanja fajlova na server.
+<br>
+Proces dodavanja fajla na server sadrzi više koraka:
+<ul>
+	<li>Korisnik otvara stranu koja sadrzi HTML formu, gde moze da izabere fajl.</li>
+	<li>Korisnik klikne dugme za biranje i bira fajl koji šalje sa svog računara na server</li>
+	<li>Puna putanja do fajla se pojavi u polju pored, zatim korsinik klikne na dugme za slanje</li>
+	<li>Izabrani fajl se šalje na privremeni direktorijum na serveru</li>
+	<li>PHP kod stranice koja prihvata formu proverava da li je fajl stigao i kopira ga u namenjeni direktorijum</li>
+	<li>PHP kod potvrdjuje korisniku da je fajl stigao.</li>
+</ul>
+<br>
+Napravimo sad HTML formu koja će omogućiti korisniku da izabere fajl koji želi da doda na server.
+<xmp class = "primer_ta">
+	<!DOCTYPE html>
+	<html>
+	<head>
+
+	</head>
+	<body>
+	<form action="upload.php" method="POST" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload">
+		<input type="submit" name="submit" value="Dodaj fajl">
+	</form>
+	</body>
+	</html>
+</xmp>
+<ul>
+Postoje dva pravila kad šaljemo fajl u formi.
+	<li>Zbog bezbednosti korisimo uvek metod POST</li>
+	<li>Formi je neophodan jos jedan atribut: enctype="multipart/form-data". On određuje koji tip sadržaja će se koristiti prilikom slanja forme.</li>
+</ul>
+Primetimo još da smo koristili atribut type = "file" koji polje za unos prikazuje kao polje za odabir fajla.
+<br>
+Forma šalje podatke fajlu koji se zove "upload.php", koji cemo sada napraviti.
+<div class = "napomena">
+Moramo kreirati novi direktorijum pod nazivom "uploads" u direktorijumu gde se nalazi "upload.php". Dodati fajlovi biće sačuvani tamo.
+</div>
+<br>
+upload.php, fajl gde smo poslali formu izgleda ovako:
+<xmp class = "primer_ta">
+<?php
+$uploadOk = 1;
+if(isset($_FILES['fileToUpload'])){
+$target_file = "uploads/".basename($_FILES['fileToUpload']['name']);
+$file_name = $_FILES['fileToUpload']['name'];
+$file_size = $_FILES['fileToUpload']['size'];
+$file_tmp = $_FILES['fileToUpload']['tmp_name'];
+$file_type = $_FILES['fileToUpload']['type'];
+
+if($file_size > 2097152){
+echo "Fajl mora da bude manji od 2MB";
+$uploadOk = 0;
+}
+
+if(file_exists($target_file)){
+echo "Fajl već postoji.";
+$uploadOk = 0;
+}
+
+if($uploadOk == 0){
+echo "Vaš fajl nije otpremljen";
+}
+else{
+	move_uploaded_file($file_tmp,$target_file);
+	echo "Success";
+}
+
+echo "<br>"
+echo "Izabrani fajl: ".$file_name."<br>";
+echo "Velicina fajla: ".file_size."<br>";
+echo "Tip fajla: ".file_type.<br>;
+}
+?>
+</xmp>
+<br>
+U primeru proveravamo veličinu fajla, i da li već postoji na serveru. Ako prođe proveru šaljemo fajl na željeno mesto na serveru. <br>
+Možemo iz primera da zakljucimo da nam je za dodavanje fajlova na server neophodno korišćenje globalne promenljive <b>$_FILES</b>;<br>
+Ova promenljiva je asocijativni dvodimenzioni niz, koja čuva sve informacije vezane za fajl koji dodajemo na server. Ako za atribut <b>name</b> fajla koji dodajemo na server kao u primeru navedemo <b>fileToUpload</b>, PHP će kreirati 5 promenljivih.
+<ul>
+	<li><b>$_FILES['fileToUpload']['tmp_name']</b> - ime dodatog fajla u privremenom direktorijumu</li>
+	<li><b>$_FILES['fileToUpload']['name']</b> - pravo ime dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['size']</b> - veličina dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['type']</b> - tip dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['error']</b> - kod greške nastale pri dodavanju ove datotek</li>
+</ul>
+<div class = "zadatak">
+	Napraviti formu u kojoj ćemo izabrani fajl slati na istu stranicu, i ispisati ime, vrstu i tip izabranog fajla.
+</div>

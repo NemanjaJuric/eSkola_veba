@@ -1,0 +1,99 @@
+<h1>Jumbotron klasa</h1>
+<br>
+Klasa <span class="primer_text">.jumbotron</span> se koristi za kreiranje omotača oko teksta i to baš oko teksta koji želimo da istaknemo.
+Ova klasa se koristi kao vrednost atributa <span class="primer_text">class</span> u okviru elementa <span class="primer_text">&ltdiv&gt</span>.
+Za razliku od klasa omotača <span class="primer_text">.container-fluid</span> i <span class="primer_text">.container</span>, klasa
+<span class="primer_text">.jumbotron</span> postavlja boju pozadine i zakrivljuje uglove tog omotača.
+<br>
+<div class="napomena">
+  Unutar <span class="primer_text">&ltdiv&gt</span> sa klasom <span class="primer_text">.jumbotron</span> je
+  moguće staviti bilo koji validan HTML element, kao i bilo koju Bootstrap klasu ili Bootstrap element.
+</div>
+<br>
+Sledeći primer prikazuje korišćenje klase <span class="primer_text">.jumbotron</span> na elemente <span class="primer_text">&lth2&gt</span> i <span class="primer_text">&ltp&gt</span>.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Klasa Jumbotron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <div class="jumbotron">
+        <h2>Primer stranice sa klasom jumbotron</h2>
+        <p>U okviru div elementa sa klasom jumbotron moguće je dodati bilo koji HTML element.</p>
+      </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Ukoliko želimo da nam <span class="primer_text">&ltdiv&gt</span> sa klasom <span class="primer_text">.jumbotron</span>
+ ne bude raširen po celoj dužini ekrana, njega možemo smestiti u okviru elementa <span class="primer_text">&ltdiv&gt</span>
+ sa klasom <span class="primer_text">.container</span>.
+ <br>
+ <xmp class="primer_ta">
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <title>Klasa Jumbotron</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+     <div class="container">
+       <div class="jumbotron">
+         <h2>Primer stranice sa klasom jumbotron i klasom container</h2>
+         <p>U okviru div elementa sa klasom jumbotron moguće je dodati bilo koji HTML element.</p>
+       </div>
+     </div>
+   </body>
+ </html>
+ </xmp>
+ <button class="button_copy">Vidi primer</button>
+ <br>
+ Ako želimo da nam <span class="primer_text">&ltdiv&gt</span> u kome se nalazi istaknut tekst bude bez zakrivljenih uglova i da bude raširen po celom ekranu
+  koristićemo klasu <span class="primer_text">.jumbotron-fluid</span> i klase <span class="primer_text">.container</span> ili <span class="primer_text">.container-fluid</span>.
+<br>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Klasa Jumbotron</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h2>Primer stranice sa klasama jumbotron-fluid i container</h2>
+          <p>U okviru div elementa sa klasom jumbotron moguće je dodati bilo koji HTML element.</p>
+        </div>
+      </div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+          <h2>Primer stranice sa klasama jumbotron-fluid i container-fluid</h2>
+          <p>U okviru div elementa sa klasom jumbotron moguće je dodati bilo koji HTML element.</p>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti veb stranu koja sadrži div koji koristi klasu jumbotron, pri čemu je div raširen po celom ekranu i sadrži tekst po želji, koji je poravnat uz levu ivicu.
+</div>

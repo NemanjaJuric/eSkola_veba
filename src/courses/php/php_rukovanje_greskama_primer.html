@@ -1,0 +1,11 @@
+<?php
+function handleError($errno,$errstr){
+	echo "<b>Error:</b> [$errno] $errstr";
+}
+set_error_handler("handleError",E_USER_WARNING);
+
+$test = 5;
+if($test>=1){
+	trigger_error("Vrednost mora da bude manja od 1",E_USER_WARNING);
+}
+?>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+
+	</head>
+	<body>
+	<form action="upload.php" method="POST" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload">
+		<input type="submit" name="submit" value="Dodaj fajl">
+	</form>
+	</body>
+	</html>

@@ -1,0 +1,150 @@
+<h1>Upravljanje datotekama</h1>
+Upravljanje datotekama je važan deo svake web aplikacije. Često je potrebno da otvoriti datoteku i obraditi je.
+<h2>Funkcija readfile()</h2>
+Funkciju <b>readfile()</b> koristimo za učitavanje i ispisivanje sadržaja datoteke, čije ime navodimo kao argument funkcije.
+<xmp class = "primer_ta">
+<?php
+echo readfile('tmp.txt');
+?>
+</xmp>
+Funkcija readfile() osim što učita sadržaj datoteke, ona vraća broj bajtova koji su uspešno učitani.
+<div class = "napomena">
+<b>readfile()</b> je korisna funkcija ako želimo samo da učitamo i ispišemo sadržaj neke datoteke. 
+</div>
+Bolji način za rad sa datotekama je korišćenjem funkcije <b>fopen()</b>. Ova funkcija daje više mogućnosti od funkcije readfile().
+<h2>Funkcija fopen()</h2>
+Da otvorimo datoteku koristimo funkciju <b>fopen()</b>.<br>
+Prvi argument funkcije <b>fopen()</b> je ime datoteke koju učitavamo, a drugi argument precizira na koji nacin će datoteka biti korišćena. <br>
+<table class = "tabela">
+<thead>
+	<tr>
+		<th>drugi argument funkcije</th>
+		<th>Namena</th>
+	</tr>
+</thead>
+<tbody>
+<tr>
+	<td>r</td>
+	<td>Datoteka se otvara samo za čitanje <br> Kursor u datoteci se postavlja na početak datoteke.</td>
+</tr>
+<tr>
+	<td>r+</td>
+	<td>Datoteka se otvara za čitanje i pisanje <br> Kursor u datoteci se postavlja na početak datoteke.</td>
+</tr>
+<tr>
+	<td>w</td>
+	<td>Datoteka se otvara samo za pisanje. <br> Kursor u datoteci se postavlja na početak datoteke. <br> Ako datoteka ne postoji onda se automatski kreira nova datoteka sa imenom iz prvog argumenta.</td>
+</tr>
+<tr>
+	<td>w+</td>
+	<td>Datoteka se otvara samo za čitanje i pisanje <br> Kursor u datoteci se postavlja na početak datoteke. <br>Ako datoteka ne postoji onda se automatski krreira nova datoteka sa imenom iz prvog argumenta.</td>
+</tr>
+<tr>
+	<td>a</td>
+	<td>Postojeći podaci u datoteci su sačuvani. Datoteka se otvara samo za pisanje <br> Kursor u datoteci se postavlja na kraj datoteke. <br>Ako datoteka ne postoji onda se automatski krreira nova datoteka sa imenom iz prvog argumenta.</td>	
+</tr>
+<tr>
+	<td>a+</td>
+	<td>Postojeći podaci u datoteci su sačuvani. Datoteka se otvara za čitanje i pisanje <br> Kursor u datoteci se postavlja na kraj datoteke. <br>Ako datoteka ne postoji onda se automatski krreira nova datoteka sa imenom iz prvog argumenta.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2>Funkcija fclose()</h2>
+Funkciju <b>fclose()</b> koristimo da zatvorimo datoteku. Jedini argument ove funkcije je ime datoteke, ili promenljive u kojoj čuvamo ime datoteke.
+<div class = "napomena">
+Dobra je programerska praksa da se zatvore sve datoteke kada završimo sa njima. Zbog bezbednosti ne želimo otvorenu datoteku tokom izvršenja programa na serveru.
+</div>
+<xmp class = "primer_ta">
+$moj_fajl = fopen('tmp.txt','r');
+//kod koji se izvrsava...
+fclose($moj_fajl);
+</xmp>
+<h2>Čitanje datoteke</h2>
+Datoteku citamo uz pomoc funkcije <b>fread()</b><br>
+Ova funkcija ima 2 obavezna argumenta. Prvi argument sadrži ime fajla koji čitamo, a drugi maksimalan broj bajtova koji učitavamo.
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "tmp.txt";
+$fajl = fopen($ime_fajla,'r');
+if($fajl == false){
+	die("Greska pri ucitavanju datoteke");
+}
+$velicina_fajla = filesize($ime_fajla);
+$text_fajla = fread($fajl,$velicina_fajla);
+fclose($fajl)
+echo "<pre>text_fajla</pre>"
+?>
+</xmp>
+<br>
+<h2>Funkcija fgets()</h2>
+Funkciju <b>fgets()</b> koristimo da učitamo jednu liniju iz datoteke.
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "tmp.txt";
+$fajl = fopen($ime_fajla,'r');
+echo fgets($fajl);
+fclose($fajl);
+?>
+</xmp>
+<div class = "napomena">
+Nakon sto pozovemo funkciju <b>fgets()</b> indikator se pomera na sledecu liniju.
+</div>
+<h2>Funkcija feof()</h2>
+Funkcija <b>feof()</b> proverava da li je došlo do kraja datoteke. <br>
+<b>feof()</b> je korisna funkcija kad nam je nepoznata dužina datoteke.
+<br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "tmp.txt";
+$fajl = fopen($ime_fajla,"r");
+//Ispisujemo liniju koda dok ne dodje do kraja datoteke.
+while(!feof($fajl)){
+	echo fgets($fajl)."<br>";
+}
+fclose($fajl);
+?>
+</xmp>
+<h2>Funkcija fgetc()</h2>
+Funkciju <b>fgetc()</b> koristimo da učitamo jedan karakter iz datoteke.
+<br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "tmp.txt";
+$fajl = fopen($ime_fajla,"r");
+//Ispisujemo karakter po karakter dok ne dodje do kraja datoteke.
+while(!feof($fajl)){
+	echo fgetc($fajl)."<br>";
+}
+fclose($fajl);
+?>
+</xmp>
+<div class = "napomena">
+Nakon sto pozovemo funkciju <b>fgetc()</b> indikator se pomera na sledeci karakter.
+</div>
+<h2>Kreiranje i upisivanje u datoteku</h2>
+Funkciju <b>fopen()</b> možemo da koristimo i za kreiranje datoteke.
+Naime, ako kao prvi argument navedemo ime datoteke koja ne postoji, bilo da je datoteka otvorena za pisanje (w) ili dodavanje(a);
+<br><br>
+<span class = "primer_text"> fopen("tmp.txt","w")</span>
+<br>
+Datoteka ce biti sacuvana u istom folderu gde i fajl iz koje pozivamo funkciju fopen();
+<br>
+<h2>Funkcija fwrite()</h2>
+Funkciju <b>fwrite()</b> koristimo za upisivanje u datoteku.
+Prvi argument funkcije sadrzi ime datoteke u koju upisujemo, a drugi argument je niska koju upisujemo. <br>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "tmp.txt";
+$fajl = fopen($ime_fajla,"w");
+$tekst = "Tekst koji upisujemo u datoteku";
+fwrite($fajl,$tekst);
+fclose($fajl);
+?>
+</xmp>
+<div class = "zadatak">
+	Učitaj datoteku tmp.txt. Ispiši je liniju po liniju i izbroj koliko linija ima.
+</div>

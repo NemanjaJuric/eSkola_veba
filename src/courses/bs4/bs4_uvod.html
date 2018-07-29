@@ -1,0 +1,54 @@
+<h1>Uvod u Bootstrap4</h1>
+<br>
+Bootstrap 4 je najpopularnije HTML, CSS i JS radno okruženje za kreiranje veb stranica čiji je prikaz prilagodljiv na uređajima svih rezolucija.
+<br><br>
+Prilično je lak za korišćenje posebno ako ste upoznati sa HTML i CSS osnovama.
+<br>
+Bootstrap 4 je kompatibilan sa modernim pretraživačima (Chrome, Mozzila, Opera, Safari), međutim za razliku od prethodne verzije, Bootstrap 4 ne podržava Internet Explorer 9.
+<br>
+<h2>Kako doći do radnog okruženja Bootstrap 4?</h2>
+Postoje dva načina pomoću kojih se može koristiti:
+<ul>
+  <li>prvi način je preuzimanje ovog radnog okruženja sa adrese <a href="https://getbootstrap.com/">www.getbootstrap.com</a>, pri čemu treba ispratiti tamo zadata uputstva za instalaciju;</li>
+  <li>drugi način je uključivanjem iz distribucionog sistema servera CDN (Content Delivery Network).</li>
+</ul>
+<div class="napomena">
+Za potrebe ovog kursa, primenjivaćemo drugi način.
+</div>
+<br>
+
+Svi potrebni fajlovi se uključuju tako što se u okviru etikete <span class="primer_text">&lthead&gt</span> navode sledeće linije koda:
+<xmp class="primer_ta">
+<!-- Bootstrap 4 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery biblioteka -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</xmp>
+<br>
+<br>
+<h2>Kreiranje prve strane</h2>
+Da biste omogućili pravilno prikazivanje stranice na svakom uredjaju u okviru etikete <span class="primer_text">&lthead&gt</span> treba navesti i :
+<xmp class="primer_ta">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</xmp>
+<br>
+<span class="primer_text">width=device-width</span> postavlja da širina stranice bude jednaka širini ekrana.
+<br>
+<span class="primer_text">initial-scale=1</span> postavlja inicijalni nivo uvećanja stranice, sprečava podrazumevano uvećanje i pomaže pri promeni orijentacije ekrana.
+<br>
+<h3>Klase omotača</h3>
+Omotač je predstavljen etiketom <span class="primer_text">&ltdiv&gt</span> i on može imati dve klase:
+<span class="primer_text">.container</span> i <span class="primer_text">.container-fluid</span>.
+ Klasa <span class="primer_text">.container</span> formatira omotač tako da bude fiksirane širine, dok
+ u klasi <span class="primer_text">.container-fluid</span> omotač je raširen po celom ekranu.
+<br> <br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti veb stranu koristeći Bootstrap 4, veb strana treba da sadrži proizvoljan tekst i da koristi klasu <span class="primer_text">.container</span>.
+</div>

@@ -1,0 +1,10 @@
+$fajl = fopen("tmp.txt","r");
+$velicina_fajla = filesize("tmp.txt");
+$text_fajla = fread($fajl,$velicina_fajla);
+fclose($fajl);
+$br = 0;
+while(!feof($fajl)){
+echo fgets($fajl)."<br>";
+$br++
+}
+echo "Broj linija je ".$br;

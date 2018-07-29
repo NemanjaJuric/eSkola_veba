@@ -1,0 +1,184 @@
+<h1>Filteri</h1>
+Postoje 2 tipa filtera. Filteri koji proveravaju ispravnost oblika i filteri koji brisu nedozvoljene karaktere.
+<br>
+Filtere koristimo za proveravanje ispravnog oblika i brisanje nedozvoljenih karaktera spoljašnjeg unosa.
+<br>
+Funkciju <b>filter_list()</b> koristimo da vidimo sta sve PHP nudi od filtera.
+<xmp class = "primer_ta">
+<?php
+foreach (filter_list() as $id => $filter) {
+echo $filter." ".filter_id($filter)."<br>";
+}
+?>
+</xmp>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Naziv filtera</th>
+<th>ID filtera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td><td>257</td>
+</tr>
+<tr>
+<td>boolean</td><td>258</td>
+</tr>
+<tr>
+<td>float</td><td>259</td>
+</tr>
+<tr>
+<td>validate_regexp</td><td>272</td>
+</tr>
+<tr>
+<td>validate_url</td><td>273</td>
+</tr>
+<tr>
+<td>validate_email</td><td>274</td>
+</tr>
+<tr>
+<td>validate_ip</td><td>275</td>
+</tr>
+<tr>
+<td>string</td><td>513</td>
+</tr>
+<tr>
+<td>stripped</td><td>513</td>
+</tr>
+<tr>
+<td>encoded</td><td>514</td>
+</tr>
+<tr>
+<td>special_chars</td><td>515</td>
+</tr>
+<tr>
+<td>full_special_shars</td><td>522</td>
+</tr>
+<tr>
+<td>unsafe_raw</td><td>516</td>
+</tr>
+<tr>
+<td>email</td><td>517</td>
+</tr>
+<tr>
+<td>url</td><td>518</td>
+</tr>
+<tr>
+<td>number_int</td><td>519</td>
+</tr>
+<tr>
+<td>number_float</td><td>520</td>
+</tr>
+<tr>
+<td>magic_quotes</td><td>521</td>
+</tr>
+<tr>
+<td>callback</td><td>1024</td>
+</tr>
+</tbody>
+</table>
+
+<div class = "napomena">
+Uvek treba proveriti ispravnost spoljašnjeg unosa. Podaci u neispravnom obliku mogu dovesti do pucanja veb stranice. Korišćenjem filtera smo sigurni da će podatak biti unet u traženom obliku.
+</div>
+<h2>Funkcija filter_var()</h2>
+Funkciju <b>filter_var()</b> koristimo i za proveravanje ispravnosti oblika i ispravljanje gresaka u podacima. Funkcija prima 2 argumenta.
+<ul>
+	<li>Prvi argument je promenljiva koju proveravamo</li>
+	<li>Drugi argument je vrsta provere koju koristimo</li>
+</ul>
+Rezultat funkcije je ili FALSE ako je greska, ili filtriran podatak.
+<h2>Ispravljanje stringa</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da izbrišemo sve HTML etikete iz stringa.
+<xmp class = "primer_ta">
+<?php
+$str = "<h1>Hello world</h1>"
+$str = filter_var($str,FILTER_SANITIZE_STRING);
+echo $str;
+?>
+</xmp>
+<h2>Proveravanje da li je unet ceo broj</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da proverimo da li je vrednost promenljive ceo broj.
+<xmp class = "primer_ta">
+<?php
+$int = 150;
+if(!filter_var($int,FILTER_VALIDATE_INT)===false){
+	echo "Jeste ceo broj";
+}
+else{
+	echo "Nije ceo broj";
+}
+?>
+</xmp>
+U primeru iznad, ako za promenljivu $int postavimo vrednost na <b>nula</b>, $int = 0 funkcija bi vratila rezultat: Nije ceo broj. Ovaj problem rešavamo na sledeći način:
+<xmp class = "primer_ta">
+<?php
+$int = 0;
+if(filter_var($int,FILTER_VALIDATE_INT)===0 || !filter_var($int,FILTER_VALIDATE_INT)===false){
+	echo "Jeste ceo broj";
+}
+else{
+	echo "Nije ceo broj";
+}
+?>
+</xmp>
+<h2>Ispravan e-mail</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da prvo izbrišemo nedozvoljene karaktere iz promenljive $email, a zatim da proverimo da li je e-mail u ispravnom obliku.
+<xmp class = "primer_ta">
+<?php
+$email = "marko.markovic@primer.com";
+$email = filter_var($email,FILTER_SANITIZE_EMAIL);
+
+if(!filter_var($email,FILTER_VALIDATE_EMAIL)===false){
+	echo "$email je ispravna e-mail adresa";
+}
+else{
+	echo "$email nije ispravna e-mail adresa";
+}
+?>
+</xmp>
+<h2>Ispravan URL</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da prvo izbrišemo sve nedozvoljene karaktere iz promenljive $url, a zatim proveravamo da li je url u ispravnom obliku.
+<xmp class = "primer_ta">
+<?php
+$url = "http://edusoft.matf.bg.ac.rs/eskola_veba/#/home";
+$url = filter_var($url,FILTER_SANITIZE_EMAIL);
+
+if(!filter_var($url,FILTER_VALIDATE_URL)===false){
+	echo "$url je ispravan URL";
+}
+else{
+	echo "$url nije ispravan URL";
+}
+?>
+</xmp>
+<h2>Proveravanje da li je broj u određenom opsegu</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da proverimo da li j u pitanju ceo broj i da li je izmedju 1 i 200.
+<xmp class = "primer_ta">
+<?php
+$int =122;
+$min = 1;
+$max = 200;
+
+if(!filter_var($int,FILTER_VALIDATE_INT,array("options"=> array("min_range"=>$min,"max_range"=>$max)))===false){
+	echo "Promenljiva je u traženom opsegu";
+}
+else{
+	echo "Promenljiva nije u traženom opsegu";
+}
+?>
+</xmp>
+<h2>Izbacivanje određenih karaktera</h2>
+U sledećem primeru koristimo funkciju <b>filter_var()</b> da izbrišemo sve HTML etikete iz stringa, kao i sve karaktere čiji je ASCII kod veći od 127.
+<xmp class = "primer_ta">
+<?php
+$str = "<h1>Hello WorldÆØÅ!</h1>";
+$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+echo $newstr;
+?>
+</xmp>
+<div class = "zadatak">
+Promenljivoj broj dodeliti neki broj i proveriti da li je realan broj i da li je izmedju -2.5 i 3.5. <br>
+Koristiti funkciju FILTER_VALIDATE_FLOAT.
+</div>

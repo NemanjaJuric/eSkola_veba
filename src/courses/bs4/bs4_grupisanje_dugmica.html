@@ -1,0 +1,76 @@
+<h1>Grupisanje dugmića</h1>
+<br>
+U radnom okruženju Bootstrap 4 je moguće grupisanje dugmića u jednu traku.
+<br>
+<img src="courses/bs4/dugmici.png" class="img-fluid velicina">
+<br>
+Ovo se izvršava uz pomoć klase <span class="primer_text">.btn-group</span> koja se navodi kao atribut u okviru
+elementa <span class="primer_text">&ltdiv&gt</span>, u okviru kog se nalaze dugmići koje želimo da grupišemo.
+<br>
+Ukoliko su nam dugmići koje hoćemo da grupišemo veličine koja nije standardna,
+umesto da svakom od njih dodajemo klase <span class="primer_text">.btn-lg</span>
+ili <span class="primer_text">.btn-sm</span>, možemo jednostavno
+elementu <span class="primer_text">&ltdiv&gt</span> koji ih okružuje da navedemo klasu
+<span class="primer_text">.btn-group-lg</span> za grupisanje dugmića većih dimenzija ili klasu
+<span class="primer_text">.btn-group-sm</span> za grupisanje dugmića manjih dimenzija.
+
+<div class="napomena">
+  Klase <span class="primer_text">.btn-group-lg</span> i <span class="primer_text">.btn-group-sm</span>
+  se navode, obavezno zajedno sa klasom <span class="primer_text">.btn-group</span>. Tačnije pre ili posle nje.
+</div>
+<br>
+Za grupisanje po vertikali (ako se dugmići nalaze jedan ispod drugog) koristimo klasu
+<span class="primer_text">.btn-group-vertical</span>, koju navodimo kao atribut elementa
+<span class="primer_text">&ltdiv&gt</span>, u okviru kog se nalaze dugmići koje želimo da grupišemo.
+<br>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Grupisanje</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h3>Grupisanje po horizontali</h3>
+        <div class="btn-group">
+          <button type="button" class="btn btn-info">Dugme 1</button>
+          <button type="button" class="btn btn-info">Dugme 2</button>
+          <button type="button" class="btn btn-info">Dugme 3</button>
+        </div>
+        <br><br>
+        <h3>Grupisanje malih</h3>
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-success">Dugme 1</button>
+          <button type="button" class="btn btn-success">Dugme 2</button>
+          <button type="button" class="btn btn-success">Dugme 3</button>
+        </div>
+        <br><br>
+        <h3>Grupisanje velikih</h3>
+        <div class="btn-group btn-group-lg">
+          <button type="button" class="btn btn-danger">Dugme 1</button>
+          <button type="button" class="btn btn-danger">Dugme 2</button>
+          <button type="button" class="btn btn-danger">Dugme 3</button>
+        </div>
+        <br><br>
+        <h3>Grupisanje po vertikali</h3>
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-warning">Dugme 1</button>
+          <button type="button" class="btn btn-warning">Dugme 2</button>
+          <button type="button" class="btn btn-warning">Dugme 3</button>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti grupu dugmića standardne veličine, koji su grupisani
+  po vertikali, a zatim na praviti grupu velikih i grupu malih dugmića, takođe grupisanih po vertikali.
+</div>

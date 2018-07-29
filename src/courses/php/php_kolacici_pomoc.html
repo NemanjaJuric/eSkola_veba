@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<?php
+$ime = "Marko";
+$prezime = "Markovic";
+setcookie("ime",$ime,time()+3600);
+setcookie("prezime",$prezime,time()+3600);
+?>
+<html>
+<head>
+</head>
+<body>
+<?php
+if(isset($_COOKIE['ime'])){
+	echo $_COOKIE['ime']." ".$_COOKIE['prezime'];
+}
+?>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<h1>Sesije</h1>
+Alternativni način da podaci budu dostupni na različitim stranicama čitavog sajta jeste korišćenje sesija.
+<br>
+Sesija kreira fajl u privremenom direktorijumu na serveru gde se nalazi globalna promenljiva koja će čuvati vrednosti koje prenosimo. Ti podaci će biti dostupni svim stranicama sajta.
+
+<h2>Kako funkcionišu sesije?</h2>
+<ul>
+	<li>PHP kreira jedinstveni identifikator za svaku sesiju, kreira proizvoljan niz od 32 karaktera u heksadecimalnom zapisu, kao npr. 3c7foj34c3jj973hjkop2fc937e3443.</li>
+	<li>Kolačić sa imenom <b>PHPSESSID</b> se automatski šalje na računar korisnika sa informacijom o jedinstvenom identifikatoru sesije.</li>
+	<li>Na serveru u privremenom direktorijumu se automatski kreira fajl sa imenom kao jedinstveni identifikator sa prefiksom sess_, npr. sess_3c7foj34c3jj973hjkop2fc937e3443.
+Kada PHP kod želi da preuzme vrednost iz sesije, PHP automatski uzima jedinstveni identifikator iz kolačića PHPSESSID i onda gleda u privremenom direktorijumu fajl sa tim imenom i upoređuje te obe vrednosti.</li>
+</ul>
+Sesije pokrećemo pozivanjem funkcije <b>session_start()</b>.
+<div class = "napomena">
+Pozivanje funkcije <b>session start()</b> mora biti prva komanda u dokumentu, pre bilo koje html etikete. 
+</div>
+Informacije u sesijama se čuvaju u asocijativnom nizu $_SESSION. 
+<br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+<?php
+$_SESSION['ime'] = "Marko";
+$_SESSION['prezime'] = "Markovic";
+echo "Vrednosti sesija su postavljene";
+?>
+</body>
+</html>
+</xmp>
+Vrednosti u sesijama možemo da koristimo na drugim stranica sajta.<br>
+Koristimo funkciju <b>isset()</b> da proverimo da li je vrednost sesije već postavljena ili nije. <br>
+<b>Primer:</b> (sesije koristimo na drugoj stranici!)
+<xmp class = "primer_ta">
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+<?php
+echo "Vaše ime je: ".SESSION['ime']."<br>";
+echo "Vaše prezime je: ".SESSION['prezime'];
+?>
+</body>
+</html>
+</xmp>
+<h2>Brisanje sesija</h2>
+Da izbrišemo sve sesije koristimo funkciju <b>session_destroy()</b>. Ova funkcija nema argument i jedno njeno pozivanje izbrisaće sve sesije, odnosno sve promenljive iz niza $_SESSION.
+<br>
+Da izbrišemo jednu sesiju, odnosno jednu promenljivu iz niza $_SESSION koristimo funkciju <b>unset()</b>. Kao argument navodimo promenljivu čiju vrednost brišemo.
+<br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+unset($_SESSION['ime']);
+
+session_destroy();
+?>
+</xmp>
+<div class = "zadatak">
+Koristeći sesije napisati PHP kod koji će da nam izračunava broj posećivanja stranice.
+Treba napraviti promenljivu koja će da se poveća za jedan pri svakom učitavanju stranice.
+</div>

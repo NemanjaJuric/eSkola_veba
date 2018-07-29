@@ -1,0 +1,144 @@
+<h1><b>Datum i Vreme</b></h1>
+<br>
+PHP pruža moćne alate koji nam omogućuju da lako radimo sa datumima.
+<br>
+Funkcija <b>time()</b> daje nam sve informacije koje su nam potrebne za trenutni datum i vreme. Ona nema argumente, a njen rezultat je ceo broj. <br>
+Ceo broj koji vraca je zapravo broj sekundi koji je protekao od ponoci 1 Januara 1970. godine. Taj momenat nazivamo UNIX epoha.
+<br>
+<span class = "primer_text"> echo time(); </span>
+<br>
+Kad se izvrši ova komanda dobijamo nešto sto je ljudima nerazumljivo, ali PHP nudi odlične alate da ovaj broj pretvori u zapis koji je ljudima razumljiv.
+<br>
+<h2>Funkcija date()</h2>
+Najznačajnija funkcija za rad sa datumima je svakako funkcija <b>date()</b>. Ona prihvata dva argumenta i vraća formatirani string koji predstavlja datum.
+<br>
+Sintaksa:
+<br>
+<span class="primer_text">date(format,timestamp)</span>
+<br>
+<ul>
+	<li>format - obavezan argument. Predstavlja oblik u kome ce biti datum (ili vreme)</li>
+	<li>timestamp - Opcioni argument. Predstavlja datum (ili vreme) sa kojim želimo da radimo. Ako ne navedemo ovaj argument, podrazumevana vrednost je <b> trenutni datum i vreme</b>.</li>
+</ul>
+<br>
+Ovo su neki karakteri koje koristimo da formatiramo datum.
+<ul>
+	<li>d - Predstavlja dan u mesecu (01 - 31)</li>
+	<li>m - Predstavlja mesec (01-12)</li>
+	<li>Y - Predstavlja godinu(zapisana sa 4 cifre)</li>
+	<li>l - Predstavlja dan u nedelji</li>
+</ul>
+Karaktere kao sto su "/", "." ili "-" možemo da koristimo pri formatiranju datuma
+<br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">Primetimo da će rezultat biti trenutni datum</div>
+<br>
+Ovo su neki karakteri koje koristimo da formatiramo vreme.
+<ul>
+	<li>h - Predstavlja ;asove (01 - 12)</li>
+	<li>i - Predstavlja minute (00 - 59)</li>
+	<li>s - Predstavlja sekunde (00 - 59)</li>
+	<li>a - Predstavlja vreme pre podne ili posle podne (am ili pm)</li>
+</ul>
+<br>
+Primer:
+<br>
+<span class = "primer_text">  echo "Trenutno vreme je: " . date("h:i:sa"); </span>
+<br>
+<h2>Funkcija mktime()</h2>
+<br>
+Drugi argument u funkciji date() je opcion. Ako ga ne navedemo podrazumeva se trenutno vreme i datum.
+<br>
+Funkciju <b>mktime()</b> koristimo da zapišemo neki konkretan datum i vreme koji mozemo da koristimo kao drugi argument funkcije date().
+<br>
+Funkcija mktime() vraća broj sekundi koji je prosao od ponoci 1 Januara 1970. godine(UNIX epoha), koji mozemo da koristimo kao drugi argument u funkciji date().
+<br>
+Sintaksa:
+<br>
+<span class = "primer_text">mktime(sati,minuti,sekunde,mesec,dan,godina)</span>
+<br><br>
+Primer u kome kreiramo datum i vreme uz pomoć funkcije mktime():
+<xmp class = "primer_ta">
+<?php
+$d = mktime(8,32,46,8,13,2018);
+echo "Kreirani datum je " . date("Y-m-d h:i:sa");
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Funkcija strtotime()</h2>
+<br>
+Funkciju strtotime() koristimo da string koji ljudi razumeju kao datum pretvorimo u Unix vreme.
+<br><br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$d = strtotime("12:50pm April 2018");
+echo "Kreirani datum je ".date("Y-m-d h:i:sa",$d);
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+PHP je veoma pametan u prevođenju stringa u datum, tako da funkcija <b>strtime()</b> kao argument moze da prihvati dosta vrednosti.
+<br>
+<b>Primeri:</b>
+<xmp class = "primer_ta">
+<?php
+$d=strtotime("tomorrow");
+echo date("Y-m-d h:i:sa", $d)."<br>";
+
+$d=strtotime("next Saturday");
+echo date("Y-m-d h:i:sa", $d)."<br>";
+
+$d=strtotime("+3 Months");
+echo date("Y-m-d h:i:sa", $d)."<br>";
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "napomena">Funkcija strtotime() nije perfektna. Ne zaboravite da proverite string koji koristite kao argument.
+<br>
+Funkcija strtime() vraća datum ako je korektan zapis stringa, a ako nije vraća <b>FALSE</b>.
+</div>
+<h2>Funkcija getdate()</h2>
+Sintaksa:
+<br>
+<span class="primer_text">getdate(timestamp);</span>
+<ul>
+	<li>timestamp - je opcioni argument. Predstavlja Unix vreme, odnosno ceo broj sekundi od ponoci 1 Januara 1970.godine. Podrazumevana vrednost je trenutno vreme i datum</li>
+</ul>
+Rezultat funkcije <b>getdate()</b> je asocijativni niz koji sadrži 10 elemenata potrebnih za formatiranje datuma.
+<ul>
+	<li>[seconds] - sekunde</li>
+	<li>[minutes] - minuti</li>
+	<li>[hours] - sati</li>
+	<li>[mday] - dan u mesecu</li>
+	<li>[wday] - dan u nedelji</li>
+	<li>[mon] - mesec</li>
+	<li>[year] - godina</li>
+	<li>[yday] - dan u godini</li>
+	<li>[weekday] - ime dana u nedelji</li>
+	<li>[month] - ime meseca</li>
+</ul>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$datum_niz = getdate();
+   
+   foreach ( $datum_niz as $kljuc => $vrednost){
+      print "$kljuc = $vrednost <br>";
+   }
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "zadatak">
+<b>Zadatak:</b> Koristeci funkciju getdate(), napisi program koji ce da ispise danasnji datum oblika: ime dana, dan u mesecu / mesec / godina. <br>
+Primer: Today is Monday, 26/3/2018.
+</div>

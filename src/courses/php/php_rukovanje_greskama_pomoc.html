@@ -1,0 +1,10 @@
+function handleError($errno,$errstr){
+	echo "<b>Error:</b> [$errno] $errstr";
+}
+set_error_handler("handleError",E_USER_ERROR);
+
+$deljenik = 5;
+$delilac = 0;
+if($delilac == 0){
+	trigger_error("Deljenje nulom nije dozvoljeno",E_USER_ERROR);
+}

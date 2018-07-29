@@ -1,0 +1,48 @@
+<h1>Rad sa slikama</h1>
+<br>
+U ovoj lekciji biće objašnjeno kako možemo da oblikujemo slike na našoj veb strani, kako možemo da ih
+pozicioniramo i kako da postavimo da se čak i prevelika slika može videti na uređajima svih rezolucija.
+<br>
+<br>
+<h5>Oblici slika</h5>
+<h6>Slike sa zaobljenim uglovima</h6>
+<img src="courses/bs4/slika1.jpg" class="img-fluid velicina">
+<br>
+Ovakav oblik slike se dobija klasom <span class="primer_text">.rounded</span>
+ koja se navodi kao vrednost atributa <span class="primer_text">class</span>
+ u okviru elementa <span class="primer_text">&ltimg&gt</span>.
+<br>
+<h6>Slike ovalnog oblika</h6>
+<img src="courses/bs4/slika2.jpg" class="img-fluid velicina">
+<br>
+Slike ovalnog oblika se dobijaju klasom <span class="primer_text">.rounded-circle</span>
+ koja se navodi kao vrednost atributa <span class="primer_text">class</span>
+ u okviru elementa <span class="primer_text">&ltimg&gt</span>.
+
+<br>
+<h6>Slike sa okvirom (<i>eng. Thumbnail</i>) </h6>
+<img src="courses/bs4/slika3.jpg" class="img-fluid velicina">
+<br>
+Slike sa okvirom imaju pravougaoni oblik i dobijaju se klasom
+  <br> <span class="primer_text">.img-thumbnail</span>
+ koja se navodi kao vrednost atributa <span class="primer_text">class</span>
+ u okviru elementa <span class="primer_text">&ltimg&gt</span>.
+<br>
+<h5>Pozicioniranje slika na veb strani</h5>
+<img src="courses/bs4/float.jpg" class="img-fluid velicina">
+<br>
+Slike se mogu pozicionirati uz levu ili uz desnu ivicu elementa u okviru kog se nalaze, to
+ može biti <span class="primer_text">&ltdiv&gt</span> ili, na primer, <span class="primer_text">&ltbody&gt</span>.
+ Takvo pozicioniranje se vrši dodavanjem klasa <span class="primer_text">.float-left</span> i <br> <span class="primer_text">.float-right</span>
+ u okviru elementa <span class="primer_text">&ltimg&gt</span>.
+ <br>
+ <h5>Prilagođavanje slika rezoluciji ekrana</h5>
+ <br>
+ Klasa <span class="primer_text">.img-fluid</span>, etikete <span class="primer_text">&ltimg&gt</span> zadaje
+  vrednosti <span class="primer_text">max-width: 100%;</span> i <span class="primer_text">height: auto;</span>, pa
+  na taj način formatira sliku tako da je prilagođena veličini roditeljskog elementa (<span class="primer_text">&ltdiv&gt</span>, <span class="primer_text">&ltbody&gt</span>, itd.).
+
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti veb stranicu koja će sadržati dve fotografije ovalnog oblika, pri čemu će jedna biti uz levu ivicu prozora pretraživača, a druga uz desnu.
+</div>

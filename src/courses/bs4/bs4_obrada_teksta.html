@@ -1,0 +1,67 @@
+<h1>Rad sa tekstualnim elementima</h1>
+<br>
+Bootstrap 4 kao predefinisane vrednosti za tekst ima sledeće:
+<ul>
+  <li><span class="primer_text">font-size</span> = 16px</li>
+  <li><span class="primer_text">line-height</span> = 1.5</li>
+  <li><span class="primer_text">font-family</span> = "Helvetica Neue" (tj. Helvetica, Arial, sans-serif)</li>
+</ul>
+Pored <span class="primer_text">&lth1&gt</span> - <span class="primer_text">&lth6&gt</span>, postoje i četiri klase kojima možemo zapisivati naslove i podnaslove, a to su <span class="primer_text">.display-1</span>, <span class="primer_text">.display-2</span>, <span class="primer_text">.display-3</span> i <span class="primer_text">.display-4</span>.
+<br>
+U okviru naslova <span class="primer_text">&lth1&gt</span> - <span class="primer_text">&lth6&gt</span> moguće je navesti etiketu <span class="primer_text">&ltsmall&gt</span>, tekst u okviru ove etikete je manje veličine i manje debljine.
+<br>
+Etiketa <span class="primer_text">&ltmark&gt</span> posebno naglašava tekst bojeći pozadinu teksta u žuto.
+<br>
+Etiketa <span class="primer_text">&ltabbr&gt</span> podvlači tekst sa tačkastom linijom, pri čemu etiketa mora da sadrži opciju <code>title</code>.
+<br>
+Kada se na stranici koju pravimo navode citati mooguće je u okviru etikete <span class="primer_text">&ltblockquote&gt</span>
+navesti klasu <span class="primer_text">.blockquote</span>, dok se u podnožju stranice (<span class="primer_text">&ltfooter&gt</span>) navodi klasa <span class="primer_text">.blockquote-footer</span> za navodjenje izvora datog citata.
+<br>
+Precrtan tekst navodimo u okviru etiketa <span class="primer_text">&ltp&gt&ltdel&gt&lt/del&gt&lt/p&gt</span>.
+<br>
+Delove koda možemo uključiti kao deo teksta i to u okviru etikete <span class="primer_text">&ltcode&gt</span>.
+<br>
+Ako želimo da naglasimo da se neki deo u tekstu unosi sa tastature, taj deo teksta navodimo u okviru <span class="primer_text">&ltkbd&gt</span>.
+<br>
+Etiketa <span class="primer_text">&ltsamp&gt</span> formatira tekst kao da je taj tekst ispis nekog programa, dok ga etiketa <span class="primer_text">&ltpre&gt</span> formatira onako kako ga je u okviru editora korisnik iskucao.
+<br>
+Sledeći kod prikazuje još neke korisne klase:
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Modifikacija teksta</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+      <!--Klasa .container-fluid jednog div elementa proteže taj element celom širinom ekrana, dok klasa .container ne proteže celom širinom -->
+      <h1>Primer klasa</h1>
+      <p class="font-weight-bold">Ovo je boldovan tekst.</p>
+      <p class="font-weight-normal">Ovo je tekst normalne debljine.</p>
+      <p class="font-weight-light">Ovo je tekst manje debljine od normalnog.</p>
+      <br>
+      <p class="lead">Klasa <code>.lead</code> ističe paragraf u kom je navedena.</p>
+      <p class="text-left">Ovaj tekst je poravnat uz levu ivicu.</p>
+      <p class="text-center">Ovaj tekst je centriran.</p>
+      <p class="text-right">Ovaj tekst je poravnat uz desnu ivicu.</p>
+      <p class="text-justify">Klasa <code>.text-justify</code> omogućava da se prilikom smanjenja veličine ekrana tekst automatski formatira tako da se ceo vidi.</p>
+      <p class="text-nowrap">Klasa <code>.text-nowrap</code> ne dozvoljava automatsko formatiranje teksta.</p>
+      <!--Prethodne dve klase testirati smanjivanjem prozora pretraživača.-->
+      <p class="text-lowercase">Ovo je primer klase koja ceo tekst ispisuje malim slovima.</p>
+      <p class="text-uppercase">Ovo je primer klase koja ceo tekst ispisuje velikim slovima.</p>
+      <p class="text-capitalize">Ovo je primer klase koja ceo tekst ispisuje tako da početna slova svake reči budu velika slova, dok su ostala mala.</p>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+<b>Zadatak:</b> Napraviti HTML stranu koristeći Bootstrap 4 na kojoj će pisati tekst koji je obojen u žuto, tekst koji je podvučen tačkasto i poravnat uz desnu ivicu. Napisati omiljeni citat i napisati iz koje je knjige.
+
+</div>
