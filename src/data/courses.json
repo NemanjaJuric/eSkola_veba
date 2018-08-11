@@ -1578,8 +1578,92 @@
         "type": "course",
         "lang": "application/x-httpd-php",
         "displayLang": "PHP",
-        "detailsText": "U pripremi",
+        "detailsText": "(PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog koda. Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i tolerantan jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i JavaScript-a da bismo lakše naučili PHP.",
         "lessons": [
+            {
+                "name": "Uvod",
+                "url": "php_uvod",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Sintaksa",
+                "url": "php_sintaksa",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Tipovi podataka",
+                "url": "php_tipovi_podataka",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Niske",
+                "url": "php_niske",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Nizovi",
+                "url": "php_nizovi",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Konstante",
+                "url": "php_konstante",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Operatori",
+                "url": "php_operatori",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Grananja",
+                "url": "php_grananja",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Petlje",
+                "url": "php_petlje",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Funkcije",
+                "url": "php_funkcije",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Formulari",
+                "url": "php_formulari",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Obrada podataka",
+                "url": "php_obrada_podataka",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
             {
                 "name": "Datum i vreme",
                 "url": "php_Datum_i_Vreme",

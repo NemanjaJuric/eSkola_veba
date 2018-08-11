@@ -1,0 +1,97 @@
+<h1><b>Tipovi podataka</b></h1>
+<br>
+Osnovni tipovi podataka su:
+<ul>
+  <li><b>Niske</b></li>
+  <li><b>Celi brojevi</b></li>
+  <li><b>Brojevi u pokretnom zarezu (brojevi sa decimalama, racionlni brojevi)</b></li>
+	<li><b>Logičke vrednosti</b></li>
+  <li><b>Nizovi</b></li>
+  <li><b>Objekti</b></li>
+  <li><b>NULL</b></li>
+  <li><b>Resursi</b></li>
+</ul>
+<br>
+<h2>Celi brojevi</h2>
+<br>
+<b>Celi brojevi (integer)</b> su brojevi između -2147483648 i 2147483647. Možemo ih zapisati u dekadnom, oktalnom, heksadekadnom i binarnom sistemu. U kom sistemu će broj biti zapisan, zavisi od prefiksa:
+<ul>
+	<li><b>0</b> (nula) - oktalni sistem</li>
+	<li><b>0x</b> (nula-iks) - heksadekadni sistemu</li>
+	<li><b>0b</b> (nula-b) - binarni sistemu</li>
+</ul>
+<br>
+<xmp class = "primer_ta">
+<?php
+$a = 1234;    //pozitivan broj
+$b = -258;    //negativan broj
+$c = 0253;    //oktalni broj
+$d = 0x2F;    //heksadekadni broj
+$e = 0b101;   //binarni broj
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Brojevi u pokretnom zarezu</h2>
+<br>
+<b>Brojeve u pokretnom zarezu (float, double ili realni brojevi)</b> su brojevi sa decimalama. Decimalni znak je uvek tačka.
+<xmp class = "primer_ta">
+<?php
+$a = 1.234;
+echo $a;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br> <br>
+<h2>Logičke vrednosti</h2>
+<br>
+Postoje dve logičke vrednosti (boolean) i to su <b>true</b> i <b>false</b>. Najčešće se koriste u ispitivanju uslova i mogu da budu rezultat logičkih izraza i funkcija.
+<br> <br>
+<h2>Objekti</h2>
+<br>
+PHP podržava i objektno-orijentisano programiranje. Objekat čuva podatke i informacije o obradi tih podataka. Objekat moramo eksplicitno deklarisati. Da bismo koristili objekte, prvo moramo da napravimo klasu. To radimo pomoću ključne reči <b>class</b>. Klasa je struktura koja sadrži svojstva i metode:
+<xmp class = "primer_ta">
+<?php
+class Pas{
+
+var $pozdrav;
+
+function javi_se(){
+echo $this->pozdrav;
+}
+
+}
+
+//kreiranje instance objeka
+$Bobi=new Pas();
+
+$Bobi->pozdrav="Zdravo! Ja sam Bobi.";
+
+//pozivanje funkcije javi_se
+$Bobi->javi_se();
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<div class = "napomena">Korišćenjem $this-> pre imena promenljive omogućava nam da joj pristupimo i možemo je koristi za ispis ili menjati podatke. Na isti način pristupamo funkcijama.</div>
+<h2>NULL</h2>
+<br>
+<b>NULL</b> je poseban tip podatka i može da ima samo jednu vrednost, a to je NULL. Promenljiva tipa NULL nema dodeljenu vrednost.
+<div class = "napomena">Ako se kreiranoj promenljivoj ne dodeli vrednost, njena vrednost postaje NULL.</div>
+Vrednost promenljive se briše tako što joj se dodeli vrednost NULL.
+<xmp class = "primer_ta">
+<?php
+$x = "Zdravo, svete!";
+$x = null;
+echo $x; //ne ispisuje nista
+var_dump($x);
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Resursi</h2>
+<br>
+Resursi (resource) su poseban tip podataka i predstavljaju referencu ka funkciji ili resursu koji koji je izvan PHP-a. Primer resursa je konekcija sa bazom podataka. Resursi su napredni PHP.
+<br>
+<div class = "zadatak">
+Napraviti promenljivu $b čija je vrednost 3.11 i ispisati njen tip i vrednost.
+</div>

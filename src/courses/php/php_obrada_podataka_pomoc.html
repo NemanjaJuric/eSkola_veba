@@ -1,0 +1,16 @@
+Kod forme je:
+<form method="POST" action="proizvod.php">
+Broj1: <input type="number" name="broj1" size="20"> <br> <br>
+Broj2: <input type="number" name="broj2" size="20"> <br> <br>
+<input type="submit" value="Pomnozi" name="pomnozi">
+</form>
+
+Kod fajla proizvod.php je:
+<?php
+
+$broj1 = $_POST['broj1'];
+$broj2 = $_POST['broj2'];
+$proizvod = $broj1*$broj2;
+
+echo "Rezultat je: $proizvod";
+?>
