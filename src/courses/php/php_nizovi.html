@@ -1,0 +1,158 @@
+<h1><b>Nizovi</b></h1>
+<br>
+<b>Niz (array)</b> je promenljiva koja čuva više vrednosti. eŠkola veba ima više kurseva i potrebno je napraviti promenljivu za svaki kurs. To izgleda ovako:
+<xmp class = "primer_ta">
+<?php
+$kurs1 = "HTML";
+$kurs2 = "CSS";
+$kurs3 = "PHP";
+$kurs4 = "Laravel";
+$kurs5 = "Spring"; //i tako dalje
+?>
+</xmp> <br>
+S obzirom da ima puno kurseva, biće i mnogo promenljivih. Zamislimo da imamo 300 kurseva i da treba da nađemo neki konkretan. To baš i nije lako. Bolje rešenje je da napravimo niz. Niz kreiramo pomoću funkcije <b>array()</b>.
+<br> <br>
+Nizovi mogu biti:
+<ul>
+  <li><b>Numerisani</b> - pamte vrednosti pod rednim brojem počev od nule</li>
+  <li><b>Asocijativni</b> - pamte podatke po sistemu ključ-vrednost</li>
+  <li><b>Višedimenzioni</b> - više reči će biti kasnije</li>
+</ul> <br>
+Kurseve eŠkole veba ćemo smestiti u <b>numerisani niz</b>:
+<xmp class = "primer_ta">
+<?php
+$kursevi = array("HTML", "CSS", "PHP", "Laravel", "Spring");
+?>
+</xmp> <br>
+U ovom slučaju su indeksi automatski dodeljeni, a možemo ih dodeliti i ručno: <br>
+<xmp class = "primer_ta">
+<?php
+$kursevi[0] = "HTML";
+$kursevi[1] = "CSS";
+$kursevi[2] = "PHP";
+$kursevi[3] = "Laravel";
+$kursevi[4] = "Spring";
+?>
+</xmp> <br>
+Elementu niza lako pristupamo preko njegovog indeksa:
+<xmp class = "primer_ta">
+<?php
+$kursevi = array("HTML", "CSS", "PHP", "Laravel", "Spring");
+echo "Ja volim " . $kursevi[2] . ".";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Funkcija <b>count()</b> vraća dužinu (broj elemenata) niza:
+<xmp class = "primer_ta">
+<?php
+$kursevi = array("HTML", "CSS", "PHP", "Laravel", "Spring");
+echo "Dužina niza je " .count($kursevi) . ".";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<b>Asocijativni niz</b> možemo kreirati na dva načina. Prvi način je:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
+?>
+</xmp>
+Drugi način je:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi["Teodosić"] = "1";
+$kosarkasi["Bogdanović"] = "2";
+$kosarkasi["Jokić"] = "3";
+?>
+</xmp> <br>
+Ključ može da bude ceo broj ili string, a vrednost može biti bilo kog tipa. Vrednosti pod određenim ključem možemo pristupiti na sledeći način:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
+echo "Teodosić nosi dres sa brojem " . $kosarkasi["Teodosić"] .".";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Sortiranje niza</h2>
+Funkcije za sortiranje niza su:
+<ul>
+  <li><b>sort()</b> - sortira niz u rastućem poretku</li>
+  <li><b>rsort()</b> - sortira niz u opadajućem poretku</li>
+  <li><b>asort()</b> - sortira asocijativni niz u rastućem poretku u odnosu na vrednost</li>
+  <li><b>ksort()</b> - sortira asocijativni niz u rastućem poretku u odnosu na ključ</li>
+  <li><b>arsort()</b> - sortira asocijativni niz u opadajućem poretku u odnosu na vrednost</li>
+  <li><b>arsort()</b> - sortira asocijativni niz u opadajućem poretku u odnosu na ključ</li>
+</ul> <br>
+Sledeći primer sortira niz kurseva u rastućem poretku (po alfebetu):
+<xmp class = "primer_ta">
+<?php
+$kursevi = array("HTML", "CSS", "PHP", "Laravel", "Spring");
+sort($kursevi);
+$duzina_niza = count($kursevi);
+for ($i = 0; $i<$duzina_niza; $i++) {
+  echo $kursevi[$i];
+  echo "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br>
+<div class = "napomena">Pomoću for petlje smo prošli kroz niz i ispisali njegove elemente.</div>
+Sledeći primer sortira niz brojeva u opadajućem poretku (od većeg broja ka manjem):
+<xmp class = "primer_ta">
+<?php
+$brojevi = array(2, 11, 8, 3, 13);
+rsort($brojevi);
+$duzina_niza = count($brojevi);
+for ($i = 0; $i<$duzina_niza; $i++) {
+  echo $brojevi[$i];
+  echo "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Sledeći primer sortira asocijativni niz u rastućem poretku u odnosu na vrednost:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
+asort($kosarkasi);
+foreach ($kosarkasi as $kljuc => $vrednost) {
+  echo "Kljuc = " . $kljuc . ", Vrednost = " . $vrednost;
+  echo "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Sledeći primer sortira asocijativni niz u rastućem poretku u odnosu na ključ:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
+ksort($kosarkasi);
+foreach ($kosarkasi as $kljuc => $vrednost) {
+  echo "Kljuc = " . $kljuc . ", Vrednost = " . $vrednost;
+  echo "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Sledeći primer sortira asocijativni niz u opadajućem poretku u odnosu na vrednost:
+<xmp class = "primer_ta">
+<?php
+$kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
+arsort($kosarkasi);
+foreach ($kosarkasi as $kljuc => $vrednost) {
+  echo "Kljuc = " . $kljuc . ", Vrednost = " . $vrednost;
+  echo "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<div class = "zadatak">
+Izmeniti prethodni primer tako da sortira niz košarkaša u opadajućem poretku u odnosu na ključ.
+</div>

@@ -1,0 +1,28 @@
+<h1><b>Konstante</b></h1>
+<br>
+Konstante predstavljaju jednostavne vrednosti koje se ne menjaju. Za naziv
+konstante važi sve što i za naziv promenljive, s tim što ispred naziva
+konstante ne stavljamo znak $. Obično naziv pišemo velikim slovima.
+Oblast važenja konstanti je ceo program (čak i unutar funkcija).
+Koristimo ih da bi program bio čitljiviji i lakši za održavanje.
+<br> <br>
+Kreiramo ih pomoću funkcije <b>define()</b>:
+<xmp class = "primer_ta">
+define(naziv, vrednost, neosetljivost na mala i velika slova)
+</xmp>
+Naziv i vrednost navodimo kao nisku. Podrazumevana vrednost trećeg argumenta funkcije je
+false, što znači da se razlikuju mala i velika slova u nazivu konstante
+(kao kod promenljivih). Ako ne želimo drugačije, treći argument ne
+moramo da navodimo. <br>
+Primer konstante:
+<xmp class = "primer_ta">
+<?php
+define("POZDRAV", "Zdravo, svete!");
+echo POZDRAV;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<div class = "zadatak">
+Kreiraj konstantu LJUBAV čija je vrednost rečenica "Ja volim PHP!" i ispiši tu konstantu.
+</div>

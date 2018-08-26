@@ -1,0 +1,125 @@
+<h1><b>Sintaksa</b></h1>
+<br>
+<h2>Komentari</h2>
+<br>
+<b>Komentare</b> možemo pisati na dva načina. Jednolinijski komentar pišemo posle karaktera <b> // </b>, a višelinijski između <b> /* */ </b>.
+<br> <br>
+<span class = "primer_text"> // Ovo je jednolinijski komentar
+</span>
+<br> <br>
+<span class = "primer_text">
+/* Ovo je <br>
+ višelinijski komentar */
+</span>
+<br>
+<br>
+<h2>Velika i mala slova</h2>
+<br>
+Ključne reči (if, else, while i druge), klase, funkcije i funkcije koje sami definišemo možemo pisati i malim i velikim slovima, ali ne i promenljive.
+<xmp class = "primer_ta">
+<?php
+ECHO "Zdravo, svete!<br>";
+echo "Zdravo, svete!<br>";
+EcHo "Zdravo, svete!<br>";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Ove tri echo naredbe su ekvivalentne i ispravne.
+<br>
+<h2>Promenljive</h2>
+<br>
+Promenljive služe za čuvanje informacija. Ispred naziva promenljive
+stoji znak <b>$</b>. Naziv može da počinje slovom ili donjom crtom,
+ali ne i brojem. Može da sadrži mala i velika slova, brojeve i donju
+ crtu. U nazivima promenljivih se razlikuju mala i velika slova. Na
+ primer: $ime i $Ime su dve različite promenljive.
+<xmp class = "primer_ta">
+<?php
+$pozdrav = "Zdravo, svete!";
+$x = 5;
+$y = 10.5;
+
+echo $pozdrav;
+echo "<br>";
+echo $x;
+echo "<br>";
+echo $y;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Promenljive ne deklarišemo ni na kakav poseban način. Postaju
+definisane kada im prvi put dodelimo vrednost. Ako želimo promenljivoj
+ da dodelimo tekst, potrebno je da ga navedemo između navodnika kao
+  što smo uradili sa promenljivom $pozdrav.
+<br> <br>
+Naredba <b>echo</b> se često koristi za ispis podataka na ekran.
+<xmp class = "primer_ta">
+<?php
+$p = "PHP";
+echo "Ja volim $p!";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Sledeći primer ispisuje zbir dve promenljive.
+<xmp class = "primer_ta">
+<?php
+$x = 8;
+$y = 3;
+echo $x + $y;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+U prethodnim primerima nismo morali da navodimo tip promenljive. PHP
+automatski pretvara promenljivu u odgovarajući tip na osnovu njene
+vrednosti.
+<br> <br>
+Već smo rekli da promenljive možemo definisati kada god je to potrebno.
+ <b>Oblast važenja</b> promenljivih je kontekst u kome su definisane.
+ Postoje tri vrste promenljivih: <b>lokalne</b>, <b>globalne</b> i
+ <b>statičke</b>. Promenljive koje su definisane na globalnom nivou
+ ne važe unutar funkcija i obrnuto. Kada želimo da koristimo globalnu
+ promenljivu u funkciji, koristimo ključnu reč <b>global</b>.
+<xmp class = "primer_ta">
+<?php
+$x = 5; // globalna promenljiva
+
+function f() {
+    $x = 10; // lokalna promenljiva
+    echo "Vrednost promenljive x unutar funkcije je $x.";
+}
+f(); //poziv funkcije f
+//Kasnije će biti više reči o funkcijama
+echo "<br>";
+echo "Vrednost promenljive x izvan funkcije je $x.";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+$x = 5;
+$y = 10;
+
+function f() {
+    global $x, $y;
+    $y = $x + $y;
+  	echo $y;
+}
+
+f();
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+Unutar funkcije je moguće definisati i statičku promenljivu, koja
+jeste lokalna, ali ne gubi vrednost kada se izvršavanje funkcije
+završi. Statičke promenljive možemo da deklarišemo koristeći samo
+konkretnu, konstantnu vrednost, a ne izraz.
+<div class = "zadatak">
+Napraviti promenljivu $a čija je vrednost 15 i promenljivu $b čija je vresnot 7. Ispisati njihovu razliku.
+</div>

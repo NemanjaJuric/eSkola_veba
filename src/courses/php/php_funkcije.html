@@ -1,0 +1,79 @@
+<h1><b>Funkcije</b></h1>
+<br>
+Deo programa koji se češće izvodi možemo izdvojiti u posebnu celinu koja se
+ poziva iz glavnog programa. PHP ima veliki broj ugrađenih funkcija, ali
+ možemo da definišemo i svoje funkcije.
+Što je program složeniji, veća je potreba za kreiranjem funkcija.
+<br> <br>
+Funkcija je blok naredbi koji se može pozivati više puta u programu.
+Odlikuje je naziv koji treba da oslikava ono što funkcija radi. Može da ima
+ parametre i lokalne promenljive. Funkciju je moguće pozivati iz glavnog
+ programa, druge funkcije, pa čak može i samu sebe da poziva (rekurzija).
+ Može da vrati vrednost, ali ne mora.
+<br>
+<h2>Korisnički definisane funkcije</h2>
+<br>
+Funkciju deklarišemo ključnom rečju <b>function</b> nakon koje navodimo naziv
+ funkcije i listu formalnih argumenata u zagradi. Telo funkcije (njene
+  naredbe) navodimo unutar vitičastih zagrada.
+<xmp class = "primer_ta">
+function naziv(lista argumenata) {
+ naredbe
+ }
+</xmp>
+<br>
+Funkciju pozivamo po njenom imenu, a u zagradi navodimo vrednosti argemanata
+ (stvarni argumenti).
+<b>Primer:</b>
+<xmp class = "primer_ta">
+<?php
+function pozdrav() {
+  echo "Zdravo, svete!";
+}
+
+echo pozdrav(); //poziv funkcije
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<h2>Argumenti funkcije i povratne vrednosti</h2>
+<br>
+Funkciji prenosimo informacije preko argumenata. Formalni argumenti se
+navode u deklaraciji funkcije. Predstavljaju listu promenljivih koje primaju
+ vrednosti stvarnih parametara koji se navode pri pozivu funkcije.
+Formalne argumente posmatramo kao lokalne promenljive u koje se kopiraju
+ vrednosti stvarnih argumenata. Dakle, iako menjamo argumente unutar
+  funkcije, originalne vrednosti ostaju nepromenjene. Kažemo da se argumenti
+   prenose po vrednosti.
+<br> <br>
+Ako želimo da menjamo vrednosti koje prosleđujemo funkciji, treba da
+prenesemo parametre po referenci. To znači da su formalni parametri
+pokazivači na stvarne i da možemo da menjamo vrednosti stvarnih argumenata.
+Potrebno je staviti znak & ispred argumenata koji se prenose po referenci.
+U tom slučaju stvarni argumenti treba da budu promenljive.
+<br> <br>
+Kada želimo da funkcija vrati rezultat, koristimo naredbu <b>return</b>.
+Nakon nje navodimo vrednost koju funkcija vraća. Ova naredba označava i
+prekid rada funkcije.
+<xmp class = "primer_ta">
+<?php
+function povecaj(&$broj, $vrednost) {
+  $broj+=$vrednost;
+}
+
+$br = 3;
+povecaj($br, 8);
+echo $br;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<div class = "napomena">
+Da bismo pristupili globalnoj promenljivoj iz funkcije, potrebno je staviti
+ reč <b>global</b> ispred naziva promenljive. Funkcije treba da budu
+ fleksibilnije i nezavisnije od glavnog programa i treba izbegavati
+ korišćenje globalnih promenljivih.
+</div>
+<div class = "zadatak">
+Napisati funciju koja računa proizvod dva broja.
+</div>
