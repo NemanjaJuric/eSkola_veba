@@ -1,0 +1,69 @@
+<h1>JQuery-AJAX</h1>
+<br/>
+Osnovna funkcionalno AJAX  (Asynchronous JavaScript and XML) poziva jeste promena sadržaja strane asinhrono, što znači da korisnička veb strana ne mora da se učita potpuno ispočetka već se ažurira sadržaj strane na osnovu podataka koji su pristigli.
+Dva najčešća zahteva serveru jesu:
+<ul>
+	<li>HTTP GET zahtev</li>
+	<li>HTTP POST zahtev</li>
+ </ul>
+ <br/>
+<div>
+	<ul style= "color:blue">
+<li>.get() - <span style="color:gray"> Funkcija za dohvatanje podataka sa određenog izvora.</span>
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("button").click(function(){
+		$.get("https://jsonplaceholder.typicode.com/todos/1", function(data, status){
+			$('p').html("Naslov: " + data.title + "<br />" + "Status: " + status);
+		});
+	});
+});
+</script>
+</head>
+<body>
+
+<button>Posalji HTTP GET zahtev i prikaži naslov iz odgovora</button>
+<p></p>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+		
+		
+<li>.post() - <span style="color:gray">Funkcija za slanje novih podataka serveru zarad kreiranja novog objekta ili ažuriranje postojećeg.</span> 
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+$.post("https://jsonplaceholder.typicode.com/posts",
+{
+title: 'foo',
+body: 'bar',
+userId: 1
+},
+function(data,status){
+alert("Id: " + data.id + "\nTitle: "+ data.title + "\nUserID: " + data.userId + "\nStatus: " + status);
+});
+});
+});
+</script>
+</head>
+<body>
+<button>Pošalji HTTP POST zahtev i prikaži rezultat kreiranog objekta</button>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+</ul>
+</div>

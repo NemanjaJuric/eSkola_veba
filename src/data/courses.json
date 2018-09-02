@@ -766,6 +766,13 @@
                 "type": "lesson",
                 "parentCourse": "jq",
                 "sublessons": null
+            },
+            {
+                "name": "Ajax",
+                "url": "jq_ajax",
+                "type": "lesson",
+                "parentCourse": "jq",
+                "sublessons": null
             }
         ]
     },
