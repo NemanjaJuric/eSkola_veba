@@ -1,0 +1,229 @@
+<h1>Padajući meni (engl. Dropdown menu)</h1>
+Jedan način za formiranje padajućeg menija u radnom okruženju Bootstrap 4 je sledeći:
+<br>
+Sekciji <span class="primer_text">&ltdiv&gt</span> dodeljuje se klasa
+<span class="primer_text">.dropdown</span> koja indicira da se radi o padajućem meniju, a zatim
+se dodaju dugme i još jedna unutrašnja sekcija. Dugme mora imati klasu
+<span class="primer_text">.dropdown-toggle</span> i atribut
+<span class="primer_text">data-toggle="dropdown"</span> jer oni omogućavaju da klikom na dugme bude
+prikazana padajuća lista elemenata. Padajuću listu elemenata navodimo u okviru sekcije
+<span class="primer_text">&ltdiv&gt</span> kojoj je zadata klasa
+<span class="primer_text">.dropdown-menu</span>. Klasa <span class="primer_text">.dropdown-menu</span>,
+ustvari, pravi padajući meni. U okviru sekcije kojoj je zadata klasa
+<span class="primer_text">.dropdown-menu</span>, navode se linkovi <span class="primer_text">&lta&gt</span>,
+kojima se dodeljuje klasa <span class="primer_text">.dropdown-item</span> i oni predstavljaju elemente padajuće liste.
+<br>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="dropdown">
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+            Klikni ovde
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Element 1</a>
+            <a class="dropdown-item" href="#">Element 2</a>
+            <a class="dropdown-item" href="#">Element 3</a>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Postoji mogućnost da se umesto dugmeta <span class="primer_text">&ltbutton&gt</span>
+koristi etiketa <span class="primer_text">&lta&gt</span> kojoj bi takođe
+trebalo zadati klasu <span class="primer_text">.dropdown-toggle</span> i atribut
+<span class="primer_text">data-toggle="dropdown"</span>.
+<br>
+Takođe, u okviru sekcije sa klasom <span class="primer_text">.dropdown-menu</span>, umesto
+linkova <span class="primer_text">&lta&gt</span>, moguće je dodavati dugmiće sa klasama
+<span class="primer_text">.dropdown-item</span>.
+<br>
+Element koji je manje važnosti ili koji ne pripada istoj kategoriji je moguće
+odvojiti jednom horizontalnom linijom unutar padajućeg menija.
+<br>
+<img src="courses/bs4/slika.JPG" class="img-fluid img-sm">
+<br>
+Ovo se realizuje dodavanjem sekcije
+<span class="primer_text">&ltdiv class="dropdown-divider"&gt&lt/div&gt</span>
+iznad elementa koji treba odvojiti.
+<br>
+U radnom okruženju Bootstrap 4, zaglavlje padajućeg menija se može napraviti dodavanjem
+sekcije <span class="primer_text">&ltdiv class="dropdown-header"&gtZaglavlje menija&lt/div&gt</span>, dok se klasa
+<span class="primer_text">.disabled</span> koristi da bi se element kome je pridružena ta klasa
+prikazao kao blokiran. Klasa <span class="primer_text">.active</span> naglašava element kome je
+pridružena.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dugme
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">Zaglavlje padajućeg menija koji sadrži</div>
+            <a class="dropdown-item" href="#">Normalan link</a>
+            <a class="dropdown-item active" href="#">Aktivan link</a>
+            <a class="dropdown-item disabled" href="#">Blokiran link</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Izdvojen link</a>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Pozicioniranje padajućeg menija</h2>
+Pomoću klase <span class="primer_text">.dropright</span>, padajuća lista iskače sa desne strane dugmeta.
+<img src="courses/bs4/desno.JPG" alt="Dropright" class="img-fluid img-md">
+<br>
+Pomoću klase <span class="primer_text">.dropleft</span>, padajuća lista iskače
+levo od dugmeta. Pri čemu treba dodati i klasu <span class="primer_text">.float-right</span> kojom
+se ceo padajući meni ravna uz desnu ivicu i time je osolobođen prostor za iskakanje padajuće liste levo od dugmeta.
+<img src="courses/bs4/levo.JPG" alt="Dropleft" class="img-fluid img-md">
+<br>
+Prethodno navedene klase se dodaju elementu <span class="primer_text">&ltdiv&gt</span> koji
+sadrži klasu <span class="primer_text">.dropdown</span>.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container" style="width:700px">
+        <div class="dropdown dropright float-left">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Desno iskakanje liste
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+          </div>
+        </div>
+        <div class="dropdown dropleft float-right">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Levo iskakanje liste
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Padajuću listu je moguće poravnati sa desnom ivicom dugmeta padajućeg menija pomoću
+klase <span class="primer_text">.dropdown-menu-right</span> koja se dodaje elementu sa klasom
+<span class="primer_text">.dropdown-menu</span>.
+  <br>
+Padajuća lista može da iskače i na gore (engl. Dropup), to se dobija klasom <span class="primer_text">.dropup</span>
+koja se piše umesto klase <span class="primer_text">.dropdown</span>.
+<br>
+<h2>Grupisanje padajućih listi</h2>
+<ol>
+  <li>Grupisanje dugmića sa padajućim menijem se formira korišćenjem klase
+  <span class="primer_text">.btn-group</span> koja se zadaje sekciji u okviru koje se navode
+  dugmići i padajuća lista.</li>
+  <li>Nekompaktno grupisanje dugmeta sa padajućim menijem se formira korišćenjem klase
+  <span class="primer_text">.btn-group</span> koja se zadaje sekciji i u okviru koje se
+  navodi obično dugme, dugme padajuće liste i padajuća lista. Uu ovom slučaju padajuća lista iskače samo klikom
+  na strelicu pored dugmeta.</li>
+  <li>Vertikalno grupisanje dugmića i padajućeg menija se dobija korišćenjem klase
+    <span class="primer_text">.btn-group-vertical</span> umesto klase <span class="primer_text">.btn-group</span>.</li>
+</ol>
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h6>Grupisanje dugmića sa padajućim menijem</h6>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">Dugme 1</button>
+          <button type="button" class="btn btn-primary">Dugme 2</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dugme 3
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <h6>Nekompaktno grupisanje dugmića i padajuće liste</h6>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">Obično dugme</button>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+          </div>
+        </div>
+        <!--Ovde je moguće dodati još sekcija sa klasom .btn-group-->
+        <br><br>
+        <h6>Vertikalno grupisanje dugmića sa padajućim menijem</h6>
+        <div class="btn-group-vertical">
+          <button type="button" class="btn btn-primary">Dugme 1</button>
+          <button type="button" class="btn btn-primary">Dugme 2</button>
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dugme 3
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti pet grupa nekompaktno grupisanih dugmića i padajuće liste različitih boja, pri
+  čemu neki od linkova trebaju biti aktivni, a neki blokirani.
+</div>

@@ -1,0 +1,209 @@
+<h1>Paginacija (engl. Pagination)</h1>
+Radi bolje preglednosti, odnosno, da bi se izbeglo beskonačno skrolovanje veb strane
+uvodi se podela sadržaja na više strana, paginacija.
+U okruženju Bootstrap 4 to se radi tako što se elementu <span class="primer_text">&ltul&gt</span>
+doda klasa <span class="primer_text">.pagination</span>, svakom <span class="primer_text">&ltli&gt</span> elementu klasa
+<span class="primer_text">.page-item</span>, a elementima <span class="primer_text">&lta&gt</span>
+unutar svakog od elemenata liste se doda klasa <span class="primer_text">.page-link</span>.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadcrumb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prethodna</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Sledeća</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">
+  Za potrebe ove lekcije umesto pravih linkova stoje #.
+</div>
+Klasom <span class="primer_text">.active</span> je moguće prikazati koja je
+stranica trenutno prikazana, nju treba dodati elementu <span class="primer_text">&ltli&gt</span>.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadcrumb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prethodna</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Sledeća</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Klasu <span class="primer_text">.disabled</span> dodajemo onom elementu liste kome
+korisnik trenutno ne može da pristupi. U sledećem slučaju to je link koji vodi na prethodnu stranu koja ne postoji.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadcrumb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">Prethodna</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Sledeća</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Veličina i pozicija paginacije</h2>
+Postoje dve klase kojima se može zadati veličina bloka sa linkovima strana, ove
+klase se dodaju elementu <span class="primer_text">&ltul&gt</span>, a one su
+<span class="primer_text">.pagination-lg</span> za veće blokove i <span class="primer_text">.pagination-sm</span>
+ za manje blokove.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadcrumb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!--Veliki blok paginacije-->
+      <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link" href="#">Prethodna</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Sledeća</a></li>
+      </ul>
+      <!--Mali blok paginacije-->
+      <ul class="pagination pagination-sm">
+        <li class="page-item"><a class="page-link" href="#">Prethodna</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Sledeća</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Takođe, blokove sa paginacijom je moguće i poravnati, postoje levo, desno i centralno poravnanje.
+Standardno poravnanje je levo pa za njega nije potrebna klasa za poravnanje, ukoliko hoćemo centralno da
+poravnamo blok sa paginacijom to se radi klasom <span class="primer_text">.justify-content-center</span>
+koja se dodaje elementu <span class="primer_text">&ltul&gt</span>. Desno porvananje se omogućava dodavanjem klase
+<span class="primer_text">.justify-content-end</span> elementu <span class="primer_text">&ltul&gt</span>.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breadcrumb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+      <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Paginacija pomoću kartica</h2>
+Paginaciju pomoću kartica je moguće napraviti pomoću klase <span class="primer_text">.breadcrumb</span>.
+Klasu <span class="primer_text">.breadcrumb</span> treba zadati elementu <span class="primer_text">&ltul&gt</span>, dok
+klasu <span class="primer_text">.breadcrumb-item</span> treba dodati svakom elementu te liste. Pogledati sledeći primer.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Breadcrumb</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Prva</a></li>
+          <li class="breadcrumb-item"><a href="#">Druga</a></li>
+          <li class="breadcrumb-item"><a href="#">Treca</a></li>
+          <li class="breadcrumb-item active">Četvrta</li>
+        </ul>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti paginaciju sa 5 strana, dodati linkove za prethodnu
+  i sledeću stranu, onemogućiti pristup jednoj strani i označiti koja je aktivna.
+  Centrirati blok sa paginacijom i neka blok bude mali.
+</div>

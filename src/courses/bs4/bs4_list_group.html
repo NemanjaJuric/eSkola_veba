@@ -1,0 +1,91 @@
+<h1>Gupisana lista (engl. List Group)</h1>
+Grupisane liste se mogu praviti pomoću nenumerisanih listi ili pomoću elemenata
+<span class="primer_text">&ltdiv&gt</span> i <span class="primer_text">&lta&gt</span>.
+<h2>Grupisane liste pomoću elementa <span class="primer_text">&ltul&gt</span></h2>
+Osnovne grupisane liste se mogu stilizovati u okruženju Bootstrap 4 pomoću elementa
+<span class="primer_text">&ltul&gt</span> sa klasom <span class="primer_text">.list-group</span> i elemenata
+<span class="primer_text">&ltli&gt</span> sa klasom <span class="primer_text">.list-group-item</span>.
+
+Na ovaj način se dobije sledeće:
+<img src="courses/bs4/list_group.JPG" class="img-fluid">
+
+<br>
+Klasa <span class="primer_text">.active</span> naglašava trenutni element.
+Dok klasa <span class="primer_text">.disabled</span> onesposobljava element grupe kojem je ta klasa pridružena.
+<br>
+Klasa <span class="primer_text">.list-group-flush</span> je klasa elementa <span class="primer_text">&ltul&gt</span>
+koja uklanja spoljašnji okvir liste.
+
+<h2>Grupisane liste sa linkovima</h2>
+Grupisane liste sa linkovima se dobijaju tako što linkove okružuje jedan
+<span class="primer_text">&ltdiv&gt</span> element, dakle umesto elementa
+<span class="primer_text">&ltul&gt</span> se koristi element <span class="primer_text">&ltdiv&gt</span>
+kojem zadajemo klasu <span class="primer_text">.list-group</span>, dok umesto elemenata
+<span class="primer_text">&ltli&gt</span> treba koristi linkove <span class="primer_text">&lta&gt</span>
+i njima se zadaje klasa <span class="primer_text">.list-group-item</span>.
+<br>
+Ukoliko želimo da prilikom prelaženja preko linkova, oni dobiju sivu pozadinu tim linkovima treba
+dodati klasu <span class="primer_text">.list-group-item-action</span>.
+<br>
+<h2>Klase koje zadaju pozadinske boje elementima liste</h2>
+
+Elementima grupisane liste je moguće zadati i sledeće klase:
+<ul>
+  <li><span class="primer_text">.list-group-item-success</span> - boji element grupe u zeleno,</li>
+  <li><span class="primer_text">.list-group-item-warning</span> - boji element grupe u narandžasto,</li>
+  <li><span class="primer_text">.list-group-item-danger</span> - boji element grupe u crveno,</li>
+  <li><span class="primer_text">.list-group-item-primary</span> - boji element grupe u plavo,</li>
+  <li><span class="primer_text">.list-group-item-info</span> - boji element grupe u svetloplavo,</li>
+  <li><span class="primer_text">.list-group-item-secondary</span> - boji element grupe u sivo,</li>
+  <li><span class="primer_text">.list-group-item-dark</span> - boji element grupe u tamnosivo,</li>
+  <li><span class="primer_text">.list-group-item-light</span> - boji element grupe u svetlosivo.</li>
+</ul>
+<div class="napomena">
+  Ove klase je moguće primeniti i na grupisanim listama sa linkovima.
+</div>
+<br>
+<h2>Bedževi u elementima</h2>
+Ukoliko želimo da u okviru elementa grupisane liste dodamo neku napomenu, na primer,
+broj novih poruka, obaveštenje da je nov link, broj poseta ka tom linku i slično,
+koristimo bedževe o kojima smo već učili. Sledeći kod je primer ovoga:
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <ul class="list-group">
+          <!--Klasa d-flex interpretira CSS osobinu display: flex;-->
+          <!--Klasa justify-content-between zadaje položaj flexbox elementima tako da su poravnati sa jednakim prostorom između njih-->
+          <!--Klasa align-items-center centrira elemente po koloni-->
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Nova obaveštenja
+            <span class="badge badge-primary badge-pill">7</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Nove poruke
+            <span class="badge badge-primary badge-pill">3</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Zahtevi za prijateljstvo
+            <span class="badge badge-primary badge-pill">1</span>
+         </li>
+       </ul>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti grupisanu listu sa 5 elemenata pri čemu jedan element treba da sadrži bedž narandžaste boje
+  a ostale obojiti različitim bojama.
+</div>

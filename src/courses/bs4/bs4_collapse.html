@@ -1,0 +1,114 @@
+<h1>Collapse klasa</h1>
+U radnom okruženju Bootstrap 4 klasa <span class="primer_text">.collapse</span> se koristi
+u slučajevima kada želimo da prikažemo ili sakrijemo neki sadržaj.
+<br>
+Ukoliko je sadržaj koji treba skrivati i prikazivati smešten u jedan element
+<span class="primer_text">div</span>, onda njemu dodajemo klasu
+<span class="primer_text">.collapse</span> koja indicira da je to element koji se
+skriva i prikazuje nakon nekog događaja. Obično se skrivanje i prikazivanje
+nekog sadržaja vezuje za klik na dugme, iz ovog razloga se elementu
+<span class="primer_text">&ltbutton&gt</span> dodaje atribut
+<span class="primer_text">data-toggle="collapse"</span>, ovaj atrubut opisuje funkciju
+dugmeta. Takođe, potrebno je dugmetu dodati i atributa <span class="primer_text">data-target="#id"</span>
+ koji povezuje dugme sa sadržajem koji se prikazuje i sakriva.
+<span class="primer_text">#id</span> je vrednost atributa <span class="primer_text">id</span>
+ koji je zadat elementu koji treba skrivati i prikazivati.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <button data-toggle="collapse" data-target="#sadrzaj" class="btn btn-success">Klikni!</button>
+        <div id="sadrzaj" class="collapse">
+          Ovo je tekst koji je bio skriven!
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Umesto dugmeta, moguće je koristiti i <span class="primer_text">&lta&gt</span> element, kome je
+moguće dodati atribut <span class="primer_text">href="#id"</span> umesto atributa
+<span class="primer_text">data-target</span>.
+<br>
+Na početku, definisano je da element koji sadrži klasu <span class="primer_text">.collapse</span>
+ bude sakriven, međutim, dodavanje klase <span class="primer_text">.show</span>
+tom istom elementu definiše da element prilikom prvog učitavanja strane bude prikazan.
+<br>
+<h2>Princip harmonike (engl. Accordion)</h2>
+Više grupa, koje klikom na dugme prikazuju i skrivaju sadržaj, a koje se nalaze u okviru iste sekcije sa klasom
+<span class="primer_text">.accordion</span> rade po principu harmonike. Klikom na bilo koje dugme, ono prikazuje
+odgovarajući sadržaj ukoliko je sadržaj skriven, a sakriva ukoliko je već prikazan.
+<br>
+Atribut <span class="primer_text">data-parent</span> obezbeđuje da se sadržaj, koji je
+povezan sa dugmetom na koji je kliknuto, prikaže ukoliko je sakriven, dok se svi ostali sadržaji,
+ako su prikazani, sakriju.
+<br>Sledeći primer prikazuje opisan princip harmonike koristeći kartice, o kojima je već bilo reči.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapse1">
+                Kartica 1
+              </a>
+            </div>
+            <div id="collapse1" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                Tekst 1!
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapse2">
+                Kartica 2
+              </a>
+            </div>
+            <div id="collapse2" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                Tekst 2!
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-toggle="collapse" href="#collapse3">
+                Kartica 3
+              </a>
+            </div>
+            <div id="collapse3" class="collapse" data-parent="#accordion">
+              <div class="card-body">
+                Tekst 3!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti dugme koje sakriva i prikazuje neki sadržaj. Sadržaj mora da sadrži
+  paragraf, naslov i link, a prilikom prvog učitavanja strane sadržaj treba biti prikazan.
+</div>

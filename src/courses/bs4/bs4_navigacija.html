@@ -1,0 +1,198 @@
+<h1>Navigacija</h1>
+U radnom okruženju Bootstrap 4 najjednostavnija navigacija na strani se formira tako što se
+<span class="primer_text">&ltul&gt</span> etiketi doda klasa <span class="primer_text">.nav</span>,
+dok se elementima liste dodaju klase <span class="primer_text">.nav-item</span>, a linkovima
+koji se nalaze u svakom od elemenata liste treba dodati klasu
+<span class="primer_text">.nav-link</span>.
+<br>
+Klasa <span class="primer_text">.justify-content-center</span> centrira navigaciju u odnosu na
+celu stranu, dok je klasa <span class="primer_text">.justify-content-end</span> poravnava sa desnom ivicom
+elementa koji je okružuje.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div id="accordion">
+          <p>Levo poravnata navigacija</p>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
+          <p class="text-center">Centerirana navigacija</p>
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
+          <p class="text-right">Desno poravnata navigacija</p>
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Vertikalna navigacija se u radnom okruženju Bootstrap 4 pravi dodavanjem klase
+<span class="primer_text">.flex-column</span> elementu koji sadrži klasu <span class="primer_text">.nav</span>.
+<br>
+<h2>Navigacija sa okvirom (engl. Navigation tabs)</h2>
+<img src="courses/bs4/navigacija.JPG" class="img-fluid img-md">
+<br>
+Navigacija sa okvirom nastaje dodavanjem klase <span class="primer_text">.nav-tabs</span> elementu
+<span class="primer_text">&ltul&gt</span> koji sadrži klasu <span class="primer_text">.nav</span>.
+Elemente liste i njihove linkove formatiramo već navedenim klasama. Aktivan link u okviru navigacije sa okvirom
+ima okvir sa svih strana, dok su ostali samo podvučeni.
+<h2>Navigacija sa dugmićima (engl. Navigation pills)</h2>
+U radnom okruženju Bootstrap 4, navigacija sa dugmićima predstavlja traku sa linkovima koji u aktivnom stanju
+izgledaju kao dugmići. Ovaj tip navigacije nastaje dodavanjem klase
+<span class="primer_text">.nav-pills</span> elementu
+<span class="primer_text">&ltul&gt</span> koji sadrži klasu
+<span class="primer_text">.nav</span>.
+<div class="napomena">
+  Dodavanjem klase <span class="primer_text">.nav-justified</span> elementu
+ <span class="primer_text">&ltul&gt</span> koji sadrži klasu
+ <span class="primer_text">.nav</span> omogućava se da elementi trake za navigaciju budu iste širine.
+</div>
+<h2>Dinamična navigacija sa okvirom (engl. Dynamic Tabs)</h2>
+Ovaj tip navigacije nastaje dodavanjem atributa <span class="primer_text">data-toggle="tab"</span>
+svakom linku u navigaciji, potom treba dodati klasu <span class="primer_text">.tab-pane</span> kao i jedinstveni
+atribut <span class="primer_text">id</span> svakom
+<span class="primer_text">&ltdiv&gt</span> elementu u navigaciji. Svaki ovaj <span class="primer_text">&ltdiv&gt</span>
+treba smestiti u okviru <span class="primer_text">&ltdiv&gt</span> elementa i njemu je potrebno zadati
+klasu  <span class="primer_text">.tab-content</span>.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Dinamična navigacija sa okvirom</h2>
+        <br>
+        <!-- Linkovi u navigaciji -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#prvi">Prvi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#drugi">Drugi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#treci">Treći</a>
+          </li>
+        </ul>
+        <!-- Sadržaj linkova -->
+        <div class="tab-content">
+          <div id="prvi" class="container tab-pane active"><br>
+            <h3>Prvi</h3>
+            <p>Ovo je prvi pasus</p>
+          </div>
+          <div id="drugi" class="container tab-pane fade"><br>
+            <h3>Drugi</h3>
+            <p>Ovo je drugi pasus.</p>
+          </div>
+          <div id="treci" class="container tab-pane fade"><br>
+            <h3>Treći</h3>
+            <p>Ovo je teći pasus.</p>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="napomena">
+  Klasa  <span class="primer_text">.fade</span> omogućava da sadržaj postepeno nestaje.
+</div>
+<h2>Dinamična navigacija sa dugmićima (engl. Dynamic Pills)</h2>
+Ovaj tip navigacije se od prethodnog razlikuje po tome što se dodaje atribut
+ <span class="primer_text">data-toggle="pill"</span> svakom linku u navigaciji.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Dinamična navigacija sa dugmićima</h2>
+        <br>
+        <!-- Linkovi u navigaciji -->
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#prvi">Prvi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#drugi">Drugi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#treci">Treći</a>
+          </li>
+        </ul>
+        <!-- Sadržaj linkova -->
+        <div class="tab-content">
+          <div id="prvi" class="tab-pane active"><br>
+            <h3>Prvi</h3>
+            <p>Ovo je prvi pasus</p>
+          </div>
+          <div id="drugi" class=" tab-pane fade"><br>
+            <h3>Drugi</h3>
+            <p>Ovo je drugi pasus.</p>
+          </div>
+          <div id="treci" class="tab-pane fade"><br>
+            <h3>Treći</h3>
+            <p>Ovo je teći pasus.</p>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti navigaciju sa okvirom koja će sadržati jedan link koji otvara padajuću listu.
+</div>

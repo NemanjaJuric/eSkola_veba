@@ -1117,6 +1117,69 @@
                 "type": "lesson",
                 "parentCourse": "bs4",
                 "sublessons": null
+            },
+            {
+                "name": "Traka uspešnosti",
+                "url": "bs4_traka_uspesnosti",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Paginacija",
+                "url": "bs4_paginacija",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Grupisana lista",
+                "url": "bs4_list_group",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Kartice",
+                "url": "bs4_kartice",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Padajući meni",
+                "url": "bs4_padajuci_meni",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Navigacija",
+                "url": "bs4_navigacija",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Traka za navigaciju",
+                "url": "bs4_trake_za_navigaciju",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Forme",
+                "url": "bs4_forme",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Collapse",
+                "url": "bs4_collapse",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
             }
         ]
     },

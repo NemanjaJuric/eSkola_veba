@@ -1,0 +1,232 @@
+<h1>Trake za navigaciju</h1>
+Traka za navigaciju predstavlja zaglavlje jedne strane koje može sadržati linkove ka
+delovima iste strane ili ka drugim stranama istog projekta.
+Osnovna traka za navigaciju može biti raširena po celom ekranu ili prikazana u komoaktnom obliku,
+a ovo zavisi od širine ekrana.
+Klasom <span class="primer_text">.navbar</span> se u radnom okruženju Bootstrap 4 formira
+traka za navigaciju, dok se klasama:
+<ul>
+  <li><span class="primer_text">.navbar-expand-xl</span>,</li>
+  <li><span class="primer_text">.navbar-expand-lg</span>,</li>
+  <li><span class="primer_text">.navbar-expand-md</span>,</li>
+  <li><span class="primer_text">.navbar-expand-sm</span>,</li>
+</ul>
+formira traka za navigaciju sa vertikalno poređanim elementima na veoma velikim,
+velikim, srednjim i malim ekranima, respektivno.
+<br>
+Elemente trake za navigaciju treba smestiti u jednu listu sa klasom
+<span class="primer_text">.navbar-nav</span> , a svakom elementu liste treba
+dodati klasu <span class="primer_text">.nav-item</span>, svaki element liste treba sadržati
+link sa klasom <span class="primer_text">.nav-link</span>.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <nav class="navbar navbar-expand-sm bg-warning">
+          <!--Klasa .navbar-expand-sm određuje da će na ekranima malih
+          veličina linkovi iz trake za navigaciju biti vertikalno poređani-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link 3</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Ukoliko se ne navede nijedna od klasa <span class="primer_text">.navbar-expand-xl</span>,
+<span class="primer_text">.navbar-expand-lg</span>, <span class="primer_text">.navbar-expand-md</span>
+ili <span class="primer_text">.navbar-expand-sm</span>, elementi trake za navigaciju
+će uvek biti vertikalno poređani.
+<br>
+Klasa <span class="primer_text">.justify-content-center</span> centrira elemente trake za navigaciju, osim
+u slučaju kada su, zbog klase <span class="primer_text">.navbar-expand-*</span>, linkovi
+vertikalno poređani.
+<br>
+Kao u prethodnom primeru, moguće je dodati pozadinsku boju traci za navigaciju, ovo se omogućava
+dodavanjem klase <span class="primer_text">.bg-color</span> elementu
+<span class="primer_text">&ltnav&gt</span>, gde je
+<span class="primer_text">color</span> neka od već često spominjanih boja.
+<br>
+Belu boju linkova u trakama za navigaciju postavljamo tako što elementu
+<span class="primer_text">&ltnav&gt</span> dodamo klasu elementu <span class="primer_text">.navbar-dark</span>.
+Tamnosiva se postavlja dodavanjem klase <span class="primer_text">.navbar-light</span>.
+<br>
+Klasa <span class="primer_text">.active</span> naglašavaja element trake za navigaciju, dok
+klasa <span class="primer_text">.disabled</span> indicira da na link nije moguće kliknuti.
+<h2>Logo u traci za navigaciju</h2>
+U radnom okruženju Bootstrap 4 je moguće dodati logo u traci za navigaciju, ovo se omogućava dodavanjem
+klase <span class="primer_text">.navbar-brand</span> elementu koji predstavlja logo, uglavnom je to element
+<span class="primer_text">&lta&gt</span>.
+Logo može biti tekstualni ili u vidu neki slike, na osnovu toga unutar elementa
+<span class="primer_text">&lta&gt</span> stoji ili tekst ili element <span class="primer_text">&ltimg&gt</span>.
+Ukoliko je logo neka slika, klasa <span class="primer_text">.navbar-brand</span> stilizuje sliku tako da
+se vertikalno uklapa u traci za navigaciju.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="navbar-brand" href="#">
+                <img src="courses/bs4/logo.png" alt="Logo" style="width:40px;">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Link 2</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Traka za navigaciju na malim ekranima</h2>
+Vrlo se često na malim ekranima traka za navigaciju prikazuje u kompaktnom obliku, u kome
+se ne prikazuju linkovi, odnosno zamenjeni su dugmetom, klikom na dugme prikazuju se svi elementi trake.
+Da bi se napravila ovakva traka za navigaciju potrebno je napraviti dugme i zadati mu
+sledeće atribute <span class="primer_text">class="navbar-toggler", data-toggle="collapse" i data-target="#navigacija"</span>.
+Zatim, sve elemente navigacije treba smestiti unutar jedne sekcije
+<span class="primer_text">&ltdiv&gt</span>, ovoj sekciji treba zadati klase <span class="primer_text">.collapse</span>
+i <span class="primer_text">.navbar-collapse</span>, a zatim treba dodati atribut
+<span class="primer_text">id="navigacija"</span>, vrednost atributa treba biti ista kao i vrednost atributa
+<span class="primer_text">data-target</span>.
+<xmp class="primer_ta">
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <nav class="navbar bg-secondary navbar-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigacija">
+            <span class="navbar-toggler-icon"></span><!--Ovime se dodaje ikonica umesto linkova-->
+          </button>
+          <div class="collapse navbar-collapse" id="navigacija">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link 3</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="napomena">
+  Ukoliko dodamo klasu <span class="primer_text">.navbar-expand-*</span>, kompaktna traka za
+  navigaciju će se prikazivati samo na ekranima manje veličine od one koja je zadata u toj klasi.
+</div>
+<h2>Trake za navigaciju sa elementima forme</h2>
+
+U okviru trake za navigaciju je moguće dodati i neke elemente forme, ovo se omogućava tako što se unutar elementa
+<span class="primer_text">&ltnav&gt</span> treba dodati element <span class="primer_text">&ltform&gt</span>
+sa klasom <span class="primer_text">.form-inline</span>. Element <span class="primer_text">&ltform&gt</span>
+tada mo\v ze sadržati dugmiće i elemente tipa <span class="primer_text">&ltinput&gt</span>, koji će biti poređani u jednoj vrsti.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-sm bg-secondary navbar-info">
+          <form class="form-inline" action="#">
+            <input class="form-control" type="text" placeholder="Ukucati tekst pretrage">
+            <br>
+            <button class="btn btn-success" type="submit">Trazi</button>
+          </form>
+        </nav>
+      </div>
+    </body>
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<h2>Fiksirane trake za navigaciju</h2>
+Fiksirana traka za navigaciju, odnosno traka koja je uvek vidljiva na veb strani
+prilikom skrolovanja sadržaja, može biti fiksirana na vrh ili na kraj veb strane
+dodavanjem klasa <span class="primer_text">.fixed-top</span> i <span class="primer_text">.fixed-bottom</span>,
+respektivno elementu <span class="primer_text">&ltnav&gt</span>.<br>
+Na primer:
+
+<xmp class="primer_ta"><nav class="navbar navbar-expand-sm navbar-dark fixed-top"></xmp>
+
+Klasa <span class="primer_text">.sticky-top</span>, elementa <span class="primer_text">&ltnav>&gt</span>,
+fiksira traku za navigaciju na vrhu strane kada, prilikom skrolovanja, traka za navigaciju ne bi bila vidljiva.
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti fiksiranu traku za navigaciju, traka treba biti fiksirana na vrhu veb strane.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NIJE ZAVRSENO

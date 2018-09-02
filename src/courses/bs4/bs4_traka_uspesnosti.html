@@ -1,0 +1,94 @@
+<h1>Traka uspešnosti (engl. Progress Bar)</h1>
+<br>
+Traka uspešnosti je traka koja pokazuje stepen uspešnosti nekog procesa. Može se koristiti u kombinaciji sa procentnim vrednostima
+koje takođe opisuju taj proces.
+
+ Da bi se kreirala traka uspešnosti, potrebno je napraviti dva <span class="primer_text">&ltdiv&gt</span> elementa, jedan unutar drugog,
+ a zatim je potrebno spoljašnjem <span class="primer_text">&ltdiv&gt</span> elementu dodati klasu <span class="primer_text">.progress</span>,
+ a unutrašnjem klasu <span class="primer_text">.progress-bar</span>. Korišćenjem CSS opcije <span class="primer_text">width</span> se navodi trenutno stanje trake.
+ <br>
+ U sledećem delu koda, traka pokazuje 25% uspešnosti.
+ <xmp class="primer_ta">
+   <div class="progress">
+     <div class="progress-bar" style="width:25%"></div>
+   </div>
+ </xmp>
+
+ Ukoliko želimo da prikažemo procenat uspešnosti, dovoljno je da unutar drugog elementa
+  <span class="primer_text">&ltdiv&gt</span> napišemo odgovarajući procenat.
+ Dakle:
+ <xmp class="primer_ta">
+   <div class="progress">
+     <div class="progress-bar" style="width:25%">25%</div>
+   </div>
+ </xmp>
+ <div class="napomena">
+  Umesto procenata, kao labelu trake uspešnosti moguće je napisati i neki tekst.
+ </div>
+ <h2>Visina trake uspešnosti</h2>
+ <br>
+ Ukoliko želimo da promenimo visinu trake, dovoljno je da u okviru atributa
+ <span class="primer_text">style</span>, pored vrednosti za <span class="primer_text">width</span>,
+ navedemo vrednost za <span class="primer_text">height</span>.
+ <xmp class="primer_ta">
+   <div class="progress">
+     <div class="progress-bar" style="width:50%; height:25px"></div>
+   </div>
+ </xmp>
+ <h2>Boje trake uspešnosti</h2>
+ Sledeće klase određuju boju trake:
+ <ul>
+   <li>klasa <span class="primer_text">.bg-success</span> boji traku u zeleno,</li>
+   <li>klasa <span class="primer_text">.bg-info</span> boji traku u tirkizno,</li>
+   <li>klasa <span class="primer_text">.bg-warning</span> boji traku u narandžasto,</li>
+   <li>klasa <span class="primer_text">.bg-danger</span> boji traku u crveno,</li>
+   <li>klasa <span class="primer_text">.bg-grey</span> boji traku u sivo,</li>
+   <li>klasa <span class="primer_text">.bg-light</span> boji traku u svetlosivo,</li>
+   <li>klasa <span class="primer_text">.bg-dark</span> boji traku u tamnosivo.</li>
+ </ul>
+ I to na sledeći način:
+ <xmp class="primer_ta">
+   <div class="progress">
+     <div class="progress-bar bg-warning" style="width:80%">Ova traka koristi klasu bg-warning.</div>
+   </div>
+ </xmp>
+ Prethodna traka je narandžaste boje, a to smo postigli tako što smo pored klase <span class="primer_text">.progress-bar</span> dodali klasu <span class="primer_text">.bg-warning</span>.
+<br>
+<h2>Prugaste trake uspešnosti</h2>
+Da bi traka usešnosti bila prugasta treba dodati klasu <span class="primer_text">.progress-bar-striped</span>. Pa se tako može napraviti traka uspešnosti
+koja je zelene boje i koja je prugasta:
+<xmp class="primer_ta">
+  <div class="progress">
+    <div class="progress-bar bg-success progress-bar-striped" style="width:80%">Ovo je zelena prugasta traka!</div>
+  </div>
+</xmp>
+<h3>Animacije trake uspešnosti</h3>
+Prugastim trakama je moguće dodati animaciju i to dodavanjem klase <span class="primer_text">.progress-bar-animated</span>.
+Dodajmo animaciju na prethodnu traku uspešnosti, to ćemo omogućiti dodavanjem već spomenute klase:
+<xmp class="primer_ta">
+  <div class="progress">
+    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:80%">Ovo je zelena prugasta traka! I njoj je dodata animacija</div>
+  </div>
+</xmp>
+<h2>Trake uspešnosti sa više delova</h2>
+Ukoliko želimo da na primer prikažemo koliko procenata memorije zauzimaju neki folderi to možemo uraditi na sledeći način. U okviru jednog
+elementa <span class="primer_text">&ltdiv&gt</span> sa klasom <span class="primer_text">.progress</span> dodati onoliko <span class="primer_text">&ltdiv&gt</span> elemenata koliko puta želimo da
+podelimo našu traku, svakom unutrašnjem <span class="primer_text">&ltdiv&gt</span> elementu zadamo odgovarajući stil i odgovarajuću širinu.
+<xmp class="primer_ta">
+  <div class="progress">
+    <div class="progress-bar bg-success" style="width:30%">
+      Slobodan prostor
+    </div>
+    <div class="progress-bar bg-warning" style="width:23%">
+      Folder 1
+    </div>
+    <div class="progress-bar bg-danger" style="width:18%">
+      Folder 2
+    </div>
+  </div>
+</xmp>
+Pritom, treba primetiti da nije neophodno da zbirni procenat širina bude 100%.
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti traku uspešnosti koja će prikazivati trenutno stanje
+  memorije u telefonu, pri čemu treba namestiti da jedan deo trake bude prugast, a da drugi ima i animaciju.
+</div>
