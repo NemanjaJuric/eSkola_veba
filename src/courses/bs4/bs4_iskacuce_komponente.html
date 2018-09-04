@@ -1,0 +1,131 @@
+<h1>Komponente modal, tooltip i popover</h1>
+U ovoj lekciji biće prikazane i komponente koje nakon nekog događaja
+prikazuju iskačuće prozore, to su komponente: <span class="primer_text">modal</span>;
+<span class="primer_text">popover</span> i <span class="primer_text">tooltip</span>.
+<br>
+<h2>Komponenta <span class="primer_text">modal</span></h2>
+Osnovni tip komponente <span class="primer_text">modal</span> se formira pomoću dva osnovna elementa,
+jedan element je dugme, na koji klikom se otvara komponenta <span class="primer_text">modal</span>,
+koja je smeštena u drugom elementu, a to je sekcija <span class="primer_text">&ltdiv&gt</span> kojoj je
+pridružena klasa <span class="primer_text">.modal</span>. Klase <span class="primer_text">.modal-*</span> definišu
+određene delove komponente.
+<br>
+Klasa <span class="primer_text">.fade</span> dodaje animaciju da komponenta polako iskače i nestaje.
+Elementi sa klasama <span class="primer_text">.modal-footer</span> i <span class="primer_text">.modal-header</span> su opcioni.
+<br>
+Moguće je menjati veličinu komponente pomoću klasa <span class="primer_text">.modal-sm</span>
+i <span class="primer_text">.modal-lg</span> koje se dodaju elementu sa klasom
+<span class="primer_text">.modal-dialog</span>.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <button type="button" class="btn" data-toggle="modal" data-target="#komponentaModal">
+        Klikni
+      </button>
+      <div class="modal fade" id="komponentaModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Ovo je naslov komponente</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              Komponenta modal je komponenta koja prikazuje sadrzaj u vidu iskačućeg prozora
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Komponenta <span class="primer_text">tooltip</span></h2>
+Komponenta <span class="primer_text">tooltip</span> predstavlja oblačić koji se pojavljuje
+kada se kursorom pređe preko nekog elementa.
+<br>
+Komponenta <span class="primer_text">tooltip</span> nastaje tako što se nekom elementu zada atribut
+<span class="primer_text">data-toggle="tooltip"</span>, ovu komponentu je najpogodnije dodati
+elementima <span class="primer_text">&lta&gt</span> i <span class="primer_text">&ltbutton&gt</span>.
+<br>
+Pored atributa <span class="primer_text">data-toggle</span>, potrebno je skript jezikom jQuery
+inicijalizovati komponentu, odnosno treba pozvati metod <span class="primer_text">tooltip()</span>.
+<br>
+Vrednost atributa <span class="primer_text">title</span> predstavlja sadržaj oblačića koji se
+pojavljuje kada kursor pređe preko elementa <span class="primer_text">&lta&gt</span>.
+Atribut <span class="primer_text">data-placment</span> određuje gde će se oblačić sa
+obaveštenjem pojaviti, može imati vrednost <span class="primer_text">top</span>, <span class="primer_text">bottom</span>,
+<span class="primer_text">left</span> ili <span class="primer_text">right</span>, odnosno oblačić se pojavljuje iznad, ispod,
+levo ili desno od elementa.
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="#" id="tooltipId" data-toggle="tooltip" title="Ja sam tekst komponente tooltip!">Pređi preko linka</a>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function(){
+        $('#tooltipId').tooltip();
+    });
+  </script>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<h2>Komponenta <span class="primer_text">popover</span></h2>
+Komponenta <span class="primer_text">popover</span> je slična komponenti <span class="primer_text">tooltip</span> jer
+predstavlja oblačić koji iskače nakon klika na neki element,
+za razliku od komponente <span class="primer_text">tooltip</span>, ova komponenta može
+prikazivati veći sadržaj.
+<br>
+Komponenta <span class="primer_text">popover</span> se formira tako što se elementu doda atrubut
+<span class="primer_text">data-toggle="popover"</span>, pri čemu se zaglavlje oblačića
+definiše kao vrednost atributa <span class="primer_text">title</span>, a ostatak zadržaja
+se definiše u okviru atrubuta <span class="primer_text">data-content</span>.
+<br>
+Komponentu <span class="primer_text">popover</span> je neophodno inicijalizovati u skript jeziku
+jQuery tako što se pozove metod <span class="primer_text">popover()</span> nad elementom ove komponente.
+<br>
+Standardno je podešeno da oblačić iskače na desnoj strani elementa
+na koji je kliknuto, međutim ovo se može promeniti. Atribut
+<span class="primer_text">data-placement</span> se dodaje ukoliko treba promeniti poziciju gde
+oblačić iskače. Ovaj atribut uzima vrednosti <span class="primer_text">top</span>,
+<span class="primer_text">bottom</span>, <span class="primer_text">left</span>
+i <span class="primer_text">right</span> što znači da se oblačić pojavljuje iznad,
+ ispod, levo ili desno od elementa na koji je kliknuto, redom.
+<br>
+Standardno je da se oblačić zatvara kada korisnik ponovo klikne na element
+kojim je otvorio oblačić. Ovo se može promeniti atributom
+<span class="primer_text">data-trigger</span>. Ukoliko je vrednost atributa
+<span class="primer_text">data-trigger</span>
+jednaka <span class="primer_text">focus</span>, tada se oblačić zatvara kada se klikne bilo gde
+van elementa. Ako atribut <span class="primer_text">data-trigger</span>
+uzima vrednost <span class="primer_text">hover</span>,
+oblačić će se pojavljivati samo prilikom prelaska kursora preko elementa.
+
+<div class="zadatak">
+  <b>Zadatak:</b> Kreirati komponentu popover koja će se pojaviti nakon klika na
+  jedan link, pri čemu se treba pojaviti ispod linka i treba se zatvoriti nakon što se klikne bilo gde u prozoru.
+</div>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <title>Bootstrap 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!--Dodatni stilovi, mogu se menjati ili ukloniti ukoliko nisu potrebni.-->
+    <style>
+        section, #tables {
+            padding: 70px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        .grid-example  div[class^="col"] {
+            border: 1px solid white;
+            background: lightblue;
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            }
+        .jumbotron {
+            background-color: lightskyblue;
+        }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#navbar-example">
+      <div>
+        <nav id="topNav" class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar navbar-brand" href="#">Logo</a>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#grid">Mrežni sistem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cards">Kartice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#badges">Bedževi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#customForms">Forme</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#outlineButtons">Dugmići</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#progress">Traka uspešnosti</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tables">Tabele</a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3">Klasa Jumbotron!</h1>
+        <p>Ovo je klasa <mark>.fluid-jumbotron</mark>, element sa ovom klasom se prostire celom širinom ekrana.</p>
+        <p>Ovo je nova klasa u okruženju Bootstrap 4.</p>
+        <p><a class="btn btn-primary btn-lg" href="http://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_jumbotron.cfm" role="button">Jumbotron primeri &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+        <section id="grid">
+            <h2>Mrežni sistem</h2>
+            <p>Mrežni sistem koristi klase <code>.col</code>, <code>.col-*</code> i <code>.col-*-*</code></p>
+            <p>U radnom okruženju Bootstrap 4 vrednosti prvih zvezdica su <code>sm</code>, <code>md</code>, <code>lg</code> i <code>xl</code> i one određuju graničnu širinu ekrana.</p>
+            <div class="grid-example">
+                <div class="row">
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                  <div class="col-sm-1">.col-sm-1</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-2">.col-sm-2</div>
+                  <div class="col-sm-3">.col-sm-3</div>
+                  <div class="col-sm-7">.col-sm-7</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">.col-sm-4</div>
+                  <div class="col-sm-4">.col-sm-4</div>
+                  <div class="col-sm-4">.col-sm-4</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-5">.col-sm-5</div>
+                  <div class="col-sm-7">.col-sm-7</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">.col-sm-6</div>
+                  <div class="col-sm-6">.col-sm-6</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">.col-sm-12</div>
+                </div>
+            </div>
+
+            <p>Prikaz ponašanja mrežnog sistema se može videti u narednoj tabeli.</p>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>
+                      Veoma mali ekrani
+                      <small>&lt;576px</small>
+                    </th>
+                    <th>
+                      Mali ekrani
+                      <small>&ge;576px</small>
+                    </th>
+                    <th>
+                      Srednji ekrani
+                      <small>&ge;678px</small>
+                    </th>
+                    <th>
+                      Veliki ekrani
+                      <small>&ge;992px</small>
+                    </th>
+                    <th>
+                      Veoma veliki ekrani
+                      <small>&ge;1200px</small>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="text-nowrap" scope="row">Ponašanje mreže</th>
+                    <td>Uvek horizontalan prikaz</td>
+                    <td colspan="4">Horizontalan za širine manje od navedene, za ostale ekrane zavisi od broja navedenih kolona</td>
+                  </tr>
+                  <tr>
+                    <th class="text-nowrap" scope="row">Izgled nekih klasa</th>
+                    <td><code>.col-xs-*</code></td>
+                    <td><code>.col-sm-*</code></td>
+                    <td><code>.col-md-*</code></td>
+                    <td><code>.col-lg-*</code></td>
+                    <td><code>.col-xl-*</code></td>
+                  </tr>
+                  <tr>
+                    <th class="text-nowrap" scope="row">Broj kolona</th>
+                    <td colspan="5">12</td>
+                  </tr>
+                  <tr>
+                    <th class="text-nowrap" scope="row">Moguće korišćenje klase <code>.order</code></th>
+                    <td colspan="5">Da</td>
+                  </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section id="kartice">
+            <h2>Prikaz nekih kartica</h2>
+
+            <div class="card-columns">
+
+                <div class="card">
+                    <div class="card-header">Kartica 1</div>
+                        <div class="card-block">
+                        <p class="card-text">Neki tekst!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Kartica 2</h4>
+                        <p class="card-text">Tekst...</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Kartica 3</div>
+                        <div class="card-block">
+                           <p class="card-text">Više o ovome na <a href="#" class="card-link" data-toggle="tooltip" data-placement="top" title="Ovde ubaciti neki link da bi radilo!">linku</a>.</p>
+                        </div>
+                    <div class="card-footer">Podnožje kartice</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Zaglavlje 4</div>
+                        <div class="card-block">
+                            <p class="card-text">Tekst ove kartice.</p>
+                        </div>
+                    <div class="card-footer">Podnožje</div>
+                </div>
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Naslov</h4>
+                        <p class="card-text">Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst Tekst </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Zaglavlje kartice</div>
+                    <div class="card-block">
+                        <p class="card-text">Tekst sa <a href="#" class="card-link">linkom</a>.</p>
+                    </div>
+                    <div class="card-footer">Podnožje</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="badges">
+            <h2>Poglavlje o <span class="badge badge-secondary">Bedževima</span></h2>
+            <h3>Bedževi sa bojama</h3>
+            <p>
+                <span class="badge badge-secondary">Bedž</span>
+                <span class="badge badge-primary">Bedž</span>
+                <span class="badge badge-success">Bedž</span>
+                <span class="badge badge-info">Bedž</span>
+                <span class="badge badge-warning">Bedž</span>
+                <span class="badge badge-danger">Bedž</span>
+            </p>
+            <h3>Zaokrugljeni bedževi</h3>
+            <p>
+                <span class="badge badge-pill badge-secondary">Zaokrugljen bedž</span>
+                <span class="badge badge-pill badge-primary">Zaokrugljen bedž</span>
+                <span class="badge badge-pill badge-success">Zaokrugljen bedž</span>
+                <span class="badge badge-pill badge-info">Zaokrugljen bedž</span>
+                <span class="badge badge-pill badge-warning">Zaokrugljen bedž</span>
+                <span class="badge badge-pill badge-danger">Zaokrugljen bedž</span>
+            </p>
+        </section>
+
+        <section id="customForms">
+            <h2>Forme</h2>
+            <form action="">
+              <div class="form-group">
+                <label for="user">Korisničko ime:</label>
+                <input type="text" class="form-control" id="user">
+              </div>
+              <div class="form-group">
+                <label for="pass">Šifra:</label>
+                <input type="password" class="form-control" id="pass">
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox"> Zapamti moje podatke
+                </label>
+              </div>
+              <button type="submit" class="btn btn-success">Uloguj se!</button>
+            </form>
+        </section>
+
+
+        <section id="outlineButtons">
+            <h2>Dugmići</h2>
+            <p>Prikaz stilizovanih dugmića:</p>
+            <button type="button" class="btn btn-lg btn-outline-secondary">Dugme</button>
+            <button type="button" class="btn btn-lg btn-outline-info">Dugme</button>
+            <button type="button" class="btn btn-lg btn-outline-success">Dugme</button>
+            <button type="button" class="btn btn-lg btn-outline-warning">Dugme</button>
+            <button type="button" class="btn btn-lg btn-outline-danger">Dugme</button>
+            <button type="button" class="btn btn-lg btn-outline-primary" data-toggle="popover" data-content="Ovo dugme je bele i plave boje zbog klase .btn-outline-primary.">Klikni ovde</button>
+
+        </section>
+        <section id="progress">
+            <h2>Traka uspešnosti</h2>
+            <div class="progress">
+              <div class="progress-bar bg-success" style="width:73%">73%</div>
+            </div>
+            <br>
+            <div class="progress">
+              <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width:80%">Ovo je plava prugasta traka sa animacijom.</div>
+            </div>
+            <br>
+            <div class="progress">
+              <div class="progress-bar bg-success" style="width:30%">
+                Slobodan prostor
+              </div>
+              <div class="progress-bar bg-warning" style="width:23%">
+                Folder 1
+              </div>
+              <div class="progress-bar bg-danger" style="width:18%">
+                Folder 2
+              </div>
+            </div>
+        </section>
+
+
+        <div id="tables">
+            <h1>Prikaz tabela</h1>
+            <h2>Prilikom prelaska kursorom vrsta promeni pozadinsku boju</h2>
+            <table class="table table-hover">
+             <thead>
+               <tr>
+                 <th>Prva</th>
+                 <th>Druga</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>Tekst 1</td>
+                 <td>Tekst 2</td>
+               </tr>
+               <tr>
+                 <td>Tekst 3</td>
+                 <td>Tekst 4</td>
+               </tr>
+             </tbody>
+            </table>
+          </div>
+          <br><br>
+          <div class="container">
+            <h2>Tabela sa crnom pozadinskom bojom</h2>
+            <table class="table table-dark">
+             <thead>
+               <tr>
+                 <th>Prva</th>
+                 <th>Druga</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>Tekst 1</td>
+                 <td>Tekst 2</td>
+               </tr>
+               <tr>
+                 <td>Tekst 3</td>
+                 <td>Tekst 4</td>
+               </tr>
+             </tbody>
+            </table>
+          </div>
+          <br><br>
+          <div class="container">
+            <h2>Raznobojna tabela</h2>
+            <table class="table">
+             <thead class="table-active">
+               <tr>
+                 <th>Prva</th>
+                 <th>Druga</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr class="table-danger">
+                 <td>Tekst 1</td>
+                 <td>Tekst 2</td>
+               </tr>
+               <tr class="table-success">
+                 <td>Tekst 3</td>
+                 <td>Tekst 4</td>
+               </tr>
+             </tbody>
+            </table>
+        </div>
+        <section>
+          <p>Ovog elementa nema u navigaciji i predstavlja primer korišćenja klasa tipa flex.</p>
+          <div class="d-flex justify-content-start bg-secondary mb-3">
+            <div class="p-3 bg-success text-white">Prvi element</div>
+            <div class="p-3 bg-warning text-white">Drugi element</div>
+            <div class="p-3 bg-danger text-white">Treci element</div>
+          </div>
+          <div class="d-flex justify-content-end bg-secondary mb-3">
+            <div class="p-3 bg-success text-white">Prvi element</div>
+            <div class="p-3 bg-warning text-white">Drugi element</div>
+            <div class="p-3 bg-danger text-white">Treci element</div>
+          </div>
+          <div class="d-flex justify-content-center bg-secondary mb-3">
+            <div class="p-3 bg-success text-white">Prvi element</div>
+            <div class="p-3 bg-warning text-white">Drugi element</div>
+            <div class="p-3 bg-danger text-white">Treci element</div>
+          </div>
+          <div class="d-flex justify-content-between bg-secondary mb-3">
+            <div class="p-3 bg-success text-white">Prvi element</div>
+            <div class="p-3 bg-warning text-white">Drugi element</div>
+            <div class="p-3 bg-danger text-white">Treci element</div>
+          </div>
+          <div class="d-flex justify-content-around bg-secondary mb-3">
+            <div class="p-3 bg-success text-white">Prvi element</div>
+            <div class="p-3 bg-warning text-white">Drugi element</div>
+            <div class="p-3 bg-danger text-white">Treci element</div>
+          </div>
+        </section>
+        <footer>
+            <p>&copy; ime</p>
+        </footer>
+    </div>
+    <script>
+    // Komponenta tooltip
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Komponenta popover
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script>s
+  </body>
+</html>

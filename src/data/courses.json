@@ -968,8 +968,8 @@
                 "sublessons": null
             },
             {
-                "name": "Manu",
-                "url": "bs_manu",
+                "name": "Menu",
+                "url": "bs_menu",
                 "type": "lesson",
                 "parentCourse": "bs",
                 "sublessons": null
@@ -1184,6 +1184,75 @@
             {
                 "name": "Collapse",
                 "url": "bs4_collapse",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Elementi forme",
+                "url": "bs4_elementi_forme",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Input Group",
+                "url": "bs4_input_group",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Grupa klasa Custom",
+                "url": "bs4_grupa_klasa_custom",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Carousel",
+                "url": "bs4_carousel",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Iskačuće komponente",
+                "url": "bs4_iskacuce_komponente",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Scrollspy",
+                "url": "bs4_scrollspy",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Pomoćne klase",
+                "url": "bs4_pomocne_klase",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },
+            {
+                "name": "Flex klase",
+                "url": "bs4_flex_klase",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            },{
+                "name": "Mrežni sistem",
+                "url": "bs4_mrezni_sistem",
+                "type": "lesson",
+                "parentCourse": "bs4",
+                "sublessons": null
+            }
+            ,{
+                "name": "Zaključak",
+                "url": "bs4_summary",
                 "type": "lesson",
                 "parentCourse": "bs4",
                 "sublessons": null

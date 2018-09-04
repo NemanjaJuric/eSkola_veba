@@ -1,0 +1,58 @@
+<h1>Komponenta scrollspy</h1>
+Komponenta <span class="primer_text">scrollspy</span> se koristi za automatsko postavljanje klase
+<span class="primer_text">.active</span> linkovima u navigaciji, što je bazirano na poziciji
+sadržaja strane, na koju je korisnik dospeo skrolovanjem.
+<br>
+Da bi se naglasilo da je neki element, u stvari, element u kome će korisnik
+skrolovati sadržaj tom elementu treba staviti atribut <span class="primer_text">data-spy="scroll"</span>.
+Istom elementu treba dodati i atribut <span class="primer_text">data-target=".klasaNavbar"</span>,
+gde je <span class="primer_text">.klasaNavbar</span> ime klase koja je pridružena traci za navigaciju.
+Opcioni atribut <span class="primer_text">data-offset</span> kao vrednost uzima broj piksela koji se
+računa od gornje ivice elementa i ovaj atribut omogućava korisniku da
+promeni poziciju sa koje se menja aktivni link ukoliko smatra da je linku
+dodata klasa <span class="primer_text">.active</span> prerano ili prekasno,
+standardna vrednost ovog atributa je 10px.
+<br>
+Linkovima u traci za navigaciju kao vrednost atributa <span class="primer_text">href</span>
+treba postaviti <span class="primer_text">#idOdgovarajuceSekcije</span>, gde je
+<span class="primer_text">idOdgovarajuceSekcije</span> vrednost atributa <span class="primer_text">id</span> sekcije
+koja se nalazi u fokusu kada je link, čiji je atribut <span class="primer_text">href</span>
+jednak <span class="primer_text">#idOdgovarajuceSekcije</span>, aktivan.
+<br>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="30" style="">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#sekcija1">Link 1</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sekcija2">Link 2</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sekcija3">Link 3</a></li>
+      </ul>
+    </nav>
+    <div id="sekcija1" class="bg-success" style="padding-top:200px;padding-bottom:200px">
+      <h1>Ovo je naslov prve sekcije</h1>
+      <p>Neki tekst!</p>
+    </div>
+    <div id="sekcija2" class="bg-info" style="padding-top:200px;padding-bottom:200px">
+      <p>Neki tekst u drugoj sekciji!</p>
+    </div>
+    <div id="sekcija3" class="bg-warning" style="padding-top:300px;padding-bottom:300px">
+      <p>Ovo je primer sekcije sa slikom!</p>
+      <img src="courses/bs4/img2.jpg" alt="Slika">
+    </div>
+  </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti novu stranu koja koristi komponentu scrollspy koja u navigaciji ima padajući meni.
+</div>

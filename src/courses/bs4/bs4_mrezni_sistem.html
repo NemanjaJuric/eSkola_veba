@@ -1,0 +1,38 @@
+<h1>Mrežni sistem</h1>
+Mrežni sistem u radnom okruženju Bootstrap 4 se bazira na prikazu tipa
+flexbox, pri čemu je dozvoljeno 12 kolona u jednom redu. Ukoliko nije potrebno
+12 kolona, neke kolone treba grupisati tako da budu šire.
+<br>
+<img src="courses/bs4/grid.png" class="img-fluid img-lg">
+<br>
+Mrežni sistem u radnom okruženju  Bootstrap 4 je prilagodljiv na ekranima
+razližitih veličina pa će se kolone pozicionirati u zavisnosti od veličine ekrana.
+<br>
+Mrežni sistem u radnom okruženju Bootstrap 4 koristi klase <span class="primer_text">.col</span>,
+<span class="primer_text">.col-sm-*</span>, <span class="primer_text">.col-md-*</span>, <span class="primer_text">.col-lg-*</span> i
+<span class="primer_text">.col-xl-*</span>. Ove klase se dodaju sekcijama koje predstavljaju kolone,
+pri čemu sve kolone jedne vrste treba smestiti unutar sekcije sa klasom
+<span class="primer_text">.row</span>. Ukoliko se svim kolonama zada klasa <span class="primer_text">.col</span>,
+širina tih elemenata će biti izračunata proporcionalno u odnosu na njihov
+broj. Tako, ukoliko u jednom redu ima 5 kolona, širina svakog od njih će
+biti 20% širine celog reda. Klasa <span class="primer_text">.col-sm-*</span> postavlja da element ima
+širinu 100% u odnosu na širinu roditeljskog elementa, ali samo za ekrane
+čija je širina manja od 576px, dok je za ostale ekrane, širina ovog
+elementa zadata brojem koji je u ovom slučaju predstavljen *. Broj koji
+treba napisati umesto * jeste broj kolona koje treba grupisati taj broj
+mora biti u opsegu od 0 do 12.
+Svakom elementu je moguće zadati klasu <span class="primer_text">.col-sm</span> koja automatski
+podešava jednaku širinu svakog elementa na ekranima čija je širina
+veća ili jednaka 576px, na ostalim ekranima, širina svakog elementa je
+100% širine roditeljskog elementa.
+<br>
+Za klase <span class="primer_text">.col-md-*</span> i <span class="primer_text">.col-md</span>, važi sve navedeno, jedina
+razlika jeste ta što je za ove klase granična širina jednaka 768px,
+a ne 576px. Slično je i za klase <span class="primer_text">.col-lg-*</span> i <span class="primer_text">.col-lg</span>,
+čija je granična širina 992px, kao i za klase <span class="primer_text">.col-xl-*</span> i
+<span class="primer_text">.col-xl</span>, čija je granična širina jednaka 1200px.
+
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti tri elementa od kojih, jedan sadrži tri kolone, drugi
+  pet, a treći četiri, pri čemu na ekranima srednjih širina elemneti trebaju imati širinu 100%.
+</div>

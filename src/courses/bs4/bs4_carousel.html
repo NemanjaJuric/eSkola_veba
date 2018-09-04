@@ -1,0 +1,91 @@
+<h1>Komponenta <span class="primer_text">carousel</span></h1>
+Komponenta <span class="primer_text">carousel</span> je slideshow, odnosno opcija koja korisniku
+prikazuje niz fotografija ili video snimaka, pri čemu se može
+omogućiti da korisnik sam prelazi na sledeću ili se vraća na prethodnu fotografiju ili snimak.
+<xmp class="primer_ta">
+<div class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active"><img src="pic.jpg"></div>
+    <div class="carousel-item"><img src="pic2.jpg"></div>
+    <div class="carousel-item"><img src="pic3.jpg"></div>
+  </div>
+</div>
+</xmp>
+<br>
+<img src="courses/bs4/carousel.png" class="img-fluid img-md">
+<br>
+Osnovni tip komponente <span class="primer_text">carousel</span> se formira korišćenjem klasa
+<span class="primer_text">.carousel</span> i <span class="primer_text">.slide</span> koje se zadaju spoljašnjem elementu
+<span class="primer_text">&ltdiv&gt</span>. Klasa <span class="primer_text">.carousel</span> formira komponentu, a klasa
+<span class="primer_text">.slide</span> omogućava da se slike same menjaju. Spoljašenjem
+elementu <span class="primer_text">&ltdiv&gt</span> treba dodati i indikator
+<span class="primer_text">data-ride="carousel"</span>.
+<br>
+Unutrašenjem elementu <span class="primer_text">&ltdiv&gt</span> treba zadati klasu
+<span class="primer_text">.carousel-inner</span> koja indicira da je to
+sadržaj komponente <span class="primer_text">.carousel</span>.
+<br>
+Unutar prethodno navedenog elementa <span class="primer_text">&ltdiv&gt</span> treba dodati sekcije sa slikama,
+pri čemu svaka od sekcija treba sadržati klasu <span class="primer_text">.carousel-item</span>.
+<br><br>
+Moguće je dodati i indikatore koje prikazuju koja slika je trenutno prikazana
+i koji, takođe, vode na određenu sliku. Ovo se omogućava dodavanjem
+liste sa klasom <span class="primer_text">.carousel-indicators</span> ispred elementa sa klasom
+<span class="primer_text">.carousel-content</span>. Svaki od elemenata liste treba da ima indikator
+<span class="primer_text">data-target="#id"</span>, gde je <span class="primer_text">#id</span>
+vrednost atributa <span class="primer_text">id</span>,
+elementa <span class="primer_text">&ltdiv class="carousel slide" data-ride="carousel"&gt</span>.
+<br>
+Atribut <span class="primer_text">data-slide-to</span> uzima vrednosti od 0 do broja koji je za
+jedan manji od ukupnog broja slika i ovaj atribut omogućava  da se korisniku,
+klikom na indikator, prikaže odgovarajuća slika.
+<xmp class="primer_ta">
+<div id="slajdsou" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#slajdsou" data-slide-to="0" class="active"></li>
+    <li data-target="#slajdsou" data-slide-to="1"></li>
+    <li data-target="#slajdsou" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="pic1.jpg">
+    </div>
+    <div class="carousel-item">
+        <img src="pic2.jpg">
+    </div>
+    <div class="carousel-item">
+        <img src="pic3.jpg">
+    </div>
+  </div>
+</div>
+</xmp>
+Komponenti <span class="primer_text">carousel</span> je moguće dodati i
+strelice koje vode na prethodnu, odnosno sledeću sliku u nizu.
+<br>
+Ovo se omogućava na sledeći način:
+<xmp class="primer_ta">
+<!--Strelica za prikaz prethodne slike-->
+<a class="carousel-control-prev" href="#slajdsou" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<!--Strelica za prikaz sledece slike-->
+<a class="carousel-control-next" href="#slajdsou" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+</xmp>
+<br>
+U komponenti  <span class="primer_text">carousel</span> moguće je dodati i opis na svaku sliku komponente.
+Ovo se omogućava tako što se u okviru elementa sa klasom  <span class="primer_text">.carousel-item</span>
+doda sekcija sa klasom <span class="primer_text">.carousel-caption</span> u okviru koje se dodaje
+tekstualni sadržaj trenutno prikazane slike.
+<br>
+Neophodan CSS kod da bi se komponenta pravilno prikazivala je sledeći:
+<xmp class="primer_ta">
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+</xmp>
+<div class="zadatak">
+  <b>Zadatak:</b> Prikazati niz slika pomoću komponenete <span class="primer_text">carousel</span>. Svaka slika treba imati opis.
+</div>

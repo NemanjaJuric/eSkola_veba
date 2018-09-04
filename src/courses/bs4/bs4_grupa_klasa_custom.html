@@ -1,0 +1,51 @@
+<h1>Prilagođen oblik elemenata forme</h1>
+U radnom okruženju Bootstrap 4 je moguće zameniti standardni izgled elemenata
+forme sa prilagođenim oblikom koji koristi klase <span class="primer_text">.custom-*</span>.
+
+<h2>Prilagođen oblik elementa <span class="primer_text">checkbox</span></h2>
+Element <span class="primer_text">checkbox</span> se u radnom okruženju Bootstrap 4 može stilizovati
+tako što se sekciji <span class="primer_text">&ltdiv&gt</span> koja ga okružuje, dodaju klase
+<span class="primer_text">.custom-control</span> i <span class="primer_text">.custom-checkbox</span>, takođe elementu
+<span class="primer_text">&ltinput&gt</span>, čija je vrednost atributa <span class="primer_text">type="checkbox"</span>,
+treba dodati klasu <span class="primer_text">.custom-control-input</span>. Labeli koja je
+pridružena elementu <span class="primer_text">checkbox</span> treba zadati klasu
+<span class="primer_text">.custom-control-label</span>.
+<br>
+<img src="courses/bs4/checkbox.png" class="img-fluid img-md">
+<h2>Prilagođen oblik elementa <span class="primer_text">radio button</span></h2>
+Element <span class="primer_text">radio button</span> se u radnom okruženju Bootstrap 4 može
+stilizovati tako što se elementu <span class="primer_text">&ltdiv&gt</span> koji ga okružuje,
+dodaju klase <span class="primer_text">.custom-control</span> i <span class="primer_text">.custom-radio</span>, takođe
+elementu <span class="primer_text">&ltinput&gt</span>, čija je vrednost atributa <span class="primer_text">type="radio"</span>,
+treba dodati klasu <span class="primer_text">.custom-control-input</span>.
+Labeli koja je pridružena elementu <span class="primer_text">checkbox</span> treba zadati klasu
+<span class="primer_text">.custom-control-label</span>. Klasa <span class="primer_text">.custom-control-inline</span>
+omogućava da se svi elementi forme ređaju u jednoj vrsti.
+<br>
+<img src="courses/bs4/radio.png" class="img-fluid img-md">
+<h2>Prilagođeni oblik padajuće liste</h2>
+Padajući meni forme se u radnom okruženju Bootstrap 4 može stilizovati tako
+što se elementu <span class="primer_text">&ltselect&gt</span> doda klasa <span class="primer_text">.custom-select</span>.
+Manji padajući meni od standardnog se formira tako što se umesto klase
+<span class="primer_text">.custom-select</span> doda klasa <span class="primer_text">.custom-select-sm</span>, dok se veći
+od standardnog formira dodavanjem klase <span class="primer_text">.custom-select-lg</span>.
+<br>
+<img src="courses/bs4/select.png" class="img-fluid img-lg">
+<h2>Prilagođeni oblik elementa za prikaz opsega</h2>
+Ovaj element se može stilizovati klasom <span class="primer_text">.custom-range</span>,
+koja se dodaje elementu<span class="primer_text">&ltinput type="range"&gt</span>.
+<br>
+<img src="courses/bs4/range.png" class="img-fluid img-lg">
+<h2>Prilagođen oblik elementa za dodavanje datoteka</h2>
+U radnom okruženju Bootstrap 4 ovaj element se može stilizovati na sledeći način:
+<xmp class="primer_ta">
+<form>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="datoteka">
+    <label class="custom-file-label" for="datoteka">Ucitaj iz računara</label>
+  </div>
+</form>
+</xmp>
+<div class="zadatak">
+  <b>Zadatak:</b> Napraviti dva elementa tipa <span class="primer_text">radio</span> prilagođenog oblika koji se nalaze u jednom redu.
+</div>
