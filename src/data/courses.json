@@ -1053,7 +1053,7 @@
         "type": "course",
         "lang": "text/html",
         "displayLang": "HTML",
-        "detailsText": "U pripremi",
+        "detailsText": "Bootstrap 4 je najpopularnije HTML, CSS i JS radno okruženje za kreiranje veb stranica čiji je prikaz prilagodljiv na uređajima svih rezolucija.",
         "lessons": [
             {
                 "name": "Uvod u Bootstrap 4",
@@ -1875,7 +1875,7 @@
         "type": "book",
         "lang": "",
         "displayLang": "",
-        "detailsText": "U pripremi",
+        "detailsText": "Laravel je radni okvir programskog jezika PHP.",
         "lessons": [
             {
                 "name": "Instalacija",
