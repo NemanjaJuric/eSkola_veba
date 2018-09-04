@@ -1,0 +1,75 @@
+<h1>Ispis podataka iz baze podataka</h1>
+
+<br>
+
+Nakon upisivanja podataka u bazu, treba prikazati ispisvanje podataka iz baze. Najpre, treba dodati sledeći ko&#770d u metodi index u kontroleru.
+
+<xmp class = "primer_ta">
+$students = Student::all()->toArray();
+return view('student.index', compact('students'));
+</xmp>
+
+Funkcija compact je funkcija jezika PHP, a ne radnog okvira Laravel. Ova funkcija kreira niz koji sadrži promenljive i njihove vrednosti. Nazivi promenljivih 
+
+su ključevi, a vrednosti su konkretne vrednosti koje odgovaraju zadatom ključu. U radnom okviru Laravel se uglavnom koristi da bi se vrednosti poslale pogledu. 
+
+Compact je pomoćna funkcija koja kao arguemnt prima ključeve promenljivih, a odgovarajuće vrednosti biće dostupne pogledu. Potrebno je napraviti fajl index.blade.php, 
+
+koji, koristeći šablon Blade, nasleđuje fajl master.blade.php. Ko&#770d fajla index.blade.php je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+@extends('master')
+
+@section('content')
+<div class="row">
+ <div class="col-md-12">
+ <br />
+  <h3 align="center">Student Data</h3>
+ <br />
+  <div align="right">
+    <a href="{{route('student.create')}}" class="btn btn-primary">Add</a>
+ <br />
+ <br />
+  </div>
+  <table class="table table-bordered table-striped">
+   <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+   </tr>
+   @foreach($students as $row)
+   <tr>
+    <td>{{$row['first_name']}}</td>
+    <td>{{$row['last_name']}}</td>
+    <td><a href="{{action('StudentController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
+   </tr>
+   @endforeach
+  </table>
+ </div>
+</div>
+@endsection
+</xmp>
+
+ Kada se pokrene aplikacija sa <a href="http://127.0.0.1:8000/student">http://127.0.0.1:8000/student</a>, podaci su prikazani kao na sledećoj slici.
+ 
+<img src="courses/lara/images/podaci.png" class="img-fluid img-md">
+
+<br>
+
+<br>
+
+U kolonama edit i delete treba napraviti dugmiće za menjanje i brisanje podataka, jer je to sledeće što treba omogućiti u aplikaciji. Dodato je dugme add, 
+
+da bi se nakon ispisivanja podataka ponovo moglo otići na stranicu za unos podataka. Ideja je da se nakon klika na dugme submit ode na stranicu na kojoj su podaci 
+
+iz baze predstavljeni u tabeli, nakon što su uneti u bazu podataka. Putanja tog dugmeta se nalazi u funkciji store kontrolera i treba je zameniti novom putanjom koja je 
+
+prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+return redirect()->route('student.index')->with('success', 'Data Added');
+</xmp>
+Nako što je omogućen upis i ispis podataka, treba omogućiti izmenu i brisanje podataka.
+
+<br>

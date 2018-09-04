@@ -1,0 +1,170 @@
+<h1>Rad sa tabelama i kolonama</h1>
+
+<br>
+
+U prethodnom poglavlju je opisano kako se kreiraju migracijski fajlovi. Komandom iz komandnog prozora
+
+<xmp class = "primer_ta">
+php artisan make:migration create_nazivTabele_table --create=nazivTabele
+</xmp>
+
+se kreira migracijski fajl, čiji je ko&#770d automatski generisan i nalazi se u podfolderu migrations foldera app. U kodu tog fajla generisana je metoda create. 
+
+Tabela se kreira koristeći metodu create. Metoda create kao prvi argument prima naziv tabele, a kao drugi argument objekat Blueprint koji se koristi za definisanje 
+
+promenljive kojom će se unositi kolone koje će tabela sadržati. Svaki migracijski fajl podrazumevano ima kolonu id i podatak timestamp koji se sastoji od dve kolone. 
+
+To su kolone created_at i updated_at. Podaci iz kolona created_at i updated_at su  značajni jer se svakom izmenom beleži kada je izmena nastala. Osim navedenih 
+
+podrazumevanih kolona, može se dodati koliko god kolona da je potrebno i taj deo koda se piše u metodi create. Deo koda koji treba dodati u metodi create prikazan 
+
+je u sledećem redu.
+
+<xmp class = "primer_ta">
+$table->tip_podatka('naziv_kolone');
+</xmp>
+
+U konkretnom primeru, ako je naziv kolone name, a tip podatka string, ko&#770d za dodavanje kolone name dat je u sledećem redu.
+
+<xmp class = "primer_ta">
+$table->string('name');
+</xmp>
+
+Nakon dodavanja svih željenih kolona može se pokrenuti migracija.  Ako se zaboravi dodavanje kolone, ona se može naknadno dodati. Na primer, kolona opis, se može 
+
+dodati na sledeći način. Najpre se komandom iz komandnog prozora pravi nova migracija sa:
+
+<xmp class = "primer_ta">
+php artisan make:migration add_opis_to_place
+</xmp>
+ 
+i ovom komandom je kreiran novi migracijski fajl. Njegov ko&#770d je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddZanrToUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('place', function (Blueprint $table) {
+            //
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('place', function (Blueprint $table) {
+            //
+        });
+    }
+}
+
+</xmp>
+
+U metodi up treba dodati, 
+
+<xmp class = "primer_ta">
+$table->string('opis');
+</xmp>
+
+a u metodi down treba dodati 
+
+<xmp class = "primer_ta">
+$table->dropColumn('opis');
+</xmp>
+
+i nakon unetih izmena se pokreće migracija sa <span class = "primer_text"> php artisan migrate</span>. Dešava se da se nakon osvežavanja baze ne vidi nikakva promena. 
+
+Ako do toga dođe, potrebno je zaustaviti server ili ga restartovati  pre dodavanja naredbe u komandnom prozoru. Zatim, pre pokretanja migracije treba ponovo pokrenuti server. 
+
+Kako se kolona može dodati, tako se može i izbrisati. Prvo treba zadati naredbu iz komandnog prozora koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan make:migration remove_name_from_place
+</xmp>
+
+Zatim u metodi up kreiranog migracijskog fajla treba dodati ko&#770d koji je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+Schema::table('place', function (Blueprint $table) {
+  $table->dropColumn('name');
+    });
+</xmp>
+
+U metodi down treba dodati sledeći ko&#770d:
+
+<xmp class = "primer_ta">
+Schema::table('place', function (Blueprint $table) {
+  $table->string('name');
+    });
+</xmp>
+
+i sada se metoda dropColumn piše u metodi up, jer je brisanje kolona ono što se očekuje od nove migracije.
+
+<br>
+
+<br>
+
+Podaci u tabeli mogu biti tipa: integer, boolean, string, enum, date, time... Sintaksa za definisanje kolone tipa enum je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+Schema::create('primer', function($table) {
+ $table->enum('who', ['Pera', 'Mika', 'Zika']);
+}); 
+</xmp>
+
+Može se definisati dužina stringa sa:
+
+<xmp class = "primer_ta">
+$table->string('name',60);
+</xmp>
+
+gde je name naziv kolone. Ako treba naglasiti da ne sme doći do ponavljanja iste vrednosti, onda se dodaje metoda unique kao što je prikazano u sledećem redu.
+
+<xmp class = "primer_ta">
+$table->string('name')->unique();
+</xmp>
+
+Ako treba neku drugu vrednost postaviti za primarni ključ, onda se to piše kao što je prikazano u nastavku.
+
+<xmp class = "primer_ta">
+$table->string('name');
+$table->primary('name');
+</xmp>
+
+Primarnih ključeva može biti i više, a deo koda koji definiše više primarnih ključeva prikazan je u narednom primeru.
+
+<xmp class = "primer_ta">
+Schema::create('example', function($table) {
+ $table->integer('id');
+ $table->string('username');
+ $table->string('email');
+ $table->primary(['id', 'username', 'email']);
+ });
+</xmp>
+
+Tabela i kolona se mogu preimenovati  na sledeći način:
+
+<xmp class = "primer_ta">
+Schema::rename($nazivPrije, $nazivPoslije);//preimenovanje tabele
+Schema::table('primer', function($table) {
+ $table->renameColumn('name', 'ime');//preimenovanje kolone
+</xmp>
+
+i sve navedeno se osim iz koda može uraditi direktno u bazi podataka. 
+<br>

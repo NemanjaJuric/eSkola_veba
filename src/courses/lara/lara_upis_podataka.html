@@ -1,0 +1,219 @@
+<h1>Upisivanje podataka u bazu podataka</h1>
+
+<br>
+
+Rad sa podacima iz baze biće prikazan u aplikaciji koja sledi. Naredne četiri lekcije biće zadužene za rad sa podacima iz baze podataka. 
+
+Treba napraviti bazu koja se zove studenti. Neophodno je promeniti vrednosti DB_DATABASE, DB_USERNAME i DB_PASSWORD u fajlu .env kao što je prikazano u nastavku.
+
+<xmp class = "primer_ta">
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=studenti
+DB_USERNAME=root
+DB_PASSWORD=
+</xmp>
+
+Zatim treba napraviti model Student komandom iz komandnog prozora koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan make:model Student -m
+</xmp>
+
+Migracijske fajlove koji su generisani pravljenjem novog projekta treba izbrisati. Nakon pravljenja modela, automatski će biti kreiran migracijski fajl koji 
+
+predstavlja tabelu students. Osim kolona id i timestamps, koje su automatski definisane, može se dodati još kolona. Aplikacija je zamišljena tako da se za svakog 
+
+studenta unosi ime i prezime. Stoga, treba dodati kolone za ime i prezime u metodi up kao što je prikazano u sledećem redu.
+
+<xmp class = "primer_ta">
+$table->string('first_name');
+$table->string('last_name');
+</xmp>
+
+Nakon što su dodate sve kolone unutar migracijskih fajlova, treba pokrenuti migraciju komandom koja je prikazana u sledećem redu. 
+
+<xmp class = "primer_ta">
+php artisan migrate 
+</xmp>
+
+<br>
+
+<br>
+
+Za izradu ove aplikacije biće napravljen resursni kontroler. Taj kontroler se pravi iz komandnog prozora sa:
+
+<xmp class = "primer_ta">
+ php artisan make:controller StudentController --resource
+</xmp>
+
+gde je StudentController naziv kontrolera. Kreiran je kontroler koji ima funkcije: index, create, store, show, edit, update i destroy. Ove metode čine takozvani CRUD 
+
+(CreateReadeUpdateDestroy) sistem. Da bi se napravile rute za sve CRUD funkcije, treba dodati
+
+<xmp class = "primer_ta">
+Route::resource('student', 'StudentController');
+</xmp>
+
+u fajlu web.php koji se nalazi u folderu routes. Rute svih funkcija i imena ruta mogu se izlistati komandom iz komandnog prozora koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan route:list
+</xmp>
+
+Na sledećoj slici su prikazane su sve rute aplikacije.
+
+<img src="courses/lara/images/srute.png" class="img-fluid img-md">
+
+<br>
+
+<br>
+
+Aplikacija treba da se sastoji od veb stranica sa kojih je moguće upisati studente u bazu, unositi izmene ili brisati studente iz baze. Zbog toga će biti 
+
+iskorišćen šablon Blade u radnom okviru Laravel. Treba napraviti stranicu koju će sve druge stranice naslediti. Stranica koju druge stranice nasleđuju može 
+
+se nazvati master.blade.php. Njen ko&#770d je dat sa:
+
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laravel CRUD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+   @yield('content')
+</div>
+
+</body>
+</html>
+</xmp>
+
+gde je sa:
+<xmp class = "primer_ta">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+</xmp>
+
+integrisana biblioteka za stilizovanje veb stranica u radnom okruženju Bootstrap 4. Elektronske lekcije iz radnog okruženja Bootstrap 4 dostupne su na eŠkoli veba na linku
+
+<a href="">http://edusoft.matf.bg.ac.rs/eskola_veba/#/course-details/bs4</a>. U svaku stranicu blade.php biće uključen fajl master.blade.php. Sledeće što 
+
+treba napraviti je stranica create.blade.php čiji je ko&#770d prikazan u nastavku.
+
+<xmp class = "primer_ta">
+@extends('master')
+
+@section('content')
+<div class="row">
+ <div class="col-md-12">
+   <br />
+   <h3 aling="center">Add Data</h3>
+   <br />
+
+   <form method="post" action="{{url('student')}}">
+   {{csrf_field()}}
+    <div class="form-group">
+      <input type="text" name="first_name" class="form-control" placeholder="Enter First Name" />
+    </div>
+    <div class="form-group">
+      <input type="text" name="last_name" class="form-control" placeholder="Enter Last Name" />
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" />
+     </div>
+  </form>
+ </div>
+</div>
+@endsection
+</xmp>
+
+Akcija koja je zadata u formi znači da klik na dugme vodi na stranicu koja se nalazi na linku <a href="http://127.0.0.1:8000/student">http://127.0.0.1:8000/student</a>.
+<br>
+
+<br>
+
+Kada se šalje zahtev metodom POST, može doći do falsifikovanja korisnikovog zahteva. Laravel štiti aplikaciju od falsifikovanja zahteva tako što svaki put kada se koristi 
+
+forma i metoda POST treba dodati polje <span class = "primer_text">csrf\_field()</span>. Ovo polje automatski generiše token csrf za svaku aktivnu sesiju korisnika koji 
+
+upravlja aplikacijom. Kada se pošalje zahtev metodom POST, međusoftver za zaštitu proverava da li se token iz zahteva poklapa sa tokenom iz sesije koji je kreirao Laravel. 
+
+U kontroleru u metodi create treba dodati liniju koda koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+ return view('student.create');
+</xmp>
+
+Podaci koji su uneti se metodom store šalju u bazu klikom na dugme submit. Prvo se klikom na dugme submit šalje zahtev kontroleru koji obrađuje zahtev u metodi store. 
+ 
+U metodi store treba napisati ko&#770d koji je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+$this->validate($request, [
+  'first_name'    =>  'required',
+  'last_name'     =>  'required'
+  ]);
+$student = new Student([
+  'first_name'    =>  $request->get('first_name'),
+  'last_name'     =>  $request->get('last_name')
+  ]);
+$student->save();
+  return return redirect()->route('student.create')->with('success', 'Data Added');
+</xmp>
+
+Metoda store kao argument prima zahtev, a metodom validate se zahteva unos podataka. Bitno je u modelu naglasiti da su podaci izmenjivi od strane korisnika. 
+
+To se podešava svojstvom fillable. Dakle, u modelu Student treba dodati ko&#770d koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+protected $fillable = ['first_name', 'last_name'];
+</xmp>
+
+U slučaju da su uneti ili nisu uneti podaci, mogu se ispisati odgovarajuće poruke kodom koji je prikazan u nastavku. Taj deo koda se dodaje u fajlu create.blade.php.
+
+<xmp class = "primer_ta">
+@if(count($errors) > 0)
+<div class="alert alert-danger">
+ <ul>
+ @foreach($errors->all() as $error)
+  <li>{{$error}}</li>
+ @endforeach
+ </ul>
+</div>
+@endif
+@if(\Session::has('success'))
+<div class="alert alert-success">
+ <p>{{ \Session::get('success') }}</p>
+</div>
+@endif
+</xmp>
+
+U metodi store je metodom with poslata poruka u slučaju uspešno unetih podataka. U kodu za proveru sa:
+
+<xmp class = "primer_ta">
+@if(\Session::has('success'))
+</xmp>
+
+se proverava da li u sesiji postoji ta poruka i ako postoji vraća se vrednost true, pa se sa:
+
+<xmp class = "primer_ta">
+<p>{{ \Session::get('success') }}</p>
+</xmp>
+
+uzima poruka iz sesije. Nakon što je kreirana prva stranica, ona se može otvoriti na linku <a href="http://127.0.0.1:8000/student/create">http://127.0.0.1:8000/student/create</a>. 
+
+U slučaju da se klikne dugme pre upisa podataka, ispisuju se odgovarajuće poruke kao na sledećoj slici.
+
+<img src="courses/lara/images/greske.png" class="img-fluid img-md"><br>
+
+Klikom na dugme submit, podaci se upisuju u bazu.
+
+<br>

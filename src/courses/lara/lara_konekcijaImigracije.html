@@ -1,92 +1,53 @@
 <h1>Konekcija sa bazom i migracije</h1>
+
 <br>
 
-Laravel pruža velike mogućnosti u radu sa bazama. U napravljenom blog folderu, nalazi se .env fajl. Sadržaj fajla se nalazi na slici.
+Mnoge aplikacije rade sa bazama podataka. Laravel podržava mnoge sisteme za upravljanje bazama podataka uključujući: MySQL, SQLite, PostgreSQL i SQL. 
 
-<img src="courses/lara/images/env.png">
+Za aplikaciju se može izabrati bilo koja, ali u ovom radu i za potrebe aplikacije biće korišćena baza MySQL. Među folderima u aplikaciji nalazi se i fajl .env. 
 
- U folderu config i database.php fajlu sledeća linija koda <span class = "primer_text"> 'default' => env('DB_CONNECTION', 'mysql') </span>
+U folderu config i fajlu database.php  linija koda
  
- govori da Laravel automatski ima konekciju sa mysql bazom podataka. U .env fajlu se može promeniti username, password i naziv baze, sto će sada biti urađeno. Podešeno će biti
- 
- na root, '' i test redom. Sada se može pristupiti bazi podataka.
- 
-<h2>Migracije</h2>
- 
- Migracije su vid kontrole baze podataka. Laravel koristi migracijske fajlove kako bi programeri koji koriste istu bazu znali šta je menjano u bazi podataka.
- 
- Pre nego što se napravi nova migracija može se pogledati database/migrations folder. Tu se nalaze dva php fajla 2014_10_12_000000_create_users_table.php i 
- 
- 2014_10_12_100000_create_password_resets_table.php fajl. Otvorićemo prvi fajl.
- <xmp class = "primer_ta"> 
- 
- <?php
+<xmp class = "primer_ta">
+'default' => env('DB_CONNECTION', 'mysql')
+</xmp>
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+znači da Laravel automatski ima konekciju sa bazom podataka MySQL. U fajlu .env treba promeniti vrednosti DB_DATABASE, DB_USERNAME i DB_PASSWORD, 
 
-class CreateUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
+da bi se uspostavila konekcija sa bazom. Podešeno će biti na test, root i prazno polje redom. Sada se može pristupiti bazi podataka. Pre nego  što se ovo uradi, 
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
-    }
-}
- ?>
- </xmp>
- 
- Kao što primećujete, kod unutar funkcije up() govori kakve su kolone, tj. koje tipove podatak sadrže, ažurira tabelu, a funkcija down() ima suprotan efekat, 
- 
- uklanja efekat migracije koji ponovo može generisati.
- 
- Sada iz komandne linije treba napraviti migraciju. Koristi se komanda php artisan make:migration create_tasks_table  --create="tasks". Naziv create_tasks_table 
- 
- je naziv migracije, a tasks je naziv tabele i piše se u množini.
+potrebno je u MySQL phpMyAdmin napraviti bazu.<br>
 
- Sa php artisan migrate dobija se poruka o uspešnoj migraciji pri čemu će sve migracije biti prikazane u komandnom prozoru ispod poruke. Fajl je kreiran u
+<br>
 
- database/migrations folderu i izgleda ovako:
- 
- <xmp class = "primer_ta"> 
+Migracije su vid kontrole baze podataka, omogućavajući timu da  lako modifikuje bazu podataka. Laravel koristi migracijske fajlove kako bi programeri koji koriste istu bazu znali 
+
+šta je menjano u bazi podataka. To se može znati tako što svaki kreirani migracijski fajl automatski dobija naziv po datumu kad je kreiran. Migracijski fajlovi se čuvaju 
+
+u folderu app\database\migrations. Iz komandne linije, migracijski fajl se kreira komandom koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan make:migration create_books_table --create=books
+</xmp>
+
+Automatski se generiše migracijski fajl u kojem je definisana tabela books. Ko&#770d kreiranog migracijskog fajla prikazan je u nastavku.
+
+<xmp class = "primer_ta">
 <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTasksTable extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
-     *
      * @return void
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -99,18 +60,45 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('books');
     }
 }
-?>
+</xmp>
 
-
- </xmp>
- Shema::create metod ima dva parametra, prvi je naziv tabele, a drugi je anonimna funkcija čiji je argument dat nazivom table, ali može se zvati i drugačije.
- 
- Taj parametar se koristi da bi se kreirale kolone tabele. Timestamps je specijalan metod Laravela. On kreira updated_at i created_at kolone. Laravel koristi ove 
- 
- kolone da bi programeri koji pristupaju bazi znali kada je red u tabeli baze promenjen ili dodat. Naročito je korisno ako više programera
-
-iz različitih delova sveta koriste istu bazu. Sa svakom migracijom u ovom folderu se kreira isti ovakav fajl.
 <br>
+
+<br>
+
+Svaki migracijski fajl sastoji se od metoda up i down. Metoda up služi za dodavanje tabela i kolona, dok metoda down služi da poništi sve što je 
+
+kreirano metodom up. Nakon što se tabeli dodaju željene kolone, treba pokrenuti migraciju. Komanda kojom se pokreće migracija prikazana je u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan migrate
+</xmp>
+
+Ponovno definisanje migracije zadaje se komandom
+
+<xmp class = "primer_ta">
+php artisan migrate:rollback --step=2
+</xmp>
+
+gde se delom <span class = "primer_text"> --step=2</span> određuje koliko migracija će se ponovo definisati. U konkretnom primeru, ponovo će biti definisane 
+
+poslednje dve migracije. Naredbom
+
+<xmp class = "primer_ta">
+php artisan migrate:reset
+</xmp>
+
+će se ponovo definisati sve migracije, a naredbom
+
+<xmp class = "primer_ta">
+php artisan migrate:refresh
+</xmp>
+
+će se ponovo definisati sve migracije i sprovešće se naredba migrate.
+
+<br>
+
+

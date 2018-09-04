@@ -1,0 +1,108 @@
+<h1>Objektno-relaciono preslikavanje</h1>
+
+<br>
+
+Objektno-relaciono preslikavanje (engl. Object-relational mapping - ORM) predstavlja tehniku prevođenja elemenata objektnog modela u elemente relacionog modela i obrnuto. 
+
+Alat Eloquent ORM je moćan alat u radnom okviru Laravel za upravljanje bazom podataka. Tabele iz baze podataka se predstavljaju kao objekti, odnosno modeli, 
+
+što omogućava lakše upravljanje i manipulaciju podacima. Svaki model predstavlja jednu tabelu u bazi podataka. Pomoću modela se komunicira sa tom tabelom. 
+
+Model se stvara komandom koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan make:model nazivModela
+</xmp>
+
+Ako sa modelom treba kreirati migracijksi fajl za taj model, onda se model pravi komandom koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan make:model nazivModela -m
+</xmp>
+
+Model se čuva u folderu app. Naziv modela i tabele su usklađeni. Model se piše u jednini, a naziv tabele se piše u množini. Može se zadati drugi naziv tabele 
+
+ako se u modelu doda linija koda koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+protected $table = 'neki_drugi_naziv';
+</xmp>
+ 
+Podrazumevano, primarni ključ tabele je id koji je tipa integer. Kao što se definisanjem u modelu, naziv tabele može postaviti na željeni, koji je drugačiji 
+
+od naziva modela, tako se i primarni ključ može promeniti. Primarni kljuć može biti kolona koja je tipa string, ali se onda svojstvo incrementing postavlja na false. 
+
+U tom slučaju, u ko&#770d modela treba dodati ko&#770d koji sledi.
+
+<xmp class = "primer_ta">
+protected $primaryKey = 'naziv';
+public $incrementing = false;
+</xmp>
+
+<br>
+
+
+<br>
+
+Može se desiti da korisnik unese neočekivani parametar putem zahteva i pritom se pojavljuje greška. Zbog toga se svojstvom fillable to rešava tako što se navedu 
+
+kolone koje se mogu menjati od strane korisnika. To se radi tako što se u modelu doda ko&#770d koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+protected $fillable = ['naziv'];
+</xmp>
+
+Svojstvom guarded može se definisati koje atribute korisnik ne sme menjati. To se na isti način postiže kao i kod svojstva fillable, tj. u modelu se dodaje ko&#770d 
+
+koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+protected $guarded = ['naziv'];
+</xmp>
+
+Dovoljno je podesiti jedno od ova dva svojstva. Ako su svi atributi izmenjivi od strane korisnika, onda bi se pisalo:
+
+<xmp class = "primer_ta">
+protected $guarded = [];
+</xmp>
+
+što znači da korisnik nema zabranjen pristup nijednom atributu. U narednom poglavlju će biti prikazano kako iz komandnog prozora upisati podatke u bazu i kako ih izbrisati iz baze.
+
+<br>
+<h2>Upravljanje podacima iz komandnog prozora</h2>
+
+<br>
+
+U radnom okviru Laravel postoji mogućnost za upisivanje u bazu i brisanje podataka iz baze iz komandnog prozora. Za upisivanje i brisanje podataka iz komandnog prozora 
+
+se koristi interaktivna konzola Tinker za upravljanje bazom podataka. U komandnoj liniji, Tinker se pokreće komandom koja je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+php artisan tinker
+</xmp>
+
+<br>
+<br>
+Za upis podataka u bazu piše se sledeći ko&#770d:
+
+<xmp class = "primer_ta">
+$s=new App\Student;
+$s->first_name='Ana';
+$s->last_name='Jovanovic';
+$s->save();
+</xmp>
+
+ako je u pitanju tabela sa unosom studenata. Nakon svakog reda, treba pritisnuti enter. Ako treba izbrisati podatak iz baze, on se mora prvo dohvatiti po primarnom ključu, 
+
+a onda se iskoristi metoda delete, kao što je prikazano u primeru koji sledi.
+
+<xmp class = "primer_ta">
+$s = App\Student::find(2);
+$s->delete();
+</xmp>
+
+Naravno, najjednostavnije je upisivati podatke direktno iz baze, brisati ih, menjati ih i ostalo. U narednim lekcijama biće kreirana jednostavna aplikacija koja će imati 
+
+polja za unos imena i prezimena studenata i dugmiće za menjanje i brisanje podataka sa stranice u bazu. U kreiranju ove aplikacije  biće iskorišćen kontroler resursa.
+
+<br>

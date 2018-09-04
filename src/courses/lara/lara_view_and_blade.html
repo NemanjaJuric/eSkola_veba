@@ -1,28 +1,40 @@
-<h1>View and blade </h1>
+<h1>Izgled stranice i nasleđivanje interfejs šablona </h1>
 
 <br>
-Blade je jednostavan, ali veoma jak alat Laravela i služi za pravljenje interfejs šablona, što će biti prikazano pravljenjem jednostavne stranice.<br><br>
+Izgled ili deo view ima mogućnost kreiranja veb stranica pomoću šablona Blade. Blade je jednostavan, ali veoma jak alat Laravela i služi za pravljenje interfejs
 
-Views folder se nalazi u resources folderu. Tu se čuva html kod stranice. Svi potrebni css i JavaScript fajlovi čuvaju se u public folderu.
+šablona, što će biti prikazano pravljenjem jednostavne stranice. Šablonom se može nazvati kreirana stranica koju će naslediti sve druge stranice. 
 
-U ovoj lekciji biće kreiran prvo statički deo, a zatim i dinamički deo stranice. Biće napravljen kontroler sa nazivom MyController. 
+Ona se naziva šablonom jer ima statički kreiran kostur koji se ne menja, a sve ostale stranice je nasleđuju sa dodatkom dinamičkog dela koji je drugačiji za svaku od stranica. 
 
-Kreirajte folder pages u folderu views. Tu napravite master.blade.php fajl(možemo ga nazvati i drugačije). To će biti osnova koju će naslediti
+<br>
 
-sve druge stranice. Sada napišite sledeći kod za master.blade.php stranicu. Ne zaboravite, putanja je  //resources/views/pages/master.blade.php.
+<br>
+
+Folder views se nalazi u folderu resources. Tu se čuva ko&#770d kojim je definisan izgled svih stranica. Svi potrebni fajlovi pisani u jeziku CSS i JavaScript se čuvaju u folderu
+
+public. U ovoj lekciji biće kreiran prvo statički deo, a zatim i dinamički deo stranice. Biće napravljen kontroler sa nazivom MyController. Za potrebe bolje organizacije
+
+fajlova mogu se kreirati dodatni folderi. Ovde će biti kreiran folder pages. Zatim, u folderu pages treba kreirati fajl master.blade.php (može se nazvati i drugačije).
+
+To će biti osnova koju će naslediti sve druge stranice. Ko&#770d koji sledi je ko&#770d fajla master.blade.php.
 
 <xmp class = "primer_ta">
-
 <!DOCTYPE html>
 <html>
+
  <head>
   @yield('head')
   <link rel='stylesheet' href='/css/style.css'>
+  
   <title>
-   @yield('title')
+  @yield('title')
   </title>
+  
  </head>
+ 
  <body>
+ 
   <div class="container">
   <div class="heading">
   @yield('heading')
@@ -32,17 +44,23 @@ sve druge stranice. Sada napišite sledeći kod za master.blade.php stranicu. Ne
   </div>
   <div class="footer">@yield('footer')</div>
   </div>
+  
  </body>
+ 
 </html>
-
-
 </xmp>
 
-Kao sto primećujete yield funkcija koja se koristi biće pozvana sa @. Ova funkcija doslovno nešto generiše. Html kod je podeljen na celine yield funkcijom.
+Putanja fajla master.blade.php je resources/views/pages/master.blade.php.
 
-Css fajl se čuva u public/css folderu i može se nazvati style.css. Kod će biti:
+<br>
+
+<br>
+
+Direktiva yield koja se koristi se poziva sa @. Ona uključuje dinamički promenljiv sadržaj. Ko&#770d stranice koju će ostale stranice naslediti je podeljen na celine
+
+direktivom yield. Ko&#770d stilizovanja stranice je prikazan u nastavku.
+
 <xmp class = "primer_ta">
-
 html, body {
 height: 100%;
 }
@@ -91,13 +109,12 @@ color:coral;
 }
 
 </xmp>
-
-Naredni kod predstavlja umetnost.blade.php fajl. 
+Naredni ko&#770d predstavlja fajl umetnost.blade.php. Stranica umetnost.blade.php će biti jedna od stranica koja nasleđuje šablon.
 
 <xmp class = "primer_ta"> 
 
 @extends('pages.master')
-@stop
+
 @section('head')
 <!--<link rel='stylesheet' href='/css/style.css'>-->
 @stop
@@ -109,7 +126,7 @@ Ovo je neka stranica
 @stop
 @section('content')
 <div class='h1'>
-Umetnička sloboda je dar.
+Sloboda pisca je dar.
 </div>
 <p>
 Dovoljno je nekoliko sekundi inspiracije. Dovoljno je nekoliko sekundi inspiracije.
@@ -120,44 +137,65 @@ Dovoljno je nekoliko sekundi inspiracije.
 Inspiracija
 </div>
 <p>
-između jave i sna
+Jave i san
 </p>
 @stop
 @section('footer')
 Home of Katrin
 @stop
 
-</xmp>
+ </xmp>
+ 
+Korišćena je direktiva @extend, što znači da stranica nasleđuje fajl master.blade.php. Korišćene su još dve direktive, @section i @stop, pri čemu svaka sekcija ima svoj
 
-Korišćena je funkcija extend što znači da se u svaku stranicu uključuje ceo master.blade.php fajl. Korišćene su još dve funkcije, section i stop, pri čemu svaka sekcija
+sadržaj. @Stop služi za kraj direktive @section, a za kraj ove direktive koristi se i @endsection. Unutar sekcije head ubačen je link kojim se uključuje CSS. 
 
-ima svoj sadržaj. Unutar head sekcije ubačen je link kojim se uključuje css. Međutim, kako je stil ubačen u master.blade.php, nema potrebe da se ubacuje
+Međutim, kako je stil ubačen u fajl master.blade.php, nema potrebe da se ubacuje u fajl umetnost.blade.php, jer će i stlizovanje biti nasleđeno. U sekciji heading,
 
-u fajl umetnost.blade.php (zakomentarisani deo koda). U sekciji heading piše sledeće
-<span class = "primer_text">
-
+na primer, može se pisati sledeće:
+ 
+<xmp class = "primer_ta">
 @section('heading')
 {{ $ime }} {{ $profesija }}
 @stop
-</span>
-
-<div class = "napomena">
-{{ $ime }} u Laravelu je isto što i echo $name; u php.
-</div>
-
- Ime i profesija su nazivi promenljivih koje se koriste u kontroleru. Podsetite se, kontroler se zove MyController.
- 
- <xmp class = "primer_ta"> 
-public function about() {
-return view('pages.about')->with([
-'ime'=>'Pera',
-'profesija'=>'Pisac'
-]);
-}
 </xmp>
 
-Kako aplikacija izgleda? Aplikacija će biti pokrenuta sa http://127.0.0.1:8000/umetnost.
+i ono što je echo $ime; u jeziku PHP, to je {{$ime}} u radnom okviru Laravel. Ime i profesija su promenljive koje se koriste u kontroleru ovog primera. 
 
-<img src="courses/lara/images/blade.png">
+U njemu je napisana samo globalna funkcija umetnost koja je prikazana u nastavku.
+
+<xmp class = "primer_ta">
+
+public function umetnost() {
+  return view('pages.umetnost')->with([
+    'ime'=>'Pera',
+    'profesija'=>'Pisac'
+   ]);
+} 
+
+</xmp>
+
+U fajlu web.php treba dodati putanju ka fajlu. Taj deo koda prikazan je u sledećem redu.
+
+<xmp class = "primer_ta">
+Route::get('umetnost', 'MyController@umetnost');
+</xmp>
+
+To znači da je putanja ka stranici <a href="http://127.0.0.1:8000/umetnost">http://127.0.0.1:8000/umetnost</a>, odnosno nakon porta 8000 treba dodati umetnost.
+
+Aplikacija će biti pokrenuta sa <a href="http://127.0.0.1:8000/umetnost">http://127.0.0.1:8000/umetnost</a> i izgleda kao na sledećoj slici.
+
+<img src="courses/lara/images/umetnost.png" class="img-fluid img-md"><br>
+
+Važno je napomenuti da se koristi i direktiva @include kojom se uključuju drugi fajlovi čiji je naziv naziv.blade.php. Primer fajla koji se ubacuje na stranicu direktivom
+
+@include je fajl za navigaciju stranice. Ako bi naziv tog fajla bio navbar.blade.php, fajl bi bio uključen kodom koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+@include('navbar')
+</xmp>
+
+Koriste se još i direktive @for, @if, @while, @foreach, pri čemu se svaka mora završiti sa @endfor, @endif, @endwhile i  @endforeach redom.
 
 <br>
+

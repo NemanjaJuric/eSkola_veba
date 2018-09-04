@@ -1,0 +1,203 @@
+<h1>Učitavanje fajla</h1>
+
+<br>
+
+U ovoj sekciji će biti prikazano kako se učitava slika na stranicu. Za potrebe te jednostavne aplikacije biće kreiran nov projekat komandom iz komandnog prozora koja 
+
+je prikazana u sledećem redu.
+
+<xmp class = "primer_ta">
+laravel new upload
+</xmp>
+
+Sve funkcije aplikacije biće u kontroleru, pa ga treba kreirati. Kontroler se kreira komandom iz komandnog prozora sa: 
+
+<xmp class = "primer_ta">
+php artisan make:controller UploadController
+</xmp>
+
+gde je UploadController izabran naziv kontrolera. Za pogled će biti iskorišćen šablon Blade, a to znači da se pravi fajl, koji će ostali fajlovi naslediti. 
+
+Neka se fajl zove layout.blade.php i nalazi se u podfolderu views foldera resources. Ko&#770d tog fajla je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Upload image</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+</head>
+ <body>
+  <main role="main" class="container">
+   <div class="starter-template">
+    <div class="row">
+     <div class="col-sm-8">
+      @yield('content')
+      </div>
+     </div>
+    </div>
+  </main>
+ </body>
+</html>
+</xmp>
+
+Ko&#770d fajla uploadfile.blade.php koji treba napisati, a koji nasleđuje fajl layout.blade.php je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+@extends('layout')
+
+@section('content')
+ <div class="container">
+  <div class="row justify-content-center">
+   <div class="card">
+    <div class="card-header">Upload File Example
+    </div>
+     <div class="card-body"> 
+      <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
+       {{csrf_field() }}
+       <div class="form-group">
+        <table class="table">
+         <tr>
+          <td width="40%" align="right"><label>Select File for Upload</label></td>
+          <td width="30"><input type="file" name="select_file" /></td>
+          <td width="30%" align="left"><input type="submit" name="upload" class="btn btn-primary" value="Upload"></td>
+         </tr>
+         <tr>
+          <td width="40%" align="right"></td>
+          <td width="30"><span class="text-muted">jpg, png, gif</span></td>
+          <td width="30%" align="left"></td>
+         </tr>
+        </table>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+  </div>
+@endsection
+</xmp>
+
+Treba obratiti pažnju na sledeću liniju koda.
+
+<xmp class = "primer_ta">
+<form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">...</form>
+</xmp>
+
+Ako se datoteke šalju metodom POST, treba koristiti tip kodiranja <span class = "primer_text"> enctype='multipart/form-data'</span>. Bez tog tipa kodiranja, 
+
+datoteke se ne mogu slati preko metode POST.
+<br>
+
+<br>
+Na stranicu uploadfile.blade.php ići će se funkcijom iz kontrolera, koja će biti pozvana odgovarajućom putanjom. Ta putanja se u fajlu web.php zadaje kodom koji je 
+
+prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+Route::get('uploadfile','UploadController@uploadFile');
+</xmp>
+
+To znači da se nakon zahteva <a href="http://127.0.0.1:8000/uploadfile">http://127.0.0.1:8000/uploadfile</a> poziva funkcija iz kontrolera koja vodi na izgled fajla 
+
+uploadfile.blade.php. Ko&#770d funkcije uploadFile je prikazan u nastavku. 
+
+<xmp class = "primer_ta">
+public function uploadFile(){
+    return view('uploadfile');
+    };
+</xmp>
+ 
+Nakon zahteva <a href="http://127.0.0.1:8000/uploadfile">http://127.0.0.1:8000/uploadfile</a>  otvara se stranica kao na sledećoj slici.
+
+<img src="courses/lara/images/upload.png" class="img-fluid img-md">
+
+Datoteka se učitava klikom na dugme upload. Kako je datoteka poslata metodom POST, putanja koju treba napisati u fajlu web.php prikazana je u sledećem redu. 
+
+<xmp class = "primer_ta">
+Route::post('uploadfile','UploadController@uploadFilePost');
+</xmp>
+
+Nakon zahteva <a href="http://127.0.0.1:8000/uploadfile">http://127.0.0.1:8000/uploadfile</a>, poziva se funkcija uploadFilePost iz kontrolera čiji je ko&#770d 
+
+prikazan u nastavku.
+
+<xmp class = "primer_ta">
+public function uploadFilePost(Request $request)     {
+   $this->validate($request, [
+    'select_file'  => 'required|image|mimes:jpeg,png,gif|max:2048'
+   ]);
+   
+   $image = $request->file('select_file');
+   
+   $new_name = rand() . '.' .$image->getClientOriginalExtension();
+   
+   $image->move(public_path('images'), $new_name);
+   return back()->with('success', 'Image Uploaded Successfully')->with('path', $new_name);
+     }
+</xmp>
+
+Prvo se metodom validate zahteva da fajl mora biti izabran, a zatim da je fajl tipa image. Sa <span class = "primer_text"> mimes</span> se određuju dozvoljene 
+
+ekstenzije slike, a sledeća provera je veličina fajla, koji ne može biti veći od 2 MB. Deo koda 
+
+<xmp class = "primer_ta">> 
+ $image = $request->file('select_file');
+</xmp>
+
+znači da se iz zahteva uzima selektovani fajl, a zatim se sa:
+
+<xmp class = "primer_ta">
+$new_name = rand() . '.' . $image->getClientOriginalExtension();
+</xmp> 
+pravi novo ime slike, uz uzimanje ekstenzije iz zahteva. Na kraju se sa:
+
+<xmp class = "primer_ta">
+$image->move(public_path('images'), $new_name);
+return back()->with('success', 'Image Uploaded Successfully')->with('path', $new_name);
+</xmp>
+
+slika skladišti u podfolderu public foldera images. Vraća se poruka o uspešnom slanju slike u folder. Poruka je sačuvana u sesiji. Treba dodati poruke o eventualnim 
+
+greškama koje nastaju ukoliko se ne izabere slika, a klikne se na dugme upload ili ako se ne izabere odgovarajuća slika, bilo po ekstenziji ili veličini. 
+
+Taj deo koda treba dodati u fajlu upload.blade.php pre forme i prikazan je u nastavku. Etiketom img obezbeđen je prikaz slike.
+
+<xmp class = "primer_ta">
+@if ($message = Session::get('success'))
+ <div class="alert alert-success alert-block">
+  <button type="button" class="close" data-dismiss="alert">×</button>      
+  <strong>{{ $message }}</strong>
+ </div>
+ <img src="/images/{{ Session::get('path') }}" width="600" />
+@endif
+@if (count($errors) > 0)
+ <div class="alert alert-danger">
+ <strong>Whoops!</strong> There were some problems with your input.<br><br>
+ <ul>
+  @foreach ($errors->all() as $error)  
+    <li>{{ $error }}</li>
+  @endforeach
+ </ul>
+ </div>
+@endif
+</xmp>
+
+<br>
+<br>
+
+Ukoliko se, nakon što se odabere slika i klikne na dugme upload, pojavi greška <i>Unable to guess the mime type as no guessers are available 
+
+(Did you enable the php_fileinfo extension?)</i>, potrebno je da se u fajlu php.ini skine komentar sa <i>enable=php_fileinfo.dll</i>. Ukoliko se koristi EasyPHP taj 
+
+fajl se nalazi u podfolderu php foldera eds-binaries. Nakon toga, može se pojaviti ista greška. U tom slučaju je potrebno ponovo pokrenuti server. Kad god se nešto promeni 
+
+u podešavanju za PHP, potrebno je restartovati veb server. Kada se učita slika na stranicu, stranica izgleda kao na sledećoj slici.
+
+<img src="courses/lara/images/vau.png" class="img-fluid img-md">
+
+<br>

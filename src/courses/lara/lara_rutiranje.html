@@ -1,45 +1,40 @@
 <h1>Rutiranje</h1>
 
-<br>Gde se zapravo nalazi stranica koja se otvara sa <span class = "primer_text"> http://127.0.0.1:8000 </span>?
+<br>
 
-Izgled stranice nalazi se u folderu views, koji se nalazi u folderu resources. Welcome.blade.php fajl predstavlja 
+Ruriranje služi za podešavanje putanja unutar aplikacije. Putanje su URL adrese ka stranicama aplikacije. Može se reći da rute određuju navigaciju unutar aplikacije,
 
-izgled stranice koja se otvara sa <span class = "primer_text"> http://127.0.0.1:8000 </span>.
+jer vode na odredište koje predstavljaju veb strane aplikacije. Na primer sa:
 
-Otvorite sada folder rotes i web.php fajl! Ovde se definišu putanje za veb aplikaciju. 
-
-<img src="courses/lara/images/welcome.png" >
-
-Sa <span class = "primer_text"> return view('welcome') </span> dobija se izgled stranice welcome iz welcome.blade.php. Može se pozvati neka druga stranica iz resorces/views,
-
-na primer stranica about.php koja se pravi u folderu views. Kasnije će biti napravljena stranica about.blade.php koristeći jednostavan html kod. Ako se sada u fajlu routes/web.php kod  
-
-<xmp class = "primer_ta">
+<xmp class = "primer_ta"> 
 Route::get('/', function () {
 return view('welcome');
 });
 </xmp>
-zameni kodom 
-<xmp class = "primer_ta">
-Route::get('/', function () {
-echo "Hello World";
-});
-</xmp>
 
-nakon što se osveži stranica, dobiće se ispis Hello World. Šta se dešava ako se nakon porta 8000 doda jos nešto? Na primer, napraviti view koji će se prikazati nakon
+otvara se stranica welcome.blade.php, a URL koji vodi do nje bi bio <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>. Prvi argument metode get određuje
 
-<span class = "primer_text"> http://127.0.0.1:8000/about  </span>zahteva. U routes/web.php fajl treba dodati sledeći deo koda:
+šta je potrebno dodati u pretraživač nakon porta 8000. U konkretnom primeru, ako korisnik ode na adresu <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>,
 
-<xmp class = "primer_ta">
-Route::get('about', function () {
-return view('about')";
-});
-</xmp>
+što je adresa kojom je pokrenuta aplikacija u radnom okviru Laravel, tada se otvara stranica čiji je izgled definisan u fajlu welcome.blade.php. 
 
-Dakle, otvoriće se stranica about.blade.php koja se pravi i čuva u resources/views folderu. Ona će imati jednostavan html kod. npr.
+Bez rutiranja ne postoji mogućnost povezivanja sa krajnjim korisnikom. U fajlu web.php koji se nalazi u folderu routes se nalaze sve definisane rute, tj. putanje,
+
+kojima su povezane stranice aplikacije. Stranicama na koje vode zadate rute se pristupa navođenjem rute u pretraživaču. Na primer sa:
 
 <xmp class = "primer_ta"> 
+Route::get('/about', function () {
+return view('about');
+});
+</xmp>
 
+je definisana putanja <a href="http://127.0.0.1:8000/about">http://127.0.0.1:8000/about</a>. Ako se u pretraživaču posle porta 8000 doda about,
+
+ otvara se stranica čiji je izgled zadat u fajlu about.blade.php koji se čuva u folderu views. Taj folder se nalazi u folderu resources. Ko&#770d fajla 
+ 
+about.blade.php je dat u nastavku.
+
+<xmp class = "primer_ta"> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,25 +43,55 @@ Dakle, otvoriće se stranica about.blade.php koja se pravi i čuva u resources/v
 <body>
 	About Us
 </body>
-
 </html>
+</xmp>
 
- </xmp>
- 
- Nakon što se pokrene ova jednostavna aplikacija, dobija se sledeće:
- <img src="courses/lara/images/about1.png" >
- <br><br>
+Na veb stranici se samo ispisuje naslov About Us.<br>
 
- Naravno, mogu se preneti još neki parametri koji ne moraju biti fiksni. 
-  <img src="courses/lara/images/parametri.png" >
- Parametar naslov se prosleđuje funkciji. Aplikacija se može pokrenuti i dobija se sledeće:
+<br>
+
+Kao argument mogu se preneti parametri koji ne moraju biti fiksni. To se zove parametarsko rutiranje. Tada se oni navode kao argumenti anonimne funkcije koja je
+
+prosleđena kao drugi argument definisane putanje. Tako se na primer sa:
  
- <img src="courses/lara/images/pobeda.png" >
- 
- Primetite, aplikacija je pokrenuta sa <span class = "primer_text"> http://127.0.0.1:8000/pobeda-kosarkasa </span>
- Sada naslov može biti nešto drugo i dobija se:
- 
- <img src="courses/lara/images/prognoza.png" >
- 
- Upravo tu promenu putanje, koja se dozvoljava bez ekplicitno naglašene promene putanje u kodu, omogućava parametarsko rutiranje.
+<xmp class = "primer_ta"> 
+
+Route::get('/vesti/{$naslov}', function ($naslov) {
+return echo "vesti |".$naslov
+});
+</xmp> 
+
+definiše putanja <a href="http://127.0.0.1:8000/vesti/pobeda-kosarkasa">http://127.0.0.1:8000/vesti/pobeda-kosarkasa</a>. Ovaj link vodi do stranice koja je
+
+prikazana na sledećoj slici.
+
+<img src="courses/lara/images/pobeda.png" class="img-fluid img-md">
+
+<br>
+
+<br>
+Svaki HTTP zahtev ima glagol i akciju koja ga prati. Glagolom GET podaci se šalju preko URL zahteva, dok se sa POST ne mogu slati preko URL zahteva. Osim ovih, 
+
+mogu se koristiti PUT, DELETE i PATCH glagoli.<br>
+
+<br>Moguće je praviti imenovane rute, a to doslovno znači da se cela ruta imenuje i da se njeno ime koristi kasnije, na primer u redirekciji. O redirekciji će biti
+
+više reči u  nekom od narednih poglavlja. Jedan primer imenovane rute dat je u sledećem redu.
+<br>
+
+<xmp class = "primer_ta"> 
+
+Route::get('user/profile', 'UserController@showProfile')->name('profile');
+</xmp> 
+
+Na primer ako se ova ruta iskoristi kao link, trebalo bi njeno ime navesti kao vrednost atributa href. Taj deo koda je prikazan u sledećem redu.
+
+<xmp class = "primer_ta"> 
+<a href="{{route('profile')}}">Idi na profil</a>
+</xmp> 
+
+Tada se otvara stranica <a href="http://127.0.0.1:8000/user/profile">http://127.0.0.1:8000/user/profile</a> koja poziva funkciju showProfile iz kontrolera. 
+
+O kontrolerima će više biti reči u sledećem poglavlju.
+
 <br>

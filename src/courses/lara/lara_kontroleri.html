@@ -1,16 +1,20 @@
 <h1>Kontroleri</h1>
 
-<br>U prethodnoj lekciji prikazano je kako se zahtev šalje http protokolu. Sada će biti prikazano isto, ali koristeći kontroler.
+<br>Kontroleri su spona između izgleda, tj. dela view i modela aplikacije, a to znači da se na osnovu unosa podataka i zahteva koji korisnik šalje kontroliše
 
-Kontroler kontroliše i upravlja slojevima aplikacija. U Laravelu slojevi aplikacije su sakriveni, a sve što korisnik dobija je 
+pristup veb stranici. Kontrolisanje pristupa veb stranici znači da kontroler preuzima korisničke zahteve od dela view, prosleđuje ih modelu koji na osnovu zahteva
 
-reprezentacija, dok logika aplikacije ostaje sakrivena. Kontroleri se čuvaju u App/Http/Controllers folderu.
+uzima podatke iz baze i prosleđuje ih u deo aplikacije koji je zadužen za izgled, tj. u deo view. Kontroler se može kreirati ručno, tako što se u folderu
 
-Kontroler se može napraviti "ručno" tako što se napravi PagesController.php fajl u App/Http/Controllers folderu i tamo iskuca sledeći kod:
+app\Http\Controllers kreira fajl nazivController.php. Međutim, kontroler se može kreirati korišćenjem komande <span class = "primer_text"> php artisan make:controller nazivController</span>.
 
-<xmp class = "primer_ta"> 
+Na primer sa:
 
-<?php
+<xmp class = "primer_ta">php artisan make:controller PagesController </xmp>
+
+kreiran je kontroler. Ko&#770d u kontroleru se prethodnom komandom automatski generiše i prikazan je u nastavku.
+
+<xmp class = "primer_ta"><?php
 
 namespace App\Http\Controllers;
 
@@ -18,160 +22,82 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function home()
+
+}</xmp>
+ 
+Ako se doda sledeća funkcija
+<xmp class = "primer_ta">
+public function home()
     {
         return view('welcome');
     }
-}
-
-?>
 </xmp>
- 
-Primetite da kontroler ima funkciju home koja vraća početnu Laravel stranicu koja se dobija kada se pokrene Laravel aplikacija sa http://127.0.0.1:8000.
 
-To će u routes/web.phph fajlu biti zadato sa:
+u telo klase u kontroleru, onda ona vraća početnu stranicu welcome. Potrebno je definisati putanju do te stranice. Deo koda koji to definiše dat je u sledećem redu.
 
-<xmp class = "primer_ta"> Route::get('/', 'PagesController@home');</xmp>
-
-Sada je napravljena PagesController klasa. Pomoću nje, dodavanje novih stranica nije teško. Potrebno je u web.php fajl dodati sledeći kod
-
-<xmp class = "primer_ta"> 
-
-Route::get('/about', 'PagesController@about');
-Route::get('/contact', 'PagesController@contact');
-
+<xmp class = "primer_ta">
+Route::get('/', 'PagesController@home');
 </xmp>
-Prvi argument je putanja koja se zadaje posle porta 8000, a drugi argument je funkcija koja će biti pozvana i ona mora biti globalna.
-Sada u fajl PagesController.php dodajte kod
 
-<xmp class = "primer_ta"> 
+Dakle, ovim je definisano da ako se posle porta 8000 ne navede ništa, onda se poziva funkcija home iz kontrolera koja vodi na stranicu welcome.
 
+Na primer, posle porta se može navesti putanja, a drugi argument je funkcija koja se poziva iz kontrolera i ona mora biti globalna. Tako da ako se u fajlu web.php doda
+
+<xmp class = "primer_ta">
+ Route::get('about', 'PagesController@about');
+</xmp>
+
+i ako se u kontroleru doda globalna funkcija
+
+<xmp class = "primer_ta">
 public function about()
 {
     return view('aboutUs');
 }
-
-public function contact()
-{
-    return view('contact');
-}
 </xmp>
 
-Na kraju web fajl izgleda kao na slici
+onda se sa <a href="http://127.0.0.1:8000/about">http://127.0.0.1:8000/about</a> ide na stranicu čiji je Ko&#770d u fajlu aboutUs.blade.php.<br>
+ 
+<br>
 
-<img src="courses/lara/images/web.png" >
+Laravel ima mogućnost upravljanja podacima pomoću takozvanog resursnog kontrolera. Ovaj kontroler sadrži metode:
 
-Fajl PagesController.php izgleda kao na sledećoj slici
+<ul>
 
-<img src="courses/lara/images/kontroler.png" >
+<li>index,</li>
+<li>create,</li>
+<li>store,</li>
+<li>show,</li>
+<li>edit,</li>
+<li>update</li>
+<li>i destroy.</li>
 
-Na kraju će biti napravljene stranice aboutUs i contact jednostavnim korišćenjem veb tehnologija HTML i CSS, a fajlovi about.blade.php i contact.blade.php
+</ul>
 
-će se čuvati u resources/views folderu. U fajlu aboutUs.blade.php biće sledeći kod:
+U sledećem redu prikazana je komanda kojom se automatski kreira kontroler sa nabrojanim metodama za obradu podataka. 
 
 <xmp class = "primer_ta">
-<html>
-    <head>
-        <title>About Page</title>
-
-        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-                margin-bottom: 40px;
-            }
-
-            .quote {
-                font-size: 24px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">About Page</div>
-                <div class="quote">Our about page!</div>
-            </div>
-        </div>
-    </body>
-</html>
+php artisan make:controller nazivKontrolera --resource
 </xmp>
 
-U fajlu contact.blade.php biće sledeći kod:
+Komandom koja je prikazana u sledećem redu mogu se izlistati sve metode sa svojim putanjama i akcijama.
 
 <xmp class = "primer_ta">
-<html>
-    <head>
-        <title>Contact Page</title>
-
-        <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-                margin-bottom: 40px;
-            }
-
-            .quote {
-                font-size: 24px;
-            }
-        </style>
-    </head>
-    <body>
-    <div class="container">
-        <div class="content">
-            <div class="title">Contact Page</div>
-            <div class="quote">Our contact page!</div>
-        </div>
-    </div>
-    </body>
-</html>
+php artisan route:list
 </xmp>
 
-Kontolore je moguće napraviti koristeći artisan, preko naredbe <b>php artisan make:controller PagesController</b>, gde je PagesController ime kontrolera, a inače može biti bilo šta.
+Na primer, na sledećoj slici izlistane su sve metode sa putanjama za napravljeni kontroler koji se zove StudentController. Ovaj kontroler će kasnije u radu biti
+
+korišćen za izradu aplikacije kroz koju će biti prikazan rad sa podacima iz baze.
+
+<img src="courses/lara/images/resource.png" class="img-fluid img-md"><br>
+
+Sada se postavlja pitanje kako sve putanje napisati u fajlu web.php. Vrlo jednostavno, tako što se u fajlu web.php doda ko&#770d koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+Route::resource('student', 'StudentController');
+</xmp>
+
+Prethodnom linijom koda dobijaju se rute za sve metode koje su definisane u resursnom kontroleru, a koje su prikazane na prethodnoj slici. 
+
 <br>

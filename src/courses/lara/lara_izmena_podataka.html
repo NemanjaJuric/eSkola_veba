@@ -1,0 +1,99 @@
+<h1>Izmena podataka u bazi podataka</h1>
+
+<br>
+
+Za izmenu podataka, odgovorne su funkcije edit i update. To su funkcije kontrolera resursa. Funkcija edit je zadužena za promenu podataka na stranici koju korisnik vidi, 
+
+a funkcija update je zadužena za izmenu podataka u bazi. Treba napraviti dugmiće za izmenu podataka. Taj deo koda treba dodati u fajl index.blade.php. Dugmići će biti 
+
+linkovi koji vode na stranicu za izmene preko metode edit u kontroleru, pa treba dodati ko&#770d koji je prikazan u sledećem redu.
+
+<xmp class = "primer_ta">
+<td><a href="{{action('StudentController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
+</xmp>
+
+U metodi edit u kontroleru treba dodati ko&#770d koji je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+$student = Student::find($id);
+return view('student.edit', compact('student', 'id'));
+</xmp>
+
+Izmena u bazi izvršava se po primarnom ključu podatka. Zbog toga je neophodno proslediti id kao argument funkcije. Potrebno je napraviti fajl edit.blade.php, 
+
+koji koristeći šablon Blade, nasleđuje osnovni fajl koji se može nazvati master.blade.php. Ko&#770d fajla edit.blade.php je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+@extends('master')
+
+@section('content')
+
+<div class="row">
+ <div class="col-md-12">
+ <br />
+  <h3>Edit Record</h3>
+  <br />
+  <form method="post" action="{{action('StudentController@update', $id)}}">
+   {{csrf_field()}}
+    <input type="hidden" name="_method" value="PATCH" />
+    <div class="form-group">
+    <input type="text" name="first_name" class="form-control" value="{{$student->first_name}}" placeholder="Enter First Name" />
+    </div>
+    <div class="form-group">
+     <input type="text" name="last_name" class="form-control" value="{{$student->last_name}}" placeholder="Enter Last Name" />
+    </div>
+    <div class="form-group">
+     <input type="submit" class="btn btn-primary" value="Edit" />
+    </div>
+ </form>
+ </div>
+</div>
+
+@endsection
+</xmp>
+<br>
+
+<br>
+
+Sa <span class = "primer_text"> php artisan route:list</span> može se videti da je metoda za pozivanje funkcije update PATCH. Međutim, forme ne podržavaju metode PUT, 
+
+PATCH i DELETE koje su pozvane iz forme. Ovo se može izbeći dodavanjem 
+
+<xmp class = "primer_ta">
+<input type="hidden" name="_method" value="PATCH" />
+</xmp>
+
+u formu.
+
+Vrednost poslata poljem _method će se koristiti kao metoda zahteva HTTP. Funkcija update kao argumente prima zahtev i id, iz zahteva uzima prosleđene podatke, 
+
+pronalazi podatak u bazi po argumentu id koji je prosleđen i menja podatke u bazi. Ko&#770d funkcije update je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+$this->validate($request, [
+       'first_name'    =>  'required',
+        'last_name'     =>  'required'
+        ]);
+$student = Student::find($id);
+$student->first_name = $request->get('first_name');
+$student->last_name = $request->get('last_name');
+$student->save();
+return redirect()->route('student.index')->with('success', 'Data Updated');
+</xmp>
+
+Svojstvom required naglašava se da je unos podataka obavezan. Ukoliko nije uneta izmena podatka, a klikne se na dugme edit, treba obezbediti odgovarajuće poruke upozorenja 
+
+čiji je ko&#770d prikazan u nastavku. Taj deo koda se dodaje u fajlu edit.blade.php pre forme.
+
+<xmp class = "primer_ta">
+@if(count($errors) > 0)
+
+<div class="alert alert-danger">
+       <ul>
+       @foreach($errors->all() as $error)
+       <li>{{$error}}</li>
+       @endforeach
+       </ul>
+@endif
+</xmp>
+<br>

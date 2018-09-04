@@ -1,40 +1,85 @@
-<h1>Laravel instalacija i pokretanje</h1>
-<br>Laravel je radni okvir za php sa elegantnom sintaksom. Baziran je na MVC(Model View Controller) strukturi.<br>
-<br>Model komunicira sa kontrolerom, vrši upis i brisanje u bazi podataka. View komunicira isključivo sa kontrolerom, a korisnicima prikazuje podatke.
-Controler povezuje Model i View. On uzima podatke od korisnika, komunicira sa bazom podataka i govori View delu o prezentovanju podataka.<br>
-<br>Da biste mogli da pratite Larvel, očekuje se da ste upoznati sa sintaksom programskog jezika PHP. U narednim koracima biće objašnjeno kako instalirati i 
-pokrenuti Laravel aplikaciju.<br>
+<h1>Instalacija radnog okvira Laravel i struktura fajlova</h1>
 
+<br>Laravel je besplatan radni okvir otvorenog koda. U narednom delu biće prikazani koraci kako se instalira. Laravel je radni okvir programskog jezika PHP
+
+ koji se interpretira na serveru, pa je neophodno instalirati program koji u sebi sadrži Apache server koji izvršava programski jezik PHP. 
+ 
+ U radu će biti korišćen program EasyPHP. Potrebna je 7.0.0 verzija jezika PHP, pa ju je neophodno preuzeti. EasyPHP se može preuzeti sa 
+ 
+ <a href="http://www.easyphp.org/">http://www.easyphp.org/</a>. Potrebno je preuzeti verziju 17.0 programa EasyPHP. Kada se instalira, na adresi
+
+<a href="http://127.0.0.1:1111/">http://127.0.0.1:1111/</a> se otvara stranica kao na sledećoj slici. U selektovanom delu proverava se verzija jezika PHP.
+
+<img src="courses/lara/images/php.png" class="img-fluid img-md">
+
+Ako je u selektovanom delu 5.6.3 verzija jezika PHP, onda je neophodno u podešavanjima servera, u padajućem meniju, odabrati 7.1.3 verziju jezika PHP 
+
+i kliknuti dugme start kao što je prikazano na sledećoj slici.
+
+<img src="courses/lara/images/apache.png" class="img-fluid img-md"><br>
 
 <br>
-Sva potrebna uputstva za instalaciju mogu se pratiti <a href="http://laravel.com">ovde</a>. U meniju otvorite documentation.
-Potrebna vam je php verzija 7.0.0, pa ju je neophodno preuzeti. Nju podržava easy php. Ukoliko nemate instaliran easy php, možete ga preuzeti 
-<a href="http://www.easyphp.org/">ovde</a> i skinuti verziju 17.0. Kada instalirate easy php idite na http://127.0.0.1:1111/.Otvara vam se sledeća stranica
 
-<img src="courses/lara/images/php.png" >
+Da bi se Laravel koristio na korisničkom računaru, mora se instalirati Composer. Composer je aplikacija koja omogućava korisnicima da upravljaju komponentama od kojih
 
-Ako vam je u naznačenom delu php 5.6.30 verzija, idite u podešavanje http servera i u padajućem meniju odaberite php 7.1.3 verziju. Zatim kliknite na dugme start
-i nova verzija će se pokrenuti.
+se sastoji radni okvir Laravel. Koristi se za instalaciju, ažuriranje i uklanjanje paketa programskog jezika PHP. Instalacija aplikacije Composer se može preuzeti sa 
 
- <img src="courses/lara/images/apache.png" >
- 
-Za dalju instalaciju neophodan je composer, a njega možete skinuti na <a href="https://getcomposer.org/">linku</a>. Klikom na 
-Composer-Setup.exe pokrećete instalaciju. Kada vam se otvori sledeći prozor kliknite na browse.
- 
-  <img src="courses/lara/images/browse.png" >
-  
-  Zatim nađite EasyPHP-Devserver-17, a onda odaberite eds-binaries, zatim php folder, a potom php713vc14x86x171101093849. Kada vam otvori poslednji folder kliknite na 
-  php.exe i open. Nakon što ste ovo uradili pokrenite instalaciju na next, pa ponovo na next i zatim kliknite install.
- 
+adrese <a href="https://getcomposer.org/">https://getcomposer.org/</a>. Klikom na Composer-Setup.exe pokreće se instalacija. Kada se otvori prozor kao na sledećoj slici
+
+treba kliknuti na browse.
+
+<img src="courses/lara/images/browse.png" class="img-fluid img-md">
+
+Zatim treba naći EasyPHP-Devserver-17, pa odabrati folder eds-binaries. Sledeće što treba odabrati je folder php, a zatim folder čiji je naziv
+
+php713vc14x86x171101093849. Kada se otvori poslednji folder treba kliknuti na php.exe i open. Nakon što se ovo uradi, treba pokrenuti instalaciju klikom
+
+na next, pa ponovo na next i zatim kliknuti install. Instalacija se nastavlja iz komandnog prozora. Neophodno je prekopirati 
+
+<xmp class = "primer_ta">composer global require "laravel/installer"</xmp> u komandni prozor i instalacija će se pokrenuti. Nakon toga se može nastaviti sa radom. 
+
+Iz komandnog prozora se zadaje ime aplikacije. To se radi tako što se u komandnom prozoru napiše sledeća komanda,
+
+<xmp class = "primer_ta">laravel new nazivProjekta</xmp> ali se pre ove komande treba pozicionirati u folder eds-www komandom <span class = "primer_text">cd</span>.
+
+Putanja tog foldera je podrazumevano zadata sa C:\Program Files (x86) EasyPHP-Devserver-17\eds-www. U folder sa ovom putanjom se pozicionira komandom koja je prikazana u 
+
+sledećem redu.
+
+<xmp class = "primer_ta">cd C:\Program Files(x86)\EasyPHP-Devserver-17\eds-www</xmp> Folder nazivProjekta se nalazi u folderu eds-www. 
+
+Na kraju, da bi se pokrenula aplikacija u projektu u radnom okviru Laravel, neophodno je pozicionirati se u kreirani folder nazivProjekta komandom koja je prikazana u 
+
+sledećem redu.
+
+<xmp class = "primer_ta">cd nazivProjekta</xmp> Nakon toga sa <xmp class = "primer_ta">php artisan serve</xmp> iz komandnog prozora, server će biti pokrenut.
+
+<img src="courses/lara/images/http.png" class="img-fluid img-md">
+
+Kada se <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> kopira u pretraživač, prva aplikacija u radnom okviru Laravel će biti pokrenuta.
+
 <br>
-<br>
-Vratite se na <a href="http://laravel.com">Laravel</a>. Instalacija se nastavlja iz komandnog prozora. Prekopirajte composer global require "laravel/installer"
-u komandni prozor i instalacija će se pokrenuti. Nakon toga možete nastaviti sa radom i kreirati novu aplikaciju koju možete nazvati blog.
-To ćete uraditi tako sto ćete u komandnom prozoru iskopirati sledeće, laravel new blog. Pre toga se morate pozicionirati u folder eds-www komandom cd. Kod mene
-je ta putanja zadata sa C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www, pa bih napisala cd C:\Program Files (x86)\EasyPHP-Devserver-17\eds-www.
-Nakon toga prekopiramo laravel new blog. Vaš folder blog nalazi se u folderu eds-www. Na kraju, da bi se pokrenula Laravel aplikacija, neophodno je pozicionirati se u kreirani folder blog
-komandom cd blog. Nakon toga sa php artisan serve, server će biti pokrenut.
- <img src="courses/lara/images/http.png"> 
- Kada http://127.0.0.1:8000 kopirate u pretraživac, vaša prva Laravel aplikacija će biti pokrenuta.
- 
+
+<h2>Struktura fajlova radnog okvira Laravel</h2>
+
+<br>Glavni folder koji je kreiran u komandnom prozoru podrazumevano sadrži mnoštvo foldera. Najbitniji i često korišćeni folderi pri izradi aplikacija su:
+<ul>
+<li>
+app - u njemu se nalazi logika aplikacije i tu se nalazi osnovni ko&#770d razvijene aplikacije koji se nalazi u kontrolerima i modelima,
+</li>
+<li>config - sadrži konfiguracijske datoteke aplikacije,</li>
+<li>database - sadrži u sebi sve migracijske fajlove,</li>
+<li>public - sadrži sve medijske fajlove i fajlove pisane u jeziku CSS i JavaScript,</li>
+<li>resources - u ovom folderu se nalaze svi fajlovi u kojima su definisani izgledi veb stranica koji će nakon svih potrebnih povezivanja korisnik moći da vidi
+
+ i svi fajlovi se imenuju sa nazivFajla.blade.php,</li>
+<li>routes - u ovom folderu, u fajlu web.php su sve definisane rute aplikacije,</li>
+<li>.env fajl - zadužen za konekciju sa bazom podataka.</li>
+
+</ul>
+U lekcijama će više puta biti naglašeno gde se čuvaju fajlovi koji će biti korišćeni za izradu aplikacija.
+
+
+
+
 <br>

@@ -1,0 +1,43 @@
+<h1>Brisanje podataka iz baze</h1>
+
+<br>
+
+U fajlu index.blade.php gde su u tabeli prikazani podaci iz baze treba dodati dugmiće za brisanje. ko&#770d za brisanje dugmića prikazan je u nastavku.
+
+<xmp class = "primer_ta">
+<td><form method="post" class="delete_form" action="{{action('StudentController@destroy', $row['id'])}}">
+      {{csrf_field()}}
+      <input type="hidden" name="_method" value="DELETE" />
+      <button type="submit" class="btn btn-danger">Delete</button>
+     </form></td>
+</xmp>
+
+Ovo dugme poziva funkciju destroy koja kao argument prima id, zatim pronalazi podatak u bazi po id i briše ga. Kao i funkcija update, tako se i funkcija destroy poziva 
+
+metodom koja nije POST ili GET. Funkcija destroy se poziva metodom DELETE. Kako forma ne vidi nijednu drugu metodu osim POST i GET, ovde je opet neophodno skrivenim 
+
+poljem proslediti metodu DELETE kao vrednost polja _method. Da bi se izbrisao podatak iz baze, najpre ga treba pronaći po primarnom ključu, a zatim se može primeniti 
+
+metoda destroy. U funkciji destroy u kontroleru treba napisati ko&#770d koji je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+$student = Student::find($id);
+        $student->delete();
+return redirect()->route('student.index')->with('success', 'Data Deleted');
+</xmp>
+
+Funkcija destroy, kao i funkcija update metodom with šalju poruke o izvršenoj izmeni u bazi, bilo da je to izmena podataka ili brisanje podataka. Poruka se nalazi u sesiji. 
+
+Da bi se poruka ispisala, treba u fajlu index.blade.php fajlu dodati deo koda koji proverava da li ima poruke u sesiji. Ko&#770d je prikazan u nastavku.
+
+<xmp class = "primer_ta">
+@if($message =        Session::get('success'))
+  <div class="alert alert-success">
+  <p>{{$message}}</p>
+  </div>
+@endif
+</xmp>
+
+Zaključno sa brisanjem podataka je kompletiran rad sa podacima u bazi. 
+
+<br>
