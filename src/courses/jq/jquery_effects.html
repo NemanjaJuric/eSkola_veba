@@ -1,0 +1,381 @@
+<h1>Efekti biblioteke jQuery</h1>
+biblioteka sadrži i metode za animiranje veb stranica, to su uglavnom animacije koje se najčešće primenjuju na stranice.
+U ovom kursu ćemo da prođemo kroz većinu Jquery metoda za animiranje.
+
+<br>
+<div>
+<p>Pre nego prikažemo primere iz oblasti animaranje jQuery biblioteke, objasnimo tri najčešća parametra koja se mogu proslediti gotovo svim funkcijama za animaciju:</p>
+<ul>
+<li>trajanje – izražava se brojem koji se odnosi na broj milisekundi i predstavlja vreme za koje će se animacija izvršiti. Postoje i tri predefinisane string vrednosti: slow, normal i fast. Slow predstavlja vreme od 600 milisekuni, normal predstavlja vreme od 400 milisekundi i, konačno, fast predstavlja vreme od 200 milisekundi.</li>
+<li>stil animacije – izražava se sa dve string vrednosti i to linear i swing. Predstavlja vreme animacije u određenim momentima pa tako se swing odnosi na pomeranje koje je u startu i na kraju izvođenja animacije sporije nego na sredini, dok se linear odnosi na pomeranje koje je u svim trenucima isto.</li>
+<li>funkcija sa povratnim pozivom – predstavlja funkciju koja se izvršava nakon što je animacija završena.</li>
+</ul>
+</div>
+<h2 style="color:orange"> Efekti</h2>
+
+<ul style="color:blue"> 
+
+<li> .animate(svojstva, trajanje, stil animacije, funkcija sa povratnim pozivom) -<span style="color:gray"> Aktivira standarnu animaciju nad elementom sa prosleđenim svojstvima</span>
+<xmp class="primer_ta" rows=35 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+ $(document).ready(function(){
+   $("#desno").click(function() {
+     $("#kutija").animate(
+            {"left": "+=50px"},
+            "slow");
+   });
+   $("#levo").click(function() {
+     $("#kutija").animate(
+            {"left": "-=50px"},
+            "slow");
+   });
+ });
+</script>
+<style>
+  #kutija{
+    background:#98bf21;
+    height:100px;
+    width:100px;
+    margin:6px;
+    position:absolute;
+    left:100px
+  }
+</style>
+</head>
+<body>
+  <p>Primer u kom uz pomoć animate metode pomeramo element levo i desno.</p>
+  <br/>
+  <input type="button" id="levo" value="Levo"/>
+  <input type="button" id="desno" value="Desno"/>
+  <div id="kutija"></div>
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .delay()- <span style="color:gray">Delay metoda postavlja vreme kašnjenja za aktiviranje animacije odabranog elementa.</span>
+<xmp class="primer_ta" rows=33 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").delay(800).animate({width: "300px"});
+    $("#div2").delay("fast").fadeIn();
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Primer sa različitim brzinama delay() metoda.</p>
+<button>Klikni za animacije sa različitim brzinama</button>
+<br><br>
+
+<div id="div1" style="width:90px;height:90px;background-color:black;"></div><br>
+<div id="div2" style="width:90px;height:90px;display:none;background-color:green;"></div><br>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .fadeOut(trajanje, stil animacije, funkcija sa povratnim pozivom)- <span style="color:gray">Aktivira animaciju u kojoj izabrani element postepeno nestane.</span>
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $(".dugme").click(function(){
+        $("p").fadeOut()
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>Primer u kom paragraf postepeno nestane.</p>
+<br>
+<br>
+<p style="background-color:orange; color:white">Milutin Milanković</p>
+
+<button class="dugme">Fade out</button>
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .fadeIn(trajanje, stil animacije, funkcija sa povratnim pozivom)- <span style="color:gray"> Aktivira animaciju u kojoj se nestali element postepeno pojavi.</span>
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $(".dugme").click(function(){
+        $("p").fadeIn()
+    });    
+});
+</script>
+</head>
+<body>
+<br>
+<br>
+<p>Primer u kom se nestali paragraf postepeno pojavljuje.</p>
+<br>
+<br>
+<p style="background-color:orange; color:white; display:none"> Jovan Jovanović Zmaj</p>
+
+<button class="dugme">Fade in</button>
+</body>
+</html>
+
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li>.fadeTo()-<span style="color:gray">Aktivira animaciju promene providnosti elementa. </span>
+<xmp class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#kutija1").fadeTo(1000, 0.4);
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>Primer izmene providnosti div elementa.</p>
+<br>
+<br>
+<button>Postepeno izmeni providnost elementa.</button>
+<br>
+<br>
+
+<div id="kutija1" style="width:90px;height:90px;background-color:black;"></div><br>
+
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+
+
+<li>.fadeToggle(trajanje, stil animacije, funkcija sa povratnim pozivom) -<span style="color:gray">Aktivira i fadeIn i fadeOut metodu nad izabranim elementom. </span>
+<xmp class="primer_ta" rows=34 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#kutija1").fadeToggle();
+        $("#kutija2").fadeToggle("slow");
+        $("#kutija3").fadeToggle(3000);
+    });
+});
+</script>
+</head>
+<body>
+
+<p>Primer fadeToggle() metoda sa različitim brzinama.</p>
+
+<button>Klikni da na svaku kutiju primeniš i fadeIn i fadeOut.</button><br><br>
+
+<div id="kutija1" style="width:80px;height:80px;background-color:red;"></div>
+<br>
+<div id="kutija2" style="width:80px;height:80px;background-color:green;"></div>
+<br>
+<div id="kutija3" style="width:80px;height:80px;background-color:blue;"></div>
+
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+
+<li> .hide(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animaciju u kojoj izabrani element naglo nestane.</span>
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $(".dugme").click(function(){
+        $("p").hide()
+    });
+    
+});
+</script>
+</head>
+<body>
+<br>
+<p>Primer u kome paragraf naglo nestane.</p>
+<br>
+<br>
+<p style="background-color:orange; color:white;"> Mika Antić</p>
+
+<button class="dugme">Sakrij element!</button>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+<li>.show(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animaciju u kojoj se sakriveni element naglo pojavi.</span>
+<xmp class="primer_ta" rows=22 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $(".dugme").click(function(){
+        $("p").show()
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>Primer u kome se skriveni paragraf naglo pojavi.</p>
+<br>
+<br>
+<p style="background-color:orange; color:white; display:none"> Mihajlo Pupin</p>
+
+<button class="dugme">Prikaži element!</button>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .slideDown(trajanje, stil animacije, funkcija sa povratnim pozivom) i .slideUp(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animacije gde se element sklizne ka dole odnosno gore.</span>
+<xmp class="primer_ta" rows=27 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $(".dugme1").click(function(){
+        $("p").slideUp();
+    });
+    $(".dugme2").click(function(){
+        $("p").slideDown();
+    });
+});
+</script>
+</head>
+<body>
+<br>
+<p>Primer u kom paragraf nestaje "klizeći" ka gore i pojavljuje se "klizeći" ka dole  .</p>
+<br>
+<br>
+<p style="background-color:orange; color:white"> Nikola Tesla</p>
+
+<button class="dugme1">Slide up</button>
+<button class="dugme2">Slide down</button>
+
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+
+<li> .slideToggle(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray"> Aktivira i slideUp i slideDown metodu nad izabranim elementom.</span>
+<xmp class="primer_ta" rows=34 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#kutija1").slideToggle();
+        $("#kutija2").slideToggle("slow");
+        $("#kutija3").slideToggle(3000);
+    });
+});
+</script>
+</head>
+<body>
+
+<p>Primer slideToggle() metoda sa različitim brzinama.</p>
+
+<button>Klikni da na svaku kutiju primeniš i slideUp i slideDown.</button><br><br>
+
+<div id="kutija1" style="width:80px;height:80px;background-color:red;"></div>
+<br>
+<div id="kutija2" style="width:80px;height:80px;background-color:green;"></div>
+<br>
+<div id="kutija3" style="width:80px;height:80px;background-color:blue;"></div>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+<li> .stop()-<span style="color:gray">Zaustavlja animaciju koja se trenutno primenjuje nad izabranim elementom.</span>
+<xmp class="primer_ta" rows=28 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js "></script>
+<script> 
+$(document).ready(function(){
+    $("#start").click(function(){
+        $("div").animate({width: 300}, 3000);
+    });
+    $("#stop").click(function(){
+        $("div").stop();
+    });
+});
+</script> 
+</head>
+<body>
+<br>
+<p>Primer animiranja širine div elementa klikom na dugme "Počni animaciju" i naglog zaustavljanja animacije klikom na dugme "Zaustavi animaciju".</p>
+<br>
+<br>
+<p>
+<button id="start">Počni animaciju</button>
+<button id="stop">Zaustavi animaciju</button>
+</p>
+
+<div style="background:#98bf21;height:100px;width:100px"></div>
+ 
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
+</ul>

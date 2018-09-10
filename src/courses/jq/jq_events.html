@@ -3,9 +3,10 @@
 Najvažnije JQuery događaje možemo da podelimo u sledeće grupe:
 <ul>
 	<li>Događaji pregledača</li>
-	<li>Događaji učitavanja dokumenta</li>
+	<li>Događaji formulara</li>
 	<li>Događaji tastature</li>
 	<li>Događaji miša</li>
+	<li>Događaji učitavanja dokumenta</li>
  </ul>
  <br/>
  <h2 style="color:orange">Događaji pregledača</h2>
@@ -16,7 +17,7 @@ Najvažnije JQuery događaje možemo da podelimo u sledeće grupe:
 <!DOCTYPE html> 
 <html> 
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script> 
 	$(document).ready(function(){ 
 	$("div").error(function(){
@@ -44,7 +45,7 @@ Najvažnije JQuery događaje možemo da podelimo u sledeće grupe:
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	x = 0;
 	$(document).ready(function(){
@@ -69,7 +70,7 @@ Najvažnije JQuery događaje možemo da podelimo u sledeće grupe:
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	x = 0;
 	$(document).ready(function(){
@@ -99,14 +100,14 @@ Ali najveća lekcija je da najveći rezultat i najveće zadovoljstvo dolaze iz r
 		</li>
 	</ul>
 <br>
-<h2 style="color:orange">Događaji učitavanja dokumenta.</h2>
+<h2 style="color:orange">Događaji formulara.</h2>
 <ul style="color:blue">
 	<li>.change()- <span style="color:gray">  Aktivira dodgađaj nakon sto se napravi izmena nad elementom.</span>
 <xmp class="primer_ta" rows=25 disabled>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 x=0;
 $(document).ready(function(){
@@ -134,7 +135,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
 	$(document).ready(function(){
 		$("input").select(function(){
@@ -161,7 +162,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 		<script>
 		$(document).ready(function(){
 			$("input").focus(function(){
@@ -193,7 +194,7 @@ span {
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("form").submit(function(){
@@ -223,7 +224,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("input").blur(function(){
@@ -251,7 +252,7 @@ Unesite svoje ime: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("input").keydown(function(){
@@ -280,7 +281,7 @@ Unesi svoje ime: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 i = 0;
 $(document).ready(function(){
@@ -306,7 +307,7 @@ Unesi tekst: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("input").keydown(function(){
@@ -339,7 +340,7 @@ Unesi svoje ime: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("p").click(function(){
@@ -364,7 +365,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("p").dblclick(function(){
@@ -389,7 +390,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("p").hover(function(){
@@ -414,7 +415,7 @@ $(document).ready(function(){
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("input").mousedown(function(){
@@ -443,7 +444,7 @@ Klikni na polje: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $("input").mousedown(function(){
@@ -472,7 +473,7 @@ Klikni na polje: <input type="text">
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function(){
     $(document).mousemove(function(event){
@@ -496,4 +497,27 @@ $(document).ready(function(){
  <br>
 <br>
 <br>
+<br>
+<h2 style="color:orange">Događaji učitavanja dokumenta.</h2>
+<ul style="color:blue">
+<li>.ready()-<span style="color:gray">Aktivira događaj nakon što je DOM drvo spremno za manipulaciju.</span>
+<xmp class="primer_ta" rows=26 disabled>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(document).ready(function(){
+   alert("Spremno za manipulaciju!")
+});
+</script>
+</head>
+<body>
+<p>Upozorenje se prikazuje kada je DOM drvo spremno za manipulaciju!</p>
+</body>
+</html>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</li>
 <br>
