@@ -1,0 +1,55 @@
+<h1>Injektovanje zavisnosti</h1>
+Injektovanje zavisnosti  je koncept razdvajanja zavisnosti između klasa, a radni okvir Spring Framework daje podršku za taj koncept.
+<br>
+Rad na komplikovanom projektu zahteva kreiranje velikog broja klasa koje bi trebalo da budu sto više nezavisne jedne od drugih. Injektovanje zavisnosti pomaže u razdvajanju koda odnosno klasa, tj. omogućava da se prilikom kreiranja nekog objekta injektuju u njega oni objekti od kojih on zavisi, tj. objekti koji su mu potrebni. Na taj način objekat koji zavisi od nekih drugih objekata nije zadužen za kreiranje svojih zavisnosti i nije vezan za konkretne implementacije tih zavisnosti.
+U sledećem primeru predstavljena je klasa Circle.
+<xmp class = "primer_ta">
+public class Circle {
+
+	private Point center;
+	private double radius;
+
+	public Circle() {
+		center = new Point();
+	}
+}
+
+</xmp>
+Kao sto se može videti, objekat klase Circle sam kreira svoj centar, objekat klase Point. Na taj način on je vezan za jedan konkretan objekat klase Point. Ovakav pristup nije poželjan jer smanjuje mogućnost ponovnog koriščenja koda, dovodi do problema prilikom testiranja, težak je za razumevanje itd. 
+<br>
+U sledećem primeru klase Circle, objekat te klase prilikom svog kreiranja nije zadužen za kreiranje svojih zavisnosti, vec su mu te zavisnosti date prilikom kreiranja. 
+<xmp class = "primer_ta">
+public class Circle {
+
+	private Point center;
+	private double radius;
+
+	public Circle(Point center) {
+		this.center = center;
+	}
+}
+
+</xmp>
+Osim injektovanja zavisnosti preko konstruktora, zavisnosti je moguće injektovati koriscenjem set metoda. One obavezne zavisnosti se moraju injektovati preko konstruktora prilikom kreiranja objekta. Zavisnosti koje su opcione je dozvoljeno injektovati preko set metoda, jer možda nisu dostupne prilikom kreiranja objekta.
+<xmp class = "primer_ta">
+public class Circle {
+
+	private Point center;
+	private double radius;
+
+	public void setCenter(Point center) {
+		this.center = center;
+	}
+}
+</xmp>
+Radni okvir Spring Framework daje podršku za koncept injektovanja zavisnosti preko tri osnovna načina povezivanja zrna:
+<ul>
+	<li>Eksplicitna konfiguracija u okviru XML datoteke</li>
+	<li>Eksplicitna Java konfiguracija</li>
+	<li>Implicitno otkrivanje zrna i njihovo povezivanje</li>
+</ul>
+
+
+
+
+

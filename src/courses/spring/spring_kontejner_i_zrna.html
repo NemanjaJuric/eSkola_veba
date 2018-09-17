@@ -1,0 +1,188 @@
+<h1> Kontejner i zrna </h1> 
+<p>U osnovi radnog okvira Spring Framework nalazi se kontejner. Njegov zadatak jeste kreiranje objekata koji čine jednu aplikaciju, kao i upravljanje kompletnim životnim ciklusom tih objekata. Objekti koji žive u kontejneru, kojima upravlja Spring nazivaju se zrna.</p>
+Kontejner koristi Java POJO klase, kao i konfiguracijske podatke kako bi kreirao zrna. Kako bi kontejner mogao da upravlja zrnima, potrebno je da ima sledeće podatke:
+<ul>
+<li>Kako da kreira zrno</li>
+<li> Informacije o životnom ciklusu zrna</li>
+<li> Informacije o njegovim zavisnostima</li>
+</ul>
+<img src="courses/spring/images/spring.png" class="img-fluid img-sm">
+<br>
+<br>
+<p>Jedan od načina da kontejneru damo informacije koje su mu potrebne da bi kreirao zrna jeste korišćenjem <b>XML</b> datoteke koju je potrebno smestiti u okviru <b>src</b> direktorijuma Java projekta.  U XML datoteci informacije o zrnima čuvaju se u okviru etikete &ltbeans>, a informacije o pojedinačnim zrnima čuvaju se u okviru etikete &ltbean> , koja se nalazi u okviru etikete &ltbeans>.  U narednom primeru, atribut class u etiketi &ltbean> definiše klasu čiji objekat ce biti kreiran. Atribut id na jedinstven način određuje zrno. </p>
+<xmp class = "primer_ta"> 
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <bean id = "..." class = "..."> </bean>
+
+</beans>
+</xmp>
+Kontejner u radnom okviru Spring Framework ima dve implementacije:
+<ul>
+<li> Spring BeanFactory Container - Definisan je org.springframework.beans.factory.BeanFactory interjfejsom. Daje malo funkcionalnosti i uglavnom se ne koristi. </li>
+<li> Spring ApplicationContext Container - Definisan je org.springframework.context.ApplicationContext interfejsom. Ima iste funkcionalnosti kao i Spring BeanFactory Container, ali i neke dodatne, pa se iz tog razloga više koristi.</li>
+</ul>
+<h2> Kreiranje kontejnera i dohvatanje zrna </h2>
+U narednom primeru prikazana je klasa Student koja ima tri polja - id, firstName, lastName.
+
+<xmp class = "primer_ta">
+public class Student {
+
+    private int index;
+    private String firstName;
+    private String lastName;
+
+    public String toString() {
+
+      return "index: " + index + ", firstName:  " + firstName + ", lastName: " + lastName;
+    }
+
+}
+</xmp>
+Kako bi kontejner kreirao objekat klase Student, potrebe informacije nalaze se u okviru XML datoteke.
+<xmp class = "primer_ta">
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="student" class="Student">
+        <property name="index" value="20171047"/>
+        <property name="firstName" value="Stevan"/>
+        <property name="lastName" value="Zaric"/>
+    </bean>
+</beans>
+
+</xmp>
+Etiketa &ltproperty> u okviru etikete &lt bean>  ima atribute name i value i služi za dodelu vrednosti poljima klase Student.
+<br>
+U okviru main metode prvo se kreira kontejner koji pravi objekat klase Student ciji se podaci nalaze u XML datoteci. Zatim se pomoću metode getBean() dohvata taj objekat, a zatim se pomoću metode toString() ispisuju podaci o studentu.
+<xmp class = "primer_ta">
+
+public static void main (String [] args) { 
+
+    ApplicationContext context = new ClassPathXmlApplicationContext("Zrna.xml");
+     
+    Student student = (Student) context.getBean("student");
+    System.out.println(student.toString());
+
+}
+
+</xmp>
+<h2> Opseg zrna </h2>
+U okviru etikete &lt bean> moguće je navesti atribut scope čija vrednost predstavlja opseg zrna. Atribut scope u radnom okviru Spring moze da ima pet vrednosti:
+<ul>
+<li>singleton - samo jedno zrno u kontejneru</li>
+<li>prototype - svaki put kada se zatraži, kreira se novo zrno </li>
+<li>request - novo zrno za svaki HTTP zahtev </li>
+<li>session - novo zrno za svaku HTTP sesiju</li>
+<li>global session - novo zrno za svaku globalnu HTTP sesiju</li>
+</ul>
+
+<h3>Opseg singleton</h3>
+U narednom primeru prikazana je klasa HelloWorld.
+<xmp class = "primer_ta">
+public class HelloWorld {
+
+    private String message;
+
+    public void setMessage(String message)  {
+      this.message  = message;
+    }
+   
+    public void getMessage()  {
+      System.out.println("Your Message : " + message);
+    }
+
+}
+</xmp>
+XML konfiguracija nalazi se u datoteci Zrna.xml. Atribut scope ima vrednost prototype.
+<xmp class = "primer_ta">
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id = "helloWorld" class = "HelloWorld" scope = "singleton"> </bean>
+
+</beans>
+
+</xmp>
+Main metoda:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+    ApplicationContext context = new ClassPathXmlApplicationContext("Zrna.xml");
+    HelloWorld helloWorldA = (HelloWorld)context.getBean("helloWorld");
+
+    helloWorldA.setMessage("Hello world! We enjoy programing");
+    helloWorldA.getMessage();
+
+    HelloWorld helloWorldB = (HelloWorld) context.getBean("helloWorld");
+    helloWorldB.getMessage();
+
+}
+</xmp>
+Rezultat naredbe helloWorldA.getMessage(); je: Hello world! We enjoy programming.
+<br>
+Rezultat naredbe helloWorldA.getMessage(); je: null.
+<h3>Opseg prototype</h3>
+Bice iskorišćena klasa HelloWorld iz prethodnog primera.
+<br>
+XML konfiguracija:
+<xmp class = "primer_ta">
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id = "helloWorld" class = "HelloWorld" scope = "prototype"> </bean>
+
+</beans>
+
+</xmp>
+Main metoda:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+    ApplicationContext context = new ClassPathXmlApplicationContext("Zrna.xml");
+    HelloWorld helloWorldA = (HelloWorld)context.getBean("helloWorld");
+
+    helloWorldA.setMessage("Hello world! We enjoy programing");
+    helloWorldA.getMessage();
+
+    HelloWorld helloWorldB = (HelloWorld) context.getBean("helloWorld");
+    helloWorldB.getMessage();
+
+}
+</xmp>
+Rezultat naredbe helloWorldA.getMessage(); je: Hello world! We enjoy programming.
+<br>
+Rezultat naredbe helloWorldA.getMessage(); je: Hello world! We enjoy programming.

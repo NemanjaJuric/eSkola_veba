@@ -1,0 +1,190 @@
+<h1>Upravljanje događajima</h1>
+
+Osim što upravlja kompletnim životnim ciklusom zrna, ApplicationContext može da objavljuje događaje. 
+<br>
+Upravljanje događajima omogućavaju klasa ApplicationEvent i interfejs ApplicationListener. Ukoliko zrno implementira interfejs ApplicationListener, svaki put kada se objavi neki događaj, zrno će dobiti informaciju o tom događaju. 
+<br>
+Spring pruža sledeće standardne događaje:
+<ul>
+	<li> <b>ContextRefresedEvent</b> - objavljuje se svaki put kada je ApplicationContext inicijalizovan ili osvežen</li>
+	<li> <b>ContextStartedEvent</b> - objavljuje se kada je ApplicationContext pokrenut korišćenjem metode start()</li>
+	<li> <b>ContextStoppedEvent</b> - objavljuje se kada je ApplicationContext zaustavljen korišćenjem metode stop()</li>
+	<li> <b>ContextClosedEvent</b> - objavljuje se kada je ApplicationContext zatvoren korišćenjem metode close()</li>
+	<li> <b>RequestHandledEvent</b> - objavljuje se kada je izvršen HTTP zahtev</li>
+</ul>
+Da bi bilo registrovano na događaj zrno treba da implementira interfejs ApplicationListener, koji ima jednu metodu onApplicationEvent().
+<br>
+U narednom primeru prikazana je klasa Student, kao i klase ContextStartedHandler i ContextClosedHandler koje implementiraju interfejs ApplicationListener. 
+<br>
+Klasa Student:
+<xmp class = "primer_ta">
+public class Student {
+	
+	private int index;
+	private String firstName;
+	private String lastName;
+
+	public String introduce() {
+
+		return "Hello, my name is " + firstName;
+	}
+
+}
+</xmp>
+
+Klasa ContextStartedHandler:
+<xmp class = "primer_ta">
+public class ContextStartedHandler implements ApplicationListener<ContextStartedEvent> {
+
+	public void onApplicationEvent(ContextStartedEvent event) {
+
+		System.out.println("Hello student!");
+   }
+
+}
+</xmp>
+Klasa ContextClosedHandler:
+<xmp class = "primer_ta">
+public class ContextClosedHandler implements ApplicationListener<ContextStartedEvent> {
+
+	public void onApplicationEvent(ContextStartedEvent event) {
+
+		System.out.println("Goodbye student!");
+   }
+}
+</xmp>
+Konfiguracijske podatke potrebno je navesti u okviru XML datoteke:
+<xmp class = "primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="student" class="Student" 
+		<property name="firstName" value="Stevan" />
+	</bean>
+	<bean id="contextStartedHandler" class="ContextStartedHandler"</bean>
+	<bean id="contextClosedHander" class="ContextStartedHandler"</bean>
+</beans>
+</xmp>
+Primer main metode:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+    ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+    context.start();
+	  
+    Student student = (Student) context.getBean("student");
+    student.introduce();
+
+    context.stop();
+}
+</xmp>
+Rezultat main metode je sledeći:
+<br>
+Hello student!
+<br>
+Hello, my name is Stevan!
+<br>
+Goodbye student!
+<br>
+<h2>Kreiranje događaja</h2>
+Da bi se kreirao događaj potrebno je sledeće:
+<br>
+<ul>
+	<li>napisati klasu koja nasleđuje klasu ApplicationEvent i koja predstavlja događaj</li>
+	<li>napisati klasu koja implementira interfejs ApplicationEventPublisherAware koji ima metodu setApplicationEventPublisher() kako bi događaj bio objavljen</li>
+	<li>napisati klasu koja implemetira interfejs ApplicationEventListener koji ima metodu onApplicationEvent() koja se izvršava kada se događaj objavi</li>
+</ul>
+<br>
+U narednom primeru prikazane su sve klase koje su potrebne da bi događaj bio uspešno kreiran i objavljen.
+<br>
+<br>
+Klasa MyEvent:
+<xmp class = "primer_ta">
+public class MyEvent extends ApplicationEvent{
+
+   public MyEvent(Object source) {
+      super(source);
+   }
+   public String toString(){
+      return "This is my event";
+   }
+}
+</xmp>
+Klasa MyEventPublisher:
+<xmp class = "primer_ta">
+public class MyEventPublisher implements ApplicationEventPublisherAware {
+
+   private ApplicationEventPublisher publisher;
+   
+   public void setApplicationEventPublisher (ApplicationEventPublisher publisher) {
+      this.publisher = publisher;
+   }
+
+   public void publish() {
+      MyEvent myEvent = new MyEvent(this);
+      publisher.publishEvent(myEvent);
+   }
+}
+</xmp>
+Klasa MyEventPublisher ima polje tipa ApplicationEventPublisher. ApplicationEventPublisher je klasa koja ima metodu publishEvent() koja prima događaj koji će biti objavljen.
+<br>
+<br>
+Klasa MyEventHandler:
+<xmp class = "primer_ta">
+public class MyEventHandler implements ApplicationListener<MyEvent> {
+
+   public void onApplicationEvent(MyEvent event) {
+      System.out.println(event.toString());
+   }
+}
+</xmp>
+U okviru XML datoteke nalaze se konfiguracijski podaci:
+<xmp class = "primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="myEventPublisher" class="MyEventPublisher"</bean>
+	<bean id="myEventHandler" class="MyEventHandler"</bean>
+</beans>
+</xmp>
+</xmp>
+Main metoda:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+    ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+	  
+      MyEventPublisher publisher = (MyEventPublisher) context.getBean("MyEventPublisher");
+      
+      publisher.publish();  
+      publisher.publish();
+   }
+</xmp>
+Rezultat main metode:
+<br>
+This is my event!
+<br>
+This is my event!
+
+
+
+
+
+
+

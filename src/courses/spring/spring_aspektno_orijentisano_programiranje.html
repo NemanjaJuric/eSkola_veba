@@ -1,0 +1,44 @@
+<h1>Aspektno orijentisano programiranje</h1>
+Jedna od ključnih komponenti radnog okvira Spring Framework jeste i Aspektno orijentisano programiranje.
+<br> 
+<br>
+Aspektno orijentisano programiranje je koncept koji omogućava da neke funkcionalnosti koje prožimaju celu aplikaciju izdvojimo na jedno mesto i da ne opterećujemo metode kojima to nije primarni zadatak. Neki od primera tih funkcionalnosti su sigurnost, logovanje, transakcije, keširanje itd. Te funkcionalnosti se definišu u okviru posebnih klasa koje se zovu aspekti. 
+<br>
+<br>
+Dakle, potrebno je ovakve funkcionalnosti odvojiti od biznis logike same aplikacije. Jedan od primera za razumevanje ovog koncepta može biti sledeći: U okviru jedne aplikacije postoje dva tipa korisnika – admin i klijent. Kada se korisnik uspešno uloguje, pravi se zrno u kontejneru koje predstavlja tog korisnika. Potrebno je omogućiti da se dozvoli poziv neke metode samo ako je trenutno ulogovani korisnik admin. U okviru posebne metode koja će se izvršiti pre, od kontejnera se može zatražiti zrno koje predstavlja trenutno ulogovanog korisnika. Samo u slučaju da je ulogovani korisnik admin, dozvoliće se poziv tražene metode. 
+<br>
+<br>
+Ovakvim pristupom izbegnuto je ponavaljanje koda koje obavlja istu vrstu posla, a metode obavljaju samo svoje primarne zadatke.
+<br> Jedan od načina za rešavanje ovog problema bi bio kreiranje klase koja sadrži funkcionalnosti koje su zajedničke za mnoge delove aplikacije, a zatim da tu klasu nasleđuju sve druge klase kojima su te funkcionalnosti potrebne. Međutim, ovakav pristup ne bi bio dobar jer programski jezik Java ne podržava višestruko nasleđivanje, pa ukoliko je potrebno da te klase nasleđuju i neke druge klase, to ne bi bilo moguće. 
+<br>
+Dakle, aspektno orijentisano programiranje omogućava da se definiše kada i gde će te funkcionalnosti biti primenjene bez potrebe za modifikacijom klasa na koje se primenjuju. 
+<br>
+<br>
+<b>Neki od osnovnih termina u Aspektno orijentisanom programiranju</b>
+<ul>
+	<li>Aspect –  funkcionalnost koja prožima celu aplikaciju i ne predstavlja biznis logiku aplikacije</li>
+	<li>Join point – mesto u aplikaciji na kom se primenjuje neki aspekt (npr. izbacivanje izuzetka, promena vrednosti polja) </li>
+	<li>Advice – posao koji obavlja aspekt. Definiše koja akcija se biti izvršena, kao i kada će ta akcija biti izvršena</li>
+	<li>Pointcut – konkretno mesto u aplikaciji na kome se primenjuje aspekt (npr. izvršavanje jedne konkretne metode) </li>
+</ul>
+<b>Advice tipovi</b>
+<ul>
+	<li>Before – izvršava se pre poziva neke metode</li>
+	<li>After – izvršava se nakon poziva neke metode bez obzira da se metoda uspešno izvršila</li>
+	<li>AfterReturning – izvršava se samo ako se metoda uspešno izvršila</li>
+	<li>Afterthrowing – izvršava se samo ako se metoda završila izbacivanjem izuzetka</li>
+	<li>Around – izvršava se pre i posle poziva metode</li>
+</ul>
+<br>
+Radni okvir Spring Framework daje podršku za Aspektno orijentisano programiranje i omogućava dva načina za definisanje aspekata:
+<ul>
+	<li>Eksplicitna XML konfiguracija</li>
+	<li>Eksplicitna Java konfiguracija</li>
+</ul>
+<br>
+Radni okvir Spring koristi neke anotacije i klase radnog okvira AspectJ koji takođe daje podršku za Aspektno orijentisano programiranje, pa je potrebno preuzeti AspectJ JAR fajlove i dodati ih u Eclipse projekat.
+<br>
+AspectJ JAR fajlove moguće je preuzeti sa stranice <a href="http://www.eclipse.org/aspectj/downloads.php" target="_blank"> http://www.eclipse.org/aspectj/downloads.php</a>, a u Eclipse projekat dodaju se na isti način kao i Spring JAR fajlovi. 
+<br>
+<br>
+<img src="courses/spring/images/aspectj.png" class="img-fluid img-sm">

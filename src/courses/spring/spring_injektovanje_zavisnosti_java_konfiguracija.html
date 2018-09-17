@@ -1,0 +1,139 @@
+<h1>Injektovanje zavisnosti - Java konfiguracija</h1>
+U prethodnoj lekciji predstavljen je način povezivanja zrna korišćenjem XML konfiguracije. Međutim, radni okvir Spring Framework daje mogućnost kreiranja kontejnera i zrna korišćenjem čistog Java koda. U ovom slučaju nije potrebno kreirati XML datoteku, već se informacije o zrnima koji ce biti kreirani od strane kontejnera nalaze u klasi koja ima anotaciju @Configuration. Da bi se deklarisalo zrno, u okviru klase sa anotacijom @Configuration potrebno je napisati metod koji vraća objekat koji će biti registrovan kao zrno. Taj metod treba da ima anotaciju @Bean.
+<br>
+Na osnovu @Bean anotacije Spring zna da objekat koji taj metod vraća treba da bude registrovan kao zrno u Spring kontejneru. 
+<br>
+Jedna od implementacija ApplicationContext interfejsa jeste i klasa AnnotationConfigApplicationContext pomoću koje ce biti kreiran kontejner baziran na Java konfiguraciji. 
+<br>
+Primer klase koja ima @Configuration anotaciju:
+<xmp class = "primer_ta">
+@Configuration
+public class StudentConfig {
+
+	@Bean
+	public Student student() {
+
+		return new Student();
+   }
+}
+
+</xmp>
+Prethodna kofiguracija ekvivalentna je sledećoj XML kofiguraciji:
+<xmp class = "primer_ta">
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id = "student" class = "Student"> </bean>
+
+</beans>
+
+</xmp>
+Klasa Student može da ima sledeći oblik:
+<xmp class = "primer_ta">
+
+public class Student {
+
+	private int index;
+	private string firstName;
+	private String lastName;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+}
+
+</xmp>
+Primer main metode:
+<xmp class = "primer_ta">
+
+public static void main(String[] args) {
+
+   	ApplicationContext context = new AnnotationConfigApplicationContext(StudentConfig.class);
+   
+   	Student student  = (Student)context.getBean(“student”);
+  	student.setFirstName("Stevan");
+   	student.getFirstName();
+}
+
+</xmp>
+Rezultat naredbe student.getFirstName();  je: Stevan
+<br>
+<h2>Povezivanje zrna</h2>
+Za ilustraciju povezivanja zrna korišćenjem Java kofiguracije prikazane su klase Copier i Printer. 
+<br>
+Klasa Copier:
+<xmp class = "primer_ta">
+
+public class Copier{
+	
+	private Printer printer;
+	
+	public Copier(Printer Printer) {
+		this.printer = printer;
+	}
+	
+	public void print() {
+		printer.startPrinting();
+	}
+	
+}
+
+</xmp>
+Klasa Printer:
+
+<xmp class = "primer_ta">
+
+public class Printer {
+	
+	public void startPrinting() {
+
+		System.out.println("Printer is ready for printing");
+	}
+	
+}
+
+</xmp>
+Konfiguracijska klasa:
+<xmp class = "primer_ta">
+
+@Configuration
+public class CopierConfig {
+	
+	@Bean
+	public Copier copier() {
+		return new Copier(printer());
+	}
+	@Bean
+	public Printer printer() {
+		return new Printer();
+	}
+}
+
+</xmp>
+
+Primer main metode:
+<xmp class = "primer_ta">
+
+public static void main(String[] args) {
+
+   	ApplicationContext context = new AnnotationConfigApplicationContext(CopierConfig.class);
+   
+   	Copier copier  =  (Copier)context.getBean(“copier”);
+  	copier.print();
+}
+
+</xmp>
+
+Rezultat naredbe copier.print(); je: Printer is ready for printing. 

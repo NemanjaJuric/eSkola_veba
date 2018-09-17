@@ -1,0 +1,123 @@
+<h1>Definisanje aspekata - AspectJ anotacije</h1>
+
+U narednom primeru predstavljena je klasa Passengers. Anotacije @Aspect, @Before, @AfterReturning i @AfterThrowing jesu anotacije radnog okvira AspectJ.
+
+<xmp class = "primer_ta">
+@Aspect
+public class Passengers {
+	
+	@Before("execution(fly())")
+	public void takeSeats() {
+
+		System.out.printlin("Dear passegers, take your seats!");
+	}
+
+	@AfterReturning("execution(fly())")
+	public void clap() {
+
+		System.out.printlin("Airplane landed. Passengers: clap, clap, clap!!!");
+	}
+
+	@AfterThrowing("execution(fly())")
+	public void crashing() {
+		System.out.printlin("Airplane crashed");
+	}
+}
+</xmp>
+<br>
+Ova klasa ima anotaciju @Aspect, što znači da ta klasa nije obična Java klasa, vec predstavlja jedan aspekt. Klasa ima tri metode sa anotacijama @Before, @AfterReturning i @AfterThrowing, koje označavaju kada će te metode biti pozvane. Svakoj od te tri anotacije dodeljen je jedan pointcut, u ovom slučaju izvršavanje metode fly() sledeće klase Airplane:
+<br>
+<xmp class = "primer_ta">
+
+public class Airplane {
+	
+	public void fly() {
+		System.out.println("Airplane is flying!")
+	}
+}
+</xmp>
+
+<br>
+Dva su načina za kreiranje zrna klasa Passengers i Airplane u Spring kontejneru.
+<ul>
+	<li>Java konfiguracija</li>
+	<li>XML konfiguracija</li>
+</ul>
+<h2>Java konfiguracija</h2>
+Zrna se deklarišu u klasi koja treba da ima anotacije @Configuration i @EnableAspectJAutoProxy.
+<xmp class = "primer_ta">
+@Configuration
+@EnableAspectJAutoProxy
+public class ConfigClass {
+	@Bean
+	public Passengers passengers() {
+		return new Passengers();
+	}
+
+	@Bean
+	public Airplane airplane() {
+		return new Airplane();
+	}
+
+}
+</xmp>
+<br>
+Main metoda:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+   	ApplicationContext context = new AnnotationConfigApplicationContext(ConfigClass.class);
+   
+   	Airplane airplane  =  (Airplane)context.getBean(“airplane”);
+  	airplane.fly();
+}
+</xmp>
+Rezultat naredbe airplane.fly(); je:
+<br>
+<br>
+			Dear passengers, take your seats! <br>
+			Airplane is flying! <br>
+			Airplane landed. Passengers: clap, clap, clap!!!
+<br>
+<br>
+Dakle, pre izvršavanja metode fly() poziva se metoda takeSeats(), a nakon izvršavanja metode fly() poziva se metoda clap().
+<br>
+<h2>XML konfiguracija</h2>
+Ukoliko se koristi XML konfiguracija za kreiranje i povezivanje zrna u Springovom kontejneru potrebno je da odgovarajuća XML datoteka sadrzi etiketu &ltaop:aspectj-autoproxy>. 
+Za primer klasa Passengers i Aiplane XML datoteka treba da ima sledeći oblik:
+<br>
+<xmp class = "primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+<aop:aspectj-autoproxy />
+	<bean class="passengers" />
+	<bean class="airplane" />
+</beans>
+</xmp>
+
+Main metoda:
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+   	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+   
+   	Airplane airplane  =  (Airplane)context.getBean("airplane");
+  	airplane.fly();
+}
+</xmp>
+Rezultat naredbe airplane.fly(); je:
+<br>
+<br>
+			Dear passengers, take your seats! <br>
+			Airplane is flying! <br>
+			Airplane landed. Passengers: clap, clap, clap!!!
+<br>

@@ -1,0 +1,107 @@
+<h1>Definisanje aspekata - XML konfiguracija</h1>
+Ovaj način definisanja aspekata zahteva pisanje AOP konfiguracije u okviru XML datoteke. 
+<br>
+Koriste se sledeće etikete:
+<ul>
+	<li>&ltaop:config> - definiše se kompletna kofiguracija aspekta</li>
+	<li> &ltaop:aspect> - definiše aspekt</li>
+	<li> &ltaop:before> - definiše se advice tipa before</li>
+	<li> &ltaop:atfer> - definiše se advice tipa after</li>
+	<li> &ltaop:after-returning> - definiše se advice tipa after-returning</li>
+	<li> &ltaop:after-throwing> - definiše se advice tipa after-throwing</li>
+	<li> &ltaop:around> - definiše se advice tipa around</li>
+	<li> &ltaop:poincut> - definiše se pointcut</li>
+</ul>
+
+U narednom primeru predstavljena je klasa IdentityCardTaker koja će biti definisana kao aspekt u okviru XML datoteke, kao i klasa ValidityChecker na koju će taj aspekt biti primenjen.
+<br>
+<xmp class = "primer_ta">
+public class IdentityCardTaker {
+	
+	public void leaveIC() {
+		System.out.println("Leave your identity card!");
+	}
+
+	public void takeIC() {
+		System.out.println("Take your identity card!");
+	}
+
+}
+</xmp>
+<xmp class = "primer_ta">
+public class ValidityChecker {
+	
+	public void check() {
+
+		System.out.println("Checking validity!");
+	}
+
+}
+</xmp>
+<br>
+Pre poziva metode check() biće izvršena metoda leaveIC(), a nakon metode check() biće pozvana metoda takeIC(). Da bi se to postiglo, odgovarajuća XML datoteka treba da ima sledeći oblik. 
+<br>
+<xmp class = "primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation=
+"http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="identityCardTaker" class="IdentityCardTaker"> </bean>
+	<bean id="validityChecker" class="ValidityChecker"> </bean>
+<aop:config>
+	<aop:aspect ref="identityCardTaker">
+	<aop:before pointcut="execution(check())" method="leaveIC"/>
+	<aop:after pointcut="execution(check())" method="takeIC"/>
+	</aop:aspect>
+</aop:config>
+</beans>
+</xmp>
+
+Main metoda:
+<br>
+<xmp class = "primer_ta">
+public static void main(String[] args) {
+
+   	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+   
+   	ValidityChecker validityChecker  =  (ValidityChecker)context.getBean(“airplane”);
+  	validityChecker.check();
+}
+</xmp>
+<br>
+Rezultat naredbe validityChecker.check(); je:
+<br>
+Leave your identity card!
+<br>
+Checking validity!
+<br>
+Take your identity card!
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
