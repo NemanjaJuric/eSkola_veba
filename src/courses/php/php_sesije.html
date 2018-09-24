@@ -12,7 +12,7 @@ Klijentski veb pregledač potom skladišti kolačić i umeće njegovu vrednost u
 Datoteke sesija se smeštaju u direktorijum /tmp, a ime datoteke se sastoji od ID sesije i prefiksa sess_ . Primer imena datoteke je: <br>
 <span class="primer_text">sess_242c489fb4a1bc79f5cf365988167e4d</span><br>
 Na slici je prikazana razmena podataka između pregledača i servera, kada se prvi zahtev pošalje aplikaciji.
-<img src="sesija.png" class="img-fluid" img-md>
+<img src="courses/php/sesija.png" class="img-fluid" img-md>
 <h2>Rad sa sesijama</h2>
 Rad sa sesijama obuhvata započinjanje sesije, rad sa sesijskim promenljivama i na
 kraju okončavanje sesije. Za započinjanje nove sesije ili učitavanje postojeće sesije koristi se funkcija <span class="primer_text">session_start</span>.<br>
@@ -53,9 +53,9 @@ echo "Ova stranica je vidjena " . $_SESSION["views"] . " puta";
 </xmp>
 <button class="button_copy">Vidi primer</button>
 Pri prvom učitavanju stranice dobija se sledeći rezultat:
-<img src="pregled1.png" class="img-fluid" img-md>
+<img src="courses/php/pregled1.png" class="img-fluid" img-md>
 Nakon osvežavanja (engl. <i>refresh</i>) stranice:
-<img src="pregled2.png" class="img-fluid" img-md> 
+<img src="courses/php/pregled2.png" class="img-fluid" img-md> 
 Brisanje postojeće sesijske promenljive se vrši pomoću funkcije <b>unset</b>. Jedini argument funkcije je naziv sesijske promenljive. U narednom primeru je prikazano brisanje sesijske promenljive korišćenjem funkcije <span class="primer_text">unset</span>.
 <br>
 U narednom primeru prikazano je brisanje sesijske promenljive.
