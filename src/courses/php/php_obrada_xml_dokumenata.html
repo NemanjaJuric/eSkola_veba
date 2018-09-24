@@ -1,0 +1,296 @@
+<h1>Obrada XML dokumenata</h1>
+XML (eXtensible Markup Language) je način za serijalizaciju podataka, odnosno način na koji se jednostavno i brzo mogu zapamtiti podaci (a da pri tom to nije baza podataka) i prosledimo ih nekome ko ćee ih takođe razumeti, jer se poštuju iste konvencije. Svaki XML dokument bi trebalo da poseduje deklaraciju: <br>
+<span class="primer_text"><?xml version="1.0"? encoding="UTF-8" ?></span>
+<br>
+Deklaracija sadrži osnovne podatke o dokumentu: koja verzija XML-a je u pitanju, koji kodni raspored je korišćen u dokumentu. Opciona je i deklaracija tipa dokumenta (DTD) koja označava skup pravila koja će biti poštovana tokom parsiranja dokumenta. Ova deklaracija može biti napravljena direktno u dokumentu ili učitana iz eksternog izvora. <br>
+<span class="primer_text"><!DOCTYPE film SYSTEM "test.dtd"></span>
+Nakon deklaracije sledi koreni (document) element dokumenta, i konačno, serijalizovani podaci. Konačno, cela XML struktura izgleda ovako:
+<ul>
+	<li>XML Deklaracija (XML će funkcionisati i bez deklaracije, ali je poželjno da ona postoji),</li>
+    <li>DTD Deklaracija (za kompleksnije serijalizacije),</li>
+    <li>koreni element (dokument),</li>
+    <li>elementi (lista elemenata),</li>
+    <li>element – atributi i vrednosti (stavke iz liste),</li> 
+    <li>podaci  (Podaci po stavci).</li>
+</ul>
+XML se sastoji od tagova, odnosno, od elemenata i atributa. Tag je selekcija u nekom dokumentu markirana određenim oznakama i nazivom. Ove oznake su < i >, a naziv taga može biti bilo koji tekst. <br>
+Na primer: <span class="primer_text">&ltmojTag&gt</span><br>
+Ovo je pravilno napisan tag, ali nedovoljan da zaokruži jednu celinu u XML dokumentu. Da bi neka celina bila zaokružena u XML-u, potrebna su bar dva taga. Jedan otvarajući i jedan zatvarajući, ili, eventualno, jedan "samozatvarajući" tag: <br>
+<span class="primer_text">&ltmojTag&gt&lt/mojTag&gt</span>  ili  <span class="primer_text">&ltmojTag/&gt</span> <br>
+Primer jednog XML dokumenta:
+<xmp class="primer_ta">
+<?xml version="1.0" encoding="UTF-8" ?>
+<koren>
+<drzava oznakaDrzave="sr">
+    <naziv>Srbija</naziv>
+    <glavniGrad>Beograd</glavniGrad>
+    <opis>Opis Srbije.....</opis>
+</drzava>
+<drzava oznakaDrzave ="fr">
+    <naziv>Francuska</naziv>
+    <glavniGrad>Pariz</glavniGrad>
+    <opis>Opis Francuske.....</opis>
+</država>
+</koren>
+</xmp>
+U primeru, koren je koreni element dokumenta, država predstavlja jedan element, oznakaDrzave je atribut tog elementa, a naziv, glavniGrad i opis su ugnježdeni elementi (podelementi) elementa država.
+<h2>XML parseri</h2>
+Iako XML podaci imaju lako čitljivu strukturu i pri tom jednostavnu za ručno parsiranje, kao i ostali jezici, i u programskom jeziku PHP je sve više dobrih mehanizama za rukovanje XML-om. <br>
+XML parseri se koriste za čitanje, ažuriranje, kreiranje i manipulisanje XML dokumentom. U programskom jeziku PHP postoje se 2 glavna tipa parsera:
+<ul>
+	<li>Parseri zasnovani na drvetu,</li>
+	<li>Parseri zasnovani na događajima.</li>	
+</ul>
+Parseri zasnovani na drvetu čuvaju ceo dokument u memoriji i transformišu XML dokument u strukturu drveta. Analiziraju ceo dokument i omogućavaju pristup elementima drveta (DOM). Ova vrsta parsera je bolja opcija za manje XML dokumente, ali ne i za veliki XML dokument jer izaziva velike probleme sa performansama. <br>
+Najznačajniji primeri parsera zasnovanog na drvetu su SimpleXML i DOM. <br>
+Parseri zasnovani na događajima ne drže ceo dokument u memoriji, umesto toga čitaju ih u jednom čvoru istovremeno i omogućavaju interakciju sa njim u realnom vremenu. Kada se pređe na sledeći čvor, stari se baci. Ova vrsta parsera je pogodna za velike XML dokumente. Brže parsira i troši manje memorije. <br>
+Primeri parsera zasnovanih na događajima su XMLReader i XML Expat Parser.
+<h2>SimpleXML parser</h2>
+SimpleXML je parser zasnovan na drvetu. SimpleXML nudi jednostavan način dobijanja imena elementa, atributa i tekstualnog sadržaja ako znate strukturu ili izgled XML dokumenta. <br>
+SimpleXML pretvara XML dokument u strukturu podataka kroz koju se može iterirati kao kroz kolekciju nizova i objekata.
+<h2>SimpleXML - Iščitavanje iz stringa</h2>   
+Funkcija <span class="primer_text">simple_load_string</span> se koristi za iščitavanje XML podataka iz stringa. Neka se XML dokument čuva u stringu:
+<xmp class="primer_ta">
+$XMLdokument =
+"<?xml version='1.0' encoding='UTF-8'?>
+<note>
+<to>Marko Markovic</to>
+<from>Janko Jankovic</from>
+<heading>Podsetnik</heading>
+<body>Nemoj zaboraviti da me zoves za vikend</body>
+</note>"
+</xmp>
+Naredni primer pokazuje kako uz pomoć funkcije <span class="primer_text">simple_load_string</span> mogu ti podaci da se iščitaju. Funkcija kao argument prima string u kome je sačuvan XML dokument i vraća SimpleXML objekat.
+<xmp class="primer_ta">
+<?php
+$XMLdokument =
+"<?xml version='1.0' encoding='UTF-8'?>
+<note>
+<to>Marko Markovic</to>
+<from>Janko Jankovic</from>
+<heading>Podsetnik</heading>
+<body>Nemoj zaboraviti da me zoves za vikend</body>
+</note>";
+
+$xml=simplexml_load_string($XMLdokument) or die("Greska");    
+print_r($xml);
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Ukoliko je dokument sačuvan u datoteci moguće ga je na sličan način iščitati. To se postiže uz pomoć funkcije <span class="primer_text">simple_load_file</span>, čiji je jedini argument naziv datoteke u kojoj je XML dokument sačuvan, i vraća SimpleXML objekat. <br>
+Neka je XML dokument sačuvan u datoteci Note.xml. U narednom primeru prikazano je iščitavanje dokumenta iz datoteke.
+<xmp class="primer_ta">
+ <?php
+$xml=simplexml_load_file(Note.xml) or die("Greska");    
+print_r($xml);
+?> 
+</xmp>
+Moguće je pristupiti vrednostima čvorova iz datoteke Note.xml.
+<xmp class="primer_ta">
+<?php
+$xml=simplexml_load_file("note.xml") or die("Greška");
+echo $xml->to . "<br>";
+echo $xml->from . "<br>";
+echo $xml->heading . "<br>";
+echo $xml->body;
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Rezultat:
+<xmp class="primer_ta">
+Marko Markovic
+Janko Jankovic
+Podsetnik
+Nemoj zaboraviti da me zoves za vikend 
+</xmp>
+Neka je dat drugi XML dokument Kursevi.xml:
+<xmp class="primer_ta">
+    <?xml version = "1.0" encoding = "utf-8"?>
+<kursevi>
+   <kurs kategorija = "JAVA">
+      <naslov>Java</naslov>
+      <predavač>Marko Marković</predavač>
+      <trajanje>10</trajanje>
+      <cena>30$</cena>
+   </kurs>
+   
+   <kurs kategorija = "PHP">
+      <naslov>php</naslov>.
+      <predavač>Janko Janković</predavač>
+      <trajanje>8</trajanje>
+      <cena>50$</cena>
+   </kurs>
+   
+   <kurs kategorija = "HTML">
+      <naslov>html</naslov>
+      <predavač>Nenad Nenadović</predavač>
+      <trajanje>5</trajanje>
+      <cena>20$</cena>
+   </kurs>
+   
+   <kurs kategorija = "WEB">
+      <naslov>Web Technologije</naslov>
+      <predavač>Jovan Jovanović</predavač>
+      <trajanje>10</trajanje>
+      <cena>60$</cena>
+   </kurs>
+
+</kursevi> 
+</xmp>
+Moguće je pristupiti vrednostima podelemenata &ltnaslov&gt svakog elementa &ltkurs&gt. Naredni primer pokazuje na koji način se može pristupiti vrednosti elementa &ltnaslov&gt u prvom i drugom &ltkurs&gt elementu u dateteci kursevi.xml.
+<xmp class=primer_ta>
+<?php
+$xml=simplexml_load_file("kursevi.xml") or die("Greška");
+echo $xml->kurs[0]->naslov . "<br>";
+echo $xml->kurs[1]->naslov; 
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Rezultat:<br>
+<span class="primer_text">Java</span><br>
+<span class="primer_text">php</span><br>
+Ako se u promenljivoj <span class="primer_text">$xml</span> čuva SimpleXML objekat koji iščitava datoteku kursevi.xml. Niz koji se dobija komandom <span class="primer_text">$xml->children()</span> sadrži sve elemente u datoteci kursevi.xml.
+Naredni primer pokazuje kako se pomoću petlje prolazi kroz sve &ltkurs&gt elemente u datoteci kursevi.xml i dobijaju vrednosti elemenata &ltnaslov&gt, &ltpredavač&gt, &lttrajanje&gt, &ltcena&gt.
+<xmp class=primer_ta>
+<?php
+$xml=simplexml_load_file("kursevi.xml") or die("Greška");
+foreach($xml->children() as $kurs) {
+echo $kurs->naslov . ", ";
+echo $kurs->predavač . ", ";
+echo $kurs->trajanje . ", ";
+echo $kurs->cena . "<br>";
+}
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Rezultat: <br>
+<span class="primer_text">Java, Marko Markovic, 10, 30$</span><br>
+<span class="primer_text">php, Janko Janković, 8, 50$</span><br>
+<span class="primer_text">html, Nenad Nenadović, 5, 20$</span><br>
+<span class="primer_text">Web Technologije, Jovan Jovanović, 10, 60$</span><br>
+Pomoću petlje mogu se dobiti sve vrednosti atributa kategorija svih &ltkurs&gt elemenata.
+<xmp class=primer_ta>
+<?php
+$xml=simplexml_load_file("kursevi.xml") or die("Greška");
+foreach($xml->children() as $kurs) {
+echo $kurs['kategorija'];
+echo "<br>";
+}
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Rezultat:<br>
+<span class="primer_text">JAVA</span><br>
+<span class="primer_text">PHP</span><br>
+<span class="primer_text">HTML</span><br>
+<span class="primer_text">WEB</span>
+<h2>Expat parser</h2>
+Expat parser je XML parser zasnovan na doga]ajima. Neka je dat XML element: <span class="primer_text">&ltfrom&gtJanko Janković&lt/from&gt</span>.
+Expat parser kao parser zasnovan na doga]ajima ovaj element gleda kao niz 3 događaja: početni element &ltfrom&gt, vrednost Janko Janković, krajnji element &ltfrom&gt. <br>
+Neka je dat XML dokument Note.xml.
+<xmp class=primer_ta>
+<?xml version='1.0' encoding='UTF-8'?> 
+<note>
+<to>Marko Marković</to>
+<from>Janko Janković</from>
+<heading>Podsetnik</heading>
+<body>Nemoj zaboraviti da me zoveš za vikend</body>
+</note>
+</xmp>
+Prvo bi trebalo inicijalizovati XML parser, zatim definisati rukovaoce (engl. handlers) za različite XML događaje i nakon taga je moguće parsirati XML dokument. XML parser se inicijalizuje funkcijom <span class="primer_text">xml_praser_create</span>, dok se rukovaoci definišu pomoću funkcija <span class="primer_text">xml_set_element_handler</span> i <span class="primer_text">xml_set_character_data_handler</span>.
+<xmp class=primer_ta>
+<?php
+//Inicijalizovanje XML parsera
+$parser = xml_parser_create();
+//funkcija koja se koristi na početku elementa
+function start($parser, $element_name, $element_attrs){
+switch ($element_name){
+case "NOTE":
+echo "−−Note−−<br>";
+break;
+case "TO":
+echo "To: ";
+break;
+case "FROM":
+echo "From: ";
+break;
+case "HEADING":
+echo "Heading: ";
+break;
+case "BODY":
+echo "Message: ";
+break;
+ }
+}
+//funkcija koja se koristi na kraju elementa
+function stop($parser, $element_name){
+echo "<br>";
+}
+function char($parser, $data){
+echo $data;
+}
+xml_set_element_handler($parser, "start", "stop”);
+xml_set_character_data_handler($parser, "char");
+$fp = fopen("Note.xml", "r");
+while ($data=fread($fp, 4096)){
+xml_parse($parser, $data, feof($fp)) or
+die (sprintf("XML Error: %s at line %d",
+xml_error_string(xml_get_error_code($parser)),
+xml_get_current_line_number($parser)));
+}
+xml_parser_free($parser);
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+U primeru, na početku je inicijalizocan XML parser korišćenjem funkcije
+<span class="primer_text">xml_parser_create</span>. Pomoću funkcije <span class="primer_text">xml_set_element_handler</span> određuje se koja će se funkcija izvršiti kada parser naiđe na otvarajuće i zatvarajuće etikete. Kreiranjem funkcije <span class="primer_text">xml_set_character_data_handler</span> određuje koja će se funkcija izvršiti kada parser naiđe na tekstualni podatak(character data). Parsira se dokument Note.xml, i ako se naiđe na grešku, funkcija <span class="primer_text">xml_error_string</span> će je obraditi. Na kraju se poziva funkcija <span class="primer_text">xml_parser_free</span> koja oslovađa memoriju koju je parser zauzimao. <br>
+Rezultat primera:
+<xmp class="primer_ta">
+-- Note --
+To: Marko Marković
+From: Janko Janković
+Heading: Podsetnik
+Message: Nemoj zaboraviti da me zoveš za vikend
+</xmp>
+<h2>DOM parser</h2>
+DOM parser  je XML parser zasnovan na drvetu. Neka je dat XML dokument: 
+<xmp class="primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<from>Janko Janković</from> 
+</xmp>
+Kako je zasnovan na drvetu, DOM parser ga vidi kao drvoidnu strukturu:
+<ul>
+	<li>XML dokument</li>
+	<li>koreni element</li>
+	<li>tekstualni element: Janko Janković</li>
+</ul>
+Naredbom <span class="primer_text">$xmlDoc = new DOMDocument</span> se inicijalizuje DOM parser, dok naredbama <span class="primer_text">$xmlDoc->load()</span> i <span class="primer_text">$xmlDoc->saveXML</span> isčitava xml sadržaj iz datoteke. 
+U primeru je DOM parser primenjen na dokument Note.xml.
+<xmp class="primer_ta">
+<?php
+$xmlDoc = new DOMDocument();
+$xmlDoc->load("Note.xml");
+print $xmlDoc->saveXML();
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Rezultat: <br>
+<span class="primer_text">Marko Marković Janko Janković Podsetnik Nemoj zaboraviti da me zoveš za vikend</span>
+U primeru, kreira se DOMDocument objekat i učitava XML dokument. Funkcija <span class="primer_text">saveXML</span> pretvara XML kod u string koji se zatim ispisuje.
+U narednom primeru kreira se XML parser, učitava XML dokument i pomoću petlje prolazi se kroz sve elemente &ltnote&gt elementa.
+<xmp class="primer_ta">
+<?php
+$xmlDoc = new DOMDocument();
+$xmlDoc->load("note.xml");
+$x = $xmlDoc->documentElement; // <note> element
+foreach ($x->childNodes AS $item) {
+    print $item->nodeName . " = " . $item->nodeValue . "<br>";
+}
+?> 
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+Promenljivoj $x se dodeljuje element &ltnote&gt . <span class="primer_text">childNodes</span> je atrubut u kome se čuvaju svi njegovi potomci u drvoidnoj strukturi, i svaki od njih ima atribute <span class="primer_text">nodeName</span> i <span class="primer_text">nodeValue</span>. <br>
+Rezultat primera dat je na slici:
+<img src="xml.png" class="img-fluid">
+Može se primetiti da između svaka dva elementa postoji prazan tekstualni čvor. Kada se XML generiše često postoji razmak između 2 čvora. DOM parser ih tretira kao zaseban element XML dokumenta, i ako programer nije svestan da oni postoje, mogu prouzrokovati grešku.
+
+

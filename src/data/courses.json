@@ -1811,22 +1811,29 @@
                 "sublessons": null
             },
             {
-                "name": "Dodavanje fajlova",
-                "url": "php_dodavanje_fajlova",
+                "name": "Rad sa datotekama",
+                "url": "php_rad_sa_datotekama",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null
             },
             {
-                "name": "Filteri",
-                "url": "php_filteri",
+                "name": "Slanje datoteke na server",
+                "url": "php_slanje_datoteke_na_server",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null
             },
             {
-                "name": "Izuzeci",
-                "url": "php_izuzeci",
+                "name": "Ukljčivanje spoljnih datoteke u kod",
+                "url": "php_ukljucivanje_spoljnih_datoteka_u_kod",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Slanje poruke elektronske pošte",
+                "url": "php_slanje_poruke_elektronske_poste",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null
@@ -1839,13 +1846,6 @@
                 "sublessons": null
             },
             {
-                "name": "Rukovanje greškama",
-                "url": "php_rukovanje_greskama",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
                 "name": "Sesije",
                 "url": "php_sesije",
                 "type": "lesson",
@@ -1853,15 +1853,43 @@
                 "sublessons": null
             },
             {
-                "name": "Uključivanje fajlova",
-                "url": "php_upravljanje_fajlovima",
+                "name": "Regularni izrazi",
+                "url": "php_rad_sa_regularnim_izrazima",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null
             },
             {
-                "name": "Višedimenzioni nizovi",
-                "url": "php_visedimenzioni_nizovi",
+                "name": "Validacioni filteri",
+                "url": "php_validacioni_filteri",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Rukovanje greškama",
+                "url": "php_rukovanje_greskama",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Izuzeci",
+                "url": "php_izuzeci",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Uvod u OOP",
+                "url": "php_uvod_u_objektno_orjentisano_programiranje",
+                "type": "lesson",
+                "parentCourse": "php",
+                "sublessons": null
+            },
+            {
+                "name": "Obrada XML dokumenata",
+                "url": "php_obrada_xml_dokumenata",
                 "type": "lesson",
                 "parentCourse": "php",
                 "sublessons": null

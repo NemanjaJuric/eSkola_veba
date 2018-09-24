@@ -1,0 +1,151 @@
+<h1>Rad sa regularnim izrazima</h1>
+Pomoću regularnih izraza (engl. regular expresions) može se utvrditi da li neki podaci tipa string zadovoljavaju određene složene šablone (datum, adresa e-pošte, ...). Prilično su nečitki, ali veoma korisni u radu sa znakovnim podacima.
+Funkcije za rad sa regularnim izrazima omogućavaju čak i izdvajanje i zamenu složenijih podvrednosti unutar zadatog stringa, kao i proveru pojavljivanja uzorka u delu teksta. <br>
+Funkcije za rad sa regularnim izrazima treba izbegavati kad god je to moguće zato što troše dosta resursa (prostornih i vremenskih). <br>
+PHP podržava regularne izraze preko <span class="primer_text">preg_</span> familije funkcija.
+<ul>
+	<li><span class="primer_text">preg_match</span>,</li>
+	<li><span class="primer_text">preg_match_all</span>,</li>
+	<li><span class="primer_text">preg_replace</span>,</li>
+	<li><span class="primer_text">preg_split</span>,</li>
+	<li><span class="primer_text">preg_grep</span>,</li>
+	<li><span class="primer_text">preg_quote</span>,</li>
+</ul>
+Funkcija <span class="primer_text">preg_match</span> prihvata 2 argumenta: String uzorak i String izvor. Funkcija proverava da li se unutar stringa izvor, nalazi izraz koji odgovara regularnom izrazu uzorak. Ako se nalazi, funkcija vraća true, u suprotnom vraća false. <br>
+Funkcija <span class="primer_text">preg_match_all</span> prihvata 3 argumenta:  String uzorak, String izvor i Array niz. Funkcija pronalazi sva pojavljivanja izraza koji odgovara regularnom izrazu uzorak unutar stringa izvor i upisuje ih u niz, i vraća broj tih pojavljivanja.
+<div class = "napomena">
+Funkcija <span class="primer_text">preg_match</span></li> zaustavlja pretraživanje nakon prvog pojavljivanja, dok funkcija <span class="primer_text">preg_match_all</span> nastavlja pretragu do kraja stringa i pronalazi sva pojavljivanja.
+</div>
+Funkcija <span class="primer_text">preg_replace</span> prihvata 3 argumenta: String uzorak, String zamena i String izvor. Sva pojavljivanja izraza koja odgovara regularnom izrazu uzorak unutar stringa izvor, zamenjuje sa stringom zamena. Na kraju, funkcija vraća izmenjeni string izvor. <br>
+Funkcija <span class="primer_text">preg_split</span> prihvata 2 argumenta: String uzorak i String izvor.  Funkcija razdvaja string izvor u različite elemente, granice svakog elementa zasnovane su na pojavi uzorka u stringu.
+<br>
+Funkcija <span class="primer_text">preg_grep</span> prihvata 2 argumenta: String uzorak i Array izvor. Funkcija vraća niz koji se sastoji od elemenata ulaznog niza izvor, koji odgovaraju datom obrascu. <br>
+Funkcija <span class="primer_text">preg_quote</span> prima samo argument String  izvor. Fnkcija dodaje karakter "\" ispred svakog karaktera u stringu izvor koji ima posebno značenje u regularnim izrazima.
+<h2>Sintaksa regularnih izraza</h2>
+Sintaksa regularnih izraza se sastoji od raznih slovnih ili drugih karaktera. Svaki karakter definiše neku akciju nad stringovima. Takođe ti karakteri mogu međusobno
+maltene neograničeno da se kombinuju i pri tome rezultuju razne radnje nad stringovima. Karakteri koji u regulartnom izrazu imaju specijalno značenje nazivaju se metakarakterima. To su <span class="primer_text">. * ? + [ ] ( ) { } ^ $ | \</span> <br>
+Ostali karakteri unutar regularnog izraza predstavljaju sami sebe. Ukoliko se metakarakteri koriste kao obični literali, potrebno je ispred njih dodati "\" (
+backslash). Na primer, da bi se tačka koristila kao literal zapisuje se kao "\.", ili da bi se karakter "\" koristio kao literal zapisuje se kao "\\".
+<h2>Karakterske klase</h2>
+Karakterske klase omogućuju raspolaganje s jednim od definisanih karaktera unutar
+skupa. Za definisanje karakterske klase koriste se uglaste zagrade ([ ]) i unutar njih sve znakove koji se mogu pojaviti. Na primer, definisani regularni izraz 
+"ka[fs]a" se podudariti sa reči "kafa", ali i sa reči "kasa".
+<ul>
+	<li><span class="primer_text">[.]</span> - Bilo koji karakter osim karaktera za novi red "\n".</li>
+	<li><span class="primer_text">[abc]</span> - Samo slova a, b, c;</li> 
+	<li><span class="primer_text">[a-z]</span> - Sva mala slova od a do z;</li>
+	<li><span class="primer_text">[A-Z]</span> - Sva velika slova od A do Z;</li>
+	<li><span class="primer_text">[a-zA-Z]</span> - Sva slova od a do z ili od A do Z;</li>
+	<li><span class="primer_text">[0-9]</span> - Sve cifre;</li>
+</ul>
+Unutar uglastih zagrada karakter "-" ima specijalno značenje, označava opseg.
+U narednoj tebeli prikazan je zapis logičkih operatora u regularnim izrazima.
+<table class = "tabela">
+<tr>
+<td>^</td><td>operator negacije</td>
+</tr>
+<tr>
+<td>|</td><td>operator ili</td>
+</tr>
+<tr>
+<td>&&</td><td>operator i</td>
+</tr>
+</tbody>
+</table>
+<ul>
+	<li><span class="primer_text">[^0-9]</span> - string ne sme da sadrži cifre;</li>
+	<li><span class="primer_text">[a-z&&[^aeiou]]</span> - suglasnik, jer obuhvata sva slova od a do z osim samoglasnika</li>
+</ul>
+Sledeći primer pokazuje kako pronaći da li izraz koji odgovara uzorku postoji u stringu ili ne, koristeći funkciju <span class="primer_text">preg_match</span>.
+<xmp class = "primer_ta">
+<?php
+$uzorak = "/ca[kf]e/";
+$text = "He was eating cake in the cafe.";
+if(preg_match($uzorak,$text))
+{
+echo "Pronađen!";
+}
+else{
+echo "Nije pronađen.";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+U narednom primeru je prikazano kako se koristeći funkciju <span class="preg_match_all"></span> mogu pronaći izrazi koji odgovaraju uzorku.
+<xmp class = "primer_ta">
+<?php
+$uzorak = "/ca[kf]e/";
+$text = "He was eating cake in the cafe.";
+$br_pojavljivanja = preg_match_all($uzorak, $text, $izrazi);
+echo $br_pojavljivanja . " pojavljivanja su pronađena"."<br>";
+for($i=0; $i<$br_pojavljivanja; $i++)
+{
+echo $izrazi[0][$i]."<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Predefinisane karakterske klase</h2>
+Neke karakterske klase se toliko česo koriste da postoje skraćenice za njih.
+<ul>
+	<li><span class="primer_text">\d</span> - Svaka cifra. Isto kao <span class="primer_text">[0-9]</span></li>
+	<li><span class="primer_text">\D</span> - Bilo koji karakter koji nije cifra. Isto kao <span class="primer_text">[^0-9]</span>.</li>
+	<li><span class="primer_text">\w</span> - Slovo, podvlaka ili cifra. Isto kao <span class="primer_text">[a-zA-Z_0-9]</span></li>
+	<li><span class="primer_text">\W</span> - Bilo koji karakter koji nije ni slovo ni podvlaka ni cifra. Isto kao <span class="primer_text">[^w]</span></li>
+	<li><span class="primer_text">\s</span> - Belina <span class="primer_text">\t, \n, \r</span></li>
+</ul>
+U narednom primeru prikazano je kako pronaći i zameniti je sa karakterom "-" pomoću funkcije <span class="primer_text">preg_replace</span>.
+<xmp class = "primer_ta">
+<?php
+$uzorak = "/\s/";
+$zamena = "−";
+$text = "Zemlja se okreće\noko\tSunca";
+echo preg_replace($uzorak, $zamena, $text);
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Kvantifikatori</h2>
+Kvantifikatori su brojevni mehanizmi s kojima se metakarakteri ili skupovi karaktera mogu ponavljati. Simbole kvantifikatora i njihov opis sadrži sledeća lista:
+<ul>
+	<li> p+ - jedno ili više pojavljivanja p,</li>
+    <li> p* - nula, jedno ili više pojavljivanja p,</li>
+    <li> p? - nula ili jedno pojavljivanje p,</li>
+    <li> p{2} - tačno 2 pojavljivanja p,</li>
+    <li> p{2,3} - najmanje 2 a najviše 3 pojavljivanja p,</li>
+    <li> p{2,} - najmanje 2 pojavljivanja p,</li>
+    <li> p{,3} - najviše 3 pojavljivanja p.</li>
+</ul>
+Karakteri <span class="primer_text">? , * , + , { }</span> se mogu pojavljivati iza karaktera, liste karaktera ili podizraza regularnog izraza (razdvojenog zagradama) i u tom slučaju označava određeni broj ponavljanja karaktera, liste znakova, podizraza regularnog izraza. <br>
+Naredni primer pokazuje kako pomoću funkcije <span class="primer_text">preg_split</span> podeliti string u zarezima, razmacima i njihovim kombinacijama.
+<xmp class = "primer_ta">
+<?php
+$uzorak = "/[\s,]+/";
+$text = "Moje omiljene boje su crvena, zelena i plava";
+$delovi = preg_split($uzorak, $text);
+foreach($delovi as $deo){
+    echo $deo . "<br>";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Pozicija sidra</h2>
+Pomoću sidra u regularnom izrazu može se zadati da uzorak treba da se nalazi na početku ili na kraju vrednosti koja se ispisuje.
+<ul>
+	<li>^ - sidri uzorak na početak niske,</li>
+	<li>$ - sidri uzorak na kraj niske.</li>
+</ul>
+Obe vrste sidra se koriste u regularnom izrazu u kome se zahteva potpuno poklapanje. <br>
+Regularni izraz u primeru 40 prikazati samo ona imena iz niza koja po\v cinju slovom 'J'.
+<xmp class = "primer_ta">
+<?php
+$uzorak = "/^J/";
+$niz = array("Jhon Carter", "Clark Kent", "John Rambo");
+$imena = preg_grep($uzorak, $niz);
+foreach($imena as $ime){
+    echo $ime . "<br>";
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "zadatak">
+Primer regularnog izraza je definisanje izraza koji će se podudarati sa telefonskim brojem koji može biti zapisan u bilo kojem od 3 formata: 123−456−789, 123 654 879,  ili 987654321. Napisati regularni izraz pomoću kvantifikatora koji odgovara ovim oblicima, a zatim proveriti da li je određeni telefonski broj u traženom obliku. 
+</div>

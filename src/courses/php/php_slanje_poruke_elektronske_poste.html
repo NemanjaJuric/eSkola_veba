@@ -1,0 +1,60 @@
+<h1>Slanje poruke elektronske pošte</h1>
+Pomoću programskog jezika PHP moguće je na jednostavan način poslati poruku
+elektronske pošte.  Poruka može biti poslata automatski (bez interakcije s korisnikom) ili može biti poslata kad korisnik upiše tekst poruke u HTML formu i klikne na dugme za slanje podataka. <br>
+Za slanje poruke elektronske pošte u jeziku PHP koristi se funkcija <span class="primer_text">mail</span>. Sintaksa funkcije <span class="primer_text">mail</span> izgleda ovako: <br>
+<span class="primer_text">mail(primalac, naslov poruke, poruka, zaglavlja, dodatni parametri )</span> <br>
+Prvi argument funkcije <span class="primer_text">mail</span> je adresa primaoca.  Ukoliko je primalaca više,  adrese moraju biti odvojene zarezom. Adresa može biti u obliku: ime.prezime@domen.com ili u obliku:  Ime Prezime< ime.prezime@domen.com>. <br>
+Drugi argument funkcije je naslov poruke. U naslovu poruke se ne sme nalaziti karakter za novi red. <br>
+Treći argument funkcije je tekst poruke. U tekstu poruke za novi red se koristi karakter "\n", a linija može sadržati maksimalno 70 karaktera. <br>
+Četvrti argument funkcije su dodatna zaglavlja:  pošaljilac poruke (<i>From</i>), dodatni primaoci (<i>Cc,Bcc</i>) i druga. Zaglavlja moraju biti odvojena kombinacijom znakova "\r\n". To je opcioni argument. <br>
+Peti argument su dodatni parametri. Oni služe za prosleđivanje parametara programu
+na serveru koji šalje poruku. <br>
+Funkcija <span class="primer_text">mail</span> vraća true ako je poruka uspešno poslata, a false ako slanje nije uspelo. <br>
+Primer slanja poruke:
+<xmp class = "primer_ta">
+<?php
+$primalac = "xyz@edusoft.matf.bg.ac.rs";
+$naslov = "Naslov poruke";
+$tekst = "Pozdrav svima!";
+$zaglavlja = "From: abc@edusoft.matf.bg.ac.rs".
+"\r\n" . "Cc: efg@edusoft.matf.bg.ac.rs";
+mail($primalac, $naslov, $tekst, $zaglavlja);
+?>
+</xmp>
+<h2>Podešavanje postavki za slanje poruke</h2>
+Pre slanja poruke moraju se podesiti postavke za slanje poruke elektronske pošte. Pregled postavki dat je u tabeli: <br>
+<table class="tabela">
+<thead>
+	<tr>
+		<th>Naziv postavke</th>
+		<th>Objašnjenje</th>
+	</tr>
+</thead>
+	<tr>
+		<td>SMTP</td>
+		<td>Naziv ili IP adresa servera elektronske po\v ste (ova 
+postavka je dostupna samo pod operativnim sistemom Windows).</td>
+	</tr>
+	<tr>
+		<td>smpt_port</td>
+		<td>Port preko kojeg se šalje elektronska pošta (najčešće 25; ova postavka je dostupna samo pod operativnim sistemom WIndows).</td>
+	</tr>
+	<tr>
+		<td>senmail_form</td>
+		<td>Adresa sa koje se šalje poruka</td>
+	</tr>
+	<tr>
+		<td>sendmail_path</td>
+		<td>Putanja programa za slanje poruka elektronske pošte na serveru.</td>
+	</tr>
+</table>
+<br>
+Ove postavke nalaze se u datoteci <b>php.ini</b> Za podešavanje ovih i drugih konfiguracijskih postavki iz koda može se koristiti funkcija <span class="primer_text">ini_set</span>. Argumenti koje ona prima su naziv postavke i vrednost postavke. <br>
+Poziv funkcije <span class="primer_text">ini_set</span> prikazan je u primeru:
+<xmp class = "primer_ta">
+<?php
+ini_set("SMTP", "edusoft.matf.bf.ac.rs");
+ini_set("sendmail_from", "abc@edusoft.matf.bg.ac.rs");
+mail($primatelj, $naslov, $tekst);
+?>
+</xmp>

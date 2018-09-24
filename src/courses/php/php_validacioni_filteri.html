@@ -1,0 +1,106 @@
+<h1>Filteri</h1>
+Filteri se koriste za proveru ispravnosti spoljnog unosa. Podaci u neispravnom obliku mogu dovesti do pucanja veb stranice. Korišćenje filtera garantuje da će podatak biti unet u traženom obliku. Postoje 2 tipa filtera: filteri koji proveravaju ispravnost oblika i filteri koji vrše korekciju unosa.
+<h2>Funkcija filter_var</h2>
+PHP ima ugrađene filtere koji se ostvaruju pomoću funkcije <span class="primer_text">filter_var</span>. Funkcija prima 3 argumenta, prva dva argumenta su obavezna, dok je treći argument opcion. <br>
+Prvi argument je promenljiva koja se proverava. Drugi argument je naziv filtera koji se koristi. Treći argument je niz opcija koje se odnose na filter. <br>
+Rezultat funkcije je ili false ako je greska, ili filtriran podatak.
+<h2>Ispravljanje stringa</h2>
+U sledećem primeru koristi se funkcija <span class="primer_text">filter_var</span> za brisanje svih HTML etiketa iz stringa.
+<xmp class = "primer_ta">
+<?php
+$str = "<h1>Hello world</h1>"
+$str = filter_var($str,FILTER_SANITIZE_STRING);
+echo $str;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Proveravanje da li je unet ceo broj</h2>
+U sledećem primeru se koristi funkcija <span class="primer_text">filter_var</span> za proveru da li je vrednost promenljive ceo broj.
+<xmp class = "primer_ta">
+<?php
+$int = 150;
+if(!filter_var($int,FILTER_VALIDATE_INT)===false){
+	echo "Jeste ceo broj";
+}
+else{
+	echo "Nije ceo broj";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button> <br>
+U primeru iznad, ako se za promenljivu $int postavi vrednost na <b>nula</b>, $int = 0 funkcija bi vratila rezultat: Nije ceo broj. Ovaj problem se rešava na sledeći način:
+<xmp class = "primer_ta">
+<?php
+$int = 0;
+if(filter_var($int,FILTER_VALIDATE_INT)===0 || !filter_var($int,FILTER_VALIDATE_INT)===false){
+	echo "Jeste ceo broj";
+}
+else{
+	echo "Nije ceo broj";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Ispravan e-mail</h2>
+U sledećem primeru koristi se funkcija <span class="primer_text">filter_var</span> prvo za brisanje nedozvoljenih karaktera iz promenljive $email, a zatim za proveru da li je e-mail u ispravnom obliku.
+<xmp class = "primer_ta">
+<?php
+$email = "marko.markovic@primer.com";
+$email = filter_var($email,FILTER_SANITIZE_EMAIL);
+
+if(!filter_var($email,FILTER_VALIDATE_EMAIL)===false){
+	echo "$email je ispravna e-mail adresa";
+}
+else{
+	echo "$email nije ispravna e-mail adresa";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Ispravan URL</h2>
+U sledećem primeru koristi se funkcija <span class="primer_text">filter_var</span> prvo za brisanje svih nedozvoljenih karaktera iz promenljive $url, a zatim za proveru da li je url u ispravnom obliku.
+<xmp class = "primer_ta">
+<?php
+$url = "http://edusoft.matf.bg.ac.rs/eskola_veba/#/home";
+$url = filter_var($url,FILTER_SANITIZE_EMAIL);
+
+if(!filter_var($url,FILTER_VALIDATE_URL)===false){
+	echo "$url je ispravan URL";
+}
+else{
+	echo "$url nije ispravan URL";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Proveravanje da li je broj u određenom opsegu</h2>
+U sledećem primeru koristi se funkcija <span class="primer_text">filter_var</span> za proveru da li je u pitanju ceo broj i da li je izmedju 1 i 200.
+<xmp class = "primer_ta">
+<?php
+$int =122;
+$min = 1;
+$max = 200;
+
+if(!filter_var($int,FILTER_VALIDATE_INT,array("options"=> array("min_range"=>$min,"max_range"=>$max)))===false){
+	echo "Promenljiva je u traženom opsegu";
+}
+else{
+	echo "Promenljiva nije u traženom opsegu";
+}
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>Izbacivanje određenih karaktera</h2>
+U sledećem primeru koristi se funkcija <span class="primer_text">filter_var</span> za brisanje svih HTML etiketa iz stringa, kao i sve karaktere čiji je ASCII kod veći od 127.
+<xmp class = "primer_ta">
+<?php
+$str = "<h1>Hello WorldÆØÅ!</h1>";
+$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+echo $newstr;
+?>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<div class = "zadatak">
+Promenljivoj broj dodeliti neki broj i proveriti da li je realan broj i da li je izmedju -2.5 i 3.5. <br>
+Koristiti filter FILTER_VALIDATE_FLOAT.
+</div>

@@ -1,0 +1,34 @@
+class Zivotinja{
+    var $vrsta;
+    
+    public function __construct($vrsta1){
+        $this->vrsta = $vrsta1;
+    }
+
+    public function Ispis(){
+        return "Ovo je ".$this->vrsta;
+    }
+}
+class Pas extends Zivotinja{
+    private $ime;
+    private $rasa;
+
+    public function getIme(){
+    return $this->ime;
+    }
+    public function getRasa(){
+    return $this->rasa;
+    }
+    
+    public function __construct($ime1, $rasa1){
+        $this->vrsta = "Pas";
+        $this->ime = $ime1;
+        $this->rasa = $rasa1;
+    }
+
+    public function Ispis(){
+    return parent::ispis().", ime: ".$this->ime.", rasa: ".$this->rasa;
+    } 
+}
+$pas1 = new Pas("Lesi","Bernardinac");
+echo $pas1->ispis();

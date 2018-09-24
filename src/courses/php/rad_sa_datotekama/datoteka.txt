@@ -1,0 +1,1 @@
+Platforma eŠkola veba je elektronska škola veb programiranja koja omogućava interaktivno učenje kroz pažljivo osmišljene kurseve. Na njoj se trenutno nalaze kursevi u okviru kojih se obrađuju  HTML, CSS, JavaScript, jQuery, Bootstrap, AngularJS, TypeScript, PHP, Java i druge tehnologije.

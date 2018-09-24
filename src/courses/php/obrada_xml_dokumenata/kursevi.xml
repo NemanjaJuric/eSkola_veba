@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<kursevi>
+   
+   <kurs kategorija = "JAVA">
+      <naslov>Java</naslov>
+      <predavač>Marko Markovic</predavač>
+      <trajanje>10</trajanje>
+      <cena>30$</cena>
+   </kurs>
+   
+   <kurs kategorija = "PHP">
+      <naslov>php</naslov>.
+      <predavač>Janko Janković</predavač>
+      <trajanje>8</trajanje>
+      <cena>50$</cena>
+   </kurs>
+   
+   <kurs kategorija = "HTML">
+      <naslov>html</naslov>
+      <predavač>Nenad Nenadović</predavač>
+      <trajanje>5</trajanje>
+      <cena>20$</cena>
+   </kurs>
+   
+   <kurs kategorija = "WEB">
+      <naslov>Web Technologije</naslov>
+      <predavač>Jovan Jovanović</predavač>
+      <trajanje>10</trajanje>
+      <cena>60$</cena>
+   </kurs>
+
+</kursevi>

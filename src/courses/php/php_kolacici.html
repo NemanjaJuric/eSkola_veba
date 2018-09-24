@@ -1,61 +1,66 @@
-<h1>Kolačići</h1>
-Kolačić je mali fajl koji server ugrađuje u računar korisnika. Kolačiće koristimo često da bismo identifikovali korisnika.
-Postoje 3 koraka uključena u identifikaciju korisnika.
+<h1>Korišćenje kolačića</h1>
+Kolačić je mala tekstualna datoteka koju server ugrađuje u računar korisnika. Kolačići se često koriste kako bi identifikovali korisnika.
+Postoje 4 koraka uključena u identifikaciju korisnika.
 <ul>
-	<li>Server šalje kolačiće brauzeru. Npr. ime, godiste ili id.</li>
-	<li>Brauzer ove informacije skladišti u računar korisnika.</li>
-	<li>Sledeći put kad brauzer pošalje zahtev serveru, onda salje i te kolacice, koje server koristi da identifikuje korisnika.</li>
+	<li>Pretraživač šalje zahtev serveru za nekom stranicom</li>
+	<li>Server šalje odgovor pretraživaču i zajedno sa njim i kolačiće.</li>
+	<li>Pretraživač skladišti kolačiće u računar korisnika.</li>
+	<li>Sledeći put kad pretraživač pošalje zahtev istom serveru, onda šalje i kolačiće nazad na server, koje server koristi za identifikaciju korisnika.</li>
 </ul>
+Kolačići se takođe koriste i za pamćenje raznih korisničkih podešavanja (npr.   odabir jezika stranica koje će se pretratživati),  tako da se sledeći put kad korisnik poseti istu stranicu, primenjuju podešavanja koja su odabrana prošli put.
 <h2>Kreiranje kolačića</h2>
-Za kreiranje kolačića koristimo funkciju <b>setcookie()</b>
-<b>Sintaksa:</b>
+Za kreiranje kolačića koristi se funkcija <span class="primer_text">setcookie</span>. <br>
+<b>Sintaksa funkcije</b> izgleda ovako: <br>
 <span class = "primer_text">
-	setcookie(name, value, expire, path, domain, secure, httponly);
+	setcookie(naziv, vrednost, trajanje, putanja, domen, sigurnost);
 </span>
 <div class = "napomena">
-	Funkcija <b>setcookie</b> mora da se pojavi pre etikete &lthtml&gt
+	Funkcija <span class="primer_text">setcookie</span> mora da se pojavi pre etikete &lthtml&gt.
 </div>
 <ul>
-	<li><b>name</b> - Ovo je jedini obavezan argument. Njime zadajemo ime kolačića. Njega koristimo za pristup kolačiću.</li>
-	<li><b>value</b> - Ovim argumentom zadajemo vrednost globalnoj promenljivoj $_COOKIE['name'].</li>
-	<li><b>expiry</b> - Predstavlja vreme od ponoći 1 Januara 1970. Nakon tog vremena više nećemo moći da pristupimo kolačiću</li>
-	<li><b>path</b> - Precizira koji direktorijumi za koje je kolačić ispravan. Jedan karakter "/" omogućuje da kolacic bude ispravan za sve direktorijume.</li>
-	<li><b>domain</b> - precizira domen na kome kolačić važi</li>
-	<li><b>security</b> - podrazumevana vrednost je 0, a ako je postavimo na 1, tada se kolačić šalje preko HTTPS veze, a ne preko obične HTTP nezastićene veze</li>
+	<li><b>naziv</b> - Ovo je jedini obavezan argument. Njime se zadaje naziv kolačića. Koristi se za pristup kolačiću.</li>
+	<li><b>rednost</b> - Ovim argumentom se zadaje vrednost  kolačića. Vrednost kolačića čiji je naziv moj_kolačić čuva se u globalnoj promenljivoj $_COOKIE['moj_kolačić'].</li>
+	<li><b>trajanje</b> - Predstavlja vreme (u UNIX vremenskoj oznaci) kada kolačić prestaje da postoji, odnosno kada će biti izbirsan sa računara korisnika. Najčešće korišćeni oblici su <span class="primer_text">time()+broj sekundi</span></li> ili <span class="primer_text">mktime()</span>.
+	<li><b>putanja</b> - Precizira koji direktorijumi na serveru za koje je kolačić ispravan. Karakter "/" omogućuje da kolačić bude ispravan za sve direktorijume.
+	"www/admin/" omogućuje da kolačić bude dostupan u direktorijumu www/admin i svim poddirektorijumima. 	
+	</li>
+	<li><b>domen</b> - precizira domen u kome je kolačić dostupan. "" (prazan string) precizira da je kolačić dostupan na domenu kome pripada server na kome se nalazi kod u kome se kreira kolačić. "www.primer.com" precizira da je kolačić dostupan na navedenom domenu. ".bg.ac.rs" precizira da je kolačić dostupan u svim poddomenima domena bg.ac.rs</li>
+	<li><b>sigurnost</b> - podrazumevana vrednost je 0ili <i>false</i>, a ako je postavimo na 1 ili <i>true</i>, tada se kolačić šalje preko HTTPS veze, a ne preko obične HTTP nezastićene veze.  </li>
 </ul>
-<b>Primer:</b>
+Primer poziva funkcije <span class="primer_text">setcookie</span>:
 <xmp class = "primer_ta">
 <?php
 setcookie("ime","Marko Markovic",time()+3600,"/","",0);
 setcookie("godine","36","time()+3600");
-	?>
+?>
 </xmp>
+U primeru kreirani su kolačić sa nazivom "ime" i vrednošću "Marko Markovic", kao i kolačić sa nazivom "godine" i vrednošću "36". Oba kolačića su dostupna 3600 sekundi odnosno 1 sat. Pri slanju zahteva na server, klijent će poslati sve kolačiće čiji je domen odgovara domenu servera.
 <h2>Pristup kolačiću</h2>
-Najlaksi način za pristup kolačiću je pomoću globalne promenljive <b>$_COOKIE</b>. U narednom primeru pristupamo kolačiću iz prethodnog primera.
+Kolačićima koje klijent šalje, server može pristupi preko globalne promenljive <b>$_COOKIE</b>. U primeru pristupamo kolačićima iz prethodnog primera.
 <br>
 <b>Primer:</b>
 <xmp class = "primer_ta">
 <!DOCTYPE html>
+<?php
+setcookie("ime","Marko Markovic",time()+3600,"/","",0);
+setcookie("godine","36",time()+3600);
+?>
 <html>
 <head>
 		
 </head>
 <body>
 <?php
-echo $_COOKIE['ime']."<br>";
-echo $_COOKIE['godine']."<br>";
+echo $_COOKIE["ime"]."<br>";
+echo $_COOKIE["godine"]."<br>";
 ?>
 </body>
 </html>
 </xmp>
-Korisno je koristiti funkciju <b>isset()</b> da proverimo da li je vrednost kolačića postavljena ili nije.
+<button class = "button_copy">Vidi primer</button>
+<br>
+Korisno je koristiti funkciju <span class="primer_text">isset</span> za proveru da li je vrednost kolačića postavljena ili nije.
 <xmp class = "primer_ta">
-<!DOCTYPE html>
-<html>
-<head>
-		
-</head>
-<body>
 <?php
 if(isset($_COOKIE['ime'])){
 	echo $_COOKIE['ime']."<br>";
@@ -64,27 +69,38 @@ else{
 echo "Nazalost, nije postavljena vrednost";
 }
 ?>
-</body>
-</html>
 </xmp>
+<button class="button_copy">Vidi primer</button>
 <h2>Brisanje kolačića</h2>
-Da obrišemo kolačić koristimo takođe funkciju <b>setcookie</b>, samo sa negativnim danom isteka.
+Za brisanje kolačića koristi se takođe funkcija <span class="primer_text">setcookie</span>, samo sa negativnim danom isteka. Brisanje kolačića prikazano je u sledećem primeru.
 <br>
 <b>Primer:</b>
 <xmp class = "primer_ta">
-<!DOCTYPE html>
-<html>
-<head>
-		
-</head>
-<body>
 <?php
 setcookie("godine","",time()-3600);
 echo "Kolačić 'godine' je obrisan";
 ?>
-</body>
-</html>
 </xmp>
+Kolačići se koriste u aplikacijama u kojima nije neophodno da se složeni podaci čuvaju između dva zahteva serveru. <br>
+Broj i veličina kolačića su ograničeni: veb pregledač može da čuva samo poslednjih
+20 kolačića koji su mu bili poslati iz određenog domena, a veličina svakog kolačića je ograničena na 4KB (ovo se vremenom menja i zavisi od verzije pregledača). Treba imati u vidu da, pošto se kolačići smeštaju na korisnikov  računar, programer veb aplikacije ima veoma malo kontrole nad njima. Ukoliko ih korisnik iz nekog razloga obriše ili onemogući podršku za kolačiće u veb pretraživaču, programer tu ne može ništa, osim da izbegava pisanje koda koji mnogo zavisi od njih. <br><br>
+U sledećem primeru prikazana je upotreba kolačića za proveru da li je korisnik tokom dana već posetio sajt. Prilikom posete kreira se kolačić sa imenom "posećen", koji traje 86400 sekundi, odnosno 1 dan.
+<xmp class = "primer_ta">
+<?php
+if (!isset($COOKIE["posećen"]))
+{
+// ako kolačić ne postoji, kreira se
+setcookie("posećen", "1", time()+86400, "/");
+echo "Ovo je prva Vaša poseta u toku danasnjeg dana.";
+}
+else
+{
+// ako kolačić već postoji
+echo "Već ste bili danas ovde!";
+}
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button><br>
 <b>Zadatak:</b>
 <div class = "zadatak">
 Dvema promenljiva ime i prezime dodeliti vrednosti. Zatim njihove vrednosti pomoću kolačića preneti na drugu stranicu, i ispisati ih.

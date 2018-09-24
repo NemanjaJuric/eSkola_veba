@@ -1,0 +1,94 @@
+<h1>Slanje datoteke na server</h1>
+Slanje dateteke na server je lako uz pomoć programskog jezika PHP i HTML forme. Međutim, sa lakoćom, dolazi problem bezbednosti, zato treba biti dosta obazriv prilikom slanja datoteka na server.
+<br>
+Proces dodavanja fajla na server sadrzi više koraka:
+<ul>
+	<li>Korisnik otvara stranu koja sadrzi HTML formu, gde moze da izabere datoteku.</li>
+	<li>Korisnik klikne dugme za biranje i bira datoteku koji šalje sa svog računara na server</li>
+	<li>Puna putanja do datoteke se pojavi u polju pored, zatim korsinik klikne na dugme za slanje</li>
+	<li>Izabrana datoteka se šalje na privremenu lokaciju na serveru</li>
+	<li>PHP kod stranice koja prihvata formu proverava da li je datoteka stigla i kopira je u namenjeni direktorijum</li>
+	<li>PHP kod potvrdjuje korisniku da je datoteka stigla.</li>
+</ul>
+<br>
+HTML forma koja omogućuje korisniku da izabere datoteku koji želi da doda na server prikazana je u sledećem primeru:
+<xmp class = "primer_ta">
+	<!DOCTYPE html>
+	<html>
+	<head>
+
+	</head>
+	<body>
+	<form action="upload.php" method="POST" enctype="multipart/form-data">
+		<input type="file" name="fileToUpload">
+		<input type="submit" name="submit" value="Dodaj fajl">
+	</form>
+	</body>
+	</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<ul>
+Postoje dva pravila pri slanju datoteke u formi.
+	<li>Zbog bezbednosti korisimo uvek metod POST</li>
+	<li>Formi je neophodan jos jedan atribut: enctype="multipart/form-data". On određuje koji tip sadržaja će se koristiti prilikom slanja forme.</li>
+</ul>
+Primetiti još da se koristi atribut type = "file" koji polje za unos prikazuje kao polje za odabir datoteke.
+<br>
+Forma šalje podatke datoteci koji se zove "upload.php", njen izgled dat je u narednom primeru.
+<div class = "napomena">
+Mora se kreirati novi direktorijum pod nazivom "uploads" u direktorijumu gde se nalazi "upload.php". Dodate datoteke biće sačuvane tamo.
+</div>
+<br>
+upload.php, datoteka gde je poslata forma izgleda ovako:
+<xmp class = "primer_ta">
+<?php
+$uploadOk = 1;
+if(isset($_FILES['fileToUpload'])){
+$target_file = "uploads/".basename($_FILES['fileToUpload']['name']);
+$file_name = $_FILES['fileToUpload']['name'];
+$file_size = $_FILES['fileToUpload']['size'];
+$file_tmp = $_FILES['fileToUpload']['tmp_name'];
+$file_type = $_FILES['fileToUpload']['type'];
+
+if($file_size > 2097152){
+echo "Fajl mora da bude manji od 2MB";
+$uploadOk = 0;
+}
+
+if(file_exists($target_file)){
+echo "Fajl već postoji.";
+$uploadOk = 0;
+}
+
+if($uploadOk == 0){
+echo "Vaš fajl nije otpremljen";
+}
+else{
+	move_uploaded_file($file_tmp,$target_file);
+	echo "Success";
+}
+
+echo "<br>"
+echo "Izabrani fajl: ".$file_name."<br>";
+echo "Velicina fajla: ".file_size."<br>";
+echo "Tip fajla: ".file_type.<br>;
+}
+?>
+</xmp>
+<br>
+U primeru proverava se veličina datoteke, i da li već postoji na serveru. Ako prođe proveru, datoteka se šalje na željeno mesto na serveru. <br>
+Može iz primera da se zaključi da je za dodavanje datoteka na server neophodno korišćenje globalne promenljive <b>$_FILES</b>;<br>
+Ova promenljiva je asocijativni dvodimenzioni niz, koji čuva sve informacije vezane za datoteka koja se dodaje na server. Ako za atribut <b>name</b> datoteke koja se dodaje na server kao u primeru navedemo <b>fileToUpload</b>, PHP će kreirati 5 promenljivih.
+<ul>
+	<li><b>$_FILES['fileToUpload']['tmp_name']</b> - ime dodatog fajla u privremenom direktorijumu</li>
+	<li><b>$_FILES['fileToUpload']['name']</b> - pravo ime dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['size']</b> - veličina dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['type']</b> - tip dodatog fajla</li>
+	<li><b>$_FILES['fileToUpload']['error']</b> - kod greške nastale pri dodavanju ove datotek</li>
+</ul>
+Poslata datoteka nalazi se na privremenoj lokaciji na serveru koja se može dobiti pomoću vrednosti $FILES["datoteka"]["tmp_name”]. Da bi se datoteka smestila na željeno mesto (i pod željenim imenom), potrebno je koristiti funkciju
+<span class="primer_text">move_uploaded_file</span>. Prvi argument funkcije <span class="primer_text">move_uploaded_file</span> je trenutna, privremena putanja do datoteke, a drugi argument je željena putanja. U primeru to je direktorijum "uploads" koji se nalazi u istom direktorijumu kao "upload.php”.
+<div class = "zadatak">
+	Napraviti formu u kojoj će izabrana datoteka slati na istu stranicu, i ispisati ime, vrstu i tip izabrane datoteke.
+</div>
+

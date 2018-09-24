@@ -1,0 +1,179 @@
+<h1>Rad sa datotekama</h1>
+Postoji potreba i mogućnost da program pristupi datoteci, odnosno da se povežu ime datoteke i programski iskaz kojim se čitaju podaci iz te datoteke. To se postiže otvaranjem datoteke funkcijom <span class="primer_text">fopen</span>. <br>
+Funkcija <span class="primer_text">fopen</span> prima 2 argumenta. Prvi argument je putanja do datoteke. Putanja do datoteke može biti apsolutna (potpuna putanja do datoteke, npr. "D:/www/eSkolaVeba/datoteka.txt") ili relativna (putanja u odnosu na osnovni direktorijum dokumenta, npr. "eSkolaVeba/datoteka.txt"). Da bi program bez problema mogao da radi na različitim serverima, bolje je upotrebljavati relativne putanje. Ukoliko putanja nije navedena, datoteka će biti napravljena u istom direktorijumu gde je i kod programa. <br>
+Drugi argument funkcije <span class="primer_text">fopen</span> je način rada sa datotekom. Radi se o tekstualnoj konstanti koja opisuje koje će se akcije izvršavati nad datotekom. Svi načini rada dati su u narednoj tabeli. <br>
+<table class = "tabela">
+<thead>
+	<tr>
+		<th>Način rada</th>
+		<th>Objašnjenje</th>
+	</tr>
+</thead>
+<tbody>
+<tr>
+	<td>r</td>
+	<td>Datoteka se otvara začitanje.</td>
+</tr>
+<tr>
+	<td>r+</td>
+	<td>Datoteka se otvara za čitanje i upisivanje.</td>
+</tr>
+<tr>
+	<td>w</td>
+	<td>Datoteka se otvara za upisivanje. Ako datoteka ne postoji onda se automatski kreira nova datoteka.</td>
+</tr>
+<tr>
+	<td>w+</td>
+	<td>Datoteka se otvara za čitanje i upisivanje. Ako datoteka ne postoji onda se automatski krreira nova datoteka.
+</tr>
+<tr>
+	<td>a</td>
+	<td>Datoteka se otvara za dodavanje .Postojeći sadržaj datoteke se ne briše. Datoteka se otvara samo za pisanje. Ako datoteka ne postoji onda se automatski krreira nova datoteka.</td>	
+</tr>
+<tr>
+	<td>a+</td>
+	<td>Datoteka se otvara za dodavanje i čitanje. Postojeći sadržaj datoteke se ne briše. Ako datoteka ne postoji onda se automatski krreira nova datoteka.</td>
+</tr>
+<tr>
+	<td>b</td>
+	<td>Rad sa binarnom datotekom. Koristi se u kombinaciji sa ostalim načinima (rb - za čitanje binarne datoteke, rw - za upisivanje u binarnu datoteku). Može se koristiti ako sistem razlikuje binarne i tekstualne datoteke. Windows pravi razliku, a Unix ne.</td>
+</tr>
+</tbody>
+</table>
+<br>
+Preporučuje se navođenje najjednostavnijeg potrebnog načina rada (ako se planira samo čitanje iz datoteke, bolje je navesti "r" nego "r+"), jer se time štede resursi. <br>
+Primer poziva funkcije <span class="primer_text">fopen</span>: <br>
+<span class = "primer_text">$datoteka = fopen("datoteka.txt","r");</span>
+<br>
+Ako funkcija <span class="primer_text">fopen</span> uspešno otvori datoteku, ona vraća pokazivač na tu datoteku. Taj pokazivač (u primeru $datoteka) je promenljiva tipa <i>resource</i>, i sav dalji rad sa datotekom se odvia uz pomoć njega. <br>
+Nakon poziva funkcije <span class="primer_text">fopen</span>, potrebno je proveriti da li otvaranje datoteke uspelo. Provera da li je otvaranje datoteke uspelo, svodi se na proveru da li je vraćeni pokazivač prazan ili ne. Rad s datotekom treba nastaviti samo ako je datoteka uspešno otvorena.
+<xmp class=primer_ta>
+if($datoteka){
+//rad sa datotekom
+}
+</xmp>
+Datoteka se neće uspešno otvoriti ukoliko nepostoji ili ako putanja do nje nije tačno navedena. U tom slučaju PHP će izbaciti poruku o grešci. Umesto poruka koje daje PHP moguće je uneti svoju.
+<xmp class=primer_ta>
+<?php
+@ $datoteka = fopen("eSkolaVeba/datoteka.txt","r");
+if(!$datoteka){
+echo "Greška pri učitavanju datoteke. Pokušajte kasnije";
+}
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button><br>
+Simbol @ govori programu da ne prijavljuje greške nastale usled poziva funkcije.
+<h2>Funkcija fclose</h2>
+Kad je rad s datotekom završen, potrebno ju je zatvoriti (opet radi štednje resursa). Zatvaranje datoteke obavlja se pomoću funkcije <span class="primer_text">fclose</span>. Ovoj se funkciji kao argument predaje pokazivač na datoteku. Ova funkcija vraća true ako je datoteka uspešno zatvorena, odnosno false ako nije. Prilikom zatvaranja datoteka ima mnogo manje problema nego pri otvaranju, pa rezultat ove funkcije nema potrebe proveravati. <br>
+<span class="primer_text">fclose($datoteka);</span>
+<div class = "napomena">
+Dobra je programerska praksa da se zatvore sve datoteke kada završimo sa njima. Zbog bezbednosti ne želimo otvorenu datoteku tokom izvršenja programa na serveru.
+</div>
+<xmp class = "primer_ta">
+$moj_fajl = fopen('datoteka.txt','r');
+//kod koji se izvrsava...
+fclose($moj_fajl);
+</xmp>
+<h2>Čitanje podataka iz datoteke</h2>
+Za čitanje podataka iz datoteke otvorene za čitanje koristi se funkcija <span class="primer_text">fread</span>. Funkcija ima 2 obavezna argumenta. Prvi argument sadrži naziv datoteke ili pokazivač na datoteku, a drugi argument je broj bajtova koji se učitava.
+<xmp class=primer_ta>
+<?php
+@ $datoteka = fopen("datoteka.txt", "r");
+if($datoteka){
+$text_datoteke = fread($datoteka, 20);
+}
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Veličina datoteke u bajtovima može se utvrditi pomoću funkcije <span class="primer_text">filesize</span>. Funkcija <span class="primer_text">filesize</span> se koristi zajedno sa funkcijom <span class="primer_text">fread</span> za učitavanje cele datoteke odjednom.
+<xmp class = "primer_ta">
+<?php
+$datoteka = "datoteka.txt";
+@ $fajl = fopen($datoteka,'r');
+if($fajl == false){
+	die("Greska pri ucitavanju datoteke");
+}
+$velicina_datoteke = filesize($datoteka);
+$text_datoteke = fread($fajl,$velicina_datoteke);
+fclose($fajl);
+echo $text_fajla";
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<h2>Funkcija fgets</h2>
+Funkcija <span class="primer_text">fgets</span> koristi se za učitavanje jednog reda iz datoteke. Funkcija kao argument prima pokazivač na datoteku, a vraća pročitani red. Nakon što se pozove funkcija <span class="primer_text">fgets</span> pokazivač se pomera na sledecu liniju.
+<h2>Funkcija fgetc</h2>
+Funkcija <span class="primer_text">fgetc</span> koristi se za učitavanje jednog  karaktera iz datoteke. Funkcija kao argument prima pokazivač na datoteku, a vraća pročitani karakter. Nakon što se pozove funkcija <span class="primer_text">fgetc</span> pokazivač se pomera na sledecu karakter.
+<h2>Funkcija feof</h2>
+Provera da li je datoteka došla do kraja obavlja se pomoću funkcije <span class="primer_text">feof</span>. Ova funkcija prima pokazival na datoteku, a vraća vrednost true ako je pokazivač stigao do kraja datoteke.
+<br>
+<b>Primeri:</b>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "datoteka.txt";
+$fajl = fopen($ime_fajla,"r");
+//Ispisujemo liniju koda dok ne dodje do kraja datoteke.
+while(!feof($fajl)){
+	echo fgets($fajl)."<br>";
+}
+fclose($fajl);
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "datoteka.txt";
+$fajl = fopen($ime_fajla,"r");
+//Ispisujemo karakter po karakter dok ne dodje do kraja datoteke.
+while(!feof($fajl)){
+	echo fgetc($fajl)."<br>";
+}
+fclose($fajl);
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<h2>Upisivanje podataka u datoteku</h2>
+Za upisivanje podataka u datoteku otvorenu za upis, koristi se funkcija <span class="primer_text">fwrite</span>. Funkcija <span class="primer_text">fwrite</span> prima dva argumenta. Prvi argument je pokazivač na datoteku u koju se upisuje. Drugi argument je tekst koji se upisuje. <br>
+Primer upisivanja podataka u datoteku:
+<xmp class = "primer_ta">
+<?php
+$ime_fajla = "datoteka.txt";
+$fajl = fopen($ime_fajla,"w");
+$tekst = "Tekst koji upisujemo u datoteku";
+fwrite($fajl,$tekst);
+fclose($fajl);
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<h2>Ostale korisne funckcije za rad sa datotekama</h2>
+Funkcija <span class="primer_text">file_exists</span> koristi se za proveru da li neka datoteka postoji, a da ne mora prethodno da se otvori. <br>
+Primer:
+<xmp class = "primer_ta">
+<?php
+   if(file_exists("datoteka.txt")){
+   echo "Datoteka postoji";
+   }
+   else{
+   echo "Datoteka ne postoji";
+   }
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+Za brisanje datoteke, kada više nije od koristi, koristi se funkcija <span class="primer_text">unlink</span> (ne postoji funkcija delete). Naredbom <span class="primer_text">unlink("datoteka.txt")</span> se datoteka "datoteka.txt" briše.
+Funkcija vraća false ako ne može da obriše datoteku. To se obično dešava ako ne postoji datoteka. <br>
+Za kretanje kroz datoteku koriste se funkcije <span class="primer_text">rewind</span>, <span class="primer_text">fseek</span> i <span class="primer_text">ftell</span>. Pomoću navedenih funkcija moguće je otkriti položaj pokazivača u datoteci i pomerati ga. <br>
+Funkcija <span class="primer_text">rewind</span> pomera pokazivač na početak datoteke, dok funkcija <span class="primer_text">ftell</span> vraća trenutni položaj pokazivača u datoteci. <br>
+Primer poziva funkcija <span class="primer_text">ftell</span> i <span class="primer_text">rewind</span>:
+<xmp class = "primer_ta">
+echo "Pokazivač se nalazi na poziciji ".ftell($fp);
+echo "Nakon poziva funkcije rewind pokazivač se nalazi na poziciji ".rewind($fp);
+</xmp>
+Funkcija <span class="primer_text">fseek</span> pomera pokazivač za dati broj bajtova u odnosu na referentnu tačku. Njen prototip je: <br>
+    <span class="primer_text">int fseek(resource pokazivac, int pomeraj, int referentna tacka);</span> <br>
+Referentna tacka je opcioni argument. Ako se ne navede, njegova podrazumevana vrednost je SEEK_SET, što je početak datoteke. Preostale dve moguće vrednosti su SEEK_CUR(trenutna pozicija pokazivača) i SEEK_END (kraj datoteke). <br>
+Zadatak:
+<div class = "zadatak">
+Učitati datoteku datoteka.txt. Ispisati je liniju po liniju i izbrojati koliko linija ima.
+</div>

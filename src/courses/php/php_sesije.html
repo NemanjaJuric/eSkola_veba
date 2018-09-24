@@ -1,74 +1,87 @@
-<h1>Sesije</h1>
-Alternativni način da podaci budu dostupni na različitim stranicama čitavog sajta jeste korišćenje sesija.
+<h1>Korišćenje sesija u programskom jeziku PHP</h1>
+Alternativni način čuvanja tekućeg stanja aplikacije jeste korišćenje sesija (engl. <em>session</em>). pomoću sesija se tokom posete sajtu čuvaju podaci specifični za tu konekciju. Podaci iz seseija se čuvaju tokom posete na serveru, a zatim se brišu (obično kada korisnik zatvori svoj veb pretraživač). Time što se podaci čuvaju na serveru rešava se i problem zaštite podataka sadržanih u promenljivama stanja od nenamernih ili namernih izmena koje bi korisnik mogao načiniti.
+<h2>Identifikator sesije</h2>
+Svaka sesija ima jedinstveni identifikator koji se čuva na dva mesta: kod korisnika
+kao privremeni kolačić i na serveru gde se automatski generiše od strane programskog
+jezika PHP, tako da programer o tome ne mora da vodi računa. <br>
+Veb pregledač čuva i ugrađuje u svaki HTTP zahtev samo identifikator sesije, na osnovu koga server obrađuje prispeli zahtev u kontekstu tekućeg stanja. <br>
+Kada korisnik prvi put pokrene aplikaciju koja upravlja stanjem, tako što zahteva veb stranicu koja započinje sesiju, PHP prvo generiše identifikator (ID) sesije, a zatim formira datoteku za smeštaj vrednosti promenljivih koje se odnose na novu sesiju.  U odgovor PHP ugrađuje kolačić čije je ime PHPSESSID koji sa drži ID sesije. ID sesije je broj od 32 nasumično generisane heksadecimalne cifre, kao npr. <span class="primer_text">242c489fb4a1bc79f5cf365988167e4d</span>. <br>
+Klijentski veb pregledač potom skladišti kolačić i umeće njegovu vrednost u sve naredne zahteve koje šalje serveru. Ako su kolačići onemogućeni ili nisu podržani u korisnikovom veb pregledaču, identifikator sesije će se proslediti preko URL-a.  Primer takvog URL-a:
+<span class="primer_text">http://www.matf.bg.ac.rs?PHPSESSID=242c489fb4a1bc79f5cf365988167e4d</span>
 <br>
-Sesija kreira fajl u privremenom direktorijumu na serveru gde se nalazi globalna promenljiva koja će čuvati vrednosti koje prenosimo. Ti podaci će biti dostupni svim stranicama sajta.
-
-<h2>Kako funkcionišu sesije?</h2>
-<ul>
-	<li>PHP kreira jedinstveni identifikator za svaku sesiju, kreira proizvoljan niz od 32 karaktera u heksadecimalnom zapisu, kao npr. 3c7foj34c3jj973hjkop2fc937e3443.</li>
-	<li>Kolačić sa imenom <b>PHPSESSID</b> se automatski šalje na računar korisnika sa informacijom o jedinstvenom identifikatoru sesije.</li>
-	<li>Na serveru u privremenom direktorijumu se automatski kreira fajl sa imenom kao jedinstveni identifikator sa prefiksom sess_, npr. sess_3c7foj34c3jj973hjkop2fc937e3443.
-Kada PHP kod želi da preuzme vrednost iz sesije, PHP automatski uzima jedinstveni identifikator iz kolačića PHPSESSID i onda gleda u privremenom direktorijumu fajl sa tim imenom i upoređuje te obe vrednosti.</li>
-</ul>
-Sesije pokrećemo pozivanjem funkcije <b>session_start()</b>.
-<div class = "napomena">
-Pozivanje funkcije <b>session start()</b> mora biti prva komanda u dokumentu, pre bilo koje html etikete. 
+Datoteke sesija se smeštaju u direktorijum /tmp, a ime datoteke se sastoji od ID sesije i prefiksa sess_ . Primer imena datoteke je: <br>
+<span class="primer_text">sess_242c489fb4a1bc79f5cf365988167e4d</span><br>
+Na slici je prikazana razmena podataka između pregledača i servera, kada se prvi zahtev pošalje aplikaciji.
+<img src="sesija.png" class="img-fluid" img-md>
+<h2>Rad sa sesijama</h2>
+Rad sa sesijama obuhvata započinjanje sesije, rad sa sesijskim promenljivama i na
+kraju okončavanje sesije. Za započinjanje nove sesije ili učitavanje postojeće sesije koristi se funkcija <span class="primer_text">session_start</span>.<br>
+Funkcija <span class="primer_text">session_start</span> kreira novu sesiju i time omogućava pristup superglobalnom
+nizu $_SESSION ili učitava postojeću sesiju koju identifikuje na osnovu ID sesije koji je prosleđen u HTTP zahtevu. Ova funkcija ne prima argumente i uvek vraća vrednost true.
+<div class="napomena">
+Poziv  funkcije session_start se mora izvršiti na samom početku
+stranice, pre bilo kakvog izlaza u veb pretraživač klijenta!
 </div>
-Informacije u sesijama se čuvaju u asocijativnom nizu $_SESSION. 
+<h2>Rad sa sesijskim promenljivama</h2>
+U sesijskim promenljivima se nalaze podaci koji opisuju trenutno stanje aplikacije.
+One su smeštene u globalni niz $_SESSION i njima se može pristupiti sa:
+<span class="primer_text">$_SESSION["naziv sesijske promenljive"]</span><br>
+Kreiranje nove sesijske promenljive je zapravododavanje novog člana u niz $_SESSION:
 <br>
-<b>Primer:</b>
+<span class="primer_text">$_SESSION["korisnik"]=$imeKorisnika;</span><br>
+Za proveru da li je neka sesijska promenljiva kreirana ili ne, može se koristiti funkcija <span class="primer_text">isset</span>. U narednom primeru je prikazan rad sa sesijskim promenljivama.
+<xmp class = "primer_ta">
+<?php
+if(isset($_SESSION["korisnik"]))
+{
+echo $_SESSION["korisnik"];
+}
+?>
+</xmp>
+Primer korišćenja sesija je brojač poseta. Svaki put kada se ovako napravljena stranica osveži(engl. <i>refresh</i>), parametar brojač se poveća za 1.  Sesija se zatvara isključivanjem veb pretraživača. Brojač sesija je prikazan u sledećem primeru:
+<xmp class = "primer_ta">
+<?php
+// inicijalizacija sesije
+session_start();
+if(isset($_SESSION["views"]))
+$_SESSION["views"]=$_SESSION["views"]+1;
+else
+$_SESSION["views"]=1;
+// stampaj vrednost
+echo "Ova stranica je vidjena " . $_SESSION["views"] . " puta";
+?>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+Pri prvom učitavanju stranice dobija se sledeći rezultat:
+<img src="pregled1.png" class="img-fluid" img-md>
+Nakon osvežavanja (engl. <i>refresh</i>) stranice:
+<img src="pregled2.png" class="img-fluid" img-md> 
+Brisanje postojeće sesijske promenljive se vrši pomoću funkcije <b>unset</b>. Jedini argument funkcije je naziv sesijske promenljive. U narednom primeru je prikazano brisanje sesijske promenljive korišćenjem funkcije <span class="primer_text">unset</span>.
+<br>
+U narednom primeru prikazano je brisanje sesijske promenljive.
 <xmp class = "primer_ta">
 <?php
 session_start();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	
-</head>
-<body>
-<?php
-$_SESSION['ime'] = "Marko";
-$_SESSION['prezime'] = "Markovic";
-echo "Vrednosti sesija su postavljene";
-?>
-</body>
-</html>
+$_SESSION['korisničko_ime']="Jovan";
+echo "Vaše korisničko ime je: " .$_SESSION['korisničko_ime'].".<br>";
+unset($_SESSION['korisničko_ime']);
+echo "Vaše korisničko_ime je sada: " .$_SESSION['korisničko_ime']. ".";
+ ?>
 </xmp>
-Vrednosti u sesijama možemo da koristimo na drugim stranica sajta.<br>
-Koristimo funkciju <b>isset()</b> da proverimo da li je vrednost sesije već postavljena ili nije. <br>
-<b>Primer:</b> (sesije koristimo na drugoj stranici!)
-<xmp class = "primer_ta">
-<?php
-session_start();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	
-</head>
-<body>
-<?php
-echo "Vaše ime je: ".SESSION['ime']."<br>";
-echo "Vaše prezime je: ".SESSION['prezime'];
-?>
-</body>
-</html>
-</xmp>
-<h2>Brisanje sesija</h2>
-Da izbrišemo sve sesije koristimo funkciju <b>session_destroy()</b>. Ova funkcija nema argument i jedno njeno pozivanje izbrisaće sve sesije, odnosno sve promenljive iz niza $_SESSION.
+<button class = "button_copy">Vidi primer</button>
 <br>
-Da izbrišemo jednu sesiju, odnosno jednu promenljivu iz niza $_SESSION koristimo funkciju <b>unset()</b>. Kao argument navodimo promenljivu čiju vrednost brišemo.
+Sesija bi trebalo da se okonča kada se korisnik odjavi iz aplikacije (izborom opcije "Kraj rada"). <br>
+Okončavanje sesije moguće je izvršiti ranije: pozivom funkcije <b>session_destroy</b>. Funkcija <span class="primer_text">session_destroy</span> nema argumente i uvek vraća vrednost true. Nakon poziva funkcije sve vrednosti sesijskih promenljivih biće izbrisane. <br>
+Korisnici se često ne odjavljuju iz aplikacije na adekvatan način. U tom slučaju se korisnikova sesija neće završiti tj. njegove sesijske promenljive će se i dalje čuvati na serveru. Server nikada ne može da bude siguran da li se na drugoj strani veze još uvek nalazi korisnik (svaki HTTP zahtev je nezavisan od drugih zahteva).  Zato server treba redovno da čisti stare, nezavršene (zamrznute) sesije u kojima se tokom određenog vremena nije ništa događalo. Zamrznute sesije troše resurse servera i smanjuju bezbednost podataka. Dužina intervala čekanja, pre nego što se neka zamrznuta sesija očisti, nije univerzalni parametar i zavisi od potreba aplikacije. <br>
+U mehanizam upravljanja sesijama ugrađen je mehanizam za sakupljanje smeća, koji
+obezbeđuje da se datoteke neaktivnih (zamrznutih) sesija posle izvesnog vremena brišu. Sakupljanje smeća sprečava se da se folder prepuni datotekama sesija, što slabi performanse sistema. Sakupljanjem smeća smanjuje se rizik da neko ko nasumično pogađa ID sesija ukrade neku staru sesiju koja se više ne koristi.
 <br>
-<b>Primer:</b>
-<xmp class = "primer_ta">
-<?php
-unset($_SESSION['ime']);
+Postoje dva parametra koja mogu da se podese u podešavanjima na serveru (u  datoteci <b>php.ini</b>) koja upravljaju sakupljanjem smeća. To su session.gc_maxlifetime i  session.gc_probability. Tokom postupka sakupljanja smeća, ispituju se sve sesije i briše se svaka sesija kojoj niko nije pristupio tokom vremena određenog parametrom
+gc_maxlifetime (podrazumevana vrednost je 1440 sekundi). <br>
+Parametar <span class="primer_text">gc_probability</span> određuje procenat verovatno će sakupljanja smeća (100%  - svaki put kada se pozove funkcija <span class="primer_text">session_start</span>, 1% - sa verovatnoćom 0.01 svaki put kada se pozove funkcija <span class="primer_text">session_start</span>. Postupak sakupljanja smeća može poprilično da optereti server, naročito kod veb aplikacija sa velikim brojem korisnika (mora se ispitati datum poslednjeg ažuriranja svake sesije). Ako se parametar <span class="primer_text">gc_probability</span> podesi suviše visoko nepotrebno se opterećuje server, a ako se podesi suviše nisko, javlja se problem zamrznutih sesija i problema koje one uzrokuju. <br>
+Generalno, ne postoji pravilo za podešavanje parametara <span class="primer_text">gc_maxlifetime</span> i <span class="primer_text">gc_probability</span>. Vrednosti ovih parametara trebalo bi da budu odabrane tako da obezbede ravnotežu između potreba aplikacije i performansi sistema.
 
-session_destroy();
-?>
-</xmp>
 <div class = "zadatak">
-Koristeći sesije napisati PHP kod koji će da nam izračunava broj posećivanja stranice.
+Koristeći sesije napisati PHP kod koji će da izračunava broj posećivanja stranice.
 Treba napraviti promenljivu koja će da se poveća za jedan pri svakom učitavanju stranice.
 </div>
