@@ -2622,15 +2622,15 @@
                 "sublessons": null
             },
             {
-                "name": "sql_Uslovna_pretraga_WHERE",
-                "url": "Uslovna pretraga WHERE",
+                "name": "Uslovna pretraga WHERE",
+                "url": "sql_Uslovna_pretraga_WHERE",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null
             },
             {
-                "name": "sql_Izmene_i_brisanje_u_tabeli",
-                "url": "Izmene i brisanje u tabeli",
+                "name": "Izmene i brisanje u tabeli",
+                "url": "sql_Izmene_i_brisanje_u_tabeli",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null
@@ -2658,7 +2658,7 @@
             },
             {
                 "name": "IF i CASE",
-                "url": "sql_If_i_Case_11",
+                "url": "sql_If_i_Case",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null
