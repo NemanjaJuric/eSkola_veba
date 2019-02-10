@@ -1,0 +1,10 @@
+<xmp>
+SELECT radnik.ime, radnik.prezime FROM radnik
+JOIN (SELECT * FROM sluzbeni_put WHERE YEAR(datum)=2017)
+AS putnik2017  ON radnik.id_radnika = putnik2017.putnik;
+</xmp>
+<br><br><br>
+<xmp>
+SELECT ime, prezime, polozaj FROM radnik
+WHERE datum_zaposlenja > (SELECT MAX(datum_zaposlenja) FROM radnik WHERE polozaj = "vozac");
+</xmp>

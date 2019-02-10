@@ -2587,8 +2587,127 @@
         "detailsText": "U pripremi",
         "lessons": [
             {
+                "name": "Uvod i instalacija",
+                "url": "sql_Uvod_i_instalacija",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "PHP veza sa bazom",
+                "url": "sql_PHP_veza_sa_bazom",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Kreiranje baza i tabela",
+                "url": "sql_Kreiranje_baza_i_tabela",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Izmena i brisanje tabela",
+                "url": "sql_Izmena_i_brisanje_tabela",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
                 "name": "Popunjavanje i pregled tabele",
                 "url": "sql_Popunjavanje_i_pregled_tabele",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "sql_Uslovna_pretraga_WHERE",
+                "url": "Uslovna pretraga WHERE",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "sql_Izmene_i_brisanje_u_tabeli",
+                "url": "Izmene i brisanje u tabeli",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Formatiranje izlaza",
+                "url": "sql_Formatiranje_izlaza",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Ugrađene funkcije",
+                "url": "sql_Ugradjene_funkcije",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Grupisanje",
+                "url": "sql_Grupisanje",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "IF i CASE",
+                "url": "sql_If_i_Case_11",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Povezivanje tabela",
+                "url": "sql_Povezivanje_tabela",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Vrste spojeva tabela",
+                "url": "sql_Vrste_spojeva_tabela",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Povezivanje više tabela",
+                "url": "sql_Povezivanje_vise_tabela",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Unija",
+                "url": "sql_Unija",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Podupiti",
+                "url": "sql_Podupiti",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "EXISTS",
+                "url": "sql_Exists",
+                "type": "lesson",
+                "parentCourse": "sql",
+                "sublessons": null
+            },
+            {
+                "name": "Složeniji upiti",
+                "url": "sql_Slozeniji_upiti",
                 "type": "lesson",
                 "parentCourse": "sql",
                 "sublessons": null

@@ -1,0 +1,13 @@
+<xmp>
+SELECT radnik.ime, radnik.prezime FROM radnik WHERE EXISTS (SELECT sluzbeni_put.putnik FROM sluzbeni_put WHERE sluzbeni_put.putnik = radnik.id_radnika);
+</xmp>
+<br><br><br>
+<xmp>
+SELECT ime, prezime, polozaj, plata FROM radnik
+WHERE plata >= ANY (SELECT plata FROM radnik WHERE polozaj = "sef prodavnice");
+</xmp>
+<br><br><br>
+<xmp>
+SELECT ime, prezime, polozaj, plata FROM radnik
+WHERE plata > ALL (SELECT plata FROM radnik WHERE polozaj = "sef prodavnice");
+</xmp>

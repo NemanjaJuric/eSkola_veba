@@ -1,0 +1,12 @@
+<xml>
+SELECT COUNT(s.putnik), r.radno_mesto
+FROM radnik AS r JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik
+GROUP BY r.radno_mesto;
+</xml>
+<br><br>
+
+<xml>
+SELECT r.ime, r.prezime, s.datum
+FROM radnik AS r JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik
+WHERE EXTRACT(YEAR FROM s.datum) = 2017;
+</xml>

@@ -1,0 +1,90 @@
+<h1><b>Formatiranje izlaza</b></h1>
+Sada ćemo prikazati još neke mogućnosti koje su vezane zа naredbu SELECT. Videćemo kako možemo
+sortirati tabelu, eliminisati dupliranje podataka itd.
+<h2>Naredba DISTINCT</h2>
+Ako hoćemo da pronađemo sva radna mesta radnika iz naše tabele <b>radnik</b>, to možemo učiniti pomoću upita:
+<xmp class = "primer_ta" >
+SELECT radno_mesto FROM radnik;
+</xmp>
+Primećujemo da se jedan isti rezultat pojavljuje više puta. Ako hoćemo da nam se jedan grad pojavi samo jednom,
+to ćemo ostvariti pomoću naredbe DISTINCT na sledeći način:
+<xmp class = "primer_ta" >
+SELECT DISTINCT radno_mesto FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<h2>Naredbu AS</h2>
+Prikažimo imena svih radnika iz tabele:
+<xmp class = "primer_ta" >
+SELECT ime FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+U zaglavlju kolone gde su ispisana imena radnika piše ime te kolone. Pomoću naredbe AS možemo sami da odredimo
+šta će pisati u zaglavlju, tj. možemo dati alijas ime toj koloni.
+<xmp class = "primer_ta" >
+SELECT ime AS Ime_radnika FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<div class = "napomena">
+	Prilikom dodeljivanja alijasa kolonama može se izostaviti ključna reč AS. Prethodni upit se može pisati
+	i ovako <br> <span class = "primer_text">SELECT ime Ime_radnika FROM radnik;</span>. <br> Da li ćete koristiti
+	reč AS zavisi od vas, ali preglednosti radi, savetuje se njena upotreba.
+</div>
+<h2>Naredba ORDER BY</h2>
+Ova naredba služi za sortiranje redova tabele po određenim kolonama. Oznaka za rastuće sortiranje je ASC, a
+za opadajuće DESC.
+<br>
+Analizirajmo naredi upit:
+<xmp class = "primer_ta" >
+SELECT * FROM radnik ORDER BY prezime;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Rezultat izvršavanja ovog upita je cela tabela <b>radnik</b>, kojoj su redovi sortirani rastuće po prezimenu
+radnika. Primećujete da ako se eksplicitno ne napiše oznaka rastućeg ili opadajućeg sortiranja, biće izvršeno
+rastuće sortiranje.
+<br>
+Sledećim upitom prikazujemo imena, prezimena i plate svih radnika, sortiranih od najveće do najmanje plate.
+<xmp class = "primer_ta" >
+SELECT ime, prezime, plata FROM radnik ORDER BY plata DESC;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Narednim upitom izlistavamo prezimena i imena svih trgovaca sortiranih rastuće po prezimenu, a ako imaju isto
+prezime onda se sortiraju rastuće po imenu.
+<xmp class = "primer_ta" >
+SELECT prezime, ime FROM radnik WHERE polozaj = 'trgovac' ORDER BY prezime ASC, ime ASC;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<h2>Naredba LIMIT</h2>
+Ovom naredbom se ograničava broj redova koji se dobijaju izvršavanjem nekog upita.
+<br>
+Da bismo dobili prvih 5 redova tabele <b>radnik</b> upotrebićemo sledeći upit:
+<xmp class = "primer_ta" >
+SELECT * FROM radnik LIMIT 5;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Ovim upitom dobijamo samo 5 redova iz tabele <b>radnik</b> koji su prvi dohvaćeni upitom.
+<br>
+Ako želimo sve podatke iz tabele od petog do desetog reda (uključujući i peti i deseti red), upotrebićemo upit:
+<xmp class = "primer_ta" >
+SELECT * FROM radnik LIMIT 4, 6;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Prvi broj iza ključne reči LIMIT označava koliko se prvih redova iz tabele zanemaruje, a drugi broj je maksimalni
+broj redova koje želimo da učitamo.
+<br><br>
+Ako želimo da učitamo 5 radnika sa najvećom platom, onda moramo kombinovati i LIMIT i ORDER BY.
+<xmp class = "primer_ta" >
+SELECT * FROM radnik ORDER BY plata DESC LIMIT 5;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<div class = "zadatak">
+	Pronaći prva tri radnika koja su se zaposlila u Novom Sada.
+</div>

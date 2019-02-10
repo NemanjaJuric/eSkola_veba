@@ -1,0 +1,9 @@
+<xmp>
+SELECT ime, prezime, CASE
+  WHEN plata < 50000 THEN 'ispod proseka'
+  WHEN plata BETWEEN 50000 AND 60000 THEN 'prosek'
+  WHEN plata > 110000 THEN 'visoko iznad proseka'
+  ELSE 'iznad proseka'
+  END AS primanja
+FROM radnik; 
+</xmp>

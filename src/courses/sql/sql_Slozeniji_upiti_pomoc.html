@@ -1,0 +1,6 @@
+<xmp>
+  SELECT CONCAT(kupac.ime, " ", kupac.prezime) AS Kupac, SUM(narudzbina.cena) AS ukupno
+  FROM kupac JOIN narudzbina ON narudzbina.kupac = kupac.id_kupca
+  JOIN proizvod ON narudzbina.proizvod = proizvod.id_proizvoda
+  WHERE proizvod.naziv = "Hrana za macke" GROUP BY Kupac ORDER BY ukupno DESC LIMIT 1;
+</xmp>

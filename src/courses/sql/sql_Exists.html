@@ -1,0 +1,70 @@
+<h1><b>EXISTS, ANY i ALL</b></h1>
+Ove ključne reči se koriste prilikom pisanja podupita.
+<h2>EXISTS</h2>
+Do sada su se rezultati dobijeni podupitom upoređivali sa nečim iz glavnog dela upita,
+ali ako koristimo ključnu reč EXISTS onda se podaci iz glavnog dela upita upoređuju sa uslovom
+datim u podupitu. Ispisuju se sve vrednosti iz glavnog dela upita koje se nalaze i u podupitu. Biće
+malo jasnije objašnjeno nakon primera.
+<br>
+Odrediti imena svih kupaca koji su kupovali u firmi.
+<xmp class = "primer_ta" >
+SELECT kupac.ime, kupac.prezime FROM kupac WHERE EXISTS (SELECT narudzbina.kupac FROM narudzbina WHERE kupac.id_kupca = narudzbina.kupac);
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Za svaki red tabele <b>kupac</b> se gleda da li se nalazi i u rezultatu podupita i ako se nalazi, onda se
+taj red vraća kao rezultat upita. U podupitu se proverava da li se id_radnika iz tabele <b>radnik</b>
+nalazi i u tabeli <b>narudzbina</b> u koloni kupac.
+<br>
+<br>
+Isti rezultat se mogao dobiti i bez korišćenja ključne reči EXISTS, ali šta ako je potrebno pronaći
+sve osobe iz tabele <b>kupac</b> koje nisu ništa naručivali iz firme. Takav problem se može rešiti
+pomoću spoljašnjeg povezivanja tabela, ali može i jednostavnije, pomoću ključnih reči EXISTS i NOT.
+<xmp class = "primer_ta" >
+SELECT kupac.ime, kupac.prezime FROM kupac WHERE NOT EXISTS (SELECT narudzbina.kupac FROM narudzbina WHERE kupac.id_kupca = narudzbina.kupac);
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Ako se ispred EXISTS doda NOT, onda se kao rezultat upita dobiju svi redovi iz tabele
+<b>kupac</b> koji se <u>ne nalaze</u> u rezultatu podupita.
+<div class="zadatak">
+  Pomoću ključne reči EXISTS dobiti imena i prezimena svih radnika koji su išli na službeni put
+</div>
+<h2>ANY</h2>
+Kako funkcionišu upiti sa ovom ključnom reči je najlakše objasniti na nekom primeru.
+<br>
+Potrebno je izlistati sve radnike koji imaju veću platu od bilo kog vozača.
+<xmp class = "primer_ta" >
+SELECT ime, prezime, polozaj, plata FROM radnik WHERE plata > ANY (SELECT plata FROM radnik WHERE polozaj = "vozac");
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Ako malo pogledamo kakve plate imaju radnici, vidimo da nam ovaj upit vraća sve radnike koji imaju veću
+platu od najniže vozačeve plate.
+<br>
+Upit se izvršava na sledeći način. U podupitu se dobiju plate svih vozača, zatim se za svaki red iz
+tabele <b>radnik</b> upoređuje plata radnika sa prvom platom dobijenom iz podupita i ispisuju se
+svi radnici koji imaju veću platu od te prve iz podupita. Nakon toga se sve plate iz tabele <b>radnik</b>
+upoređuju sa drugom platom dobijenom iz podupita i ako im je plata veća oni se ispisuju (ako je taj
+radnik već ispisan, ne vrši se dupliranje). Analogno se radi do kraja rezultata podupita. Na kraju,
+dobijemo sve radnike koji imaju veću platu od najmanje plate koja je dobijena izvršavanjem podupita.
+<div class="zadatak">
+  Odrediti sve radnike koji imaju jednaku ili veću platu od najslabije plaćenog šefa prodavnice.
+</div>
+<h2>ALL</h2>
+Ova ključna reč je slična ključnoj reči ANY. U čemu je razlika biće objašnjeno nakon primera.
+<xmp class = "primer_ta" >
+SELECT ime, prezime, polozaj, plata FROM radnik WHERE plata > ALL (SELECT plata FROM radnik WHERE polozaj = "vozac");
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Vidimo da je rezultat upita samo jedan red. Možda je očekivano da, pored generalnog direktora, kao rezultat
+dobijemo i sve šefove prodavnica, ali primetite da jedan vozač ima veću platu od svih šefova prodavnica.
+<br>
+Upit se izvršava na sledeći način. U podupitu se dobiju plate svih vozača i onda se ispisuju radnici koji
+imaju platu <u>veću od svake</u> plate koja je dobijena podupitom. Tj. ispisuju se svi radnici koji imaju
+veću platu od najveće plate dobijene podupitom.
+<div class="zadatak">
+  Odrediti sve radnike koji imaju veću platu od svakog šefa prodavnice.
+</div>
+<br>

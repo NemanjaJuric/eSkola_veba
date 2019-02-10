@@ -1,0 +1,23 @@
+<xmp>
+SELECT MIN(plata) FROM radnik WHERE polozaj = 'sef prodavnice';
+</xmp>
+
+<xmp>
+SELECT MAX(plata) FROM radnik WHERE polozaj = 'sef prodavnice';
+</xmp>
+
+<xmp>
+SELECT AVG(plata) FROM radnik WHERE polozaj = 'vozac';
+</xmp>
+
+<xmp>
+SELECT SUM(plata) / COUNT(plata) FROM radnik WHERE polozaj = 'vozac';
+</xmp>
+<br>
+<xmp>
+SELECT CONCAT(UPPER(prezime),' ', ime) AS Prezime_i_ime , REPLACE(polozaj, 'sef', 'rukovodilac') AS polozaj, plata FROM radnik;
+</xmp>
+<br>
+<xmp>
+SELECT ime, prezime FROM radnik WHERE EXTRACT(MONTH FROM datum_zaposlenja) = EXTRACT(MONTH FROM NOW());
+</xmp>

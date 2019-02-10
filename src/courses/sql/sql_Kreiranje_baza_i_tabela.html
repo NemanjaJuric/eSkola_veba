@@ -1,0 +1,142 @@
+<h1><b>Upiti za kreiranje baza i tabela</b></h1>
+Da bismo kreirali bazu podataka, prvo treba da se povežemo sa serverom. Povezivanje je objašnjeno
+u prethodnoj lekciji.<br>
+<b>Upit za kreiranje baze podataka:</b>
+<br>
+<span class = "primer_text" >CREATE DATABASE ime_baze;</span>
+<br>
+Ime baze ne sme sadržati razmake, tačke ili kose crte.
+<br>
+<b>Upit za brisanje baze podataka:</b><br>
+<span class = "primer_text" >DROP DATABASE ime_baze;</span>
+
+<h2>Kreiranje tabela</h2>
+
+Da bismo napravili tabelu u bazi podataka, treba da se povežemo sa tom bazom. Povezivanje je objašnjeno
+u prethodnoj lekciji.<br>
+<b>Upit za kreiranje tabele u bazi:</b>
+<br>
+<xmp class = "primer_ta" >
+CREATE TABLE ime_tabele(
+	kolona1_ime tip_podatka,
+	.
+	.
+	.
+	ime_koloneN tip_podatka
+);
+</xmp>
+U zagradi iza imena tabele navode se imena kolona i tip podatka koji se čuva u toj koloni.
+Najčešće korišćeni tipovi podataka su dati u sledećoj tablici:<br>
+<table class = "tabela">
+	<thead>
+		<tr>
+			<th>Tip</th>
+			<th>Opis</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>INT</td>
+			<td>celi brojevi</td>
+		</tr>
+		<tr>
+			<td>DOUBLE</td>
+			<td>decimalni brojevi</td>
+		</tr>
+		<tr>
+			<td>DECIMAL</td>
+			<td>decimalni brojevi</td>
+		</tr>
+		<tr>
+			<td>CHAR</td>
+			<td>tekst fiksne dužine</td>
+		</tr>
+		<tr>
+			<td>VARCHAR</td>
+			<td>tekst promenljive dužine</td>
+		</tr>
+		<tr>
+			<td>TEXT</td>
+			<td>tekst</td>
+		</tr>
+		<tr>
+			<td>DATE</td>
+			<td>datum (YYYY-MM-DD)</td>
+		</tr>
+		<tr>
+			<td>TIME</td>
+			<td>vreme (HH:MM:SS)</td>
+		</tr>
+		<tr>
+			<td>DATETIME</td>
+			<td>datum i vreme (YYYY-MM-DD HH:MM:SS)</td>
+		</tr>
+		<tr>
+			<td>YEAR</td>
+			<td>godina (YYYY ili YY)</td>
+		</tr>
+	</tbody>
+</table>
+Iza tipa podatka se može u zagradi navesti broj koji predstavlja maksimalnu velicinu podatka,
+npr. <span class = "primer_text" >VARCHAR(30)</span> označava da nam je podatak tekstualnog tipa
+i da ima najviše 30 karaktera.
+<br><br>
+Poželjno je da svaka tabela ima <b>primarni ključ</b> - kolonu čije su vrednosti jedinistvene za svaki red
+u tabeli. Tj. dva (ili više) redova <b>ne smeju</b> imati istu vrednost u koloni primarnog ključa.
+Primarni ključ može biti određen i sa više kolona, naravno, kombinacije vrednosti u tim kolonama su
+jedinstvene za svaki red tabele.
+<br>
+Kako definišemo koja kolona će biti primarni ključ? U upitu za kreiranje tebele, nakon nabrajanja svih imena
+i tipova podataka kolona u tabeli dodamo <span class = "primer_text" >PRIMARY KEY(ime_kolone)</span>.
+Primarni ključ možemo odrediti i na drugi način, a to je da nakon imena kolone koja će biti primarni
+ključ, i njenog tipa podatka dodamo <span class = "primer_text" >PRIMARY KEY</span>.
+<br>
+Upit kojim se kreira tabela koja čuva JMBG, ime, prezime i broj godina osobe izgleda ovako:
+<xmp class = "primer_ta" >
+CREATE TABLE osoba(
+	jmbg INT(13),
+	ime VARCHAR(20),
+	prezime TEXT(50),
+	godine INT,
+	PRIMARY KEY(jmbg)
+);
+</xmp>
+Svaka osoba ima različit JMBG, pa je logično da kolonu u kojoj se čuvaju matični brojevi osoba uzmemo za
+primarni ključ tabele.
+<br><br>
+Za svaku kolonu, iza tipa podatka koji se čuva u toj koloni, možemo navesti neku ključnu reč
+koja opisuje podatak u toj koloni. Neke od najčešće korišćenih ključnih reči i njihova značenja su:
+<br>
+<b>NOT NULL</b> - Prilikom popunjavanja reda tabele, polje ne sme da ostane nepopunjeno.
+<br>
+<b>DEFAULT</b> - Ako se prilikom popunjavanja reda tabele ne navede konkretna vrednost, u polje se upisuje
+vrednost koja je navedena iza ključne reči.
+<br>
+<b>AUTO_INCREMENT</b> - Prilikom dodavanja prvog reda u tabelu, u polje obeleženo ovom ključnom rečju se
+upisuje broj 1 i za svaki naredni dodati red se upisuje broj za jedan veći od prethodnog.
+<br><br>
+Analizirajmo sledeći upit:
+<xmp class = "primer_ta" >
+CREATE TABLE clan_kluba(
+	ime VARCHAR(20) NOT NULL,
+	prezime TEXT(50) NOT NULL,
+	br_karte INT AUTO_INCREMENT PRIMARY KEY,
+	godine INT,
+	grad VARCHAR(30) DEFAULT 'Beograd'
+);
+</xmp>
+Ovim upitom kreiramo tabelu <b>clan_kluba</b>. Tabela sadrži kolone koje čuvaju ime, prezime, broj članske karte, godine i
+grad iz kog je član kluba.
+<br>
+Polje u koloni <b>ime</b> čuva tekstualni podatak koji ima najviše 20 karaktera i to polje ne sme ostati prazno.
+<br>
+Polje u koloni <b>prezime</b> čuva tekstualni podatak koji može imati najviše 50 karaktera i to polje mora biti popunjeno.
+<br>
+Polje u koloni <b>br_karte</b> čuva ceo broj, koji se sa svakim novim dodatim članom povećava za jedan. Kako svaki član kluba ima
+različit broj članske karte, kolonu <b>br_karte</b> smo izabrali za primarni ključ.
+<br>
+Polje u koloni <b>godine</b> čuva celobrojni podatak.
+<br>
+Polje u koloni <b>grad</b> čuva tekstualni podatak koji može imati najviše 30 karaktera i ako se prilikom popunjavanja tabele
+ne navede grad novog člana kluba, u tabelu se upisuje podrazumevana vrednost Beograd.
+<br><br>

@@ -1,0 +1,14 @@
+Pomoću unutrašnjeg poveivanja:
+<xmp>
+SELECT DISTINCT radnik.ime, radnik.prezime
+FROM narudzbina JOIN radnik ON narudzbina.prodavac = radnik.id_radnika
+JOIN proizvod ON narudzbina.proizvod = proizvod.id_proizvoda
+WHERE proizvod.naziv = "Hrana za pse" AND YEAR(narudzbina.datum) = 2018 AND MONTH(narudzbina.datum) = 6;
+</xmp>
+<br>
+Pomoću Dekartovog proizvoda tabela:
+<xmp>
+SELECT radnik.ime, radnik.prezime
+FROM radnik, narudzbina, proizvod
+WHERE radnik.id_radnika = narudzbina.prodavac AND narudzbina.proizvod = proizvod.id_proizvoda AND proizvod.naziv = "Hrana za pse" AND YEAR(narudzbina.datum) = 2018 AND MONTH(narudzbina.datum) = 6;
+</xmp>

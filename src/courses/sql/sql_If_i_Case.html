@@ -1,0 +1,62 @@
+<h1><b>Naredbe IF i CASE</b></h1>
+Najčešće korišćene naredbe za upravljanje tokom izvršavanja komandi su <b>IF</b> i <b>CASE</b>, koje su
+veoma slične naredbama if i switch iz većine programskih jezika.
+<h2>Naredba IF</h2>
+Sintaksa naredbe IF:
+<br>
+<span class = "primer_text" >IF(uslov, rez1, rez2)</span>: Ako je logička vrednost izraza
+<span class = "primer_text" >uslov</span> tačna, onda se izvršava izraz <span class = "primer_text" >rez1</span>,
+u suprotnom izvršava se izraz <span class = "primer_text" >rez2</span>.
+<br>
+Kako uraditi naredni zadatak?
+<br>
+Ispisati imena i prezimena svih radnika i, ako radnik ima platu veću od 55000 ispisati "ispod proseka", u suprotnom
+ispisati "iznad proseka".
+<br>
+Za rešavanje ovih zadataka, korisna je IF naredba.
+Analizirajmo naredni upit.
+<xmp class = "primer_ta" >
+SELECT ime, prezime, IF(plata < 55000, 'ispod proseka', 'iznad proseka') FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+U sledećem primeru se ispisuje samo ime onih radnika koji imaju platu manju od 55000, a ostalim radnicima se
+ispisuje samo prezime. Dodatno, za svakog radnika ispisati radno mesto gde radi.
+<xmp class = "primer_ta" >
+SELECT IF(plata < 55000, ime, prezime), radno_mesto FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<h2>Naredba CASE</h2>
+Ova naredba je slična naredbi IF, samo što kod nje imamo više rezultujućih mogućunosti.
+<br>
+Sintaksa naredbe CASE:
+<xmp class = "primer_ta" >
+CASE
+WHEN uslov1 THEN rezultat1
+WHEN uslov2 THEN rezultat2
+	.
+	.
+	.
+WHEN uslovN THEN rezultatN
+ELSE rezultatN+1
+END
+</xmp>
+<div class = "napomena">
+	Radi preglednosti, naredba CASE je pisana u više redova, ali kao što smo već rekli, svi upiti koji se pišu
+	na ovoj platformi moraju biti u jednom redu. Svi naredni upiti koje budemo pisali će biti u jednom redu.
+</div>
+Naredba CASE je povoljna za rešavanje problema sličnih narednom zadatku.
+<br>
+Ispisati imena i prezimena svih radnika i, ako rade u Novom Sadu ispisati "Vojvodina", ako rade u
+Beogradu - "Glavni grad" i ako rede u Nišu - "Jug Srbije".
+<xmp class = "primer_ta" >
+SELECT ime, prezime, CASE WHEN radno_mesto = 'Novi Sad' THEN 'Vojvodina' WHEN radno_mesto = 'Beograd' THEN 'Glavni grad' ELSE 'Jug Srbije' END AS region FROM radnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<div class = "zadatak">
+	Napisati upit kojim se pored imena i prezimena radnika ispisuje: "ispod proseka" ako ima platu manju od 50000;
+	"prosek" ako ima platu od 50000 do 60000; "iznad proseka" ako mu je plata između 60000 i 110000 i
+	"visoko iznad proseka" ako ima platu veću od 110000.
+</div>

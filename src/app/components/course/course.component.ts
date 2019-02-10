@@ -93,8 +93,11 @@ export class CourseComponent implements OnInit, OnDestroy {
 
   lessonClick(event) {
     if (event.toElement.className.indexOf('button_copy') >= 0) {
-      this.code = event.toElement.previousElementSibling.textContent;
-      this.previewCode(this.code, 'frame');
+      let t = setTimeout(() => {
+        this.code = event.toElement.previousElementSibling.textContent;
+        this.previewCode(this.code, 'frame');
+        clearTimeout(t);
+      }, 0);
     }
   }
 

@@ -1,0 +1,87 @@
+<h1><b>Vrste spojeva tabela</b></h1>
+U prethodnoj lekciji smo videli kako se povezuju dve tabele pomoću ključne reči JOIN. Takvo povezivanje
+se naziva unutrašnje povezivanje tabela (umesto ključne reči JOIN može se pisati i INNER JOIN) i ono
+se najčešće i koristi. Kod unutrašnjeg povezivanja tabela prikazuju se samo redovi iz obe tabele koji su upareni
+po navedenom kriterijumu. Pored takve vrste spoja dva tabele, postoji još par načina za povezivanje dve tabele.
+<h2>CROSS JOIN</h2>
+Naziva se i Dekartov proizvod dve tabele. Za ovakav način spajanja dve tabele ne pišemo nikakav kriterijum
+za uparivanje tabela, jer ovakvim povezivanjem se izlistaju sve moguće kombinacije redova iz obe tabele.
+Pogledajmo to na primeru.
+<xmp class = "primer_ta" >
+SELECT radnik.*, sluzbeni_put.* FROM radnik CROSS JOIN sluzbeni_put;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Vidite da je rezultat izvršavanja ovog upita jedna tabela sa mnogo redova u kojoj se nalaze i radnici koji nikada nisu
+išli na službeni put. Jednostavno, ispisane su sve moguće kombinacije redova iz obe tabele.
+<br>
+Pri ovakvom povezivanja nije potrebno navoditi ključne reči CROSS JOIN, isti upit možemo zapisati i ovako:
+<xmp class = "primer_ta" >
+SELECT radnik.*, sluzbeni_put.* FROM radnik, sluzbeni_put;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Umesto ključnim rečima, nazive tabela smo razdvojili zapetom.
+<br><br>
+U prethodnoj lekciji smo videli kako da lepo uparimo ove dve tabele i da dobijemo samo radnike koji su
+išli na službena putovanja. To isto možemo postići i pomoću Dekartovog proizvoda dve tabele uz dadavanje
+određenog uslova iza ključne reči WHERE.
+<xmp class = "primer_ta" >
+SELECT radnik.*, sluzbeni_put.* FROM radnik, sluzbeni_put WHERE radnik.id_radnika = sluzbeni_put.putnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Ovaj način možda deluje jednostavnije od povezivanja pomoću ključne reči JOIN, ali izbegavajte ga jer može
+dovesti do usporavanja izvršenja upita i grešaka ako ne navedete korektan kriterijum za uparivanje tabela.
+Pored toga, sam upit je razumljiviji i lakši za shvatanje ako za ovakve tipove upita koristite JOIN, jer se
+tada uslovi za selekciju podataka odvojeni od kriterijuma za povezivanje tabela.
+<h2>LEFT JOIN</h2>
+Koristi se za spoljašnje povezivanje tabela, može se pisati i LEFT OUTER JOIN.
+<br>
+Sintaksa levog spoljašnjeg povezivanja:
+<xmp class = "primer_ta" >
+SELECT tabela1.ime_kolone, ... , tabela2.ime_kolone...
+FROM tabela1 LEFT JOIN tabela2 ON uslov;
+</xmp>
+Kod ovakvog povezivanja, prikazuju se redovi iz odabranih kolona tabele1 i redovi iz odgovarajućih kolona tabele2 koji
+su upareni po navedenom kriterijumu (isto kao kod INNER JOIN). Pored tih redova, ispisuju se i svi redovi iz odabranih
+kolona tabele1 (tabela1 je sa leve strane ključne reči JOIN) koji nisu upareni sa nekim redom iz tabele2, a u polje
+za ispis podataka iz tabele2 se upisuje NULL vrednost.
+<br><br>
+Povežimo sada tabele <b>radnik</b> i <b>sluzbeni_put</b> pomoću levog spoljašnjeg spoja.
+<xmp class = "primer_ta" >
+SELECT radnik.*, sluzbeni_put.* FROM radnik LEFT JOIN sluzbeni_put ON radnik.id_radnika = sluzbeni_put.putnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Spoljašnje povezivanje je veoma korisno za upite sledećeg tipa:
+<br>
+Odrediti sve radnike koji nisu išli na službeni put.
+<xmp class = "primer_ta" >
+SELECT r.ime, r.prezime FROM radnik AS r LEFT JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik WHERE s.putnik IS NULL;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<h2>RIGHT JOIN</h2>
+Desno spoljašnje povezivanje je gotovo identično levom spoljašnjem povezivanju. Jedina razlika je u tome što će
+se u ovom slučaju ispisati redovi iz tabele2 (koja je desno od ključne reči JOIN) koji nisu upareni sa nekim redom
+iz tabele1.
+Povezivanjem tabela <b>radnik</b> i <b>sluzbeni_put</b> desnim spoljašnjim povezivanjem dobijamo sledeći
+rezultat:
+<xmp class = "primer_ta" >
+SELECT radnik.*, sluzbeni_put.* FROM radnik RIGHT JOIN sluzbeni_put ON radnik.id_radnika = sluzbeni_put.putnik;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<h2>Samospoj</h2>
+Predstavlja povezivanje jedne tabele sa samom sobom. Ovo možda deluje malo nelogično i nepotrebno, ali razmislimo
+kako bismo mogli da dodjemo do svih radnika koji rade na istom položaju kao radnik Stefan Popovic.
+<xmp class = "primer_ta" >
+SELECT r1.ime, r1.prezime FROM radnik AS r1 JOIN radnik AS r2 ON r1.polozaj = r2.polozaj WHERE r2.ime = 'Stefan' AND r2.prezime = 'Popovic';
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Jednoj istoj tabeli smo dali dva alijasa i onda smo koristili njih kao imena dve različite tabele.
+<div class="zadatak">
+  Odrediti kog datuma je osoba koja nije radnik firme išla na službeni put.
+</div>

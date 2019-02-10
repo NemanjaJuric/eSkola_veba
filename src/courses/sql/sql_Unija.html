@@ -1,0 +1,74 @@
+<h1><b>Unija</b></h1>
+Intuitivno rečeno, unije se koriste kada je potrebno povezati više upita u jedan.
+<h2>UNION</h2>
+Ako je potrebno objediniti rezultate dva (ili više) upita, koristi se ključna reč UNION. Upiti koji koriste unije
+su sledećeg oblika:
+<xmp class = "primer_ta" >
+upit1 UNION upit2 UNION ... UNION upitN
+</xmp>
+Prilikom pisanja ovakvih upita mora se voditi računa da svi upiti koji se povezuju unijama moraju
+imati isti broj kolona. Pored toga, podaci u tim kolonama moraju biti istog tipa, tj. ako prvi upit vraća
+tabelu od tri kolone gde se u prvoj koloni čuvaju niske, u drugoj celobrojne vrednosti a u trećoj datumi, onda
+i rezultujuće tabele ostalih upita moraju imati tri kolone koje čuvaju niske, cele brojeve i datume, tim redom.
+<br><br>
+Ako je potrebno izlistati imena i prezimena svih radnika i kupaca, to se lako rešava pomoću unija:
+<xmp class = "primer_ta" >
+SELECT ime, prezime FROM radnik UNION SELECT ime, prezime FROM kupac;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Ovim primerom smo objedinili rezultate dva upita. Prvi upit je
+<span class = "primer_text" >SELECT ime, prezime FROM radnik</span>, a drugi je
+<span class = "primer_text" >SELECT ime, prezime FROM kupac</span>. Važno je da i jedan i drugi upit
+vraća tabelu sa dve kolone i u oba upita u prvoj koloni se čuvaju niske, takođe se i u drugoj koloni
+oba upita čuvaju podaci istog tipa.
+<div class="zadatak">
+  Izlistati imena svih radnika i kupaca i njihove ID brojeve.
+</div>
+<h2>UNION ALL</h2>
+Prilikom korišćenja unija, u rezultujućoj tabeli se ispisuju samo oni redovi koji nisu isti. Ako je potrebno
+ispisati sve redove, bez obzira da li su oni isti ili ne, koriste se klučne reči UNION ALL.
+<br><br>
+Razliku između UNION i UNION ALL najlakše je uočiti pomoću sledeća dva primera.
+<br>
+Potrebno je pročitati sve gradove u kojima rade radnici firme i gradove u kojima žive kupci.
+<br>
+U prvom primeru taj problem je rešen pomoću UNION:
+<xmp class = "primer_ta" >
+SELECT radno_mesto FROM radnik UNION SELECT grad FROM kupac;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+U drugom primeru zadati problem je rešen pomoću UNION ALL:
+<xmp class = "primer_ta" >
+SELECT radno_mesto FROM radnik UNION ALL SELECT grad FROM kupac;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Analizirajući dobijene tabele nakon izvršavanja upita primećujemo da je u prvoj tabeli svaki grad
+naveden samo jednom dok je u drugoj tabeli ispisan grad za svakog radnika/kupca bez obzira da li
+se on ponavlja ili ne.
+<h2>Složeniji upiti sa unijama</h2>
+Ako je potrebno napraviti razliku između redova rezultujuće tabele koji su dobijeni prvim ili drugim upitom,
+to se rešava dodavanjem jedno nove kolone. Ovo je najlakše ilustrovati na primeru:
+<xmp class = "primer_ta" >
+SELECT ime, prezime, 'radnik' AS nova_kolona FROM radnik UNION SELECT ime, prezime, 'kupac' FROM kupac;
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+Vidimo da ovim upitom opet dobijamo imena i prezimena svih kupaca i radnika firme, s tim da smo dodali
+jednu kolonu u kojoj će pored imena i prezimena da piše uloga tog čoveka u firmi. Na taj način smo označili
+koje redove smo dobili prvim upitom a koje drugim.
+<br><br>
+Pomoću unija je moguće objedinjavati i rezultete uslovnih upita.
+<br>
+Sledećim upitom se dobijaju imena i prezimena svih radnika i kupaca iz Beograda.
+<xmp class = "primer_ta" >
+SELECT ime, prezime, grad FROM kupac WHERE grad = 'Beograd' UNION SELECT ime, prezime, radno_mesto FROM radnik WHERE radno_mesto = 'Beograd';
+</xmp>
+<button class = "button_copy" >Vidi primer</button>
+<br>
+<div class="zadatak">
+  Napisati upit kojim se izlistavaju imena i prezimena svih trgovaca koji rade u Nišu i imena i prezimena
+  svih kupaca iz Niša.
+</div>

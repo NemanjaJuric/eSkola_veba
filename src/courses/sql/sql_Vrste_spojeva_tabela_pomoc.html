@@ -1,0 +1,5 @@
+<xmp>
+SELECT sluzbeni_put.datum
+FROM radnik RIGHT JOIN sluzbeni_put ON radnik.id_radnika = sluzbeni_put.putnik
+WHERE radnik.ime IS NULL;
+</xmp>
