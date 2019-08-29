@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Namespaces</title>
+  </head>
+  <body>
+    <h1>Namespaces</h1>
+    Napomenuli smo da su nazivi elemenata zadati od strane autora XML dokumenta. Medjutim, može se desiti da su potpuno različiti elementi nazvani istim imenom što pravi problem aplikacijama koje ih koriste (češće se to dešava ukoliko se koristi engleski jezik, recimo reč "table" može značiti i tabela i sto).
+    Obratimo pažnju na naredna dva primera:
+    <xmp class = "primer_ta">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td>Surname</td>
+          <td>Mark</td>
+        </tr>
+      </table></xmp>
+      i
+      <xmp class = "primer_ta">
+        <table>
+          <type>Coffe Table</type>
+          <length>150</length>
+          <width>90</width>
+        </table></xmp>
+
+        U prvom primeru, opisana je jedna HTML tabela, dok je u drugom primeru opisan sto. Kada bi se ova dva XML fragmenta spojila, došlo bi do konflikta zbog njihovih istih naziva.
+        Da bi se takvi konflikti izbegli, koriste se prefiksi. Prilikom korišćenja prefiksa, mora se definisati takozvani <b>namespace</b>. Namespace se definiše atributom <b>xmlns</b> koji se navodi u početnoj etiketi elementa, na sledeći način:
+        <pre>xmlns: prefiks = "URI"</pre>
+        Prema tome, problem iz zadatog primera se može rešiti na sledeći način:
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+        <koren>
+          <h:table xmlns:h="https://www.w3schools.com/html/html_tables.asp">
+          <h:tr>
+            <h:td>Name</h:td>
+            <h:td>Surname</h:td>
+            <h:td>Mark</h:td>
+          </h:tr>
+        </h:table>
+        <f:table xmlns:f= "https://www.thefreedictionary.com/Table+(furniture)">
+          <f:type>Coffe Table</f:type>
+          <f:length>150</f:length>
+          <f:width>90</f:width>
+        </f:table>
+        </koren></xmp>
+        Atributom xmlns su prefiksima "h" i "f" definisani namespace-ovi u početnim etiketama odgovarajućih elemenata. I svi podelementi koji imaju isti prefiks će imati zadato značenje.
+        Postoji i lakši način, namespace-ovi se za sve prefikse mogu definisati i u korenom elementu, atributima.
+        <br>
+        Namespace URI ne služi parseru da pronadje potrebne informacije, već je njegova uloga da namespace-u da jedinstveno ime (značenje).
+        Najčešće se namespace URI koristi kao link ka web stranici koja sadrži informacije koje tačno opisuju odgovarajući element.
+
+        <h2>Praktična primena namespace-a</h2>
+        Da bismo na dobar način pokazali korisnost primene namespace-a, u najkraćim crtama ćemo se upoznati sa jezikom <b>XSLT</b>. XSL je skraćeno od "eXtensible Stylesheet Language", a XSLT predstavlja "XSL Transformacije". Ovaj jezik se koristi za transformisanje XML dokumenta u neki drugi format  (npr. u HTML, kao u narednom primeru).
+        Za početak, možemo iskoristiti XML dokument (bioskop.xml) o repertoaru bioskopa, koji smo već napravili:
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+        <bioskop>
+          <film zanr="komedija">
+            <naziv> Ghostbusters </naziv>
+            <reditelj>Ivan Reitman</reditelj>
+            <trajanje>1h 45min</trajanje>
+            <cena>300 dinara</cena>
+          </film>
+          <film zanr="horor">
+            <naziv> It </naziv>
+            <reditelj>Andy Muschietti</reditelj>
+            <trajanje>2h 15min</trajanje>
+            <cena>350 dinara</cena>
+          </film>
+          <film zanr="fantastika">
+            <naziv> Interstellar </naziv>
+            <reditelj> Christopher Nolan</reditelj>
+            <trajanje>2h 49min</trajanje>
+            <cena>400 dinara</cena>
+          </film>
+        </bioskop></xmp>
+        Zatim se formira odgovarajući XSL style sheet (bioskop.xsl) u kome se definiše željeni izgled XML dokumenta o repertoaru bioskopa i koji sadrži namespace "http://www.w3.org/1999/XSL/Transform" koji definiše XSL elemente u HTML dokumentu:
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+        <xsl:stylesheet version="1.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+        <xsl:template match="/">
+          <html>
+          <body>
+          <h1>Repertoar bioskopa</h1>
+          <table border="1">
+            <tr bgcolor="#cc33ff">
+              <th>Naziv</th>
+              <th>Reditelj</th>
+              <th>Trajanje</th>
+              <th>Cena</th>
+            </tr>
+            <xsl:for-each select="bioskop/film">
+            <tr>
+              <td><xsl:value-of select="naziv"/></td>
+              <td><xsl:value-of select="reditelj"/></td>
+              <td><xsl:value-of select="trajanje"/></td>
+              <td><xsl:value-of select="cena"/></td>
+            </tr>
+            </xsl:for-each>
+          </table>
+          </body>
+          </html>
+        </xsl:template>
+        </xsl:stylesheet></xmp>
+
+        Ostalo je još samo da se u XML dokument "bioskop.xml" unese referenca ka napravljenom XSL-dokumentu "bioskop.xsl".
+        <br>To je linija:
+        <xmp class = "primer_ta"><?xml-stylesheet type="text/xsl" href="cdcatalog.xsl"?></xmp>
+        I sada "bioskop.xml" izgleda  ovako:
+
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+        <?xml-stylesheet type="text/xsl" href="bioskop.xsl"?>
+        <bioskop>
+          <film zanr="komedija">
+            <naziv> Ghostbusters </naziv>
+            <reditelj>Ivan Reitman</reditelj>
+            <trajanje>1h 45min</trajanje>
+            <cena>300 dinara</cena>
+          </film>
+          <film zanr="horor">
+            <naziv> It </naziv>
+            <reditelj>Andy Muschietti</reditelj>
+            <trajanje>2h 15min</trajanje>
+            <cena>350 dinara</cena>
+          </film>
+          <film zanr="fantastika">
+            <naziv> Interstellar </naziv>
+            <reditelj> Christopher Nolan</reditelj>
+            <trajanje>2h 49min</trajanje>
+            <cena>400 dinara</cena>
+          </film>
+        </bioskop></xmp>
+
+        Ukoliko imate pretraživač koji podržava XSLT, on ce vašem XML dokumentu dati ovakav izgled:
+        <br>
+        <img src="courses/xml/repertoar.png">
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Etikete</title>
+  </head>
+  <body>
+    <h1>Etikete</h1>
+
+    XML nema predefinisane etikete. Što nije slučaj kod HTML-a u kome se smeju koristiti samo etikete već definisane HTML-standardom, kao što su:  &#60;p&#62; - paragraf, &#60;table&#62; - tabela, &#60;ul&#62; - unordered list (neuređena lista), itd.
+    <br>
+    Pogledajmo sledeći primer:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <obavestenje>
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje</naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obavestenje></xmp>
+
+
+    Etikete u primeru iznad: &#60;obavestenje&#62;, &#60;od&#62;, &#60;za&#62;, &#60;naslov&#62;, &#60;poruka&#62;
+    nisu definisane nikakvim XML-standardom, već su osmišljene od strane autora. Dakle, autor XML fajla mora sam definisati svoje etikete i strukturu dokumenta.
+    Upravo etikete su ono što XML čini XML-om, one opisuju informaciju.
+    Važna je činjenica da su etikete u XML-u "case sensitive", što znači da, recimo, &#60;Ime&#62; i &#60;ime&#62; nisu iste etikete.
+
+
+
+  </body>
+</html>

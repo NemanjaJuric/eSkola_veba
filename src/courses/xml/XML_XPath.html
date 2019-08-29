@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XPath</title>
+  </head>
+  <body>
+    <h1>XPath</h1>
+    XPath se koristi kao vodič kroz elemente i atribute u XML dokumentu. XPath je jezik koji omogućava pristup raznim delovima XML dokumenta.
+    On koristi strukturu stabla koju ima XML dokument i prepoznaje njegove grane i čvorove (elemente, atribute, komentare, instrukcije za obradu itd.) i veze među njima (međusobna povezanost elemenata ili elemenata i atributa i slično).
+    Sadrži biblioteku standardizovanih funkcija za međusobnu interakciju odabranih podataka iz dokumenta. Dizajniran je da radi sa jednim XML dokumentom i njegovim logičkim strukturama. XPath je glavni element u XSLT-u.
+    <br>
+    <br>
+    Iskoristićemo stari primer da pokažemo i objasnimo neke XPath upite:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <bioskop>
+      <film zanr="komedija">
+        <naziv> Ghostbusters </naziv>
+        <reditelj>Ivan Reitman</reditelj>
+        <trajanje>1h 45min</trajanje>
+        <cena>300</cena>
+      </film>
+      <film zanr="horor">
+        <naziv> It </naziv>
+        <reditelj>Andy Muschietti</reditelj>
+        <trajanje>2h 15min</trajanje>
+        <cena>350</cena>
+      </film>
+      <film zanr="fantastika">
+        <naziv> Interstellar </naziv>
+        <reditelj> Christopher Nolan</reditelj>
+        <trajanje>2h 49min</trajanje>
+        <cena>400</cena>
+      </film>
+    </bioskop>
+   </xmp>
+   <br>
+   <table class = "tabela">
+        <thead>
+         <tr>
+           <th>XPath upit</th>
+           <th>Značenje</th>
+         </tr>
+        </thead>
+        <tbody>
+	       <tr>
+         <td>/bioskop/film[1]</td>
+         <td>Selektovati prvi film element koji je dete elementa bioskop.</td>
+         </tr>
+         <tr>
+         <td>/bioskop/film[last()]</td>
+         <td>Selektovati poslednji film element koji je dete elementa bioskop.</td>
+         </tr>
+         <tr>
+         <td>/bioskop/film[last()-1]</td>
+         <td>Selektovati pretposlednji film element koji je dete elementa bioskop.</td>
+         </tr>
+         <tr>
+         <td>/bioskop/film[position()<3]</td>
+         <td>Selektovati prva dva film elementa koja su deca elementa bioskop.</td>
+         </tr>
+         <tr>
+         <td>//film[@zanr]</td>
+         <td>Selektovati sve film elemente koji imaju atribut zanr.</td>
+         </tr>
+         <tr>
+         <td>//film[@zanr='fantastika']</td>
+         <td>Selektovati sve film elemente cija je vrednost zanr atributa "fantastika".</td>
+         </tr>
+         <tr>
+         <td>/bioskop/film[cena>300]</td>
+         <td>Selektovati sve film elemente elementa bioskop koji imaju vrednost elementa cena veću od 300</td>
+         </tr>
+         </tbody>
+         <tr>
+         <td>/bioskop/film[cena>300]/naziv</td>
+         <td>Selektovati sve naziv elemente film elemenata (dece elementa bioskop) koji imaju vrednost elementa cena veću od 300</td>
+         </tr>
+         </tbody>
+    </table>
+
+
+
+
+
+  </body>
+</html>

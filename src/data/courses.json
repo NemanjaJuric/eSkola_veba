@@ -2715,6 +2715,108 @@
         ]
     },
     {
+        "name": "XML",
+        "id": "xml",
+        "logo": "< >",
+        "type": "course",
+        "lang": "text/html",
+        "displayLang": "HTML",
+        "detailsText": "",
+        "lessons": [
+            {
+                "name": "Uvod u XML",
+                "url": "XML_Uvod_u_XML",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Etikete",
+                "url": "XML_Etikete",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Struktura",
+                "url": "XML_Struktura",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Sintaksa",
+                "url": "XML_Sintaksa",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Elementi",
+                "url": "XML_Elementi",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Atributi",
+                "url": "XML_Atributi",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Namespaces",
+                "url": "XML_Namespaces",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Prikaz",
+                "url": "XML_Prikaz",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "XPath",
+                "url": "XML_XPath",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "XQuery",
+                "url": "XML_XQuery",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "Validacija dokumenta",
+                "url": "XML_Validacija_dokumenta",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "DTD",
+                "url": "XML_DTD",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            },
+            {
+                "name": "XML Schema",
+                "url": "XML_Schema",
+                "type": "lesson",
+                "parentCourse": "xml",
+                "sublessons": null
+            }
+        ]
+    },
+    {
         "name": "Veb",
         "id": "veb",
         "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",

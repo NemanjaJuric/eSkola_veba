@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Elementi</title>
+  </head>
+  <body>
+    <h1>Elementi</h1>
+    Elementi su osnovni blokovi XML-a. XML element je celina koju čine početna i krajnja etiketa i naveden sadržaj izmedju njih.
+    <br>Primer:
+    <xmp class = "primer_ta"><element> Sve ovo je jedan element.</element></xmp>
+    Element može sadržati tekst, atribute i druge elemente. Pogledajmo već poznat primer:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <bioskop>
+      <film zanr="komedija">
+        <naziv> Ghostbusters </naziv>
+        <reditelj>Ivan Reitman</reditelj>
+        <trajanje>1h 45min</trajanje>
+        <cena>300 dinara</cena>
+      </film>
+    </bioskop></xmp>
+    Primećujemo da elementi "bioskop" i "film" sadrže druge elemente; element "film" sadrži atribut (zanr="komedija"); a elementi "naziv", "reditelj", "trajanje", "cena" sadrže samo tekst.
+    <br> Elemente koji nemaju sadržaj nazivamo praznim elementima. Prazan element se može zapisati na dva načina:
+    <xmp class = "primer_ta"><prazno> </prazno></xmp>
+    Ili
+    <xmp class = "primer_ta"><prazno /></xmp>
+    I prazni elementi mogu sadržati atribute.
+    <h2>Elementi u XML-u su proširivi</h2>
+    Neka je autor napravio sledeći XML-dokument:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <stan>
+        <soba1> Kuhinja </soba1>
+        <soba2> Kupatilo </soba2>
+        <poruka> Dobro dosli!</poruka>
+    </stan></xmp>
+    Neka postoji aplikacija koja iz ovog XML dokumenta može da izdvoji informacije o sobama i poruku, i interpretira to na sledeći način:
+    <br>
+    <img src="courses/xml/sobe.png">
+    <br>
+    Recimo da autor želi da doda još jednu sobu. Proširiće svoj XML dokument na sledeći način:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+      <stan>
+          <soba1> Kuhinja </soba1>
+          <soba2> Kupatilo </soba2>
+          <soba3> Dnevni boravak </soba3>
+          <poruka> Dobro dosli!</poruka>
+      </stan></xmp>
+      Važno je da pri ovom dodavanju informacija XML dokumentu, aplikacija koja izdvaja i interpretira informacije neće imati problem, neće doći do graške. Zapravo, aplikacija će i dalje moći da pronadje i interpretira tražene elemente, bez obzira na informacije koje su naknadno dodate.
+      Ovo je dobra strana XML-a, XML-dokument se može slobodno proširivati i to neće izazvati grešku kod softvera koji se koristi.
+    <h2>Nazivi elemenata</h2>
+    Naziv elementa se zadaje u njemu samom, odgovarajućim etiketama. Potrebno je obratiti pažnju na sledeća pravila prilikom imenovanja elemenata:
+    <ul>
+      <li>Nazivi elemenata su <b>case sensitive</b> (o tome je bilo reči u lekciji "Etikete").</li>
+      <li>Nazivi elemenata moraju početi slovom, ne brojem ili znakom interpunkcije.</li>
+      <li>Nazivi elemenata <b>ne smeju</b> početi slovima <i>xml, XML, Xml</i> i slično.</li>
+      <li>Nazivi elemenata <b>ne smeju</b> sadržati razmake. </li>
+      <li>Ne postoje rezervisani nazivi (osim <i>xml</i>), tako da bilo koja reč može biti naziv elementa.</li>
+    </ul>
+    Dobra praksa je davati kratke nazive koji dobro opisuju element. Na primer: &lt;ime&gt;, &lt;prezime&gt; &lt;boja&gt;, itd.
+    U slučaju da se naziv mora sastojati iz više reči, najbolje je birati najkraći jasan opis. Recimo bolje je element nazvati &lt;otvorena_vrata&gt; umesto &lt;vrata_koja_su_otvorena&gt.
+    Treba izbegavati karaktere kao što su "-", ".", ":" jer nazive koji sadrže ove karaktere neki softveri mogu pogrešno protumačiti. Recimo, &lt;ime.osobe&gt; može protumačiti kao razdvajanje "ime" od "osobe"; &lt;ime-osobe&gt; može protumačiti
+    kao da je "osobe" svojstvo objekta "ime" i slično. Takođe, treba biti oprezan sa specifičnim karakterima kao što su š,ć,č,đ i slični, jer ih neki softveri ne mogu podržati.
+    <br>
+    <br>Ne postoji stil koji je definisan za imenovanje elemenata, ali neki od predloga su: &lt;imeosobe&gt;, &lt;IMEOSOBE&gt;, &lt;imeo_sobe&gt;, &lt;imeosobe&gt;, &lt;ImeOsobe&gt;, &lt;imeOsobe&gt;. Za koji god stil se autor opredeli, trebalo bi da se njega drži kroz ceo dokument.
+    Često za XML dokument postoji odgovarajuća baza, dobra praksa je elementima davati nazive po pravilu po kojem su oni nazvani u toj bazi.
+
+  </body>
+</html>

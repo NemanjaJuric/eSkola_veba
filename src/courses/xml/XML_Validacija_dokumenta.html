@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Validacija</title>
+  </head>
+  <body>
+    <h1>Validacija XML dokumenta</h1>
+    Za XML dokument kažemo da je <b>dobro oformljen</b> ako ima ispravnu sintaksu, odnosno ako su ispoštovana sintaksna pravila:
+    <ul>
+      <li>XML dokument mora imati koreni element.</li>
+      <li>XML elementi moraju imati završnu etiketu.</li>
+      <li>XML dokumenti su case sensitive (osetljivi na veličinu slova).</li>
+      <li>XML elementi moraju biti dobro ugnježdeni.</li>
+      <li>Vrednosti XML atributa moraju stajati pod navodnicima.</li>
+    </ul>
+    <br>
+    Bilo kakva greška u XML dokumentu će zaustaviti XML aplikaciju. Dakle, za razliku od HTML-a, gde pretraživači mogu da otvore HTML dokument sa greškom, u XML-u prostora za greške nema.
+    Svaka aplikacija koja manipuliše XML dokumentom će biti zaustavljena ukoliko u njemu postoji greška. Razlog tome je to što bi XML dokument trebalo da bude mali, brz i kompatibilan.
+    <br>
+    <br>
+    <b>Valjan (validan) XML dokument</b> nije isto što i dobro oformljen XML dokument. Valjan XML dokument mora biti dobro oformljen, ali pored toga mora odgovarati <b>definiciji tipa dokumenta</b>.
+    Postoje dve vrste definicija tipa dokumenata koje se primenjuju u XML-u:
+    <ul>
+      <li>DTD - originalno definisanje tipa dokumenata (Document type definition).</li>
+      <li>XML shema - alternativa DTD-u.</li>
+    </ul>
+
+    Definicija tipa dokumenata definiše pravila i ispravne elemente i atribute za XML dokument.
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Atributi</title>
+  </head>
+  <body>
+    <h1>Atributi</h1>
+    Kao i u HTML-u, i elementi XML-a mogu sadržati atribute. Atributi obezbeđuju dodatne informacije o elementu i uvek se nalaze u početnoj etiketi elementa. Najčešće su to informacije koje su važnije softveru koji koristi elemente tog XML dokumenta. Imena atributa su takodje case sensitive.
+    Vrednosti atributa se moraju zadati <b>pod navodnicima</b>, a navodnici mogu biti i jednostruki i dvostruki. Recimo, korektno je zadata vrednost atributa "JMBG" u naredna dva primera:
+    <xmp class = "primer_ta">
+    <osoba JMBG="04051993755012"> Sara </osoba></xmp>
+    i
+    <xmp class = "primer_ta">
+    <osoba JMBG='04051993755012'> Sara </osoba></xmp>
+    <br>
+    Informacije o nekom podatku se mogu zapisati i kao elementi i kao atributi. Recimo, osoba "Sara" se može opisati na sledeća dva načina.
+    <br>Pol zapisan kao atribut:
+    <xmp class = "primer_ta"><osoba pol= "zenski">
+        <ime> Sara </ime>
+        <prezime> Ilić </prezime>
+      </osoba></xmp>
+      Pol zapisan kao element:
+      <xmp class = "primer_ta"><osoba>
+        <pol> zenski </pol>
+        <ime> Sara </ime>
+        <prezime> Ilić </prezime>
+      </osoba></xmp>
+      Nema strogo određenog pravila u vezi sa tim kada treba koristiti elemente, a kada atribute u XML-u, ali postoje važne razlike izmedju elemenata i atributa koje naizgled elementima daju malu prednost. Na primer:
+      <ul>
+        <li>Atributi ne mogu imati više od jedne vrednosti, dok elementi mogu.</li>
+        <li>Atributi nemaju strukturu stabla, a elementi je imaju.</li>
+        <li>Atributi nisu lako proširivi.</li>
+      </ul>
+
+      Pogledajmo sličan primer kao onaj na samom početku kursa, neka on sadrži atribut "datum":
+      <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+      <obavestenje datum="14.7.2019.">
+        <od>Autor</od>
+        <za>Čitalac</za>
+        <naslov>Obaveštenje</naslov>
+        <poruka>
+          Počinje kurs. Srećno!
+        </poruka>
+      </obavestenje></xmp>
+    Svakako je bolje ovu poruku zapisati koristeći više elemenata:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <obavestenje>
+      <dan>14</dan>
+      <mesec>7</mesec>
+      <godina>2019</godina>
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje</naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obavestenje></xmp>
+    nego više atributa (i treba izbegavati ovakve primere):
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <obavestenje dan="14" mesec="7" godina="2019" od="Autor" za="Čitalac" naslov="Obaveštenje" poruka="Počinje kurs. Srećno!">
+    </obavestenje></xmp>
+
+  </body>
+</html>

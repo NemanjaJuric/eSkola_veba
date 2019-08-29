@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Schema</title>
+  </head>
+  <body>
+    <h1>XML Schema</h1>
+    XML Schema je alternativni način za specifikovanje strukture XML dokumenta.
+    <br>Ona je u prednosti u odnosu na DTD iz nekoliko razloga:
+    <ul>
+      <li>XML Schema je pisana u XML-u.</li>
+      <li>XML Schema je proširiva.</li>
+      <li>XML Schema podržava različite tipove podataka.</li>
+      <li>XML Schema podržava namespace.</li>
+    </ul>
+    Za primer koji smo već imali "obavestenje.xml":
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <obavestenje>
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje</naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obavestenje></xmp>
+
+    XML Schema "obavestenje.xsd"može izgledati otprilike ovako:
+    <xmp class = "primer_ta"><?xml version="1.0"?>
+    <xs:schema xmlns:xs="URI">
+    <xs:element name="obavestenje">
+      <xs:complexType>
+       <xs:sequence>
+         <xs:element name="od" type="xs:string"/>
+         <xs:element name="za" type="xs:string"/>
+         <xs:element name="naslov" type="xs:string"/>
+         <xs:element name="poruka" type="xs:string"/>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+   </xs:schema></xmp>
+
+   Ona pokazuje sledeće:
+   <ul>
+     <li><xs:schema xmlns:xs="URI"> služi za definisanje namespacea za prefiks <b>xs</b>.</li>
+     <li><xs:complexType> pokazuje da je element "obavestenje" složen, odnosno da sadrži druge elemente.</li>
+     <li><xs:sequence> pokazuje da sledi niz elemenata koji pripadaju "obavestenju".</li>
+     <li><xs:element name="od" type="xs:string"> pokazuje da je element "od" tipa string. Na isti način, pokazano je i da su elementi "za", "naslov" i "poruka" takođe tipa string.</li>
+   </ul>
+   <br><br>
+   Referenca ka ovoj schemi se u XML dokument unosi kao atribut elementa "obavestenje", na sledeći način:
+   <xmp class = "primer_ta"><?xml version="1.0"?>
+
+      <obavestenje xmlns:xsi="URI"
+             xsi:schemaLocation="URI obavestenje.xsd">
+
+             <od>Autor</od>
+             <za>Čitalac</za>
+             <naslov>Obaveštenje</naslov>
+             <poruka>
+               Počinje kurs. Srećno!
+             </poruka>
+           </obavestenje></xmp>
+    Pri čemu se mora definisati namespace za prefiks xsi (XML Schema Instance), a tek onda iskoristiti atribut za lokaciju dokumenta
+    <xmp class = "primer_ta">xsi:schemaLocation="URI obavestenje.xsd"</xmp> Ovaj atribut zapravo ima dve vrednosti razdvojene "space"-om (prazninom). Prva vrednost je namespace koji se koristi, a druga lokacija XML Schema dokumenta.
+   <h2>Prednosti korišćenja XML Scheme</h2>
+   Velika prednost XML Scheme je to što podržava različite tipove podataka, pa je tako lakše opisati sadržaj dokumenta, proveriti ispravnost podataka i konvertovati tip podatka u neki drugi.
+   Takođe, značajno je to što je ona napisana u XML-u. Prema tome, ne mora se učiti novi jezik, može se koristiti isti editor kao i za XML za uredjivanje XML Schema dokumenata, isti parser za parsiranje XML Schema dokumenta, mogu se transformisati XSLT-om.
+  </body>
+</html>

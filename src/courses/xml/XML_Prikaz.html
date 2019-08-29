@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prikaz XML-a</title>
+  </head>
+  <body>
+    <h1>Prikaz XML dokumenta</h1>
+
+    Ne treba očekivati da prikaz XML dokumenta liči na prikaz HTML dokumenta. Zapravo, većina pretraživača će XML dokument prikazati vrlo slično njegovom izvornom kodu, kao obojeni kod.
+    Često se mogu naći znaci plus, minus ili strelice za proširivanje i sužavanje vidljivosti sadržaja elemenata. Kao i kod HTML-a, izvorni kod se uvek može videti opcijom "View page source" ili "View source".
+    <div class = "napomena">Napomena: Pretraživač Safari 5 (i starije verzije) prikazuju samo tekstualni sadržaj elemenata, a desnim klikom na stranicu i biranjem opcije "View source" se može videti izvorni kod.</div>
+    Prikaz XML dokumenta može biti ovakav (Google Chrome):
+    <br>
+    <img src="courses/xml/display.png">
+    <h2>Prikaz XML dokumenta sa greškom</h2>
+
+    Ukoliko XML dokument ima grešku u sebi, različiti pretraživači mogu prikazati taj dokument na različit način. Neki će prijaviti grešku, neki će ga prikazati, a neki će ga neispravno prikazati.
+    Recimo, može se desiti sledeći prikaz (Google Chrome):
+    <br>
+    <img src="courses/xml/display_greska.png">
+    <br>
+    U ovom primeru je krajnji tag elementa "naslov" pogrešno zapisan. Zapravo, zapisan je isto kao početni:
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <obaveštenje>
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje<naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obaveštenje></xmp>
+
+    <h2>Zašto XML ima ovakav prikaz?</h2>
+
+    XML dokument ne sadrži nikakve informacije o prikazu njegovog sadržaja. S obzirom na to da su etikete u XML-u formirane od strane autora tog dokumenta, pretraživači neće znati njihovo tačno značenje.
+    Dobar primer za to je baš primer iz lekcije <b>Namespaces</b>, u kome nije jasno da li etiketa &lt;table&gt; označava HTML tabelu ili predmet sto.
+    <br>
+    Stoga, kako pretraživači nemaju informacije o tome kako prikazati XML dokument, oni ga prikazuju u njegovom izvornom obliku.
+    <div class = "napomena">Napomena: U prethodnoj lekciji smo spomenuli jezik XSLT kojim se XML dokument može transformisati u neki drugi format pa time dobiti drugačiju formu prikaza. </div>
+
+
+
+  </body>
+</html>

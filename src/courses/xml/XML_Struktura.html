@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XML_Struktura</title>
+  </head>
+  <body>
+    <h1>Struktura XML dokumenta</h1>
+    XML dokumenti su formirani u obliku "stabla elemenata", koje počinje od korenog elementa i grana se
+    preko ostalih elemenata "dece", možemo reći, do elemenata "listova". Nazivi "element roditelj", "element dete" i slicno, koriste se da bi se objasnila veza izmedju elemenata u XML stablu.
+    Elementi "roditelji" imaju svoje podelemente: elemnte "decu", i obrnuto, i svaki element stabla može imati svoje podelemene. Takodje,
+    "braća" i "sestre" elementi su elementi istog nivoa.
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <roditelj>
+      <dete>
+        <dete_deteta>...</dete_deteta>
+      </dete>
+    </roditelj></xmp>
+    Kroz sledeći primer možemo detaljno objasniti strukturu jednog XML dokumenta:
+    <xmp class = "primer_ta">
+      <?xml version="1.0" encoding="UTF-8"?>
+      <bioskop>
+        <film zanr="komedija">
+          <naziv> Ghostbusters </naziv>
+          <reditelj>Ivan Reitman</reditelj>
+          <trajanje>1h 45min</trajanje>
+          <cena>300 dinara</cena>
+        </film>
+        <film zanr="horor">
+          <naziv> It </naziv>
+          <reditelj>Andy Muschietti</reditelj>
+          <trajanje>2h 15min</trajanje>
+          <cena>350 dinara</cena>
+        </film>
+        <film zanr="fantastika">
+          <naziv> Interstellar </naziv>
+          <reditelj> Christopher Nolan</reditelj>
+          <trajanje>2h 49min</trajanje>
+          <cena>400 dinara</cena>
+        </film>
+      </bioskop>
+</xmp>
+    Primećujemo da dati XML dokument sadrži informacije o repertoaru bioskopa.
+    <br>
+    Za početak, linija
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?></xmp>
+    je  XML deklaracija. Ona može postojati u XML dokumentu i ne mora, ali ako postoji, mora se prva navesti.
+    U njoj je navedena verzija XML-a koja se koristi i znakovni kod (u ovom slučaju UTF-8).
+    <br>
+    Naredna linija koda je predstavlja pocetak korenog elementa. U ovom slučaju, to je element "bioskop".
+    <xmp class = "primer_ta"><bioskop></xmp>
+    Zatim počinje njegov prvi podelement "film":
+    <xmp class = "primer_ta"><film zanr="komedija"></xmp>
+    Element "film" ima 4 podelementa (u ovom slučaju element "film" je roditelj i ima četvoro dece: "naziv", "reditelj", "trajanje" i "cena")
+    <xmp class = "primer_ta">
+    <naziv> Interstellar </naziv>
+    <reditelj> Christopher Nolan</reditelj>
+    <trajanje>2h 49min</trajanje>
+    <cena>400 dinara</cena></xmp>
+    Sledeća linija zapravo predstavlja kraj elementa "film".
+    <xmp class = "primer_ta"></film></xmp>
+    Nakon ovoga slede i ostali elementi stabla, filmovi - koji su istog nivoa (braća i sestre) i njihovi podelementi. Poslednja linija koda zatvara element-koren:
+    <xmp class = "primer_ta"></bioskop></xmp>
+  </body>
+</html>

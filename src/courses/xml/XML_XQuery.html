@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XQuery</title>
+  </head>
+  <body>
+    <h1>XQuery</h1>
+    XQuery je upitni jezik za XML. XQuery je za XML isto što i SQL za baze podataka. On može pronaći i izdvojiti elemente i atribute u XML dokumentu. Na primer, XQuery može dati odgovor na sledeći zahtev: "Selektuj sve filmove čija je cena manja od 400 dinara iz repertoara bioskopa u dokumentu "bioskop.xml"."
+    <br> XQuery i XPath podržavaju iste funkcije i operatore.
+    <br> XQuery nije namenjen za rad sa samo jednim XML dokumentom, već i sa nizom dokumenata, nizom delova dokumenata i dobro oformljenim delovima dokumenata. U XML-u je svaku upit iskaz,
+    i ima šest tipova iskaza u XQuery-u, a to su: iskazi putanja, konstruktori elemenata, FLWOR iskazi, uslovni iskazi, kvantifikovani iskazi i iskazi u kojima se koriste operatori i funkcije.
+     <br><br>
+     Ukratko ćemo opisati svaku od ovih šest kategorija.
+
+     <h2>Iskazi putanja</h2>
+     Primer: Iz dokumenta koji sadrži repertoar bioskopa izdvojiti cenu za 5 karata za film "It".
+     <br>
+     <br>
+     Rešenje: <span class = "primer_text"> doc("bioskop.xml")/bioskop/film[naziv="It"]/cena * 5 </span>
+
+     <h2>Konstruktori elemenata</h2>
+     Primer: Generisati elemente &lt;osoba&gt; koji imaju atribute JMBG. Vrednosti atributa i sadržaja su generisane promenljivima koje su zadate u nekom drugom delu upita.
+     <br><br>
+     Rešenje: <xmp class = "primer_ta"> <osoba JMBG = {$id}>
+       {$ime}
+       {$prezime}
+     </osoba></xmp>
+
+     <h2>FLWOR</h2>
+
+     FLWOR je nastalo od: <b>F</b> - For, <b>L</b> - Let, <b>W</b> - Where, <b>O</b> - Order by, <b>R</b> - Return.
+
+     Primer:
+     <xmp class = "primer_ta">  for $x in doc("bioskop.xml")/bioskop/film
+      where $x/cena > 300
+      order by $x/naziv
+      return $x/naziv </xmp>
+      <br>
+     U ovom primeru,
+     <ul>
+       <li>Klauza <b>for</b> selektuje film elemente unutar bioskop elementa pod promenljivom $x.</li>
+       <li>Klauza <b>where</b> selektuje samo one film elemente unutar bioskop elementa čija je cena veća od 300 dinara.</li>
+       <li>Klauza <b>oder by</b> definiše sortiranje elemenata po nazivu.</li>
+       <li>Klauza <b>return</b> specifikuje da ono što treba da se vrati moraju biti nazivi filmova.</li>
+     </ul>
+
+     <br> Rezultat ovo XQuery-a bi bio:
+     <xmp class = "primer_ta"><naziv> Interstellar </naziv>
+<naziv> It </naziv></xmp>
+
+    <h2>Uslovni iskazi</h2>
+
+    Primer: Napraviti listu svih filmova iz repertoara bioskopa. Za komediju uključujući i reditelja, a za sve ostale samo trajanje.
+    <br>
+    <br>
+    Rešenje:
+    <xmp class = "primer_ta">FOR $f IN //film
+      RETURN
+      <film>
+        {$k/naziv,
+          IF ($k/@zanr = "komedija")
+          THEN $k/reditelj
+          ELSE $k/trajanje
+          }
+          </film></xmp>
+
+    <h2>Kvantifikovani iskazi</h2>
+     XQuery podržava konstrukcije kao što su kvantifikatori koji se koriste u matematici. Postoje klauza "SOME" koja je ekvivalentna kvantifikatoru "postoji" i klauza "EVERY" ekvivalentna kvantifikatoru "za svako".
+     Klauza "SOME" se koristi da bi se ispitalo da li postoji bar jedan čvor u posmatranom skupu vrednosti koji ispunjava dati uslov, a klauza "EVERY" da bi se ispitalo da li svi čvorovi zadovoljavaju dati uslov.
+     <br>
+     <h2>Iskazi u kojima se koriste operatori i funkcije</h2>
+        XQuery podržava istu centralnu biblioteku kao i XPath, ali dozvoljava da korisnici definišu nove fonkcije kojima će proširiti ovu biblioteku.
+        Tako se mogu definisati funkcije koje prikupljaju informacije iz dokumenta, računaju ih, sortiraju, menjaju i manipulišu njima na bilo koji način na koji korisnik želi.
+
+  </body>
+</html>

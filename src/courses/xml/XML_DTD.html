@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DTD</title>
+  </head>
+  <body>
+    <h1>XML DTD</h1>
+    XML DTD (Document Type Definition) je originalan način za specifikovanje strukture XML dokumenta.
+    Zapravo, on specifikuje gradivne blokove i redosled elemenata u XML dokumentu. XML DTD ima potpuno drugačiju sintaksu od XML-a.
+
+    XML DTD može biti deklarisan unutar XML dokumenta ili kao spoljašnja referenca.
+    Pogledajmo sledeći primer:
+
+    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE obavestenje SYSTEM "Obaveštenje.dtd">
+    <obavestenje>
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje</naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obavestenje></xmp>
+    Ovde je DOCTYPE deklaracija zapravo referenca na spoljašnji DTD dokument "Obaveštenje.dtd", a izgled tog DTD dokumenta je:
+     <xmp class = "primer_ta"><!DOCTYPE obavestenje
+     [
+     <!ELEMENT obavestenje (od, za, naslov, poruka)>
+     <!ELEMENT od (#PCDATA)>
+     <!ELEMENT za (#PCDATA)>
+     <!ELEMENT naslov (#PCDATA)>
+     <!ELEMENT poruka (#PCDATA)>
+     ]>
+   </xmp>
+   Naveden primer DTD dokumenta definiše sledeće:
+   <ul>
+     <li><b>!DOCTYPE obavestenje</b> definiše da je koreni element odgovarajućeg XML dokumenta <b>obavestenje</b>.</li>
+     <li><b>!ELEMENT obavestenje</b> definiše da element <b>obavestenje</b> sadrži četiri elementa (od, za, naslov i poruka).</li>
+     <li><b>!ELEMENT od</b> definiše da je element <b>od</b> tipa "#PCDATA" (Parsed Character DATA - tekst izmedju otvorene i zatvorene etikete XML elementa koji se analizira od strane parsera i koju je pre svega moguće parsirati).</li>
+     <li><b>!ELEMENT za</b> definiše da je element <b>za</b> tipa "#PCDATA"</li>
+     <li><b>!ELEMENT naslov</b> definiše da je element <b>naslov</b> tipa "#PCDATA"</li>
+     <li><b>!ELEMENT poruka</b> definiše da je element <b>poruka</b> tipa "#PCDATA"</li>
+   </ul>
+
+   XML DTD se može koristiti i za deklaraciju entiteta, odnosno definisanje specijalnih karaktera i stringova koji se koriste u dokumentu.
+   Primer:
+   <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE pismo [
+   <!ENTITY autor "Autor: Pera Perić">
+   <!ENTITY mesto "Beograd">
+   <!ENTITY datum "16.7.2019.">
+   ]>
+   <pismo>
+     <za>Saru Sarić</za>
+     <naslov>Pozivnica</naslov>
+     <poruka>Pozivam te na svoj rodjendan, u utorak 13.8.2019.</poruka>
+     <futer> &autor;, &mesto; &datum;</futer>
+   </pismo></xmp>
+   Ovaj XML dokument će biti prikazan na sledeći način:
+   <br>
+   <img src="courses/xml/pozivnica.png">
+   <br>
+   Entitet ima tri obavezna svoja dela, a to su ampersand (&amp;), naziv entiteta i znak "tačka-zarez" (;).
+   <br>
+   <h2>Kada koristiti DTD a kada ne?</h2>
+   Zgodno je <b>koristiti</b> DTD u slučaju kada grupa ljudi radi na zajedničkom projektu, jer mogu standardizovati DTD za podatke koje svi koriste.
+   Takodje, zahvaljujući DTD-u, uvek možete proveriti validnost podataka koje dobijate "sa strane" ili pokazati validnost vaših podataka.
+   <br>
+   XML DTD <b>ne treba</b> koristiti ukoliko pravite male XML dokumente jer, u tom slučaju, kreiranje DTD-a može biti samo gubljenje vremena, s obzirom na to da DTD nije obavezan u XML-u.
+
+  </body>
+</html>

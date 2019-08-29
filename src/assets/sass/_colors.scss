@@ -165,6 +165,10 @@ $android-official: #a2c53d;
     background-color: $sql-primary !important;
 }
 
+.bkg-xml{
+    background-color: $spring-primary !important;
+}
+
 .bkg-ts{
     background-color: $ts-primary !important;
 }
@@ -271,6 +275,10 @@ $android-official: #a2c53d;
 
 .hover-sql:hover{
     color: $sql-primary;
+}
+
+.hover-xml:hover{
+    color: $spring-primary;
 }
 
 .trans-md{
