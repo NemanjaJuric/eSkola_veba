@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas koordinatni sistem.</title>
+</head>
+<body>
+<h1>Canvas koordinatni sistem. Osnovni primeri.</h1>
+<p> Primer koji iscrtava pravougaonik crvene boje:</p>
+
+<canvas id="pravougaonik" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var canvas = document.getElementById("pravougaonik");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(0, 0, 150, 75);
+</script>
+
+<p>Primer koji iscrtava dijagonalnu liniju sa pocetkom u (0,0) i krajem u (200, 100):</p>
+
+<canvas id="linija" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var canvas = document.getElementById("linija");
+var ctx = canvas.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+</script>
+	 
+<p>Primer koji iscrtava krug sa centrom u (95,50), poluprečnika 40:</p>
+
+<canvas id="krug" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var canvas = document.getElementById("krug");
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+</script>
+	
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas gradijent</title>
+	<meta charset="utf-8"></meta>
+</head>
+<body>
+<h1>Canvas gradijent</h1>
+<p>Gradijent se koristi za popunjavanje unutrašnjosti pravougaonika, krugova, linija, tekstalnih sadržaja i slično.</p>
+
+
+<p>Postoje dva tipa gradijenta:</p>
+<ul>
+	<li><i>createLinearGradient(x,y,x1,y1)</i> - kreira linearni gradijent</li>
+	<li><i>createRadialGradient(x,y,r,x1,y1,r1)</i> - kreira radijalni/kružni gradijent</i></li>
+</ul>
+<p> Jednom gradijentu možemo dodati dve ili više boja.</p>
+<p> Metoda <i>addColorStop()</i> određuje boju kojom se popunjava neki objekat i poziciju te boje duž gradijenta. Ta pozicija se kreće u opsegu između 0 i 1.
+<p>Da bismo koristili gradijent, podesimo fillStyle ili strokeStyle property na definisani gradijent. Nakon toga crtamo oblike.</p>
+<p>Primer primene linearnog gradijenta nad pravougaonikom:</p>
+<xmp class = "primer_ta">
+<canvas id="myCanvasL" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("myCanvasL");
+var ctx = c.getContext("2d");
+
+
+var grd = ctx.createLinearGradient(0, 0, 200, 0);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+ctx.fillStyle = grd;
+ctx.fillRect(10, 10, 150, 80);
+</script>
+ </xmp>
+ <button class = "button_copy">Vidi primer</button>
+
+<p>Primer primene radijalnog gradijenta nad pravougaonikom:</p>
+<xmp class = "primer_ta">
+<canvas id="myCanvasR" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("myCanvasR");
+var ctx = c.getContext("2d");
+
+
+var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+ctx.fillStyle = grd;
+ctx.fillRect(10, 10, 150, 80);
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>

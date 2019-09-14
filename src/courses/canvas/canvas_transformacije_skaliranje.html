@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas transformacije - skaliranje</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Transformacije u Canvas-u. Skaliranje</h1>
+	<p>U HTML5 Canvas-u skaliranje se postiže pozivom metode <i>scale()</i> koja menja vrednosti dimenzija context objekta.</p>
+	<p>U sledećem primeru transliramo context za polovinu dužine i polovinu visine canvas elementa, zatim menjamo vrednost y-koordinate na 0.5. Ovim dobijamo visinu pravougaonika za 50% manju od početne vrednosti.</p>
+	<xmp class = "primer_ta">
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var rectWidth = 150;
+      var rectHeight = 75;
+
+      context.translate(canvas.width / 2, canvas.height / 2);
+
+      context.scale(1, 0.5);
+
+      context.fillStyle = 'blue';
+      context.fillRect(rectWidth / -2, rectHeight / -2, rectWidth, rectHeight);
+    </script>     
+	</xmp>
+	<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>

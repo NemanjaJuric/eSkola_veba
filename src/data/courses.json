@@ -2817,6 +2817,101 @@
         ]
     },
     {
+        "name": "Canvas",
+        "id": "canvas",
+        "logo": "< >",
+        "type": "course",
+        "lang": "text/html",
+        "displayLang": "HTML",
+        "detailsText": "Koristi se za iscrtavanje grafičkih elemenata, fotografskih kompozicija i pravljenje jednostavnh animacija pomoću nekog skript jezika, najčešćce javascript.",
+        "lessons": [
+            {
+                "name": "Uvod u Canvas",
+                "url": "canvas_uvod",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Koordinatni sistem",
+                "url": "canvas_koordinatni_sistem",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Canvas - tekst",
+                "url": "canvas_tekst",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Translacija",
+                "url": "canvas_transformacije_translacija",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Rotacija",
+                "url": "canvas_transformacije_rotacija",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Skaliranje",
+                "url": "canvas_transformacije_skaliranje",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Canvas - slike",
+                "url": "canvas_slike",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Canvas - senke",
+                "url": "canvas_shadow",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Canvas - opacity",
+                "url": "canvas_opacity",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Linearno kretanje",
+                "url": "canvas_linearno_kretanje",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Gradijent",
+                "url": "canvas_gradijent",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            },
+            {
+                "name": "Brisanje",
+                "url": "canvas_brisanje",
+                "type": "lesson",
+                "parentCourse": "canvas",
+                "sublessons": null
+            }
+        ]
+    },
+    {
         "name": "Veb",
         "id": "veb",
         "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",

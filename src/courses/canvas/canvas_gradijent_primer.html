@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas gradijent primer</title>
+	<meta charset="utf-8"></meta>
+</head>
+<body>
+<h1>Canvas gradijent primer</h1>
+
+<p>Primer primene linearnog gradijenta nad pravougaonikom:</p>
+
+<canvas id="myCanvasL" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("myCanvasL");
+var ctx = c.getContext("2d");
+
+
+var grd = ctx.createLinearGradient(0, 0, 200, 0);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+ctx.fillStyle = grd;
+ctx.fillRect(10, 10, 150, 80);
+</script>
+
+<p>Primer primene radijalnog gradijenta nad pravougaonikom:</p>
+
+<canvas id="myCanvasR" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("myCanvasR");
+var ctx = c.getContext("2d");
+
+
+var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+ctx.fillStyle = grd;
+ctx.fillRect(10, 10, 150, 80);
+</script>
+
+</body>
+</html>

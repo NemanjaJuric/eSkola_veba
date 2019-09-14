@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas shadow</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Shadow u Canvas-u</h1>
+
+
+Primer postavljanje senke u HTML5 Canvas-u: <br>   
+ <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.rect(188, 40, 200, 100);
+      context.fillStyle = 'red';
+      context.shadowColor = '#999';
+      context.shadowBlur = 20;
+      context.shadowOffsetX = 15;
+      context.shadowOffsetY = 15;
+      context.fill();
+    </script>
+     
+
+</body>
+</html>

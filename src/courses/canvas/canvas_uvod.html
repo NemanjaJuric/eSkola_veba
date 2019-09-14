@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas uvod</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Uvod u HTML Canvas</h1>
+	HTML &lt;canvas&gt; element je tag koji se pojavio kao jedan od HTML5 novina. Koristi se za iscrtavanje grafičkih elemenata, fotografskih kompozicija i pravljenje jednostavnh animacija pomoću nekog skript jezika, najčešćce javascript.
+	<br>
+Canvas &lt;canvas&gt; element je samo kontejner za grafiku koji se određuje pomoću width i height atributa. Prava moć canvas elementa dolazi do izražaja kroz upotrebu HTML5 API-ja. Upotrebom javascript-a se može pristupiti čitavom setu funkcija za crtanje putanja, kvadrata, krugova, linija, teksta i dodavanje slika.
+<br>
+<br>
+<h2>Nekoliko razloga zašto biste želeli da naučite kako da upotrebite HTML5 canvas funkcije:</h2>
+<ul>
+	<li>Canvas je potpuno interaktivan. Odgovara na akcije korisnika slušajući događaje tastature, miša ili touch events. Tako da developer nije ograničen samo na statičku grafiku i slike.</li><br>
+	<li>Svaki objekat u canvasu može biti animiran. Ovo omogućava kreiranje animacija svih nivoa, od jednostavnih loptica koje skakuću do naprednijih i kompleksnih animacija.</li><br>
+     <li>Developer može napraviti skoro sve upotrebom canvasa. Može da iscrtava linije, razne oblike, tekst, slike - sa ili bez upotrebe animacije. Dodavanje video i/ili audio materijala je takođe moguće pomoću canvas elementa.</li><br>
+      <li>Browser/Platform podrška - HTML5 Canvas je podržan od većine browsera i može se koristiti na raznim uređajima od desktop računara do tableta i smart telefona.</li><br>
+      <li>Veb standradi - Za razliku od Flash-a i Silverlight-a, Canvas je sastavni deo HTML5 tehnologije. Jednom napravljen može biti upotrebljen svuda - od kompjutera do najmanjih mobilnih uređaja, bez bilo kakvih pluginova. </li><br>
+      <li>Osnovni alati za kreiranje HTML5 canvas aplikacija su browser i kod editor po izboru. Plus, postoji mnogo sjajnih i besplatnih biblioteka i alata za naprednije pravljenje canvas aplikacija.</li><br>
+      </ul>
+      <h2>Kakve aplikacije možete napraviti pomoću HTML5 Canvas elementa?</h2>
+<ul>
+	<li>HTML5 Canvas set funkcija je idealan za pravljenje raznih 2D i 3D igrica.</li><br>
+	<li>HTML5 Canvas je odlična zamena za pravljenje banera i reklama baziranih na upotrebi flash tehnologije.</li><br>
+	<li>Može prikupljati podatke iz globalnih izvora podataka i koristiti za generisanje vizuelno atraktivnih tabela i grafikona pomoću canvas elemenata.</li><br>
+	<li>Pomoću HTML5 canvas elementa se kombinacijom teksta, slike, video i audio materijala mogu napraviti atraktivni materijali namenjeni u edukativne svrhe.</li><br>
+  
+      </ul>
+<h2>Canvas rendering context</h2>
+<p>Svakom HTML5 canvas elementu se mora odrediti <b>context</b>. Context definiše koja vrsta HTML5 Canvas API-ja će biti korišćena. 2d context se koristi za crtanje 2D grafike i manipulaciju bitmap slika. 3d context se koristi za 3D kreiranu grafiku i manipulaciju. Kasnije je nazvano  WebGL  i bazirano je na OpenGL ES.</p>
+<p>
+	Pored canvas-ovih width i height atributa, možete koristiti i CSS da podesite veličinu canvas elementa. Ipak podešavanje veličine canvas elementa pomoću CSS-a, nije isto kao kada se to radi pomoću width i height. To je zato što canvas ima dve veličine: veličinu samog elementa i veličinu površine za crtanje elementa. Kada podesite atribute width i height, postavljate veličinu elementa i veličinu površine za crtanje, ali kad za određivanje veličine koristite CSS, postavljate samo veličinu elementa, ali ne i njegove površine za crtanje. Kada se veličina elementa ne poklapa sa veličinom površine za crtanje, browser sam podešava površinu kako bi se uklopila u element.
+</p>
+<span class = "primer_text">
+	&lt;canvas width="200" height="100" style="border:1px solid #000000;"&gt;&lt;&sol;canvas&gt;</span>
+	<p>
+
+	Iscrtava pravougaonik dužine 200, visine 100 piksela, debljine linije od 1px crne boje.
+</p>
+<p align="center"><canvas width="200" height="100" style="border:1px solid #000000;"></canvas>
+
+</p>
+<p>Crtanje pomoću JavaScript-a:
+</p>
+<xmp class = "primer_ta">
+<canvas id="pravougaonik" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<script>
+var c = document.getElementById("pravougaonik");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0,0,150,75);
+</script>
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+<p>Iscrtavanje kose linije:
+</p>
+<xmp class = "primer_ta">
+<canvas id="linija" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+var c = document.getElementById("linija");
+var ctx = c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</body>
+</html>

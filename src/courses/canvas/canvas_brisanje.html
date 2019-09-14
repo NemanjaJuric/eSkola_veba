@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas brisanje</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Brisanje objekata u HTML5 Canvas-u</h1>
+<p>
+	Za brisanje objekata u HTML5 Canvas-u koristimo metodu context objekta <i>clearRect().</i>
+</p>
+<xmp class = "primer_ta">
+
+<canvas id="pravougaonik" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+
+<div id="buttons">
+ <input type="button" id="clear" value="Clear">
+</div>
+<script>
+var canvas = document.getElementById("pravougaonik");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(0, 0, 200, 100);
+      document.getElementById('clear').addEventListener('click', function() {
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+     }, false);
+ </script>
+</xmp>
+ <button class = "button_copy">Vidi primer</button>
+     
+</script>
+</body>
+</html>
