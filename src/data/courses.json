@@ -2985,7 +2985,7 @@
             },
             {
                 "name": "Tekst",
-                "url": "SVG_text",
+                "url": "SVG_tekst",
                 "type": "lesson",
                 "parentCourse": "svg",
                 "sublessons": null
