@@ -185,6 +185,10 @@ $android-official: #a2c53d;
     background-color: $html-primary !important;
 }
 
+.bkg-svg{
+    background-color: $spring-primary !important;
+}
+
 .bkg-about{
     background-color: $about-primary !important;
 }
@@ -287,6 +291,10 @@ $android-official: #a2c53d;
 
 .hover-canvas:hover{
     color: $html-primary;
+}
+
+.hover-svg:hover{
+    color: $spring-primary;
 }
 
 .trans-md{

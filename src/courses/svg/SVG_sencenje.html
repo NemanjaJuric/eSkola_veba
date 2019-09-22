@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Senčenje</title>
+  </head>
+  <body>
+    <h1>Etiketa &ltfeOffset&gt</h1>
+    Etiketa &ltfeOffset&gt se koristi za kreiranje senke. Ideja je da se SVG grafika (slika ili element) uzme i pomeri malo po x i y osi.
+    Prvi primer preslikava četvorougao (sa etiketom &ltfeOffset&gt), a onda premešta original preko preslikanog četvorougla (sa &ltfeBlend&gt):
+    <br>
+    <h5>Etiketa &ltfeGaussianBlur&gt</h5>
+    Etiketa &ltfeGaussianBlur&gt se koristi kako bi se napravio efekat zamagljivanja.
+
+    <xmp class = "primer_ta">
+<svg height = "120" width = "120">
+  <defs>
+    <filter id = "f1" x = "0" y = "0" width = "200%" height = "200%">
+      <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+      <feBlend in = "SourceGraphic" in2 = "offOut" mode = "normal" />
+    </filter>
+  </defs>
+  <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f1)" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "120" width = "120">
+      <defs>
+        <filter id = "f1" x = "0" y = "0" width = "200%" height = "200%">
+          <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+          <feBlend in = "SourceGraphic" in2 = "offOut" mode = "normal" />
+        </filter>
+      </defs>
+      <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f1)" />
+    </svg>
+    <br>
+    Sada, preslikan četvorougao može biti zamagljen (sa &ltfeGaussianBlur&gt):
+      <xmp class = "primer_ta">
+<svg height = "140" width = "140">
+<defs>
+  <filter id = "f2" x = "0" y = "0" width = "200%" height = "200%">
+    <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+    <feGaussianBlur result = "blurOut" in = "offOut" stdDeviation = "10" />
+    <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+  </filter>
+</defs>
+<rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f2)" />
+</svg>
+      </xmp>
+      <button class = "button_copy">Vidi primer</button>
+      <br>
+      Prethodni kod daje sledeću sliku:
+      <br>
+      <svg height = "140" width = "140">
+      <defs>
+        <filter id = "f2" x = "0" y = "0" width = "200%" height = "200%">
+          <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+          <feGaussianBlur result = "blurOut" in = "offOut" stdDeviation = "10" />
+          <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+        </filter>
+      </defs>
+      <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f2)" />
+      </svg>
+      <br>
+
+      Sada, senku bojimo u crno:
+      <xmp class = "primer_ta">
+<svg height = "140" width = "140">
+  <defs>
+    <filter id = "f3" x = "0" y = "0" width = "200%" height = "200%">
+      <feOffset result = "offOut" in = "SourceAlpha" dx = "20" dy = "20" />
+      <feGaussianBlur result = "blurOut" in = "offOut" stdDeviation = "10" />
+      <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+    </filter>
+  </defs>
+  <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f3)" />
+</svg>
+      </xmp>
+      <button class = "button_copy">Vidi primer</button>
+      <br>
+      Prethodni kod daje sledeću sliku:
+      <br>
+      <svg height = "140" width = "140">
+        <defs>
+          <filter id = "f3" x = "0" y = "0" width = "200%" height = "200%">
+            <feOffset result = "offOut" in = "SourceAlpha" dx = "20" dy = "20" />
+            <feGaussianBlur result = "blurOut" in = "offOut" stdDeviation = "10" />
+            <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+          </filter>
+        </defs>
+        <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f3)" />
+      </svg>
+      <br>
+      Objašnjenje koda:
+      <ul>
+        <li>Atribut in etikete &ltfeOffset&gt  promenjen u "SourceAlpha" koji koristi Alfa kanal za zamagljenje umesto celog RGBA piksela</li>
+      </ul>
+      <br>
+      Sada, tretiramo senku kao boju.
+      <xmp class = "primer_ta">
+<svg height = "140" width = "140">
+  <defs>
+    <filter id = "f4" x = "0" y = "0" width = "200%" height = "200%">
+      <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+      <feColorMatrix result = "matrixOut" in = "offOut" type = "matrix" values = "0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+      <feGaussianBlur result = "blurOut" in = "matrixOut" stdDeviation = "10" />
+      <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+    </filter>
+  </defs>
+  <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f4)" />
+</svg>
+      </xmp>
+      <button class = "button_copy">Vidi primer</button>
+      <br>
+      Prethodni kod daje sledeću sliku:
+      <br>
+      <svg height = "140" width = "140">
+        <defs>
+          <filter id = "f4" x = "0" y = "0" width = "200%" height = "200%">
+            <feOffset result = "offOut" in = "SourceGraphic" dx = "20" dy = "20" />
+            <feColorMatrix result = "matrixOut" in = "offOut" type = "matrix" values = "0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+            <feGaussianBlur result = "blurOut" in = "matrixOut" stdDeviation = "10" />
+            <feBlend in = "SourceGraphic" in2 = "blurOut" mode = "normal" />
+          </filter>
+        </defs>
+        <rect width = "90" height = "90" stroke = "blue" stroke-width = "3" fill = "lime" filter = "url(#f4)" />
+      </svg>
+      <br>
+      Objašnjenje koda:
+      <ul>The <feColorMatrix> filter is used to transform the colors in the offset image closer to black.
+        The three values of '0.2' in the matrix all get multiplied by the red,
+        green and blue channels. Reducing their values brings the colors closer to black (black is 0)
+        <li>&ltfeColorMatrix&gt filter se koristi da transformiše boje preslikanog četvorougla u crnu.
+            3 vrednosti 0.2 u matrici se množe crvenim, zelenim i plavim kanalima.
+            Smanjivanjem njihovih vrednosti, boja postaje bliža crnoj (crna je 0) </li>
+      </ul>
+    <div class = "zadatak"> Zadatak: Sve prethodno urađeno, probati sa krugom ili elipsom. </div>
+  </body>
+</html>

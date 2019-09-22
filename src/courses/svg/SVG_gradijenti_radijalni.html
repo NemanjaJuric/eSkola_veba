@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gradijenti - radijalni</title>
+  </head>
+  <body>
+    <h1>Radijalni gradijent - &ltradialGradient&gt</h1>
+    Etiketa &ltradialGradient&gt se koristi za definisanje radijalnog gradijenta.
+    Etiketa &ltradialGradient&gt mora biti ugnježdena u etiketama &ltdefs&gt.
+    Etiketa &ltdefs&gt je skraćenica od definicije i sadrži definiciju specijalnog elementa (poput gradijenta).
+    <br>
+    Definišemo krug sa radijalnim gradijentom od ljubičaste ka sivoj:
+    <xmp class = "primer_ta">
+<svg height = "200" width = "500">
+  <defs>
+    <radialGradient id = "grad1" cx = "50%" cy = "50%" r = "50%" fx = "50%" fy = "50%">
+      <stop offset = "0%" style = "stop-color : grez; stop-opacity : 0" />
+      <stop offset = "100%" style = "stop-color : purple; stop-opacity : 1" />
+    </radialGradient>
+  </defs>
+  <circle cx = "200" cy = "95" r = "85" fill = "url(#grad1)" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "200" width = "500">
+      <defs>
+        <radialGradient id = "grad1" cx = "50%" cy = "50%" r = "50%" fx = "50%" fy = "50%">
+          <stop offset = "0%" style = "stop-color : grey; stop-opacity : 0" />
+          <stop offset = "100%" style = "stop-color : purple; stop-opacity : 1" />
+        </radialGradient>
+      </defs>
+      <circle cx = "200" cy = "95" r = "85" fill = "url(#grad1)" />
+    </svg>
+    <br>
+    Objašnjenje koda:
+    <ul>
+      <li>Atribut id etikete &ltradialGradient&gt definiše jedinstveno ime gradijenta </li>
+      <li>Atributi cx, cy, r etikete  &ltradialGradient&gt definišu najudaljeniji krug, a fx i fy definišu najdublji krug </li>
+      <li>Opseg boja gradijenta može biti sastavljen od dve ili više boja. Svaka boja je određena sa etiketom &ltstop&gt.
+         Atribut offset se koristi da definiše gde boja gradijenta počinje i gde se završava </li>
+      <li>Atribut fill povezuje krug sa gradijentom </li>
+    </ul>
+    <br>
+    Definišemo drugi krug sa radijalnim gradijentom od plave do bele:
+    <xmp class = "primer_ta">
+<svg height = "200" width = "500">
+  <defs>
+    <radialGradient id = "grad2" cx = "20%" cy = "30%" r = "30%" fx = "50%" fy = "50%">
+      <stop offset = "0%" style = "stop-color : rgb(255, 255, 255); stop-opacity : 0" />
+      <stop offset = "100%" style = "stop-color : rgb(0, 0, 255); stop-opacity : 1" />
+    </radialGradient>
+  </defs>
+  <circle cx = "200" cy = "95" r = "85" fill = "url(#grad2)" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "200" width = "500">
+      <defs>
+        <radialGradient id = "grad2" cx = "20%" cy = "30%" r = "30%" fx = "50%" fy = "50%">
+          <stop offset = "0%" style = "stop-color : rgb(255, 255, 255); stop-opacity : 0" />
+          <stop offset = "100%" style = "stop-color : rgb(0, 0, 255); stop-opacity : 1" />
+        </radialGradient>
+      </defs>
+      <circle cx = "200" cy = "95" r = "85" fill = "url(#grad2)" />
+    </svg>
+    <br>
+
+  </body>
+</html>

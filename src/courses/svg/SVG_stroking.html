@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stroking</title>
+  </head>
+  <body>
+    <h1> SVG svojstvo stroke </h1>
+    SVG nudi širok spektar svojstva stroke. U ovoj lekciji opisaćemo sledeće:
+    <ul>
+      <li>stroke</li>
+      <li>stroke-width</li>
+      <li>stroke-linecap</li>
+      <li>stroke-dasharray</li>
+    </ul>
+    Sva stroke svojstva se mogu primeniti na bilo koju vrstu linija, teksta i spoljašnje linije drugih elemenata.
+    <br>
+    <h3>Svojstvo stroke</h3>
+    Svojstvo stroke definiše boju linije, teksta ili spoljašnje linije nekog elementa:
+    <xmp class = "primer_ta">
+<svg height = "80" width = "300">
+  <g fill = "none">
+    <path stroke = "red" d = "M5 20 l215 0" />
+    <path stroke = "black" d = "M5 40 l215 0" />
+    <path stroke = "blue" d = "M5 60 l215 0" />
+  </g>
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "80" width = "300">
+      <g fill = "none">
+        <path stroke = "red" d = "M5 20 l215 0" />
+        <path stroke = "black" d = "M5 40 l215 0" />
+        <path stroke = "blue" d = "M5 60 l215 0" />
+      </g>
+    </svg>
+    <br>
+    <h3>Svojstvo stroke-width</h3>
+    Svojstvo stroke-width definiše debljinu linije, teksta ili spoljašnje linije nekog elementa:
+    <xmp class = "primer_ta">
+<svg height = "80" width = "300">
+  <g fill="none" stroke="black">
+    <path stroke-width = "2" d = "M5 20 l215 0" />
+    <path stroke-width = "4" d = "M5 40 l215 0" />
+    <path stroke-width = "6" d = "M5 60 l215 0" />
+  </g>
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "80" width = "300">
+      <g fill="none" stroke="black">
+        <path stroke-width = "2" d = "M5 20 l215 0" />
+        <path stroke-width = "4" d = "M5 40 l215 0" />
+        <path stroke-width = "6" d = "M5 60 l215 0" />
+      </g>
+    </svg>
+    <br>
+    <h3>Svojstvo stroke-linecap</h3>
+    Svojstvo stroke-linecap definiše različite tipove krajeva otvorenih putanja:
+    <xmp class = "primer_ta">
+<svg height = "80" width = "300">
+  <g fill= "none" stroke = "black" stroke-width = "6">
+    <path stroke-linecap = "butt" d = "M5 20 l215 0" />
+    <path stroke-linecap = "round" d = "M5 40 l215 0" />
+    <path stroke-linecap = "square" d = "M5 60 l215 0" />
+  </g>
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "80" width = "300">
+      <g fill= "none" stroke = "black" stroke-width = "6">
+        <path stroke-linecap = "butt" d = "M5 20 l215 0" />
+        <path stroke-linecap = "round" d = "M5 40 l215 0" />
+        <path stroke-linecap = "square" d = "M5 60 l215 0" />
+      </g>
+    </svg>
+    <br>
+    <h3>Svojstvo stroke-dasharray</h3>
+    Svojstvo stroke-dasharray se koristi za kreiranje isprekidanih linija:
+    <xmp class = "primer_ta">
+<svg height = "80" width = "300">
+  <g fill = "none" stroke = "black" stroke-width =  "4">
+    <path stroke-dasharray = "5, 5" d = "M5 20 l215 0" />
+    <path stroke-dasharray = "10, 10" d = "M5 40 l215 0" />
+    <path stroke-dasharray = "20, 10, 5, 5, 5, 10" d = "M5 60 l215 0" />
+  </g>
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "80" width = "300">
+      <g fill = "none" stroke = "black" stroke-width =  "4">
+        <path stroke-dasharray = "5, 5" d = "M5 20 l215 0" />
+        <path stroke-dasharray = "10, 10" d = "M5 40 l215 0" />
+        <path stroke-dasharray = "20, 10, 5, 5, 5, 10" d = "M5 60 l215 0" />
+      </g>
+    </svg>
+    <br>
+
+    <div class = "zadatak"> Zadatak: Kreirati nekoliko isprekidanih linija žute boje debljine 7.</div>
+  </body>
+</html>

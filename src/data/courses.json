@@ -2912,6 +2912,129 @@
         ]
     },
     {
+        "name": "SVG",
+        "id": "svg",
+        "logo": "< >",
+        "type": "course",
+        "lang": "text/html",
+        "displayLang": "HTML",
+        "detailsText": "",
+        "lessons": [
+            {
+                "name": "Uvod u SVG",
+                "url": "SVG_uvod_u_SVG",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Etikete",
+                "url": "SVG_etikete",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Rectangle",
+                "url": "SVG_rect",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Krug",
+                "url": "SVG_krug",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Elipsa",
+                "url": "SVG_elipsa",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Linija",
+                "url": "SVG_linija",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Mnogougao",
+                "url": "SVG_mnogougao",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Izlomljena linija",
+                "url": "SVG_izlomljena_linija",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Path",
+                "url": "SVG_path",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Tekst",
+                "url": "SVG_text",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Stroking",
+                "url": "SVG_stroking",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Filteri",
+                "url": "SVG_filteri",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Efekat zamućenja",
+                "url": "SVG_blur_effects",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Senčenje",
+                "url": "SVG_sencenje",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Linearni prelasci boja",
+                "url": "SVG_gradijenti_linearni",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            },
+            {
+                "name": "Radijalni prelasci boja",
+                "url": "SVG_gradijenti_linearni",
+                "type": "lesson",
+                "parentCourse": "svg",
+                "sublessons": null
+            }
+        ]
+    },
+    {
         "name": "Veb",
         "id": "veb",
         "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",

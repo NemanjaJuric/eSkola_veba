@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Efekat zamagljivanja</title>
+  </head>
+  <body>
+    <h1> SVG efekti zamagljivanja </h1>
+    <h3>&ltdefs&gt i &ltfilter&gt</h3>
+    Svi SVG filteri na internetu su definisani sa etiketom &ltdefs&gt.
+    Etiketa &ltdefs&gt je skraćenica od definicije i sadrži definiciju specijalne etikete (poput filtera).
+    Etiketa &ltfilter&gt se koristi da definiše SVG filter. Etiketa &ltfilter&gt ima obavezni atribut id koji identifikuje filter.
+    Grafika tada upućuje na filter koji se treba koristiti.
+    <br>
+    <h5>Etiketa &ltfeGaussianBlur&gt</h5>
+    Etiketa &ltfeGaussianBlur&gt se koristi kako bi se napravio efekat zamagljivanja.
+
+    <xmp class = "primer_ta">
+<svg height = "110" width = "110">
+  <defs>
+    <filter id = "f1" x = "0" y = "0">
+      <feGaussianBlur in = "SourceGraphic" stdDeviation = "15" />
+    </filter>
+  </defs>
+  <rect width = "90" height = "90" stroke = "green" stroke-width = "3" fill = "purple" filter = "url(#f1)" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "110" width = "110">
+      <defs>
+        <filter id = "f1" x = "0" y = "0">
+          <feGaussianBlur in = "SourceGraphic" stdDeviation = "15" />
+        </filter>
+      </defs>
+      <rect width = "90" height = "90" stroke = "green" stroke-width = "3" fill = "purple" filter = "url(#f1)" />
+    </svg>
+    <br>
+    Objašnjenje koda:
+    <ul>
+      <li>Atribut id etikete &ltfilter&gt definiše jedinstveno ime za filter </li>
+      <li>Zamagljeni efekat je definisan etiketom &ltfeGaussianBlur&gt </li>
+      <li>Deo in = "SourceGraphic" definiše da je efekat kreiran za ceo element </li>
+      <li>Atribut stdDeviation definiše nivo zamagljenja </li>
+      <li>Atribut filter etikete &ltrect&gt  povezuje element sa filterom f1</li>
+    </ul>
+    <br>
+    <div class = "zadatak"> Zadatak: Kreirati krug prečnika 40 čija je unutrašnjost crvene boje i podesiti efekat zamagljenja na 20. </div>
+  </body>
+</html>

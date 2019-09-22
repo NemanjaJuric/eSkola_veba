@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Elipsa</title>
+  </head>
+  <body>
+    <h1>Elipsa &ltellipse&gt</h1>
+    Etiketa &ltellipse&gt se koristi kako bi se kreirala elipsa.
+    Elipsa je usko povezana sa krugom. Razlika je ta što elipsa ima poluprečnike x i y koji se razlikuju, dok krug ima jednake poluprečnike x i y:
+    <br>
+    <xmp class = "primer_ta">
+<svg height="140" width="500">
+  <ellipse cx = "200" cy = "80" rx = "100" ry = "50" style = "fill : orange; stroke : red; stroke-width : 2" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height="140" width="500">
+      <ellipse cx = "200" cy = "80" rx = "100" ry = "50" style = "fill : orange; stroke : red; stroke-width : 2" />
+    </svg>
+    <br>
+    Objašnjenje koda:
+    <ul>
+      <li>Atributi cx i cy definišu x i y koordinate centra elipse. Ako su cx i cy izostavljene, centar elipse je postavljen u (0,0)</li>
+      <li>Atributi rx i ry definišu horizontalni i vertikalni poluprečnik</li>
+    </ul>
+    <br>
+    <xmp class = "primer_ta"> Kreiranje tri elipse jedne na drugoj:
+
+<svg height = "150" width = "500">
+  <ellipse cx = "240" cy = "100" rx = "220" ry = "30" style = "fill : green" />
+  <ellipse cx = "220" cy = "70" rx = "190" ry = "20" style = "fill : lime" />
+  <ellipse cx = "210" cy = "45" rx = "170" ry = "15" style = "fill : yellow" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "150" width = "500">
+      <ellipse cx = "240" cy = "100" rx = "220" ry = "30" style = "fill : green" />
+      <ellipse cx = "220" cy = "70" rx = "190" ry = "20" style = "fill : lime" />
+      <ellipse cx = "210" cy = "45" rx = "170" ry = "15" style = "fill : yellow" />
+    </svg>
+    <br>
+
+      <div class = "zadatak"> Zadatak: Kreirati dve elipse tako da manja, bele boje, bude smeštena u većoj, crvene boje.
+        <svg height = "150" width = "500">
+          <ellipse cx = "240" cy = "100" rx = "220" ry = "30" style = "fill : red" />
+          <ellipse cx = "240" cy = "100" rx = "180" ry = "15" style = "fill : white" />
+        </svg>
+      </div>
+
+  </body>
+</html>

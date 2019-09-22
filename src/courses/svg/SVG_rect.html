@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Četvorougao</title>
+  </head>
+  <body>
+    <h1>Četvorougao &ltrect&gt</h1>
+    Etiketa &ltrect&gt se koristi kako bi se kreirao četvorougao i njegove varijacije.
+    <br>
+    <xmp class = "primer_ta">
+<svg width = "400" height = "110">
+  <rect width = "300" height = "100" style = "fill : rgb(0,0,255); stroke-width : 3; stroke : pink; fill-opacity : 0.5; stroke-opacity : 0.9" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg width = "400" height = "110">
+      <rect width = "300" height = "100" style = "fill : rgb(0,0,255); stroke-width : 3; stroke : pink; fill-opacity : 0.5; stroke-opacity : 0.9" />
+    </svg>
+    <br>
+    Objašnjenje koda:
+    <ul>
+      <li>Atributi width i height etikete &ltrect&gt definišu širinu i visinu četvorougla</li>
+      <li>Atribut style se koristi da definiše CSS svojstva za četvorougao</li>
+      <li>CSS svojstvo fill definiše boju unutrašnjosti četvorougla</li>
+      <li>CSS svojstvo stroke-width definiše širinu linije kojom se obeležava stranica četvorougla</li>
+      <li>CSS svojstvo stroke definiše boju linije kojom se obeležava stranica četvorougla</li>
+      <li>CSS svojstvo fill-opacity definiše providnost boje unutrašnjosti četvorougla (u opsegu: od 0 do 1), ukoliko se ne navede, podrazumevano je 1</li>
+      <li>CSS svojstvo stroke-opacity definiše providnost boje linije kojom se obeležava stranica četvorougla (u opsegu: od 0 do 1), ukoliko se ne navede, podrazumevano je 1</li>
+    </ul>
+    <br>
+    Za postavljanje providnosti cele slike, može se koristiti CSS svojstvo opacity (u opsegu od 0 do 1).
+    <br>
+    <xmp class = "primer_ta"> Kreiranje četvorougla sa zaobljenim uglovima:
+
+<svg width = "400" height = "180">
+  <rect x = "50" y = "20" rx  = "20" y = "20" width = "150" height = "150" style = "fill : red; stroke : black; stroke-width : 5; opacity : 0.5" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg width = "400" height = "180">
+      <rect x = "50" y = "20" rx  = "20" y = "20" width = "150" height = "150" style = "fill : red; stroke : black; stroke-width : 5; opacity : 0.5" />
+    </svg>
+    <br>
+    Objašnjenje koda:
+    <ul>
+      <li>Atribut x definiše levu poziciju četvorougla (npr. x = "50" smešta četvorougao 50 px od leve margine), ukoliko se ne navede, <br> podrazumevno je x = "0"</li>
+      <li>Atribut y definiše gornju poziciju četvorougla (npr. y = "20" smešta četvorougao 20 px od gornje margine), ukoliko se ne navede, <br> podrazumevno je y = "0"</li>
+      <li>Atributi rx i ry zaobljavaju uglove četvorougla</li>
+
+      <div class = "zadatak"> Zadatak: Kreirati kvadrat čija je unutrašnjost crne boje, stranice zelene boje širine 10, a providnost 0.7. </div>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Putanja ili trajektorija</title>
+  </head>
+  <body>
+    <h1>Putanja ili trajektorija &ltpath&gt</h1>
+    Etiketa &ltpath&gt se koristi da se definiše putanja.
+    <br>
+    Sledće komande su dostupne za crtanje putanje:
+    <ul>
+      <li>M (moveto) = pomeriti u </li>
+      <li>L (lineto) = linija do </li>
+      <li>H (horizontal lineto) = horizontalna linija do </li>
+      <li>V (vertical lineto) = vertikalna linija do </li>
+      <li>C (curveto) = kriva do </li>
+      <li>S (smooth curveto) = glatka kriva do </li>
+      <li>Q (quadratic Bézier curve) = kvadratne Bezjeove krive </li>
+      <li>T (smooth quadratic Bézier curveto) = glatke kvadratne Bezjeove krive do </li>
+      <li>A (elliptical Arc) = eliptični luk </li>
+      <li>Z (closepath) = zatvorena putanja </li>
+    </ul>
+    <br>
+    <div class="napomena">Napomena: Sve komande iznad mogu se pozivati i sa malim slovom. Velika slova označavaju apsolutno pozicioniranje,
+      a mala slova relativno pozicioniraje.</div>
+    <br>
+    Primer ispod definiše putanju koja počinje u poziciji (150, 0) sa linijom do pozicije (75, 200), zatim odatle,
+    linijom do pozicije (225, 200) i konačno se zatvara u početnoj pozociji:
+    <xmp class = "primer_ta">
+<svg height = "210" width = "400">
+  <path d = "M150 0 L75 200 L225 200 Z" />
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <br>
+    <svg height = "210" width = "400">
+      <path d = "M150 0 L75 200 L225 200 Z" />
+    </svg>
+    <br>
+    <h2>Bezjeove krive</h2>
+    Bezjeove krive se koriste za glatke krive koje se mogu skalirati u nedogled.
+    Generalno, korisnik označi 2 krajnje tačke i jednu kontrolnu tačku.
+    Bezjeove krive sa jednom kontrolnom tačkom se zovu kvadratne Bezjeove krive, sa dve kontrolne tačke zovu se kubne.
+
+    Sledeći primer kreira kvadratnu Bezjeovu krivu, gde su A i C početna i krajnja tačka, a B je kontrolna tačka:
+    <xmp class = "primer_ta">
+<svg height = "400" width = "450">
+  <path id = "lineAB" d = "M 100 350 l 150 -300" stroke = "red" stroke-width = "3" fill = "none" />
+  <path id = "lineBC" d = "M 250 50 l 150 300" stroke = "red" stroke-width = "3" fill = "none" />
+  <path d = "M 175 200 l 150 0" stroke = "green" stroke-width = "3" fill = "none" />
+  <path d = "M 100 350 q 150 -300 300 0" stroke = "blue" stroke-width = "5" fill = "none" />
+  <!-- Označavanje početne tačke A, krajnje tačke C i kontrolne tačke B -->
+  <g stroke="black" stroke-width="3" fill="black">
+    <circle id = "pointA" cx = "100" cy = "350" r = "3" />
+    <circle id = "pointB" cx = "250" cy = "50" r = "3" />
+    <circle id = "pointC" cx = "400" cy = "350" r = "3" />
+  </g>
+  <!-- Zadavanje oznake tačkama -->
+  <g font-size = "30" font-family = "sans-serif" fill = "black" stroke = "none" text-anchor = "middle">
+    <text x = "100" y = "350" dx = "-30"> A </text>
+    <text x = "250" y = "50" dy = "-10"> B </text>
+    <text x = "400" y = "350" dx = "30">C</text>
+  </g>
+</svg>
+    </xmp>
+    <button class = "button_copy">Vidi primer</button>
+    <br>
+    Prethodni kod daje sledeću sliku:
+    <svg height = "400" width = "450">
+  <path id = "lineAB" d = "M 100 350 l 150 -300" stroke = "red" stroke-width = "3" fill = "none" />
+  <path id = "lineBC" d = "M 250 50 l 150 300" stroke = "red" stroke-width = "3" fill = "none" />
+  <path d = "M 175 200 l 150 0" stroke = "green" stroke-width = "3" fill = "none" />
+  <path d = "M 100 350 q 150 -300 300 0" stroke = "blue" stroke-width = "5" fill = "none" />
+  <!-- Označavanje krajnjih tačaka -->
+  <g stroke="black" stroke-width="3" fill="black">
+    <circle id = "pointA" cx = "100" cy = "350" r = "3" />
+    <circle id = "pointB" cx = "250" cy = "50" r = "3" />
+    <circle id = "pointC" cx = "400" cy = "350" r = "3" />
+  </g>
+  <!-- Zadavanje oznake krajnjim tačkama -->
+  <g font-size = "30" font-family = "sans-serif" fill = "black" stroke = "none" text-anchor = "middle">
+    <text x = "100" y = "350" dx = "-30"> A </text>
+    <text x = "250" y = "50" dy = "-10"> B </text>
+    <text x = "400" y = "350" dx = "30">C</text>
+  </g>
+</svg>
+<br>
+  Zbog kompleksnosti crtanja putanja preporučuje se korišćenje SVG uređivača za kreiranje kompleksnih grafika.
+
+  </body>
+</html>
