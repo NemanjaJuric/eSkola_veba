@@ -4,12 +4,14 @@
 	</div>
 	<div class="text-xs-center m-a-3">
 		<p class="lead m-t-3 m-b-3">
-			Mi smo studenti Matematičkog fakulteta Univerziteta u Beogradu. Elektronska škola veb programiranja eŠkola veba je naš projekat
+			Mi smo studenti Matematičkog fakulteta Univerziteta u Beogradu. Elektronska škola veb programiranja eŠkola
+			veba je naš projekat
 			na master akademskim studijama.
 		</p>
 		<div class="row">
 			<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 m-t-2 m-b-2" *ngFor="let person of persons">
-				<div class="programmer-image-small" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
+				<div class="programmer-image-small" *ngIf="person.url.indexOf('user.jpg') < 0"
+					[ngStyle]="{'background-image': 'url(' + person.url + ')' }">
 				</div>
 			</div>
 		</div>
@@ -17,15 +19,24 @@
 	<div class="text-xs-center m-a-3">
 		<h1 class="display-4 m-t-3 m-b-3">Naša misija</h1>
 	</div>
-    <div class="text-xs-center m-a-3">
+	<div class="text-xs-center m-a-3">
 		<p class="lead m-t-3 m-b-3">
-			Napredak tehnologije i sveopšta dostupnost računara i informacija doveli su do ekspanzije informaciono-komunikacionih tehnologija i njihove integracije u mnoge segmente savremenog društva. Svakodnevno se pojavljuju novi internet proizvodi i veb alatke. Sve je veći broj kompanija koje imaju svoje veb prezentacije i prelaze na elektronski način poslovanja. Posao veb-programera u takvim okolnostima postaje ključan. Svedoci smo sve većeg broja elektronskih kurseva i obrazovnih sajtova koji se odnose na programiranje za veb. Značaj elektronske platforme za učenje veb programiranja je veliki kada se uzme u obzir nagli razvoj interneta i popularnost alatki i servisa koje nudi.
+			Napredak tehnologije i sveopšta dostupnost računara i informacija doveli su do ekspanzije
+			informaciono-komunikacionih tehnologija i njihove integracije u mnoge segmente savremenog društva.
+			Svakodnevno se pojavljuju novi internet proizvodi i veb alatke. Sve je veći broj kompanija koje imaju svoje
+			veb prezentacije i prelaze na elektronski način poslovanja. Posao veb-programera u takvim okolnostima
+			postaje ključan. Svedoci smo sve većeg broja elektronskih kurseva i obrazovnih sajtova koji se odnose na
+			programiranje za veb. Značaj elektronske platforme za učenje veb programiranja je veliki kada se uzme u
+			obzir nagli razvoj interneta i popularnost alatki i servisa koje nudi.
 		</p>
-        <p class="lead m-t-3 m-b-3">
-            Elektronska škola veb programiranja je projekat u okviru predmeta Metodika nastave računarstva C na master akademskim studijama.
-            Namenjena je pre svega učenicima osnovnih i srednjih škola i za cilj ima da učenicima približi savremene tehnologije
-            koje se koriste u svetu veb programiranja. Uz nas ćete naučiti HTML, CSS, JavaScript, jQuery, Bootstrap, Angular, PHP i TypeScript.
-        </p>
+		<p class="lead m-t-3 m-b-3">
+			Elektronska škola veb programiranja je projekat u okviru predmeta Metodika nastave računarstva C na master
+			akademskim studijama.
+			Namenjena je pre svega učenicima osnovnih i srednjih škola i za cilj ima da učenicima približi savremene
+			tehnologije
+			koje se koriste u svetu veb programiranja. Uz nas ćete naučiti HTML, CSS, JavaScript, jQuery, Bootstrap,
+			Angular, PHP i TypeScript.
+		</p>
 	</div>
 	<div class="text-xs-center m-a-3">
 		<h1 class="display-4 m-t-3 m-b-3">Naš tim</h1>

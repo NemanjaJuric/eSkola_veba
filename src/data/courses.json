@@ -1,3065 +1,3038 @@
 ﻿[
-    {
-        "name": "HTML",
-        "id": "html",
-        "logo": "< >",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "Kurs je u pripremi.",
-        "lessons": [
-        {
-                "name": "Uvod u HTML",
-                "url": "html_uvod",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Struktura HTML dokumenta",
-                "url": "html_Struktura_HTML_dokumenta",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Title",
-                "url": "html_Title",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Paragraf",
-                "url": "html_Paragraf",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Font",
-                "url": "html_Font",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Novi red",
-                "url": "html_Novi_red",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Naslovi",
-                "url": "html_Headings",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Komentari",
-                "url": "html_Komentari_u_HTMLu",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Blok elementi",
-                "url": "html_Blok_elementi_DIV",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Linijski elementi",
-                "url": "html_Linijski_element_Span",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Linkovi",
-                "url": "html_linkovi",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Slike",
-                "url": "html_slike-opste",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Slike kao linkovi",
-                "url": "html_slike-SlikeKaoLinkovi",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Video",
-                "url": "html_video",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Audio",
-                "url": "html_audio",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Tabele",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": [
-                    {
-                        "name": "Opšte",
-                        "url": "html_Tabele_opste",
-                        "type": "sublesson",
-                        "parentCourse": "html",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Rowspan",
-                        "url": "html_Tabele_Rowspan",
-                        "type": "sublesson",
-                        "parentCourse": "html",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Colspan",
-                        "url": "html_Tabele_Colspan",
-                        "type": "sublesson",
-                        "parentCourse": "html",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Kolone",
-                        "url": "html_Tabele_kolone",
-                        "type": "sublesson",
-                        "parentCourse": "html",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Header i footer",
-                        "url": "html_Tabele_Heder_i_futer",
-                        "type": "sublesson",
-                        "parentCourse": "html",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Input",
-                "url": "html_input",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Select",
-                "url": "html_select",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "Meta etikete",
-                "url": "html_meta_etikete",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            },
-            {
-                "name": "HTML - veliki primer",
-                "url": "html_primer",
-                "type": "lesson",
-                "parentCourse": "html",
-                "sublessons": null
-            }
+  {
+    "name": "HTML",
+    "id": "html",
+    "logo": "< >",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "Kurs je u pripremi.",
+    "lessons": [
+      {
+        "name": "Uvod u HTML",
+        "url": "html_uvod",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Struktura HTML dokumenta",
+        "url": "html_Struktura_HTML_dokumenta",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Title",
+        "url": "html_Title",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Paragraf",
+        "url": "html_Paragraf",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Font",
+        "url": "html_Font",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Novi red",
+        "url": "html_Novi_red",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Naslovi",
+        "url": "html_Headings",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Komentari",
+        "url": "html_Komentari_u_HTMLu",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Blok elementi",
+        "url": "html_Blok_elementi_DIV",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Linijski elementi",
+        "url": "html_Linijski_element_Span",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Linkovi",
+        "url": "html_linkovi",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Slike",
+        "url": "html_slike-opste",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Slike kao linkovi",
+        "url": "html_slike-SlikeKaoLinkovi",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Video",
+        "url": "html_video",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Audio",
+        "url": "html_audio",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Tabele",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": [
+          {
+            "name": "Opšte",
+            "url": "html_Tabele_opste",
+            "type": "sublesson",
+            "parentCourse": "html",
+            "sublessons": null
+          },
+          {
+            "name": "Rowspan",
+            "url": "html_Tabele_Rowspan",
+            "type": "sublesson",
+            "parentCourse": "html",
+            "sublessons": null
+          },
+          {
+            "name": "Colspan",
+            "url": "html_Tabele_Colspan",
+            "type": "sublesson",
+            "parentCourse": "html",
+            "sublessons": null
+          },
+          {
+            "name": "Kolone",
+            "url": "html_Tabele_kolone",
+            "type": "sublesson",
+            "parentCourse": "html",
+            "sublessons": null
+          },
+          {
+            "name": "Header i footer",
+            "url": "html_Tabele_Heder_i_futer",
+            "type": "sublesson",
+            "parentCourse": "html",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "CSS",
-        "id": "css",
-        "logo": "{ }",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "\n        CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.\n        ",
-        "lessons": [
-            {
-                "name": "Uvod u CSS",
-                "url": "css_uvod",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Upotreba css-a",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": [
-                    {
-                        "name": "Linijska",
-                        "url": "css_upotreba_linijska",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Unutar dokumenta",
-                        "url": "css_upotreba_unutar_dokumenta",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "U zasebnom dokumentu",
-                        "url": "css_upotreba_van_dokumenta",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "CSS selektori",
-                "url": "css_selektori",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Boje u CSS-u",
-                "url": "css_bojeucssu",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Osobina teksta",
-                "url": "css_osobineteksta",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Box elementi",
-                "url": "css_box_model",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "CSS klase",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": [
-                    {
-                        "name": "Grupisanje i ugnježdavanje klasa",
-                        "url": "css_grupisanje_i_ugnjezdavanje",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Pseudo klase",
-                        "url": "css_pseudo_klase",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Skraćeno pisanje osobina",
-                        "url": "css_skraceni_zapis_osobina",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Slike kao pozadina",
-                "url": "css_slike_u_pozadini",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Display svojstvo",
-                "url": "css_display",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Pozicioniranje",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": [
-                    {
-                        "name": "Uvod u pozicioniranje",
-                        "url": "css_layout_stranice_uvod",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Float",
-                        "url": "css_layout_stranice_float",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Relative",
-                        "url": "css_layout_stranice_relativno_pozicioniranje",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Absolute",
-                        "url": "css_layout_stranice_apsolutno_pozicioniranje",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Fixed",
-                        "url": "css_layout_stranice_fiksno_pozicioniranje",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Transformacije",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": [
-                    {
-                        "name": "Translacija i rotacija",
-                        "url": "css_translacija_rotacija",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Skaliranje i iskošenje",
-                        "url": "css_skaliranje_iskosenje",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "3D transformacije",
-                        "url": "css_3d_transformacije",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Razlika između 2D i 3D transformacija",
-                        "url": "css_razlika_2d_3d",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Tranzicije",
-                "url": "css_tranzicija",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            },
-            {
-                "name": "Animacije",
-                "url": null,
-                "type": "sublesson",
-                "parentCourse": "css",
-                "sublessons": [
-                    {
-                        "name": "Uvod u CSS animacije",
-                        "url": "css_animacije1",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "CSS animacije",
-                        "url": "css_animacije2",
-                        "type": "sublesson",
-                        "parentCourse": "css",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Media upiti",
-                "url": "css_media_upiti",
-                "type": "lesson",
-                "parentCourse": "css",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Input",
+        "url": "html_input",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Select",
+        "url": "html_select",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "Meta etikete",
+        "url": "html_meta_etikete",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      },
+      {
+        "name": "HTML - veliki primer",
+        "url": "html_primer",
+        "type": "lesson",
+        "parentCourse": "html",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "CSS",
+    "id": "css",
+    "logo": "{ }",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "\n        CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.\n        ",
+    "lessons": [
+      {
+        "name": "Uvod u CSS",
+        "url": "css_uvod",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Upotreba css-a",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": [
+          {
+            "name": "Linijska",
+            "url": "css_upotreba_linijska",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Unutar dokumenta",
+            "url": "css_upotreba_unutar_dokumenta",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "U zasebnom dokumentu",
+            "url": "css_upotreba_van_dokumenta",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "JavaScript",
-        "id": "js",
-        "logo": "( )",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira. ",
-        "lessons": [
-            {
-                "name": "Uvod u JavaScript",
-                "url": "js_uvod",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Promenljive",
-                "url": "js_promenljive",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Tipovi podataka",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "Brojevi, Math",
-                        "url": "js_tipovipodataka",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Stringovi",
-                        "url": "js_tipovipodatakastringovi",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Bull, null i undefined",
-                        "url": "js_promenljivebulovevrednostinullnedefinisannevrednosti",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Operacije",
-                "url": "js_operacije",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Nizovi",
-                "url": "js_nizoviuvod",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Metode nad nizovima",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "Metode nad nizovima - uvod",
-                        "url": "js_metode_niz",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Metoda map",
-                        "url": "js_map",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Metoda filter",
-                        "url": "js_filter",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Metoda find",
-                        "url": "js_find",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Metoda index of",
-                        "url": "js_indexOf",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Stringovi i operacije nad stringovima",
-                "url": "js_stringovi",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Brojevi i operacije nad brojevima",
-                "url": "js_brojevi",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Datumi i operacije nad datumima",
-                "url": "js_datumi",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "If",
-                "url": "js_if",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "While petlja",
-                "url": "js_while",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "For petlja",
-                "url": "js_for",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "For in petlja",
-                "url": "js_forin",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Funkcije",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "Uvod u funkcije",
-                        "url": "js_funkcije_uvod",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Korisničke funkcije",
-                        "url": "js_funkcije_korisnicke",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Ugrađene funkcije",
-                        "url": "js_funkcije_ugradjene",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Objekti",
-                "url": "js_objekti",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "DOM",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "DOM elementi",
-                        "url": "js_DOMelementi",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Veze sa HTML elementima",
-                        "url": "js_vezasaHTMLdokumentom",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Događaji",
-                "url": "js_dogadjaji",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Callbacks",
-                "url": "js_callbacksfunctions",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Regularni izrazi",
-                "url": "js_regExp",
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": null
-            },
-            {
-                "name": "Primeri",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "Primeri fukcija",
-                        "url": "js_funkcije_primeri",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Primeri objekata",
-                        "url": "js_objekti_primeri",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            },
-            {
-                "name": "Zadaci",
-                "url": null,
-                "type": "lesson",
-                "parentCourse": "js",
-                "sublessons": [
-                    {
-                        "name": "Zadatak 1",
-                        "url": "js_zadaci_zadatak1",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Zadatak 2",
-                        "url": "js_zadaci_zadatak2",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Zadatak 3",
-                        "url": "js_zadaci_zadatak3",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Zadatak 4",
-                        "url": "js_zadaci_zadatak4",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    },
-                    {
-                        "name": "Zadatak 5",
-                        "url": "js_zadaci_zadatak5",
-                        "type": "sublesson",
-                        "parentCourse": "js",
-                        "sublessons": null
-                    }
-                ]
-            }
+      },
+      {
+        "name": "CSS selektori",
+        "url": "css_selektori",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Boje u CSS-u",
+        "url": "css_bojeucssu",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Osobina teksta",
+        "url": "css_osobineteksta",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Box elementi",
+        "url": "css_box_model",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "CSS klase",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": [
+          {
+            "name": "Grupisanje i ugnježdavanje klasa",
+            "url": "css_grupisanje_i_ugnjezdavanje",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Pseudo klase",
+            "url": "css_pseudo_klase",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Skraćeno pisanje osobina",
+            "url": "css_skraceni_zapis_osobina",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "jQuery",
-        "id": "jq",
-        "logo": "$",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili određene animacije, Ajax aplikacije i još mnogo toga. \n        Prilično je laka za koristiti, posebno ako ste vec upoznati sa CSS-om i JavaScript-om. ",
-        "lessons": [
-            {
-                "name": "Uvod u jQuery",
-                "url": "jq_uvod",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            },
-            {
-                "name": "DOM",
-                "url": "jq_dom",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            },
-            {
-                "name": "Efekti",
-                "url": "jq_effects",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            },
-            {
-                "name": "Događaji",
-                "url": "jq_events",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            },
-            {
-                "name": "Selektori",
-                "url": "jq_selektori",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            },
-            {
-                "name": "Ajax",
-                "url": "jq_ajax",
-                "type": "lesson",
-                "parentCourse": "jq",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Slike kao pozadina",
+        "url": "css_slike_u_pozadini",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Display svojstvo",
+        "url": "css_display",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Pozicioniranje",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": [
+          {
+            "name": "Uvod u pozicioniranje",
+            "url": "css_layout_stranice_uvod",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Float",
+            "url": "css_layout_stranice_float",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Relative",
+            "url": "css_layout_stranice_relativno_pozicioniranje",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Absolute",
+            "url": "css_layout_stranice_apsolutno_pozicioniranje",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Fixed",
+            "url": "css_layout_stranice_fiksno_pozicioniranje",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "Bootstrap 3",
-        "id": "bs",
-        "logo": "B",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "Bootstrap je front-end css frejmvork čija je osnovna namena kreiranje responzivnih veb stranica, tj. \n        stranica koje mogu da prilagođavaju svoj izgled u zavisnosti od rezolucije uredjaja na kojem se prikazuiju. \n        Bootstrap pruža veoma dobar temelj za njihovo kreiranje zbog svoje prilagodljivosti i nudi način da se uštedi vreme, \n        a postigne zadovoljavajući kvalitet. Nalazi se u klasi najpopularnijih radnih okruženja za razvoj veb aplikacija.",
-        "lessons": [
-            {
-                "name": "Uvod u Bootstrap",
-                "url": "bs_uvod",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Container",
-                "url": "bs_container",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Mrežni sistem",
-                "url": "bs_mrezni_sistem",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa lg",
-                "url": "bs_klasa_lg",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa md",
-                "url": "bs_klasa_md",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa sm",
-                "url": "bs_klasa_sm",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa_xs",
-                "url": "bs_klasa_xs",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Kombinacija klasa",
-                "url": "bs_kombinacija_klasa",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Tipografija",
-                "url": "bs_tipografija",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Tabele",
-                "url": "bs_tabele",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Slike",
-                "url": "bs_slike",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Jumbotron",
-                "url": "bs_jumbotron",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Well",
-                "url": "bs_well",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Alert",
-                "url": "bs_alert",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Button",
-                "url": "bs_button",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Grupisanje dugmadi",
-                "url": "bs_grupisanje_dugmadi",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Glyphicon",
-                "url": "bs_glyphicon",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Badge",
-                "url": "bs_badge",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Label",
-                "url": "bs_label",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Progress bar",
-                "url": "bs_progress_bar",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Pagination",
-                "url": "bs_pagination",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Pager",
-                "url": "bs_pager",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "List group",
-                "url": "bs_list_group",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Panel",
-                "url": "bs_panel",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Dropdown",
-                "url": "bs_dropdown",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Collapse",
-                "url": "bs_collapse",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Menu",
-                "url": "bs_menu",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Navbar",
-                "url": "bs_navbar",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Elementi forme",
-                "url": "bs_elementi_forme",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Prikazivanje forme",
-                "url": "bs_prikazivanje_forme",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Prikazivanje input elemenata",
-                "url": "bs_prikazivanje_input_elemenata",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Veličina elemenata forme",
-                "url": "bs_velicina_elemenata_forme",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Carousel",
-                "url": "bs_carousel",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Modal",
-                "url": "bs_modal",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Tooltip",
-                "url": "bs_tooltip",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Popover",
-                "url": "bs_popover",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            },
-            {
-                "name": "Affix",
-                "url": "bs_affix",
-                "type": "lesson",
-                "parentCourse": "bs",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Transformacije",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": [
+          {
+            "name": "Translacija i rotacija",
+            "url": "css_translacija_rotacija",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Skaliranje i iskošenje",
+            "url": "css_skaliranje_iskosenje",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "3D transformacije",
+            "url": "css_3d_transformacije",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "Razlika između 2D i 3D transformacija",
+            "url": "css_razlika_2d_3d",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "Bootstrap 4",
-        "id": "bs4",
-        "logo": "B",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "Bootstrap 4 je najpopularnije HTML, CSS i JS radno okruženje za kreiranje veb stranica čiji je prikaz prilagodljiv na uređajima svih rezolucija.",
-        "lessons": [
-            {
-                "name": "Uvod u Bootstrap 4",
-                "url": "bs4_uvod",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Obrada teksta",
-                "url": "bs4_obrada_teksta",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Boje teksta",
-                "url": "bs4_boje_teksta",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Rad sa tebelama",
-                "url": "bs4_rad_sa_tabelama",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Rad sa slikama",
-                "url": "bs4_rad_sa_slikama",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Jumbotron",
-                "url": "bs4_jumbotron",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Polja za obaveštenja",
-                "url": "bs4_polja_za_obavestenja",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Rad sa dugmićima",
-                "url": "bs4_rad_sa_dugmicima",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Grupisanje dugmića",
-                "url": "bs4_grupisanje_dugmica",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Bedž",
-                "url": "bs4_bedz",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Traka uspešnosti",
-                "url": "bs4_traka_uspesnosti",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Paginacija",
-                "url": "bs4_paginacija",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Grupisana lista",
-                "url": "bs4_list_group",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Kartice",
-                "url": "bs4_kartice",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Padajući meni",
-                "url": "bs4_padajuci_meni",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Navigacija",
-                "url": "bs4_navigacija",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Traka za navigaciju",
-                "url": "bs4_trake_za_navigaciju",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Forme",
-                "url": "bs4_forme",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Collapse",
-                "url": "bs4_collapse",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Elementi forme",
-                "url": "bs4_elementi_forme",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Input Group",
-                "url": "bs4_input_group",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Grupa klasa Custom",
-                "url": "bs4_grupa_klasa_custom",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Carousel",
-                "url": "bs4_carousel",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Iskačuće komponente",
-                "url": "bs4_iskacuce_komponente",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Scrollspy",
-                "url": "bs4_scrollspy",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Pomoćne klase",
-                "url": "bs4_pomocne_klase",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },
-            {
-                "name": "Flex klase",
-                "url": "bs4_flex_klase",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            },{
-                "name": "Mrežni sistem",
-                "url": "bs4_mrezni_sistem",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            }
-            ,{
-                "name": "Zaključak",
-                "url": "bs4_summary",
-                "type": "lesson",
-                "parentCourse": "bs4",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Tranzicije",
+        "url": "css_tranzicija",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      },
+      {
+        "name": "Animacije",
+        "url": null,
+        "type": "sublesson",
+        "parentCourse": "css",
+        "sublessons": [
+          {
+            "name": "Uvod u CSS animacije",
+            "url": "css_animacije1",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          },
+          {
+            "name": "CSS animacije",
+            "url": "css_animacije2",
+            "type": "sublesson",
+            "parentCourse": "css",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "AngularJS",
-        "id": "ang",
-        "logo": "A",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "AngularJS je JavaScript MVC framework napravljen od strane Google-a koji vam omogućava da pravite dobro struktuirane, lake za testiranje i održavanje front-end aplikacije. AngularJS je MVC framework koji definiše brojne koncepte za pravilno organizovanje vaše veb aplikacije. Aplikacija je definisana uz pomoć modula koji mogu zavistiti jedan od drugih. AngularJS proširuje HTML pružajući direktive vašim oznakama pomoću kojih možete praviti moćne i dinamičke stranice. Takođe možete napraviti sopstvene direktive pomoću kojih ćete vršiti DOM manipulaciju. Takođe implementira two-way vezivanje podataka, vezujući vaš HTML (view) sa javascript objektima (models) na veoma lak način.",
-        "lessons": [
-            {
-                "name": "Uvod u Angular",
-                "url": "ang_uvod",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "MVC pattern",
-                "url": "ang_MVC_pattern",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Primer Angular aplikacije",
-                "url": "ang_Pocetni_primer",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Promenljive u Angularu",
-                "url": "ang_Promenljive",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Objekti u Angularu",
-                "url": "ang_Objekti",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Izrazi u Angularu",
-                "url": "ang_Izrazi",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Moduli",
-                "url": "ang_moduli",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Kontroleri",
-                "url": "ang_kontroleri",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Data binding",
-                "url": "ang_databinding",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Scope",
-                "url": "ang_scope",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Direktive",
-                "url": "ang_direktive",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Filteri",
-                "url": "ang_filteri",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Servisi",
-                "url": "ang_servisi",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Http",
-                "url": "ang_http",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Manipulacija DOM elementima",
-                "url": "ang_DOM",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Tabele u Angularu",
-                "url": "ang_tabele",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Događaji u Angularu",
-                "url": "ang_dogadjaji",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Forme u Angularu",
-                "url": "ang_forme",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Validacija formi",
-                "url": "ang_validacija",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Angular API",
-                "url": "ang_api",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Animacije u Angularu",
-                "url": "ang_animacije",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Rutiranje",
-                "url": "ang_rutiranje",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            },
-            {
-                "name": "Komunikacija između komponenti",
-                "url": "ang_komunikacija_izmedju_komponenti",
-                "type": "lesson",
-                "parentCourse": "ang",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Media upiti",
+        "url": "css_media_upiti",
+        "type": "lesson",
+        "parentCourse": "css",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "JavaScript",
+    "id": "js",
+    "logo": "( )",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira. ",
+    "lessons": [
+      {
+        "name": "Uvod u JavaScript",
+        "url": "js_uvod",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive",
+        "url": "js_promenljive",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "Brojevi, Math",
+            "url": "js_tipovipodataka",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Stringovi",
+            "url": "js_tipovipodatakastringovi",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Bull, null i undefined",
+            "url": "js_promenljivebulovevrednostinullnedefinisannevrednosti",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "Angular 4",
-        "id": "ang4",
-        "logo": "A",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "Angular 4 je radni okvir programskog jezika JavaScript. Koristi se za razvoj modernih veb aplikacija koje su zasnovane na dizajnu arhitekture koji se sastoji od veb komponenata međusobno povezanih pomoću njihovog posebnog U/I interfejsa. ",
-        "lessons": [
-            {
-                "name": "Uvod u Angular 4",
-                "url": "ang4_uvod",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Podešavanje radnog prostora",
-                "url": "ang4_podesavanje_radnog_prostora",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Kreiranje nove komponente",
-                "url": "ang4_kreiranje_nove_komponente",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Konfigurisanje šablona",
-                "url": "ang4_konfigurisanje_sablona",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Vezivanje podataka",
-                "url": "ang4_vezivanje_podataka",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Direktive",
-                "url": "ang4_direktive",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Filteri",
-                "url": "ang4_filteri",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Prosleđivanje podataka",
-                "url": "ang4_prosledjivanje_podataka",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Servisi i ubrizgavanje zavisnosti",
-                "url": "ang4_servisi_i_injektiranje_zavisnosti",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Rutiranje",
-                "url": "ang4_rutiranje",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Asinhroni servisi",
-                "url": "ang4_asinhroni_servisi",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            },
-            {
-                "name": "Angular 4 projekat",
-                "url": "ang4_projekat",
-                "type": "lesson",
-                "parentCourse": "ang4",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Operacije",
+        "url": "js_operacije",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Nizovi",
+        "url": "js_nizoviuvod",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Metode nad nizovima",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "Metode nad nizovima - uvod",
+            "url": "js_metode_niz",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Metoda map",
+            "url": "js_map",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Metoda filter",
+            "url": "js_filter",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Metoda find",
+            "url": "js_find",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Metoda index of",
+            "url": "js_indexOf",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "Vue.js",
-        "id": "vue",
-        "logo": "V",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod u Vue.js",
-                "url": "vue_uvod",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Vue i objektni model dokumenta",
-                "url": "vue_VueIObjektniModelDokumenta",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Vue i objektni model dokumenta-dogadjaji",
-                "url": "vue_Vue_i_objektni_model_dokumenta_dogadjaji",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Vue i Objektni model dokumenta - dvosmerno vezivanje podataka i dinamicko stilizovanje",
-                "url": "vue_i_Objektni_model_dokumenta-dvosmerno_vezivanje_podataka_i_dinamicko_stilizovanje",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Kondicionali i liste",
-                "url": "vue_Kondicionali_i_liste",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Komponente",
-                "url": "vue_Komponente",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Forme",
-                "url": "vue_Forme",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            },
-            {
-                "name": "Filteri",
-                "url": "vue_Filteri",
-                "type": "lesson",
-                "parentCourse": "vue",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Stringovi i operacije nad stringovima",
+        "url": "js_stringovi",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Brojevi i operacije nad brojevima",
+        "url": "js_brojevi",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Datumi i operacije nad datumima",
+        "url": "js_datumi",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "If",
+        "url": "js_if",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "While petlja",
+        "url": "js_while",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "For petlja",
+        "url": "js_for",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "For in petlja",
+        "url": "js_forin",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "Uvod u funkcije",
+            "url": "js_funkcije_uvod",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Korisničke funkcije",
+            "url": "js_funkcije_korisnicke",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Ugrađene funkcije",
+            "url": "js_funkcije_ugradjene",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "TypeScript",
-        "id": "ts",
-        "logo": "TS",
-        "type": "course",
-        "lang": "application/typescript",
-        "displayLang": "TypeScript",
-        "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
-        "lessons": [
-            {
-                "name": "Uvod u TypeScript",
-                "url": "ts_uvod",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Promenljive u TypeScript-u",
-                "url": "ts_promenljive",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Tipovi podataka u TypeScript-u",
-                "url": "ts_tipovi_podataka",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Operatori u TypeScript-u",
-                "url": "ts_operatori",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Kontrola toka programa i rukovanje izuzecima",
-                "url": "ts_kontrola_toka_programa_i_rukovanje_izuzecima",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Petlje u jeziku TypeScript",
-                "url": "ts_petlje",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Funkcije u jeziku TypeScript",
-                "url": "ts_funkcije",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Imenski prostori i moduli",
-                "url": "ts_imenski_prostori_i_moduli",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Objektno orijentisano programiranje",
-                "url": "ts_objektno_orijentisano_programiranje",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejsi",
-                "url": "ts_interfejsi",
-                "type": "lesson",
-                "parentCourse": "ts",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Objekti",
+        "url": "js_objekti",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "DOM",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "DOM elementi",
+            "url": "js_DOMelementi",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Veze sa HTML elementima",
+            "url": "js_vezasaHTMLdokumentom",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
         ]
-    },
-    {
-        "name": "Sass",
-        "id": "sass",
-        "logo": "S",
-        "type": "course",
-        "lang": "text/x-sass",
-        "displayLang": "SASS",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod u Sass",
-                "url": "sass_uvod",
-                "type": "lesson",
-                "parentCourse": "sass",
-                "sublessons": null
-            }
+      },
+      {
+        "name": "Događaji",
+        "url": "js_dogadjaji",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Callbacks",
+        "url": "js_callbacksfunctions",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Regularni izrazi",
+        "url": "js_regExp",
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": null
+      },
+      {
+        "name": "Primeri",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "Primeri fukcija",
+            "url": "js_funkcije_primeri",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Primeri objekata",
+            "url": "js_objekti_primeri",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
         ]
-    },
-    {
+      },
+      {
+        "name": "Zadaci",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "js",
+        "sublessons": [
+          {
+            "name": "Zadatak 1",
+            "url": "js_zadaci_zadatak1",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Zadatak 2",
+            "url": "js_zadaci_zadatak2",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Zadatak 3",
+            "url": "js_zadaci_zadatak3",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Zadatak 4",
+            "url": "js_zadaci_zadatak4",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          },
+          {
+            "name": "Zadatak 5",
+            "url": "js_zadaci_zadatak5",
+            "type": "sublesson",
+            "parentCourse": "js",
+            "sublessons": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "jQuery",
+    "id": "jq",
+    "logo": "$",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili određene animacije, Ajax aplikacije i još mnogo toga. \n        Prilično je laka za koristiti, posebno ako ste vec upoznati sa CSS-om i JavaScript-om. ",
+    "lessons": [
+      {
+        "name": "Uvod u jQuery",
+        "url": "jq_uvod",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      },
+      {
+        "name": "DOM",
+        "url": "jq_dom",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      },
+      {
+        "name": "Efekti",
+        "url": "jq_effects",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      },
+      {
+        "name": "Događaji",
+        "url": "jq_events",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      },
+      {
+        "name": "Selektori",
+        "url": "jq_selektori",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      },
+      {
+        "name": "Ajax",
+        "url": "jq_ajax",
+        "type": "lesson",
+        "parentCourse": "jq",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Bootstrap 3",
+    "id": "bs",
+    "logo": "B",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "Bootstrap je front-end css frejmvork čija je osnovna namena kreiranje responzivnih veb stranica, tj. \n        stranica koje mogu da prilagođavaju svoj izgled u zavisnosti od rezolucije uredjaja na kojem se prikazuiju. \n        Bootstrap pruža veoma dobar temelj za njihovo kreiranje zbog svoje prilagodljivosti i nudi način da se uštedi vreme, \n        a postigne zadovoljavajući kvalitet. Nalazi se u klasi najpopularnijih radnih okruženja za razvoj veb aplikacija.",
+    "lessons": [
+      {
+        "name": "Uvod u Bootstrap",
+        "url": "bs_uvod",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Container",
+        "url": "bs_container",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Mrežni sistem",
+        "url": "bs_mrezni_sistem",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa lg",
+        "url": "bs_klasa_lg",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa md",
+        "url": "bs_klasa_md",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa sm",
+        "url": "bs_klasa_sm",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa_xs",
+        "url": "bs_klasa_xs",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Kombinacija klasa",
+        "url": "bs_kombinacija_klasa",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Tipografija",
+        "url": "bs_tipografija",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Tabele",
+        "url": "bs_tabele",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Slike",
+        "url": "bs_slike",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Jumbotron",
+        "url": "bs_jumbotron",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Well",
+        "url": "bs_well",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Alert",
+        "url": "bs_alert",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Button",
+        "url": "bs_button",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Grupisanje dugmadi",
+        "url": "bs_grupisanje_dugmadi",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Glyphicon",
+        "url": "bs_glyphicon",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Badge",
+        "url": "bs_badge",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Label",
+        "url": "bs_label",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Progress bar",
+        "url": "bs_progress_bar",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Pagination",
+        "url": "bs_pagination",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Pager",
+        "url": "bs_pager",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "List group",
+        "url": "bs_list_group",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Panel",
+        "url": "bs_panel",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Dropdown",
+        "url": "bs_dropdown",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Collapse",
+        "url": "bs_collapse",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Menu",
+        "url": "bs_menu",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Navbar",
+        "url": "bs_navbar",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Elementi forme",
+        "url": "bs_elementi_forme",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Prikazivanje forme",
+        "url": "bs_prikazivanje_forme",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Prikazivanje input elemenata",
+        "url": "bs_prikazivanje_input_elemenata",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Veličina elemenata forme",
+        "url": "bs_velicina_elemenata_forme",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Carousel",
+        "url": "bs_carousel",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Modal",
+        "url": "bs_modal",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Tooltip",
+        "url": "bs_tooltip",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Popover",
+        "url": "bs_popover",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      },
+      {
+        "name": "Affix",
+        "url": "bs_affix",
+        "type": "lesson",
+        "parentCourse": "bs",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Bootstrap 4",
+    "id": "bs4",
+    "logo": "B",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "Bootstrap 4 je najpopularnije HTML, CSS i JS radno okruženje za kreiranje veb stranica čiji je prikaz prilagodljiv na uređajima svih rezolucija.",
+    "lessons": [
+      {
+        "name": "Uvod u Bootstrap 4",
+        "url": "bs4_uvod",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Obrada teksta",
+        "url": "bs4_obrada_teksta",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Boje teksta",
+        "url": "bs4_boje_teksta",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa tebelama",
+        "url": "bs4_rad_sa_tabelama",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa slikama",
+        "url": "bs4_rad_sa_slikama",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Jumbotron",
+        "url": "bs4_jumbotron",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Polja za obaveštenja",
+        "url": "bs4_polja_za_obavestenja",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa dugmićima",
+        "url": "bs4_rad_sa_dugmicima",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Grupisanje dugmića",
+        "url": "bs4_grupisanje_dugmica",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Bedž",
+        "url": "bs4_bedz",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Traka uspešnosti",
+        "url": "bs4_traka_uspesnosti",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Paginacija",
+        "url": "bs4_paginacija",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Grupisana lista",
+        "url": "bs4_list_group",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Kartice",
+        "url": "bs4_kartice",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Padajući meni",
+        "url": "bs4_padajuci_meni",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Navigacija",
+        "url": "bs4_navigacija",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Traka za navigaciju",
+        "url": "bs4_trake_za_navigaciju",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Forme",
+        "url": "bs4_forme",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Collapse",
+        "url": "bs4_collapse",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Elementi forme",
+        "url": "bs4_elementi_forme",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Input Group",
+        "url": "bs4_input_group",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Grupa klasa Custom",
+        "url": "bs4_grupa_klasa_custom",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Carousel",
+        "url": "bs4_carousel",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Iskačuće komponente",
+        "url": "bs4_iskacuce_komponente",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Scrollspy",
+        "url": "bs4_scrollspy",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Pomoćne klase",
+        "url": "bs4_pomocne_klase",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Flex klase",
+        "url": "bs4_flex_klase",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Mrežni sistem",
+        "url": "bs4_mrezni_sistem",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      },
+      {
+        "name": "Zaključak",
+        "url": "bs4_summary",
+        "type": "lesson",
+        "parentCourse": "bs4",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "AngularJS",
+    "id": "ang",
+    "logo": "A",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "AngularJS je JavaScript MVC framework napravljen od strane Google-a koji vam omogućava da pravite dobro struktuirane, lake za testiranje i održavanje front-end aplikacije. AngularJS je MVC framework koji definiše brojne koncepte za pravilno organizovanje vaše veb aplikacije. Aplikacija je definisana uz pomoć modula koji mogu zavistiti jedan od drugih. AngularJS proširuje HTML pružajući direktive vašim oznakama pomoću kojih možete praviti moćne i dinamičke stranice. Takođe možete napraviti sopstvene direktive pomoću kojih ćete vršiti DOM manipulaciju. Takođe implementira two-way vezivanje podataka, vezujući vaš HTML (view) sa javascript objektima (models) na veoma lak način.",
+    "lessons": [
+      {
+        "name": "Uvod u Angular",
+        "url": "ang_uvod",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "MVC pattern",
+        "url": "ang_MVC_pattern",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Primer Angular aplikacije",
+        "url": "ang_Pocetni_primer",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive u Angularu",
+        "url": "ang_Promenljive",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Objekti u Angularu",
+        "url": "ang_Objekti",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Izrazi u Angularu",
+        "url": "ang_Izrazi",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Moduli",
+        "url": "ang_moduli",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Kontroleri",
+        "url": "ang_kontroleri",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Data binding",
+        "url": "ang_databinding",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Scope",
+        "url": "ang_scope",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Direktive",
+        "url": "ang_direktive",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Filteri",
+        "url": "ang_filteri",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Servisi",
+        "url": "ang_servisi",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Http",
+        "url": "ang_http",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Manipulacija DOM elementima",
+        "url": "ang_DOM",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Tabele u Angularu",
+        "url": "ang_tabele",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Događaji u Angularu",
+        "url": "ang_dogadjaji",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Forme u Angularu",
+        "url": "ang_forme",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Validacija formi",
+        "url": "ang_validacija",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Angular API",
+        "url": "ang_api",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Animacije u Angularu",
+        "url": "ang_animacije",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Rutiranje",
+        "url": "ang_rutiranje",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      },
+      {
+        "name": "Komunikacija između komponenti",
+        "url": "ang_komunikacija_izmedju_komponenti",
+        "type": "lesson",
+        "parentCourse": "ang",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Angular 4",
+    "id": "ang4",
+    "logo": "A",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "Angular 4 je radni okvir programskog jezika JavaScript. Koristi se za razvoj modernih veb aplikacija koje su zasnovane na dizajnu arhitekture koji se sastoji od veb komponenata međusobno povezanih pomoću njihovog posebnog U/I interfejsa. ",
+    "lessons": [
+      {
+        "name": "Uvod u Angular 4",
+        "url": "ang4_uvod",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Podešavanje radnog prostora",
+        "url": "ang4_podesavanje_radnog_prostora",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Kreiranje nove komponente",
+        "url": "ang4_kreiranje_nove_komponente",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Konfigurisanje šablona",
+        "url": "ang4_konfigurisanje_sablona",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Vezivanje podataka",
+        "url": "ang4_vezivanje_podataka",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Direktive",
+        "url": "ang4_direktive",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Filteri",
+        "url": "ang4_filteri",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Prosleđivanje podataka",
+        "url": "ang4_prosledjivanje_podataka",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Servisi i ubrizgavanje zavisnosti",
+        "url": "ang4_servisi_i_injektiranje_zavisnosti",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Rutiranje",
+        "url": "ang4_rutiranje",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Asinhroni servisi",
+        "url": "ang4_asinhroni_servisi",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      },
+      {
+        "name": "Angular 4 projekat",
+        "url": "ang4_projekat",
+        "type": "lesson",
+        "parentCourse": "ang4",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Vue.js",
+    "id": "vue",
+    "logo": "V",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "U pripremi",
+    "lessons": [
+      {
+        "name": "Uvod u Vue.js",
+        "url": "vue_uvod",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Vue i objektni model dokumenta",
+        "url": "vue_VueIObjektniModelDokumenta",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Vue i objektni model dokumenta-dogadjaji",
+        "url": "vue_Vue_i_objektni_model_dokumenta_dogadjaji",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Vue i Objektni model dokumenta - dvosmerno vezivanje podataka i dinamicko stilizovanje",
+        "url": "vue_i_Objektni_model_dokumenta-dvosmerno_vezivanje_podataka_i_dinamicko_stilizovanje",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Kondicionali i liste",
+        "url": "vue_Kondicionali_i_liste",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Komponente",
+        "url": "vue_Komponente",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Forme",
+        "url": "vue_Forme",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      },
+      {
+        "name": "Filteri",
+        "url": "vue_Filteri",
+        "type": "lesson",
+        "parentCourse": "vue",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "TypeScript",
+    "id": "ts",
+    "logo": "TS",
+    "type": "course",
+    "lang": "application/typescript",
+    "displayLang": "TypeScript",
+    "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
+    "lessons": [
+      {
+        "name": "Uvod u TypeScript",
+        "url": "ts_uvod",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive u TypeScript-u",
+        "url": "ts_promenljive",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka u TypeScript-u",
+        "url": "ts_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori u TypeScript-u",
+        "url": "ts_operatori",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Kontrola toka programa i rukovanje izuzecima",
+        "url": "ts_kontrola_toka_programa_i_rukovanje_izuzecima",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Petlje u jeziku TypeScript",
+        "url": "ts_petlje",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije u jeziku TypeScript",
+        "url": "ts_funkcije",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Imenski prostori i moduli",
+        "url": "ts_imenski_prostori_i_moduli",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Objektno orijentisano programiranje",
+        "url": "ts_objektno_orijentisano_programiranje",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejsi",
+        "url": "ts_interfejsi",
+        "type": "lesson",
+        "parentCourse": "ts",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "JSON",
+    "id": "json",
+    "logo": "J",
+    "type": "course",
+    "lang": "application/x-httpd-php",
+    "displayLang": "Json",
+    "detailsText": "\n        JSON (JavaScript Object Notation) je jedan od lakših tekstualnih otvorenih standarda ( javno dostupnih ) dizajniran za čitljivu razmenu podataka. Lak je i za čitanje i pisanje, kao i za generisanje i analiziranje. Izveden je iz JavaScript jezika za predstavljanje jednostavnih struktura podataka i asocijativnih nizova, odnosno objekata. JSON je prvi put korišćen u State Software kompaniji koju je osnovao Douglas Crockford koji je takodje i izumeo JSON. Veb sajt JSON.org je počeo sa radom 2002.godine a GOOGLE počinje sa upotrebom JSONa za svoje gData web protokole decembra 2006.",
+    "lessons": [
+      {
         "name": "JSON",
-        "id": "json",
-        "logo": "J",
-        "type": "course",
-        "lang": "application/x-httpd-php",
-        "displayLang": "Json",
-        "detailsText": "\n        JSON (JavaScript Object Notation) je jedan od lakših tekstualnih otvorenih standarda ( javno dostupnih ) dizajniran za čitljivu razmenu podataka. Lak je i za čitanje i pisanje, kao i za generisanje i analiziranje. Izveden je iz JavaScript jezika za predstavljanje jednostavnih struktura podataka i asocijativnih nizova, odnosno objekata. JSON je prvi put korišćen u State Software kompaniji koju je osnovao Douglas Crockford koji je takodje i izumeo JSON. Veb sajt JSON.org je počeo sa radom 2002.godine a GOOGLE počinje sa upotrebom JSONa za svoje gData web protokole decembra 2006.",
-        "lessons": [
-            {
-                "name": "JSON",
-                "url": "json_uvod",
-                "type": "lesson",
-                "parentCourse": "json",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "PHP",
-        "id": "php",
-        "logo": "< ? >",
-        "type": "course",
-        "lang": "application/x-httpd-php",
-        "displayLang": "PHP",
-        "detailsText": "(PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog koda. Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i tolerantan jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i JavaScript-a da bismo lakše naučili PHP.",
-        "lessons": [
-            {
-                "name": "Uvod",
-                "url": "php_uvod",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Sintaksa",
-                "url": "php_sintaksa",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Tipovi podataka",
-                "url": "php_tipovi_podataka",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Niske",
-                "url": "php_niske",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Nizovi",
-                "url": "php_nizovi",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Konstante",
-                "url": "php_konstante",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Operatori",
-                "url": "php_operatori",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Grananja",
-                "url": "php_grananja",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Petlje",
-                "url": "php_petlje",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Funkcije",
-                "url": "php_funkcije",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Formulari",
-                "url": "php_formulari",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Obrada podataka",
-                "url": "php_obrada_podataka",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Datum i vreme",
-                "url": "php_Datum_i_Vreme",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Rad sa datotekama",
-                "url": "php_rad_sa_datotekama",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Slanje datoteke na server",
-                "url": "php_slanje_datoteke_na_server",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Ukljčivanje spoljnih datoteke u kod",
-                "url": "php_ukljucivanje_spoljnih_datoteka_u_kod",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Slanje poruke elektronske pošte",
-                "url": "php_slanje_poruke_elektronske_poste",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Kolačići",
-                "url": "php_kolacici",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Sesije",
-                "url": "php_sesije",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Regularni izrazi",
-                "url": "php_rad_sa_regularnim_izrazima",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Validacioni filteri",
-                "url": "php_validacioni_filteri",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Rukovanje greškama",
-                "url": "php_rukovanje_greskama",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Izuzeci",
-                "url": "php_izuzeci",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Uvod u OOP",
-                "url": "php_uvod_u_objektno_orjentisano_programiranje",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            },
-            {
-                "name": "Obrada XML dokumenata",
-                "url": "php_obrada_xml_dokumenata",
-                "type": "lesson",
-                "parentCourse": "php",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Laravel",
-        "id": "lara",
-        "logo": "L",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "Laravel je radni okvir programskog jezika PHP.",
-        "lessons": [
-            {
-                "name": "Instalacija",
-                "url": "lara_instalacija",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Rutiranje",
-                "url": "lara_rutiranje",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Kontroleri",
-                "url": "lara_kontroleri",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "View and blade",
-                "url": "lara_view_and_blade",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Redirekcija",
-                "url": "lara_redirekcija",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Konekcija i migracije",
-                "url": "lara_konekcijaImigracije",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Rad sa tabelama i kolonama",
-                "url": "lara_rad_sa_tabelama_i_kolonama",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Objektno-relaciono preslikavanje",
-                "url": "lara_objektno_relaciono_preslikavanje",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Upis podataka",
-                "url": "lara_upis_podataka",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Ispis podataka",
-                "url": "lara_ispis_podataka",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Izmena podataka",
-                "url": "lara_izmena_podataka",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Brisanje podataka",
-                "url": "lara_brisanje_podataka",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Autentifikacija",
-                "url": "lara_autentifikacija",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            },
-            {
-                "name": "Učitavanje fajla",
-                "url": "lara_ubacivanje_fajla_na_sajt",
-                "type": "lesson",
-                "parentCourse": "lara",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Java",
-        "id": "java",
-        "logo": "<i class='fa fa-coffee' aria-hidden='true'></i>",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "Ono što se želelo postići programskim jezikom Java, a što je najvećim delom i ostvareno, predstavlja povezivanje velikog broja različitih domena, tako da se omogućava funkcionisanje aplikacionog servera i funkcionisanje mobilnog telefona, kreiranje naučnih programa, razvoj softvera, implementacija međuplanetarne navigacije i još mnogo štošta... – James Gosling",
-        "lessons": [
-            {
-                "name": "Uvod u programski jezik Java",
-                "url": "java_Dobrodosli",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Podesavanje okruznja",
-                "url": "java_Podesavanje_okruzenja",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Moj prvi program",
-                "url": "java_Moj_prvi_program",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Elementi jezika java",
-                "url": "java_Elementi_jezika_java",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Primitivni tip podataka",
-                "url": "java_Primitivni_tip_podataka",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Referentni tip podataka",
-                "url": "java_Referentni_tip_podataka",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Identifikatori",
-                "url": "java_Identifikatori",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Literali",
-                "url": "java_Literali",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Operatori",
-                "url": "java_Operatori",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Ključne reci",
-                "url": "java_Kljucne_reci",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Komentari",
-                "url": "java_Komentari",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Modifikatori",
-                "url": "java_Modifikatori",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Naredba if",
-                "url": "java_Naredba_if",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Naredba switch",
-                "url": "java_Naredba_switch",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Petlja for",
-                "url": "java_Petlja_for",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Petlja while",
-                "url": "java_Petlja_while",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Petlja do-while",
-                "url": "java_Petlja_do-while",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Naredba break",
-                "url": "java_Naredba_break",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Naredba continue",
-                "url": "java_Naredba_continue",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Naredba return",
-                "url": "java_Naredba_return",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Metode",
-                "url": "java_Metode",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Objekti i klase",
-                "url": "java_Objekti_i_klase",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Opsti oblik klase i kreiranje objekta",
-                "url": "java_Opsti_oblik_klase_i_kreiranje_objekta",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Vrste promenljivih",
-                "url": "java_Vrste_promenljivih",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Staticki i nestaticki clanovi klase",
-                "url": "java_Staticki_i_nestaticki_clanovi_klase",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Konstruktori i kljucna rec this",
-                "url": "java_Konstruktori_i_kljucna_rec_this",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Nasledjivanje",
-                "url": "java_Nasledjivanje",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Polimorfizam",
-                "url": "java_Polimorfizam",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Apstrakcija",
-                "url": "java_Apstrakcija",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Enkapsulacija",
-                "url": "java_Enkapsulacija",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejsi u programskom jeziku Java",
-                "url": "java_Interfejsi",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Kolekcije u programskom jeziku Java",
-                "url": "java_kolekcije",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Kolekcijski interfejsi",
-                "url": "java_kolekcijski_interfejsi",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs Collection",
-                "url": "java_collection",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejsi Iterable, Iterator, ListIterator",
-                "url": "java_iterable",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs List",
-                "url": "java_list",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs Set",
-                "url": "java_set",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs SortedSet",
-                "url": "java_sortedSet",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs Queue",
-                "url": "java_queue",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs Deque",
-                "url": "java_deque",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa ArrayList",
-                "url": "java_ArrayList",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa LinkedList",
-                "url": "java_LinkedList",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Razlika između ArrayList i LinkedList",
-                "url": "java_RazlikaLinkedListArrayList",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa HashSet",
-                "url": "java_HashSet",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa LinkedHashSet",
-                "url": "java_LinkedHashSet",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa TreeSet",
-                "url": "java_TreeSet",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Razlike između klasa HashSet, LinkedHashSet i TreeSet",
-                "url": "java_Razlika_Set_Kolekcija",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa PriorityQueue",
-                "url": "java_PriorityQueue",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa ArrayDeque",
-                "url": "java_ArrayDeque",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs Map",
-                "url": "java_Map",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs SortedMap",
-                "url": "java_SortedMap",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Interfejs MapEntry",
-                "url": "java_MapEntry",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa HashMap",
-                "url": "java_HashMap",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa TreeMap",
-                "url": "java_TreeMap",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Klasa LinkedHashMap",
-                "url": "java_LinkedHashMap",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Razlike izmedu HashMap, TreeMap i LinkedHashMap klase",
-                "url": "java_Mape_Razlike",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            },
-            {
-                "name": "Algoritmi za rad sa kolekcijama i mapama",
-                "url": "java_algoritmi",
-                "type": "lesson",
-                "parentCourse": "java",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Spring",
-        "id": "spring",
-        "logo": "S",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "",
-        "lessons": [
-            {
-                "name": "Radni okvir Spring",
-                "url": "spring_radni_okvir_spring",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Radni okvir Spring Framework",
-                "url": "spring_radni_okvir_spring_framework",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Podesavanje okruzenja",
-                "url": "spring_podesavanje_okruzenja",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Kontejner i zrna",
-                "url": "spring_kontejner_i_zrna",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Injektovanje zavisnosti",
-                "url": "spring_injektovanje_zavisnosti",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Injektovanje zavisnosti - XML konfiguracija",
-                "url": "spring_injektovanje_zavisnosti_xml_konfiguracija",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Injektovanje zavisnosti - Java konfiguracija",
-                "url": "spring_injektovanje_zavisnosti_java_konfiguracija",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Automatsko povezivanje zrna",
-                "url": "spring_automatsko_povezivanje_zrna",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Aspektno orijentisano programiranje",
-                "url": "spring_aspektno_orijentisano_programiranje",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Definisanje aspekata - AspectJ anotacije",
-                "url": "spring_definisanje_aspekata_aspectj_anotacije",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Definisanje aspekata - XML konfiguracija",
-                "url": "spring_definisanje_aspekata_xml_konfiguracija",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            },
-            {
-                "name": "Upavljenje dogadjajima",
-                "url": "spring_upravljanje_dogadjajima",
-                "type": "lesson",
-                "parentCourse": "spring",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Express js",
-        "id": "express",
-        "logo": "E",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Podesavanje okruzenja",
-                "url": "express_podesavanje_okruzenja",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Početak rada",
-                "url": "express_pocetak_rada",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Rutiranje",
-                "url": "express_rutiranje",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Slanje parametara",
-                "url": "express_slanje_parametara_preko_URL",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Srednji sloj",
-                "url": "express_srednji_sloj",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Pug",
-                "url": "express_pug",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Statički fajlovi",
-                "url": "express_staticki_fajlovi",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            },
-            {
-                "name": "Formulari",
-                "url": "express_formulari",
-                "type": "lesson",
-                "parentCourse": "express",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "MySQL",
-        "id": "sql",
-        "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
-        "type": "course",
-        "lang": "text/x-mysql",
-        "displayLang": "SQL",
-        "detailsText": "U pripremi",
-        "lessons": [
-            {
-                "name": "Uvod i instalacija",
-                "url": "sql_Uvod_i_instalacija",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "PHP veza sa bazom",
-                "url": "sql_PHP_veza_sa_bazom",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Kreiranje baza i tabela",
-                "url": "sql_Kreiranje_baza_i_tabela",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Izmena i brisanje tabela",
-                "url": "sql_Izmena_i_brisanje_tabela",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Popunjavanje i pregled tabele",
-                "url": "sql_Popunjavanje_i_pregled_tabele",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Uslovna pretraga WHERE",
-                "url": "sql_Uslovna_pretraga_WHERE",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Izmene i brisanje u tabeli",
-                "url": "sql_Izmene_i_brisanje_u_tabeli",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Formatiranje izlaza",
-                "url": "sql_Formatiranje_izlaza",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Ugrađene funkcije",
-                "url": "sql_Ugradjene_funkcije",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Grupisanje",
-                "url": "sql_Grupisanje",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "IF i CASE",
-                "url": "sql_If_i_Case",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Povezivanje tabela",
-                "url": "sql_Povezivanje_tabela",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Vrste spojeva tabela",
-                "url": "sql_Vrste_spojeva_tabela",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Povezivanje više tabela",
-                "url": "sql_Povezivanje_vise_tabela",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Unija",
-                "url": "sql_Unija",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Podupiti",
-                "url": "sql_Podupiti",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "EXISTS",
-                "url": "sql_Exists",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            },
-            {
-                "name": "Složeniji upiti",
-                "url": "sql_Slozeniji_upiti",
-                "type": "lesson",
-                "parentCourse": "sql",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "XML",
-        "id": "xml",
-        "logo": "< >",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "",
-        "lessons": [
-            {
-                "name": "Uvod u XML",
-                "url": "XML_Uvod_u_XML",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Etikete",
-                "url": "XML_Etikete",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Struktura",
-                "url": "XML_Struktura",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Sintaksa",
-                "url": "XML_Sintaksa",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Elementi",
-                "url": "XML_Elementi",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Atributi",
-                "url": "XML_Atributi",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Namespaces",
-                "url": "XML_Namespaces",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Prikaz",
-                "url": "XML_Prikaz",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "XPath",
-                "url": "XML_XPath",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "XQuery",
-                "url": "XML_XQuery",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "Validacija dokumenta",
-                "url": "XML_Validacija_dokumenta",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "DTD",
-                "url": "XML_DTD",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            },
-            {
-                "name": "XML Schema",
-                "url": "XML_Schema",
-                "type": "lesson",
-                "parentCourse": "xml",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Canvas",
-        "id": "canvas",
-        "logo": "< >",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "Koristi se za iscrtavanje grafičkih elemenata, fotografskih kompozicija i pravljenje jednostavnh animacija pomoću nekog skript jezika, najčešćce javascript.",
-        "lessons": [
-            {
-                "name": "Uvod u Canvas",
-                "url": "canvas_uvod",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Koordinatni sistem",
-                "url": "canvas_koordinatni_sistem",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Canvas - tekst",
-                "url": "canvas_tekst",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Translacija",
-                "url": "canvas_transformacije_translacija",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Rotacija",
-                "url": "canvas_transformacije_rotacija",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Skaliranje",
-                "url": "canvas_transformacije_skaliranje",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Canvas - slike",
-                "url": "canvas_slike",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Canvas - senke",
-                "url": "canvas_shadow",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Canvas - opacity",
-                "url": "canvas_opacity",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Linearno kretanje",
-                "url": "canvas_linearno_kretanje",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Gradijent",
-                "url": "canvas_gradijent",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            },
-            {
-                "name": "Brisanje",
-                "url": "canvas_brisanje",
-                "type": "lesson",
-                "parentCourse": "canvas",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "SVG",
-        "id": "svg",
-        "logo": "< >",
-        "type": "course",
-        "lang": "text/html",
-        "displayLang": "HTML",
-        "detailsText": "",
-        "lessons": [
-            {
-                "name": "Uvod u SVG",
-                "url": "SVG_uvod_u_SVG",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Etikete",
-                "url": "SVG_etikete",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Rectangle",
-                "url": "SVG_rect",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Krug",
-                "url": "SVG_krug",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Elipsa",
-                "url": "SVG_elipsa",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Linija",
-                "url": "SVG_linija",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Mnogougao",
-                "url": "SVG_mnogougao",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Izlomljena linija",
-                "url": "SVG_izlomljena_linija",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Path",
-                "url": "SVG_path",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Tekst",
-                "url": "SVG_tekst",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Stroking",
-                "url": "SVG_stroking",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Filteri",
-                "url": "SVG_filteri",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Efekat zamućenja",
-                "url": "SVG_blur_effects",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Senčenje",
-                "url": "SVG_sencenje",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Linearni prelasci boja",
-                "url": "SVG_gradijenti_linearni",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            },
-            {
-                "name": "Radijalni prelasci boja",
-                "url": "SVG_gradijenti_linearni",
-                "type": "lesson",
-                "parentCourse": "svg",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Veb",
-        "id": "veb",
-        "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
-        "lessons": [
-            {
-                "name": "Kako radi veb",
-                "url": "veb_uvod",
-                "type": "lesson",
-                "parentCourse": "veb",
-                "sublessons": null
-            }
-        ]
-    },
-    {
-        "name": "Ustaljeni obrasci",
-        "id": "dp",
-        "logo": "<i class='fa fa-cogs' aria-hidden='true'></i>",
-        "type": "book",
-        "lang": "",
-        "displayLang": "",
-        "detailsText": "U pripremi",
-        "lessons": []
-    }
+        "url": "json_uvod",
+        "type": "lesson",
+        "parentCourse": "json",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "PHP",
+    "id": "php",
+    "logo": "< ? >",
+    "type": "course",
+    "lang": "application/x-httpd-php",
+    "displayLang": "PHP",
+    "detailsText": "(PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog koda. Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i tolerantan jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i JavaScript-a da bismo lakše naučili PHP.",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "php_uvod",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Sintaksa",
+        "url": "php_sintaksa",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": "php_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Niske",
+        "url": "php_niske",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Nizovi",
+        "url": "php_nizovi",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Konstante",
+        "url": "php_konstante",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori",
+        "url": "php_operatori",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Grananja",
+        "url": "php_grananja",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Petlje",
+        "url": "php_petlje",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "php_funkcije",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Formulari",
+        "url": "php_formulari",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Obrada podataka",
+        "url": "php_obrada_podataka",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Datum i vreme",
+        "url": "php_Datum_i_Vreme",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa datotekama",
+        "url": "php_rad_sa_datotekama",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Slanje datoteke na server",
+        "url": "php_slanje_datoteke_na_server",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Ukljčivanje spoljnih datoteke u kod",
+        "url": "php_ukljucivanje_spoljnih_datoteka_u_kod",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Slanje poruke elektronske pošte",
+        "url": "php_slanje_poruke_elektronske_poste",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Kolačići",
+        "url": "php_kolacici",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Sesije",
+        "url": "php_sesije",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Regularni izrazi",
+        "url": "php_rad_sa_regularnim_izrazima",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Validacioni filteri",
+        "url": "php_validacioni_filteri",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Rukovanje greškama",
+        "url": "php_rukovanje_greskama",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Izuzeci",
+        "url": "php_izuzeci",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Uvod u OOP",
+        "url": "php_uvod_u_objektno_orjentisano_programiranje",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      },
+      {
+        "name": "Obrada XML dokumenata",
+        "url": "php_obrada_xml_dokumenata",
+        "type": "lesson",
+        "parentCourse": "php",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Laravel",
+    "id": "lara",
+    "logo": "L",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "Laravel je radni okvir programskog jezika PHP.",
+    "lessons": [
+      {
+        "name": "Instalacija",
+        "url": "lara_instalacija",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Rutiranje",
+        "url": "lara_rutiranje",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Kontroleri",
+        "url": "lara_kontroleri",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "View and blade",
+        "url": "lara_view_and_blade",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Redirekcija",
+        "url": "lara_redirekcija",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Konekcija i migracije",
+        "url": "lara_konekcijaImigracije",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa tabelama i kolonama",
+        "url": "lara_rad_sa_tabelama_i_kolonama",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Objektno-relaciono preslikavanje",
+        "url": "lara_objektno_relaciono_preslikavanje",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Upis podataka",
+        "url": "lara_upis_podataka",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Ispis podataka",
+        "url": "lara_ispis_podataka",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Izmena podataka",
+        "url": "lara_izmena_podataka",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Brisanje podataka",
+        "url": "lara_brisanje_podataka",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Autentifikacija",
+        "url": "lara_autentifikacija",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      },
+      {
+        "name": "Učitavanje fajla",
+        "url": "lara_ubacivanje_fajla_na_sajt",
+        "type": "lesson",
+        "parentCourse": "lara",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Java",
+    "id": "java",
+    "logo": "<i class='fa fa-coffee' aria-hidden='true'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "Ono što se želelo postići programskim jezikom Java, a što je najvećim delom i ostvareno, predstavlja povezivanje velikog broja različitih domena, tako da se omogućava funkcionisanje aplikacionog servera i funkcionisanje mobilnog telefona, kreiranje naučnih programa, razvoj softvera, implementacija međuplanetarne navigacije i još mnogo štošta... – James Gosling",
+    "lessons": [
+      {
+        "name": "Uvod u programski jezik Java",
+        "url": "java_Dobrodosli",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Podesavanje okruznja",
+        "url": "java_Podesavanje_okruzenja",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Moj prvi program",
+        "url": "java_Moj_prvi_program",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Elementi jezika java",
+        "url": "java_Elementi_jezika_java",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Primitivni tip podataka",
+        "url": "java_Primitivni_tip_podataka",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Referentni tip podataka",
+        "url": "java_Referentni_tip_podataka",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Identifikatori",
+        "url": "java_Identifikatori",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Literali",
+        "url": "java_Literali",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori",
+        "url": "java_Operatori",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Ključne reci",
+        "url": "java_Kljucne_reci",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Komentari",
+        "url": "java_Komentari",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Modifikatori",
+        "url": "java_Modifikatori",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba if",
+        "url": "java_Naredba_if",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba switch",
+        "url": "java_Naredba_switch",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Petlja for",
+        "url": "java_Petlja_for",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Petlja while",
+        "url": "java_Petlja_while",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Petlja do-while",
+        "url": "java_Petlja_do-while",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba break",
+        "url": "java_Naredba_break",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba continue",
+        "url": "java_Naredba_continue",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba return",
+        "url": "java_Naredba_return",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Metode",
+        "url": "java_Metode",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Objekti i klase",
+        "url": "java_Objekti_i_klase",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Opsti oblik klase i kreiranje objekta",
+        "url": "java_Opsti_oblik_klase_i_kreiranje_objekta",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Vrste promenljivih",
+        "url": "java_Vrste_promenljivih",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Staticki i nestaticki clanovi klase",
+        "url": "java_Staticki_i_nestaticki_clanovi_klase",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Konstruktori i kljucna rec this",
+        "url": "java_Konstruktori_i_kljucna_rec_this",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Nasledjivanje",
+        "url": "java_Nasledjivanje",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Polimorfizam",
+        "url": "java_Polimorfizam",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Apstrakcija",
+        "url": "java_Apstrakcija",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Enkapsulacija",
+        "url": "java_Enkapsulacija",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejsi u programskom jeziku Java",
+        "url": "java_Interfejsi",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Kolekcije u programskom jeziku Java",
+        "url": "java_kolekcije",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Kolekcijski interfejsi",
+        "url": "java_kolekcijski_interfejsi",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs Collection",
+        "url": "java_collection",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejsi Iterable, Iterator, ListIterator",
+        "url": "java_iterable",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs List",
+        "url": "java_list",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs Set",
+        "url": "java_set",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs SortedSet",
+        "url": "java_sortedSet",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs Queue",
+        "url": "java_queue",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs Deque",
+        "url": "java_deque",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa ArrayList",
+        "url": "java_ArrayList",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa LinkedList",
+        "url": "java_LinkedList",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Razlika između ArrayList i LinkedList",
+        "url": "java_RazlikaLinkedListArrayList",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa HashSet",
+        "url": "java_HashSet",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa LinkedHashSet",
+        "url": "java_LinkedHashSet",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa TreeSet",
+        "url": "java_TreeSet",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Razlike između klasa HashSet, LinkedHashSet i TreeSet",
+        "url": "java_Razlika_Set_Kolekcija",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa PriorityQueue",
+        "url": "java_PriorityQueue",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa ArrayDeque",
+        "url": "java_ArrayDeque",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs Map",
+        "url": "java_Map",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs SortedMap",
+        "url": "java_SortedMap",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs MapEntry",
+        "url": "java_MapEntry",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa HashMap",
+        "url": "java_HashMap",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa TreeMap",
+        "url": "java_TreeMap",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa LinkedHashMap",
+        "url": "java_LinkedHashMap",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Razlike izmedu HashMap, TreeMap i LinkedHashMap klase",
+        "url": "java_Mape_Razlike",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Algoritmi za rad sa kolekcijama i mapama",
+        "url": "java_algoritmi",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Spring",
+    "id": "spring",
+    "logo": "S",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Radni okvir Spring",
+        "url": "spring_radni_okvir_spring",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Radni okvir Spring Framework",
+        "url": "spring_radni_okvir_spring_framework",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Podesavanje okruzenja",
+        "url": "spring_podesavanje_okruzenja",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Kontejner i zrna",
+        "url": "spring_kontejner_i_zrna",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Injektovanje zavisnosti",
+        "url": "spring_injektovanje_zavisnosti",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Injektovanje zavisnosti - XML konfiguracija",
+        "url": "spring_injektovanje_zavisnosti_xml_konfiguracija",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Injektovanje zavisnosti - Java konfiguracija",
+        "url": "spring_injektovanje_zavisnosti_java_konfiguracija",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Automatsko povezivanje zrna",
+        "url": "spring_automatsko_povezivanje_zrna",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Aspektno orijentisano programiranje",
+        "url": "spring_aspektno_orijentisano_programiranje",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Definisanje aspekata - AspectJ anotacije",
+        "url": "spring_definisanje_aspekata_aspectj_anotacije",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Definisanje aspekata - XML konfiguracija",
+        "url": "spring_definisanje_aspekata_xml_konfiguracija",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Upavljenje dogadjajima",
+        "url": "spring_upravljanje_dogadjajima",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Express js",
+    "id": "express",
+    "logo": "E",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "U pripremi",
+    "lessons": [
+      {
+        "name": "Podesavanje okruzenja",
+        "url": "express_podesavanje_okruzenja",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Početak rada",
+        "url": "express_pocetak_rada",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Rutiranje",
+        "url": "express_rutiranje",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Slanje parametara",
+        "url": "express_slanje_parametara_preko_URL",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Srednji sloj",
+        "url": "express_srednji_sloj",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Pug",
+        "url": "express_pug",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Statički fajlovi",
+        "url": "express_staticki_fajlovi",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      },
+      {
+        "name": "Formulari",
+        "url": "express_formulari",
+        "type": "lesson",
+        "parentCourse": "express",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "MySQL",
+    "id": "sql",
+    "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/x-mysql",
+    "displayLang": "SQL",
+    "detailsText": "U pripremi",
+    "lessons": [
+      {
+        "name": "Uvod i instalacija",
+        "url": "sql_Uvod_i_instalacija",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "PHP veza sa bazom",
+        "url": "sql_PHP_veza_sa_bazom",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Kreiranje baza i tabela",
+        "url": "sql_Kreiranje_baza_i_tabela",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Izmena i brisanje tabela",
+        "url": "sql_Izmena_i_brisanje_tabela",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Popunjavanje i pregled tabele",
+        "url": "sql_Popunjavanje_i_pregled_tabele",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Uslovna pretraga WHERE",
+        "url": "sql_Uslovna_pretraga_WHERE",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Izmene i brisanje u tabeli",
+        "url": "sql_Izmene_i_brisanje_u_tabeli",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Formatiranje izlaza",
+        "url": "sql_Formatiranje_izlaza",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Ugrađene funkcije",
+        "url": "sql_Ugradjene_funkcije",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Grupisanje",
+        "url": "sql_Grupisanje",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "IF i CASE",
+        "url": "sql_If_i_Case",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Povezivanje tabela",
+        "url": "sql_Povezivanje_tabela",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Vrste spojeva tabela",
+        "url": "sql_Vrste_spojeva_tabela",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Povezivanje više tabela",
+        "url": "sql_Povezivanje_vise_tabela",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Unija",
+        "url": "sql_Unija",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Podupiti",
+        "url": "sql_Podupiti",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "EXISTS",
+        "url": "sql_Exists",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      },
+      {
+        "name": "Složeniji upiti",
+        "url": "sql_Slozeniji_upiti",
+        "type": "lesson",
+        "parentCourse": "sql",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "XML",
+    "id": "xml",
+    "logo": "< >",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u XML",
+        "url": "XML_Uvod_u_XML",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Etikete",
+        "url": "XML_Etikete",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Struktura",
+        "url": "XML_Struktura",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Sintaksa",
+        "url": "XML_Sintaksa",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Elementi",
+        "url": "XML_Elementi",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Atributi",
+        "url": "XML_Atributi",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Namespaces",
+        "url": "XML_Namespaces",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Prikaz",
+        "url": "XML_Prikaz",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "XPath",
+        "url": "XML_XPath",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "XQuery",
+        "url": "XML_XQuery",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Validacija dokumenta",
+        "url": "XML_Validacija_dokumenta",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "DTD",
+        "url": "XML_DTD",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "XML Schema",
+        "url": "XML_Schema",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Canvas",
+    "id": "canvas",
+    "logo": "< >",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "Koristi se za iscrtavanje grafičkih elemenata, fotografskih kompozicija i pravljenje jednostavnh animacija pomoću nekog skript jezika, najčešćce javascript.",
+    "lessons": [
+      {
+        "name": "Uvod u Canvas",
+        "url": "canvas_uvod",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Koordinatni sistem",
+        "url": "canvas_koordinatni_sistem",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Canvas - tekst",
+        "url": "canvas_tekst",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Translacija",
+        "url": "canvas_transformacije_translacija",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Rotacija",
+        "url": "canvas_transformacije_rotacija",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Skaliranje",
+        "url": "canvas_transformacije_skaliranje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Canvas - slike",
+        "url": "canvas_slike",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Canvas - senke",
+        "url": "canvas_shadow",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Canvas - opacity",
+        "url": "canvas_opacity",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Linearno kretanje",
+        "url": "canvas_linearno_kretanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Gradijent",
+        "url": "canvas_gradijent",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Brisanje",
+        "url": "canvas_brisanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "SVG",
+    "id": "svg",
+    "logo": "< >",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u SVG",
+        "url": "SVG_uvod_u_SVG",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Etikete",
+        "url": "SVG_etikete",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Rectangle",
+        "url": "SVG_rect",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Krug",
+        "url": "SVG_krug",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Elipsa",
+        "url": "SVG_elipsa",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Linija",
+        "url": "SVG_linija",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Mnogougao",
+        "url": "SVG_mnogougao",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Izlomljena linija",
+        "url": "SVG_izlomljena_linija",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Path",
+        "url": "SVG_path",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Tekst",
+        "url": "SVG_tekst",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Stroking",
+        "url": "SVG_stroking",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Filteri",
+        "url": "SVG_filteri",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Efekat zamućenja",
+        "url": "SVG_blur_effects",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Senčenje",
+        "url": "SVG_sencenje",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Linearni prelasci boja",
+        "url": "SVG_gradijenti_linearni",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      },
+      {
+        "name": "Radijalni prelasci boja",
+        "url": "SVG_gradijenti_linearni",
+        "type": "lesson",
+        "parentCourse": "svg",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Veb",
+    "id": "veb",
+    "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
+    "lessons": [
+      {
+        "name": "Kako radi veb",
+        "url": "veb_uvod",
+        "type": "lesson",
+        "parentCourse": "veb",
+        "sublessons": null
+      }
+    ]
+  }
 ]
