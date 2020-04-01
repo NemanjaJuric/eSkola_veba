@@ -1,35 +1,38 @@
-.lead{
-    text-align: justify;
+.lead {
+  text-align: justify;
 }
 
-.programmer-image{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-size: cover;
-    margin: auto;
+.programmer-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: auto;
 }
 
-.programmer-image:hover{
-    animation: scale-small;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+.programmer-image:hover {
+  animation: scale-small;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-.programmer-image-small{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-size: cover;
-    margin: auto;
+.programmer-image-small {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: auto;
 }
 
-.language{
-    color: $light-gray;
+.language {
+  color: $light-gray;
 }
 
-.row-about{
-    width: 80%;
-    margin: auto;
+.row-about {
+  width: 80%;
+  margin: auto;
 }
 
+.name-border {
+  border: 2px solid $material-gray;
+}

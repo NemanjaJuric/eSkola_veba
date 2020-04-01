@@ -9,11 +9,13 @@
 			na master akademskim studijama.
 		</p>
 		<div class="row">
-			<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 m-t-2 m-b-2" *ngFor="let person of persons">
-				<div class="programmer-image-small" *ngIf="person.url.indexOf('user.jpg') < 0"
-					[ngStyle]="{'background-image': 'url(' + person.url + ')' }">
+			<ng-container *ngFor="let person of persons">
+				<div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 m-t-2 m-b-2" *ngIf="person.url.indexOf('user.jpg') < 0">
+					<div class="programmer-image-small" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
+					</div>
 				</div>
-			</div>
+			</ng-container>
+
 		</div>
 	</div>
 	<div class="text-xs-center m-a-3">
@@ -59,7 +61,7 @@
 			<div class="programmer-image" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
 			</div>
 			<div class="text-xs-center m-t-2 m-b-2">
-				<h4 class="h4 dark-gray">{{person.name}}</h4>
+				<h4 class="h4 dark-gray" [ngClass]="{'name-border': person.style === 'border'}">{{person.name}}</h4>
 				<h6 class="h6 gray">{{person.course}}</h6>
 			</div>
 		</div>

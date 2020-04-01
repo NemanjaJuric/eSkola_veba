@@ -114,6 +114,43 @@
     "mainPosition": false
   },
   {
+    "name": "Aleksandra Miladinović",
+    "course": "Bootstrap 4",
+    "url": "assets/images/team/aleksandra_miladinovic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Katarina Andrejević",
+    "course": "Laravel",
+    "url": "assets/images/team/katarina_andrejevic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Olivera Pavlović",
+    "course": "PHP",
+    "url": "assets/images/team/olivera_pavlovic.png",
+    "mainPosition": false
+  },
+  {
+    "name": "Dušan Kovačević",
+    "course": "PHP",
+    "url": "assets/images/team/dusan_kovacevic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Duško Vešić",
+    "course": "MySQL",
+    "url": "assets/images/team/dusko_vesic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Lazar Vojinović",
+    "course": "Vue.js",
+    "url": "assets/images/team/lazar_vojinovic.jpg",
+    "mainPosition": false,
+    "style": "border"
+  },
+  {
     "name": "Nevena Stajić",
     "course": "Java",
     "url": "assets/images/team/user.jpg",
@@ -124,29 +161,5 @@
     "course": "Java",
     "url": "assets/images/team/user.jpg",
     "mainPosition": false
-  },
-  {
-    "name": "Aleksandra Miladinović",
-    "course": "Bootstrap 4",
-    "url": "assets/images/team/user.jpg",
-    "mainPosition": false
-  },
-  {
-    "name": "Katarina Andrejević",
-    "course": "Laravel",
-    "url": "assets/images/team/user.jpg",
-    "mainPosition": false
-  },
-  {
-   "name": "Dušan Kovačević",
-   "course": "PHP",
-   "url": "assets/images/team/user.jpg",
-   "mainPosition": false
- },
- {
-   "name": "Duško Vešić",
-   "course": "MySQL",
-   "url": "assets/images/team/user.jpg",
-   "mainPosition": false
- }
+  }
 ]
