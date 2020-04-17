@@ -3036,8 +3036,8 @@
     ]
   },
   {
-    "name": "Jypiter",
-    "id": "jypiter",
+    "name": "Jupyter",
+    "id": "jupyter",
     "logo": "<i class='fab fa-python' aria-hidden='true'></i>",
     "type": "book",
     "lang": "",
@@ -3045,10 +3045,10 @@
     "detailsText": "",
     "lessons": [
       {
-        "name": "Uvod u Jypiter",
-        "url": "jypiter_uvod",
+        "name": "Uvod u Jupyter",
+        "url": "jupyter_uvod",
         "type": "lesson",
-        "parentCourse": "jypiter",
+        "parentCourse": "jupyter",
         "sublessons": null
       }
     ]

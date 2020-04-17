@@ -21,7 +21,7 @@ $spring-primary: #6db33f;
 $express-primary: #6db33f;
 $sql-primary: #7986CB;
 $web-center-primary: #37474F;
-$jypiter-primary: #ef6300;
+$jupyter-primary: #ef6300;
 
 $material-dark-gray: #37474F;
 $material-gray: #455a64;
@@ -190,8 +190,8 @@ $android-official: #a2c53d;
     background-color: $spring-primary !important;
 }
 
-.bkg-jypiter{
-    background-color: $jypiter-primary !important;
+.bkg-jupyter{
+    background-color: $jupyter-primary !important;
 }
 
 .bkg-about{
@@ -302,8 +302,8 @@ $android-official: #a2c53d;
     color: $spring-primary;
 }
 
-.hover-jypiter:hover{
-    color: $jypiter-primary;
+.hover-jupyter:hover{
+    color: $jupyter-primary;
 }
 
 .trans-md{
