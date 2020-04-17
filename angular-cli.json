@@ -11,6 +11,7 @@
       "assets": [
         "assets",
         "courses",
+        "podaci",
         "data",
         "libs"
       ],
@@ -22,7 +23,7 @@
       "styles": [
         "../node_modules/tether/dist/css/tether.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/@fortawesome/fontawesome-free/css/all.min.css",
         "../node_modules/codemirror/lib/codemirror.css",
         "../node_modules/codemirror/addon/hint/show-hint.css",
         "../node_modules/codemirror/addon/display/fullscreen.css",

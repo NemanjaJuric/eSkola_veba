@@ -2,7 +2,7 @@
   {
     "name": "HTML",
     "id": "html",
-    "logo": "< >",
+    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -189,7 +189,7 @@
   {
     "name": "CSS",
     "id": "css",
-    "logo": "{ }",
+    "logo": "<i class='fab fa-css3' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -422,7 +422,7 @@
   {
     "name": "JavaScript",
     "id": "js",
-    "logo": "( )",
+    "logo": "<i class='fab fa-js' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -779,7 +779,7 @@
   {
     "name": "Bootstrap 3",
     "id": "bs",
-    "logo": "B",
+    "logo": "<i class='fab fa-bootstrap' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -1049,7 +1049,7 @@
   {
     "name": "Bootstrap 4",
     "id": "bs4",
-    "logo": "B",
+    "logo": "<i class='fab fa-bootstrap' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -1263,7 +1263,7 @@
   {
     "name": "AngularJS",
     "id": "ang",
-    "logo": "A",
+    "logo": "<i class='fab fa-angular' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -1435,7 +1435,7 @@
   {
     "name": "Angular 4",
     "id": "ang4",
-    "logo": "A",
+    "logo": "<i class='fab fa-angular' aria-hidden='true'></i>",
     "type": "book",
     "lang": "",
     "displayLang": "",
@@ -1530,7 +1530,7 @@
   {
     "name": "Vue.js",
     "id": "vue",
-    "logo": "V",
+    "logo": "<i class='fab fa-vuejs' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
@@ -1678,7 +1678,7 @@
   {
     "name": "JSON",
     "id": "json",
-    "logo": "J",
+    "logo": "{ }",
     "type": "course",
     "lang": "application/x-httpd-php",
     "displayLang": "Json",
@@ -1696,7 +1696,7 @@
   {
     "name": "PHP",
     "id": "php",
-    "logo": "< ? >",
+    "logo": "<i class='fab fa-php' aria-hidden='true'></i>",
     "type": "course",
     "lang": "application/x-httpd-php",
     "displayLang": "PHP",
@@ -1882,7 +1882,7 @@
   {
     "name": "Laravel",
     "id": "lara",
-    "logo": "L",
+    "logo": "<i class='fab fa-laravel' aria-hidden='true'></i>",
     "type": "book",
     "lang": "",
     "displayLang": "",
@@ -1991,7 +1991,7 @@
   {
     "name": "Java",
     "id": "java",
-    "logo": "<i class='fa fa-coffee' aria-hidden='true'></i>",
+    "logo": "<i class='fab fa-java' aria-hidden='true'></i>",
     "type": "book",
     "lang": "",
     "displayLang": "",
@@ -2496,7 +2496,7 @@
   {
     "name": "Express js",
     "id": "express",
-    "logo": "E",
+    "logo": "<i class='fab fa-node' aria-hidden='true'></i>",
     "type": "book",
     "lang": "",
     "displayLang": "",
@@ -2563,7 +2563,7 @@
   {
     "name": "MySQL",
     "id": "sql",
-    "logo": "<i class='fa fa-database' aria-hidden='true'></i>",
+    "logo": "<i class='fas fa-database' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/x-mysql",
     "displayLang": "SQL",
@@ -3031,6 +3031,24 @@
         "url": "veb_uvod",
         "type": "lesson",
         "parentCourse": "veb",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Jypiter",
+    "id": "jypiter",
+    "logo": "<i class='fab fa-python' aria-hidden='true'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u Jypiter",
+        "url": "jypiter_uvod",
+        "type": "lesson",
+        "parentCourse": "jypiter",
         "sublessons": null
       }
     ]

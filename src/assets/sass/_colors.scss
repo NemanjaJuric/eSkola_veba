@@ -18,9 +18,10 @@ $json-primary: #607d8b;
 $about-primary: #00a961;
 $java-primary: #BF360C;
 $spring-primary: #6db33f;
-$express-primary: #1976D2;
+$express-primary: #6db33f;
 $sql-primary: #7986CB;
 $web-center-primary: #37474F;
+$jypiter-primary: #ef6300;
 
 $material-dark-gray: #37474F;
 $material-gray: #455a64;
@@ -189,6 +190,10 @@ $android-official: #a2c53d;
     background-color: $spring-primary !important;
 }
 
+.bkg-jypiter{
+    background-color: $jypiter-primary !important;
+}
+
 .bkg-about{
     background-color: $about-primary !important;
 }
@@ -295,6 +300,10 @@ $android-official: #a2c53d;
 
 .hover-svg:hover{
     color: $spring-primary;
+}
+
+.hover-jypiter:hover{
+    color: $jypiter-primary;
 }
 
 .trans-md{
