@@ -111,13 +111,15 @@
 }
 
 .primer_ta{
-    background-color: $light;
+    background-color: $material-dark-gray;
+    color: white;
     font-family: $editor-font;
     border: none;
     border-left: 5px solid $material-light-gray;
     padding: 20px;
     padding-top: 5px;
     overflow-x: auto;
+    overflow-y: hidden;
     width: 100%;
     resize: none;
     margin-top: 20px;
