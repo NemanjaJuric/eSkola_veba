@@ -1,26 +1,29 @@
 Rešenje zadatka:
 <br>
-<xmp class = "primer_ta" >
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;Rešenje&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h3&gt; Prorocica Druzila &lt;/h3&gt;
-		&lt;h5&gt; Dobrodosli &lt;/h5&gt;
-		&lt;p&gt; Vase trenutno raspolozenje je: &lt;/p&gt;
-		&lt;script&gt;
-		var raspolozenje=["Tuzan/Tuzna", "Uplakan/Uplakana", "Srecan/Srecna", "Radostan/Radosna", "Veseo/Vesela", "Isfrustriran/Isfrustrirana", "Zaljubljen/Zaljubljena", "Namrgodjen/Namrgodjena","Ljubomoran/Ljubomorna", "Nasmejan/Nasmejana"];
-		function pogodi(){
-			var rnd=Math.random();
-			return Math.floor(rnd*10);
-		};
-		document.write(raspolozenje[pogodi()]);
-		&lt;/script&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Prorocica Druzila </h3>
+		<h5> Dobrodosli </h5>
+		<p> Vase trenutno raspolozenje je: </p>
+		<script>
+			var raspolozenje = ["Tuzan/Tuzna", "Uplakan/Uplakana", "Srecan/Srecna", "Radostan/Radosna", "Veseo/Vesela", "Isfrustriran/Isfrustrirana", "Zaljubljen/Zaljubljena", "Namrgodjen/Namrgodjena", "Ljubomoran/Ljubomorna", "Nasmejan/Nasmejana"];
+			function pogodi() {
+				var rnd = Math.random();
+				return Math.floor(rnd * 10);
+			};
+			document.write(raspolozenje[pogodi()]);
+		</script>
+	</body>
+
+	</html>
 </xmp>
 <br>
-Definisan je niz stringova pod nazivom <i>raspolozenje</i> u kome su sačuvana različita raspoloženja koja osoba može imati. Funkcija <i>pogodi</i> slučajno bira celi broj iz intervala [0,9], a potom se na internet stranici ispisuje string iz niza <i>raspolozenje</i>, koji stoji na slučajno odabranom mestu.
-
- 
+Definisan je niz stringova pod nazivom <i>raspolozenje</i> u kome su sačuvana različita raspoloženja koja osoba može
+imati. Funkcija <i>pogodi</i> slučajno bira celi broj iz intervala [0,9], a potom se na internet stranici ispisuje
+string iz niza <i>raspolozenje</i>, koji stoji na slučajno odabranom mestu.

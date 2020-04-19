@@ -1,48 +1,51 @@
 Rešenje zadatka:
 <br>
-<xmp class = "primer_ta" >
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;Rešenje&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h3&gt; Loto &lt;/h3&gt;
-		&lt;h5&gt; Ko igra, taj i dobija &lt;/h5&gt;
-		&lt;script&gt;
-		function izvuciBroj(){
-			var rnd=Math.random();
-			return Math.ceil(rnd*39);
-		};
-		function svihSedamBrojeva(){
-			var izvuceni=[];
-			var novBroj=0;
-			var ind=0;
-			for(i=0;i<7;i++){
-				ind=0;
-				novBroj=izvuciBroj();
-				for(j=0;j<i;j++){
-					if(novBroj==izvuceni[j]){
-					ind=1;
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Loto </h3>
+		<h5> Ko igra, taj i dobija </h5>
+		<script>
+			function izvuciBroj() {
+				var rnd = Math.random();
+				return Math.ceil(rnd * 39);
+			};
+			function svihSedamBrojeva() {
+				var izvuceni = [];
+				var novBroj = 0;
+				var ind = 0;
+				for (i = 0; i < 7; i++) {
+					ind = 0;
+					novBroj = izvuciBroj();
+					for (j = 0; j < i; j++) {
+						if (novBroj == izvuceni[j]) {
+							ind = 1;
+						}
+					}
+					if (ind == 0) {
+						izvuceni[i] = novBroj;
+					}
+					else if (ind == 1) {
+						i--;
 					}
 				}
-				if(ind==0){
-				izvuceni[i]=novBroj;
-				}
-				else if(ind==1){
-				i--;
-				}
+				return izvuceni;
 			}
-			return izvuceni;
-		}
-		document.write(svihSedamBrojeva());
-		&lt;/script&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
+			document.write(svihSedamBrojeva());
+		</script>
+	</body>
+
+	</html>
 </xmp>
 <br>
-Funkcija <i>izvuciBroj()</i> pri pozivu određuje jedan slučajno odabrani celi broj u intervalu brojeva [1,39]. 
+Funkcija <i>izvuciBroj()</i> pri pozivu određuje jedan slučajno odabrani celi broj u intervalu brojeva [1,39].
 <br>
-Nakon toga funkcija <i>svihSedamBrojeva()</i> najmanje sedam puta poziva funkciju <i>izvuciBroj()</i> u prvoj <span class = "primer_text">for</span> petlji. Dok druga <span class = "primer_text">for</span>  
-petlja služi tome da ukoliko se neki broj ponovi pri izvlačenju, on se preskače i 
+Nakon toga funkcija <i>svihSedamBrojeva()</i> najmanje sedam puta poziva funkciju <i>izvuciBroj()</i> u prvoj <span
+	class="primer_text">for</span> petlji. Dok druga <span class="primer_text">for</span>
+petlja služi tome da ukoliko se neki broj ponovi pri izvlačenju, on se preskače i
 izvlačenje se ponavlja. Na kraju, rezultat se ispisuje na internet stranici.
- 

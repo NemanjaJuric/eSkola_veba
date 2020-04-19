@@ -1,40 +1,43 @@
 Rešenje zadatka:
 <br>
-<xmp class = "primer_ta" >
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;Rešenje&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h3&gt; Porez na imovinu &lt;/h3&gt;
-		&lt;script&gt;
-		var imovina = {
-			povrsinaImovine: 0,
-			godinePosedovanjaImovine: 0,
-			porez:function(){
-				Porez=this.povrsinaImovine*30000.00-0.08*this.godinePosedovanjaImovine*30000.00;
-				return Porez;
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Porez na imovinu </h3>
+		<script>
+			var imovina = {
+				povrsinaImovine: 0,
+				godinePosedovanjaImovine: 0,
+				porez: function () {
+					Porez = this.povrsinaImovine * 30000.00 - 0.08 * this.godinePosedovanjaImovine * 30000.00;
+					return Porez;
+				}
 			}
-		}
-		imovina.povrsinaImovine=prompt("Povrsina vaše imovine za koju želite da izračunate visinu poreza je: ");
-		document.write("Površina vaše imovine je: "+imovina.povrsinaImovine+" m<sup>2</sup><br>");
-		imovina.godinePosedovanjaImovine=prompt("Koliko godina posedujete navedenu imovinu?");
-		document.write("Imovinu posedujete "+imovina.godinePosedovanjaImovine+" godina. <br>");
-		document.write("Visina poreza na vašu imovinu je "+imovina.porez()+" dinara.");
-		&lt;/script&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
+			imovina.povrsinaImovine = prompt("Povrsina vaše imovine za koju želite da izračunate visinu poreza je: ");
+			document.write("Površina vaše imovine je: " + imovina.povrsinaImovine + " m<sup>2</sup><br>");
+			imovina.godinePosedovanjaImovine = prompt("Koliko godina posedujete navedenu imovinu?");
+			document.write("Imovinu posedujete " + imovina.godinePosedovanjaImovine + " godina. <br>");
+			document.write("Visina poreza na vašu imovinu je " + imovina.porez() + " dinara.");
+		</script>
+	</body>
+
+	</html>
 </xmp>
 <br>
 Po uslovima zadatka prvo je definisan objekat imovina, koji ima osobine:
 <ul>
-<li><i>povrsinaImovine</i> u kojoj je sačuvana numerička vrednost površine imovine
-za koju korisnik želi da izračuna visinu poreza,</li>
-<li><i>godinePosedovanjaImovine</i> u kojoj je sačuvana numerička vrednost godina
-koliko je korisnik vlasnik te imovine,</li>
-<li><i>porez</i> koja je funkcijska osobina i izračuvana visinu poreza po formuli koja
-je data u tekstu zadatka.</li>
+	<li><i>povrsinaImovine</i> u kojoj je sačuvana numerička vrednost površine imovine
+		za koju korisnik želi da izračuna visinu poreza,</li>
+	<li><i>godinePosedovanjaImovine</i> u kojoj je sačuvana numerička vrednost godina
+		koliko je korisnik vlasnik te imovine,</li>
+	<li><i>porez</i> koja je funkcijska osobina i izračuvana visinu poreza po formuli koja
+		je data u tekstu zadatka.</li>
 </ul>
-Potom, na internet stranici se funkcijom <span class = "primer_text">prompt</span> zahteva unos neophodnih podataka, 
-koji se redom ispisuju funkcijom <span class = "primer_text">write</span>. Na kraju, ispisuje se i vrednost funkcijskog svojstva objekta <i>imovina</i>.
- 
+Potom, na internet stranici se funkcijom <span class="primer_text">prompt</span> zahteva unos neophodnih podataka,
+koji se redom ispisuju funkcijom <span class="primer_text">write</span>. Na kraju, ispisuje se i vrednost funkcijskog
+svojstva objekta <i>imovina</i>.
