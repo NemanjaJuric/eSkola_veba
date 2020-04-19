@@ -5,20 +5,24 @@
     </div>
     <ul>
         <li *ngFor="let course of courses" class="menu__item">
-            <span class="menu__course h3 d-block m-t-1 m-b-1" (click)="setRoute('course-details', course.id, null)">{{course.name}}</span>
+            <span class="menu__course h3 d-block m-t-1 m-b-1"
+                (click)="setRoute('course-details', course.id, null)">{{course.name}}</span>
             <ul>
                 <li *ngFor="let lesson of course.lessons" class="menu__item">
-                    <span class="menu__lesson h5 d-block m-l-1" (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, lesson.url)">{{lesson.name}}</span>
+                    <span class="menu__lesson h5 d-block m-l-1"
+                        (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, lesson.url, lesson)">{{lesson.name}}</span>
                     <ul>
                         <li *ngFor="let sublesson of lesson.sublessons" class="menu__item">
-                            <span class="menu__lesson h5 d-block m-l-3" (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, sublesson.url)">{{sublesson.name}}</span>
+                            <span class="menu__lesson h5 d-block m-l-3"
+                                (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, sublesson.url)">{{sublesson.name}}</span>
                         </li>
                     </ul>
                 </li>
             </ul>
         </li>
         <li>
-            <span class="menu__course menu__item h3 d-block m-t-1 m-b-1" (click)="setRoute('about', null, null)">O nama</span>
+            <span class="menu__course menu__item h3 d-block m-t-1 m-b-1" (click)="setRoute('about', null, null)">O
+                nama</span>
         </li>
     </ul>
     <div class="m-t-3">

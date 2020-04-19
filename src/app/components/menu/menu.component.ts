@@ -5,9 +5,9 @@ import { SchoolService } from '../../services/school.service';
 import { RouteService } from '../../services/route.service';
 
 @Component({
-  selector: 'menu',
-  templateUrl: './menu.component.html',
-  animations: [
+    selector: 'menu',
+    templateUrl: './menu.component.html',
+    animations: [
         trigger('toggleMenu', [
             state('false', style({ transform: 'translatey(0)' })),
             state('true', style({ transform: 'translatex(350px)' })),
@@ -17,9 +17,9 @@ import { RouteService } from '../../services/route.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private schoolService: SchoolService, private routeService: RouteService, private router: Router) {};
+    constructor(private schoolService: SchoolService, private routeService: RouteService, private router: Router) { };
 
-    ngOnInit(){
+    ngOnInit() {
         this.router.events.subscribe(() => {
             this.showMenu = false;
         });
@@ -34,7 +34,11 @@ export class MenuComponent implements OnInit {
         this.schoolService.getCourses().subscribe(data => this.courses = data);
     }
 
-    setRoute(page, course, lesson): void {
+    setRoute(page, course, lesson, lessonObj?: any): void {
+        if (lessonObj.sublessons) {
+            this.routeService.setRoute(page, course, lessonObj.sublessons[0].url);
+            return;
+        }
         this.routeService.setRoute(page, course, lesson);
     }
 
