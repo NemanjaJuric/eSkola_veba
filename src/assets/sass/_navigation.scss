@@ -1,5 +1,6 @@
 .navbar{
-    background-color: $material-dark-gray;
+    background-color: rgba($material-dark-gray, 0.7);
+    backdrop-filter: blur(10px);
     height: 60px;
     border-radius: 0;
     padding: 20px;
