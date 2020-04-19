@@ -25,3 +25,18 @@
 .navigation-link:hover{
     color: $light !important;
 }
+
+.course-navigation-button{
+    @extend .navigation-link;
+    background: none;
+    border: none;
+    &:hover{
+        color: $light !important;
+    }
+}
+
+.course-dropdown{
+    width: 250px;
+    height: 500px;
+    overflow-y: auto;
+}

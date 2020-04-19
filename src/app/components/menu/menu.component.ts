@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
     }
 
     setRoute(page, course, lesson, lessonObj?: any): void {
-        if (lessonObj.sublessons) {
+        if (lessonObj && lessonObj.sublessons) {
             this.routeService.setRoute(page, course, lessonObj.sublessons[0].url);
             return;
         }

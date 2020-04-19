@@ -1,17 +1,28 @@
-import { Component, OnInit, HostListener, trigger, transition, style, animate, state, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, trigger, transition, style, animate, state, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { SchoolService } from '../../services/school.service';
 import { Course } from '../../classes/course';
 import { MenuComponent } from '../menu/menu.component';
 import { RouteService } from '../../services/route.service';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'navigation',
-  templateUrl: './navigation.component.html'
+    selector: 'navigation',
+    templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
 
-  constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService, private elmRef: ElementRef) { };
+    url: string;
+    pageUrl: string;
+    courseUrl: string;
+    lessonUrl: string;
+    navigationBackground: String;
+    navigationShadow: boolean;
+    menuIcon: boolean;
+    course: Course;
+    private _destroy$: Subject<void> = new Subject<void>();
+
+    constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService, private elmRef: ElementRef) { };
 
     ngOnInit() {
         this.router.events.subscribe((event) => {
@@ -20,6 +31,10 @@ export class NavigationComponent implements OnInit {
             }
         });
         this.initComponent();
+    }
+
+    ngOnDestroy() {
+        this._destroy$.next();
     }
 
     initComponent() {
@@ -42,19 +57,25 @@ export class NavigationComponent implements OnInit {
         } else {
             this.navigationBackground = 'bkg-' + this.courseUrl;
         }
+        if (this.courseUrl) {
+            this.schoolService.getCourseByUrl(this.courseUrl)
+                .takeUntil(this._destroy$)
+                .subscribe(c => {
+                    this.course = c;
+                    console.log(this.course)
+                })
+        }
     }
 
-    url: string;
-    pageUrl: string;
-    courseUrl: string;
-    lessonUrl: string;
-    navigationBackground: String;
-    navigationShadow: boolean;
-    menuIcon: boolean;
+
 
     @ViewChild(MenuComponent) menu: MenuComponent;
 
-    setRoute(page, course, lesson) {
+    setRoute(page, course, lesson, lessonObj) {
+        if (lessonObj && lessonObj.sublessons) {
+            this.routeService.setRoute(page, course, lessonObj.sublessons[0].url);
+            return;
+        }
         this.routeService.setRoute(page, course, lesson);
     }
 

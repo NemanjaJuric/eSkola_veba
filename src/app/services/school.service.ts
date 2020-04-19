@@ -187,4 +187,10 @@ export class SchoolService {
             .catch(this.handleError)
     }
 
+    getCourseByUrl(courseUrl: string) {
+        return this.getCourses().map(courses => {
+            return courses.find(c => c.id === courseUrl);
+        })
+    }
+
 }
