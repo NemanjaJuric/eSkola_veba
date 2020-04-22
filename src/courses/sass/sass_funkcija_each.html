@@ -1,0 +1,30 @@
+<h1>Funkcija @each</h1>
+Funkcija <b>@each</b> ima sledeći oblik:
+<br>
+<xmp class = "primer_ta1" >
+ @each $var in <list or map>
+</xmp>
+<br>
+Pri čemu <i>$var</i> može biti bilo koje ime promenljive, a <list or map> je izraz koji vraća listu ili mapu.
+<br>
+Liste: 
+<br>
+<xmp class = "primer_ta2" >
+$speakers: bob-banker, patty-plume, sandra-smith;
+@each $speaker in $speakers {
+    .#{$speaker}-profile{
+      background-image: url('/img/#{$speaker}.png')
+    }
+}
+</xmp>
+<br>
+Mape:
+<br>
+<xmp class = "primer_ta3" >
+$font-sizes:(tiny: 8px, small: 11px, medium: 13px, large: 18px);
+@each $name, $size in $font-sizes{
+    .#{$name}{
+      font-size: $size; 
+    }
+}
+</xmp>

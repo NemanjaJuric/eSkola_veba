@@ -62,7 +62,6 @@ export class NavigationComponent implements OnInit, OnDestroy {
                 .takeUntil(this._destroy$)
                 .subscribe(c => {
                     this.course = c;
-                    console.log(this.course)
                 })
         }
     }

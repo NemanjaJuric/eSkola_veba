@@ -1,0 +1,54 @@
+<h1>Mixin</h1>
+<i>Mixin</i> je blok koda koji omogućava da pravite grupe <i>CSS</i> deklaracija koje ponovo želite da koristite na svom sajtu.
+Možemo preneti i vrednosti kako bi <i>mixin</i> postao fleksibilniji.
+<br>
+Definišu se sa <b>@mixin</b>, zatim sledi naziv miksina, potencijalno argumente i blok sa sadržajem <i>mixin-a</i>.
+<br>
+<br>
+Primer <i>mixin-a</i> koji definiše velika slova.
+<xmp class = "primer_ta" >
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 24px;
+    weight: bold;
+  }
+  color: purple;
+}
+</xmp>
+<br>
+Primer <i>mixina</i> koji prikazuje <i>HTML</i>  elemente fleksibilnije.
+<xmp class = "primer_ta1" >
+.row {
+    display: -webkit-flex;
+    display: flex;
+}
+</xmp>
+<br>
+<i>Mixin</i> se uključuje u dokument korišćenjem <b>@include</b> naredbe praćenog imenom tog miksina.
+<xmp class = "primer_ta2" >
+.page-title {
+  @include large-text;
+  padding: 3px;
+  margin-top: 20px;
+  }
+</xmp>
+<br>
+Takođe, možemo koristiti jedan <i>mixin</i> unutar drugog na sledeći način:
+<br>
+<xmp class= "primer_ta3">
+@mixin rounded{
+	border-radius: 6px;
+}
+
+@mixin box {
+	@include rounded;
+	border:1px solid #333;
+
+}
+</xmp>
+<br>
+
+<div class="zadatak">
+<b>Zadatak:</b> Definisati <i>mixin</i> za iskošena slova, crvene boje, veličine 16px. 
+</div>

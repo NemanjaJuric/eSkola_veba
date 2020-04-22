@@ -1,0 +1,20 @@
+<textarea class="primer_ta" rows="8" disabled>
+//_main.scss
+$font-stack: sans-serif;
+$primary-color: orange;
+
+body{
+  font: $font-stack;
+  color: $primary-color;
+}
+</textarea>
+
+<textarea class="primer_ta" rows="7" disabled>
+// styles.scss
+@use 'main';
+
+.inverse {
+  background-color: main.$primary-color;
+  color: white;
+}
+</textarea>

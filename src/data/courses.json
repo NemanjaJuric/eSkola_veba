@@ -1261,6 +1261,115 @@
     ]
   },
   {
+    "name": "Sass",
+    "id": "sass",
+    "logo": "<i class='fab fa-sass' aria-hidden='true'></i>",
+    "type": "book",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u SASS",
+        "url": "sass_uvod",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive",
+        "url": "sass_promenljive",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Partials",
+        "url": "sass_partials",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Miksini",
+        "url": "sass_miksini",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Miksini sa argumentima",
+        "url": "sass_mixins_with_arguments",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Importovanje",
+        "url": "sass_import",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "sass_funkcije",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcija If",
+        "url": "sass_funkcija_if",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcija For",
+        "url": "sass_funkcija_for",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcija While",
+        "url": "sass_funkcija_while",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcija Each",
+        "url": "sass_funkcija_each",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Nasledjivanje selektora",
+        "url": "sass_nasledjivanje_selektora",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Moduli",
+        "url": "sass_modules",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Liste",
+        "url": "sass_list",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      }
+    ]
+  },
+  {
     "name": "AngularJS",
     "id": "ang",
     "logo": "<i class='fab fa-angular' aria-hidden='true'></i>",

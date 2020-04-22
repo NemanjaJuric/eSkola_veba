@@ -1,0 +1,33 @@
+<h1> Mixin sa argumentima</h1>
+<i>Mixin-i</i> takođe mogu imati svoje argumente koji mu omogućavaju prilagođavanje u različitim situacijama. 
+Argumenti se navode posle naziva <i>mixin-a</i> i predstavljaju listu naziva promenljivih okruženih zagradama.
+<br>
+<br>
+Primer <i>mixin-a</i> sa argumentima.
+<xmp class = "primer_ta1">
+@mixin rounded($radius){
+	border-radius: $radius;
+}
+</xmp>
+<br>
+Prilikom pozivanja <i>mixin</i> mora imati isti broj argumenata kao prilikom definisanja. 
+<br>
+<xmp class = "primer_ta2">
+.warning -button{
+	@include rounded(6px);
+	background-color: orange;
+
+}
+</xmp>
+<br>
+Primer <i>mixin-a</i> sa više argumenata.
+<xmp class = "primer_ta3">
+@mixin (){
+
+
+}
+</xmp>
+<br>
+<div class="zadatak">
+<b>Zadatak:</b> Definisati <i>mixin</i> za <i>box</i> koji kao argumente ima gornju, donju, levu i desnu marginu. 
+</div>

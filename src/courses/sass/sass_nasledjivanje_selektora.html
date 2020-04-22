@@ -1,0 +1,98 @@
+<h1>Nasledjivanje selektora</h1>
+
+Nasledjivanje je jedna od najkorisnijih karakteristika programskog jezika <i>Sass</i>.
+<br>
+Često prilikom dizajniranja stranica jedna klasa bi trebalo da ima iste stilove kao i druga klasa, kao i svoje specifične stilove. 
+<br>
+Koristeći <b>@extend</b> selektor može naslediti stil od drugog selektora. To doprinosi da u programskom jeziku <i>Sass</i> nema ponavljanja (<i>DRY</i>).
+<br>
+<br>
+Primer dizajna normalne i ozbiljne greške:
+<br>
+<br>
+<textarea class="primer_ta" rows="8" disabled>
+.warning {
+  border: 1px;
+  background-color: yellow;
+}
+.error {
+  @extend .error;
+  border-width: 3px;
+}
+</textarea>
+<br>
+<button class="button_copy">Vidi primer</button>
+<br>
+
+
+<h2>Proširenje kompleksa selektora</h2>
+Selektori klase nisu jedini elementi koje je moguće proširiti.
+<br>
+Moguće je proširiti bilo koji selektor koji uključuje samo jedan element.
+<br>
+Isto kao i za klase, to znači da stilovi definisani za <i>a:visited</i> primenjuju se i za <i>.visitedlink</i>.
+<br>
+Primer:
+<br>
+<br>
+<xmp class = "primer_ta" >
+.visitedlink {
+  @extend a:visited;
+}
+a:visited {
+  color:blue;
+  text-decoration: line-through;
+}
+</xmp>
+
+<h2>Višestruko proširenje</h2>
+Jedan selektor može se proširiti sa više od jednog selektora. To znači da nasleđuje stilove svih proširenih selektora.
+<br>
+Primer:
+<br>
+<br>
+<textarea class="primer_ta" rows="13" disabled>
+.error {
+  border: 4px yellow;
+  background-color: red;
+}
+.attention {
+  font-size: 6px;
+  background-color: green;
+}
+.seriousError {
+  @extend .error;
+  @extend .attention;
+  border-width: 3px;
+}
+</textarea>
+<br>
+<br>
+<textarea class="primer_ta" style="display:none;">
+.error {
+  border: 4px yellow;
+  background-color: red;
+}
+.attention {
+  font-size: 6px;
+  background-color: green;
+}
+.seriousError {
+  @extend .error;
+  @extend .attention;
+  border-width: 3px;
+}
+</textarea>
+<button class="button_copy">Vidi primer</button>
+<br>
+<br>
+
+Višestruko proširenje se može zapisati koristeći zareze za razdvajanje.
+Na primer, <i>@extend .error, .attention</i> je isto kao <i>@extend .error; @extend .attention.</i>
+<br>
+
+<div class="zadatak">
+Zadatak:
+<br>
+Napraviti klasu <i>message</i> koja . I još tri klase za uspešno slanje poruke, grešku i upozorenje, svaka od njih različite boje.
+</div>

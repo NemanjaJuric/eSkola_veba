@@ -1,0 +1,62 @@
+<h1>Promenljive</h1>
+<br>
+Najispravniji način da upotrebite <i>SassScript</i> je da koristite promenljive.
+Promenljive se koriste za skladištenje informacije koje želimo ponovo da koristimo.
+Možemo čuvati stvari kao što su boje,font ili bilo koje informacije koje želimo ponovo da koristimo.
+U Sass-u promenljive se deklarišu simbolom za dolar <b>$</b>.
+Vrednost promenljivima dodaje se pomoću znaka dvotačka(:).
+<br>
+Da bi se inicijalizovala promenljiva ili da bi joj se dodelila određena vrednost koristi se sledeća sintaksa:
+<br>
+<br>
+<span class="primer_text">$height: 6px;</span>
+<br>
+<br>
+Onda je mozemo pozvati na sledeći način:
+<xmp class = "primer_ta" >
+#main {
+  height: $height;
+}
+</xmp>
+<br>
+SassScript podržava osam tipova podataka:
+<ul>
+	<li>brojeve(1.2, 16, 8px)</li>
+	<li>stringove("tree", 'tree', tree)</li>
+	<li>Bulovu algebru(true, false)</li>
+	<li>boje(rgba(255,0,0,0.1), red)</li>
+	<li>mape od jedne do druge vrednosti(key1: value1, key2: value2)</li>
+	<li>liste vrednosti, odvojene razmacima ili zarezima(0.5px 1px 0 2px, Helvetica, Arial, sans-serif)</li>
+	<li>nulls(null)</li>
+	<li>funkcijske reference</li>
+</ul> 
+
+<h2>Područje važenja</h2>
+Promenljive su dostupne samo u okviru ugnježdenih selektora tamo gde su definisane. 
+Ako su definisane van ugnježdenih selektora, onda važe svuda.
+<br>
+Takodje, mogu biti definisane oznakom <b>!global</b>, i u tom slučaju su postojane svuda.
+<br>
+
+Primer
+<xmp class = "primer_ta" >
+#main {
+  $height: 5px !global;
+  height: $height;
+}
+
+#sidebar {
+  height: $height;
+}
+</xmp>
+
+prevodi se u 
+<xmp class = "primer_ta" >
+#main {
+  height: 5px;
+}
+
+#sidebar {
+  height: 5px;
+}
+</xmp>

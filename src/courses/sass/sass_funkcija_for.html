@@ -1,0 +1,31 @@
+<h1>Funkcija @for</h1>
+Postoje dva načina zapisivanja funkcije @for.
+<br>
+Prvi način zapisivanja:
+<br>
+<span class="primer_text">@for $var from <start> through <end></span>
+<br>
+Drugi način zapisivanja:
+<br>
+<span class="primer_text">@for $var from <start> to <end></span>
+<br>
+Primer koristeći prvi način zapisivanja <b>@for</b> funkcije, uključuje i broj 6:
+<br>
+<textarea class="primer_ta" rows="5" disabled>
+@for $i from 1 through 6 {
+  .col-#{$i}{
+    width: $i*2em;
+  }
+}
+</textarea>
+<br>
+Primer koristeći drugi način zapisivanja <b>@for</b> funkcije, ne uključuje broj 6:
+<br>
+<textarea class="primer_ta" rows="5" disabled>
+@for $i from 1 to 6{
+  .item-#{$i}{
+    width: $i*2em;
+  }
+}
+</textarea>
+<br>
