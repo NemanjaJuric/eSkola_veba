@@ -1,0 +1,27 @@
+<h1>Null</h1>
+Ovde se bavimo određenim scenarijem, jer postoji jedinstvena vrednost koja ima null kao tip podataka: null. 
+Zaista, null je u sto vreme vrednost i tip podataka, čineći vrlo specifican element programskog jezika Sass. 
+<br>
+<div class="napomena">
+Imajte na umu na moraju biti mala slova i citirana da bi bila tipa null. NULL ili bilo koja druga varijacija je tipa string. 
+</div>
+<br>
+<xmp class = "primer_ta" >
+$type: type-of(null); // null
+$type: type-of(NULL); // string
+$type: type-of('null'); // string
+$type: type-of('n' + 'u' + 'LL'); // string
+</xml>
+<br>
+Obično se null koristi za opsivanje prazne vrednosti koja će se popuniti kasnije ili prazno stanje koje nije ni istinito ni lazno. Zbog toga je null vrlo koristan: kada se proceni kao CSS vrednost Sass će izostaviti deklaraciju u potpunosti. Iako se može činiti čudnim ovo ponašanje zapravo vrlo korisno pri izgradnji miksina sa opcionalnim argumentima. 
+Umesto da testiramo svaki argument i proverimo da ili ima vrednost, možemo iskoristi da null vrednost ne bude izlazna. 
+<xmp class = "primer_ta" >
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+ position: absolute;
+ top: $top;
+ right: $right;
+ bottom: $bottom;
+ left: $left;
+}
+</xml>
+<br>

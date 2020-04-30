@@ -1,0 +1,42 @@
+<h2>Funkcija @each</h2>
+Each petlja je logička struktura koja ima za cilj iteriranje kolekcija, 
+što su liste i mape u programskom jeziku Sass. 
+Zbog toga each petlja radi onoliko puta koliki je broj elemenata u kolekciji (elemenata u listi, parova ključeva/vrednosti u mapi).
+<br>
+Funkcija @each ima sledeći oblik: 
+<br>
+<ol>
+<li>naredba @each</li>
+<li>ime promenljive</li>
+<li>ključna reč in</li>
+<li>kolekcija za iteraciju</li>
+</ol>
+Funkcija <b>@each</b> ima sledeći oblik:
+<br>
+<xmp class = "primer_ta" >
+ @each $var in <list or map>
+</xmp>
+<br>
+Pri čemu <i>$var</i> može biti bilo koje ime promenljive, a <list or map> je izraz koji vraća listu ili mapu.
+<br>
+Primer <i>each</i> funkcije sa listom:
+<br>
+<xmp class = "primer_ta" >
+$speakers: bob-banker, patty-plume, sandra-smith;
+@each $speaker in $speakers {
+    .#{$speaker}-profile{
+      background-image: url('/img/#{$speaker}.png')
+    }
+}
+</xmp>
+<br>
+Primer <i>each</i> funkcije sa mapama:
+<br>
+<xmp class = "primer_ta" >
+$font-sizes:(tiny: 8px, small: 11px, medium: 13px, large: 18px);
+@each $name, $size in $font-sizes{
+    .#{$name}{
+      font-size: $size; 
+    }
+}
+</xmp>

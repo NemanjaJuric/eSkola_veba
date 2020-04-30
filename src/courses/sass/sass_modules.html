@@ -1,3 +1,8 @@
+<h1>Moduli<h1>
+<p>
+Nije potrebno pisati Sass kod u jednom datoteci, možemo ih razdvojiti u više datoteka koristeći naredbu @use. Ova naredba učitava drugu Sass datoteku kao modul, što žnači da možemo pozivati njene promenljive, mixin-e i funkcije pozivajući se na ime te datoteke. 
+Kada uključujemo drugu datoteku nije potrebno da navodimo njenu ekstenziju, Sass je pametan i uradiće to za nas. 
+</p>
 <textarea class="primer_ta" rows="8" disabled>
 //_main.scss
 $font-stack: sans-serif;
@@ -8,7 +13,7 @@ body{
   color: $primary-color;
 }
 </textarea>
-
+<br>
 <textarea class="primer_ta" rows="7" disabled>
 // styles.scss
 @use 'main';
@@ -18,3 +23,10 @@ body{
   color: white;
 }
 </textarea>
+<p>
+Pre uvođenja sistema modula u programski jezik Sass, sve funkcije bile su globalno dostupne u svakom trenutku. 
+Mnoge funkcije i dalje imaju globalne pseudonime. 
+Sass tim odvraća od njihove upotrebe i na kraju će ih oduzeti, ali za sada su dostupni za kompatibilnost sa starijim Sass verzijama i sa LibSass. 
+Nekoliko funkcija dostupno je i dalje čak i u novom sistemu modula, bilo zato što imaju posebno evaluacijsko ponašanje, kao što je funkcija if() ili zato što dodaju dodatno ponašanje povrh ugrađenih CSS funkcija, kao što su rgb() i hsl(). 
+One neće zastariti i mogu se slobodno koristiti.
+</p>

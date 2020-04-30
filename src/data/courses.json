@@ -1284,6 +1284,70 @@
         "sublessons": null
       },
       {
+        "name": "Tipovi podataka",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": [
+          {
+            "name": "Tipovi podataka",
+            "url": "sass_tipovipodataka",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass boje",
+            "url": "sass_boje",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass booleans",
+            "url": "sass_booleans",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass liste",
+            "url": "sass_liste",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass mape",
+            "url": "sass_mape",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass nizovi",
+            "url": "sass_nizovi",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass null",
+            "url": "sass_null",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          }
+        ]
+      },
+      {
+        "name": "Importovanje",
+        "url": "sass_import",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
         "name": "Partials",
         "url": "sass_partials",
         "type": "lesson",
@@ -1305,18 +1369,54 @@
         "sublessons": null
       },
       {
-        "name": "Importovanje",
-        "url": "sass_import",
-        "type": "lesson",
-        "parentCourse": "sass",
-        "sublessons": null
-      },
-      {
         "name": "Funkcije",
         "url": "sass_funkcije",
         "type": "lesson",
         "parentCourse": "sass",
         "sublessons": null
+      },
+      {
+        "name": "Petlje",
+        "url": null,
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": [
+          {
+            "name": "Sass petlje",
+            "url": "sass_petlje",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass for petlja",
+            "url": "sass_loop_for",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass for petlja",
+            "url": "sass_loop_for",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass each petlja",
+            "url": "sass_loop_each",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          },
+          {
+            "name": "Sass while petlja",
+            "url": "sass_petlja_while",
+            "type": "lesson",
+            "parentCourse": "sass",
+            "sublessons": null
+          }
+        ]
       },
       {
         "name": "Funkcija If",
@@ -1326,22 +1426,8 @@
         "sublessons": null
       },
       {
-        "name": "Funkcija For",
-        "url": "sass_funkcija_for",
-        "type": "lesson",
-        "parentCourse": "sass",
-        "sublessons": null
-      },
-      {
-        "name": "Funkcija While",
-        "url": "sass_funkcija_while",
-        "type": "lesson",
-        "parentCourse": "sass",
-        "sublessons": null
-      },
-      {
-        "name": "Funkcija Each",
-        "url": "sass_funkcija_each",
+        "name": "Ugnježdavanje",
+        "url": "sass_ugnjezdavanje",
         "type": "lesson",
         "parentCourse": "sass",
         "sublessons": null
@@ -1361,8 +1447,15 @@
         "sublessons": null
       },
       {
-        "name": "Liste",
-        "url": "sass_list",
+        "name": "Upozorenja",
+        "url": "sass_upozorenja",
+        "type": "lesson",
+        "parentCourse": "sass",
+        "sublessons": null
+      },
+      {
+        "name": "Greške",
+        "url": "sass_greske",
         "type": "lesson",
         "parentCourse": "sass",
         "sublessons": null

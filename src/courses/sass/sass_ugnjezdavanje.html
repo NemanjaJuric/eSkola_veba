@@ -1,0 +1,45 @@
+<h1>Ugnježdavanje</h1>
+Prilikom pisanja veb-stranica primećujemo da HTML ima jasnu ugnježdenu i vizuelnu hijerarhiju.
+<br>
+Kod CSS-a to nije slučaj, dok Sass omogućava da blokovi koda budu umetnuti jedan u drugi.
+<br>
+Primer
+<br>
+<xmp class = "primer_ta" >
+nav {
+  ul {
+    margin: 1px;
+    padding: 2px;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+}
+
+</xmp>
+se prevodi kao
+<xmp class = "primer_ta" >
+nav ul {
+  margin: 1px;
+  padding: 2px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+</xmp>
+<br>
+Ugnježdavanje je jako korisno kada posmatramo velike CSS fajlove, omogućava nam da lakše rastumačimo strukturu fajla bez njegovog čitanja.
+

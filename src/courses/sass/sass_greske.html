@@ -1,0 +1,8 @@
+<h1>Greške</h1>
+Upozorenja i greške (<i>eng. errors</i>) se ponašaju prilično slično u programskom jeziku Sass, tako da je učenje o greškama ide lagano kada ste već dobro savladali upozorenja. Jedina razlika između greške i upozorenja je, kao što pretpostavljate, da greška stopira proces kompilacije. 
+Korišćenje greške može biti korisno prilikom provere parametara iz miksina i funkcija, na primer.
+Možete izbaciti grešku koristeći <b>@error</b> naredbu. Isto kao i za upozorenje, može proći bilo šta u ovoj naredbi – nije nužno niz, mada to ima više smisla da biste obezbedili jasan kontekst. 
+Argument će biti odštampan na standardnom izlazu, kao i ..... Proces kompilacije će se zaustaviti odmah.
+<xmp class = "primer_ta" >
+@error "You should not pass!";
+</xmp>

@@ -1,6 +1,96 @@
 <h1>Funkcije</h1>
-<textarea class="primer_ta" rows="3" disabled>
-nth(10px 20px 30px, 1); //10px
-nth((Helvetica, Arial, sans-serif), 3); // sans-serif
-nth((width: 10px, length: 20px), 2); // length, 20px
-</textarea>
+U računarskoj nauci funkcija je deo koda koji vraća rezultat i eventualno prihvata argumente. 
+To je idealan način za izdvajanje ponovljenih delova koda. Kao posledica toga, funkcije postoje u skoro svim programskim jezicima, čak i u jeziku CSS. Sass pruža ne samo mnoštvo ugrađenih funkcija, već i mogućnost da se definišu korisničke funkcije. 
+<br>
+Funkcije se definišu ključnom rečju <b>@function</b>, zatim imenom funkcije, zatim par zagrada – koje mogu, ali i ne moraju nužno da sadrže argumente. 
+Jezgro funkcije se zatim piše između zagrada ({..}). Sass funkcija vraća rezultat kroz <b>@return</b> naredbu. 
+Bitno je da mora sadržati bar jednu povratnu izjavu inače će vratiti grešku.
+<br>
+Primer funkcije za množenje dva broja:
+<br>
+<xmp class = "primer_ta" >
+@function multiply($a, $b) {
+ @return ($a * $b);
+}
+</xmp>
+<br>
+
+<h2>Funkcije za brojeve</h2>
+<ul>
+<li>percentage ($number) – pretvara broj u procenat</li>
+<li>round ($number) – zaokružuje u najveći ceo broj</li>
+<li>ceil ($number) – zaokružuje u prvi sledeći, veći ceo broj</li>
+<li>floor ($number) – zaokružuje u prethodni, ceo broj</li>
+<li>abs ($number) – vraća apsolutnu vrednost broja</li>
+<li>min ($numbers…) – pronalazi minimum brojeva</li>
+<li>max ($numbers…) – pronalazi maksimum brojeva</li>
+<li>random () – vraća nasumični broj</li>
+</ul>
+
+<h2>Funkcije za nizove</h2>
+<ul>
+<li>unquote ($string) – uklanja citate iz nizova</li>
+<li>quote ($string) – dodaje citate u nizove</li>
+<li>str-length ($string) – vraća broj karaktera u nizu</li>
+<li>str-insert ($string, $insert, $index) – umeće ‘$insert’ u ‘$string’ počevši od ‘$index’</li>
+<li>str-index ($string, $substring) – vraća indeks od prvog pojavljivanja .....</li>
+<li>str-slice ($string, $start-at, [$end-at]) - …..</li>
+<li>to-upper-case ($string) – pretvara niz u velika slova</li>
+<li>to-lower-case ($string) – pretvara niz u mala slova</li>
+</ul>
+
+<h2>Funkcije RGB</h2>
+<ul>
+<li>rgb ($red, $green, $blue) – pravi boju od crvene, zelene i plave, promenljive mogu imati vrednosti od 0 do 255</li>
+<li>rgba ($red, $green, $blue, $alpha) – pravi boju od crvene, zelene, plave i vrednosti za prozirnost, $alpha</li>
+<li>red ($color) – količina crvene u boji, mora imati vredost od 0 do 255 ili od 0% do 100%</li>
+<li>green ($color) - količina zelene u boji, mora imati vredost od 0 do 255 ili od 0% do 100%</li>
+<li>blue ($color) - količina plave u boji, mora imati vredost od 0 do 255 ili od 0% do 100%</li>
+<li>mix ($color1, $color2, [$weight]) – miksuje dve boje zajedno, što je vrednost za relativnu težinu bliža 100% to dobijamo više prve boje, što je bliža 0% dobijamo više druge boje</li>
+</ul>
+
+<h2>Funkcije HSL</h2>
+<ul>
+<li>hsl ($hue, $saturation, $lightness)</li>
+<li>hsla ($hue, $saturation, $lightness, $alpha)</li>
+<li>hue ($color) – nijansa boje, mora biti u inervalu od 0 do 360 stepeni</li>
+<li>saturation ($color) – zasićenost boje, mora biti u untervalu od 0% do 100%</li>
+<li>lightness ($color) – osvetljenost boje, mora biti untervalu od 0% do 100%</li>
+<li>adjust-hue ($color, $degrees) – menja nijansu boje, vrednost za $degrees mora biti u interval od -360 do 360 stepeni</li>
+<li>lighten ($color, $amount) – pravi svetliju boju, količina osvetljenosti raste u intervalu od 0% do 100%</li>
+<li>darken ($color, $amount) – pravi tamniju boju</li>
+<li>saturate ($color, $amount)</li>
+<li>desaturate ($color, $amount)</li>
+<li>grayscale ($color)</li>
+<li>complement ($color)</li>
+<li>invert ($color, [$weight])</li>
+</ul>
+
+<h2>Funkcija List</h2>
+Liste u programskom jeziku Sass su nepromenljive. Sve list funkcije vraćaju novu funkciju, a ne ažuriraju postojeću.
+<br>
+<ul>
+<li>lenght ($list) – vraća dužinu liste</li>
+<li>nth ($list, $n) – vraća n-ti član liste</li>
+<li>set-nth ($list, $n, $value) – menja n-ti član liste</li>
+<li>join ($list1, $list2, [$separator, $bracketed]) – spaja dve liste u jednu. </li>
+<br>
+Ako se ne podesi $separator, jedna lista je odvojena zarezima, druga razmakom, prvi separator se koristi u rezultirajućoj listi.
+<br>
+<li>append ($list1, $val, [$separator])</li>
+<li>zip ($lists…)</li>
+<li>index ($list, $value)</li>
+<li>list-separator ($list)</li>
+<li>is-bracketed ($list)</li>
+</ul>
+
+<h2>Funkcije Maps</h2>
+<ul>
+<li>map-get ($map, $key)</li>
+<li>map-merge ($map1, $map2) – stapa dve mape u jednu novu mapu</li>
+<li>map-remove ($map, $keys) – vraća novu mapu sa uklonjenim ključevima</li>
+<li>map-keys ($map) – vraća listu svih ključeva u mapi</li>
+<li>map-values ($map) - vraća listu svih vrednosti u mapi</li>
+<li>map-has-key ($map, $key) – </li>
+<li>keywords ($args) – </li>
+</ul>

@@ -1,0 +1,47 @@
+<h2>Funkcija @for</h2>
+<p>
+For petlja je logička struktura koja se ponavlja zadati broj puta. U jeziku Sass (kao i u bilo kojem drugom programskom jeziku) for petlja očekuje početni i završni indeks, i radi onoliko puta koliko je potrebno od početka do kraja. 
+Unutar sadržaja obezbeđena je promenljiva indeks, što je čini idealnim saveznikom kada želite da ponovite niz znajući trenutni indeks iteracije.
+</p>
+<br>
+For petlja se definiše na sledeći način:
+<br>
+<ol>
+<li>naredba @for </li>
+<li>ime promenljive indeksa (obično, ali ne nužno sa $i)</li>
+<li>ključna reč from</li>
+<li>početni indeks (statički broj, promenljiva ili poziv funkcije)</li>
+</li>ključna reč through (uključuje i krajnji indeks) ili ključna reč to (ne uključuje krajnji indeks)</li>
+<li>krajnji indeks (statički broj, promenljiva ili poziv funkcije)</li>
+</ol>
+<br>
+Postoje dva načina zapisivanja funkcije @for.
+<br>
+Prvi način zapisivanja:
+<br>
+<span class="primer_text">@for $var from <start> through <end></span>
+<br>
+Drugi način zapisivanja:
+<br>
+<span class="primer_text">@for $var from <start> to <end></span>
+<br>
+Primer koristeći prvi način zapisivanja <b>@for</b> funkcije, uključuje i broj 6:
+<br>
+<textarea class="primer_ta" rows="5" disabled>
+@for $i from 1 through 6 {
+  .col-#{$i}{
+    width: $i*2em;
+  }
+}
+</textarea>
+<br>
+Primer koristeći drugi način zapisivanja <b>@for</b> funkcije, ne uključuje broj 6:
+<br>
+<textarea class="primer_ta" rows="5" disabled>
+@for $i from 1 to 6{
+  .item-#{$i}{
+    width: $i*2em;
+  }
+}
+</textarea>
+<br>
