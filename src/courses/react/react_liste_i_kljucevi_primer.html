@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ucitaj React. -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Blog(props) {
+          const sidebar = (
+            <ul>
+              {props.posts.map((post) =>
+                <li key={post.id}>
+                  {post.title}
+                </li>
+              )}
+            </ul>
+          );
+          const content = props.posts.map((post) =>
+            <div key={post.id}>
+              <h3>{post.title}</h3>
+              <p>{post.content}</p>
+            </div>
+          );
+          return (
+            <div>
+              {sidebar}
+              <hr />
+              {content}
+            </div>
+          );
+        }
+
+        const posts = [
+          {id: 1, title: 'Zdravo svet', content: 'Dobrodošli u učenje React-a!'},
+          {id: 2, title: 'Instalacija', content: 'Možete instalirati React pomoću npm.'}
+        ];
+        ReactDOM.render(
+          <Blog posts={posts} />,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>

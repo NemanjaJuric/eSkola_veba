@@ -1528,6 +1528,101 @@
     ]
   },
   {
+    "name": "React",
+    "id": "react",
+    "logo": "<i class='fab fa-react' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u React",
+        "url": "react_uvod",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "React - JSX",
+        "url": "react_upoznavanje_JSX",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "React - predstavljanje elemenata",
+        "url": "react_predstavljanje_elemenata",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Komponente i atributi",
+        "url": "react_komponente_i_atributi",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Stanje i životni ciklus",
+        "url": "react_stanje_i_zivotni_ciklus",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Rukovanje događajima",
+        "url": "react_rukovanje_dogadjajima",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Uslovno prikazivanje",
+        "url": "react_uslovno_prikazivanje",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Liste i ključevi",
+        "url": "react_liste_i_kljucevi",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Forme",
+        "url": "react_forme",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Podizanje stanja nagore",
+        "url": "react_podizanje_stanja_nagore",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Sastavlanje naspram nasleđivanja",
+        "url": "react_sastavljanje_naspram_nasledjivanja",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Razmišljanje u React-u",
+        "url": "react_razmisljanje_u_reactu",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      }
+    ]
+  },
+  {
     "name": "Vue.js",
     "id": "vue",
     "logo": "<i class='fab fa-vuejs' aria-hidden='true'></i>",

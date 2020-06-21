@@ -1,0 +1,167 @@
+<h1> Rukovanje događajima</h1>
+<br>
+
+Rukovanje događajima sa React elementima je vrlo slično rukovanju događajima na DOM elementima. 
+Postoje neke razlike u sintaksi:
+<br>
+
+<ul>
+  <li>React događaji su imenovani pomoću "kamilje notacije" ("camelCase"), a ne malim slovima.</li>
+  <li>Sa JSX prosleđujete funkciju kao rukovalac događaja, a ne string.</li>
+</ul>
+<br>
+
+Na primer, HTML:
+<xmp class = "primer_ta">
+<button onclick="activateLasers()">
+  Aktivirajte lasere
+</button>
+</xmp>
+
+je nešto drugačiji u React-u:
+<xmp class = "primer_ta">
+<button onClick={activateLasers}>  
+  Aktivirajte lasere
+</button>
+</xmp>
+
+Druga razlika je u tome što ne možete vratiti "false" da biste sprečili podrazumevano ponašanje u React-u. 
+Morate eksplicitno pozvati "preventDefault". 
+Na primer, pomoću običnog HTML-a, da sprečite podrazumevano ponašanje link-a, otvaranje nove stranice, možete da napišete:
+<xmp class = "primer_ta">
+<a href="#" onclick="console.log('Kliknuli ste na link.'); return false">
+  Klikni
+</a>
+</xmp>
+
+U React-u bi to moglo biti:
+<xmp class = "primer_ta">
+function ActionLink() {
+  function handleClick(e) {    
+    e.preventDefault();
+    console.log('Kliknuli ste na link.');  
+  }
+  
+  return (
+    <a href="#" onClick={handleClick}>      
+      Klikni
+    </a>
+  );
+}
+</xmp>
+
+Ovde, "e" je sintetički događaj. React definiše ove sintetičke događaje prema W3C specifikaciji, tako da ne morate brinuti o kompatibilnosti sa drugim pretraživačima.
+<br><br>
+
+Kada koristite React, generalno ne morate pozivati <span class = "primer_text">addEventListener</span> da biste dodali osluškivač na DOM element nakon što je kreiran. 
+Umesto toga, samo obezbedite osluškivač pri inicijalnom prikazu elementa.
+<br><br>
+
+Kada definišete komponentu pomoću ES6 klase, uobičajeno je da rukovalac događajem bude metod u klasi. 
+Na primer, ova <span class = "primer_text">Toggle</span> komponenta čini dugme koje korisniku omogućava da prelazi između stanja "ON" i "OFF".
+<xmp class = "primer_ta">
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // Ovo vezivanje je neophodno da bi "this" radilo u povratnom pozivu
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+</xmp>
+
+Morate biti oprezni u značenju <span class = "primer_text">this</span> u JSX povratnim pozivima. 
+U JavaScript-u, metode klase nisu vezane po defaultu. Ako zaboravite da vežete <span class = "primer_text">this.handleClick</span> i prosledite ga <span class = "primer_text">onClick</span>, <span class = "primer_text">this</span> će imati vrednost <span class = "primer_text">undefined</span> kada se funkcija zaista pozove.
+<br><br>
+
+Ovo nije ponašanje specifično za React, to je način na koji funkcionišu funkcije u JavaScript-u. 
+Generalno, ako referišete na metod bez <span class = "primer_text">()</span> posle imena metode, kao što je <span class = "primer_text">onClick={this.handleClick}</span>, trebalo bi da vežete tu metodu.
+<br><br>
+
+Ako vas pozivanje <span class = "primer_text">bind</span> iritira, postoje dva načina kako to možete da zaobiđete. 
+Ako koristite sintaksu "javna" polja klase, tada možete koristiti polja klase da pravilno vežete povratne pozive, imajte na umu da je ovo eksperimentalna sintaksa:
+<xmp class = "primer_ta">
+class LoggingButton extends React.Component {
+  // Ova sintaksa osiguravam da je "this" vezano unutar hadleClick.
+  // Upozorenje: ovo je *eksperimentalna* sintaksa.
+  handleClick = () => {
+    console.log('this je:', this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Klikni
+      </button>
+    );
+  }
+}
+</xmp>
+
+Ova sintaksa je podrazumevano omogućena u "Create React App".
+<br><br>
+
+Ako ne koristite sintaksu polja klase, u povratnom pozivu možete da koristite "strela" funkcije:
+<xmp class = "primer_ta">
+class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this je:', this);
+  }
+
+  render() {
+    // Ova sintaksa osiguravam da je "this" vezano unutar hadleClick.
+    return (
+      <button onClick={() => this.handleClick()}>
+        Klikni
+      </button>
+    );
+  }
+}
+</xmp>
+
+Problem sa ovom sintaksom je u tome što se svaki put kreira drugačiji povratni poziv kad god se LoggingButton komponenta ponovo prikazuje. 
+U većini slučajeva to je uredu. 
+Međutim ako se ova funkcija prosleđuje nižim komponentama u hijerarhiji kao atribut ("props"), te komponente mogu napraviti dodatno renderovanje (ponovno prikazivanje). 
+Mi generalno preporučujemo vezivanje u konstruktoru ili korišćenjem sintakse polja klase, kako biste izbegli ovakav problem sa performansama.
+<br><br>
+
+<h2>Prosleđivanje argumenata rukovaocima događaja</h2>
+
+Unutar petlje je uobičajeno da želite da prosledite dodatni parametar rukovaocu događaja. 
+Na primer, ako je <span class = "primer_text">id</span> ID reda, bilo šta od navedenog funkcioniše:
+<xmp class = "primer_ta">
+<button onClick={(e) => this.deleteRow(id, e)}>Obriši red</button>
+<button onClick={this.deleteRow.bind(this, id)}>Obriši red</button>
+</xmp>
+
+Gornje dve linije su ekvivalentne, slobodno koristite "strela" funkcije i <span class = "primer_text">Function.prototype.bind</span> podjednako.
+<br><br>
+
+U oba slučaja, argument <span class = "primer_text">e</span> koji predstavlja React događaj biće prosleđen kao drugi argument nakon ID-a. 
+Korišćenjem "strela" funkcije moramo ga eksplicitno proslediti, ali koršćenjem vezivanja se svi ostali argumenti automatski prosleđuju.
+
+<div class="zadatak">
+<b>Zadatak:</b> Kreirati komponentu CounterButton koja ima dugme za uvećavanje vrednosti brojača i ispisuje rezultat brojača ispod dugmeta.
+<br><br>
+Takođe, ohrabrujemo vas da isprobate sve isečke kodova iz ove lekcije i poigrate se sa njima. 
+</div>

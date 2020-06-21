@@ -22,6 +22,7 @@ $express-primary: #6db33f;
 $sql-primary: #7986CB;
 $web-center-primary: #37474F;
 $jupyter-primary: #ef6300;
+$react-primary: #282c34;
 
 $material-dark-gray: #37474F;
 $material-gray: #455a64;
@@ -194,6 +195,10 @@ $android-official: #a2c53d;
     background-color: $jupyter-primary !important;
 }
 
+.bkg-react{
+    background-color: $react-primary !important;
+}
+
 .bkg-about{
     background-color: $about-primary !important;
 }
@@ -304,6 +309,10 @@ $android-official: #a2c53d;
 
 .hover-jupyter:hover{
     color: $jupyter-primary;
+}
+
+.hover-react:hover{
+    color: $react-primary;
 }
 
 .trans-md{

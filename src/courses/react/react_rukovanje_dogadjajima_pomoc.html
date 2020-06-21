@@ -1,0 +1,55 @@
+react_uslovno_prikazivanje.html
+react_stanje_i_zivotni_ciklus.html
+
+Kreiracemo komponentu i u njenom stanju cuvati vrednost brojača.
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ucitaj React. -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class CounterButton extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              counter: 0
+            };
+
+            // Ovo vezivanje je neophodno da bi "this" radilo u povratnom pozivu
+            this.incrementCounter = this.incrementCounter.bind(this);
+          }
+
+          incrementCounter() {
+            this.setState(state => ({
+              counter: state.counter + 1
+            }));
+          }
+
+          render() {
+            return (
+              <div>
+                <button onClick={this.incrementCounter}>
+                  Uvecaj
+                </button>
+                <p>Rezultat: {this.state.counter}</p>
+              </div>
+            );
+          }
+        }
+
+
+        ReactDOM.render(
+          <CounterButton />,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>
+</xmp>

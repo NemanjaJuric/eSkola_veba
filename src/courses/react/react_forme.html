@@ -1,0 +1,287 @@
+<h1> Forme (Obrasci)</h1>
+<br>
+
+HTML elemnti forme rade na malo drugačiji način od ostalih DOM elemenata u React-u, jer elementi forme po prirodi stvari čuvaju neko unutrašnje stanje. Na primer, ovaj obrazac u običnom HTML-u prihvata jedno ime:
+<xmp class = "primer_ta">
+<form>
+  <label>
+    Ime:
+    <input type="text" name="name" />
+  </label>
+  <input type="submit" value="Podnesi" />
+</form>
+</xmp>
+
+Ovaj obrazac ima podrazumevano ponašanje obrasca u HTML-u, prelaska na sledeću stranicu kada korisnik podnese obrazac. 
+Ako želite takvo ponašanje u React-u, to tako podrazumevano i radi. 
+Ali u većini slučajeva je prikladno imati JavaScript funkciju koja upravlja predajom obrasca i ima pristup podacima koje je korisnik uneo na formu (obrazac). 
+Standardni način da se to postigne je pomoću tehnike koja se naziva "kontrolisane komponente".
+<br><br>
+
+<h2>Kontrolisane komponente</h2>
+
+U HTML-u, elementi forme poput <span class = "primer_text">&ltinput&gt</span>, <span class = "primer_text">&lttextarea&gt</span> i <span class = "primer_text">&ltselect&gt</span> obično održavaju svoje stanje i ažuriraju ga na osnovu korisničkog unosa. 
+U React-u, promenljivo stanje se obično održava u svojstvu stanja komponente i ažurira se samo sa <span class = "primer_text">setState()</span>.
+<br><br>
+
+Možemo ih kombinovati tako što ćemo React stanje učiniti "jedinstvenim izvorom istine". Tada React komponenta koja čini formu (obrazac) takođe kontroliše šta se dešava na toj formi prilikom sledećeg unosa korisnika. Element forme u koji upisujemo nešto i čiju vrednost na ovaj način kontroliše React nazivamo "kontrolisana komponenta".
+<br><br>
+
+Na primer, ako želimo da prethodni primer zabeleži ime kada se forma podnese, možemo da napišemo formu (obrazac) kao kontrolisanu komponentu:
+<xmp class = "primer_ta">
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Podneto je ime: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Ime:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Podnesi" />
+      </form>
+    );
+  }
+}
+</xmp>
+
+Budući da je <span class = "primer_text">value</span> atribut postavljen na našem elementu forme, prikazana vrednost će uvek biti <span class = "primer_text">this.state.value</span>, čineći React stanje izvorom istine. Budući da se <span class = "primer_text">handleChange</span> poziva sa svakim pritiskom tastera da ažurira React stanje.
+<br><br>
+
+Sa kontrolisanom komponentom, unetim vrednostima uvek upravlja React stanje. Iako to znači da morate da unesete malo više koda, sada možete da prosledite vrednost i drugim elementima korisničkog interfejsa ili da je resetujete iz drugih rukovalaca događajima.
+<br><br>
+
+<h2>textarea Tag</h2>
+
+U HTML-u, <span class = "primer_text">&lttextarea&gt</span> element definiše tekst kao svoju "decu":
+<xmp class = "primer_ta">
+<textarea>
+  Zdravo, ovo je neki tekst u tekst komponenti
+</textarea>
+</xmp>
+
+U React-u, <span class = "primer_text">&lttextarea&gt</span> umesto toga koristi <span class = "primer_text">value</span> atribut. Na ovaj način forma koja koristi <span class = "primer_text">&lttextarea&gt</span> može biti napisana vrlo slično formi koja koristi unos u jednom redu:
+<xmp class = "primer_ta">
+class EssayForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'Molim vas napisite esej o vašem omiljenom DOM elemntu.'
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Podneti esej je: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Esej:
+          <textarea value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Podnesi" />
+      </form>
+    );
+  }
+}
+</xmp>
+
+Primetite da se <span class = "primer_text">this.state.value</span> inicijalizuje u konstruktoru, tako da textarea sadrži neki tekst  u sebi na početku.
+<br><br>
+
+<h2>select Tag</h2>
+
+U HTML-u, <span class = "primer_text">&ltselect&gt</span> kreira padajuću listu. Na primer, ovaj HTML kreira padajuću listu različitih ukusa:
+<xmp class = "primer_ta">
+<select>
+  <option value="grapefruit">Grejpfrut</option>
+  <option value="lime">Limeta</option>
+  <option selected value="coconut">Kokos</option>
+  <option value="mango">Mango</option>
+</select>
+</xmp>
+
+Imajte na umu da je opcija Kokos inicijalno izabrana, zbog <span class = "primer_text">selected</span> atributa. React, umesto da koristi ovaj <span class = "primer_text">selected</span> atribut, koristi <span class = "primer_text">value</span> atribut na roditeljksom <span class = "primer_text">select</span> tagu. To je mnogo pogodnije na kontrolisanoj komponenti jer je trebate ažurirati samo na jednom mestu. Na primer:
+<xmp class = "primer_ta">
+class FlavorForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'coconut'};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Izaberite vaš omiljeni ukus:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grejpfrut</option>
+            <option value="lime">Limeta</option>
+            <option value="coconut">Kokos</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Podnesi" />
+      </form>
+    );
+  }
+}
+</xmp>
+
+Sve u svemu, to znači da <span class = "primer_text">&ltinput type="text"&gt</span>, <span class = "primer_text">&lttextarea&gt</span> i <span class = "primer_text">&ltselect&gt</span> rade vrlo slično - svi prihvataju <span class = "primer_text">value</span> atribut koji možete koristiti za implementaciju kontrolisane komponente.
+
+<div class="napomena">
+Možete proslediti niz u value atribut, omogućavajući vam da odaberete više opcija u select tagu:
+<xmp class = "primer_ta">
+<select multiple={true} value={['B', 'C']}>
+</xmp>
+</div>
+<br>
+
+<h2>file input Tag</h2>
+
+U HTML-u, <span class = "primer_text">&ltinput type="file"&gt</span> omogućava korisniku da odabere jednu ili više datoteka iz memorije njegovog uređaja, koje želi da pošalje serveru ili da manipuliše njima preko JavaScript API-a za fajlove.
+<xmp class = "primer_ta">
+<input type="file" />
+</xmp>
+
+Pošto je njegova vrednost samo za čitanje, ona predstavlja "ne kontrolisanu" komponentu u React-u.
+<br><br>
+
+<h2>Rukovanje sa više ulaza</h2>
+
+Kada treba da obrađujete više kontrolisanih ulaznih elemenata, možete dodati <span class = "primer_text">name</span> atribut svakom elementu i pustiti funkciju obrade da odabere šta treba da radi na osnovu vrednosti <span class = "primer_text">event.target.name</span>.
+<br><br>
+
+Na primer:
+<xmp class = "primer_ta">
+class Reservation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isGoing: true,
+      numberOfGuests: 2
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.name === 'isGoing' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    return (
+      <form>
+        <label>
+          Ide:
+          <input
+            name="isGoing"
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Broj gostiju:
+          <input
+            name="numberOfGuests"
+            type="number"
+            value={this.state.numberOfGuests}
+            onChange={this.handleInputChange} />
+        </label>
+      </form>
+    );
+  }
+}
+</xmp>
+
+Primetite kako smo koristili ES6 sintaksu izračunavanja imena svojstva pri ažuriranju stanja komponente sa odgovarajućim name atributom:
+<xmp class = "primer_ta">
+this.setState({
+  [name]: value
+});
+</xmp>
+
+To je ekvivalentno ovom ES5 kodu:
+<xmp class = "primer_ta">
+var partialState = {};
+partialState[name] = value;
+this.setState(partialState);
+</xmp>
+
+Takođe, obzirom da <span class = "primer_text">setState()</span> automatski spaja parcijalno stanje u trenutno stanje, mogli smo ga pozvati samo sa izmenjenim delovima.
+<br><br>
+
+<h2>Kontrolisani unos NULL vrednosti</h2>
+
+Navođenje value atributa na kontrolisanoj komponenti sprečava korisnika u menjanju unete vrednosti, osim ako to ne želite. Ako ste naveli <span class = "primer_text">value</span>, a unos je idalje moguće menjati, možda ste slučajno postavili vrednost <span class = "primer_text">undefined</span> ili <span class = "primer_text">null</span>.
+<br><br>
+
+Sledeći kod to pokazuje. (Ulaz je zaključan na početku, ali postaje moguć za menjanje nakon kratkog kašnjenja.)
+<xmp class = "primer_ta">
+ReactDOM.render(<input value="Zdravo" />, mountNode);
+
+setTimeout(function() {
+  ReactDOM.render(<input value={null} />, mountNode);
+}, 1000);
+</xmp>
+<br>
+
+<h2>Alternativa kontrolisanim komponentama</h2>
+
+
+Korišćenje kontrolisanih komponenti ponekad može biti zamorno jer morate napisati rukovaoc događajem za obradu događaja na svaki način na koji se vaši podaci mogu promeniti i proslediti svo ulazno stanje kroz React komponentu. Ovo može postati posebno neugodno kada pretvarate postojeću kodnu bazu u React ili integrišete React aplikaciju sa ne-React bibliotekom. U ovim situacijama možda ćete želeti da proučite "ne kontrolisane komponente", alterantivnu tehniku za implementaciju formi (obrazaca).
+<br><br>
+
+<h2>Potpuno ispravna rešenja</h2>
+
+Ako tražite potpuno rešenje, uključujući proveru validnosti, praćenje posećenih polja i rukovanje podnošenjem forme (obrasca), "Formik" je jedan od popularnih izbora. Međutim izgrađen je na istim principima kontrolisanih komponenti i upravljanja stanjem - tako da ne plašite se da ih naučite.
+
+<div class="zadatak">
+<b>Zadatak:</b> Isprobati sve isečke kodova iz ove lekcije i poigrajte se sa njima.  
+</div>

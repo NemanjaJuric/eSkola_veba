@@ -1,0 +1,47 @@
+react_forme.html
+react_uslovno_prikazivanje.html
+
+Kreiramo komponentu SpisakPredmeta, ostalo ćete razumeti u kodu ispod:
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ucitaj React. -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function SpisakPredmeta(props) {
+          const predmeti = props.predmeti.map((predmet) =>
+            <div>
+              <h3 key={predmet.id}>
+                {predmet.naziv}
+              </h3>
+              <p>{predmet.opis}</p>
+            </div>
+          );
+          
+          return (
+            <div>
+              {predmeti}
+            </div>
+          );
+        }
+
+        const predmeti = [
+          {id: 1, naziv: 'Matematika', opis: 'Matematika je predmet na kojem ucenici razvijaju svoju logiku i vestine.'},
+          {id: 2, naziv: 'Srpski jezik', opis: 'Učenici se upoznaju sa pravopisom i gramatikom Srpskog jezika'},
+          {id: 3, naziv: 'Fizičko vaspitanje', opis: 'Unapređuje i testira fizičku spremu učenika, takođe upoznaje učenike sa pravilnim vežbanjem i zagrevanjem mišića.'}
+        ];
+        ReactDOM.render(
+          <SpisakPredmeta predmeti={predmeti} />,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>
+</xmp>

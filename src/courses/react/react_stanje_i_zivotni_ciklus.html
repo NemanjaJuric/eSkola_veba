@@ -1,0 +1,461 @@
+<h1>Stanje i životni ciklus</h1>
+<br>
+
+Na ovoj starnici predstavićemo koncept stanja i životnog ciklusa u React komponentama.
+<br><br>
+
+Razmotrimo primer "otkucaji sata" iz <a href="react_predstavljanje_elemenata.html/#azuriranjePrikazanogElementa">jednog od prethodnih odeljaka</a>. 
+U <a href="react_predstavljanje_elemenata.html/#predstavljanjeElementa">Postavljanje/Predstavljanje elementa u DOM</a>, naučili smo jedan način ažuriranja KI. 
+Pozovemo <span class = "primer_text">ReactDOM.render()</span> da promenimo prikaz.
+<xmp class = "primer_ta">
+function tick() {
+  const element = (
+    <div>
+      <h1>Zdravo svete!</h1>
+      <h2>Sada je {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+}
+
+setInterval(tick, 1000);
+</xmp>
+
+U ovom odeljku naučićemo kako da komponentu Clock enkapsuliramo i zaista učinimo komponentom za ponovno korišćenje. 
+Ona će postaviti svoj tajmer i ažurirati se svake sekunde.
+<br><br>
+
+Možemo početi tako što enkapsuliramo kako Clock izgleda:
+<xmp class = "primer_ta">
+function Clock(props) {
+  return (
+    <div>
+      <h1>Zdravo svete!</h1>
+      <h2>Sada je {props.date.toLocaleTimeString()}.</h2>
+    </div>
+  );
+}
+
+function tick() {
+  ReactDOM.render(
+    <Clock date={new Date()} />,
+    document.getElementById('root')
+  );
+}
+
+setInterval(tick, 1000);
+</xmp>
+
+Međutim, nedostaje ključni zahtev: činjenica da Clock postavlja tajmer i ažurira korisnički interfejs svake sekunde treba da bude detalj implementacije Clock komponente.
+<br><br>
+
+U idealnom slučaju, želimo ovo jednom da napišemo i da se Clock sam ažurira:
+<xmp class = "primer_ta">
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+</xmp>
+
+Da bismo to implementirali, moramo dodati "stanje" Clock komponenti.
+<br><br>
+
+Stanje je slično atributima ("props"), ali pripada isključivo komponenti i u potpunosti ga komponenta kontroliše.
+<br><br>
+
+<h2>Pretvaranje Funkcije u Klasu</h2>
+
+Možete pretvoriti funckionalnu komponentu kao što je Clock u klasu u pet koraka:
+<br>
+<ol>
+  <li>Napravite ES6 klasu sa istim nazivom koja nasleđuje <span class = "primer_text">React.Component</span>.</li>
+  <li>Dodajte jedan jedini prazan metod koji se zove <span class = "primer_text">render()</span>.</li>
+  <li>Premestite telo funkcije u metodu <span class = "primer_text">render()</span>.</li>
+  <li>Zamenite <span class = "primer_text">props</span> sa <span class = "primer_text">this.props</span> u telu <span class = "primer_text">render()</span> metode.</li>
+  <li>Izbrišite praznu deklaraciju funkcije koja je ostala.</li>
+</ol> 
+
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+</xmp>
+
+<span class = "primer_text">Clock</span> je sada definisan kao klasa, a ne kao funkcija.
+<br><br>
+
+<span class = "primer_text">render()</span> metoda će se pozivati svaki put kada se ažuriranje dogodi, ali sve dok <span class = "primer_text">&ltClock /&gt</span> prikazujemo u istom čvoru DOM-a, koristiće se samo jedna instanca klase Clock.
+Ovo nam omogućava da koristimo dodatne funkcionalnosti kao što su lokalno stanje i metode životnog ciklusa.
+<br><br>
+
+<h2>Dodavanje lokalnog stanja klasi</h2>
+
+<span class = "primer_text">date</span> ćemo premestiti iz atributa ("props") u stanje u tri koraka:
+<br><br>
+
+1. Zamenite <span class = "primer_text">this.props.date</span> sa <span class = "primer_text">this.state.date</span> u <span class = "primer_text">render()</span> metodi:
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+</xmp>
+
+2. Dodajte konstruktor klase koji dodeljuje početnu vrednost stanju <span class = "primer_text">this.state</span>:
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+</xmp>
+
+Primetite kako prosleđujemo atribute ("props") baznom konstruktoru:
+<xmp class = "primer_ta">
+constructor(props) {
+  super(props);
+  this.state = {date: new Date()};
+}
+</xmp>
+
+Klasne komponente trebaju uvek pozivati bazni konstruktor sa atributima ("props").
+<br><br>
+
+3. Uklonite <span class = "primer_text">date</span> atribut sa <span class = "primer_text">&ltClock /&gt</span> elementa:
+<xmp class = "primer_ta">
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+</xmp>
+
+Kasnije ćemo vratiti kod tajmera u samu komponentu.
+<br><br>
+
+Dosadašnji rezultat izgleda ovako:
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+</xmp>
+
+U nastavku ćemo poboljšati <span class = "primer_text">&ltClock /&gt</span> da postavi svoj tajmer i ažurira se svake sekunde.
+<br><br>
+
+<h2>Dodavanje metoda životnog ciklusa u klasu</h2>
+
+U aplikacijama sa monogo komponenti vrlo je važno oslobađanje resursa koje komponente zauzimaju kada se unište.
+<br><br>
+
+Želimo da postavimo tajmer kada se Clock komponenta prvi put prikaže u DOM-u. To se naziva "montaža" u React-u.
+<br><br>
+
+Takođe želimo da isključimo taj tajmer kada god se iz DOM-a ukloni sadržaj proizveden od Clock komponente. To se u React-u naziva "demontaža".
+<br><br>
+
+U klasi komponente, možemo deklarisati posebne metode da bi pokrenuli neki kod kada se komponenta montira i uklanja, to su metodi <span class = "primer_text">componentDidMount()</span> i <span class = "primer_text">componentWillUnmount()</span>
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+</xmp>
+
+Ove metode se nazivaju "metodama životnog ciklusa".
+<br><br>
+
+Metoda <span class = "primer_text">componentDidMount()</span> se pokreće nakon što je sadržaj komponente postavljen u DOM.
+Ovo je dobro mesto za podešavanje tajmera:
+<xmp class = "primer_ta">
+componentDidMount() {
+  this.timerID = setInterval(
+    () => this.tick(),
+    1000
+  );
+}
+</xmp>
+
+Primetite na ovom mestu kako smo sačuvali timer ID u this objektu (<span class = "primer_text">this.timerID</span>).
+<br><br>
+
+Dok je <span class = "primer_text">this.props</span> popunjeno od strane React-a, a <span class = "primer_text">this.state</span> ima specijalno značenje, možete slobodno da dodate dodatna polja u klasu ako treba da sačuvate nešto što ne učestvuje u standardnom toku podataka (kao što je timer ID).
+<br><br>
+
+Tajmer ćemo uništiti u metodi <span class = "primer_text">componentWillUnmount()</span>:
+<xmp class = "primer_ta">
+componentWillUnmount() {
+  clearInterval(this.timerID);
+}
+</xmp>
+
+Na kraju, implementiraćemo metodu koja se zove <span class = "primer_text">tick()</span> koju će komponenta Clock pozivati svake sekunde.
+<br><br>
+
+Koristiće <span class = "primer_text">this.setState()</span> za zakazivanje ažuriranja lokalnog stanja komponente:
+<xmp class = "primer_ta">
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Zdravo svete!</h1>
+        <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+</xmp>
+
+Sada sat otkucava svake sekunde.
+<br><br>
+
+Hajde da na brzinu ponovimo šta se dešava i kojim redosledom se metode pozivaju:
+<br>
+<ol>
+  <li>Kada se &ltClock /&gt prosledi ReactDOM.render() funkciji, React poziva konstruktor Clock komponente. Budući da Clock treba da prikaže trenutno vreme, on inicijalizuje this.state sa objektom koji uključuje trenutno vreme. Kasnije ćemo ažurirati ovo stanje.</li>
+  <li>React zatim poziva render() metodu Clock komponente. Na ovaj način React saznaje šta treba prikazati na ekranu. React zatim ažurira DOM da odgovara rezultatu render() metode Clock komponente.</li>
+  <li>Kada se rezultat render() metode Clock komponente ubaci u DOM, React poziva metodu componentDidMount(). Unutar nje, Clock komponenta traži od pregledača da podesi tajmer za pozivanje tick() metode jednom u sekundi.</li>
+  <li>Svake sekunde pregledač poziva tick() metodu. Unutar nje, Clock komponenta zakazuje ažuriranje KI pozivanjem setState() sa objektom koji sadrži trenutno vreme. Zahvaljujući pozivu setState(), React zna da se stanje promenilo i ponovo poziva render() metodu kako bi saznao šta treba da bude na ekranu. Ovog  puta, this.state.date u render() metodi će biti drugačiji, samim tim će rezultat rada render() metode sadržati ažurirano vreme. React ažurira DOM u skaladu sa tim.</li>
+  <li>Ako je Clock komponenta ikada uklonjena iz DOM-a, React poziva metodu componentWillUnmount() kako bi se tajmer zaustavio.</li>
+</ol> 
+<br><br>
+
+<h2>Ispravno korišćenje stanja</h2>
+
+Postoje tri stvari koje biste trebali znati o setState().
+
+<h2>Ne menjajte stanje direktno</h2>
+
+Na primer ovo neće ažurirati komponentu:
+<xmp class = "primer_ta">
+// Pogrešno
+this.state.comment = 'Zdravo';
+</xmp>
+
+Umesto toga, koristite setState():
+<xmp class = "primer_ta">
+// Ispravno
+this.setState({comment: 'Zdravo'});
+</xmp>
+
+Jedino mesto gde možete dodeliti vrednost this.state je konstruktor.
+<br><br>
+
+<h2>Ažuriranja stanja mogu biti asinhrona</h2>
+
+React može objediniti više poziva setState() u jedno ažuriranje radi performansi.
+<br><br>
+
+Budući da se this.props i this.state mogu ažurirati asinhrono, ne biste se trebali oslanjati na njihove vrednosti za izračunavanje sledećeg stanja.
+<br><br>
+
+Na primer, ovaj kod možda neće uspeti da ažurira brojač:
+<xmp class = "primer_ta">
+// Pogrešno
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+</xmp>
+
+Da biste ga ispravili, koristite drugi oblik setState() koji prihvata funkciju, a ne objekat. Ta funkcija će primiti prethodno stanje kao prvi argument, a argumente ("props") kao drugi argument u trenutku kada se ažuriranje primenjuje:
+<xmp class = "primer_ta">
+// Ispravno
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
+</xmp>
+
+Gore smo koristili takozvane "strela" funkcije, ali ona takođe funkcioniše sa regularnim funkcijama:
+<xmp class = "primer_ta">
+// Ispravno
+this.setState(function(state, props) {
+  return {
+    counter: state.counter + props.increment
+  };
+});
+</xmp>
+<br>
+
+<h2>Ažuriranja stanja su spojena</h2>
+
+Kada pozovete setState(), React spaja objekat koji ste poslali u trenutno stanje.
+<br><br>
+
+Na primer, vaše stanje može da sadrži nekoliko nezavisnih promenljivih:
+<xmp class = "primer_ta">
+constructor(props) {
+  super(props);
+  this.state = {
+    posts: [],
+    comments: []
+  };
+}
+</xmp>
+
+Tada ih možete nezavisno ažurirati zasebnim setState() pozivima:
+<xmp class = "primer_ta">
+componentDidMount() {
+  fetchPosts().then(response => {
+    this.setState({
+      posts: response.posts
+    });
+  });
+
+  fetchComments().then(response => {
+    this.setState({
+      comments: response.comments
+    });
+  });
+}
+</xmp>
+
+Spajanje je plitko, tako da <span class = "primer_text">this.setState({comments})</span> ostavlja <span class = "primer_text">this.state.posts</span> netaknuto, ali potpuno zamenjuje <span class = "primer_text">this.state.comments</span>.
+<br><br>
+
+<h2>Tok podataka na dole</h2>
+
+Ni roditelj ni dete komponenta ne mogu znati da li određena komponenta sadrži stanje ili ne i ne treba da brinu da li je definisana kao funkcija ili klasa.
+<br><br>
+
+Zbog toga se stanje često naziva lokalno ili enkapsulirano. Nije dostupno nijednoj komponenti osim onoj koja ga poseduje i postavlja.
+<br><br>
+
+Komponenta može odabrati da prosledi svoje stanje kao atribut ("props") svojim "deca" (podređenim) komponentama:
+<xmp class = "primer_ta">
+<h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+</xmp>
+
+Ovo takođe važi i za korisnički definisane komponente:
+<xmp class = "primer_ta">
+<FormattedDate date={this.state.date} />
+</xmp>
+
+Komponenta FormattedDate bi primila date u svojim atributima ("props") i ne bi znala da li dolaze iz stanja Clock komponente, atributa ("props") Clock komponente ili je kucano ručno:
+<xmp class = "primer_ta">
+function FormattedDate(props) {
+  return <h2>Sada je {props.date.toLocaleTimeString()}.</h2>;
+}
+</xmp>
+<br>
+
+To se obično naziva "odozgo na dole" ili "jednosmerni" protok podataka. Bilo koje stanje je u vlasništvu neke određene komponente, a bilo koji podaci ili derivati KI dobijeni iz tog stanja mogu uticati samo na komponente "ispod" njih u stablu.
+<br><br>
+
+Ako zamislite stablo komponenti kao vodopad atributa ("props"), stanje svake komponente je kao dodatni izvor vode koji se spaja u proizvoljnoj tački, ali takođe teče nizbrdo.
+<br><br>
+
+Da bismo pokazali da su sve komponente zaista izolovane, možemo da napravimo App komponentu koja prikazuje tri &ltClock /&gt komponente:
+<xmp class = "primer_ta">
+function App() {
+  return (
+    <div>
+      <Clock />
+      <Clock />
+      <Clock />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+</xmp>
+
+Svaka Clock komponenta postavlja svoj tajmer i ažurira se nezavisno.
+<br><br>
+
+U React aplikacijama, da li je komponenta sa stanjem ili bez, smatra se detaljem implementacije komponente koja se može vremenom promeniti.
+Možete koristiti komponente bez stanja u komponentama sa stanjem i obrnuto.
+
+<div class="zadatak">
+<b>Zadatak:</b> Uvesti novi podatak u state (npr. displayColor), koji će sa svakim otkucajem sata menjati boju teksta u &lth1&gt komponenti iz crvene u zelenu (ili bilo koje druge dve boje za koje se odlučite).
+<br><br>
+Takođe, ohrabrujemo vas da isprobate sve isečke kodova iz ove lekcije i poigrate se sa njima. 
+</div>

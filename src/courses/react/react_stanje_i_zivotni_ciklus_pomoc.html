@@ -1,0 +1,72 @@
+react_rukovanje_dogadjajima.html
+react_komponente_i_atributi.html
+U state dodati još jedan podatak "dislpayColor", inicijalno postaviti vrednost na "red" ili bilo koju drugu boju koju ste odabrali.
+<br><br>
+
+Boju menjamo u tick() metodu, ali posto se sada promena boje oslanja na prethodnu vrednost, moramo koristiti drugi oblik setState(), onaj koji prihvata funkciju kao argument.
+Tu menjamo vrednost na "green" ili bilo koju drugu boju koju ste odabrali.
+<br><br>
+
+U render metodi na &lth1&gt komponentu dodajemo style={{color: this.state.displayColor}}
+<xmp class = "primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Ucitaj React. -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Clock extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              date: new Date(),
+              displayColor: 'red'
+            };
+          }
+
+          componentDidMount() {
+            this.timerID = setInterval(
+              () => this.tick(),
+              1000
+            );
+          }
+
+          componentWillUnmount() {
+            clearInterval(this.timerID);
+          }
+
+          tick() {
+            // moramo koristiti drugi oblik setState(), onaj koji prihvata funkciju kao argument,
+            // pošto nova boja zavisi od prethodne boje.
+            this.setState(function (previousState) {
+              return {
+                date: new Date(),
+                displayColor: previousState.displayColor === 'red' ? 'green' : 'red'
+              };
+            });
+          }
+
+          render() {
+            return (
+              <div>
+                <h1 style={{color: this.state.displayColor}}>Zdravo svete!</h1>
+                <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
+              </div>
+            );
+          }
+        }
+
+        ReactDOM.render(
+          <Clock />,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>
+</xmp>

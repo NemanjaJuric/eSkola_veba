@@ -1,0 +1,27 @@
+react_komponente_i_atributi.html
+react_upoznavanje_JSX.html
+Dodali smo u body div sa id-em noviElement i unutar script tag-a naveli sta će se upisati u taj novi div:
+<xmp class = "primer_ta">
+<body>
+  <div id="root"></div>
+  <div id="noviElement"></div>
+  <script type="text/babel">
+      function tick() {
+        const element = (
+          <div>
+            <h1>Zdravo svete!</h1>
+            <h2>Sada je {new Date().toLocaleTimeString()}.</h2>
+          </div>
+        );
+        ReactDOM.render(element, document.getElementById('root'));
+      }
+
+      setInterval(tick, 1000);
+      
+      const noviElement = (
+        <h1>Ja sam novi element!</h1>
+      );
+      ReactDOM.render(noviElement, document.getElementById('noviElement'));
+  </script>
+</body>
+</xmp>
