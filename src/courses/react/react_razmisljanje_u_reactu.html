@@ -12,7 +12,7 @@ Jedan od monogo sjajnih delova React-a je kako razmišljate o aplikacijama dok i
 Zamislite da već imamo JSON API i predlog izgleda od strane dizajnera. Predlog izgleda ovako:
 <br>
 
-<img src="courses/react/react_slike/react-razmisljanje-u-reactu-mock.png" class="img-fluid img-lg">
+<img src="courses/react/react_slike/react-razmisljanje-u-reactu-mock.png" class="img-fluid img-sm">
 <br>
 
 Naš JSON API vraća neke podatke koji izgledaju ovako:
@@ -39,7 +39,7 @@ Kako da znate šta treba da bude izdvojeno kao komponenta? Koristite istu tehnik
 Budići da korisniku često prikazujete JSON model podataka, ustanovi ćete da će se, ako je vaš model pravilno napravljen, vaš KI (a samim tim i struktura komponenata) lepo prikazati. To je zato što su KI i modeli podataka skloni istoj informacionoj arhitekturi. Razdvojite korisnički interfejs na komponente, gde svaka komponenta odgovara komadu vašeg modela podataka.
 <br>
 
-<img src="courses/react/react_slike/react_razmisljanje_u_reactu_komponente.png" class="img-fluid img-lg">
+<img src="courses/react/react_slike/react_razmisljanje_u_reactu_komponente.png" class="img-fluid img-sm">
 <br>
 
 Ovde ćete videti da u našoj aplikaciji imamo pet komponentni.
@@ -56,20 +56,14 @@ Ako pogledate <span class = "primer_text">ProductTable</span>, videćete da zagl
 <br><br>
 
 Sada kada smo identifikovali komponente u našem dizajnu, rasporedimo ih u hijerarhiju. Komponente koje se pojavljuju unutar druge komponente trebaju se pojaviti kao dete u hijerarhiji:
-<ul>
-<li>FilterableProductTable
-  <ul>
-    <li>SearchBar</li>
-    <li>ProductTable
-      <ul>
-        <li>ProductCategoryRow</li>
-        <li>ProductRow</li>
-      </ul>
-    </li>
-  </ul>
-</li>
-</ul>
-<br>
+<br><br>
+
+FilterableProductTable<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp SearchBar<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ProductTable<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ProductCategoryRow<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ProductRow
+<br><br>
 
 <h2>Korak 2: Izgradite statičku verziju u React-u</h2>
 

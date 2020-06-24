@@ -4,7 +4,7 @@
 Na ovoj starnici predstavićemo koncept stanja i životnog ciklusa u React komponentama.
 <br><br>
 
-Razmotrimo primer "otkucaji sata" iz <a href="react_predstavljanje_elemenata.html/#azuriranjePrikazanogElementa">jednog od prethodnih odeljaka</a>. 
+Razmotrimo primer "otkucaji sata" iz <a href="courses/react/react_predstavljanje_elemenata.html/#azuriranjePrikazanogElementa">jednog od prethodnih odeljaka</a>. 
 U <a href="react_predstavljanje_elemenata.html/#predstavljanjeElementa">Postavljanje/Predstavljanje elementa u DOM</a>, naučili smo jedan način ažuriranja KI. 
 Pozovemo <span class = "primer_text">ReactDOM.render()</span> da promenimo prikaz.
 <xmp class = "primer_ta">
@@ -70,13 +70,13 @@ Stanje je slično atributima ("props"), ali pripada isključivo komponenti i u p
 
 Možete pretvoriti funckionalnu komponentu kao što je Clock u klasu u pet koraka:
 <br>
-<ol>
+<ul>
   <li>Napravite ES6 klasu sa istim nazivom koja nasleđuje <span class = "primer_text">React.Component</span>.</li>
   <li>Dodajte jedan jedini prazan metod koji se zove <span class = "primer_text">render()</span>.</li>
   <li>Premestite telo funkcije u metodu <span class = "primer_text">render()</span>.</li>
   <li>Zamenite <span class = "primer_text">props</span> sa <span class = "primer_text">this.props</span> u telu <span class = "primer_text">render()</span> metode.</li>
   <li>Izbrišite praznu deklaraciju funkcije koja je ostala.</li>
-</ol> 
+</ul> 
 
 <xmp class = "primer_ta">
 class Clock extends React.Component {
@@ -297,13 +297,13 @@ Sada sat otkucava svake sekunde.
 
 Hajde da na brzinu ponovimo šta se dešava i kojim redosledom se metode pozivaju:
 <br>
-<ol>
+<ul>
   <li>Kada se &ltClock /&gt prosledi ReactDOM.render() funkciji, React poziva konstruktor Clock komponente. Budući da Clock treba da prikaže trenutno vreme, on inicijalizuje this.state sa objektom koji uključuje trenutno vreme. Kasnije ćemo ažurirati ovo stanje.</li>
   <li>React zatim poziva render() metodu Clock komponente. Na ovaj način React saznaje šta treba prikazati na ekranu. React zatim ažurira DOM da odgovara rezultatu render() metode Clock komponente.</li>
   <li>Kada se rezultat render() metode Clock komponente ubaci u DOM, React poziva metodu componentDidMount(). Unutar nje, Clock komponenta traži od pregledača da podesi tajmer za pozivanje tick() metode jednom u sekundi.</li>
   <li>Svake sekunde pregledač poziva tick() metodu. Unutar nje, Clock komponenta zakazuje ažuriranje KI pozivanjem setState() sa objektom koji sadrži trenutno vreme. Zahvaljujući pozivu setState(), React zna da se stanje promenilo i ponovo poziva render() metodu kako bi saznao šta treba da bude na ekranu. Ovog  puta, this.state.date u render() metodi će biti drugačiji, samim tim će rezultat rada render() metode sadržati ažurirano vreme. React ažurira DOM u skaladu sa tim.</li>
   <li>Ako je Clock komponenta ikada uklonjena iz DOM-a, React poziva metodu componentWillUnmount() kako bi se tajmer zaustavio.</li>
-</ol> 
+</ul> 
 <br><br>
 
 <h2>Ispravno korišćenje stanja</h2>

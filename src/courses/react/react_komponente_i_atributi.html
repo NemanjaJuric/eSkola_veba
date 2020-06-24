@@ -66,12 +66,12 @@ ReactDOM.render(
 
 Ponovimo, šta se dešava u prethodnom primeru:
 <br>
-<ol>
+<ul>
   <li>Pozivamo <span class = "primer_text">ReactDOM.render()</span> sa <span class = "primer_text">&ltWelcome name="Sara" /&gt</span> elementom</li>
   <li>React poziva <span class = "primer_text">Welcome</span> komponentu sa props objektom <span class = "primer_text">{name: 'Sara'}</span></li>
   <li>Naša <span class = "primer_text">Welcome</span> komponenta vraća <span class = "primer_text">&lth1&gtZdravo, Sara&lt/h1&gt</span> element kao rezultat.</li>
   <li>React DOM efikasno ažurira DOM tako da se podudara sa <span class = "primer_text">&lth1&gtZdravo, Sara&lt/h1&gt</span></li>
-</ol> 
+</ul> 
 <br>
 
 <div class = "napomena">
@@ -247,7 +247,7 @@ function withdraw(account, amount) {
 
 React je prilično fleksibilan, ali ima jedno strogo pravilo:
 <br><br>
-<b>Sve React komponente moraju se ponašati poput čistih funkcija i ne menjati svoje props (atribute).</b>
+<b>Sve React komponente moraju se ponašati poput čistih funkcija i ne menjati svoje atribute (props).</b>
 <br><br>
 
 Naravno Korisnički Interfejsi aplikacija su dinamički i vremenom se menjaju. U sledećem odeljku predstavićemo novi koncept "stanja". "Stanje" omogućava React komponentama da tokom vremena menjaju svoje rezultate kao odgovor na radnje korisnika, mrežne odgovore i bilo šta drugo, a da ne krše ovo pravilo.
