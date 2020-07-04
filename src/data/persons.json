@@ -161,5 +161,11 @@
     "course": "Java",
     "url": "assets/images/team/jovana_radosavljevic.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Milica Milojević",
+    "course": "React",
+    "url": "assets/images/team/milica_milojevic.jpg",
+    "mainPosition": false
   }
 ]
