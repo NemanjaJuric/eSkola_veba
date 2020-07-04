@@ -2,27 +2,40 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DTD</title>
+    <title>XML DTD</title>
   </head>
   <body>
-    <h1>XML DTD</h1>
-    XML DTD (Document Type Definition) je originalan način za specifikovanje strukture XML dokumenta.
-    Zapravo, on specifikuje gradivne blokove i redosled elemenata u XML dokumentu. XML DTD ima potpuno drugačiju sintaksu od XML-a.
-
-    XML DTD može biti deklarisan unutar XML dokumenta ili kao spoljašnja referenca.
-    Pogledajmo sledeći primer:
-
+    <h1>Definicija tipa dokumenata - XML DTD</h1>
+    Definicija tipa dokumenata, XML DTD (eng. Document Type Definition) je tehnologija za definisanje strukture XML dokumenta.
+    On definiše gradivne blokove i redosled elemenata u XML dokumentu. DTD razlikuje sledeće gradivne blokove jednog XML dokumenta:
+  <br><br>  <ul>
+      <li>Elementi - glavni gradivni blokovi XML dokumenta;</li>
+      <li>Etikete;</li>
+      <li>Atributi;</li>
+      <li>Entiteti;</li>
+      <li>PCDATA (Parsed Character DATA) – tekstualni sadržaj između početne i završne etikete koji će biti analiziran parserom i koju je pre svega moguće parsirati;</li>
+      <li>CDATA (Character DATA) – tekstualni sadržaj koji parser neće analizirati (najčešće se odnosi na atribute).</li>
+    </ul>
+    <br>
+  Zapravo, XML DTD standardizuje strukturu XML dokumenta listom elemenata i atributa koji su dozvoljeni u njemu. Takođe, specifikuje i redosled i način na koji su elementi ugnježdeni kao i kog su tipa sadržani podaci. Na taj način, XML DTD omogućava standardizovane informacije o informacijama koje nosi određeni XML dokument i time je osiguran dalji prenos i razmena podataka, bez mogućnosti da se pojave podaci koji nisu odgovarajući prema formatu, strukturi ili sadržaju.
+   Koristan je kada su u pitanju XML dokumenti koji nose veliku količinu podataka.
+   U manjim XML dokumentima lako se mogu uočiti i ispraviti neispravni podaci, dok u velikim XML dokumentima provera ispravnosti nije tako jednostavna i potrebno je uvesti logički red i na taj način izvršiti validaciju podataka. Upravo to omogućava XML DTD. Već je bilo reči o sintaksnim pravilima koja moraju biti ispoštovana da bi XML dokument bio dobro formiran, a ukoliko su ispoštovana i pravila koja zadaje DTD, XML dokument je validan.
+<br> <h2>Implementacija DTD dokumenta</h2>
+XML DTD ima potpuno drugačiju sintaksu od XML standarda. On se može nalaziti u samom XML dokumentu ili u spoljašnjem DTD dokumentu i sadrži deklaracije svih gradivnih blokova XML dokumenta na koji se odnosi. Na primeru XML dokumenta „obavestenje.xml“ mogu se predstaviti oba slučaja.
+<br><br><b>Primer 30: </b>XML dokument "obavestenje.xml" sadrži referencu ka spoljašnjem DTD dokumentu
     <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE obavestenje SYSTEM "Obaveštenje.dtd">
-    <obavestenje>
+    <!DOCTYPE obavestenje SYSTEM "obavestenje.dtd">
+    <obavestenje rbroj = "001">
       <od>Autor</od>
       <za>Čitalac</za>
       <naslov>Obaveštenje</naslov>
       <poruka>
         Počinje kurs. Srećno!
       </poruka>
-    </obavestenje></xmp>
-    Ovde je DOCTYPE deklaracija zapravo referenca na spoljašnji DTD dokument "Obaveštenje.dtd", a izgled tog DTD dokumenta je:
+    </obavestenje>
+    </xmp>
+    U primeru 30, DOCTYPE definicija sadrži referencu ka spoljašnjem DTD dokumentu "obavestenje.dtd", a izgled DTD dokumenta prikazuje primer 31.
+    <br><br><b>Primer 31: </b>DTD dokument "obavestenje.dtd"
      <xmp class = "primer_ta"><!DOCTYPE obavestenje
      [
      <!ELEMENT obavestenje (od, za, naslov, poruka)>
@@ -30,43 +43,332 @@
      <!ELEMENT za (#PCDATA)>
      <!ELEMENT naslov (#PCDATA)>
      <!ELEMENT poruka (#PCDATA)>
+     <!ATTLIST obavestenje rbroj CDATA "001">
      ]>
+
    </xmp>
-   Naveden primer DTD dokumenta definiše sledeće:
-   <ul>
-     <li><b>!DOCTYPE obavestenje</b> definiše da je koreni element odgovarajućeg XML dokumenta <b>obavestenje</b>.</li>
-     <li><b>!ELEMENT obavestenje</b> definiše da element <b>obavestenje</b> sadrži četiri elementa (od, za, naslov i poruka).</li>
-     <li><b>!ELEMENT od</b> definiše da je element <b>od</b> tipa "#PCDATA" (Parsed Character DATA - tekst izmedju otvorene i zatvorene etikete XML elementa koji se analizira od strane parsera i koju je pre svega moguće parsirati).</li>
-     <li><b>!ELEMENT za</b> definiše da je element <b>za</b> tipa "#PCDATA"</li>
-     <li><b>!ELEMENT naslov</b> definiše da je element <b>naslov</b> tipa "#PCDATA"</li>
-     <li><b>!ELEMENT poruka</b> definiše da je element <b>poruka</b> tipa "#PCDATA"</li>
-   </ul>
+   Tabela 1 opisuje značenje deklaracija elemenata iz DTD dokumenta prikazanog u primeru 31.
+   <br><br><b>Tabela 1: </b>Deklaracije elemenata iz primera 31
+   <br>
+   <br>
+   <table class = "tabela">
+   <thead>
+    <tr>
+      <th><b>Deklaracija</b></th>
+      <th><b>Značenje</b></th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+    <td>!DOCTYPE obavestenje</td>
+    <td>Korenski element odgovarajućeg XML dokumenta je element obavestenje. </td>
+    </tr>
+    <tr>
+    <td>!ELEMENT obavestenje (od, za, naslov, poruka)</td>
+    <td>Element obavestenje sadrži četiri pod elementa (od, za, naslov i poruka).</td>
+    </tr>
+    <tr>
+    <td>!ELEMENT od (#PCDATA)</td>
+    <td>Element od je tipa "#PCDATA".</td>
+    </tr>
+    <tr>
+    <td>!ELEMENT za (#PCDATA)</td>
+    <td>Element za je tipa "#PCDATA".</td>
+    </tr>
+    <tr>
+    <td>!ELEMENT naslov (#PCDATA)</td>
+    <td>Element naslov je tipa "#PCDATA" .</td>
+    </tr>
+    <tr>
+    <td>!ELEMENT poruka (#PCDATA)</td>
+    <td>Element poruka je tipa "#PCDATA" .</td>
+    </tr>
+    <tr>
+    <td>!ATTLIST obavestenje rbroj CDATA "001"</td>
+    <td>Element obavestenje ima atribut rbroj koji je tipa "#CDATA" i ima vrednost 001.</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+Kao što je već rečeno, DTD može biti implementiran i unutar XML dokumenta. U tom slučaju DTD je deklarisan unutar DOCTYPE definicije, što je prikazano u primeru 32.
+<br><br><b>Primer 32: </b>DTD implementiran unutar XML dokumenta
+<xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE obavestenje [
+     <!ELEMENT obavestenje (od, za, naslov, poruka)>
+     <!ELEMENT od (#PCDATA)>
+     <!ELEMENT za (#PCDATA)>
+     <!ELEMENT naslov (#PCDATA)>
+     <!ELEMENT poruka (#PCDATA)>
+     <!ATTLIST obavestenje rbroj CDATA "001">
+     ]>
+    <obavestenje rbroj = "001">
+      <od>Autor</od>
+      <za>Čitalac</za>
+      <naslov>Obaveštenje</naslov>
+      <poruka>
+        Počinje kurs. Srećno!
+      </poruka>
+    </obavestenje>
+</xmp>
 
-   XML DTD se može koristiti i za deklaraciju entiteta, odnosno definisanje specijalnih karaktera i stringova koji se koriste u dokumentu.
-   Primer:
-   <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
-   <!DOCTYPE pismo [
-   <!ENTITY autor "Autor: Pera Perić">
-   <!ENTITY mesto "Beograd">
-   <!ENTITY datum "16.7.2019.">
-   ]>
-   <pismo>
-     <za>Saru Sarić</za>
-     <naslov>Pozivnica</naslov>
-     <poruka>Pozivam te na svoj rodjendan, u utorak 13.8.2019.</poruka>
-     <futer> &autor;, &mesto; &datum;</futer>
-   </pismo></xmp>
-   Ovaj XML dokument će biti prikazan na sledeći način:
-   <br>
-   <img src="courses/xml/pozivnica.png">
-   <br>
-   Entitet ima tri obavezna svoja dela, a to su ampersand (&amp;), naziv entiteta i znak "tačka-zarez" (;).
-   <br>
-   <h2>Kada koristiti DTD a kada ne?</h2>
-   Zgodno je <b>koristiti</b> DTD u slučaju kada grupa ljudi radi na zajedničkom projektu, jer mogu standardizovati DTD za podatke koje svi koriste.
-   Takodje, zahvaljujući DTD-u, uvek možete proveriti validnost podataka koje dobijate "sa strane" ili pokazati validnost vaših podataka.
-   <br>
-   XML DTD <b>ne treba</b> koristiti ukoliko pravite male XML dokumente jer, u tom slučaju, kreiranje DTD-a može biti samo gubljenje vremena, s obzirom na to da DTD nije obavezan u XML-u.
+<div class = "napomena"><b>Napomena: </b>Ukoliko se XML dokument iz primera 32 otvori pomoću pretraživača veba, on neće prikazati DTD. Da bi se DTD pročitao, mora se otići u izvorni kod stranice („view source“).</div>
 
+<h2>Deklarisanje elemenata</h2>
+
+   XML elementi se deklarišu pomoću DTD deklaracije koja sadrži obeležje !ELEMENT, ime elementa i tip podataka sadržaja tog elementa ili kategoriju kjoj pripada taj element (primer: prazan element). Deklaracija elementa ima sledeći oblik:
+   <br><br> <span class = "primer_text"> < 	&#33;ELEMENT ime_elementa (tip sadržaja)> </span>
+   <br>ili
+   <br><br> <span class = "primer_text"> < 	&#33;ELEMENT ime_elementa kategorija> </span>
+   <br><br>Ukoliko autor želi da definiše tip sadržaja nekog elementa, iskoristiće prvu od dve prikazane deklaracije.
+   <br><br><b>Primer 33: </b>Definisanje tipa sadržaja elementa
+   <xmp class = "primer_ta"><!ELEMENT poruka (#PCDATA)></xmp>
+   Element "poruka" iz primera 33 ima tekstualni sadržaj koji se može parsirati.
+   <br><br><b>Elementi koji imaju podelemente</b> se deklarišu navođenjem imena podelemenata (elemenata potomaka) unutar zagrada:
+<br><br> <span class = "primer_text"> <&#33;ELEMENT osnovni_element (potomak1, potomak2, potomak3, potomak4)></span>
+<br>
+<br>Da bi deklaracija elementa sa više podelemenata bila potpuna, svaki od podelemenata se nakon ovoga mora deklarisati, redom. Svaki podelement može imati još svojih podelemenata. Takođe, redosled navodjenja podelemenata se mora ispoštovati i u XML dokumentu za koji je pisan DTD.
+   <br><br><b>Primer 34: </b>Potpuna deklaracija elementa sa više podelemenata
+   <xmp class = "primer_ta">
+     <!ELEMENT obavestenje (od, za, naslov, poruka)>
+     <!ELEMENT od (#PCDATA)>
+     <!ELEMENT za (#PCDATA)>
+     <!ELEMENT naslov (#PCDATA)>
+     <!ELEMENT poruka (#PCDATA)>
+     <!ATTLIST obavestenje rbroj CDATA "001">
+</xmp>
+<b>Primer 35: </b>Deklarisanje podelemenata koji se tačno jednom pojavljuju
+<xmp class = "primer_ta">
+  <!ELEMENT osnovni_element (potomak)>
+</xmp>
+U primeru 35 element <b>potomak</b> se unutar elementa <b>osnovni_element</b> pojavljuje tačno jednom. Svako pojavljivanje češće od toga će prouzrokovati grešku prilikom validacije.
+<br><br><b>Primer 36: </b>Deklarisanje podelemenata koji se makar jednom ponavljaju
+<xmp class = "primer_ta">
+<!ELEMENT osnovni_element (potomak+)>
+</xmp>
+Znak „+“ specifikuje da se element <b>potomak</b> unutar elementa <b>osnovni_element</b> mora pojaviti jednom ili više puta.
+<br><br><b>Primer 37: </b>Deklarisanje podelementa koji se ne mora pojaviti ili se pojavljuje više puta
+<xmp class = "primer_ta">
+<!ELEMENT osnovni_element (potomak*)>
+</xmp>
+Znak „*“ specifikuje da se element <b>potomak</b> unutar elementa <b>osnovni_element</b> može pojaviti više puta ili se ne mora pojaviti.
+<br><br><b>Primer 38: </b>Deklarisanje podelementa koji se nijednom ili jednom pojavljuje
+<xmp class = "primer_ta">
+<!ELEMENT osnovni_element (potomak?)>
+</xmp>
+Znak „?“ specifikuje da se element <b>potomak</b> unutar elementa <b>osnovni_element</b> ne mora pojaviti ili se može pojaviti najviše jednom.
+<br><br><b>Primer 39: </b>Deklarisanje „ili-ili“ podelemenata:
+<xmp class = "primer_ta">
+<!ELEMENT osnovni_element (potomak1,potomak2,potomak3,potomak4|potomak5)>
+</xmp>
+Deklaracija prikazana u primeru 39 označava da se unutar elementa <b>osnovni_element</b> moraju pojaviti elementi <b>potomak1, potomak2 i potomak3,</b> a kao četvrti potomak <b>potomak4</b> ili <b>potomak5</b>.
+<br><br><b>Primer 40: </b>Deklarisanje elemenata mešovitog sadržaja
+<xmp class = "primer_ta">
+<!ELEMENT osnovni_element (#PCDATA|potomak1|potomak2|potomak3)*>
+</xmp>
+Deklaracija prikazana u primeru 40 označava da element <b>osnovni_element</b> može sadržati tekstualni sadržaj koji se može parsirati ili bilo koji broj podelemenata <b>potomak1, potomak2, potomak3</b>.
+<br><br><b>Primer 41: </b>Deklarisanje praznog elementa
+<xmp class = "primer_ta">
+<!ELEMENT ime_elementa EMPTY>
+</xmp>
+Primer 41 pokazuje da se prazni elementi deklarišu korišćenjem naziva kategorije <b>EMPTY</b>.
+<br><br><b>Primer 42: </b>Deklarisanje elementa čiji je sadržaj proizvoljnog tipa
+<xmp class = "primer_ta">
+<!ELEMENT ime_elementa ANY>
+</xmp>
+Primer 42 pokazuje da se elementi čiji sadržaj može biti proizvoljnog tipa deklarišu korišćenjem naziva kategorije <b>ANY</b>.
+<br>
+<h2>Deklarisanje atributa</h2>
+XML atributi se deklarišu pomoću DTD deklaracije koja sadrži obeležje <b>!ATTLIST</b>, ime elementa koji sadrži taj atribut, ime atributa, tip atributa i podrazumevanu vrednost atributa. Deklaracija atributa ima oblik:
+<br><br> <span class = "primer_text"> <	&#33;ATTLIST ime_elementa ime_atributa tip_atributa podrazumevana_vrednost_atributa> </span>
+<br><br><b>Primer 43: </b>Deklaracija atributa
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA "001">
+</xmp>
+Tipovi atributa prikazani su u tabeli 2.
+<br><br><b>Tabela 2: </b>Tipovi atributa
+<br><br>
+<table class = "tabela">
+<thead>
+ <tr>
+   <th><b>Tip</b></th>
+   <th><b>Opis</b></th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+ <td>CDATA</td>
+ <td>Atribut čija je vrednost je karakterni podatak. </td>
+ </tr>
+ <tr>
+ <td>(vrednost1|vrednost2|…)</td>
+ <td>Atribut čija vrednoost može biti neka od navedenih.</td>
+ </tr>
+ <tr>
+ <td>ID</td>
+ <td>Atribut čija je vrednost jedinstveni identifikator.</td>
+ </tr>
+ <tr>
+ <td>IDREF</td>
+ <td>Atribut čija je vrednost referenca ka identifikatoru nekog elementa.</td>
+ </tr>
+ <tr>
+ <td>IDREFS</td>
+ <td>Atribut čija je vrednost lista identifikatora drugih elemenata.</td>
+ </tr>
+ <tr>
+ <td>NMTOKEN</td>
+ <td>Atribut čija je vrednost validno XML ime.</td>
+ </tr>
+ <tr>
+ <td>NMTOKENS</td>
+ <td>Atribut čija je vrednost lista validnih imena.</td>
+ </tr>
+ <tr>
+ <td>ENTITY</td>
+ <td>Atribut čija je vrednost entitet.</td>
+ </tr>
+ <tr>
+ <td>ENTITIES</td>
+ <td>Atribut čija je vrednost lista entiteta.</td>
+ </tr>
+ <tr>
+ <td>NOTATION</td>
+ <td>Atribut čija je vrednost ime notacije.</td>
+ </tr>
+ <tr>
+ <td>xml:</td>
+ <td>Atribut čija je vrednost predefinisana XML vrednost.</td>
+ </tr>
+ </tbody>
+</table>
+<br>Različite vrste vrednosti atributa prikazane su u tabeli 3.
+<br><br><b>Tabela 3:</b> Vrednosti atributa
+<br><br>
+<table class = "tabela">
+<thead>
+ <tr>
+   <th><b>Vrednost</b></th>
+   <th><b>Opis</b></th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+ <td> <b>vrednost</b> </td>
+ <td>Podrazumevana vrednost atributa. </td>
+ </tr>
+ <tr>
+ <td>#REQUIRED</td>
+ <td>Atribut se mora navesti.</td>
+ </tr>
+ <tr>
+ <td>#IMPLIED</td>
+ <td>Atribut se ne mora navesti.</td>
+ </tr>
+ <tr>
+ <td>#FIXED <b>vrednost</b></td>
+ <td>Vrednost atributa je fiksna.</td>
+ </tr>
+ </tbody>
+</table>
+
+<br>
+
+U slučaju navođenja podrazumevane vrednosti atributa DTD deklaracijom, ukoliko se prilikom formiranja odgovarajućeg XML dokumenta ne navede taj atribut, on će se ipak pojaviti i imati podrazumevanu vrednost.
+<br><br><b>Primer 44: </b> Podrazumevana vrednost atributa eksplicitno promenjena prilikom formiranja XML dokumenta
+<br><br> <b>DTD:</b>
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA "000">
+</xmp>
+<b>XML:</b>
+<xmp class = "primer_ta">
+  ...
+  <obavestenje rbroj = "001" />
+  ...
+</xmp>
+U slučaju da unutar etikete „obavestenje“ nije naveden atribut „rbroj“ u XML dokumentu u primeru 44, prilikom pokretanja tog dokumenta aplikacijom koja ga koristi, atribut „rbroj“ bi bio prikazan i imao bi podrazumevanu vrednost 000.
+<br>Ukoliko je potrebno da autor XML dokumenta obavezno navede određeni atribut, ali ne postoji podrazumevana vrednost koju bi on imao, koristi se ključna reč #REQUIRED.
+<br><br><b>Primer 45: </b> Deklarisanje atributa pomoću obeležja #REQUIRED
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA #REQUIRED >
+</xmp>
+Ispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje rbroj = "1231" />
+</xmp>
+Neispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje />
+</xmp>
+
+Ukoliko autor XML dokumenta može a ne mora da navede određeni atribut, i ne postoji podrazumevana vrednost koju bi on imao, koristi se ključna reč #IMPLIED.
+<br><br><b>Primer 46: </b>Deklarisanje atributa pomoću obeleža #IMPLIED
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA #IMPLIED >
+</xmp>
+Ispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje rbroj = "111-2222" />
+</xmp>
+Ispravan  je i ovaj XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje />
+</xmp>
+
+Ukoliko je potrebno da autor XML dokumenta ne sme menjati vrednost određenog atributa, u deklaraciji se nakon ključne reči #FIXED navodi fiksirana vrednost. Ako se vrednost atributa promeni, parser će prijaviti grešku.
+<br><br><b>Primer 47: </b>Definisanje atributa korišćenjem obeležja #FIXED
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA #FIXED "1" >
+</xmp>
+Ispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje rbroj = "1" />
+</xmp>
+Neispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<obavestenje rbroj = "2" />
+</xmp>
+
+Ako atribut treba da ima jednu od nekoliko dozvoljenih vrednosti, u DTD deklaraciji se kao tip atributa u zagradi navode sve dozvoljene vrednosti odvojene uspravnim crtama, a nakon toga se pod navodnicima zadaje i podrazumevana vrednost tog atributa.
+<br><br><b>Primer 48: </b>Deklarisanje atributa koji može imati jednu od nekoliko dozvoljenih vrednosti
+<xmp class = "primer_ta">
+<!ATTLIST obavestenje rbroj CDATA #FIXED "1" >
+</xmp>
+Ispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+<osoba pol = "muški" />
+</xmp>
+Ispravan XML na koji se odnosi navedeni DTD:
+<xmp class = "primer_ta">
+< osoba pol = "ženski" />
+</xmp>
+
+<h2>Deklarisanje entiteta</h2>
+XML DTD se može koristiti i za deklarisanje referenci entiteta, odnosno deklarisanje specijalnih karaktera i stringova koji se koriste u dokumentu. Reference entiteta se mogu deklarisati interno ili eksterno, u zavisnosti od toga razlikuje se sintaksa deklaracija.
+<br><br>Sintaksa interne deklaracije referenci entiteta:
+<br><br> <span class = "primer_text"> <&#33;ENTITY ime_entiteta "vrednost_entiteta" > </span>
+<br><br>Sintaksa eksterne deklaracije referenci entiteta:
+<br><br> <span class = "primer_text"> <&#33;ENTITY ime_entiteta SYSTEM "URI/URL" > </span>
+
+<br><br><b>Primer 49: </b>Deklarisanje referenci entiteta
+<xmp class = "primer_ta">
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE pismo [
+  <!ENTITY autor "Autor: Pera Perić">
+  <!ENTITY mesto "Beograd">
+  <!ENTITY datum "16.7.2019.">
+  ]>
+  <pismo>
+    <za>Saru Sarić</za>
+    <naslov>Pozivnica</naslov>
+    <poruka>Pozivam te na svoj rođendan, u utorak 13.8.2019.</poruka>
+    <futer> &autor;, &mesto; &datum;</futer>
+  </pismo>
+</xmp>
+
+Zanimljivo je to da će XML dokument iz primera 49, ukoliko se pokrene pomoću pretraživača koji podržava XML, biti prikazan bez DTD deklaracija, kao na slici 9.
+<br><br><b>Slika 9: </b>Prikaz XML dokumenta iz primera 49
+ <br><br> <img src="courses/[xml]/[XML_DTD]/[pozivnica.png]">
+<br>XML DTD je dobro koristiti kada se pišu veliki XML dokumenti ili kada grupa ljudi radi na zajedničkom projektu. Zahvaljujući njemu, mogu se standardizovati struktura XML dokumenta i tipovi podataka koji će se koristiti, a samim tim i proveravati validnost podataka koji se razmenjuju tokom rada. XML DTD nije obavezan u XML dokumentu, prema tome, u slučaju pisanja manjih XML dokumenata nema potrebe kreirati i odgovarajući DTD zato što se oni jednostavno mogu proveriti.
+<br><br>
   </body>
 </html>

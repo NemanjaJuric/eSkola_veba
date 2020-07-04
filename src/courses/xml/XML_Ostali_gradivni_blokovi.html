@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ostali gradivni blokovi</title>
+  </head>
+  <body>
+    <h1>Ostali gradivni blokovi</h1>
+    <h2>Deklaracija</h2>
+    Kao što je već rečeno, linija:
+    <br><br>
+    <span class = "primer_text"> &#60;?xml version="1.0" encoding="UTF-8"?&#62;</span>
+    <br><br>
+    jeste XML deklaracija. Ona može postojati u XML dokumentu i ne mora, ali ako postoji, mora se prva navesti.
+    Dakle, ispred nje se ne smeju nalaziti komentari, elementi, razmaci i slično. U njoj je navedena verzija XML standarda i znakovni kod (u ovom slučaju UTF-8) koji se koriste.
+    Dobra je praksa napisati deklaraciju na početku svakog XML dokumenta, zato što oni mogu sadržati specijalne karaktere kao što su, recimo: š,č,ć,ž,... ili u francuskom jeziku:
+    &#xE0;, &#xE6;,	&#xEA; i slično. Podrazumevani znakovni kod za XML jeste UTF-8.
+<br>
+<h2>Komentari</h2>
+Ono što je potpuno zajedničko za XML i HTML jeste sintaksa komentara. U oba standarda se navode na isti način.
+<br><br>
+<span class = "primer_text"> &#60;!-- Ovo je jedan komentar --&#62;</span>
+<br><br>
+Važno je napomenuti da se unutar komentara ne smeju pojaviti dve crtice „--“ pre znaka za kraj „--&#62;“.
+Takođe, nije dozvoljeno završiti komentar sa tri crtice „---&#62;“. Kako komentari nisu elementi, njihova pozicija u dokumentu neće narušiti strukturu XML dokumenta.
+Prema tome, oni se mogu navesti bilo gde.
+Pre ili posle korenskog elementa, između elemenata, pred kraj dokumenta itd. Međutim, oni se ne smeju pojaviti ispred deklaracije niti unutar etikete ili drugog komentara.
+<br><br>
+Komentare navodi autor ili koautori jednog zajedničkog XML dokumenta kako bi pratili svoj i medjusobni rad, obeležili gde bi se nešto moglo dodati ili oduzeti, navesti potrebna objašnjenja, napomene i slično.
+Oni nisu namenjeni programima koji koriste XML dokumente, već isključivo korisnicima, kako bi dati dokument ili neki njegov deo učinili razumljivijim.
+Aplikacije koje čitaju i obrađuju XML dokument mogu potpuno izostaviti komentare ukoliko je to ono što autor želi.
+<br>
+<h2>Instrukcije za obradu</h2>
+Nekada je potrebno aplikacijama koje koriste XML dokument proslediti posebne informacije. Upravo te informacije nazivaju se instrukcijama za obradu. Znak za njihov početak je „<?“ a za kraj “?>“. Instrukcija za obradu sadrži ime aplikacije kojoj je namenjena ili identifikator instrukcije i tekst zapisan u formatu koji odgovara toj aplikaciji. Instrukcije se, kao i komentari, mogu navesti bilo gde pre ili nakon korenskog elementa, ali ne ispred deklaracije, unutar etiketa ili drugih komentara. Instrukcije za obradu mogu biti nazvane bilo kojim imenom koje poštuje pravila koja XML zadaje, osim xml, XML i sličnog, u bilo kakvoj kombinaciji malih i velikih slova.
+<br><br>
+  </body>
+</html>

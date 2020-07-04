@@ -2,31 +2,50 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Validacija</title>
+    <title>Validacija XML dokumenta</title>
   </head>
   <body>
     <h1>Validacija XML dokumenta</h1>
-    Za XML dokument kažemo da je <b>dobro oformljen</b> ako ima ispravnu sintaksu, odnosno ako su ispoštovana sintaksna pravila:
+    Svaki XML dokument mora biti dobro formiran.
+    Za XML dokument kažemo da je dobro formiran ako ima ispravnu sintaksu, odnosno ako su ispoštovana brojna sintaksna pravila, od kojih se posebno mogu istaći sledeća:
+    <br><br>
     <ul>
-      <li>XML dokument mora imati koreni element.</li>
-      <li>XML elementi moraju imati završnu etiketu.</li>
-      <li>XML dokumenti su case sensitive (osetljivi na veličinu slova).</li>
-      <li>XML elementi moraju biti dobro ugnježdeni.</li>
-      <li>Vrednosti XML atributa moraju stajati pod navodnicima.</li>
+      <li>XML dokument mora imati jedinstven korenski element;</li>
+      <li>Svaka početna etiketa mora imati odgovarajuću završnu etiketu;</li>
+      <li>XML etikete su osetljive na veličinu slova (eng. case sensitive);</li>
+      <li>XML elementi moraju biti dobro ugnježdeni;</li>
+      <li>Vrednosti XML atributa moraju biti nevedene pod jednostrukim ili dvostrukim navodnicima;</li>
+      <li>Jedan XML element ne sme imati više atributa nazvanih istim imenom;</li>
+      <li>Komentari i instrukcije za obradu se ne smeju naći unutar etiketa;</li>
+      <li>Znakovi „<“ ili „&amp;“ se ne smeju naći unutar tekstualnog sadržaja elemenata ili unutar vrednosti atributa, osim ako su korićene reference entiteta.</li>
     </ul>
     <br>
-    Bilo kakva greška u XML dokumentu će zaustaviti XML aplikaciju. Dakle, za razliku od HTML-a, gde pretraživači mogu da otvore HTML dokument sa greškom, u XML-u prostora za greške nema.
-    Svaka aplikacija koja manipuliše XML dokumentom će biti zaustavljena ukoliko u njemu postoji greška. Razlog tome je to što bi XML dokument trebalo da bude mali, brz i kompatibilan.
+    Za razliku od HTML standarda, gde pretraživači mogu da otvore HTML dokument sa greškom, u XML datotekama prostora za greške nema. Svaka aplikacija koja koristi XML dokument će biti zaustavljena ukoliko u njemu postoji greška. Zapravo, XML parser prilikom čitanja dokumenta mora prijaviti grešku u dobrom formiranju bez obzira na to koliko se ona često javlja i da li je „mala“ ili „velika“. Ono što parser ne sme uraditi jeste da ne sme ispravljati greške koje otkrije. Dakle, ne sme dodati završnu etiketu koja izostaje, ne sme ispravljati veličinu slova ukoliko nije ispoštovana osetljivost na mala i velika slova, ne sme zatvarati otvorene navodnike, ne sme brisati komentare sa mesta na kojima oni nisu dozvoljeni i slično. Prema tome, uvek treba proveriti da li je „finalni“ XML dokument dobro formiran. To se može proveriti na više načina.
     <br>
     <br>
-    <b>Valjan (validan) XML dokument</b> nije isto što i dobro oformljen XML dokument. Valjan XML dokument mora biti dobro oformljen, ali pored toga mora odgovarati <b>definiciji tipa dokumenta</b>.
+    Jedan od načina (i najjednostavniji način) jeste otvoriti XML dokument pomoću pretraživača veba koji prepoznaje XML dokumente, ima svoj XML parser i prikazuje greške u dobrom formiranju ukoliko ih ima.
+    Neki od takvih pretraživača su Mozilla Firefox i Google Chrome, recimo.
+    <br><br><b>Slika 7: </b>Detalji greške (Google Chrome)
+    <br><img src="courses/[xml]/[XML_Validacija_dokumenta]/[Chrome_greska.png]"><br>
+    <b>Slika 8: </b>Detalji greške (Mozilla Firefox)
+    <br><img src="courses/[xml]/[XML_Validacija_dokumenta]/[Mozila_greska.png]"><br>
+
+    Svaki od ovih pretraživača na svoj način prikazuje detalje o grešci koju je njihov parser primetio: šta je tačno greška, na kom mestu u dokumentu je nastala, lokaciju dokumenta, šta je očekivano rešenje i slično.
+     Uz sve ovo, pretraživač može prikazati ceo dokument ili samo deo na kome je primećena greška ili ga ne prikazati uopšte.
+    Zahvaljujući svemu tome, autor dokumenta može lako pronaći deo dokumenta u kome je nastao problem i lako ga ispraviti.
+    <br><br>Drugi način da se proveri da li je XML dokument dobro formiran jeste koristeći direktno XML parsere. Neki od njih su SAX, expat, TclExpat, XML Microsoft's Validating XML Processor, Python and XML Processing Preliminary XML Parser, XML Testbed, Java built-in parser.
+    Lako se mogu naći i online XML parseri.
+    <br><br>U ručno pisanim XML dokumentima se često nalaze greške, zato je dobra praksa proveriti da li su dobro formirani. Parseri će prijavljivati greške sve dok se i poslenja ne ispravi, ali se zato proveren i ispravljen XML dokument može slobodno dalje koristiti.
+    <br><br>
+    <b>Validan (validan) XML dokument</b> nije isto što i dobro oformljen XML dokument. Validan XML dokument mora biti dobro formiran, ali pored toga mora odgovarati <b>definiciji tipa dokumenta</b>.
     Postoje dve vrste definicija tipa dokumenata koje se primenjuju u XML-u:
+    <br><br>
     <ul>
       <li>DTD - originalno definisanje tipa dokumenata (Document type definition).</li>
       <li>XML shema - alternativa DTD-u.</li>
     </ul>
-
+<br>
     Definicija tipa dokumenata definiše pravila i ispravne elemente i atribute za XML dokument.
-
+<br><br>
   </body>
 </html>

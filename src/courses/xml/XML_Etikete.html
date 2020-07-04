@@ -7,26 +7,26 @@
   <body>
     <h1>Etikete</h1>
 
-    XML nema predefinisane etikete. Što nije slučaj kod HTML-a u kome se smeju koristiti samo etikete već definisane HTML-standardom, kao što su:  &#60;p&#62; - paragraf, &#60;table&#62; - tabela, &#60;ul&#62; - unordered list (neuređena lista), itd.
+    XML etikete čine XML standardom za označavanje (eng. markup). Kao što je rečeno, dosta podsećaju na HTML etikete. Početna etiketa počinje znakom „<“ a završava se znakom „>“. Završna etiketa počinje znakom „&lt;/“ i završava se znakom „>“. Imena etiketa zadaje autor kako bi opisao sadržaj elementa koji one označavaju.
+<br>
+<h2>Sintaksa etiketa</h2>
+Svaka početna XML etiketa <b>mora imati odgovarajuću završnu etiketu</b>. Dakle, za razliku od HTML standarda, XML ne dozvoljava etikete kao što su &#60;br&#62;, &#60;p&#62; za koje ne mora postojati odgovarajuća završna etiketa.
     <br>
-    Pogledajmo sledeći primer:
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
-    <obavestenje>
-      <od>Autor</od>
-      <za>Čitalac</za>
-      <naslov>Obaveštenje</naslov>
-      <poruka>
-        Počinje kurs. Srećno!
-      </poruka>
-    </obavestenje></xmp>
-
-
-    Etikete u primeru iznad: &#60;obavestenje&#62;, &#60;od&#62;, &#60;za&#62;, &#60;naslov&#62;, &#60;poruka&#62;
-    nisu definisane nikakvim XML-standardom, već su osmišljene od strane autora. Dakle, autor XML fajla mora sam definisati svoje etikete i strukturu dokumenta.
-    Upravo etikete su ono što XML čini XML-om, one opisuju informaciju.
-    Važna je činjenica da su etikete u XML-u "case sensitive", što znači da, recimo, &#60;Ime&#62; i &#60;ime&#62; nisu iste etikete.
-
-
+ <br>
+   Primer dobro formiranog XML elementa:
+   <br><br><span class = "primer_text"> &lt;ime&gt; Pera &lt;/ime&gt;</span>
+<div class = "napomena"><b>Napomena:</b> Primećuje se da XML deklaracija nema završnu etiketu. Međutim, to nije pogrešno zato što se ona ne smatra delom XML dokumenta u strogom smislu.</div>
+    XML etikete su  <b>osetljive na veličinu slova</b> (eng. case sensitive). Prema tome, etikete &#60;Ime&#62;, &#60;IME&#62; i &#60;ime&#62; nisu iste. Ovo može predstavljati problem ukoliko se ne zadaju ispravno početna i završna etiketa istog elementa. Stoga bi sledeći element bio neispravno kreiran:
+ <br><br><span class = "primer_text">&lt;Ime&gt; Pera &lt;/ime&gt;</span>
+<br><br>
+Dakle, autor može birati da li će koristiti mala ili velika slova kada zadaje imena etiketa, ali prilikom kreiranja jednog elementa mora voditi računa da početna i završna etiketa budu odgovarajuće zapisane.
+ <br><br>
+<b>Elementi moraju biti pravilno ugnježdeni. </b>To znači da, ukoliko je neki element otvoren unutar nekog drugog, mora se prvo zatvoriti unutrašnji element, a zatim spoljašnji, što pokazuje sledeći primer:
+<br><br><span class = "primer_text">&lt;film&gt;&lt;naziv&gt;Interstellar&lt;/naziv&gt;&lt;/film&gt;</span>
+<br><br>
+XML ne dozvoljava sledeći način ugnježđivanja (koji se često može videti u HTML standardu):
+<br><br><span class = "primer_text">&lt;film&gt;&lt;naziv&gt;Interstellar&lt;/film&gt;&lt;/naziv&gt;</span>
+<br>
 
   </body>
 </html>

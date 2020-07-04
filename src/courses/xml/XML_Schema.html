@@ -2,20 +2,92 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Schema</title>
+    <title>XML Schema</title>
   </head>
   <body>
-    <h1>XML Schema</h1>
-    XML Schema je alternativni način za specifikovanje strukture XML dokumenta.
-    <br>Ona je u prednosti u odnosu na DTD iz nekoliko razloga:
+    <h1>XML šema</h1>
+    XML Schema (XML šema) je alternativni način za specifikovanje strukture XML dokumenta. Ona se često naziva i XML Schema Definition (XSD), prema tome, XML Schema dokumenti imaju ekstenziju „ .xsd “. Kao i XML DTD, ona definiše gradivne blokove, redosled pojavljivanja elemenata i atributa, tip sadržanih podataka i podrazumevane i fiksirane vrednosti elemenata i atributa. Takodje, XML dokument je validan ukoliko je dobro formiran i poštuje sintaksu koju zadaje odgovarajuća XML Schema. U prednosti je u odnosu na XML DTD iz nekoliko razloga. Kao prvo, XML Schema ima XML sintaksu, stoga se ne mora učiti novi jezik za pisanje XML Schema dokumenata. Oni se mogu pisati i uređivati korišćenjem istog editora kao i prilikom formiranja običnog XML dokumenta i parsirati XML parserom. Kako ima XML sintaksu, to je XML Schema proširiva. Sa druge strane, XML Schema podržava različite tipove podataka pa je njome lakše opisati strukturu sadržaja odgovarajućeg XML dokumenta, izvršiti validaciju podataka, konvertovati podatke iz jednog tipa u drugi i slično. U XML Schemi ima dosta definisanih tipova podataka. Najčešće su to:
+    <br>
     <ul>
-      <li>XML Schema je pisana u XML-u.</li>
-      <li>XML Schema je proširiva.</li>
-      <li>XML Schema podržava različite tipove podataka.</li>
-      <li>XML Schema podržava namespace.</li>
+      <li>xs:string,</li>
+      <li>xs:decimal,</li>
+      <li>xs:integer,</li>
+      <li>xs:byte,</li>
+      <li>xs:boolean,</li>
+      <li>xs:date,</li>
+      <li>xs:dateTime.</li>
     </ul>
-    Za primer koji smo već imali "obavestenje.xml":
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    XML Schemom se, kao što je već rečeno, mogu definisati elementi i atributi koji će se naći u XML dokumentu na koji se ona odnosi. Elementi mogu biti prostog tipa (simpleType) ili složenog tipa (complexType), dok atributi ne mogu biti složenog tipa.
+    <br><br>
+    <h2>Deklarisanje elemenata</h2>
+    XML elementi prostog tipa imaju samo tekstualni sadržaj i ne mogu sadržati druge elemente i atribute. Međutim, tekstualni sadržaj tih elemenata može biti različitog tipa: ili tipa koji je već definisan u XML Schemi (string, decimal, integer, boolean, date...) ili tipa koji sam autor XML dokumenta može definisati.
+    <br><br>Deklaracija XML elementa prostog tipa ostvaruje se pomoću elementa xs:element koji ima dva atributa name i type:
+    <br><br><span class = "primer_text"> &lt;xs:element name="ime_elementa" type="tip_podataka"/&gt; </span>
+    <br><br><b>Primer 50:</b> XML elementi i odgovarajuće XML Schema deklaracije
+    <br><br>XML elementima:
+    <xmp class = "primer_ta">
+      <ime>Pera</ime>
+      <prezime>Perić</prezime>
+      <datum_rodjenja>1994-05-11</datum_rodjenja>
+       <redni_broj>5</redni_broj>
+    </xmp>
+    Odgovaraju deklaracije:
+    <xmp class = "primer_ta">
+      <xs:element name="ime" type="xs:string"/>
+      <xs:element name="prezime" type="xs:string"/>
+      <xs:element name="datum_rodjenja" type="xs:date"/>
+      <xs:element name="redni_broj" type="xs:integer"/>
+    </xmp>
+    Elementi mogu imati podrazumevanu (default) ili fiksiranu (fixed) vrednost.
+    Podrazumevana vrednost je ona koja se dodeljuje elementu ukoliko nijedna druga nije eksplicitno zadata prilikom formiranja XML dokumenta.
+
+    <br><br><span class = "primer_text"> &lt;xs:element name="ime" type="tip_podatka" default="podrazumevana_vrednost"/&gt; </span>
+
+    <br><br>Fiksirana vrednost elementa se u XML dokumentu ne može menjati:
+
+    <br><br><span class = "primer_text"> &lt;xs:element name="ime" type=" tip_podatka " fixed="fiksirana_vrednost"/&gt; </span>
+
+    <br><br>XML elementi složenog tipa mogu sadržati druge elemente i atribute i oni se XML Schemom deklarišu pomoću elementa xs:complexType.
+
+    <br><br><b>Primer 51:</b> Deklaracija elementa složenog tipa
+    <xmp class = "primer_ta">
+      <xs:element name="ime_složenog_elementa">
+      <xs:complexType>
+       <xs:sequence>
+         <xs:element name="prvi_podelement" type="tip_elementa"/>
+         <xs:element name="drugi_podelement " type="tip_elementa"/>
+         <xs:element name="treci_podelement " type=" tip_elementa "/>
+         ...
+       </xs:sequence>
+      </xs:complexType>
+      </xs:element>
+    </xmp>
+
+    Elementima xs:complexType i xs:sequence definiše se da je dati element složenog tipa i da sledi niz elemenata koje on sadrži. U odgovarajućem XML dokumentu se podelementi deklarisanog složenog elementa moraju pojavljivati u redosledu koji je zadat šemom.
+    <br><br>
+    <h2>Deklarisanje atributa</h2>
+    Vrednosti atributa svakako ne mogu sadržati elemente ili druge atribute, prema tome atributi se uvek deklarišu kao prosti tipovi. Deklaracija atributa ostvaruje se pomoću elementa xs:attribute:
+    <br><br><span class = "primer_text"> &lt;xs:attribute name="ime_atributa" type="tip_atributa"&gt; </span>
+    <br><br>Tip vrednosti atributa može biti neki od već definisanih u XML Schemi (string, decimal, integer, boolean, date...) ili može biti definisan od strane autora XML dokumenta.
+
+    <br><br><b>Primer 52:</b> XML Schema deklaracija atributa
+    <br><br>XML atribut „pol“ elementa „osoba“:
+    <xmp class = "primer_ta">
+     <osoba pol="muški" >Pera</osoba>
+    </xmp>
+    U XML Schemi ima deklaraciju:
+    <xmp class = "primer_ta">
+     <xs:attribute name="pol"  type="xs:string"/>
+    </xmp>
+    Vrednosti atributa, kao i vrednosti elemenata, mogu biti podrazumevane ili fiksirane, što se definiše analogno načinu definisanja vrednosti elemenata. Takodje, podrazumevana vrednost se dodeljuje atributu ukoliko nijedna druga nije posebno zadata prilikom formiranja XML dokumenta, a fiksirana se, u XML dokumentu, ne može menjati.
+    <br><br>Definicijom tipa podataka koje sadrže elementi ili atributi, ograničava se tip njihovog sadržaja. Recimo, ukoliko je XML Schemom definisan tip nekog elementa „xs:integer“ a u odgovarajućem XML dokumentu je njegov sadržaj tekstualni „Dobro došli“, taj element neće biti validan i XML parser će tražiti korekciju ovog elementa
+    <br><br>
+    <h2>Implementacija XML Scheme</h2>
+    Kao što XML dokument može imati referencu ka spoljašnjem DTD dokument, kojim se specifikuje njegova struktura, tako može imati i referencu ka spoljašnjem XML Schema dokumentu. To se može sagledati na već pomenutom primeru XML dokumenta „obavestenje.xml“.
+
+    <br><br><b>Primer 53:</b> XML dokument „obavestenje.xml“
+    <xmp class = "primer_ta">
+    <?xml version="1.0" encoding="UTF-8"?>
     <obavestenje>
       <od>Autor</od>
       <za>Čitalac</za>
@@ -23,48 +95,93 @@
       <poruka>
         Počinje kurs. Srećno!
       </poruka>
-    </obavestenje></xmp>
+    </obavestenje>
+    </xmp>
 
-    XML Schema "obavestenje.xsd"može izgledati otprilike ovako:
-    <xmp class = "primer_ta"><?xml version="1.0"?>
-    <xs:schema xmlns:xs="URI">
-    <xs:element name="obavestenje">
-      <xs:complexType>
-       <xs:sequence>
-         <xs:element name="od" type="xs:string"/>
-         <xs:element name="za" type="xs:string"/>
-         <xs:element name="naslov" type="xs:string"/>
-         <xs:element name="poruka" type="xs:string"/>
-       </xs:sequence>
-     </xs:complexType>
-   </xs:element>
-   </xs:schema></xmp>
+    XML Schema „obavestenje.xsd“ prikazana je u primeru 54.
 
-   Ona pokazuje sledeće:
+    <br><br><b>Primer 54:</b> XML Schema „obavestenje.xsd“
+    <xmp class = "primer_ta">
+      <?xml version="1.0"?>
+      <xs:schema xmlns:xs=http://www.w3.org/2001/XMLSchema>
+          <xs:element name="obavestenje">
+            <xs:complexType>
+             <xs:sequence>
+               <xs:element name="od" type="xs:string"/>
+               <xs:element name="za" type="xs:string"/>
+               <xs:element name="naslov" type="xs:string"/>
+               <xs:element name="poruka" type="xs:string"/>
+             </xs:sequence>
+           </xs:complexType>
+         </xs:element>
+      </xs:schema>
+    </xmp>
+  Na osnovu primera 54, može se opisati struktura XML Schema dokumenata:
+  <br><br>
    <ul>
-     <li><xs:schema xmlns:xs="URI"> služi za definisanje namespacea za prefiks <b>xs</b>.</li>
-     <li><xs:complexType> pokazuje da je element "obavestenje" složen, odnosno da sadrži druge elemente.</li>
-     <li><xs:sequence> pokazuje da sledi niz elemenata koji pripadaju "obavestenju".</li>
-     <li><xs:element name="od" type="xs:string"> pokazuje da je element "od" tipa string. Na isti način, pokazano je i da su elementi "za", "naslov" i "poruka" takođe tipa string.</li>
+     <li>XML Schema počinje XML deklaracijom;</li>
+     <li>Korenski element svake XML šeme je xs:schema i on sadrži deklaracije svih elemenata i atributa koji se pojavljuju u XML dokumentu na koji se šema odnosi. Ovaj element može sadržati atribute, a obavezni atribut jeste xmlns:xs kojim se definiše prostor imena kome pripadaju svi elementi šeme, pri čemu se svi elementi šeme zapisuju sa prefiksom xs:. Taj prostor imena je uvek http://www.w3.org/2001/XMLSchema;</li>
+     <li>Linija &lt;xs:element name="obavestenje"&gt; predstavlja deklaraciju XML elementa "obavestenje";</li>
+     <li>Elementom xs:complexType se definiše da je XML element "obavestenje" složen, odnosno da sadrži druge elemente;</li>
+     <li>Linija &lt;xs:sequence&gt; pokazuje da sledi niz podelemenata elementa"obavestenje";</li>
+     <li>Naredne četiri linije deklarišu proste podelemente elementa "obavestenje" i definišu tip podataka koje nose ti elementi. U ovom slučaju, svi elementi su tipa string.</li>
    </ul>
-   <br><br>
-   Referenca ka ovoj schemi se u XML dokument unosi kao atribut elementa "obavestenje", na sledeći način:
-   <xmp class = "primer_ta"><?xml version="1.0"?>
+   <br>
+   Referenca ka  XML Schemi iz primera 54 se u XML dokument unosi kao atribut korenskog elementa na sledeći način (u primeru 55, korenski element je „obavestenje“):
 
-      <obavestenje xmlns:xsi="URI"
-             xsi:schemaLocation="URI obavestenje.xsd">
+   <br><br><b>Primer 55:</b> Referenca ka XML Schema dokumentu ukoliko deklarisani gradivni blokovi ne pripadaju nijednom prostoru imena
 
+    <xmp class = "primer_ta">
+      <?xml version="1.0"?>
+      <obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="obavestenje.xsd">
              <od>Autor</od>
              <za>Čitalac</za>
              <naslov>Obaveštenje</naslov>
              <poruka>
                Počinje kurs. Srećno!
              </poruka>
-           </obavestenje></xmp>
-    Pri čemu se mora definisati namespace za prefiks xsi (XML Schema Instance), a tek onda iskoristiti atribut za lokaciju dokumenta
-    <xmp class = "primer_ta">xsi:schemaLocation="URI obavestenje.xsd"</xmp> Ovaj atribut zapravo ima dve vrednosti razdvojene "space"-om (prazninom). Prva vrednost je namespace koji se koristi, a druga lokacija XML Schema dokumenta.
-   <h2>Prednosti korišćenja XML Scheme</h2>
-   Velika prednost XML Scheme je to što podržava različite tipove podataka, pa je tako lakše opisati sadržaj dokumenta, proveriti ispravnost podataka i konvertovati tip podatka u neki drugi.
-   Takođe, značajno je to što je ona napisana u XML-u. Prema tome, ne mora se učiti novi jezik, može se koristiti isti editor kao i za XML za uredjivanje XML Schema dokumenata, isti parser za parsiranje XML Schema dokumenta, mogu se transformisati XSLT-om.
+           </obavestenje>
+      </xmp>
+   Dakle, u korenskom elementu se definiše prostor imena za prefiks xsi (XML Schema Instance), a zatim se zadaje adresa odgovarajuće šeme pomoću atributa xsi:noNamespaceSchemaLocation čija je vrednost lokacija odgovarajućeg XML Schema dokumenta.
+   <br><br>Međutim, ukoliko gradivni blokovi deklarisani XML Schemom pripadaju nekom XML prostoru imena, unošenje reference u odredjeni XML dokument ka takvoj šemi postaje složenije. Zapravo, tada se, u XML Schemi, korenskom elementu xs:schema pored atributa xmlns:xs dodaje i atribut targetNamespace koji označava prostor imena kome pripadaju svi elementi i atributi deklarisani ovom šemom.
+   Referenca u XML dokumentu ka ovakvoj šemi se formira pomoću već pomenutog atributa xmlns:xsi  i atributa xsi:schemaLocation koji ima dve vrednosti od kojih je prva prostor imena dokumenta šeme a druga lokacija šeme koja se koristi u tom prostoru imena. Da bi svi gradivni blokovi posmatranog XML dokumenta zaista pripadali određenom prostoru imena, potrebno je deklarisati ili podrazumevani prostor imena (sintaksa xmlns=“URIprostoraImenaŠeme“) ili prefiks koji će ukazivati na taj prostor imena (sintaksa xmlns:prefiks=“URIprostoraImenaŠeme“).
+
+   <br><br><b>Primer 56:</b> XML Schema XML dokumenta čiji elementi pripadaju nekom prostoru imena
+   <xmp class = "primer_ta">
+     <?xml version="1.0"?>
+      <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    targetNamespace="URIprostoraImenaŠeme">
+       <xs:element name="obavestenje">
+         <xs:complexType>
+           <xs:sequence>
+            <xs:element name="od" type="xs:string"/>
+            <xs:element name="za" type="xs:string"/>
+            <xs:element name="naslov" type="xs:string"/>
+            <xs:element name="poruka" type="xs:string"/>
+           </xs:sequence>
+         </xs:complexType>
+       </xs:element>
+      </xs:schema>
+   </xmp>
+
+  XML dokument sa referencom ka odgovarajućem XML Schema dokumentu prikazan je u primeru 57.
+  <br><br><b>Primer 57:</b> Referenca ka XML Schema dokumentu ukoliko deklarisani gradivni blokovi pripadaju nekom prostoru imena
+  <xmp class = "primer_ta">
+    <?xml version="1.0"?>
+      <obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation=" URIprostoraImenaŠeme  obavestenje.xsd"
+             xmlns="URIprostoraImenaŠeme">
+             <od>Autor</od>
+             <za>Čitalac</za>
+             <naslov>Obaveštenje</naslov>
+             <poruka>
+               Počinje kurs. Srećno!
+             </poruka>
+      </obavestenje>
+  </xmp>
+
+  Da bi se proverila validnost XML dokumenta u odnosu na zadatu šemu, potreban je XML parser koji podržava šeme. Jedan od takvih je Xerces parser koji je kreirala organizacija Apache XML Project.
+<br><br>
   </body>
 </html>

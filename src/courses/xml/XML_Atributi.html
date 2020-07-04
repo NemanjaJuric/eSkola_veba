@@ -6,33 +6,57 @@
   </head>
   <body>
     <h1>Atributi</h1>
-    Kao i u HTML-u, i elementi XML-a mogu sadržati atribute. Atributi obezbeđuju dodatne informacije o elementu i uvek se nalaze u početnoj etiketi elementa. Najčešće su to informacije koje su važnije softveru koji koristi elemente tog XML dokumenta. Imena atributa su takodje case sensitive.
-    Vrednosti atributa se moraju zadati <b>pod navodnicima</b>, a navodnici mogu biti i jednostruki i dvostruki. Recimo, korektno je zadata vrednost atributa "JMBG" u naredna dva primera:
-    <xmp class = "primer_ta">
-    <osoba JMBG="04051993755012"> Sara </osoba></xmp>
+
+    XML elementi mogu imati atribute. Atributi obezbeđuju dodatne informacije o elementu i uvek se navode u početnoj etiketi elementa. XML atributi su oblika „ atribut="vrednost atributa" “. Za zadavanja imena atributima važe ista pravila koja važe pri imenovanju elemenata.
+    Vrednosti atributa se moraju zadati <b>pod navodnicima</b>, a navodnici mogu biti i jednostruki i dvostruki.
+    Recimo, korektno je zadata vrednost atributa "JMBG" u oba sledeća primera:
+    <br><br><span class = "primer_text"> &lt;osoba JMBG="04051993755012"&gt; Pera  Perić &lt;/osoba&gt;</span>
+    <br><br>
     i
+    <br><br><span class = "primer_text"> &lt;osoba JMBG='04051993755012'&gt; Pera  Perić &lt;/osoba&gt;</span>
+    <br><br>
+    Za XML parsere će ova dva elementa biti identična. Razliku neće praviti to što je u prvom primeru vrednost atributa zadata pod dvostrukim, a u drugom pod jednostrukim navodnicima, niti razmaci oko znaka jednakosti u drugom primeru.
+    Jednostruki navodnici su korisni ukoliko vrednost atributa sama po sebi sadrži dvostruke navodnike.
+<br><br><b>Primer 14: </b>Korišćenje jednostrukih i dvostrukih navodnika istovremeno
+<xmp class = "primer_ta">
+<osoba ime = ’Pera „Sveznalica“ Perić’>...</osoba></xmp>
+
+Takođe, mogu se koristiti i reference entiteta kako bi se ova vrednost atributa isto zapisala.
+
+<br><br><b>Primer 15: </b>Korišćenje referenci entiteta umesto navodnika
+<xmp class = "primer_ta">
+<osoba ime = ’Pera &quot;Sveznalica&quot; Perić’>...</osoba></xmp>
+
+Informacije o nekom podatku se mogu zapisati i kao elementi i kao atributi.
+
+    <br><br><b>Primer 16: </b>Pol zapisan kao atribut:
     <xmp class = "primer_ta">
-    <osoba JMBG='04051993755012'> Sara </osoba></xmp>
-    <br>
-    Informacije o nekom podatku se mogu zapisati i kao elementi i kao atributi. Recimo, osoba "Sara" se može opisati na sledeća dva načina.
-    <br>Pol zapisan kao atribut:
-    <xmp class = "primer_ta"><osoba pol= "zenski">
-        <ime> Sara </ime>
-        <prezime> Ilić </prezime>
-      </osoba></xmp>
-      Pol zapisan kao element:
-      <xmp class = "primer_ta"><osoba>
-        <pol> zenski </pol>
-        <ime> Sara </ime>
-        <prezime> Ilić </prezime>
-      </osoba></xmp>
-      Nema strogo određenog pravila u vezi sa tim kada treba koristiti elemente, a kada atribute u XML-u, ali postoje važne razlike izmedju elemenata i atributa koje naizgled elementima daju malu prednost. Na primer:
+      <osoba pol= "muški">
+        <ime> Pera </ime>
+        <prezime> Perić </prezime>
+      </osoba>
+</xmp>
+      <b>Primer 17: </b>Pol zapisan kao element:
+      <xmp class = "primer_ta">
+      <osoba>
+        <pol> muški </pol>
+        <ime> Pera </ime>
+        <prezime> Perić </prezime>
+      </osoba>
+</xmp>
+      U XML standardu ne postoje stroga pravila koja određuju kada treba koristiti elemente, a kada atribute, ali postoje važne razlike izmedju elemenata i atributa koje naizgled elementima daju malu prednost. Na primer:
+    <br><br>
       <ul>
-        <li>Atributi ne mogu imati više od jedne vrednosti, dok elementi mogu.</li>
-        <li>Atributi nemaju strukturu stabla, a elementi je imaju.</li>
+        <li>Atributi ne mogu imati više od jedne vrednosti, dok elementi mogu;</li>
+        <li>Atributi nemaju strukturu stabla, a elementi je imaju;</li>
         <li>Atributi nisu lako proširivi.</li>
       </ul>
+    <br>
+      Sa druge strane, jedan element ne može imati više atributa istog imena što može predstavljati problem ukoliko je potrebno navesti više različitih vrednosti istoimenog atributa unutar jednog elementa. Recimo, potrebno je opisati osobu koja ima više zanimanja ili brojeva telefona i slično.
+      Prema tome, na autoru je da sam izabere kada će koristiti elemente, a kada atribute.
+      U primerima 18, 19 i 20, elementi nose iste informacije zadate na različite načine.
 
+<br><br><b>Primer 18: </b>Datum je zadat kao vrednost atributa
       Pogledajmo sličan primer kao onaj na samom početku kursa, neka on sadrži atribut "datum":
       <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
       <obavestenje datum="14.7.2019.">
@@ -43,7 +67,9 @@
           Počinje kurs. Srećno!
         </poruka>
       </obavestenje></xmp>
-    Svakako je bolje ovu poruku zapisati koristeći više elemenata:
+
+    <b>Primer 19: </b>Datum zadat kroz elemente „dan“, „mesec“ i „godina“
+
     <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
     <obavestenje>
       <dan>14</dan>
@@ -56,10 +82,40 @@
         Počinje kurs. Srećno!
       </poruka>
     </obavestenje></xmp>
-    nego više atributa (i treba izbegavati ovakve primere):
+
+    Svi elementi se mogu zameniti odgovarajućim atributima, kao u primeru 20, ali to bi trebalo izbegavati.
+
+<br><br><b>Primer 20: </b>Svi podaci zadapisani kao atributi korenskog elementa
     <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
     <obavestenje dan="14" mesec="7" godina="2019" od="Autor" za="Čitalac" naslov="Obaveštenje" poruka="Počinje kurs. Srećno!">
     </obavestenje></xmp>
+
+    Korisno je dodatne informacije o podacima navoditi kao atribute, a glavne podatke kao elemente.
+    Na primer, ukoliko je potrebno identifikovati različite elemente unutar istog XML dokumenta, može se navesti atribut „id“.
+    Taj atribut ne bi nosio informacije o osobinama elementa unutar kog se nalazi već bi one bile korisnije softveru koji koristi dati XML dokument.
+
+<br><br>
+<b>Primer 21: </b>Primena atributa
+<xmp class = "primer_ta">
+<komunikacija>
+<obavestenje datum="14.7.2019." id = „1“>
+        <od>Autor</od>
+        <za>Čitalac</za>
+        <naslov>Obaveštenje</naslov>
+        <poruka>
+          Počinje kurs. Srećno!
+        </poruka>
+ </obavestenje>
+ <obavestenje datum="14.7.2019." id = „2“>
+        <od>Čitalac</od>
+        <za>Autor</za>
+        <naslov>Re: Obaveštenje</naslov>
+        <poruka>
+          Hvala na obaveštenju!
+        </poruka>
+ </obavestenje>
+</komunikacija>
+</xmp>
 
   </body>
 </html>

@@ -2809,13 +2809,6 @@
         "sublessons": null
       },
       {
-        "name": "Etikete",
-        "url": "XML_Etikete",
-        "type": "lesson",
-        "parentCourse": "xml",
-        "sublessons": null
-      },
-      {
         "name": "Struktura",
         "url": "XML_Struktura",
         "type": "lesson",
@@ -2823,8 +2816,8 @@
         "sublessons": null
       },
       {
-        "name": "Sintaksa",
-        "url": "XML_Sintaksa",
+        "name": "Etikete",
+        "url": "XML_Etikete",
         "type": "lesson",
         "parentCourse": "xml",
         "sublessons": null
@@ -2837,6 +2830,13 @@
         "sublessons": null
       },
       {
+        "name": "Reference entiteta",
+        "url": "XML_Reference_entiteta",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
         "name": "Atributi",
         "url": "XML_Atributi",
         "type": "lesson",
@@ -2844,8 +2844,15 @@
         "sublessons": null
       },
       {
-        "name": "Namespaces",
-        "url": "XML_Namespaces",
+        "name": "Prostori imena",
+        "url": "XML_Prostori_imena",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "Ostali gradivni blokovi",
+        "url": "XML_Ostali_gradivni_blokovi",
         "type": "lesson",
         "parentCourse": "xml",
         "sublessons": null
@@ -2853,20 +2860,6 @@
       {
         "name": "Prikaz",
         "url": "XML_Prikaz",
-        "type": "lesson",
-        "parentCourse": "xml",
-        "sublessons": null
-      },
-      {
-        "name": "XPath",
-        "url": "XML_XPath",
-        "type": "lesson",
-        "parentCourse": "xml",
-        "sublessons": null
-      },
-      {
-        "name": "XQuery",
-        "url": "XML_XQuery",
         "type": "lesson",
         "parentCourse": "xml",
         "sublessons": null
@@ -2886,8 +2879,22 @@
         "sublessons": null
       },
       {
-        "name": "XML Schema",
+        "name": "XML Shema",
         "url": "XML_Schema",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "XPath",
+        "url": "XML_XPath",
+        "type": "lesson",
+        "parentCourse": "xml",
+        "sublessons": null
+      },
+      {
+        "name": "XQuery",
+        "url": "XML_XQuery",
         "type": "lesson",
         "parentCourse": "xml",
         "sublessons": null

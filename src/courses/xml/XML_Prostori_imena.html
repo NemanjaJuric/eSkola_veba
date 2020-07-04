@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prostori imena</title>
+  </head>
+  <body>
+    <h1>Prostori imena</h1>
+    Napomenuto je da se nazivi XML elemenata zadaju od strane autora XML dokumenta. Interesantan problem stvaraju homonimi – reči koje se isto pišu a imaju različito značenje. Recimo, u srpskom jeziku reč „sto“ može značiti broj „100“ ili deo nameštaja, reč „jezik“ može označavati govorni organ ili sistem glasova i simbola koji se koriste za komunikaciju. U engleskom jeziku reč „table“ može označavati tabelu ili sto (komad nameštaja) i slično. Prema tome, može se desiti da se u XML dokumentu nađu potpuno različiti elementi nazvani istim imenom, što otežava razumevanje dokumenta i ljudima i aplikacijama koje ih koriste.
+    <br><br><b>Primer 22: </b>Vremenska nepogoda
+    <xmp class = "primer_ta">
+      <grad>
+        <prečnik>3cm</prečnik>
+        <trajanje_nepogode>2h 35min</trajanje_nepogode>
+        <naneta_šteta>700 evra</naneta_šteta>
+      </grad>
+    </xmp>
+      <b>Primer 23: </b>Naseljeno mesto
+      <xmp class = "primer_ta">
+        <grad>
+        <naziv>Beograd</naziv>
+        <zemlja>Srbija</zemlja>
+        <broj_stanovnika>1.659.440</broj_stanovnika>
+        </grad>
+      </xmp>
+
+        Može se primetiti da su oba elementa nazvana istim imenom ali predstavljaju potpuno različite tipove podataka. U primeru 22, element „grad“ predstavlja vremensku nepogodu, dok u primeru 23 „grad“ predstavlja naseljeno mesto. Kada bi se ova dva XML elementa našla u istom XML dokumentu, došlo bi do konflikta zbog njihovih istih imena. Parser bi na isti način tretirao oba elementa jer ne bi mogao da vidi razliku u vrsti podataka. Da bi se takvi konflikti izbegli, koriste se prefiksi. Prilikom korišćenja prefiksa, mora se definisati takozvani <b>prostor imena</b> (eng. namespace). Prostor imena se definiše atributom <b>xmlns</b> koji se navodi u početnoj etiketi elementa, na sledeći način:
+        <br><br>
+        <span class = "primer_text"> xmlns: prefiks = "URI"</span>
+        <br><br>
+
+
+       Reč <b>xmlns:</b> označava početak definicije prostora imena; <b>prefiks</b> je prefiks prostora imena i mora se navoditi u svim imenima elemenata i atributa na koje se prostor imena odnosi, i konačno <b>URI</b> jeste identifikator prostora imena.
+       Identifikator može biti bilo kakav string koji je unikatan na nivou celog dokumenta jer on samo zadaje jedinstveno značenje prostoru imena.
+       <br>
+        Prema tome, problem istoimenih elemenata koji predstavljaju različite pojmove se može rešiti pomoću prostora imena (primer 24).
+        <br><br><b>Primer 24: </b>Primena prostora imena
+        <xmp class = "primer_ta">
+          <zajedno>
+             <nepogoda:grad xmlns:nepogoda="VremenskaNepogoda">
+                 <nepogoda:prečnik>3cm</nepogoda:prečnik>
+                 <nepogoda:trajanje_nepogode>2h 35min</nepogoda:trajanje_nepogode>
+                 <nepogoda:naneta_šteta>700 evra</nepogoda:naneta_šteta>
+             </nepogoda:grad>
+
+             <mesto:grad xmlns:mesto="NaseljenoMesto">
+                 <mesto:naziv>Beograd</mesto:naziv>
+                 <mesto:zemlja>Srbija</mesto:zemlja>
+                 <mesto:broj_stanovnika>1.659.440</mesto:broj_stanovnika>
+             </mesto:grad>
+
+        </zajedno>
+        </xmp>
+        Atributom <b>xmlns</b> su prefiksima „nepogoda“ i „grad“ definisani prostori imena u početnim etiketama odgovarajućih elemenata. I svi podelementi koji imaju isti prefiks će pripadati odgovarajućem prostoru imena. Postoji i lakši način, prostori imena se za sve prefikse koji se javljaju u istom XML dokumentu mogu definisati i u korenskom elementu, atributima.
+
+        <br><br><b>Primer 25: </b>Svi prostori imena definisani u korenskom elementu
+        <xmp class = "primer_ta">
+          <zajedno2 xmlns:nepogoda="VremenskaNepogoda" xmlns:naselje="NaseljenoMesto">
+          <nepogoda:grad>
+              <nepogoda:prečnik>3cm</nepogoda:prečnik>
+              <nepogoda:trajanje_nepogode>2h 35min</nepogoda:trajanje_nepogode>
+              <nepogoda:naneta_šteta>700 evra</nepogoda:naneta_šteta>
+          </nepogoda:grad>
+          <mesto:grad>
+              <mesto:naziv>Beograd</mesto:naziv>
+              <mesto:zemlja>Srbija</mesto:zemlja>
+              <mesto:broj_stanovnika>1.659.440</mesto:broj_stanovnika>
+         </mesto:grad>
+         </zajedno2>
+        </xmp>
+        Može se definisati i takozvani podrazumevani prostor imena (eng. default namespace).
+        <br>Sintaksa je:
+        <br><br>
+        <span class = "primer_text">xmlns="URI"</span>
+        <br><br>
+
+        Definicija podrazumevanog prostora imena u početnoj etiketi posmatranog elementa, omogućava da se bez upotrebe prefiksa označi da svi njegovi podelementi pripadaju tom prostoru imena.
+
+       <br><br>Zadat URI (vrednost atributa xmlns) ne služi parseru da pronadje potrebne informacije, već je njegova uloga, kao što je rečeno, da prostoru imena, a time i odgovarajućim elementima, da jedinstveno značenje. Najčešće se URI prostora imena koristi kao link ka veb stranici koja sadrži informacije koje tačno opisuju odgovarajući objekat.
+
+        <h2>Praktična primena prostora imena</h2>
+        Da bi se na dobar način prikazala korisnost primene prostora imena, potrebno je u makar u najkraćim crtama upoznati se sa jezikom XSLT. XSL je akronim od „eXtensible Stylesheet Language“, a XSLT predstavlja „XSL Transformacije“. Ovaj jezik se koristi za transformisanje XML dokumenta u neki drugi format (npr. u HTML, što je prikazano u primeru 26).
+        Primera radi, pretpostavimo da je potrebno prikazati tabelarno sve podatke iz dokumenta „bioskop.xml“.
+        <br><br><b>Primer 26: </b>XML dokument „bioskop.xml“
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+      <bioskop>
+        <film zanr="komedija">
+          <naziv> Ghostbusters </naziv>
+          <reditelj>Ivan Reitman</reditelj>
+          <trajanje>1h 45min</trajanje>
+          <cena>300</cena>
+        </film>
+        <film zanr="horor">
+          <naziv> It </naziv>
+          <reditelj>Andy Muschietti</reditelj>
+          <trajanje>2h 15min</trajanje>
+          <cena>350 </cena>
+        </film>
+        <film zanr="fantastika">
+          <naziv> Interstellar </naziv>
+          <reditelj> Christopher Nolan</reditelj>
+          <trajanje>2h 49min</trajanje>
+          <cena>400</cena>
+        </film>
+      </bioskop>
+      </xmp>
+        Da bi se naveden repertoar bioskopa prikazao u obliku tabele, može se formirati odgovarajući XSLT dokument (bioskop.xsl) u kome se definiše željeni izgled XML dokumenta o repertoaru bioskopa.Taj dokument mora sadržati prostor imena "http://www.w3.org/1999/XSL/Transform" koji identifikuje XSLT elemente u HTML dokumentu.
+       <br><br><b>Primer 27: </b>XSLT dokument „bioskop.xsl“
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+          <xsl:stylesheet version="1.0"
+          xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:template match="/">
+            <html>
+            <body>
+            <h1>Repertoar bioskopa</h1>
+            <table border="1">
+              <tr bgcolor="#cc33ff">
+                <th>Naziv</th>
+                <th>Reditelj</th>
+                <th>Trajanje</th>
+                <th>Cena</th>
+              </tr>
+              <xsl:for-each select="bioskop/film">
+              <tr>
+                <td><xsl:value-of select="naziv"/></td>
+                <td><xsl:value-of select="reditelj"/></td>
+                <td><xsl:value-of select="trajanje"/></td>
+                <td><xsl:value-of select="cena"/></td>
+              </tr>
+              </xsl:for-each>
+            </table>
+            </body>
+            </html>
+          </xsl:template>
+          </xsl:stylesheet>
+       </xmp>
+
+        Ostalo je još samo da se u XML dokument „bioskop.xml“ unese referenca ka napravljenom XSLT dokumentu „bioskop.xsl“:
+        <br><br>
+        <span class = "primer_text"> ?xml-stylesheet type="text/xsl" href="bioskop.xsl"? </span>
+        <br><br>
+        Nakon toga dokument „bioskop.xml“ ima izgled prikazan u primeru 28.
+        <br><br><b>Primer 28: </b>XML dokument „bioskop.xml“ sa referencom ka XSLT dokumentu
+
+        <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+        <?xml-stylesheet type="text/xsl" href="bioskop.xsl"?>
+        <bioskop>
+          <film zanr="komedija">
+            <naziv> Ghostbusters </naziv>
+            <reditelj>Ivan Reitman</reditelj>
+            <trajanje>1h 45min</trajanje>
+            <cena>300</cena>
+          </film>
+          <film zanr="horor">
+            <naziv> It </naziv>
+            <reditelj>Andy Muschietti</reditelj>
+            <trajanje>2h 15min</trajanje>
+            <cena>350</cena>
+          </film>
+          <film zanr="fantastika">
+            <naziv> Interstellar </naziv>
+            <reditelj> Christopher Nolan</reditelj>
+            <trajanje>2h 49min</trajanje>
+            <cena>400</cena>
+          </film>
+        </bioskop>
+        </xmp>
+ Konačno, ukoliko se ovaj XML dokument otvori pomoću pretraživača veba koji podržava XSLT, on će biti prikazan kao na slici 2.
+        <br><br><b>Slika 2: </b>Prikaz dokumenta „bioskop.xml“ formiran pomoću XSLT
+        <br>
+
+        <img src="courses/[xml]/[XML_Prostori_imena]/[repertoar.png]">
+        <br>
+        <div class = "napomena"> <b>Napomena:</b> Tema ovih lekcija nije XSLT, prema tome, nema potrebe dublje zalaziti u detalje ovog jezika.</div>
+
+  </body>
+</html>
