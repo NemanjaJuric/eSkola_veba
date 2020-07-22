@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Prostori imena</h1>
-    Napomenuto je da se nazivi XML elemenata zadaju od strane autora XML dokumenta. Interesantan problem stvaraju homonimi – reči koje se isto pišu a imaju različito značenje. Recimo, u srpskom jeziku reč „sto“ može značiti broj „100“ ili deo nameštaja, reč „jezik“ može označavati govorni organ ili sistem glasova i simbola koji se koriste za komunikaciju. U engleskom jeziku reč „table“ može označavati tabelu ili sto (komad nameštaja) i slično. Prema tome, može se desiti da se u XML dokumentu nađu potpuno različiti elementi nazvani istim imenom, što otežava razumevanje dokumenta i ljudima i aplikacijama koje ih koriste.
+    Autori XML dokumenata imaju slobodu da sami zadaju nazive elementima, u skladu sa pojmovima koje opisuju. Interesantan problem stvaraju homonimi – reči koje se isto pišu a imaju različito značenje. Na primer, u srpskom jeziku reč „sto“ može značiti broj „100“ ili deo nameštaja, reč „jezik“ može označavati govorni organ ili sistem glasova i simbola koji se koriste za komunikaciju. U engleskom jeziku reč „table“ može označavati tabelu ili sto (komad nameštaja), i slično. Prema tome, može se desiti da se u XML dokumentu nađu potpuno različiti elementi nazvani istim imenom, što otežava razumevanje dokumenta i ljudima i aplikacijama koje ih koriste.
     <br><br><b>Primer 22: </b>Vremenska nepogoda
     <xmp class = "primer_ta">
       <grad>
@@ -24,14 +24,13 @@
         </grad>
       </xmp>
 
-        Može se primetiti da su oba elementa nazvana istim imenom ali predstavljaju potpuno različite tipove podataka. U primeru 22, element „grad“ predstavlja vremensku nepogodu, dok u primeru 23 „grad“ predstavlja naseljeno mesto. Kada bi se ova dva XML elementa našla u istom XML dokumentu, došlo bi do konflikta zbog njihovih istih imena. Parser bi na isti način tretirao oba elementa jer ne bi mogao da vidi razliku u vrsti podataka. Da bi se takvi konflikti izbegli, koriste se prefiksi. Prilikom korišćenja prefiksa, mora se definisati takozvani <b>prostor imena</b> (eng. namespace). Prostor imena se definiše atributom <b>xmlns</b> koji se navodi u početnoj etiketi elementa, na sledeći način:
+        Može se primetiti da su oba elementa nazvana istim imenom ali predstavljaju potpuno različite tipove podataka. U primeru 22, element „grad“ predstavlja vremensku nepogodu, dok u primeru 23 „grad“ predstavlja naseljeno mesto. Kada bi se ova dva XML elementa našla u istom XML dokumentu, došlo bi do konflikta zbog njihovih istih imena. Parser bi na isti način tretirao oba elementa jer ne bi mogao da vidi razliku u vrsti podataka. Da bi se takvi konflikti izbegli, koriste se takozvani prostori imena (eng. namespace) i njima odgovarajući prefiksi. Prostor imena omogućava razlikovanje istoimenih elemenata i atributa, ali i grupisanje svih elemenata i atributa sa zajedničkim značenjem. Definiše se atributom <b>xmlns</b> koji se navodi u početnoj etiketi elementa, na sledeći način:
         <br><br>
         <span class = "primer_text"> xmlns: prefiks = "URI"</span>
         <br><br>
 
 
-       Reč <b>xmlns:</b> označava početak definicije prostora imena; <b>prefiks</b> je prefiks prostora imena i mora se navoditi u svim imenima elemenata i atributa na koje se prostor imena odnosi, i konačno <b>URI</b> jeste identifikator prostora imena.
-       Identifikator može biti bilo kakav string koji je unikatan na nivou celog dokumenta jer on samo zadaje jedinstveno značenje prostoru imena.
+       Prefiks prostora imena zadaje autor kao kratko obeležje koje će se nalaziti ispred naziva svih elemenata i atributa koji pripadaju istom prostoru imena. URI je identifikator prostora imena. Zadat URI ne služi parseru da pronađe potrebne informacije, već je njegova uloga zada jedinstveno značenje odgovarajućem prostoru imena i svim elementima i atributima koji mu pripadaju. Najčešće se za URI prostora imena koristi link ka veb stranici koja sadrži informacije koje opisuju odgovarajući objekat.
        <br>
         Prema tome, problem istoimenih elemenata koji predstavljaju različite pojmove se može rešiti pomoću prostora imena (primer 24).
         <br><br><b>Primer 24: </b>Primena prostora imena
@@ -51,7 +50,7 @@
 
         </zajedno>
         </xmp>
-        Atributom <b>xmlns</b> su prefiksima „nepogoda“ i „grad“ definisani prostori imena u početnim etiketama odgovarajućih elemenata. I svi podelementi koji imaju isti prefiks će pripadati odgovarajućem prostoru imena. Postoji i lakši način, prostori imena se za sve prefikse koji se javljaju u istom XML dokumentu mogu definisati i u korenskom elementu, atributima.
+        Atributom <b>xmlns</b> su prefiksima „nepogoda“ i „grad“ definisani prostori imena u početnim etiketama odgovarajućih elemenata. Svi podelementi koji imaju isti prefiks će pripadati odgovarajućem prostoru imena i imati isto značenje. Postoji i lakši način, prostori imena se za sve prefikse koji se javljaju u istom XML dokumentu mogu definisati i u korenskom elementu.
 
         <br><br><b>Primer 25: </b>Svi prostori imena definisani u korenskom elementu
         <xmp class = "primer_ta">
@@ -104,7 +103,7 @@
         </film>
       </bioskop>
       </xmp>
-        Da bi se naveden repertoar bioskopa prikazao u obliku tabele, može se formirati odgovarajući XSLT dokument (bioskop.xsl) u kome se definiše željeni izgled XML dokumenta o repertoaru bioskopa.Taj dokument mora sadržati prostor imena "http://www.w3.org/1999/XSL/Transform" koji identifikuje XSLT elemente u HTML dokumentu.
+        U cilju da repertoar bioskopa bude prikazan u obliku tabele, može se formirati odgovarajući XSLT dokument (bioskop.xsl) kojim će se definisati željeni izgled XML dokumenta o repertoaru bioskopa. Taj dokument mora sadržati prostor imena „http://www.w3.org/1999/XSL/Transform“ koji identifikuje XSLT elemente u HTML dokumentu.
        <br><br><b>Primer 27: </b>XSLT dokument „bioskop.xsl“
         <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
           <xsl:stylesheet version="1.0"
@@ -169,7 +168,7 @@
         <br><br><b>Slika 2: </b>Prikaz dokumenta „bioskop.xml“ formiran pomoću XSLT
         <br>
 
-        <img src="courses/[xml]/[XML_Prostori_imena]/[repertoar.png]">
+        <img src="courses/xml/XML_Prostori_imena/repertoar.png">
         <br>
         <div class = "napomena"> <b>Napomena:</b> Tema ovih lekcija nije XSLT, prema tome, nema potrebe dublje zalaziti u detalje ovog jezika.</div>
 
