@@ -1,0 +1,23 @@
+<h1>Neprovereni izuzeci - Kontraverza</h1>
+<br>
+
+Budući da programski jezik Java ne zahteva od metoda da hvataju ili naglašavaju (u svojoj deklaraciji) neproverene izuzetke (RuntimeException, Error i njihove podklase), programeri mogu biti u iskušenju da napišu kod koji baca/ispaljuje samo neproverene izuzetke ili da sve njihove klase za izuzetke budu podklase (direktne ili indirekte) od RuntimeException klase. Obe ove prečice omogućavaju programerima da ne moraju da se bave kompajlerskim greškama i da ne moraju da se trude da specificiraju ili uhvate bilo kakve izuzetke. Iako se programeru to može činiti prigodnim, to zaobilazi "zahtev za hvatanje ili specifikaciju" i može uzrokovati probleme drugima koji koriste vaše klase.
+<br><br>
+
+Zašto su dizajneri odlučili primorati metodu da specificira (eksplicitno naglasi) sve ne obrađene izuzetke koji mogu biti bačeni/ispaljeni iz njenog opsega? Svaki Exception koji metoda može baciti/ispaliti deo je javnog progrmskog interfejsa metode. Oni koji pozivaju metodu moraju znati o izuzecima koje metoda može baciti/ispaliti kako bi mogli odlučiti šta da rade sa njima. Ovi izuzeci su podjednako deo programskog interfejsa te metode koliko i njeni parametri i povratna vrednost.
+<br><br>
+
+Sledeće pitanje bi moglo biti: "Ako je tako dobro dokumentovati API-e metode, uključujući izuzetke koje metoda može baciti/ispaliti, zašto ne spcificirati (eksplicitno naglasiti) i runtime izuzetke (izuzetke tokom izvršavanja)?" Runtime izuzeci predstavljaju probleme koji su rezultat greške u programiranju i kao takvi ne može se očekivati da se klijentski API može oporaviti od njih ili ih na bilo koji način obraditi. Takvi problemi uključuju aritmetičke izuzetke, poput deljenja sa nulom; pokazivački izuzeci, poput pristupa objektu preko null reference; i izuzeci indeksiranja, poput pokušaja pristupa elementu niza preko indeksa koji je prevelik ili premali.
+<br><br>
+
+Runtime izuzeci mogu se pojaviti bilo gde u programu, a mogu biti i veoma brojni. Ako bi morali da navedemo i sve Runtime izuzetke u svaku deklaraciju metoda to bi umanjilo preglednost programa. Stoga, kompajler ne zahteva da uhvatite ili naglasite (runtime izuzetke) izuzetke tokom izvođenja (iako možete ako želite).
+<br><br>
+
+Jedan slučaj u kojem je uobičajena praksa bacanje/ispaljivanje RuntimeException izuzetka je kada korisnik pogrešno pozove metodu. Na primer, metoda može proveriti da li je jedan od njenih argumenata <span class = "primer_text">null</span> (i kad to ne bi trebao biti). Ako je argument <span class = "primer_text">null</span>, metoda može baciti/ispaliti NullPointerException, koji je neprovereni izuzetak.
+<br><br>
+
+Generalno gledano, nemojte bacati/ispaljivati RuntimeException ili kreirati podklase (direktne ili indirektne) klase RuntimeException samo zato što ne želite da vas muči specifikacija izuzetaka koje vaše metode mogu da bace/ispale.
+<br><br>
+
+Smernica bi bila: Ako se od klijenta očekuje da se može oporaviti od izuzetka, napravite ga proverenim izuzetkom. Ako klijent ne može učiniti ništa da se oporavi od izuzetka, napravite ga neproverenim izuzetkom.
+<br><br>

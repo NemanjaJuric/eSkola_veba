@@ -2692,6 +2692,62 @@
         "type": "lesson",
         "parentCourse": "java",
         "sublessons": null
+      },
+      {
+        "name": "Izuzeci",
+        "url": "java_izuzeci_uvod",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Izuzeci - zahtev za hvatanje ili specifikaciju",
+        "url": "java_izuzeci_zahtev_za_hvatanje_ili_specifikaciju",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Izuzeci - hvatanje i obrada",
+        "url": "java_izuzeci_hvatanje_i_obrada_izuzetaka",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Izuzeci - navođenje",
+        "url": "java_izuzeci_navodjenje_izuzetaka_ispaljenih_iz_metode",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Kako ispaliti izuzetke",
+        "url": "java_izuzeci_kako_ispaliti_izuzetke",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Neprovereni izuzeci",
+        "url": "java_izuzeci_neprovereni_izuzeci_kontraverza",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Prednosti izuzetaka",
+        "url": "java_izuzeci_prednosti_izuzetaka",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
+      },
+      {
+        "name": "Izuzeci - rezime",
+        "url": "java_izuzeci_rezime",
+        "type": "lesson",
+        "parentCourse": "java",
+        "sublessons": null
       }
     ]
   },

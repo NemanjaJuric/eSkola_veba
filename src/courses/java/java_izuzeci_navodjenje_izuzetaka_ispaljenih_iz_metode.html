@@ -1,0 +1,27 @@
+<h1>Navođenje izuzetaka koje metoda može baciti/ispaliti</h1>
+<br>
+
+U prethodnoj lekciji videli smo kako napisati rukovalac izuzecima za <span class = "primer_text">writeList</span> metodu u klasi <span class = "primer_text">ListOfNumbers</span>. Ponekad je prikladno da kod hvata izuzetke koji se mogu dogoditi unutar njega. U drugim slučajevima, bolje je prepustiti obradu izuzetaka nekoj od metoda sa steka poziva. Na primer, ako ste klasu <span class = "primer_text">ListOfNumbers</span> obezbedili kao deo paketa klasa, verovatno niste mogli da predvidite potrebe svih korisnika vašeg paketa. U ovom slučaju, bolje je ne hvatati izuzetak i prepustiti nekoj od metoda sa steka poziva da ga obradi.
+<br><br>
+
+Ako <span class = "primer_text">writeList</span> metoda ne uhvati proverene izuzetke koji se mogu dogoditi unutar nje, tada <span class = "primer_text">writeList</span> metoda mora eksplicitno naglasiti da ona može baciti/ispaliti ove izuzetke. Promenimo sada <span class = "primer_text">writeList</span> metodu da naglasimo izuzetke koje ona može baciti/ispaliti, umesto da ih uhvati. Da vas podsetimo, evo originalne verzije <span class = "primer_text">writeList</span> metode koja se neće kompajlirati.
+<xmp class = "primer_ta">
+public void writeList() {
+    PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"));
+    for (int i = 0; i < SIZE; i++) {
+        out.println("Vrednost na: " + i + " = " + list.get(i));
+    }
+    out.close();
+}
+</xmp>
+
+Da bismo naglasili da <span class = "primer_text">writeList</span> metoda može baciti/ispaliti dva izuzetka, moramo dodati <span class = "primer_text"><b>throws</b></span> klauzulu u deklaraciji <span class = "primer_text">writeList</span> metode. <span class = "primer_text">throws</span> klauzula sadrži ključnu reč <span class = "primer_text">throws</span> praćenu spiskom svih izuzetaka (razdvojenih zarezom) koje ta metoda može baciti/ispaliti. Klauzula se navodi nakon naziva metode i njene liste argumenata i pre vitičaste zagrade koja definiše opseg metode. Evo jednog primera.
+<xmp class = "primer_ta">
+public void writeList() throws IOException, IndexOutOfBoundsException { ...
+</xmp>
+
+Zapamtite da je <span class = "primer_text">IndexOutOfBoundsException</span> neprovereni izuzetak, njegovo uključivanje u <span class = "primer_text">throws</span> klauzulu nije obavezno. Mogli ste da napišete samo sledeće.
+<xmp class = "primer_ta">
+public void writeList() throws IOException { ...
+</xmp>
+<br>

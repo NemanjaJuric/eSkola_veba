@@ -1,0 +1,446 @@
+<h1>Hvatanje i obrada izuzetaka</h1>
+<br>
+
+Ovaj odeljak opisuje kako se koriste tri komponente za pisanje rukovaoca izuzecima - <span class = "primer_text">try</span>, <span class = "primer_text">catch</span> i <span class = "primer_text">finally</span> blokovi. 
+Zatim se objašnajva <span class = "primer_text">try-with-resources</span> naredba, uvedena u Java SE 7. Naredba <span class = "primer_text">try-with-resources</span> posebno je pogodna za situacije u kojima se koriste resursi koji se mogu zatvoriti (Closeable), kao što su (streams) strimovi/tokovi.
+<br><br>
+
+Poslednji deo ovog odeljka vodi nas kroz primer i analizira šta se dešava tokom različitih scenarija.
+<br><br>
+
+Sledeći primer definiše i implementira klasu koja se zove <span class = "primer_text">ListOfNumbers</span>. Kada je konstruisan, <span class = "primer_text">ListOfNumbers</span> kreira <span class = "primer_text">ArrayList</span> koji sadrži 10 celobrojnih elemenata sa sekvencijalnim vrednostima od 0 do 9. Klasa <span class = "primer_text">ListOfNumbers</span> takođe definiše <span class = "primer_text">writeList</span> metodu, koja listu brojeva upisuje u tekstualnu datoteku pod nazivom OutFile.txt. Ovaj primer koristi klase za upis definisane u <span class = "primer_text">java.io</span>.
+
+<xmp class = "primer_ta">
+// Napomena: Trenutno se ova klasa nece kompajlirati
+import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
+
+public class ListOfNumbers {
+
+    private List<Integer> list;
+    private static final int SIZE = 10;
+
+    public ListOfNumbers () {
+        list = new ArrayList<Integer>(SIZE);
+        for (int i = 0; i < SIZE; i++) {
+            list.add(new Integer(i));
+        }
+    }
+
+    public void writeList() {
+        // FileWriter konstruktor baca/ispaljuje IOException izuzetak, koji mora biti uhvacen.
+        PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"));
+
+        for (int i = 0; i < SIZE; i++) {
+            // get(int) metoda baca/ispaljuje IndexOutOfBoundsException izuzetak, koji mora biti uhvacen.
+            out.println("Vrednost na: " + i + " = " + list.get(i));
+        }
+        out.close();
+    }
+}
+</xmp>
+
+Razmotrimo funkciju <span class = "primer_text">writeList</span>, prva linija koda je poziv konstruktora. Konstruktor inicijalizuje tok za upis u datoteku. Ako se datoteka ne može otvoriti, konstruktor baca/ispaljuje <span class = "primer_text">IOException</span> izuzetak. 
+Zatim, unutar <span class = "primer_text">for</span> petlje imamo poziv <span class = "primer_text">get</span> metoda klase <span class = "primer_text">ArrayList</span> koji baca/ispaljuje <span class = "primer_text">IndexOutOfBoundsException</span> izuzetak ako je vrednost njegovog argumenta premala (manja od 0) ili prevelika (veća od broja elemenata koje trenutno sadrži ArrayList-a).
+<br><br>
+
+Ako pokušate da kompajlirate klasu <span class = "primer_text">ListOfNumbers</span>, kompajler (prevodilac) prikazuje poruku greške izuzetka bačenog/ispaljenog od strane  <span class = "primer_text">FileWriter</span> konstruktora. Međutim, ne prikazuje poruku greške izuzetka bačenog/ispaljenog od strane <span class = "primer_text">get</span> metode. Razlog je taj što je izuzetak bačen/ispaljen od strane konstruktora, <span class = "primer_text">IOException</span>, provereni izuzetak, a onaj koji je bačen/ispaljen <span class = "primer_text">get</span> metodom, <span class = "primer_text">IndexOutOfBoundsException</span>, je neprovereni izuzetak.
+<br><br>
+
+Sada kada ste upoznati sa klasom <span class = "primer_text">ListOfNumbers</span> i gde se izuzeci mogu javiti unutar nje, spremni ste za pisanje rukovaoca koji će hvatati i obrađivati te izuzetke.
+<br><br>
+
+<h2>try blok</h2>
+<br>
+
+Prvi korak u pisanju rukovaoca izuzecima je smestiti kod koji može da baci/ispali izuzetak unutar <span class = "primer_text">try</span> bloka. Generalno, <span class = "primer_text">try</span> blok izgleda ovako:
+<xmp class = "primer_ta">
+try {
+    // neki kod
+}
+catch i finally blokovi . . .
+</xmp>
+
+Gde "neki kod" u primeru predstavlja validne linije koda koje bi mogle da bace/ispale izuzetak. (<span class = "primer_text">catch</span> i  <span class = "primer_text">finally</span> blokovi su objašnjeni u naredne dve sekcije.)
+<br><br>
+
+Da biste konstruisali rukovalac izuzetkom za <span class = "primer_text">writeList</span> metodu iz klase <span class = "primer_text">ListOfNumbers</span>, smestite naredbe koje mogu baciti/ispaliti izuzetke unutar <span class = "primer_text">try</span> bloka. Postoji više načina da se to postigne. Možete svaku liniju koda koja može baciti/ispaliti izuzetak ograditi posebnim <span class = "primer_text">try</span> blokom i obezbediti posebne rukovaoce izuzecima za svaku. Ili možete sve linije koda ograditi jednim <span class = "primer_text">try</span> blokom i sa njim povezati više rukovalaca. Naredni kod koristi jedan <span class = "primer_text">try</span> blok za celu metodu, jer je navedeni kod vrlo kratak.
+<xmp class = "primer_ta">
+private List<Integer> list;
+private static final int SIZE = 10;
+
+public void writeList() {
+    PrintWriter out = null;
+    try {
+        System.out.println("Dodata try naredba");
+        out = new PrintWriter(new FileWriter("OutFile.txt"));
+        for (int i = 0; i < SIZE; i++) {
+            out.println("Vrednost na: " + i + " = " + list.get(i));
+        }
+    }
+    catch i finally blokovi  . . .
+}
+</xmp>
+
+Ako se u <span class = "primer_text">try</span> bloku dogodi izuzetak, tim izuzetkom upravlja rukovalac izuzetaka koji je sa tim blokom povezan. Da biste povezali rukovalac/obrađivač izuzetaka sa <span class = "primer_text">try</span> blokom, morate navesti <span class = "primer_text">catch</span> blok nakon njega. Kako se to radi videćemo u narednoj sekciji.
+<br><br>
+
+<h2>catch blokovi</h2>
+<br>
+
+Povezujete rukovalac/obrađivač izuzetaka sa <span class = "primer_text">try</span> blokom navodeći jedan ili više <span class = "primer_text">catch</span> blokova neposredno nakon <span class = "primer_text">try</span> bloka. Između kraja <span class = "primer_text">try</span> bloka i početka prvog <span class = "primer_text">catch</span> bloka ne sme biti nikakvog koda.
+<xmp class = "primer_ta">
+try {
+
+} catch (ExceptionType name) {
+
+} catch (ExceptionType name) {
+
+}
+</xmp>
+
+Svaki <span class = "primer_text">catch</span> blok je rukovalac/obrađivač izuzetaka koji obrađuje izuzetke onog tipa koji je naznačen njegovim argumentom. Tip argumenta, <span class = "primer_text">ExceptionType</span>, deklariše tip izuzetka koji rukovalac može obrađivati i mora biti klasa koja nasleđuje <span class = "primer_text">Throwable</span> klasu. Rukovalac može referisati na izuzetak preko imena atributa.
+<br><br>
+
+<span class = "primer_text"> catch </span> blok sadrži kod koji se izvršava ako i kad se rukovalac izuzetaka aktivira. (Runtime) sistem aktivira rukovaoca/obrađivača izuzetaka kada je rukovalac prvi u skupu navedenih čiji se <span class = "primer_text">ExceptionType</span> podudara sa tipom bačenog/ispaljenog izuzetka. Za uspešno podudaranje sistem smatra, ako se bačeni/ispaljeni objekat može legalno dodeliti argumentu rukovaoca izuzecima.
+<br><br>
+
+Slede dva rukovaoca izuzecima za <span class = "primer_text">writeList</span> metodu:
+<xmp class = "primer_ta">
+try {
+
+} catch (IndexOutOfBoundsException e) {
+    System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+} catch (IOException e) {
+    System.err.println("Uhvacen IOException: " + e.getMessage());
+}
+</xmp>
+
+Rukovaoci izuzecima mogu uraditi više od samo štampanja poruke o grešci ili zaustavljanja programa. Mogu odraditi oporavak od greške, zatražiti od korisnika da donese odluku ili prosledi grešku do rukovaoca višeg nivoa koristeći lančane izuzetke (o ovome će više reči biti kasnije).
+<br><br>
+
+<h2>Hvatanje više od jedne vrste izuzetaka sa jednim rukovaocem za obradu izuzetaka</h2>
+<br>
+
+U Java SE 7 i novijim verzijama, jedan <span class = "primer_text">catch</span> blok može rukovati/obraditi više od jedne vrste izuzetaka. Ova funkcionalnost može smanjiti dupliranje koda i umanjiti iskušenje da se uhvati širok spektar izuzetaka. 
+<br><br>
+
+U <span class = "primer_text">catch</span> klauzuli navedite tipove izuzetaka koje blok može obraditi i odvojite svaki tip izuzetka vertikalnom crtom (|):
+<xmp class = "primer_ta">
+catch (IOException|SQLException ex) {
+    logger.log(ex);
+    throw ex;
+}
+</xmp>
+
+<div class = "napomena">
+Ako <span class = "primer_text">catch</span> blok obrađuje više od jednog tipa izuzetka, tada je njegov parametar implicitno <span class = "primer_text">final</span> (konačan, ne može mu se menjati vrednost). U ovom primeru, parametar <span class = "primer_text">ex</span> je <span class = "primer_text">final</span> i stoga mu se ne može dodeliti nijedna vrednost unutar <span class = "primer_text">catch</span> bloka.
+</div>
+<br>
+
+<h2>finally blok</h2>
+<br>
+
+<span class = "primer_text">finally</span> blok se uvek izvršava nakon završetka rada <span class = "primer_text">try</span> bloka. Na ovaj način se osigurava da se <span class = "primer_text">finally</span> blok izvrši i ako se dogodi neočekivani izuzetak. Ali <span class = "primer_text">finally</span> blok je koristan za više od samo rukovanja izuzetkom - omogućava programeru da izbegne da se kod za čišćenje slučajno zaobiđe <span class = "primer_text">return</span>, <span class = "primer_text">continue</span> ili <span class = "primer_text">break</span> naredbom. Smeštanje koda za čišćenje u <span class = "primer_text">finally</span> blok je dobra praksa, čak i kada se ne očekuju izuzeci.
+
+<div class = "napomena">
+Ako JVM prekine rad dok se izvršava <span class = "primer_text">try</span> ili <span class = "primer_text">catch</span> kod, tada se <span class = "primer_text">finally</span> blok možda neće izvršiti. Isto tako, ako se nit koja izvršava <span class = "primer_text">try</span> ili <span class = "primer_text">catch</span> kod prekine, <span class = "primer_text">finally</span> blok se možda neće izvršiti iako aplikacija kao celina nastavi sa svojim radom.
+</div>
+
+<span class = "primer_text">try</span> blok <span class = "primer_text">writeList</span> metode, iz našeg primera, otvara <span class = "primer_text">PrintWriter</span>. Program bi trebao zatvoriti taj tok pre izlaska iz <span class = "primer_text">writeList</span> metode. Ovo predstavlja pomalo komplikovan problem jer se iz našeg <span class = "primer_text">try</span> bloka može izaći na jedan od tri načina.
+<br><br>
+
+&nbsp&nbsp&nbsp 1. <span class = "primer_text">new FileWriter</span>  naredba ne uspeva i baca/ispaljuje <span class = "primer_text">IOException</span> izuzetak.<br>
+&nbsp&nbsp&nbsp 2. <span class = "primer_text">list.get(i)</span>  naredba ne uspeva i baca/ispaljuje <span class = "primer_text">IndexOutOfBoundsException</span> izuzetak.<br>
+&nbsp&nbsp&nbsp 3. Sve uspešno prolazi i <span class = "primer_text">try</span> blok završava svoj rad normalno.
+<br><br>
+
+(Runtime) sistem uvek izvršava naredbe koje pripadaju <span class = "primer_text">finally</span> bloku bez obzira na to šta se desilo u <span class = "primer_text">try</span> bloku. Tako da je to savršeno mesto za izvođenje čišćenja.
+<br><br>
+
+Naredni <span class = "primer_text">finally</span> blok <span class = "primer_text">writeList</span> metode čisti i zatvara <span class = "primer_text">PrintWriter</span>.
+<xmp class = "primer_ta">
+finally {
+    if (out != null) { 
+        System.out.println("Zatvaram PrintWriter");
+        out.close(); 
+    } else { 
+        System.out.println("PrintWriter nije otvoren");
+    } 
+} 
+</xmp>
+
+<div class = "napomena">
+<b>Važno:</b> <span class = "primer_text">finally</span> blok je ključno sredstvo za sprečavanje curenja resursa. Kada zatvarate datoteku ili na neki drugi način oporavljate resurse, smestite kod unutar <span class = "primer_text">finally</span> bloka da biste osigurali da se resursi uvek obnavljaju.
+<br><br>
+Razmislite o upotrebi <span class = "primer_text">try-with-resources</span> naredbe (sa zatvaranjem resursa) u ovim situacijama, koja automatski oslobađa sistemske resurse kada više nisu potrebni. Detaljnije ćemo o ovome pričati u narednoj sekciji.
+</div>
+<br>
+
+<h2>try-with-resources naredba</h2>
+<br>
+
+<span class = "primer_text">try-with-resources</span> naredba je <span class = "primer_text">try</span> naredba koja deklariše jedan ili više resursa. Resurs je objekat koji mora biti zatvoren nakon završetka rada programa sa njim. <span class = "primer_text">try-with-resources</span> naredba osigurava da se svaki resurs zatvori na kraju naredbe. Bilo koji objekat koji implementira <span class = "primer_text">java.lang.AutoCloseable</span>, koji uključuje sve objekte koji implementiraju <span class = "primer_text">java.io.Closeable</span>, može se koristiti kao resurs.
+<br><br>
+
+Sledeći primer čita prvi red iz datoteke. Koristi instancu <span class = "primer_text">BufferedReader </span> klase za čitanje podataka iz datoteke. <span class = "primer_text">BufferedReader </span> je resurs koji mora biti zatvoren nakon završetka rada programa sa njim:
+<xmp class = "primer_ta">
+static String readFirstLineFromFile(String path) throws IOException {
+    try (BufferedReader br =
+                   new BufferedReader(new FileReader(path))) {
+        return br.readLine();
+    }
+}
+</xmp>
+
+U ovom primeru, resurs koji je deklarisan u <span class = "primer_text">try-with-resources</span> naredbi je <span class = "primer_text">BufferedReader</span>. Naredba deklaracije pojavljuje se u zagradama odmah nako ključne reči <span class = "primer_text">try</span>. Klasa <span class = "primer_text">BufferedReader</span>, u Java SE 7 i novijim verzijama, impelementira interfejs <span class = "primer_text">java.lang.AutoCloseable</span>. Budući da je instanca <span class = "primer_text">BufferedReader</span> klase deklarisana u <span class = "primer_text">try-with-resource</span> naredbi, ona će biti zatvorena bez obzira na to da li se <span class = "primer_text">try</span> naredba završila normalno ili naglo (kao rezultat bacanja/ispaljivanja izuzetka <span class = "primer_text">IOException</span> <span class = "primer_text">BufferedReader.readLine</span> metode).
+<br><br>
+
+Pre Java SE 7, mogli ste koristiti <span class = "primer_text">finally</span> blok da biste osigurali da se resurs zatvori, bez obzira da li se <span class = "primer_text">try</span> naredba završi normalno ili naglo. Naredni primer koristi <span class = "primer_text">finally</span> blok umesto <span class = "primer_text">try-with-resources</span> naredbe:
+<xmp class = "primer_ta">
+static String readFirstLineFromFileWithFinallyBlock(String path)
+                                                     throws IOException {
+    BufferedReader br = new BufferedReader(new FileReader(path));
+    try {
+        return br.readLine();
+    } finally {
+        if (br != null) br.close();
+    }
+}
+</xmp>
+
+Međutim, u ovom primeru, ako metode <span class = "primer_text">readLine</span>  i <span class = "primer_text">close</span> obe bace/ispale izuzetke, tada metoda <span class = "primer_text">readFirstLineFromFileWithFinallyBlock</span> baca/ispaljuje izuzetak bačen/ispaljen iz <span class = "primer_text">finally</span> bloka, izuzetak bačen/ispaljen iz <span class = "primer_text">try</span> bloka je potisnut. 
+Suprotno tome, u primeru <span class = "primer_text">readFirstLineFromFile</span>, ako su izuzeci bačeni/ispaljeni iz <span class = "primer_text">try</span> bloka i <span class = "primer_text">try-with-resources</span> naredbe, tada <span class = "primer_text"> readFirstLineFromFile</span> baca/ispaljuje izuzetak bačen/ispaljen iz <span class = "primer_text">try</span> bloka, izuzetak bačen/ispaljen iz <span class = "primer_text">try-with-resources</span> je potisnut. Potisnute izuzetke možete pronaći u Java SE 7 i novijim verzijama.
+<br><br>
+
+Možete deklarisati jedan ili više resursa u <span class = "primer_text">try-with-resources</span> naredbi. Sledeći primer pronalazi imena datoteka upakovanih u zip datoteku <span class = "primer_text">zipFileName</span> i kreira datoteku koja sadrži imena ovih datoteka:
+<xmp class = "primer_ta">
+public static void writeToFileZipFileContents(String zipFileName,
+                                           String outputFileName)
+                                           throws java.io.IOException {
+    java.nio.charset.Charset charset =
+         java.nio.charset.StandardCharsets.US_ASCII;
+    java.nio.file.Path outputFilePath =
+         java.nio.file.Paths.get(outputFileName);
+
+    // Otvara zip datoteku i kreira izlaznu datoteku
+    // unutar try-with-resources naredbe
+    try (
+        java.util.zip.ZipFile zf =
+             new java.util.zip.ZipFile(zipFileName);
+        java.io.BufferedWriter writer = 
+            java.nio.file.Files.newBufferedWriter(outputFilePath, charset)
+    ) {
+        // Nabrojati svaku datoteku
+        for (java.util.Enumeration entries =
+                                zf.entries(); entries.hasMoreElements();) {
+            // Dohvatite ime datoteke i upisite ga u izlaznu datoteku
+            String newLine = System.getProperty("line.separator");
+            String zipEntryName =
+                 ((java.util.zip.ZipEntry)entries.nextElement()).getName() +
+                 newLine;
+            writer.write(zipEntryName, 0, zipEntryName.length());
+        }
+    }
+}
+</xmp>
+
+U ovom primeru, <span class = "primer_text">try-with-resources</span> naredba sadrži dve deklaracije koje su razdvojene karakterom ; (tačka zarez): <span class = "primer_text">ZipFile</span> i <span class = "primer_text">BufferedWriter</span>. Kada se izvršavanje koda u <span class = "primer_text">try</span> bloku zarvši, normalno ili izuzetkom, automatski se pozivaju <span class = "primer_text">close</span> metode <span class = "primer_text">BufferedWriter</span> i <span class = "primer_text">ZipFile</span> objekata (tim redom). Imajte na umu da se <span class = "primer_text">close</span> metode resursa pozivaju u suprotnom redosledu od njihovog kreiranja.
+<br><br>
+
+Naredni primer koristi <span class = "primer_text">try-with-resources</span> naredbu za automatsko zatvaranje <span class = "primer_text">java.sql.Statement</span> objekta:
+<xmp class = "primer_ta">
+public static void viewTable(Connection con) throws SQLException {
+
+    String query = "select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES";
+
+    try (Statement stmt = con.createStatement()) {
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            String coffeeName = rs.getString("COF_NAME");
+            int supplierID = rs.getInt("SUP_ID");
+            float price = rs.getFloat("PRICE");
+            int sales = rs.getInt("SALES");
+            int total = rs.getInt("TOTAL");
+
+            System.out.println(coffeeName + ", " + supplierID + ", " + 
+                               price + ", " + sales + ", " + total);
+        }
+    } catch (SQLException e) {
+        JDBCTutorialUtilities.printSQLException(e);
+    }
+}
+</xmp>
+
+Resurs <span class = "primer_text">java.sql.Statement</span> korišćen u ovom primeru je deo JDBC 4.1 i novijih API-a.
+
+<div class = "napomena">
+<span class = "primer_text">try-with-resources</span> naredba može imati <span class = "primer_text">catch</span> i <span class = "primer_text">finally</span> blokove kao i obična <span class = "primer_text">try</span> naredba. U <span class = "primer_text">try-with-resources</span> naredbi, svaki <span class = "primer_text">catch</span> ili  <span class = "primer_text">finally</span> blok se pokreće nakon što su zatvoreni deklarisani resursi.
+</div>
+<br>
+
+<h2>Potisnuti izuzeci</h2>
+<br>
+
+Izuzetak može biti bačen/ispaljen iz bloka koda povezanog sa <span class = "primer_text">try-with-resources</span> naredbom. U primeru <span class = "primer_text">writeToFileZipFileContents</span>, izuzetak može biti bačen/ispaljen iz <span class = "primer_text">try</span> bloka, a najviše dva izuzetka mogu biti bačena/ispaljenja iz <span class = "primer_text">try-with-resources</span> naredbe kada se pokušaju zatvoriti <span class = "primer_text">ZipFile</span> i <span class = "primer_text">BufferedWriter</span> objekti. Ako je izuzetak bačen/ispaljen iz <span class = "primer_text">try</span> bloka i jedan ili više izuzetaka bačeni/ispaljeni iz <span class = "primer_text">try-with-resources</span> naredbe, tada su izuzeci bačeni/ispaljeni iz <span class = "primer_text">try-with-resources</span> naredbe potisnuti, a izuzetak bačeni/ispaljen iz <span class = "primer_text">try</span> bloka je izuzetak koji će baciti/ispaliti <span class = "primer_text">writeToFileZipFileContents</span> metoda. Potisnute izuzetke možete dobiti pozivanjem <span class = "primer_text">Throwable.getSuppressed</span> metode nad izuzetkom koji je bačen/ispaljen iz <span class = "primer_text">try</span> bloka.
+<br><br>
+
+<h2>Klase koje implementiraju AutoCloseable ili Closeable interfejs</h2>
+<br>
+
+Za detaljnu listu klasa koje implementiraju neki od ova dva interfejsa pogledajte Java dokumentaciju <span class = "primer_text">AutoCloseable</span> i <span class = "primer_text">Closeable</span> interfejsa. <span class = "primer_text">Closeable</span> interfejs nasleđuje <span class = "primer_text">AutoCloseable</span> interfejs. <span class = "primer_text">close</span> metoda <span class = "primer_text">Closeable</span> interfejsa baca/ispaljuje izuzetak tipa <span class = "primer_text">IOException</span>, dok <span class = "primer_text">close</span> metoda <span class = "primer_text">AutoCloseable</span> interfejsa baca/ispaljuje izuzetke tipa <span class = "primer_text">Exception</span>. Shodno tome, podklase <span class = "primer_text">AutoCloseable</span> interfejsa mogu predefinisati (override) ovo ponašanje <span class = "primer_text">close</span> metode tako da baca/ispaljuje specifičnije izuzetke, poput <span class = "primer_text">IOException</span> ili da ne baca/ispaljuje izuzetke uopšte.
+<br><br>
+
+<h2>Sastavljanje svega naučenog</h2>
+<br>
+
+U prethodnim sekcijama opisano je kako da konstruišete <span class = "primer_text">try</span>, <span class = "primer_text">catch</span> i <span class = "primer_text">finally</span> blokove za metodu <span class = "primer_text">writeList</span> u klasi <span class = "primer_text">ListOfNumbers</span>. Prođimo sada kroz kod i istražimo šta se može dogoditi.
+<br><br>
+
+Kada sastavimo sve komponente, metoda <span class = "primer_text">writeList</span> izgleda ovako.
+<xmp class = "primer_ta">
+public void writeList() {
+    PrintWriter out = null;
+
+    try {
+        System.out.println("Ulazim u" + " try blok");
+
+        out = new PrintWriter(new FileWriter("OutFile.txt"));
+        for (int i = 0; i < SIZE; i++) {
+            out.println("Vrednost na: " + i + " = " + list.get(i));
+        }
+    } catch (IndexOutOfBoundsException e) {
+        System.err.println("Uhvacen IndexOutOfBoundsException: "
+                           +  e.getMessage());
+                                 
+    } catch (IOException e) {
+        System.err.println("Uhvacen IOException: " +  e.getMessage());
+                                 
+    } finally {
+        if (out != null) {
+            System.out.println("Zatvaram PrintWriter");
+            out.close();
+        } 
+        else {
+            System.out.println("PrintWriter nije otvoren");
+        }
+    }
+}
+</xmp>
+
+Kao što smo ranije pomenuli, <span class = "primer_text">try</span> blok ove metode ima tri različite mogućnosti izlaska. Evo ih dve.
+<br><br>
+
+1. Kod u <span class = "primer_text">try</span> bloku baca/ispaljuje izuzetak. To bi mogao biti <span class = "primer_text">IOException</span> izuzetak izazvan <span class = "primer_text">new FileWriter</span> naredbom ili <span class = "primer_text">IndexOutOfBoundsException</span> izazvan pogrešnom vrednošću indeksa u <span class = "primer_text">for</span> petlji.
+<br>
+2. Sve uspeva i <span class = "primer_text">try</span> naredba završava svoj rad normalno.
+<br><br>
+
+Razmotrimo šta se događa u metodi <span class = "primer_text">writeList</span> tokom ove dve mogućnosti izlaska.
+<br><br>
+
+<b>Scenario 1: Izuzetak se dogodio</b>
+<br><br>
+
+Naredba koja kreira <span class = "primer_text">FileWriter</span> može da ne uspe iz više razloga. Na primer, konstruktor za <span class = "primer_text">FileWriter</span> baca/ispaljuje <span class = "primer_text">IOException</span> ako program ne može da kreira ili upiše u naznačenu datoteku.
+<br><br>
+
+Kada <span class = "primer_text">FileWriter</span> baci/ispali IOException, (runtime) sistem odmah zaustavlja izvršavanje <span class = "primer_text">try</span> bloka. Pozivi metoda koji se izvršavaju nisu završeni. (Runtime) sistem tada počinje da traži, sa vrha steka poziva metoda, odgovarajući rukovalac izuzecima. U ovom primeru, kada se dogodi IOException, konstruktor <span class = "primer_text">FileWriter</span> nalazi se na vrhu steka poziva. Međutim, konstruktor <span class = "primer_text">FileWriter</span> nema odgovarajući rukovalac izuzecima, pa (runtime) sistem proverava sledeću metodu - <span class = "primer_text">writeList</span> - na steku poziva. Metoda <span class = "primer_text">writeList</span> ima dva rukovaoca izuzecima: jedan za IOException i jedan za IndexOutOfBoundsException.
+<br><br>
+
+(Runtime) sistem proverava rukovaoce izuzecima <span class = "primer_text">writeList</span> metode redosledom u kojem se pojavljuju nakon <span class = "primer_text">try</span> bloka. Argument prvog rukovaoca izuzetkom je tipa <span class = "primer_text">IndexOutOfBoundsException</span>. Ovo se ne podudara sa tipom bačenog/ispaljenog izuzetka, pa (runtime) sistem proverava sledeći rukovalac izuzetkom - <span class = "primer_text">IOException</span>. To odgovara tipu bačenog/ispaljenog izuzetka, tako da (runtime) sistem  završava svoju potragu za odgovarajućim rukovaocem/obrađivačem izuzetaka. Sada kada je (runtime) sistem pronašao odgovarajući rukovalac/obarđivač, kod u tom <span class = "primer_text">catch</span> bloku se izvršava.
+<br><br>
+
+Nakon izvšenja rukovaoca izuzecima, (runtime) sistem predaje kontrolu <span class = "primer_text">finally</span> bloku. Kod u <span class = "primer_text">finally</span> bloku se izvršava bez obzira na izuzetak koji je uhvaćen iznad njega. U ovom scenariju, <span class = "primer_text">FileWriter</span> nikada nije ni otvoren i ne treba ga zatvarati. Nakon što <span class = "primer_text">finally</span> blok završi sa izrvšavanjem, program nastavlja sa prvom naredbom nakon <span class = "primer_text">finally</span> bloka.
+<br><br>
+
+Evo kompletnog ispisa iz programa <span class = "primer_text">ListOfNumbers</span> koji se pojavljuje kada je bačen/ispaljen <span class = "primer_text">IOException</span>.
+<xmp class = "primer_ta">
+Ulazim u try blok
+Uhvacen IOException: OutFile.txt
+PrintWriter nije otvoren
+</xmp>
+
+Na sledećem primeru, komentari u kodu pokazuju koje se naredbe izvršavaju kod ovog scenarija:
+<xmp class = "primer_ta">
+public void writeList() {
+    // Ova naredba
+    PrintWriter out = null;
+
+    try {
+        // ova naredba
+        System.out.println("Ulazim u try blok");
+        // ova naredba
+        out = new PrintWriter(new FileWriter("OutFile.txt"));
+        for (int i = 0; i < SIZE; i++)
+            out.println("Vrednost na: " + i + " = " + list.get(i));
+                               
+    } catch (IndexOutOfBoundsException e) {
+        System.err.println("Uhvacen IndexOutOfBoundsException: "
+                           + e.getMessage());
+                                 
+    } catch (IOException e) {
+        // ulazi se u ovaj blok i izvrsava se ova naredba
+        System.err.println("Uhvacen IOException: " + e.getMessage());
+    } finally {
+        // ulazi se u ovaj blok i izvrsava se ova provera, ali se ne ulazi u if deo
+        if (out != null) {
+            System.out.println("Zatvaram PrintWriter");
+            out.close();
+        } 
+        else {
+            // ulazi se u else deo i izvrsava se ova naredba
+            System.out.println("PrintWriter nije otvoren");
+        }
+    }
+}
+</xmp>
+<br>
+
+<b>Scenario 2: try blok završava svoj rad normalno</b>
+<br><br>
+
+U ovom scenariju, sve naredbe unutar <span class = "primer_text">try</span> bloka uspešno se izvršavaju i ne bacaju/ispaljuju nikakve izuzetke. Izvršavanje dolazi do kraja <span class = "primer_text">try</span> bloka, a (runtime) sistem predaje kontrolu <span class = "primer_text">finally</span> bloku. Budući da je sve bilo uspešno, <span class = "primer_text">PrintWriter</span> je otvoren kada izvršavanje stigne do <span class = "primer_text">finally</span> bloka, koji zatvara <span class = "primer_text">PrintWriter</span>. Ponovo, nakon što <span class = "primer_text">finally</span> blok završi sa izvršavanjem, program nastavlja sa prvom naredbom nakon <span class = "primer_text">finally</span> bloka.
+<br><br>
+
+Evo rezultata rada programa <span class = "primer_text">ListOfNumbers</span> kada nijedan izuzetak nije bačen/ispaljen.
+<xmp class = "primer_ta">
+Ulazim u try blok
+Zatvaram PrintWriter
+</xmp>
+
+Na sledećem primeru, komentari u kodu pokazuju koje se naredbe izvršavaju kod ovog scenarija:
+<xmp class = "primer_ta">
+public void writeList() {
+    // Ova naredba
+    PrintWriter out = null;
+    try {
+        // Sve naredbe u try bloku
+        System.out.println("Ulazim u try blok");
+        out = new PrintWriter(new FileWriter("OutFile.txt"));
+        for (int i = 0; i < SIZE; i++)
+            out.println("Vrednost na: " + i + " = " + list.get(i));
+                  
+    } catch (IndexOutOfBoundsException e) {
+        System.err.println("Uhvacen IndexOutOfBoundsException: "
+                           + e.getMessage());
+
+    } catch (IOException e) {
+        System.err.println("Uhvacen IOException: " + e.getMessage());
+                                 
+    } finally {
+        // ulazi se u ovaj blok i ulazi se u if deo
+        if (out != null) {
+            // ova naredba
+            System.out.println("Zatvaram PrintWriter");
+            out.close();
+        } 
+        else {
+            System.out.println("PrintWriter nije otvoren");
+        }
+    }
+}
+</xmp>
+<br>

@@ -1,0 +1,41 @@
+<h1>Izuzeci uvod</h1>
+<br>
+
+<h2>Šta je izuzetak?</h2>
+<br>
+
+Izraz izuzetak je skraćenica za frazu "izuzetan događaj."
+<br><br>
+
+<b>Definicija:</b> Izuzetak je događaj koji se dogodi tokom izvršavanja programa, a koji poremeti normalan tok instrukcija programa.
+<br><br>
+
+Kada se unutar metode dogodi greška, metoda krerira objekat i predaje ga (runtime) sistemu. 
+Objekat, nazvan objekat izuzetka, sadrži informacije o grešci, uključujući njen tip i stanje programa kada se greška dogodila. 
+Kreiranje objekta izuzetka i njegovo predavanje (runtime) sistemu naziva se "bacanje/ispaljivanje" (throwing) izuzetka. 
+<br><br>
+
+Nakon što metoda baci/ispali izuzetak, (runtime) sistem pokušava da pronađe "nešto" čime može da obradi taj izuzetak. 
+To "nešto" čime može da se obradi izuzetak traži se u listi metoda koje su pozvane da bi se došlo do metode gde je došlo do greške. 
+Lista metoda poznata je kao stek poziva (videti sledeću sliku).
+<br><br>
+
+<img src="courses/java/java_izuzeci_slike/izuzeci_stek_poziva.png" class="img-fluid img-sm">
+<br>
+
+(Runtime) Sistem pretražuje stek poziva za metodu koja sadrži blok koda koji može obraditi izuzetak. 
+Ovaj blok koda naziva se rukovalac za obradu izuzetaka. Pretraživanje započinje iz metode u kojoj se greška dogodila i nastavlja se kroz stek poziva obrnutim redosledom u odnosu na onaj u kojem su metode pozvane. 
+Kada se nađe odgovarajući rukovalac, (runtime) sistem prosleđuje izuzetak rukovaocu. 
+Rukovalac izuzetkom smatra se prikladnim ako se tip bačenog/ispaljenog objekta izuzetka podudara sa tipom kojim rukovalac može rukovati (tj. koji rukovalac može obraditi).
+<br><br>
+
+Kaže se da je izabrani rukovalac izuzetka uhvatio (catch) izuzetak. 
+Ako (runtime) sistem iscrpno pretražuje sve metode na steku poziva bez pronalaska odgovarajućeg rukovaoca izuzecima, kao što je prikazano na sledećoj slici, (runtime) sistem (i prema tome, program) prestaje sa radom.
+<br><br>
+
+<img src="courses/java/java_izuzeci_slike/izuzeci_stek_pretraga_rukovaoca.png" class="img-fluid img-sm">
+<br>
+
+Upotreba izuzetaka za upravljanje greškama ima neke prednosti u odnosu na tradicionalne tehnike upravljanja greškama. 
+O tome ćemo govoriti u nekoj od nardnih lekcija.
+<br><br>
