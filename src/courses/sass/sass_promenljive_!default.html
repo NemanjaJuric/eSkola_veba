@@ -1,0 +1,37 @@
+<h1>Promenljive <i>!default</i></h1>
+Promenljivoj možemo dodeliti oznaku <b>!default</b> iza njene vrednosti. 
+<br>
+Primer:
+<br>
+<br>
+<span class="primer_text">$width: 6px !default;</span>
+<br>
+<br>
+Ukoliko je promenljiva već imala svoju vrednost neće je promeniti, a ako nije biće joj dodeljena nova vrednost.
+<br>
+Primer:
+<br>
+<br>
+<textarea class="primer_ta" rows="11" disabled>
+$navigation-height: 50px;
+$navigation-height: 60px !default;
+.nav-btn{
+    color: rgba($text-color-light, 0.4);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0 2px;
+    height: $navigation-height;
+    width: $navigation-height;
+}
+</textarea>
+<br>
+<button class="button_copy">Vidi primer</button>
+<br>
+Promenljive sa vrednosti <i>null</i> tretiraju se kao nedodeljene za <i>!default</i>.
+<br>
+<div class="zadatak">
+Zadatak:
+<br>
+Napraviti promenljivu sa sadrzajem <i>null</i>, a zatim istoj promenljivoj dodeliti vrednost 50px koristeći <i>default</i>.
+</div>

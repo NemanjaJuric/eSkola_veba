@@ -14,7 +14,32 @@ Primer funkcije za množenje dva broja:
 }
 </xmp>
 <br>
-
+Funkcija se može definisati bilo gde u dokumentu, ne samo na nivou korena dokumenta. Kada je definisana unutar skupa pravila funkcija se raspoređuje na taj skup pravila. Na isti način promenljive su lokalne kada su definisane unutar određenog bloka. Koncept globalnog senčenja se može primeniti i na funkcije. Lokalna funkcija koja deli ime sa globalnom će zasenčiti prethodno definisanu. 
+<br>
+<br>
+<div class="napomena">
+Imajte na umu da funkcije ne mogu biti definisane unutar miksina ili drugih funkcija.
+</div>
+<br>
+<h2>Parametri</h2>
+Parametar je promenljiva koja je deo potpisa funkcije (deklaracija funkcije), dok je argument izraz koji se koristi pri pozivanju funkcije. 
+Kako je jako mala korist pri upotrebi funkcija umesto promenljive kada parametar nije uključen, prelažimo na funkcije sa parametrima. Oni su definisani u funkcijskom potpisu, kao promenljive, odvojene zarezima. 
+Parametri takođe mogu imati zadate vrednosti i u tom slučaju se nazivaju opcionalni parametri. Da biste definisali opcionalni parametar uradite tako što deklarišete promenljivu u funkcijskom potpisu (bez tačke sa zarezom). 
+<br>
+<xmp class = "primer_ta" >
+@function multiply($a, $b: 3) {
+ @return ($a * $b);
+}
+</xmp>
+<br>
+Imajte na umu da opcionalni parametri moraju doći nakon bilo kog neopcionalnog parametra. Ako pokušate suprotno doći će do greške.
+<br>
+<xmp class = "primer_ta" >
+@function multiply($a: 3, $b) {
+ @return ($a * $b);
+}
+</xmp>
+<br>
 <h2>Funkcije za brojeve</h2>
 <ul>
 <li>percentage ($number) – pretvara broj u procenat</li>

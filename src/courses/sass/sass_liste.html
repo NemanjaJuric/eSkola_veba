@@ -20,4 +20,22 @@ Zapravo, zagrade su opcione osim ako lista nije prazna (čime nema očiglednog r
 <br>
 <span class="primer_text">$empty-list: ();</span>
 <br>
+<xmp class = "primer_ta" >
+$value: Hello world;
+$type: type-of($value); // list 
+$length: length($value); // 2 
+$separator: list-separator($value); // space
+</xmp>
+Prethodni primer može delovati kao string, ali zapravo je dvočlana lista (zbog razmaka). Da bismo ga učinili eksplicitnim stringom moramo ga okružiti jednostrukim ili dvostrukim navodnicima. 
 <br>
+Evo drugog zapisa prethodne liste:
+<br>
+<xmp class = "primer_ta" >
+ $value: ('Hello', 'world'); 
+ $type: type-of($value); // list 
+ $length: length($value); // 2 
+ $separator: list-separator($value); // comma
+</xmp>
+ <br>
+<br>
+Iako je detaljniji, na prvi pogled je jasno da je u pitanju lista, kao i da su obe vrednosti stringovi. 

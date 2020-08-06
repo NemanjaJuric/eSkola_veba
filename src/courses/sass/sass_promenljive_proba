@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+	<head>
+			<style>
+			$text-color:#222222;
+			$link-color:orange;
+			$text-font: Verdara;
+
+			p {
+				font-family: $text-font;  
+			}
+			a {
+				color: $link-color;
+			}
+			</style>
+	</head>
+<p>Prvi pasus.</p>
+<a> Drugi pasus. </a>
+<p>Treći pasus. Rešenjem zadatka tekst ovog paragrafa menja boju u crvenu!</p>
+</body>
+</html>
