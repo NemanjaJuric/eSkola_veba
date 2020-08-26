@@ -3406,7 +3406,63 @@
     "lessons": [
       {
         "name": "Uvod u Jupyter",
-        "url": "jupyter_uvod",
+        "url": "jupyter_uvod_u_jupyter",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Radno okruženje",
+        "url": "jupyter_radno_okruzenje",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Prečice na tastaturi",
+        "url": "jupyter_precice_na_tastaturi",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Zdravo svete",
+        "url": "jupyter_program_koji_ispisuje_zdravo_svete",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi ćelija",
+        "url": "jupyter_tipovi_celija",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive",
+        "url": "jupyter_promenljive",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Kernel",
+        "url": "jupyter_kernel",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Pandas",
+        "url": "jupyter_pandas",
+        "type": "lesson",
+        "parentCourse": "jupyter",
+        "sublessons": null
+      },
+      {
+        "name": "Čuvanje i deljenje radne sveske",
+        "url": "jupyter_name_save_share",
         "type": "lesson",
         "parentCourse": "jupyter",
         "sublessons": null
