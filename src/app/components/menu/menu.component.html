@@ -3,15 +3,15 @@
         <img class="logo-sm d-inline menu__logo" src="assets/images/logo.png" alt="logo_light">
         <h1 class="h2 m-t-1 d-inline">eŠkola veba</h1>
     </div>
-    <ul>
+    <ul class="list-style-type-none padding-inline-start-0">
         <li *ngFor="let course of courses" class="menu__item">
             <span class="menu__course h3 d-block m-t-1 m-b-1"
                 (click)="setRoute('course-details', course.id, null)">{{course.name}}</span>
-            <ul>
+            <ul class="padding-inline-start-0">
                 <li *ngFor="let lesson of course.lessons" class="menu__item">
                     <span class="menu__lesson h5 d-block m-l-1"
                         (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, lesson.url, lesson)">{{lesson.name}}</span>
-                    <ul>
+                    <ul class="padding-inline-start-0">
                         <li *ngFor="let sublesson of lesson.sublessons" class="menu__item">
                             <span class="menu__lesson h5 d-block m-l-3"
                                 (click)="setRoute(course.type == 'course' ? 'course' : 'book', course.id, sublesson.url)">{{sublesson.name}}</span>

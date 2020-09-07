@@ -57,7 +57,7 @@
 		<h1 class="h1 m-t-3 m-b-3">Lekcije su radili</h1>
 	</div>
 	<div class="row text-xs-center row-about">
-		<div class="col-md-6 col-lg-4 m-t-2 m-b-2" *ngFor="let person of personsOtherPosition">
+		<div class="col-md-6 col-lg-4 m-t-2 m-b-2 programmer-card" *ngFor="let person of personsOtherPosition">
 			<div class="programmer-image" [ngStyle]="{'background-image': 'url(' + person.url + ')' }">
 			</div>
 			<div class="text-xs-center m-t-2 m-b-2">

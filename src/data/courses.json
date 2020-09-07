@@ -3378,24 +3378,6 @@
     ]
   },
   {
-    "name": "Veb",
-    "id": "veb",
-    "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
-    "type": "book",
-    "lang": "",
-    "displayLang": "",
-    "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
-    "lessons": [
-      {
-        "name": "Kako radi veb",
-        "url": "veb_uvod",
-        "type": "lesson",
-        "parentCourse": "veb",
-        "sublessons": null
-      }
-    ]
-  },
-  {
     "name": "Jupyter",
     "id": "jupyter",
     "logo": "<i class='fab fa-python' aria-hidden='true'></i>",
@@ -3465,6 +3447,24 @@
         "url": "jupyter_name_save_share",
         "type": "lesson",
         "parentCourse": "jupyter",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Veb",
+    "id": "veb",
+    "logo": "<i class='fa fa-globe' aria-hidden='true'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
+    "lessons": [
+      {
+        "name": "Kako radi veb",
+        "url": "veb_uvod",
+        "type": "lesson",
+        "parentCourse": "veb",
         "sublessons": null
       }
     ]

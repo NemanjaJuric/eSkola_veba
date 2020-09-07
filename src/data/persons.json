@@ -167,5 +167,11 @@
     "course": "React",
     "url": "assets/images/team/milica_milojevic.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Milina Smiljanić",
+    "course": "Jupyter",
+    "url": "assets/images/team/milina_smiljanic.jpg",
+    "mainPosition": false
   }
 ]
