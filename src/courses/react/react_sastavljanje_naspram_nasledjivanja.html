@@ -1,7 +1,7 @@
-<h1> Sastavljanje naspram Nasleđivanja</h1>
+﻿<h1> Sastavljanje naspram Nasleđivanja</h1>
 <br>
 
-React poseduje moćan model komponzicije i preporučujemo upotrebu kompozicije umesto nasleđivanja da biste ponovo koristili kod između komponenti.
+React poseduje moćan model kompozicije i preporučujemo upotrebu kompozicije umesto nasleđivanja da biste ponovo koristili kod između komponenti.
 <br><br>
 
 U ovom odeljku ćemo razmotriti nekoliko problema gde programeri koji su novi u radu sa React-om posežu za nasleđivanjem i pokazati kako ih možemo rešiti kompozicijom.
@@ -39,7 +39,7 @@ function WelcomeDialog() {
 }
 </xmp>
 
-Sve što se nalazi u <span class = "primer_text">&ltFancyBorder&gt</span> JSX tagu proslđuje se <span class = "primer_text">FancyBorder</span> komponenti kao <span class = "primer_text">children</span> atribut. Pošto <span class = "primer_text">FancyBorder</span> prikazuje <span class = "primer_text">{props.children}</span> unutar <span class = "primer_text">&ltdiv&gt</span> taga, prosleđeni elementi se pojavljuju u finalnom prikazu.
+Sve što se nalazi u <span class = "primer_text">&ltFancyBorder&gt</span> JSX tagu prosleđuje se <span class = "primer_text">FancyBorder</span> komponenti kao <span class = "primer_text">children</span> atribut. Pošto <span class = "primer_text">FancyBorder</span> prikazuje <span class = "primer_text">{props.children}</span> unutar <span class = "primer_text">&ltdiv&gt</span> taga, prosleđeni elementi se pojavljuju u finalnom prikazu.
 <br><br>
 
 Iako je ovo ređe, ponekad vam može biti potrebno više "rupa" u komponenti. U takvim slučajevima ćete možda smisliti vašu konvenciju umesto korišćenja <span class = "primer_text">children</span> atributa:
@@ -150,7 +150,7 @@ class SignUpDialog extends React.Component {
 </xmp>
 <br>
 
-<h2>Šta je sa nasleđivanjem</h2>
+<h2>Šta je sa nasleđivanjem?</h2>
 
 U Facebook-u koriste React u hiljadama komponenti i nisu pronašli nijedan slučaj upotrebe u kojem bi preporučili stvaranje hijerarhije nasleđivanja komponenti.
 <br><br>

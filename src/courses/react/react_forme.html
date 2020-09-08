@@ -1,7 +1,7 @@
-<h1> Forme (Obrasci)</h1>
+﻿<h1> Forme (Obrasci)</h1>
 <br>
 
-HTML elemnti forme rade na malo drugačiji način od ostalih DOM elemenata u React-u, jer elementi forme po prirodi stvari čuvaju neko unutrašnje stanje. Na primer, ovaj obrazac u običnom HTML-u prihvata jedno ime:
+HTML elementi forme rade na malo drugačiji način od ostalih DOM elemenata u React-u, jer elementi forme po prirodi stvari čuvaju neko unutrašnje stanje. Na primer, ovaj obrazac u običnom HTML-u prihvata jedno ime:
 <xmp class = "primer_ta">
 <form>
   <label>
@@ -127,7 +127,7 @@ U HTML-u, <span class = "primer_text">&ltselect&gt</span> kreira padajuću listu
 </select>
 </xmp>
 
-Imajte na umu da je opcija Kokos inicijalno izabrana, zbog <span class = "primer_text">selected</span> atributa. React, umesto da koristi ovaj <span class = "primer_text">selected</span> atribut, koristi <span class = "primer_text">value</span> atribut na roditeljksom <span class = "primer_text">select</span> tagu. To je mnogo pogodnije na kontrolisanoj komponenti jer je trebate ažurirati samo na jednom mestu. Na primer:
+Imajte na umu da je opcija Kokos inicijalno izabrana, zbog <span class = "primer_text">selected</span> atributa. React, umesto da koristi ovaj <span class = "primer_text">selected</span> atribut, koristi <span class = "primer_text">value</span> atribut na roditeljskom <span class = "primer_text">select</span> tagu. To je mnogo pogodnije na kontrolisanoj komponenti jer je treba ažurirati samo na jednom mestu. Na primer:
 <xmp class = "primer_ta">
 class FlavorForm extends React.Component {
   constructor(props) {
@@ -183,7 +183,7 @@ U HTML-u, <span class = "primer_text">&ltinput type="file"&gt</span> omogućava 
 <input type="file" />
 </xmp>
 
-Pošto je njegova vrednost samo za čitanje, ona predstavlja "ne kontrolisanu" komponentu u React-u.
+Pošto je njegova vrednost samo za čitanje, ona predstavlja "nekontrolisanu" komponentu u React-u.
 <br><br>
 
 <h2>Rukovanje sa više ulaza</h2>
@@ -254,12 +254,12 @@ partialState[name] = value;
 this.setState(partialState);
 </xmp>
 
-Takođe, obzirom da <span class = "primer_text">setState()</span> automatski spaja parcijalno stanje u trenutno stanje, mogli smo ga pozvati samo sa izmenjenim delovima.
+Takođe, s obzirom da <span class = "primer_text">setState()</span> automatski spaja parcijalno stanje u trenutno stanje, mogli smo ga pozvati samo sa izmenjenim delovima.
 <br><br>
 
 <h2>Kontrolisani unos NULL vrednosti</h2>
 
-Navođenje value atributa na kontrolisanoj komponenti sprečava korisnika u menjanju unete vrednosti, osim ako to ne želite. Ako ste naveli <span class = "primer_text">value</span>, a unos je idalje moguće menjati, možda ste slučajno postavili vrednost <span class = "primer_text">undefined</span> ili <span class = "primer_text">null</span>.
+Navođenje value atributa na kontrolisanoj komponenti sprečava korisnika u menjanju unete vrednosti, osim ako to ne želite. Ako ste naveli <span class = "primer_text">value</span>, a unos je i dalje moguće menjati, možda ste slučajno postavili vrednost <span class = "primer_text">undefined</span> ili <span class = "primer_text">null</span>.
 <br><br>
 
 Sledeći kod to pokazuje. (Ulaz je zaključan na početku, ali postaje moguć za menjanje nakon kratkog kašnjenja.)
@@ -275,12 +275,12 @@ setTimeout(function() {
 <h2>Alternativa kontrolisanim komponentama</h2>
 
 
-Korišćenje kontrolisanih komponenti ponekad može biti zamorno jer morate napisati rukovaoc događajem za obradu događaja na svaki način na koji se vaši podaci mogu promeniti i proslediti svo ulazno stanje kroz React komponentu. Ovo može postati posebno neugodno kada pretvarate postojeću kodnu bazu u React ili integrišete React aplikaciju sa ne-React bibliotekom. U ovim situacijama možda ćete želeti da proučite "ne kontrolisane komponente", alterantivnu tehniku za implementaciju formi (obrazaca).
+Korišćenje kontrolisanih komponenti ponekad može biti zamorno jer morate napisati rukovaoc događajem za obradu događaja na svaki način na koji se vaši podaci mogu promeniti i proslediti svo ulazno stanje kroz React komponentu. Ovo može postati posebno neugodno kada pretvarate postojeću kodnu bazu u React ili integrišete React aplikaciju sa ne-React bibliotekom. U ovim situacijama možda ćete želeti da proučite "nekontrolisane komponente", alterantivnu tehniku za implementaciju formi (obrazaca).
 <br><br>
 
 <h2>Potpuno ispravna rešenja</h2>
 
-Ako tražite potpuno rešenje, uključujući proveru validnosti, praćenje posećenih polja i rukovanje podnošenjem forme (obrasca), "Formik" je jedan od popularnih izbora. Međutim izgrađen je na istim principima kontrolisanih komponenti i upravljanja stanjem - tako da ne plašite se da ih naučite.
+Ako tražite potpuno rešenje, uključujući proveru validnosti, praćenje posećenih polja i rukovanje podnošenjem forme (obrasca), "Formik" je jedan od popularnih izbora. Međutim, izgrađen je na istim principima kontrolisanih komponenti i upravljanja stanjem - tako da ne plašite se da ih naučite.
 
 <div class="zadatak">
 <b>Zadatak:</b> Isprobati sve isečke kodova iz ove lekcije i poigrajte se sa njima.  

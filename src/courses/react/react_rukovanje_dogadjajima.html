@@ -1,4 +1,4 @@
-<h1> Rukovanje događajima</h1>
+﻿<h1> Rukovanje događajima</h1>
 <br>
 
 Rukovanje događajima sa React elementima je vrlo slično rukovanju događajima na DOM elementima. 
@@ -140,8 +140,8 @@ class LoggingButton extends React.Component {
 </xmp>
 
 Problem sa ovom sintaksom je u tome što se svaki put kreira drugačiji povratni poziv kad god se LoggingButton komponenta ponovo prikazuje. 
-U većini slučajeva to je uredu. 
-Međutim ako se ova funkcija prosleđuje nižim komponentama u hijerarhiji kao atribut ("props"), te komponente mogu napraviti dodatno renderovanje (ponovno prikazivanje). 
+U većini slučajeva to je u redu. 
+Međutim, ako se ova funkcija prosleđuje nižim komponentama u hijerarhiji kao atribut ("props"), te komponente mogu napraviti dodatno renderovanje (ponovno prikazivanje). 
 Mi generalno preporučujemo vezivanje u konstruktoru ili korišćenjem sintakse polja klase, kako biste izbegli ovakav problem sa performansama.
 <br><br>
 
@@ -158,7 +158,7 @@ Gornje dve linije su ekvivalentne, slobodno koristite "strela" funkcije i <span 
 <br><br>
 
 U oba slučaja, argument <span class = "primer_text">e</span> koji predstavlja React događaj biće prosleđen kao drugi argument nakon ID-a. 
-Korišćenjem "strela" funkcije moramo ga eksplicitno proslediti, ali koršćenjem vezivanja se svi ostali argumenti automatski prosleđuju.
+Korišćenjem "strela" funkcije moramo ga eksplicitno proslediti, ali korišćenjem vezivanja se svi ostali argumenti automatski prosleđuju.
 
 <div class="zadatak">
 <b>Zadatak:</b> Kreirati komponentu CounterButton koja ima dugme za uvećavanje vrednosti brojača i ispisuje rezultat brojača ispod dugmeta.

@@ -1,10 +1,10 @@
-<h1>Razmišljanje u React-u</h1>
+﻿<h1>Razmišljanje u React-u</h1>
 <br>
 
 React je, prema našem mišljenju, vrhunski način za pravljenje velikih, brzih Veb aplikacija sa JavaScript-om. Jedne od aplikacija zasnovanih na React-u su Facebook i Instagram.
 <br><br>
 
-Jedan od monogo sjajnih delova React-a je kako razmišljate o aplikacijama dok ih pravite. U ovom dokumnetu ćemo vas provesti kroz misaoni postupak izrade tabele podataka o proizvodima koju možete pretraživati, pomoću React-a.
+Jedan od sjajnih delova React-a je kako razmišljate o aplikacijama dok ih pravite. U ovom dokumnetu ćemo vas provesti kroz misaoni postupak izrade tabele podataka o proizvodima koju možete pretraživati, pomoću React-a.
 <br><br>
 
 <h2>Počnite sa fiksiranim podacima</h2>
@@ -28,7 +28,7 @@ Naš JSON API vraća neke podatke koji izgledaju ovako:
 </xmp>
 <br>
 
-<h2>Korak 1: Razbite KI u hijerarhiju komponenata</h2>
+<h2>Korak 1: Razbijte KI u hijerarhiju komponenata</h2>
 
 Prvo što biste želeli da uradite je da nacrtate okvir oko svake komponente (i potkomonente) u dizajnu i dodelite im sva imena. Ako radite sa dizajnerom, popričajte sa njim, možda je on to već uradio. Njegova imena Photoshop slojeva mogu na kraju biti imena vaših React komponenti.
 <br><br>
@@ -36,7 +36,7 @@ Prvo što biste želeli da uradite je da nacrtate okvir oko svake komponente (i 
 Kako da znate šta treba da bude izdvojeno kao komponenta? Koristite istu tehniku kao pri odlučivanju da li treba da kreirate novu funkciju ili objekat. Jedna takva tehnika je princip jedinstvene odgovornosti, odnosno komponenta bi u idealnom slučaju trebalo da radi samo jednu stvar. Ako komponenta naraste, trebalo bi je dekomponovati u manje potkomponente.
 <br><br>
 
-Budići da korisniku često prikazujete JSON model podataka, ustanovi ćete da će se, ako je vaš model pravilno napravljen, vaš KI (a samim tim i struktura komponenata) lepo prikazati. To je zato što su KI i modeli podataka skloni istoj informacionoj arhitekturi. Razdvojite korisnički interfejs na komponente, gde svaka komponenta odgovara komadu vašeg modela podataka.
+Budući da korisniku često prikazujete JSON model podataka, ustanovićete da će se, ako je vaš model pravilno napravljen, vaš KI (a samim tim i struktura komponenata) lepo prikazati. To je zato što su KI i modeli podataka skloni istoj informacionoj arhitekturi. Razdvojite korisnički interfejs na komponente, gde svaka komponenta odgovara komadu vašeg modela podataka.
 <br>
 
 <img src="courses/react/react_slike/react_razmisljanje_u_reactu_komponente.png" class="img-fluid img-sm">
@@ -70,7 +70,7 @@ FilterableProductTable<br>
 Sada kada imate hijerarhiju komponenti, vreme je da implementirate aplikaciju. Najlakši način je napraviti verziju koja uzima vaš model podataka i prikazuje KI, ali nema aktivnosti. Najbolje je razdvojiti te procese, jer kreiranje statičke verzije zahteva puno kucanja bez mnogo razmišljanja, a dodavanje aktivnosti zahteva puno razmišljanja bez mnogo kucanja. Videćemo zašto.
 <br><br>
 
-Da biste napravili statičku verziju aplikacije koja prikazuje vaš model podataka, želećete da napravite komponente koje koriste druge komponente i prenose podatke krosteći atribute. Atributi ("props") su način prenošenja podataka sa roditelja na dete. Ako ste upoznati sa konceptom stanja, <b>uopšte ne koristite stanje</b> za pravljenje ove statičke verzije. Stanje je rezervisano samo za aktivnosti, odnosno podatke koji se vremenom menjaju. Budući da je ovo statička verzija aplikacije, stanje vam neće trebati.
+Da biste napravili statičku verziju aplikacije koja prikazuje vaš model podataka, želećete da napravite komponente koje koriste druge komponente i prenose podatke koristeći atribute. Atributi ("props") su način prenošenja podataka sa roditelja na dete. Ako ste upoznati sa konceptom stanja, <b>uopšte ne koristite stanje</b> za pravljenje ove statičke verzije. Stanje je rezervisano samo za aktivnosti, odnosno podatke koji se vremenom menjaju. Budući da je ovo statička verzija aplikacije, stanje vam neće trebati.
 <br><br>
 
 Možete graditi odozgo-nadole ili odozdo-nagore. To jest, možete početi sa komponentama koje se nalaze više u hijerarhiji (npr. <span class = "primer_text">FilterableProductTable</span>) ili sa onim komponentama koje su pozicionirane niže u hijerarhiji (npr. <span class = "primer_text">ProductRow</span>). U jednostavnijim primerima obično je lakše ići odozgo-nadole, a na većim projektima je lakše ići odozdo-nagore i usput pisati testove.
@@ -81,7 +81,7 @@ Na kraju ovog koraka imaćete biblioteku komponenata, koje ćete moći ponovo da
 
 <h2>Kratak prekid: atributi naspram stanja</h2>
 
-Postoje dve vrste "modela" podataka u React-u: atributi i stanje. Važno je razumeti razliku između to dvoje.
+Postoje dve vrste "modela" podataka u React-u: atributi i stanje. Važno je razumeti razliku između njih.
 <br><br>
 
 <h2>Korak 3: Identifikujte minimalno (ali potpuno) predstavljanje stanja KI</h2>
@@ -89,7 +89,7 @@ Postoje dve vrste "modela" podataka u React-u: atributi i stanje. Važno je razu
 Da bi vaš KI bio interaktivan, morate biti u mogućnosti da pokrenete promene u vašem osnovnom modelu podataka. React to postiže pomoću <b>stanja</b>.
 <br><br>
 
-Da biste pravilno napravili aplikaciju, prvo morate razmisliti o minimalnom broju promnljivih u vašem stanju koji je vašoj aplikaciji potreban. Ovde je ključno "Ne ponavljajte se" ("DRY: Don’t Repeat Yourself"). Izračunjate apsolutno minimalnu reprezentaciju stanja koje vašoj aplikaciji treba i sve ostalo izračunajte na osnovu toga kada vam zatreba. Na primer, ako pravite "TODO" listu, u stanju čuvajte niz "TODO" stavki; ne čuvajte posebnu promenljivu u stanju za broj stavki. Umesto toga, kada želite prikazati broj "TODO" stavki, uzmite dužinu "TODO" niza.
+Da biste pravilno napravili aplikaciju, prvo morate razmisliti o minimalnom broju promenljivih u vašem stanju koji je vašoj aplikaciji potreban. Ovde je ključno "Ne ponavljajte se" ("DRY: Don’t Repeat Yourself"). Izračunjate apsolutno minimalnu reprezentaciju stanja koje vašoj aplikaciji treba i sve ostalo izračunajte na osnovu toga kada vam zatreba. Na primer, ako pravite "TODO" listu, u stanju čuvajte niz "TODO" stavki; ne čuvajte posebnu promenljivu u stanju za broj stavki. Umesto toga, kada želite prikazati broj "TODO" stavki, uzmite dužinu "TODO" niza.
 <br><br>
 
 Pomislite na sve podatke u našem primeru. Imamo:
@@ -106,7 +106,7 @@ Prođimo svaki od njih i shvatimo koji je stanje. Postavite tri pitanja o svakom
 1. Da li je prosleđen od roditelja preko atributa? Ako je tako, to verovatno nije stanje.
 <br>
 
-2. Da li ostaje ne promenjeno tokom vremena? Ako je tako, to verovatno nije stanje.
+2. Da li ostaje nepromenjeno tokom vremena? Ako je tako, to verovatno nije stanje.
 <br>
 
 3. Možete li to izračunati na osnovu bilo kojeg drugog stanja ili atributa u vašoj komponenti? Ako je tako, to nije stanje.
@@ -124,7 +124,7 @@ I konačno, naše stanje je:
 
 <h2>Korak 4: Identifikujte gde treba da živi vaše stanje</h2>
 
-Uredu, indentifikovali smo koji je minimalan skup stanja aplikacije. Zatim moramo identifikovati koja komponenta mutira ili poseduje ovo stanje.
+U redu, indentifikovali smo koji je minimalan skup stanja aplikacije. Zatim moramo identifikovati koja komponenta mutira ili poseduje ovo stanje.
 <br><br>
 
 Zapamtite: U React-u se sve odnosi na jednosmerni tok podataka niz hijerarhiju komponenata. Možda nije odmah jasno koja komponenta treba da poseduje stanje. <b>Ovo je najčešće najzahtevniji deo za novopridošle ljude da shvate</b>, pa sledite ove korake da biste to shvatili:
@@ -134,7 +134,7 @@ Za svaki deo stanja u vašoj aplikaciji:
 <ul>
 <li>Identifikujte svaku komponentu koja prikazuje nešto na osnovu tog stanja.</li>
 <li>Pronađite zajedničku vlasničku komponentu (jednu komponentu iznad svih komponenti kojima je potrebno stanje u hijerarhiji).</li>
-<li>Ili zajedniči vlasnik ili neka druga viša komponenta u hijerarhiji treba da poseduje stanje.</li>
+<li>Ili zajednički vlasnik ili neka druga viša komponenta u hijerarhiji treba da poseduje stanje.</li>
 <li>Ako ne možete da pronađete komponentu u kojoj ima smisla da poseduje stanje, napravite novu komponentu isključivo za čuvanje stanja i dodajte je negde u hijerarhiji iznad zajedničke vlasnik komponente.</li>
 </ul>
 <br>
@@ -161,7 +161,7 @@ Do sada smo napravili aplikaciju koja se ispravno prikazuje kao funkcija atribut
 React čini ovaj protok podataka eksplicitnim kako bi vam pomogao da shvatite kako vaš program funkcioniše, ali zahteva malo više kucanja od tradicionalnog dvosmernog povezivanja podataka.
 <br><br>
 
-Ako pokušate da ukucate ili aktivirate checkbox u trenutnoj verziji primera, videćete da React ignoriše vaš unos. Ovo je namerno, jer smo postavili da <span class = "primer_text">value</span> atribut <span class = "primer_text">input</span> komopnente uvek bude jednak stanju prenetomo iz <span class = "primer_text">FilterableProductTable</span> komponente.
+Ako pokušate da ukucate ili aktivirate checkbox u trenutnoj verziji primera, videćete da React ignoriše vaš unos. Ovo je namerno, jer smo postavili da <span class = "primer_text">value</span> atribut <span class = "primer_text">input</span> komponente uvek bude jednak stanju prenetomo iz <span class = "primer_text">FilterableProductTable</span> komponente.
 <br><br>
 
 Razmislimo o onome što želimo da se dogodi. Želimo da budemo sigurni da kada god korisnik promeni nešto na formi ažuriramo stanje tako da oslikava korisnički unos. Budući da komponente treba da ažuriraju samo svoje stanje, <span class = "primer_text">FilterableProductTable</span> će proslediti funkcije <span class = "primer_text">SearchBar</span> komponenti koje će se aktivirati kad god stanje treba ažurirati. Možemo koristiti <span class = "primer_text">onChange</span> događaj na ulaznim poljima da bismo o njemu bili obavešteni. Funkcije koje je prosledila <span class = "primer_text">FilterableProductTable</span> komponenta pozvaće <span class = "primer_text">setState()</span> i aplikacija će biti ažurirana.

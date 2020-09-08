@@ -1,11 +1,11 @@
-<h1>Stanje i životni ciklus</h1>
+﻿<h1>Stanje i životni ciklus</h1>
 <br>
 
-Na ovoj starnici predstavićemo koncept stanja i životnog ciklusa u React komponentama.
+Na ovoj stranici predstavićemo koncept stanja i životnog ciklusa u React komponentama.
 <br><br>
 
-Razmotrimo primer "otkucaji sata" iz <a href="courses/react/react_predstavljanje_elemenata.html/#azuriranjePrikazanogElementa">jednog od prethodnih odeljaka</a>. 
-U <a href="react_predstavljanje_elemenata.html/#predstavljanjeElementa">Postavljanje/Predstavljanje elementa u DOM</a>, naučili smo jedan način ažuriranja KI. 
+Razmotrimo primer "otkucaji sata" iz jednog od prethodnih odeljaka. 
+U Postavljanje/Predstavljanje elementa u DOM, naučili smo jedan način ažuriranja KI. 
 Pozovemo <span class = "primer_text">ReactDOM.render()</span> da promenimo prikaz.
 <xmp class = "primer_ta">
 function tick() {
@@ -187,7 +187,7 @@ U nastavku ćemo poboljšati <span class = "primer_text">&ltClock /&gt</span> da
 
 <h2>Dodavanje metoda životnog ciklusa u klasu</h2>
 
-U aplikacijama sa monogo komponenti vrlo je važno oslobađanje resursa koje komponente zauzimaju kada se unište.
+U aplikacijama sa mnogo komponenti vrlo je važno oslobađanje resursa koje komponente zauzimaju kada se unište.
 <br><br>
 
 Želimo da postavimo tajmer kada se Clock komponenta prvi put prikaže u DOM-u. To se naziva "montaža" u React-u.
@@ -308,11 +308,11 @@ Hajde da na brzinu ponovimo šta se dešava i kojim redosledom se metode pozivaj
 
 <h2>Ispravno korišćenje stanja</h2>
 
-Postoje tri stvari koje biste trebali znati o setState().
+Postoje tri stvari koje bi trebalo da znate o setState().
 
 <h2>Ne menjajte stanje direktno</h2>
 
-Na primer ovo neće ažurirati komponentu:
+Na primer, ovo neće ažurirati komponentu:
 <xmp class = "primer_ta">
 // Pogrešno
 this.state.comment = 'Zdravo';
@@ -332,7 +332,7 @@ Jedino mesto gde možete dodeliti vrednost this.state je konstruktor.
 React može objediniti više poziva setState() u jedno ažuriranje radi performansi.
 <br><br>
 
-Budući da se this.props i this.state mogu ažurirati asinhrono, ne biste se trebali oslanjati na njihove vrednosti za izračunavanje sledećeg stanja.
+Budući da se this.props i this.state mogu ažurirati asinhrono, ne bi trebalo da se oslanjate na njihove vrednosti za izračunavanje sledećeg stanja.
 <br><br>
 
 Na primer, ovaj kod možda neće uspeti da ažurira brojač:
@@ -400,7 +400,7 @@ Spajanje je plitko, tako da <span class = "primer_text">this.setState({comments}
 
 <h2>Tok podataka na dole</h2>
 
-Ni roditelj ni dete komponenta ne mogu znati da li određena komponenta sadrži stanje ili ne i ne treba da brinu da li je definisana kao funkcija ili klasa.
+Ni roditelj, ni dete komponenta ne mogu znati da li određena komponenta sadrži stanje ili ne, i ne treba da brinu da li je definisana kao funkcija ili klasa.
 <br><br>
 
 Zbog toga se stanje često naziva lokalno ili enkapsulirano. Nije dostupno nijednoj komponenti osim onoj koja ga poseduje i postavlja.
@@ -411,7 +411,7 @@ Komponenta može odabrati da prosledi svoje stanje kao atribut ("props") svojim 
 <h2>Sada je {this.state.date.toLocaleTimeString()}.</h2>
 </xmp>
 
-Ovo takođe važi i za korisnički definisane komponente:
+Ovo, takođe, važi i za korisnički definisane komponente:
 <xmp class = "primer_ta">
 <FormattedDate date={this.state.date} />
 </xmp>
