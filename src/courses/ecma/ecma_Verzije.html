@@ -1,0 +1,50 @@
+<h1>Ostale verzije EcmaScript-a</h1>
+EcmaScript 2015(ES6) je najveće i najvažnije poboljšanje EcmaScript standarda. Svake godine,počev od 2015. izlaze nove verzije, dodaju se nove karakteristike. Ova strana će biti posvećana tim karakteristikama.
+<h2>EcmaScript 2016 (ES7) </h2>
+ES7 uvodi novi matematički operator pod nazivom Eksponencijalni operator. Ovaj operator je sličan metodu Math.pow() . 
+<br>Eksponencijalni operator je predstavljen dvostrukom zvezdicom **. Operator se može koristiti samo sa numeričkim vrednostima. 
+<br> Sintaksa za korišćenje eksponencijalni operator:
+<xmp class="primer_ta">
+   let base = 2;
+   let exponent = 3;
+   document.write("Eksponencijalni operator: 2**3= " +base**exponent);
+</xmp>
+
+<br>
+Metod Array.includes() prihvata parametar, proverava da li vrednost prosleđena kao parametar postoji u nizu. Ovaj metod daje "true" ako je vrednost pronađena ili daje "false" ako vrednost ne postoji.
+<xmp class="primer_ta">
+ let niz = [1,2,3,5,7,11,13,17]
+   //proverimo da li vrednost 7 postoji u nizu.
+   if(niz.includes(50)){
+      document.write("Pronađen!");
+   }else{
+      document.write("Nije pronađen!");
+   }
+</xmp>
+<h2>EcmaScript 2017 (ES8)</h2>
+ES8 uvodi sledeće nove metode ugrađene u objekte.
+<ul>
+<li>
+Object.entries
+</li>
+<li>
+Object.values()
+</li>
+<li>
+Object.getOwnPropertyDescriptors()
+</li>
+</ul>
+<br>
+Metod Objekat.entries() se koristi za pristup svim svojstvima objekta.
+Objekat.values() se koristi za pristup vrednostima svih svojstava.
+<xmp class="primer_ta">
+<script>
+   const student ={
+      firstName:'Felix',
+      lastName:'Kjellberg'
+   }
+   document.write(Object.entries(student));
+   document.write("<br>----------------<br>");
+   document.write(Object.values(student));
+</script>
+</xmp>

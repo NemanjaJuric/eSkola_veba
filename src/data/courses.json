@@ -1892,6 +1892,66 @@
     ]
   },
   {
+    "name": "ECMA Script",
+    "id": "ecma",
+    "logo": "ES",
+    "type": "course",
+    "lang": "application/typescript",
+    "displayLang": "Javascript",
+    "detailsText": "ECMAScript  je specifikacija skriptnog jezika koja je standardizovana od strane ECMAScript International.",
+    "lessons": [
+      {
+        "name": "Uvod u ECMA Script",
+        "url": "ecma_Pocetna",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Sintaksa",
+        "url": "ecma_Syntax",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive",
+        "url": "ecma_Variable",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Petlje",
+        "url": "ecma_Loops",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "ecma_Functions",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Događaji",
+        "url": "ecma_Events",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
+        "name": "Verzije",
+        "url": "ecma_Verzije",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      }
+    ]
+  },
+  {
     "name": "TypeScript",
     "id": "ts",
     "logo": "TS",

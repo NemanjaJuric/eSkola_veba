@@ -1,0 +1,428 @@
+<h1><center> ES6 - Events </center></h1>
+<hr>
+<p> Javascript je napravljen da dodaje interaktivnost u vašoj strani.Javascript radi ovo uz pomoć mehanizma događaja. <b>Događaji</b> su deo Document Object Model (DOM) nivoa 3 i svaki HTML element sadrži skup događaja koji mogu biti pokrenuti Javascript kod. 
+<p>
+<p> Događaj je akcija ili pojava prepoznata od softvera. Ona može biti pokrenuta od korisnika ili sistema. Neki cesti primeri događaja su kada korisnik pritisne na dugme, ucitavanje veb strane, pritiskom na hiper link i tako dalje. Slede neki češće korišćeni HTML događaji. Svaki HTML element ima svoj skup događaja povezanih sa njim. Mi mozemo definisati kako će događaj biti izvršen u Javascriptu koristeci manipulatore događaja.
+</p>
+<h2> Manipulatori Događaja </h2>
+<p> Nakon pojave događaja, aplikacija izvršava grupu povezanih zadataka. Blok koda koji ima ovu svrhu naziva se manipulator događaja. 
+</p>
+<h2> Događaj tipa: Klik </h2>
+<p> Ovaj događaj je jedan od najkorišćenijih koji se izvršava kada pritisnemo levi klik na mišu. Možeti staviti potvrdu, upozorenje, i slično. 
+</p>
+<h3> Primer </h3>
+<xmp class="primer_ta">
+<html> 
+   <head> 
+      <script type = "text/javascript">  
+        const sayHello = () => {
+	
+		document.write("Zdravo svete!");
+         }   
+      </script> 
+   </head> 
+   
+   <body> 
+      <p> Pritisnite na sledeći rezultat </p> 
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" /> 
+   </body> 
+</html> 
+</xmp>
+<button class="button_copy">Vidi primer</button>
+
+<h2> OnMouseOver & OnMouseOut </h2>
+<p> Ova dva događaja će vam pomoći da napravite lepe efekte sa slikama ili čak tekstom. <b> OnMouseOver </b> događaj započinje kada stavite vaš miš preko bilo kog elementa koji ima tu komandu i <b> OnMouseOut </b> započinje kada pomerite miš od elementa na kome ste stavili komandu.
+</p>
+<h3> Primer </h3>
+<xmp class="primer_ta">
+<html> 
+   <head> 
+      <script type = "text/javascript"> 
+         const over = () =>{  
+            document.getElementById("div1").style.color   
+                            = "blue";
+         }  
+         const out = () =>{  
+            document.getElementById("div1").style.color   
+                            = "red";  
+         }  
+      </script> 
+   </head> 
+
+   <body> 
+      <p>Stavite vaš miš unutar polja da vidite rezultat:</p> 
+      <div id="div1" onmouseover = "over()" onmouseout = "out()"> 
+         <h2> ovo je unutar polja </h2> 
+      </div> 
+   </body> 
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+
+<h2> HTML 5 standarni događaji </h2>
+<p> Standard 5 HMTL dogašaja su napisani u sledećoj tabeli za vašu referencu. Skripta označava Javascript funkciju da se izvrši naprotiv datog događaja.  
+</p>
+<table class="tabela">
+<tr>
+<th style="text-align:center">Atribut</th>
+<th style="text-align:center">Vrednost</th>
+<th style="text-align:center">Opis</th>
+</tr>
+<tr>
+<td>offline</td>
+<td>script</td>
+<td>Pokreće se kada dokument nije oflajn</td>
+</tr>
+<tr> 
+<td>onabort</td> 
+<td>script</td>  
+<td>Pokreće se na prekid događaja</td>
+</tr> 
+<tr> 
+<td>onafterprint</td> 
+<td>script</td>  
+<td>Pokreće se nakon štampanja dokumenta</td>
+</tr>
+<tr>  
+<td>onbeforeonload</td> 
+<td>script</td>  
+<td>Pokreće se pre učitavanja dokumenta</td>
+</tr>  
+<tr>
+<td>onbeforeprint</td> 
+<td>script</td>  
+<td>Pokreće se pre štampanja dokumenta
+</td>
+</tr>  
+<tr>
+<td>onblur</td> 
+<td>script</td>  
+<td>Pokreće se kada prozor izgubi fokus</td>
+</tr>
+<tr>  
+<td>oncanplay</td> 
+<td>script</td>  
+<td>Pokreće se kada mediji mogu da započnu s reprodukcijom, ali možda će morati da prestanu zbog bafera</td>
+</tr> 
+<tr> 
+<td>oncanplaythrough</td> 
+<td>script</td>  
+<td>Pokreće se kada se mediji mogu reprodukovati do kraja, bez zaustavljanja zbog baferovanja</td>
+</tr>
+<tr>  
+<td>onchange</td> 
+<td>script</td> 
+<td>Pokreće se kada se element promeni</td>
+</tr> 
+<tr> 
+<td>onclick</td> 
+<td>script</td>  
+<td>Pokreće se klikom miša</td> 
+</tr> 
+<tr>
+<td>oncontextmenu</td> 
+<td>script</td>  
+<td>Pokreće se kada se aktivira kontekstni meni</td>
+</tr>
+<tr> 
+<td>ondblclick</td> 
+<td>script</td>  
+<td>Pokreće se duplim klikom na mis</td>
+</tr> 
+<tr> 
+<td>ondrag</td> 
+<td>script</td>  
+<td>Pokreće se kada se element povlači</td>
+</tr>
+<tr>  
+<td>ondragend</td>
+<td>script</td>  
+<td>Pokreće se na kraju operacije povlačenja</td>
+</tr>  
+<tr>
+<td>ondragenter</td> 
+<td>script</td> 
+<td>Pokreće se kada je element povučen do validnog cilja pada</td>
+</tr>
+<tr>
+<td>ondragleave</td> 
+<td>script</td>  
+<td>Pokreće se kada element ostavi validan cilj pada</td>
+</tr>
+<tr>  
+<td>ondragover</td> 
+<td>script</td>  
+<td>Pokreće se kada se element povlači preko valjanog cilja pada</td>
+</tr>
+<tr>
+<td>ondragstart</td>   
+<td>script</td>  
+<td>Pokreće se na početku operacije povlačenja</td>
+</tr>
+<tr>  
+<td>ondrop</td> 
+<td>script</td>  
+<td>Pokreće se kada se povučeni element ispusti</td>
+</tr>  
+<tr>
+<td>ondurationchange</td> 
+<td>script</td>  
+<td>Pokreće se kada se promeni dužina medija</td>
+</tr>
+<tr>  
+<td>onemptied</td> 
+<td>script</td>  
+<td>Pokreće se kada element resursa medija iznenada postane prazan</td>
+</tr>
+<tr> 
+<td>onended</td> 
+<td>script</td>  
+<td>Pokreće se kada su mediji stigli do kraja</td>
+</tr>  
+<tr>
+<td>onerror</td> 
+<td>script</td>  
+<td>Pokreće se kada dođe do greške</td>
+</tr> 
+<tr> 
+<td>onfocus</td> 
+<td>script</td>  
+<td>Pokreće se kada prozor dobije fokus</td>
+</tr>
+<tr>  
+<td>onformchange</td> 
+<td>script</td>  
+<td>Pokreće se kada se obrazac promeni</td>
+</tr>  
+<tr>
+<td>onforminput</td> 
+<td>script</td>  
+<td>Pokreće se kada obrazac dobije korisnički unos</td>
+</tr>
+<tr>  
+<td>onhaschange</td> 
+<td>script</td>  
+<td>Pokreće se kada se dokument promeni</td>  
+</tr>
+<tr>
+<td>oninput</td> 
+<td>script</td>  
+<td>Pokreće se kada element dobije korisnički unos</td>
+</tr>
+<tr>
+<td>oninvalid</td> 
+<td>script</td>  
+<td>Pokreće se kada je element nevažeći</td>
+</tr>
+<tr>  
+<td>onkeydown</td> 
+<td>script</td>  
+<td>Pokreće se kada se pritisne taster</td>
+</tr>  
+<tr>
+<td>onkeypress</td> 
+<td>script</td>  
+<td>Pokreće se kada se taster pritisne i otpusti</td> 
+</tr>
+<tr>
+<td>onkeyup</td> 
+<td>script</td>  
+<td>Pokreće se kada se taster otpusti</td>  
+</tr>
+<tr>
+<td>onload</td> 
+<td>script</td>  
+<td>Pokreće se kada se dokument učita</td>
+</tr>
+<tr>  
+<td>onloadeddata</td> 
+<td>script</td>  
+<td>Pokreće se kada se učitavaju medijski podaci</td>
+</tr>
+<tr>
+<td>onloadedmetadata</td>
+<td>script</td>  
+<td>Pokreće se kada se učitavaju trajanja i drugi podaci o medijskom elementu</td>  
+</tr>
+<tr>
+<td>onloadstart</td>
+<td>script</td>  
+<td>Pokreće se kada pregledač počne da učitava medijske podatke</td>  
+</tr>
+<tr>
+<td>onmessage</td> 
+<td>script</td>  
+<td>Pokreće se kada se poruka aktivira</td>  
+</tr>
+<tr>
+<td>onmousedown</td> 
+<td>script</td>  
+<td>Pokreće se kada se pritisne taster miša</td>  
+</tr>
+<tr>
+<td>onmousemove</td> 
+<td>script</td>  
+<td>Pokreće se kada se pokazivač miša pomera</td>  
+</tr>
+<tr>
+<td>onmouseout</td> 
+<td>script</td>  
+<td>Pokreće se kada se pokazivač miša pomera iz nekog elementa</td>  
+</tr>
+<tr>
+<td>onmouseover</td> 
+<td>script</td>  
+<td>Pokreće se kada se pokazivač miša pomera iznad nekog elementa</td>
+</tr> 
+<tr>
+<td>onmouseup</td> 
+<td>script</td>  
+<td>Pokreće se kada se otpusti taster miša</td>
+</tr> 
+<tr>
+<td>onmousewheel</td> 
+<td>script</td>  
+<td>Pokreće se kada se okreće točak miša</td>
+</tr> 
+<tr>
+<td>onoffline</td> 
+<td>script</td>  
+<td>Pokreće se kada dokument ne radi van mreže</td>
+</tr> 
+<tr>
+<td>ononline</td> 
+<td>script</td>  
+<td>Pokreće se kada dokument stigne na mreži</td>
+</tr> 
+<tr>
+<td>onpagehide</td> 
+<td>script</td>  
+<td>Pokreće se kad je prozor sakriven</td>
+</tr> 
+<tr>
+<td>onpageshow</td> 
+<td>script</td>  
+<td>Pokreće se kada prozor postane vidljiv</td>
+</tr> 
+<tr>
+<td>onpause</td> 
+<td>script</td>  
+<td>Pokreće se kada su podaci o medijima pauzirani</td>
+</tr> 
+<tr>
+<td>onplay</td> 
+<td>script</td>  
+<td>Pokreće se kada će se medijski podaci početi reprodukovati</td>
+</tr> 
+<tr>
+<td>onplaying</td> 
+<td>script</td>  
+<td>Pokreće se kada se medijski podaci počnu reprodukovati</td>
+</tr> 
+<tr>
+<td>onpopstate</td> 
+<td>script</td>  
+<td>Pokreće se kada se istorija prozora promeni</td>
+</tr> 
+<tr>
+<td>onprogress</td> 
+<td>script</td>  
+<td>Pokreće se kada pregledač dohvaća medijske podatke</td>
+</tr> 
+<tr>
+<td>onratechange</td> 
+<td>script</td>  
+<td>Pokreće se kada se promenila stopa reprodukcije medijskih podataka
+</td>
+</tr> 
+<tr>
+<td>onreadystatechange</td> 
+<td>script</td>  
+<td>Pokreće se kada se stanje spremnosti promeni</td>
+</tr> 
+<tr>
+<td>onredo</td> 
+<td>script</td>  
+<td>Pokreće se kada se dokument izvrši ponovo</td>
+</tr> 
+<tr>
+<td>onresize</td> 
+<td>script</td>  
+<td>Pokreće se kada se promeni veličina prozora</td>
+</tr> 
+<tr>
+<td>onscroll</td> 
+<td>script</td>  
+<td>Pokreće se kada se klizač elementa pomiče</td>
+</tr> 
+<tr>
+<td>onseeked</td> 
+<td>script</td>  
+<td>Pokreće se kada atribut traženja medijskog elementa više nije tačan i traženje je završeno</td>
+</tr> 
+<tr>
+<td>onseeking</td> 
+<td>script</td>  
+<td>Pokreće se kada je atribut traženja medijskog elementa tačan, a traženje je započelo</td>
+</tr> 
+<tr>
+<td>onselect</td> 
+<td>script</td>  
+<td>Pokreće se kada je izabran element</td>
+</tr> 
+<tr>
+<td>onstalled</td> 
+<td>script</td>  
+<td>Pokreće se kada postoji greška u dohvaćanju podataka o medijima</td>
+</tr> 
+<tr>
+<td>onstorage</td> 
+<td>script</td>  
+<td>Pokreće se kada se dokument učita</td>
+</tr> 
+<tr>
+<td>onsubmit</td> 
+<td>script</td>  
+<td>Pokreće se kada se preda obrazac</td>
+</tr> 
+<tr>
+<td>onsuspend</td> 
+<td>script</td>  
+<td>Pokreće se kada pregledač hvata podatke o medijima, ali zaustavlja se pre nego što se medijska datoteka dohvati</td>
+</tr> 
+<tr>
+<td>ontimeupdate</td> 
+<td>script</td>  
+<td>Pokreće se kada mediji promene svoju poziciju za igru</td>
+</tr> 
+<tr>
+<td>onundo</td> 
+<td>script</td>  
+<td>Pokreće se kada se dokument poništi</td>
+</tr> 
+<tr>
+<td>onunload</td> 
+<td>script</td>  
+<td>Pokreće se kada korisnik napusti dokument</td>
+</tr> 
+<tr>
+<td>onvolumechange</td> 
+<td>script</td>  
+<td>Pokreće se kada mediji menjaju jačinu zvuka, takođe i kada je jačina zvuka podešena na „mute“</td>
+</tr> 
+<tr>
+<td>onwaiting</td> 
+<td>script</td>  
+<td>Pokreće se kada su mediji prestali da se igraju, ali se očekuje da se nastave</td>
+<tr>
+<td> onwaiting </td>
+<td> Skripta </td>
+<td>Pokreće se kada su mediji prestali da se igraju, ali se očekuje da se nastave</td>
+</tr>
+</tr> 
+</table>
+	
+
+</br>
+</body>
+</html>

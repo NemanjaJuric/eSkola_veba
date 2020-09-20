@@ -1,0 +1,88 @@
+<center>
+<h1>ECMAScript funkcije</h1>
+</center>
+U sledećem odeljku podsetićemo se javascrypt funkcija i videti koja su to poboljšanja vezana za funkcije koja dolaze sa ECMAScript6 verzijom.
+<h3>Prednost java skript funkcija</h3>
+<p>Postoje dve glavne prednosti funkcija, a to su:
+<ul>
+<li>Možemo da pozivamo jednu funkciju vise puta</li>
+<li>Program postaje manji i pregledniji jer ne moramo da pišemo novi kod za često obavljene zadatke</li>
+</ul>
+</p>
+<hr>
+<h1>Sintaksa funkcije</h1>
+Je izgled linije koda koji sadrži funkciju, uglavnom izgleda ovako:
+<br>
+<xmp class = "primer_ta" >
+
+function functionName(argument1,argument2,..argumentN)
+{
+     kod koji funkcija izvršava;
+}
+</xmp>
+<br>
+<p>Ove funkcije mogu da imaju bilo koji broj argumenata</p>
+<hr>
+<h1>Primeri java skript funkcija</h1>
+<p>Evo ga primer funkcije bez argumenata</p>
+<xmp class = "primer_ta" >
+function msg()
+{
+   alert("Ovo je poruka");
+}
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+<hr>
+<h2>Funkcije sa povratnom vrednošću</h2>
+Funkcija koju smo pozvali će vratiti vrednost na osnovu dobijenih argumenata:
+<xmp class = "primer_ta" >
+function add( a, b )  
+{  
+    return a+b;  
+}  
+var sum = add(10,20);  
+console.log(sum);  
+</xmp>
+<h2>Default parametri funkcija</h2>
+U ES6, funkcije nam omogućavaju inicijalizaciju parametara sa zadatim vrednostima ako parametar nije definisan ili mu se ne prenese vrednost.
+<br>
+<xmp class = "primer_ta" >
+function show (num1, num2=200)   
+{  
+    console.log("num1 = " +num1);  
+    console.log("num2 = " +num2);    
+}  
+show(100);
+</xmp>
+
+<br>
+<h3>Arrow functions</h3>
+Arrow functions ili lambda funkcije uvedene su u ES6, što nam omogućava tačniji način pisanja funkcija u JavaScript. Lambda funkcije čine naš kod čitljivijim i strukturiraniji.
+<br>
+Lambda funkcije su anonimne funkcije (funkcije bez imena i nisu vezane za identifikator). Ne vraćaju nikakvu vrednost i mogu se deklarisati bez ključne reči <b>function</b>. Lambda funkcije se ne mogu koristiti kao konstruktori. Kontekst unutar lamda funkcije je leksički ili statički definisan. 
+<br>
+<br>
+Postoje tri dela lambda funkcije:
+<ul>
+<li>Parametri: Svaka funkcija može ,ali ne mora da ima parametre.</li>
+<li>Oznaka strelice / lambda notacija: to je oznaka za strelicu (=>).</li>
+<li>Iskaz: Predstavlja skup instrukcija funkcije.</li>
+</ul>
+
+<br>
+<xmp class = "primer_ta" >
+ const add = (n1,n2) => n1+n2
+   console.log(add(10,20))
+
+   const isEven = (n1) => {
+      if(n1%2 == 0)
+         return true;
+      else
+         return false;
+   }
+   console.log(isEven(10))
+</xmp>
+<hr>
+
+<div class="zadatak">Koristeće prethodno naučeno napisati lambda funkciju koja ispisuje prosledjenu reč N puta. Ako N nije prosedjeno funkciji onda datu reč ispisati samo jednom.</​ div​ > 

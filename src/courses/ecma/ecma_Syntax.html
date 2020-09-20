@@ -1,0 +1,113 @@
+
+
+<h1 class="h1">ES6 Sintaksa</h1>
+<p>Sintaksa je skup pravila koja definiše raspored simbola. Svaka grupa jezika ima svoju sintaksu. Sintaksa se odnosi na programske jezike u kojima dokument predstavlja izvorni kod i takođe se odnosi na označne jezike u kojima dokument opisuje podatke.</p>
+<p>Program u okviru JavaScript-a sastoji se od:</p>
+<br>
+<b>Literali:</b> Literal se može definisati kao oznaka za predstavljanje fiksne vrednosti u izvornom kodu. Generalno, literali se koriste za inicijalizaciju promenljivih. U sledećem primeru možete videti upotrebu literala u kojima 1 predstavlja celi broj literala, a niz "hello" je string literal.
+<xmp class="primer_ta">
+int x = 1;
+string str = "hello";
+</xmp>
+<br>
+<b>Variable:</b> Promenljiva je lokacija skladišta koja je identifikovana pomoću memorijske adrese. Promenljiva je ime memorijskog bloka koji čuva vrednosti za program. Naziv varijable je standardni način referenciranja vrednosti.
+<br><b>Keywords:</b> U kompijuterskom programiranju <strong>keyword</strong> je reč koja u posebnom kontekstu ima posebno značenje. Ne može se koristiti kao identifikator poput imena promenljive, funkcije i imena funkcije .
+<br><b>Operatori:</b> Operatori su simboli koji definišu obradu operanda. Neki od uobičajenih primera operatora uključuju aritmetiku (dodavanje sa +), logičke operatore (poput AND ili &&) itd.</p>
+<br><b>Komentari:</b> Komentari pomažu programeru kada nešto želi da zabeleži ili naglasi </p>
+<p>JavaScript podržava ova dva tipa komentara:</p>
+<ul>
+<li>Multi-line comments: Ovi komentari se koriste za komentarisanje u više linija.<br>
+<xmp class="primer_ta">
+/* Primer
+višerednog komentara */
+</xmp>
+</li>
+<li>Single-line comments:Ovi komentari se koriste za komentarisanje u jednoj liniji.<br>
+<xmp class="primer_ta"> //Jednolinijski komentar.
+</xmp>
+</li>
+</ul>
+<p><b>Identifikatori:</b> Identifikatori su imena koja se daju elementima unutar programa, kao što su funkcije, promenljive itd. Postoje neka pravila za identifikatore koja su sledeća:</p>
+<ul class="points">
+<li>Identifikatori ne ukljucuju specijalne simbole sem <strong>znaka ($)</strong> ili donja crta(_).</li>
+<li>Ime identifikatora ne sme biti ključna reč.</li>
+<li>Identifikatori uključuju znakove i cifre. Ali ime identifikatora ne možete započeti cifrom.</li>
+<li>Identifikatori ne smeju biti rastavljeni.</li>
+</ul>
+<p><strong>Na primer:</strong> U ovom primeru videćete pravilnu i nepravilnu deklaraciju identifikatora.</p>
+<p><strong>Pravilan primer:</strong> userName, user_name, name14, $name.</p>
+<p><strong>Nepravilan primer: </strong>Name@, user name, user-name, 14name.</p>
+<h2 class="h2">Line Breaks i Whitespaces</h2>
+<p>ECMAScript ignoriše kartice, razmake i nove linije koje se pojavljuju u programima. Kartice, razmake i nove linije možemo lako koristiti u programu, a program slobodno formatirati i uvlačiti na pouzdan način, što povećava čitljivost koda i olakšava razumevanje..</p>
+<p>U referenci na JavaScript postoje neke važne tačke koje su definisane na sledeći način:</p>
+<h2>JavaScript i Camel Case</h2>
+<p>JavaScript programeri bi trebali da koriste <strong>Lower Camel Case (</strong>koji počinje malim slovom<strong>)</strong>.</p>
+<p><strong>e.g.</strong> userName, firstName, cityName, etc. </p>
+<div class="napomena">Treba napomenuti da crtice nisu dozvoljene u JavaScript-u, jer su crtice rezervisane za oduzimanje.
+</div>
+<h2>JavaScript is Case-Sensitive</h2>
+<p>Identifikatori razlikuju velika i mala slova.</p>
+<p><strong>Na primer:</strong></p>
+<p><strong>username </strong>i <strong>userName</strong> su dve različite promenljive u JavaScript-u.</p>
+<xmp class="primer_ta">
+let username, userName;
+username = "Anil";
+userName = "Sunil";
+</xmp>
+<h2>Semicolons are optional</h2>
+Upotreba tački sa zarezima nije obavezna u JavaScript-u. Ali ako u jednom redu ima više iskaza (niz uputstava), te izjave moraju biti odvojene tačkom i zarezom.</p>
+Na primer:
+<xmp class="primer_ta">
+<textarea name="code" class="java" rows="3" cols="100">
+console.log("hello world")
+console.log("Welcome to javaTpoint.com"); console.log("You are learning the ES6 tutorial");
+</xmp>
+<p class="pq"><strong>Execution of Code in JavaScript</strong></p>
+<p>Pokušajmo da razumemo kako se kod izvršava u JavaScriptu koristeći primer:</p>
+<xmp class="primer_ta">
+var msg =  "Hello World"       //This line declares a variable.
+console.log(msg);       //This line print the value of the variable to the prompt. The console in it refers to the terminal window, and the log() is used to display the text on the screen.
+</xmp>
+<p>Sačuvajte ovu datoteku koristeći .js ekstenziju jer je spremamo sa imenom Example.js. Zatim kliknite desnu tipku miša na ovu datoteku koja se nalazi pod opcijom radnih datoteka u prozoru istraživača projekata vizuelnog koda studija i izaberite opciju „otvori u terminalu“.</p>
+<p>Ukucajte sledeću komandu u terminal:</p>
+<xmp class="primer_ta">
+node Example.js
+</xmp>
+<p>Posle uspešnog izvršenja dobićete sledeći rezultat:</p>
+<xmp class="primer_ta">
+Hello World
+</xmp>
+<h2>The Strict Mode</h2>
+Strogi režim je uveden u ECMAScript 5 (peto izdanje specifikacije ECMAScript). Ovaj strogi mod možete koristiti u svim svojim programima. To će vam pomoći da napišete čisti kod, poput sprečavanja korišćenja neprijavljenih promenljivih. </p>
+<h3>Prednosti korišćenja striktong moda:</h3>
+Postoji nekoliko promena koje strogi način rada čini normalnom JavaScript semantikom:</p>
+<ul>
+<li>Strogi režim zabranjuje neke sintakse, što će verovatno biti definisano u budućim verzijama ECMAScript-a.</li>
+<li>Strogi režim uklanja neke JavaScript tihe greške menjajući ih tako da bacaju greške.</li>
+<li>Strogi režim takođe ispravlja greške, što otežava JavaScript motorima da izvršavaju optimizacije, tako da strogi režim ponekad čini brži rad u odnosu na identični režim.</li>
+</ul>
+<h3 class="h3">Kako deklarisati strogi režim</h3>
+<p>Možete deklarisati dodavanjem <strong>"use strict";</strong> na početku funkcije ili skripte.</p>
+<p><strong>Deklaracija početka skripte:</strong>Kada ga deklarišete na početku skripte, to će biti globalni domet, tj. Sav kod unutar skripte izvršit će se u strogom režimu
+.
+<br>
+Na primer:
+<xmp class="primer_ta">
+"use strict";
+example();
+function example() {
+  x= 89;   // It will also cause an error because x is not declared<br>
+}
+</xmp>
+Kada izvršimo ovaj primer, dobićemo grešku jer promenljivu nismo deklarisali x.
+<p><strong>Deklaracija unut funkcije:</strong> Kada ga deklarirate unutar funkcije, to će biti lokalni domet, tj. Kod unutar funkcije bit će u strogom režimu.</p>
+<xmp class="primer_ta">
+y = 89;       // It will not cause an error.
+example();
+function example() {
+  "use strict";
+  x = 89;   // It will cause an error
+}
+</xmp>
+
+

@@ -1,0 +1,174 @@
+
+<h1>ES6 Loops</h1>
+
+Ponekad, određene instrukcije zahtevaju izvršavanje veći broj puta. Petlje su idealan način da se to uradi. Petlja predstavlja skup instrukcija koje se moraju ponoviti. 
+Konceptualno, razlikujemo dve vrste petlji, koje se razlikuju po načinu na koji se određuje broj iteracija. Određene i neodređene.
+<br>
+
+<br>
+<h2>Definite Loops</h2>
+Određena petlja ima definitivan / fiksni broj ponavljanja. U ES6 postoje tri vrste određenih petlji koje su navedene dole:<br><br>
+<br>
+<table class="tabela">
+<thead>
+<tr>
+<th>Petlja</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> for( ; ; ) petlja</td><td>Izvršava blok naredbi određeni broj puta.</td>
+</tr>
+<tr>
+<td> for...in  petlja</td><td>Iterira(prolazi) kroz polja objekta.</td>
+</tr>
+<tr>
+<td> for...of petlja</td><td>Iterira kroz elemente niza.</td>
+</tr>
+</tbody>
+</table>
+<br><br>
+
+<h2>The for ( ;  ;  ) loop</h2>
+Petlja for( ; ; ) koristi se za ponavljanje dela programa više puta. Ako imate fiksni broj ponavljanja, preporučuje se upotreba petlje 'for'.
+
+<h3>Primer</h3>
+
+<xmp class="primer_ta">
+var i;
+for(i=1;i<=10;i++)
+{
+console.log("2 x "+ i +" =", 2*i);
+}
+</xmp>
+
+<h3>Output</h3>
+
+2 x 1 = 2<br>
+2 x 2 = 4<br>
+2 x 3 = 6<br>
+2 x 4 = 8<br>
+2 x 5 = 10<br>
+2 x 6 = 12<br>
+2 x 7 = 14<br>
+2 x 8 = 16<br>
+2 x 9 = 18<br>
+2 x 10 = 20<br>
+
+<div class="napomena">
+U for petlji možemo kombinovati više uslova koristeći operator "," (zarez).
+</div>
+<br>
+U sledećem primeru štampamo Febonačijeve brojeve koristeći samo jednu for petlju.
+<br>
+
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <script>
+            "use strict"
+           for(let temp, a = 0, b = 1; b<40; temp = a, a = b, b = a + temp)   
+           document.write(b+"<br>");  
+        </script>
+
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+
+
+<h2>The for… in loop</h2>
+
+Petlja for… in je slična 'for' petlji koja se ponavlja kroz svojstva objekta. Bolji je izbor kada radite sa objektima ili rečnicima gde redosled indeksa nije bitan.
+U svakoj iteraciji, jedno svojstvo objekta dodeljuje se promenljivoj i petlja se nastavlja sve dok se sva svojstva objekta ne pokriju.
+
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<body>
+	<script>
+		function Mobile(model_no){   
+			this.Model = model_no;  
+			this.Color = 'White';  
+			this.RAM = '4GB';  
+		}  
+	var Samsung = new Mobile("Galaxy");  
+	for(var props in Samsung)  
+	{  
+	document.write(props+ " : " +Samsung[props]);  
+	} 
+	</script>
+</body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br>
+
+<h2 style="color:brown" >The for…of loop</h2>
+Za razliku od objektnih literala, ova petlja se koristi za iteracuju kroz nizove.
+U svakoj iteraciji, jedan član niza dodeljuje se promenljivoj, a petlja se završava kada dođemo do poslednjeg elementa niza.
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+let fruits = ['Apple', 'Banana', 'Mango', 'Orange'];
+for(let value of fruits)
+{
+document.write(value+"<br>");
+}
+</script>
+</body>
+</html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+
+
+<h2 style="color:brown">Indefine loops</a></h2>
+Neodređena petlja ima beskonačno iteracija. Koristi se kada je broj ponavljanja naredbi prelazan ili nepoznat.
+
+<h2  style="color:brown">While petlja</h2>
+
+While петља је контролни ток који омогућава понавлјање извршеног кода на основу датог Боолеовог услова.
+Састоји се од блок кода и израза/стања.<br><br>
+While петља проверава израз/стање пре извршавања блока; зато је ова контролна структура иначе позната као test петља.<br>
+<xmp class="primer_ta">
+let count = 6, fact = 1;
+while (count > 0)
+{
+fact = fact * count--;
+}
+console.log(fact);
+</xmp>
+
+<h3>Тачке које треба запамтити</h3>
+
+<ul><li>Услов је увек потребан у while петљи зато што је потребно покренути петљу. If the condition returns true, then the loop will<br>
+ start over again, but if it returns false, the loop will stop.</li>
+<li>Ако је услов увек тачан, онда петља се никада неће завршити.</li>
+</ul><
+
+<h2 style="color:brown">Do…while петља</h2>
+
+То је изјава контролног протока који барем једном извршава блок код, а онда ће зависити од услова да ли петља извршава блок више пута.<br><br>
+Do…while петља проверава стање после извршења блока, зато је ова контролна структура исто позната као post-test петља.
+Исто је могуће <br>да се услов процени као тачан, што ће створити бесконачну петљу.(infinitive loop)<br>
+
+<h3>Syntax</h3>
+<xmp class="primer_ta">
+let count = 6, fact = 1;
+do {
+fact = fact * count--;
+} while (count > 0);
+</xmp>
+
+Кључна разлика између горе два наведена примера је у томе што се while петља уноси само ако је услов који је пренесен оцењен тачним. <br>
+Али do…while петлја извршава изјаву једном, дешава се због почетне итерације do...while петље која не узима у обзир као Бооловим изразом.<br>
+Затим за даље иретације, while ће проверити стање и узима контролу из петље.<br>
+
+
+
