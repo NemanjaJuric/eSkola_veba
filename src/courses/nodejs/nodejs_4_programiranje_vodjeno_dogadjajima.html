@@ -1,0 +1,35 @@
+<h1>Programiranje vođeno događajima</h1>
+
+NodeJS radni okvir je aplikacija koja se izvršava u jednoj niti, ali podržava konkurentnost pomoću koncepta <span class="font-weight-bold">događaja</span> (eng. events) i povratnih poziva. Svi moduli u okviru NodeJS su asinhroni i s obzirom da se izvršavaju u jednoj niti kao mehanizam za održavanje konkurentnosti koriste asinhrone pozive funkcija. Glavna nit NodeJS aplikacije je blokirana u petlji događaja sve dok postoji bar jedan definisani događaj. Kada god se izvrši posao kojem je pridružen događaj, tada se <span class="font-weight-bold">ispaljuje/emituje</span> taj događaj čime se signalizira <span class="font-weight-bold">rukovaocu događaja</span> (eng. event listener, event handler) da treba da se izvrši. <br/><br/>
+
+NodeJS ekstenzivno koristi događaje i to je jedan od razloga zašto je toliko brz u poređenju sa sličnim tehnologijama. Čim se pokrene NodeJS server inicijalizuju se promenljive, deklarišu funkcije i definišu događaji, nakon čega server jednostavno čeka da se neki događaj desi. Nakon što se detektuje neki od definisanih događaja, pokreće se rukovalac događajima koji obrađuje taj događaj. Opisani koncept izvršavanja programa predstavlja <span class="font-weight-bold">programiranje vodjeno događajima</span>. <br/><br/>
+
+<h1>Povratni pozivi i rukovaoci događajima</h1>
+
+Naizgled, događaji i povratni pozivi su slični, međutim istina je drugačija. Povratni pozivi su funkcije koje se izvršavaju onda kada se završi asinhrona funkcija da bi obradili rezultate izvršavanja te asinhrone funkcije. <span class="font-weight-bold">Događaj</span> nije funkcija, već pojava koju hoćemo da nadgledamo u našem programa. Nakon što se događaj detektuje ili ispali/emituje, pokreće se rukovalac događaja koji će obraditi taj događaj. <span class="font-weight-bold">Rukovalac događajima</span> je specijalna vrsta povratnih poziva koja obrađuje događaje.<br/><br/>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 8.</span><br/>
+   Koliko puta može da se izvrši povratni poziv, a koliko puta rukovalac događaja? Obrazložiti odgovor.
+</div>
+
+Da bismo definisali događaje koje želimo da nadgledamo u svojoj aplikaciji potrebno je da uključimo NodeJS modul sa nazivom <span class="font-weight-bold">events</span>. O događajima i definisanju rukovalaca događajima biće više reči u nastavku kursa. Mnogi događaji koje ćemo koristiti u nastavku su implicitno definisani i ne zahtevaju da uključujemo <span class="font-weight-bold">events</span> modul. Logika kod upotrebe događaja je sledeća:<br/><br/>
+
+<ul>
+   <li>Unapred definisati događaje koje treba nadgledati u programu.</li>
+   <li>Za svaki događaj koji treba nadgledati, potrebno je definisati odgovarajući rukovalac događajima. U zavisnosti od vrste događaja, rukovaoci događajima mogu da se razlikuju.</li>
+   <li>Neophodno je da registrujemo događaje koje hoćemo da nadgledamo u programu i da uz svaki događaj registrujemo njegov rukovalac događajima.</li>
+</ul>
+<br/>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 9.</span><br/>
+   Da li se za jedan događaj može vezati više rukovalaca događaja u isto vreme? Obrazložiti odgovor.
+</div>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 10.</span><br/>
+   Da li jedan isti rukovalac događajima može da bude registrovan za više različitih događaja u isto vreme? Obrazložiti odgovor.
+</div>
+
+

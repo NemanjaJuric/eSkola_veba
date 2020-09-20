@@ -1,0 +1,213 @@
+<h1>Formidable modul</h1>
+
+<span class="font-weight-bold">Formidable</span> modul je lak i jednostavan modul koji se koristi za parsiranje podataka koje korisnik šalje serveru putem formi. 
+Modul omogućava vrlo jednostavno upravljanje fajlovima koji pristužu na server preko forme. Da bismo instalirali formidable modul
+potrebno je da u konzoli otkucamo sledeću komandu:
+
+<xmp class = "primer_ta"> 
+npm install formidable
+</xmp>
+
+Nakon uspešne instalacije, možemo da koristimo modul formidable u okviru NodeJS aplikacija jednostavnim uključivanjem modula
+pomoću ključne reči <span class="font-weight-bold">require</span>. U nastavku lekcije napravićemo jednostavnu aplikaciju
+koja putem forme omogućava korisniku da pošalje fajl (upload-uje) na server putem forme. 
+
+<h2>Prikaz forme</h2>
+
+Prvo što treba da uradimo je da kreiramo veb server koji će korisniku prikazati formu nakon što pristupi stranici. Kod servera
+čuvaćemo u dokumentu <span class="font-weight-bold">formidable.js</span>. Kod servera kojim se prikazuje forma je sledeći:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+
+   // kreiramo formu
+   odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+   odgovor.write("<html><head><title>Formidable modul</title><head><body>");
+   odgovor.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+   odgovor.write('Izaberite fajl: <input type="file" name="filetoupload"><br>');
+   odgovor.write('<input type="submit" value="Pošalji fajl">');
+   odgovor.write('</form>');
+   odgovor.write("</body></html>");
+   odgovor.end();
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp>
+
+<h2>Obrada poslatog fajla</h2>
+
+Nakon što korisnik izabere fajl koji želi da pošalje na server i klikne na dugme <span class="font-weight-bold">Pošalji fajl</span>,
+pregledač će pokušati da pristupi stranici <span class="font-weight-bold">127.0.0.1:8081/fileupload</span>, što znači da u okviru koda
+servera treba da izvršimo rutiranje i otkrijemo koju stranicu korisnik želi da poseti. Da bismo to postigli izmenićemo kod na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+   
+   if (zahtev.url === "/fileupload") {
+
+      // obrada podataka sa forme
+   }
+   else {
+
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Formidable modul</title><head><body>");
+      odgovor.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+      odgovor.write('Izaberite fajl: <input type="file" name="filetoupload"><br>');
+      odgovor.write('<input type="submit" value="Pošalji fajl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp>
+
+Prvi korak kod obrade podataka sa forme jeste da izdvojimo polja forme i fajlove koje nam je korisnik poslao. Da bismo to postigli
+potrebno je da koristimo <span class="font-weight-bold">formidable</span> modul na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+// uključujemo formidable modul
+var formidable = require("formidable");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+   
+   if (zahtev.url === "/fileupload") {
+
+      // instanciramo objekat tipa formidable koji sadrži podatke sa forme
+      var form = new formidable.IncomingForm();
+
+      // asinhrono parsiramo sadržaj forme
+      form.parse(zahtev, function (err, polja, fajlovi) {
+
+         // proveravamo da li se desila neka greška
+         if (err) {
+
+            // prikazujemo poruku o grešci
+            console.log(err);
+         }
+
+         // ako je sve u redu prikazećemo korisniku poruku
+         odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+         odgovor.write('Fajl uspešno poslat');
+         odgovor.end();
+      });
+   }
+   else {
+
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Formidable modul</title><head><body>");
+      odgovor.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+      odgovor.write('Izaberite fajl: <input type="file" name="filetoupload"><br>');
+      odgovor.write('<input type="submit" value="Pošalji fajl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+</xmp> 
+
+<h2>Čuvanje fajla</h2>
+
+Poslednji korak u obradi pristiglog fajla jeste njegovo trajno čuvanje na serveru. Nakon što fajl pristigne na server on se čuva
+na privremenoj putanji i naš program je dužan da ga sačuva trajno. Da bismo to postigli dovoljno je da iskoristimo metod rename()
+modula fs na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+// uključujemo formidable modul
+var formidable = require("formidable");
+// uključujemo modul fs
+var fs = require("fs");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+   
+   if (zahtev.url === "/fileupload") {
+
+      // instanciramo objekat tipa formidable koji sadrži podatke sa forme
+      var form = new formidable.IncomingForm();
+
+      // asinhrono parsiramo sadržaj forme
+      form.parse(zahtev, function (err, polja, fajlovi) {
+
+         // proveravamo da li se desila neka greška
+         if (err) {
+
+            // prikazujemo poruku o grešci
+            console.log(err)
+         }
+       
+         // saznajemo putanju na kojoj je privremeno sačuvan fajl
+         var staraPutanja = fajlovi.filetoupload.path;
+         // kreiramo novu putanju
+         var datum = new Date();
+         var novaPutanja = d.toDateString().replace(/ /gi,'_') + '_' + fajlovi.filetoupload.name;
+
+         // nakon kreiranja nove putanje, pokušaćemo da preimenujemo fajl
+         fs.rename(staraPutanja, novaPutanja, function(err)){
+
+            // proveravamo da li se desila neka greška
+            if (err) {
+
+               // prikazujemo poruku o grešci
+               console.log(err);
+            }
+
+            // ako je sve u redu prikazećemo korisniku poruku
+            odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+            odgovor.write('Fajl uspešno poslat');
+            odgovor.end();
+         });
+      });
+   }
+   else {
+
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Formidable modul</title><head><body>");
+      odgovor.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+      odgovor.write('Izaberite fajl: <input type="file" name="filetoupload"><br>');
+      odgovor.write('<input type="submit" value="Pošalji fajl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+</xmp> 
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Prilikom čuvanja fajlova na serveru uvek je potrebno na neki način definisati mehanizam
+   imenovanja fajlova koji ne zavisi od korisnika. U našem primeru dodali smo vreme kada je fajl poslat u konačno
+   ime fajla. Jedinstvenost nazivanja fajlova se može postići na razne načine, a potrebna je jer vrlo lako može da se desi
+   da dva korisnika žele da pošalju dve različite slike koje se na njihovim lokalnim računarima zovu slika1.jpg. Jedini način da osiguramo
+   da se te dve slike sačuvaju kao dva odvojena fajla, jeste da im mi dodelimo novo ime koje će biti jedinstveno. 
+</div>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 22.</span><br/>
+   Modifikovati program tako da pored fajla kroz formu šalje i informacije o korisniku koji šalje fajl, poput imena, prezimena i mejl adrese.
+</div>

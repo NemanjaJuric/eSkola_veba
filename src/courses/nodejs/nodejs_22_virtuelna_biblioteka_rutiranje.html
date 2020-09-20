@@ -1,0 +1,857 @@
+﻿<h1>Virtuelna biblioteka - rutiranje</h1>
+
+Druga celina u okviru naše veb aplikacije predstavlja upravljanje stranicama i kontrolu pristupa. U okviru ovog modula potrebno je da prikažemo korisniku
+sve stranice u okviru aplikacije uz ograničavanje mogućnosti u slučaju da se radi o neprijavljenom korisniku. Dakle, modul rutiranje je odgovoran za sledeće:
+<br/><br/>
+
+<ul>
+   <li>Parsiranje zahteva koje šalje klijent.</li>
+   <li>Generisanje odgovarajuće stranice, tj. one koju korisnik želi da poseti.</li>
+   <li>Kontrola korisnika, tj. razlikovanje prijavljenih i neprijavljenih korisnika.</li>
+   <li>Upravljanje sesijama.</li>
+   <li>Prosleđivanje upita SUBP, a odgovora klijentu.</li>
+</ul>
+<br/>
+
+Kompletan kod modula sačuvaćemo u fajlu <span class="font-weight-bold">rutiranje.js</span>. U okviru aplikacije imamo sledeće stranice:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">/index</span>  - Prikaz svih knjiga u bazi podataka.</li>
+   <li><span class="font-weight-bold">/login</span>  - Stranica za prijavljivanje.</li>
+   <li><span class="font-weight-bold">/logout</span>  - Odjavljivanje sa aplikacije.</li>
+   <li><span class="font-weight-bold">/registracija</span>  - Stranica za registraciju korisnika..</li>
+   <li><span class="font-weight-bold">/nova_knjiga</span>  - Stranica za dodavanje knjige u bazu.</li>
+   <li><span class="font-weight-bold">/obrisi</span>  - Stranica za brisanje knjiga iz baze.</li>
+   <li><span class="font-weight-bold">/izmeni</span>  - Stranica za ažuriranje podataka o knjizi.</li>
+</ul>
+<br/>
+
+Upravljanje stranicama i kontrolu pristupa implementiraćemo u funkciji koju ćemo nazvati <span class="font-weight-bold">rutiranje()</span>. Funkcija kao argumente
+treba da prihvati objekat <span class="font-weight-bold">zahtev</span> i objekat <span class="font-weight-bold">odgovor</span> od servera. Na kraju, funkciju 
+<span class="font-weight-bold">rutiranje()</span> moramo da eksportujemo iz modula da bismo mogli da je koristimo u drugim fajlovima u našoj aplikaciji. 
+U fajl <span class="font-weight-bold">rutiranje.js</span> upisaćemo sledeći sadržaj:
+
+<xmp class = "primer_ta"> 
+var http = require("http");
+var url = require("url");
+var sql = require("./sql");
+var fs = require("fs");
+
+function rutiranje(req, res) {
+
+   // implementacija rutiranja
+}
+
+module.exports.rutiranje = rutiranje;
+</xmp>
+
+Zajedničko svim stranicama je prikaz naslova i menija, kao i stil, pa je to prvo što ćemo implementirati. Stil koji koristimo u aplikaciji ćemo sačuvati u fajlu 
+<span class="font-weight-bold">stil.css</span> i samo ćemo ga prikačiti kao dokument svakoj html strani u kojoj nam bude trebao. Sadržaj fajla je sledeći:
+
+<xmp class = "primer_ta"> 
+.content{
+   margin: auto;
+   width: 80%;
+   padding: 20px;
+   border: 1px solid black;
+   background-color: #f2f2f2
+}
+
+.header {
+   width: 100%;
+   display: block;
+   padding:2 px;
+   margin-bottom: 10px;
+}
+
+.menu {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   background-color: #333;
+}
+
+.menu li {
+   float: left;
+}
+
+.menu li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+}
+
+.menu li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.menu .active {
+  background-color: #4CAF50;
+}
+
+.knjige {
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.knjige td, .knjige th{
+   border: 1px solid #ddd;
+   padding: 8px;
+}
+
+.knjige tr:nth-child(even){background-color: #f2f2f2;}
+
+.knjige tr:hover {background-color: #ddd;}
+
+.knjige th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.form {
+   background-color: #f2f2f2;
+   padding: 20px;
+   width: 60%;
+   margin: auto;
+}
+</xmp>
+
+Nakon što smo definisali stil, potrebno je da implementiramo funkcije kojima ćemo kreirati naslovni deo stranice, meni i kraj stranice. 
+U fajl <span class="font-weight-bold">rutiranje.js</span>
+dodajemo dve pomoćne funkcije:
+
+<xmp class = "primer_ta"> 
+function kreirajPocetakStr(active){
+   
+   var str = '<html><head><title>NodeJS elektronski kurs</title><link rel="stylesheet" href="stil.css"></head><body><div class="content">';
+   
+   str += '<div class="header"><h1/>Elektronski kurs NodeJS - Virtuelna biblioteka</h1>';
+   str += '<ul class="menu">';
+   
+   if (active == 1)
+      str += '<li><a href="/index" class="active">Sve knjige</a></li>';
+   else
+      str += '<li><a href="/index">Sve knjige</a></li>';
+   
+   if (active == 2)
+      str += '<li><a href="/nova_knjiga"  class="active">Dodaj knjigu</a></li>';
+   else 
+      str += '<li><a href="/nova_knjiga">Dodaj knjigu</a></li>';
+   
+   if (active == 3)
+      str += '<li><a href="/izmeni" class="active">Izmeni knjigu</a></li>';
+   else 
+      str += '<li><a href="/izmeni">Izmeni knjigu</a></li>';
+   
+   if (active == 7)
+      str += '<li><a href="/obrisi" class="active">Obriši knjigu</a></li>';
+   else 
+      str += '<li><a href="/obrisi">Obriši knjigu</a></li>';
+   
+   if (active == 4)
+      str += '<li><a href="/registracija" class="active">Registracija</a></li>';
+   else 
+      str += '<li><a href="/registracija">Registracija</a></li>';
+   
+   if (active == 5)
+      str += '<li><a href="/login" class="active">Login</a></li>';
+   else 
+      str += '<li><a href="/login">Login</a></li>';
+   
+   if (active == 6)
+      str += '<li><a href="/logout" class="active">Logout</a></li>';
+   else 
+      str += '<li><a href="/logout">Logout</a></li>';
+   
+   str += '</ul>';
+   str += '</div>';
+   
+   return str;
+}
+
+function kreirajKrajStr(){
+   
+   return "</div></body></html>";
+}
+</xmp>
+
+Primetimo da funkciji za kreiranje menija kao argument šaljemo broj kojim joj saopštavamo koja je trenutno aktivna strana. Na taj način korisnik će uvek znati
+na kojoj stranici se trenutno nalazi. Pored toga u zaglavlju stranice dodajemo <span class="font-weight-bold">stil.css</span> fajl uz pomoć link etikete.
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Kada se neki fajl dodaje stranici kao eksterna datoteka, pregledač će serveru poslati odvojeni zahtev za svaki fajl koji je pridodat stranici na taj način. Ovo
+   znači da u funkciji za rutiranje moramo posebno da obradimo zahtev za svakim takvim fajlom, tj. moramo da otvorimo fajl, pročitamo ga i taj sirovi sadržaj
+   prosledimo pregledaču.
+</div>
+
+Pored pomoćnih funkcija za kreiranje kostura stranice dodaćemo i pomoćnu funkciju za kreiranje HTTP zaglavlja. U lekciji o sesijama rekli smo da sesiju započinjemo
+tako što u pregledaču zapamtimo kolačić, a završavamo je tako što vreme trajanja tog kolačića postavimo na 0 sekundi. S obzirom da u svakom odgovoru pregledaču
+treba da pošaljemo i HTTP zaglavlje, objedinićemo upravljanje kolačićima i zaglavljima u jednu funkciju na sledeći način:
+
+<xmp class = "primer_ta"> 
+function kreirajHTTPZaglavlje(cookie, da){
+   
+   var httpZaglavlje = "";
+
+   if (da) {
+      httpZaglavlje = {
+         "Content-Type" : "text/html; charset=utf-8",
+         "Set-Cookie": cookie.name + "=" + cookie.value + ";max-age="+cookie.max_age
+      };
+   }
+   else {
+      httpZaglavlje = {
+         "Content-Type" : "text/html; charset=utf-8",
+      };
+   }
+   
+   return httpZaglavlje;
+}
+</xmp>
+
+Funkcija ima dva arugmenta, sam kolačić i logičku promenljivu kojom definišemo da li je uopšte neophodno definisati kolačić u zaglavlju. 
+Da bismo omogućili korisniku da uopšte pristupi našoj stranici, prvo ćemo implementirati početnu stranu. Nakon što pristupi stranici, aplikacija treba
+da izlista sve knjige iz baze podataka. U telo funkcije <span class="font-weight-bold">rutiranje()</span> dodaćemo kod kojim se to postiže. 
+Koraci koje treba da izvršimo u implementaciju su sledeći: <br/><br/>
+
+<ul>
+   <li>Parsiranje adresne linije, tj. stranice koju korisnik želi da poseti.</li>
+   <li>Pamćenje metoda kojim korisnik pristupa stranici.</li>
+   <li>Pamćenje kolačića iz zahteva koji nam pristiže.</li>
+   <li>Proveravanje da li je sesija u toku.</li>
+   <li>Definisanje aktivnosti za svaku pojedinačnu stranicu koju korisnik želi da poseti.</li>
+</ul>
+<br/>
+
+Prva četiri koraka postižemo vrlo lako uz pomoć ugrađenih modula o kojima je bilo reči u ranijim lekcijama.
+Kod funkcije <span class="font-weight-bold">rutiranje()</span> postaje:
+
+<xmp class = "primer_ta"> 
+function rutiranje(req, res) {
+   
+   var putanja = req.url;
+   var metod = req.method;
+   var elementi = url.parse(putanja, true);
+   var stranica = elementi.pathname;
+   var cookies = req.headers.cookie;
+   
+   var session = false;
+
+   if (cookies != undefined) {
+      session = true;
+   }
+
+   // definisanje aktivnosti u zavisnosti od stranice koju korisnik želi da poseti
+}
+</xmp>
+
+U nastavku potrebno je da proširimo kod funkcije <span class="font-weight-bold">rutiranje()</span> grananjem kojim otkrivamo kojoj stranici korisnik želi da pristupi.Da bismo to uradili 
+uporedićemo promenljivu <span class="font-weight-bold">stranica</span> sa jednom od mogućih vrednosti koje smo ranije definisali. Takođe, potrebno je da proverimo
+i metod kojim korisnik pristupa stranici. Ako se radi o GET metodu potrebno je samo da ažuriramo prikaz, a ako se radi o POST metodu, to znači da nam korisnik
+šalje informacije uz pomoć forme i da treba da izvršimo odgovarajuću operaciju nad bazom podataka. <br/><br/>
+
+Kao što smo rekli, prvo ćemo implementirati pristup početnoj stranici aplikacije, tj. stranici na putanji <span class="font-weight-bold">/index</span>. U slučaju da 
+je metod pristupa GET potrebno je samo da pročitamo sve redove iz tabele <span class="font-weight-bold">knjiga</span> , što ćemo lako učiniti pomoću
+funkcija iz korisnički definisanog modula <span class="font-weight-bold">sql</span> koji smo implementirali u prethodnoj lekciji. Na ovom mestu
+potrebno je obratiti pažnju da metodu <span class="font-weight-bold">izvrši()</span> modula <span class="font-weight-bold">sql</span> kao poslednji argument
+prosledjujemo povratni poziv. Svaki upit koji se šalje SUBP je zapravo asinhrona operacija, pa moramo da se osiguramo da odgovor klijentu šaljemo tek
+onda kada se ta operacija završi. U samom povratnom pozivu proverićemo da li je uopšte postoji rezultat i ako postoji kreiraćemo tabelu kojom prikazujemo
+knjige korisniku. <br/><br/>
+
+Rekli smo da se fajlovi koji su prikačeni pomoću link etikete takođe zahtevaju od servera. Mi smo u kodu na taj način prikačili fajl <span class="font-weight-bold">stil.css</span>
+pa u okviru ispitivanja putanja moramo da obradimo i putanju <span class="font-weight-bold">/stil.css</span>. Potrebno je da pročitamo fajl <span class="font-weight-bold">stil.css</span>, što je asinhrona operacija
+ i da po završetku čitanja u povratnom pozivu kao odgovor klijentu pošaljemo pročitani sadržaj. Sve ovo u kodu postižemo na sledeći način: 
+ 
+<xmp class = "primer_ta"> 
+if (stranica === '/stil.css'){
+  fs.readFile('stil.css',function(err,data){
+   res.writeHead(200,{"Content-Type": "text/css"});
+   res.write(data);
+   res.end();
+  });
+}
+else if (stranica === '/index') {
+  
+  if (metod == "GET") {
+   
+   sql.izvrsi(sql.sveKnjige(), function(redovi){
+      
+      if (redovi == null) {
+       res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+       res.write(kreirajPocetakStr(1));
+       res.write('<p>Greška u komunikaciji</p>');
+       res.write(kreirajKrajStr());
+       res.end();
+       return;
+      }
+      
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(1));
+      res.write('<table class="knjige">');
+      res.write("<tr>");
+      res.write("<th>ID</th><th>Naslov</th><th>Autor</th><th>Broj strana</th><th>Žanr</th><th>Izdavač</th><th>Godina izdanja</th><th>Tiraž</th>");
+      res.write("</tr>");
+      for (i = 0; i < redovi.length; i++) {
+       res.write("<tr>");
+       res.write("<td>" + redovi[i].id + "</td>");
+       res.write("<td>" + redovi[i].naslov + "</td>");
+       res.write("<td>" + redovi[i].autor + "</td>");
+       res.write("<td>" + redovi[i].br_str + "</td>");
+       res.write("<td>" + redovi[i].zanr + "</td>");
+       res.write("<td>" + redovi[i].izdavac + "</td>");
+       res.write("<td>" + redovi[i].god_izdanja + "</td>");
+       res.write("<td>" + redovi[i].tiraz + "</td>");
+       res.write("</tr>");
+      }
+      res.write("</table>");
+      res.write(kreirajKrajStr());
+      res.end();
+   });
+  }
+}
+else {
+   res.writeHead(404, kreirajHTTPZaglavlje(null, false));
+   res.write(kreirajPocetakStr(1));
+   res.write('<p>Tražena stranica ne postoji</p>');
+   res.write(kreirajKrajStr());
+   res.end();
+}
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 37.</span><br/>
+   U funkciji rutiranje() dodati deo kojim se omogućava pristup stranici /korisnici u kojoj bi se izlistavali svi korisnici iz tabele korisnik. Voditi 
+   računa o bezbednosti i podacima koje treba prikazati. 
+</div>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Funkcijama iz korisnički definisanog modula pristupamo tako što ispred imena funkcije navedemo ime modula kojem ta funkcija pripada. 
+</div>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   U okviru aplikacije uvek treba posebno obraditi slučaj kada korisnik pokuša da pristupi nepostojećoj stranici i prikazati mu odgovarajuću poruku.
+   Pored toga, treba postaviti i HTTP status na 404.
+</div>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   U programu je potrebno obraditi sve greške koje mogu da se dese, da bi korisnik imao informaciju o rezultatima izvršavanja tražene operacije.
+</div>
+
+U nastavku, potrebno je omogućiti prijavljivanje i odjavljivanje korisnika iz aplikacije. Sa tim u vezi je i započinjanje i završavanje sesija. Rekli smo da sesiju
+započinjenjo kreiranjem kolačića na klijentskom računaru, a završavamo je tako što vreme trajanja tog kolačića postavimo na nula. Da bismo ovo postigli u kodu, 
+potrebno je da u funkciji rutiranje implementiramo obradu putanja <span class="font-weight-bold">/login</span> i <span class="font-weight-bold">/logout</span>.<br/><br/>
+
+<span class="font-weight-bold">/login</span> stranica treba da prikaže korisniku polja za unos korisničkog imena i šifre, kao i dugme kojim se te informacije šalju 
+serveru na proveru. Polja treba prikazati samo u slučaju ako se radi o neprijavljenom korisniku, tj. ako sesija nije u toku. Pristup stranici je GET metod, pa ovu 
+funkcionalnost treba implementirati samo tada. Kada korisnik popuni polja korisničko ime i šifru i klikne na dugme Uloguj se, tada se ti podaci šalju serveru pomoću
+POST metoda. Tada, aplikacija treba da proveri da li u bazi podataka postoji odgovarajući unos u tabeli <span class="font-weight-bold">korisnik</span>. Ako
+postoji, treba startovati novu sesiju. Da bismo to postigli potrebno je da dodamo novu granu u funkciji <span class="font-weight-bold">rutiranje()</span>:
+
+<xmp class = "primer_ta"> 
+else if (stranica === "/login") {
+      
+  if (metod === "GET") {
+   if (session) {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(5));
+      res.write('<p>Ulogovani ste</p>');
+      res.write(kreirajKrajStr());
+      res.end();
+   }
+   else {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(5));
+      res.write('<div class="form">');
+      res.write('<form action="/login" method="POST">');
+      res.write('Korisničko ime: <input type="text" id="user" name="user" /><br/>');
+      res.write('Šifra: <input type="password" id="pass" name="pass" /><br/>');
+      res.write('<input type="submit" value="Uloguj se"/><br/>');
+      res.write("</form>");
+      res.write("</div>");
+      res.write(kreirajKrajStr());
+      res.end();
+   }
+  }
+  else if (metod === "POST") {
+   
+   var buf = [];
+   
+   req.on('data', function(chunk) {
+      
+      buf.push(chunk)
+   });
+   
+   req.on('end', function(err) {
+      
+      var podaci = Buffer.concat(buf).toString();
+      var poljaForme = podaci.split('&');
+      var korIme = poljaForme[0].split("=")[1];
+      var sifra =  poljaForme[1].split("=")[1];
+      
+      sql.izvrsi(sql.nadjiKorisnika(korIme, sifra), function(redovi) {
+       
+       if (redovi === null) {
+        res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+        res.write(kreirajPocetakStr(5));
+        res.write('Neuspešno logovanje');
+        res.write(kreirajKrajStr());
+        res.end();
+       }
+       else if (redovi.length == 1) {
+        var cookie = {"name" : "session_id", "value" : redovi[0].id.toString(), "max_age" : 3600};
+        
+        res.writeHead(200, kreirajHTTPZaglavlje(cookie, true));
+        res.write(kreirajPocetakStr(5));
+        res.write('Uspešno logovanje');
+        res.write(kreirajKrajStr());
+        res.end();
+       }
+       else {
+        res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+        res.write(kreirajPocetakStr(5));
+        res.write('Neuspešno logovanje');
+        res.write(kreirajKrajStr());
+        res.end();
+       }
+      });
+   });
+  }
+}
+</xmp>
+
+<span class="font-weight-bold">/logout</span> stranica treba samo da prekine sesiju ako je sesija aktivna. Ako nije, potrebno je samo ispisati poruku korisniku
+da prvo treba da se prijavi da bi mogao da se odjavi. To ćemo postići tako što dodamo novu granu u funkciji <span class="font-weight-bold">rutiranje()</span>:
+
+<xmp class = "primer_ta"> 
+else if (stranica === "/logout") {
+      
+  if (cookies != undefined) {
+   var delici = cookies.split("=");
+   
+   var cookie = {"name" : "session_id", "value" : delici[1], "max_age" : 0};
+   
+   res.writeHead(200, kreirajHTTPZaglavlje(cookie, true));
+   res.write(kreirajPocetakStr(6));
+   res.write('<p>Odjavljeni ste</p>');
+   res.write(kreirajKrajStr());
+   res.end();
+  }
+  else {
+   res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+   res.write(kreirajPocetakStr(6));
+   res.write('<p>Morate se prvo ulogovati</p>');
+   res.write(kreirajKrajStr());
+   res.end();
+  }
+}
+</xmp>
+
+Da bi korisnik mogao da napravi nalog na našoj virtuelnoj biblioteci, tj. da  se registruje, potrebno je da implementiramo neophodne funkcionalnosti nakon
+što korisnik pristupi putanji <span class="font-weight-bold">/registracije</span>. Kao i u slučaju prijavljivanja, moramo da razlikujemo pristup stranici GET metodom
+i pristup stranici POST metodom. GET metod znači da korisnik pristupa stranici, a POST metod znači da nam pristižu informacije iz forme koju je korisnik popunio
+i prosledio nam je klikom na dugme Registruj se. Treba da vodimo računa da korisnik ne može da vrši registraciju dok je prijavljen na svoj nalog, tj. moramo da proverimo
+da li je sesija u toku. Funkciju <span class="font-weight-bold">rutiranje()</span>  proširujemo novom granom:
+
+<xmp class = "primer_ta"> 
+else if (stranica === "/registracija") {
+      
+  if (metod === "GET") {
+    if (session) {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(4));
+      res.write('<p>Ulogovani ste</p>');
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+    else {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(4));
+      res.write('<div class="form">');
+      res.write('<form action="/registracija" method="POST">');
+      res.write('<lagel for="ime">Ime:</label><input type="text" id="ime" name="ime" /><br/>');
+      res.write('<lagel for="prezime">Prezime:</label><input type="text" id="prezime" name="prezime" /><br/>');
+      res.write('<lagel for="user">Korisničko ime:</label><input type="text" id="user" name="user" /><br/>');
+      res.write('<lagel for="pass">Šifra:</label><input type="password" id="pass" name="pass" /><br/>');
+      res.write('<lagel for="mejl">Mejl:</label><input type="text" id="mejl" name="mejl" /><br/>');
+      res.write('<lagel for="god">Godište:</label><input type="text" id="god" name="god" /><br/>');
+      res.write('<input type="submit" value="Registruj se"/><br/>');
+      res.write("</form>");
+      res.write("</div>");
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+  }
+  else if (metod === "POST") {
+    var buf = [];
+    
+    req.on('data', function(chunk) {
+      
+      buf.push(chunk);
+    });
+    
+    req.on('end', function(err) {
+      
+      var podaci = Buffer.concat(buf).toString();
+      var poljaForme = podaci.split('&');
+      var ime = poljaForme[0].split("=")[1];
+      var prezime =  poljaForme[1].split("=")[1];
+      var kor_ime = poljaForme[2].split("=")[1];
+      var sifra =  poljaForme[3].split("=")[1];
+      var mejl = poljaForme[4].split("=")[1];
+      var godiste =  poljaForme[5].split("=")[1];
+      
+      var upit = sql.unesiKorisnika(ime, prezime, kor_ime, sifra, mejl, godiste);
+      
+      sql.izvrsi(upit, function(redovi){
+         
+         if (redovi != null) {
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(4));
+           res.write('Uspešna registracija');
+           res.write(kreirajKrajStr());
+           res.end();
+         }
+         else{
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(4));
+           res.write('Registracija neuspešna');
+           res.write(kreirajKrajStr());
+           res.end();
+         }
+      });
+    });
+  }
+}
+</xmp>
+
+Nakon registracije ostaje nam još da implementiramo dodavanje nove knjige, ažuriranje postojeće knjige i brisanje knjige. Dodavanje knjige omogućićemo korisniku
+nakon što se uloguje i pristupi stranici <span class="font-weight-bold">/nove_knjiga</span>. Razmatranje aktivnosti je slično kao i u slučaju registracije. 
+Neprijavljenim korisnicima stranica je nedostupna, što ćemo lako otkriti proveravanjem da li je sesija aktivna. Ako je sesija aktivna, potrebno je da prikažemo
+korisniku formu u koju će uneti sve potrebne informacije o novoj knjizi u slučaju da pristupa stranici sa GET metodom. Ako se ipak radi o POST metodu, onda je neophodno
+da pročitamo sve informacije koje nam je korisnik poslao pomoću forme i da ih upišemo u bazi podataka. To postižemo tako što funkciju 
+<span class="font-weight-bold">rutiranje()</span>  proširimo novom granom:
+
+<xmp class = "primer_ta"> 
+else if (stranica == "/nova_knjiga") {
+      
+  if (metod == "GET") {
+    if (session) {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(2));
+      res.write('<div class="form">');
+      res.write('<form action="/nova_knjiga" method="POST">');
+      res.write('Naslov: <input type="text" id="naslov" name="naslov" /><br/>');
+      res.write('Autor: <input type="text" id="autor" name="autor" /><br/>');
+      res.write('Izdavač: <input type="text" id="izdavac" name="izdavac" /><br/>');
+      res.write('Žanr: <input type="text" id="zanr" name="zanr" /><br/>');
+      res.write('Godina izdanja: <input type="text" id="gi" name="gi" /><br/>');
+      res.write('Broj strana: <input type="text" id="bs" name="bs" /><br/>');
+      res.write('Tiraž: <input type="text" id="tiraz" name="tiraz" /><br/>');
+      res.write('<input type="submit" value="Unesi novu knjigu"/><br/>');
+      res.write("</form>");
+      res.write("</div>");
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+    else {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(2));
+      res.write('<p>Morate se prvo ulogovati</p>');
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+  }
+  else if (metod == "POST"){
+    
+    var buf = [];
+    
+    req.on('data', function(chunk) {
+      buf.push(chunk);
+    });
+    
+    req.on('end', function(err) {
+      
+      var podaci = Buffer.concat(buf).toString();
+      var poljaForme = podaci.split('&');
+      var naslov = poljaForme[0].split("=")[1].replace(/\+/gi,' ');
+      var autor =  poljaForme[1].split("=")[1].replace(/\+/gi,' ');
+      var izdavac = poljaForme[2].split("=")[1].replace(/\+/gi,' ');
+      var zanr =  poljaForme[3].split("=")[1].replace(/\+/gi,' ');
+      var god = poljaForme[4].split("=")[1];
+      var br_str =  poljaForme[5].split("=")[1];
+      var tiraz = poljaForme[6].split("=")[1];
+      
+      var upit = sql.unesiKnjigu(naslov, autor,izdavac, zanr, god, br_str, tiraz);
+      
+      sql.izvrsi(upit, function(redovi){
+         
+         if (redovi != null) {
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(2));
+           res.write('Knjiga upamćena');
+           res.write(kreirajKrajStr());
+           res.end();
+         }
+         else{
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(2));
+           res.write('Greška');
+           res.write(kreirajKrajStr());
+           res.end();
+         }
+      });
+    })
+  }
+}
+</xmp>
+
+Brisanje knjige ćemo omogućiti prijavljenom korisniku nakon što pristupi stranici <span class="font-weight-bold">/obrisi</span>. Prilikom pristupa
+stranici potrebno je prikazati korisniku jedno polje gde treba da unese identifikator knjige koju treba obrisati i dugme kojim se ta informacija šalje serveru. 
+Vežbe radi, slanje podataka serveru ćemo implementirati pomoću GET metoda. Potrebno je da proširimo funkciju <span class="font-weight-bold">rutiranje()</span>
+ novom granom u kojoj prvo proveravamo da li je sesija aktivna ili ne. Ako nije, obaveštavamo korisnika da prvo treba da se prijavi. Ako jeste,
+ potrebno je da ispitamo sadržaj adresne linije. Ako korisnik prvi put pristupa stranici, sadržaj adresne linije biće samo <span class="font-weight-bold">/obrisi</span>,
+ ali ako šalje informaciju o tome koju knjigu treba obrisati na taj sadržaj biće nadovezan upit. Ako upit postoji, onda ćemo ga proslediti SUBP, a rezultate 
+ izvršavanja ćemo prikazati korisniku. Funkciju <span class="font-weight-bold">rutiranje()</span> dopunjavamo novom granom: 
+ 
+ <xmp class = "primer_ta"> 
+else if (stranica === '/obrisi') {
+  if (metod === "GET") {
+    var id = elementi.query.id;
+    if (session) {
+      if (typeof id != 'undefined' && id != '') {
+         
+         sql.izvrsi(sql.obrisiKnjigu(id), function(redovi) {
+           
+           if (redovi == null || redovi.affectedRows < 1) {
+             res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+             res.write(kreirajPocetakStr(7));
+             res.write('<div class="form">');
+             res.write('<form action="/obrisi">');
+             res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+             res.write('<input type="submit" value="Obriši knjigu"/><br/>');
+             res.write("</form>");
+             res.write("</div>");
+             res.write('<div class="form">');
+             res.write("<p>Ne postoji knjiga sa tim ID-em.</p>");
+             res.write("</div>");
+             res.write(kreirajKrajStr());
+             res.end();
+             return;
+           }
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(7));
+           res.write('<div class="form">');
+           res.write('<form action="/obrisi">');
+           res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+           res.write('<input type="submit" value="Obriši knjigu"/><br/>');
+           res.write("</form>");
+           res.write("</div>");
+           res.write('<div class="form">');
+           res.write("<p>Obrisano "+redovi.affectedRows+" knjiga.</p>");
+           res.write("</div>");
+           res.write(kreirajKrajStr());
+           res.end();
+           return;
+         });
+      }
+      else {
+         
+         res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+         res.write(kreirajPocetakStr(7));
+         res.write('<div class="form">');
+         res.write('<form action="/obrisi">');
+         res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+         res.write('<input type="submit" value="Obriši knjigu"/><br/>');
+         res.write("</form>");
+         res.write("</div>");
+         res.write(kreirajKrajStr());
+         res.end();
+      }
+    }
+    else {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(7));
+      res.write('<p>Morate se prvo ulogovati</p>');
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+  }
+}
+</xmp>
+
+Poslednja stranica koju treba da implementiramo je stranica pomoću koje korisnik može da izmeni informacije o knjizi. Da bi prijavljeni korisnik mogao da ažurira informacije
+o knjizi treba da pristupi stranici <span class="font-weight-bold">/izmeni</span>. Prilikom pristupa
+stranici potrebno je prikazati korisniku jedno polje gde treba da unese identifikator knjige koju želi da ažurira i dugme kojim se ta informacija šalje serveru. 
+Slanje podataka serveru ćemo implementirati pomoću GET metoda. Potrebno je da proširimo funkciju <span class="font-weight-bold">rutiranje()</span>
+novom granom u kojoj prvo proveravamo da li je sesija aktivna ili ne. Ako nije, obaveštavamo korisnika da prvo treba da se prijavi. Ako jeste,
+potrebno je da ispitamo sadržaj adresne linije. Ako korisnik prvi put pristupa stranici, sadržaj adresne linije biće samo <span class="font-weight-bold">/izmeni</span>,
+ali ako šalje informaciju o tome koju knjigu treba izmeniti na taj sadržaj biće nadovezan upit. Ako upit postoji, onda ćemo ga proslediti SUBP, tj. potražićemo
+informacije o knjizi u bazi podataka. Ako knjiga postoji, prikazaćemo informacije o knjizi u novoj formi čija će polja korisnik moći da menja. Ako knjiga ne postoji,
+prikazaćemo poruku korisnika da te knjige nema u bazi. Nakon što korisnik izmeni informacije koje želi i klikne na dugme Izmeni knjigu, sve informacije
+o knjizi ćemo poslatu serveru pomoću POST metoda. Po prijemu podataka POST metodom, server će ažurirati podatke o knjizi u bazi podataka i poslati korisniku
+informaciju o rezultatima izvršavanja. Funkciju <span class="font-weight-bold">rutiranje()</span> dopunjavamo novom granom:
+
+<xmp class = "primer_ta"> 
+else if (stranica === '/izmeni') {
+  if (metod === "GET") {
+    var id = elementi.query.id;
+
+    if (session) {
+      if (typeof id != 'undefined' && id != '') {
+         
+         sql.izvrsi(sql.nadjiKnjigu(id), function(redovi) {
+           
+           if (redovi == null || redovi.length < 1) {
+             res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+             res.write(kreirajPocetakStr(3));
+             res.write('<div class="form">');
+             res.write('<form action="/izmeni">');
+             res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+             res.write('<input type="submit" value="Pronađi knjigu"/><br/>');
+             res.write("</form>");
+             res.write("</div>");
+             res.write('<div class="form">');
+             res.write("<p>Ne postoji knjiga sa tim ID-em.</p>");
+             res.write("</div>");
+             res.write(kreirajKrajStr());
+             res.end();
+             return;
+           }
+           
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(3));
+           res.write('<div class="form">');
+           res.write('<form action="/izmeni">');
+           res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+           res.write('<input type="submit" value="Pronadji knjigu"/><br/>');
+           res.write("</form>");
+           res.write("</div>");
+           res.write('<div class="form">');
+           res.write('<form action="/izmeni" method="POST">');
+           res.write('Naslov: <input type="text" id="naslov" name="naslov" value="'+redovi[0].naslov+'"/><br/>');
+           res.write('Autor: <input type="text" id="autor" name="autor" value="'+redovi[0].autor+'"/><br/>');
+           res.write('Izdavač: <input type="text" id="izdavac" name="izdavac" value="'+redovi[0].izdavac+'"/><br/>');
+           res.write('Žanr: <input type="text" id="zanr" name="zanr" value="'+redovi[0].zanr+'"/><br/>');
+           res.write('Godina izdanja: <input type="text" id="gi" name="gi" value="'+redovi[0].god_izdanja+'"/><br/>');
+           res.write('Broj strana: <input type="text" id="bs" name="bs" value="'+redovi[0].br_str+'"/><br/>');
+           res.write('Tiraž: <input type="text" id="tiraz" name="tiraz" value="'+redovi[0].tiraz+'"/><br/>');
+           res.write('<input type="submit" id="'+id+'" name="'+ id +'" value="Izmeni knjigu"/><br/>');
+           res.write("</form>");
+           res.write("</div>");
+           res.write(kreirajKrajStr());
+           res.end();
+         });
+      }
+      else {
+         
+         res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+         res.write(kreirajPocetakStr(3));
+         res.write('<div class="form">');
+         res.write('<form action="/izmeni">');
+         res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+         res.write('<input type="submit" value="Pronađi knjigu"/><br/>');
+         res.write("</form>");
+         res.write("</div>");
+         res.write(kreirajKrajStr());
+         res.end();
+      }
+    }
+    else {
+      res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+      res.write(kreirajPocetakStr(3));
+      res.write('<p>Morate se prvo ulogovati</p>');
+      res.write(kreirajKrajStr());
+      res.end();
+    }
+  }
+  else if (metod === "POST") {
+    
+    var buf = [];
+    
+    req.on('data', function(chunk) {
+      buf.push(chunk);
+    });
+    
+    req.on('end', function(err) {
+      var podaci = Buffer.concat(buf).toString();
+      var poljaForme = podaci.split('&');
+      var naslov = poljaForme[0].split("=")[1].replace(/\+/gi,' ');
+      var autor =  poljaForme[1].split("=")[1].replace(/\+/gi,' ');
+      var izdavac = poljaForme[2].split("=")[1].replace(/\+/gi,' ');
+      var zanr =  poljaForme[3].split("=")[1].replace(/\+/gi,' ');
+      var god = poljaForme[4].split("=")[1];
+      var br_str =  poljaForme[5].split("=")[1];
+      var tiraz = poljaForme[6].split("=")[1];
+      var id = poljaForme[7].split("=")[0];
+      
+      var upit = sql.izmeniKnjigu(naslov, autor, izdavac, zanr, god, br_str, tiraz, id);
+      
+      sql.izvrsi(upit, function(redovi) {
+         if (redovi == null) {
+           res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+           res.write(kreirajPocetakStr(3));
+           res.write('<p>Greška u komunikaciji</p>');
+           res.write(kreirajKrajStr());
+           res.end();
+           return;
+         }
+         res.writeHead(200, kreirajHTTPZaglavlje(null, false));
+         res.write(kreirajPocetakStr(3));
+         res.write('<div class="form">');
+         res.write('<form action="/izmeni">');
+         res.write('ID knjige: <input type="text" id="id" name="id" /><br/>');
+         res.write('<input type="submit" value="Pronađi knjigu"/><br/>');
+         res.write("</form>");
+         res.write("</div>");
+         res.write('<div class="form">');
+         res.write("<p>Azurirano "+redovi.affectedRows+" redova</p>");
+         res.write("</div>");
+         res.write(kreirajKrajStr());
+         res.end();
+      });
+    });
+  }
+}
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 38.</span><br/>
+   Dopuniti funkciju rutiranje() tako da podržava sve ove operacije i sa tabelom korisnik. 
+</div>

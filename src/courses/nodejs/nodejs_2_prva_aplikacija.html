@@ -1,0 +1,148 @@
+<h1>Prva aplikacija</h1>
+
+Pre nego što kreiramo prvu NodeJS aplikaciju definisaćemo neophodne komponente aplikacije.
+Svaku NodeJS aplikaciju čine tri bitne komponente:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">Uključivanje potrebnih modula</span> - Moduli u NodeJS se mogu posmatrati slično kao biblioteke u JavaScript-u, tj. 
+   kao kolekcije već gotovih funkcija. Da bismo uključili modul u NodeJS aplikaciju potrebno je da koristimo ključnu reč <span class="font-weight-bold">require</span>.</li>
+   <li><span class="font-weight-bold">Kreiranje servera</span> - Server je zapravo petlja koja će osluškivati zahteve od strane klijenta, slično kao Apache HTTP server.</li>
+   <li><span class="font-weight-bold">Prihvatanje i obrada zahteva i vraćanje odgovora</span> - Server u prethodnom koraku čita i obrađuje zahteve koje šalje klijent.
+   Klijent može biti pregledač ili terminal. Nakon obrade zahteva, server klijentu šalje odgovor sa rezultatom.</li>
+</ul>
+<br/>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 5.</span><br/>
+   Kako biste najjednostavnije opisali klijent-server arhitekturu? Koja je uloga servera, a koja klijenta?
+</div>
+
+Naša prva aplikacija će ispisati poruku <span class="font-weight-bold">"Dobrodošli na elektronski kurs NodeJS"</span>, nakon što korisnik otvori veb stranicu u pregledaču.
+
+<br/>
+
+U nastavku lekcije, aplikaciju ćemo razvijati korak po korak. Na kraju lekcije, biće objašnjeno kako se aplikacija pokreće i testira. Prvi korak jeste da u editoru kreiramo fajl,
+ da mu damo neko ime i da ga sačuvamo sa ekstenzijom <span class="font-weight-bold">.js</span>. Na primer, kreiraćemo fajl <span class="font-weight-bold">main.js</span> i u njemu
+ ćemo da čuvamo našu aplikaciju. Pored ovoga, treba imati na umu da je programski jezik koji ćemo sve vreme koristiti u svim našim aplikacijama <span class="font-weight-bold">JavaScript</span>, a da je <span class="font-weight-bold">NodeJS</span> samo <span class="font-weight-bold">radni okvir</span> za <span class="font-weight-bold">JavaScript</span>.
+
+<h2>Uključivanje modula</h2>
+
+Prvi korak u kreiranju NodeJS aplikacije je uključivanje neophodnih modula, tj. već gotovih kolekcija funkcija. Da bismo mogli da osluškujemo zahteve klijenata potrebno je da 
+učitamo <span class="font-weight-bold">http</span> modul i sačuvamo njegovu instancu u promenljivoj. Instancu čuvamo u promenljivoj da bi nam bila dostupna u nastavku programa. 
+Kao što je ranije pomenuto, da bismo učitali modul potrebno je da koristimo ključnu reč <span class="font-weight-bold">require</span>.</li> U kodu, to bismo zapisali na 
+sledeći način: <br/>
+
+<xmp class = "primer_ta">
+// Uključujemo modul http i definišemo promenljivu 
+// http u kojoj čuvamo instancu modula
+var http = require("http"); 
+</xmp>
+
+Ime promenljive ne mora biti isto kao i ime modula. Ovde je to učinjeno radi lakše čitljivosti koda u nastavku programa.
+
+<h2>Kreiranje servera</h2>
+
+Nakon što smo učitali http modul, potrebno je da kreiramo server. Ovaj korak je neophodan, jer ne postoji nijedan drugi način da reagujemo na događaj koji predstavlja pristupanje
+našoj stranici od strane klijenta. Prilikom kreiranja servera, potrebno je da navedemo na kojem portu osluškujemo događaje i funkciju koja će se izvršiti nakon što se događaj desi.
+Funkcije koje se izvršavaju nakon što se događaj desi se nazivaju <span class="font-weight-bold">povratne rutine/pozivi</span> (eng. callback) i koriste se za obradu samog događaja. Povratni poziv koji definišemo mora da ima dva argumenta: zahtev i odgovor. U nastavku prikazano je kreiranje servera i definisanje povratnog poziva.<br/>
+
+<xmp class = "primer_ta"> 
+// kreiramo server koji će osluškivati port 8081
+// prilikom kreiranja servera odmah vezujemo povratni poziv
+// koji će se izvršiti kada klijent pokuša da pristupi portu 8081
+http.createServer(function (zahtev, odgovor) {
+
+   // telo povratnog poziva
+   // u kojem ćemo obraditi zahtev i poslati odgovor
+   
+}).listen(8081);
+
+// Definišemo poruku koja će biti ispisana 
+// nakon pokretanja servera
+console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
+</xmp>
+
+Bitno je napomenuti da kreiranje servera u kodu na ovaj način ne povlači i njegovo pokretanje. Koraci koje treba da izvršimo da bismo pokrenuli aplikaciju biće objašnjeni u nastavku.
+
+<h2>Obrada zahteva</h2>
+
+Do sada smo kreirali server i definisali prazan povratni poziv. U nastavku definisaćemo telo povratnog poziva. Nakon što klijent pokuša da pristupi portu 8081, server će registrovati taj događaj i pozvati funkciju koju smo mi definisali da obradi taj događaj. U funkciji želimo da prosledimo poruku klijentu u kojoj ćemo mu poželeti dobrodošlicu. Da bismo pravilno poslali odgovor klijentu potrebnu je prvo da definišemo tip odgovora, a zatim i sam odgovor. U nastavku je prikazan kod koji baš to radi: <br/>
+
+<xmp class = "primer_ta"> 
+http.createServer(function (zahtev, odgovor) {
+
+   // Prvo se šalje HTTP zaglavlje
+   // HTTP Status: 200 : OK
+   // Content-type: text/plain (tip sadržaja, prazan tekst)
+   odgovor.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+   
+   // Šaljemo telo odgovora, tj. poruku kojom pozdravljamo korisnika
+   odgovor.end('Dobrodošli na elektronski kurs NodeJS\n');
+   
+}).listen(8081);
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Da bismo koristili naša slova u odgovoru klijentu moramo da navedemo karakterski skup u okviru HTTP zaglavlja. U suprotnom, naša slova neće biti adekvatno 
+   prikazana, jer je podrazumevana kodna šema ASCII.
+</div>
+
+<h2>Kod kompletne aplikacije</h2>
+Nakon što smo definisali sve komponente NodeJS aplikacije, ostaje da prikažemo kompletan kod aplikacije pre pokretanja i testiranja. Sadržaj fajla <span class="font-weight-bold">main.js</span> je sledeći:<br/>
+
+<xmp class = "primer_ta"> 
+// Uključujemo modul http i definišemo promenljivu 
+// http u kojoj čuvamo instancu modula
+var http = require("http"); 
+
+http.createServer(function (zahtev, odgovor) {
+
+   // Prvo se šalje HTTP zaglavlje
+   // HTTP Status: 200 : OK
+   // Content-type: text/plain (tip sadržaja, prazan tekst)
+   odgovor.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+   
+   // Šaljemo telo odgovora, tj. poruku kojom pozdravljamo korisnika
+   odgovor.end('Dobrodošli na elektronski kurs NodeJS\n');
+   
+}).listen(8081);
+
+// Definišemo poruku koja će biti ispisana 
+// nakon pokretanja servera
+console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
+</xmp>
+
+<h2>Pokretanje i testiranje aplikacije</h2>
+
+Nakon što smo napisali kod naše prve aplikacije, ostaje samo još da je testiramo i da proverimo da li radi onako kako želimo. Da bismo pokrenuli i testirali aplikaciju potrebno je da izvršimo sledeće korake: <br/><br/>
+
+<ul>
+   <li>Kreiranje fajla koji sadrži kod naše aplikacije.</li>
+   <li>Startovanje servera koji je definisan u fajlu.</li>
+   <li>Pristupanje veb adresi aplikacije uz pomoć pregledača.</li>
+</ul>
+<br/>
+
+Fajl smo već kreirali i sačuvali, pa treba samo da pokrenemo server. Da bismo pokrenuli server, prvo je potrebno da pokrenemo terminal ili konzolu. Po pokretanju terminala, 
+potrebno je da se pozicioniramo u direktorijum koji sadrži naš <span class="font-weight-bold">main.js</span> fajl u kojem je opis servera. Kada smo se pozicionirali, potrebno 
+je da pokrenemo server. Pokretanje servera se u opštem slučaju radi izvršavanjem sledeće komande u terminalu:<br/>
+
+<xmp class = "primer_ta"> 
+node naziv_fajla.js
+</xmp>
+
+U našem slučaju rezultat izvršavanja komande će biti:
+<img src="courses/nodejs/2_prva_aplikacija/slika14.jpg" class="img-fluid img-md center">
+
+Nakon što smo uspešno pokrenuli server, ne smemo da zatvaramo prozor konzole, jer ćemo time isključiti i server. Ostaje nam samo da pristupimo adresi naše veb aplikacije. 
+Da bismo to učinili, potrebno je da pokrenemo pregledač i da u adresnoj liniji ukucamo adresu <span class="font-weight-bold">http://127.0.0.1:8081/</span>. Rezultat izvršavanja prikazan je na slici:
+
+<img src="courses/nodejs/2_prva_aplikacija/slika15.jpg" class="img-fluid img-md center">
+
+Adresa <span class="font-weight-bold">127.0.0.1</span> predstavlja računar na kome radimo, a ne udaljeni server. Najčešće, ova adresa se naziva i <span class="font-weight-bold">localhost</span>. Broj odvojen sa dve tačke koji se nalazi iza adrese, označava port kojem želimo da pristupimo. U nastavku kursa bavićemo se različitim modulima u okiru NodeJS radnog okvira i kreiraćemo složenije aplikacije. 
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 6.</span><br/>
+   Modifikovati primer iz lekcije tako da korisniku vrati vreme pristupa serveru pored pozdravne poruke. 
+</div>

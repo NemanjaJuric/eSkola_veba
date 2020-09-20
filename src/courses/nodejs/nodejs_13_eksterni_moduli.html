@@ -1,0 +1,100 @@
+<h1>Eksterni moduli</h1>
+
+Kao što smo rekli u uvodnim lekcijama, moduli u NodeJS se mogu posmatrati slično kao biblioteke u JavaScript-u, 
+tj. kao kolekcije već gotovih funkcija. Do sada smo u primerima koristili module http, url i fs. Korišćeni moduli su
+deo osnovnog paketa funkcionalnosti koji se dobija instalacijom NodeJS radnog okvira. Međutim, pored već ugrađenih modula
+postoji veliki broj korisnički definisanih i registrovanih modula za najrazličitije namene, na primer za lako i jednostavno
+upravljanje fajlovima koji se sa udaljenog računara dostavljaju serveru putem formi ili na primer moduli za slanje 
+mejl adresa. 
+
+<h2>Instalacija eksternih modula</h2>
+
+Da bismo mogli da koristimo eksterni modul potrebno je prvo da ga dodamo radnom okviru NodeJS. Najjednostavnije, to možemo da 
+uradimo uz pomoć alata <span class="font-weight-bold">NPM</span> koji je dostupan u okviru osnovne instalacije NodeJS radnog okvira.
+<span class="font-weight-bold">NPM</span> je skraćenica od <span class="font-weight-bold">N</span>ode 
+<span class="font-weight-bold">P</span>ackage <span class="font-weight-bold">M</span>anager i predstavlja automatizovani
+alat za upravljanje modulima. Da bismo dodali neki registrovani modul u svoju instalaciju NodeJS radnog okvira potrebno je da znamo
+njegovo ime i u konzoli da ukucamo sledeću komandu u opštem slučaju:
+
+<xmp class = "primer_ta"> 
+npm install ime_modula
+</xmp>
+
+U narednim lekcijama iskoristićemo modul <span class="font-weight-bold">formidable</span> da bismo na serveru sačuvali
+fajl koji nam korisnik dostavlja putem forme i modul <span class="font-weight-bold">nodemailer</span> da bismo poslali
+mejl direktno sa naše stranice. 
+
+<h2>Korisnički definisani moduli</h2>
+
+Pored već gotovih modula, koji se često koriste u razvoju aplikacija javlja se potreba za logičkim grupisanjem delova
+korisničkog koda koji su slične namene. Na primer, radi bolje čitljivosti i iskoristivosti koda u velikim aplikacijama sa puno
+stranica kojima korisnik može da pristupi, proces rutiranja i prikaza sadržaja u zavisnosti od 
+otvorene stranice se može izdvojiti u poseban modul i samo uključiti u aplikaciju. Umesto velikog broja linija koda posvećenog 
+rutiranju u implementaciji servera, upotrebom korisnički definisanog modula čitav taj deo bi se sveo na poziv jedne funkcije. 
+Zatim, generisanje SQL upita u aplikacijama koje koriste baze podataka se može izdvojiti u poseban modul i na taj način se može 
+smanjiti nepotrebno pisanje istih upita na različitim mestima u kodu. 
+<br/><br/>
+Korisnički definisani moduli se čuvaju kao obični tekstualni fajlovi sa ekstenzijom .js i sadrže JavaScript kod. Kreiraćemo
+tekstualni fajl <span class="font-weight-bold">moj_modul.js</span> u kojem ćemo implementirati korisnički modul. U opštem slučaju
+struktura korisničkog modula je sledeća
+
+<xmp class = "primer_ta"> 
+// definisanje lokalnih funkcija
+function lokalno_ime_funkcije() {
+   
+   // telo funkcije
+}
+
+// registrovanje funkcija u okviru modula i definisanja pod kojim
+// imenom želimo da eksportujemo lokalnu funkciju
+module.exports.eksportovano_ime = lokalno_ime_funkcije 
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   U okviru modula moguće je definisati veći broj lokalnih funkcija. Ne moraju sve lokalne funkcije
+   da budu eksportovane, već samo one koje želimo da budu vidljive korisniku.Takođe, eksportovano ime funkcije ne mora
+   da bude ekvivalentno lokalnom imenu funkcije. 
+</div>
+
+Upotrebu modula ilustrovaćemo na jednsotavnom primeru. U okviru fajla <span class="font-weight-bold">moj_modul.js</span> 
+definisaćemo jednu lokalnu funkciju koja samo nadovezuje dva stringa i vraća rezultat. Kod modula je sledeći:
+
+<xmp class = "primer_ta"> 
+// definisanje lokalne funkcija
+function nadovezi(str1, str2) {
+   
+   return str1 + str2;
+}
+
+// eksportujemo funkciju pod drugim imenom
+module.exports.nadoveziStr = nadovezi;
+</xmp>
+
+U nastavku je potrebno da testiramo napisani modul. Da bismo to uradili kreiraćemo test program koji uključuje naš modul i testira
+napisanu funkciju. Program ćemo sačuvati u fajlu <span class="font-weight-bold">korisnicki_modul.js</span>. Kod programa je sledeći:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul
+var moj_modul = require("./moj_modul");
+
+var str1 = 'NodeJS je ';
+var str2 = 'lak i zanimljiv';
+
+// testiramo funkciju iz modula
+var nadovezani = nadoveziStr(str1, str2);
+
+// prikazujemo rezultat izvrsavanja
+console.log("Rezultat nadovezivanja: " + nadovezani);
+</xmp>
+
+Na ovom mestu, bitno je primetiti kako uključujemo korisnički definisane module, tj. ne uključujemo ih 
+tako što navedemo ime modula već moramo da navedemo putanju do fajla u kojem se nalazi implementacija modula. 
+Takođe, bitno je obratiti pažnju i na poziv funkcije iz modula. Kada pozivamo funkcije iz modula u programu, pozivamo ih
+pomoću njihovog eksportovanog imena, a ne pomoću lokalnog imena iz modula.
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 21.</span><br/>
+   Kreirati poseban korisnički modul koji će u sebi sadržati funkcije koje računaju obim i povrsinu kruga. 
+   Napisati test program koji testira napisane funkcije. 
+</div>

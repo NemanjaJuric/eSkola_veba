@@ -1,0 +1,257 @@
+﻿<h1>Baferi</h1>
+
+Kao što smo rekli u prethodnoj lekciji, <span class="font-weight-bold">baferi</span> se najjednostavnije mogu posmatrati kao privremena skladišta podataka. 
+Najčešće se koriste zajedno sa tokovima da bi se pravilno obradio ulazni tok informacija koji na server ne dolazi u celosti,
+već u delovima koji se nazivaju paketi. Da bi se koristili baferi nije neophodno da se uključuje modul buffer, već je dovoljno
+da se koristi globalna klasa Buffer. Sve primere u sklopu lekcije sačuvaćemo u fajlu <span class="font-weight-bold">buffers.js</span>.
+
+<h2>Kreiranje bafera</h2>
+
+U programskom okviru NodeJS baferi se mogu kreirati na razne načine. Ako unapred znamo potrebnu veličinu bafera, 
+najjednostavniji način za kreiranje neinicijalizovanog bafera sa zadatim brojem bajtova je sledeći:
+
+<xmp class = "primer_ta"> 
+var buffer = new Buffer(10);
+</xmp>
+
+Sledeći način kako možemo da kreiramo bafer jeste na osnovu već postojećeg niza:
+
+<xmp class = "primer_ta"> 
+var buffer = new Buffer([10, 20, 30, 40, 50]);
+</xmp>
+
+Na ovaj način kreirali smo inicijalizovani bafer dužine 5 bajtova koji redom imaju vrednosti 10,20,30,40 i 50.
+
+Bafer možemo da kreiramo i na osnovu već postojećeg stringa:
+
+<xmp class = "primer_ta"> 
+var buffer = new Buffer("Elektronski kurs NodeJS", "utf-8");
+</xmp>
+
+Na ovaj način kreirali smo inicijalizovani bafer i eksplicitno smo postavili kodnu šemu stringa na UTF-8. Navođenje kodne šeme je opcioni parametar.
+
+<h2>Pisanje u bafer</h2>
+
+Da bismo upisali sadržaj u bafer potrebno je da koristimo metod <span class="font-weight-bold">write()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+buf.write(string[, offset][, length][, encoding])
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">string</span> - Obavezan parametar. String koji se upisuje u bafer.</li>
+   <li><span class="font-weight-bold">offset</span> - Opcioni parametar. Indeks u baferu odakle treba započeti upis, podrazumevano nula.</li>
+   <li><span class="font-weight-bold">length</span> - Opcioni parametar. Broj bajtova koje treba upisati, podrazumevano dužina bafera.</li>
+   <li><span class="font-weight-bold">encoding</span> - Opcioni parametar. Kodna šema koja se koristi, podrazumevano UTF-8.</li> 
+</ul>
+<br/>
+
+Nakon izvršavanja metod vraća ukupan broj bajtova koji je upisan u bafer. U slučaju da je veličina bafera manja od dužine stringa,
+biće upisan samo deo stringa koji odgovara veličini bafera. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// kreiramo bafer veličine 256 bajtova
+buf = new Buffer(256);
+// upisujemo neki sadržaj u bafer
+len = buf.write("NodeJS je lak");
+
+// u konzoli prikazujemo koliko smo bajtova upisali u bafer
+console.log("Upisano bajtova : "+  len);
+// kao i dužinu bafera
+console.log("Upisano bajtova : "+  len);
+</xmp>
+
+<h2>Čitanje iz bafera</h2>
+
+Da bismo pročitali sadržaj iz bafera potrebno je da koristimo metod <span class="font-weight-bold">toString()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+buf.toString([encoding][, start][, end])
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">encoding</span> - Opcioni parametar. Kodna šema koja se koristi, podrazumevano UTF-8.</li>
+   <li><span class="font-weight-bold">start</span> - Opcioni parametar. Indeks od kojeg treba početi čitanje, podrazumevano 0.</li>
+   <li><span class="font-weight-bold">end</span> - Opcioni parametar. Indeks do kojeg treba čitati, podrazumevano ceo bafer. </li> 
+</ul>
+<br/>
+
+Nakon izvršavanja metod u skladu sa odabranom kodnom šemom dekodira bafer i vraća rezultujući string. Čitanje iz bafera ilustrovaćemo 
+sledećim primerom:
+
+<xmp class="primer_ta"> 
+// kreiramo bafer veličine 26 bajtova
+buf = new Buffer(26);
+// inicijalizujemo bafer malim slovima engleske abecede
+for (var i = 0 ; i < 26 ; i++) {
+  buf[i] = i + 97;
+}
+
+// štampamo sadržaj bafera kao ASCII
+console.log( buf.toString('ascii'));  
+// štampamo prvih 5 bajtova bafera kao ASCII   
+console.log( buf.toString('ascii',0,5));  
+// štampamo prvih 5 bajtova bafera kao UTF-8  
+console.log( buf.toString('utf8',0,5));
+</xmp>
+
+<h2>Nadovezivanje bafera</h2>
+
+U programima se ponekad javlja potreba za nadovezivanjem dva ili više bafera. Da bismo to postigli potrebno je da koristimo 
+metod <span class="font-weight-bold">concat()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+Buffer.concat(list[, totalLength])
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">list</span> - Obavezni parametar. Lista objekata klase Buffer koje treba nadovezati.</li>
+   <li><span class="font-weight-bold">totalLength</span> - Opcioni parametar. Ukupna dužina svih bafera nakon nadovezivanja.</li>
+</ul>
+<br/>
+
+Nakon izvršavanja metod vraća instancu klasa Buffer. Nadovezivanje bafera ilustrovaćemo sledećim primerima:
+
+<xmp class = "primer_ta"> 
+// kreiramo prvi bafer
+var buffer1 = new Buffer('NodeJS  ');
+// kreiramo drugi bafer
+var buffer2 = new Buffer('elektronski kurs.');
+// nadovezivanjem dva bafera dobijamo treći
+var buffer3 = Buffer.concat([buffer1,buffer2]);
+
+// prikazujemo rezultat nadovezivanja
+console.log("Rezultat nadovezivanja: " + buffer3.toString());
+</xmp>
+
+<h2>Upoređivanje bafera</h2>
+
+Upoređivanje bafera je slično leksikografskom upoređivanju stringova. Nakon upoređivanja možemo da saznamo da li je sadržaj
+ jednog bafera identičan sadržaju drugog ili je jedan bafer leksikografski ispred ili iza drugog bafera. Uz pomoć metoda 
+ <span class="font-weight-bold">compare()</span> je moguće uporediti neki bafer sa nekim drugim baferom. Sintaksa je sledeća:
+ 
+ <xmp class = "primer_ta"> 
+buf.compare(otherBuffer);
+</xmp>
+ 
+Metod prihvata samo jedan obavezni argument otherBuffer i to je zapravo bafer koji se upoređuje sa baferom buf. Rezultat izvršavanja
+metoda je broj koji označava da li je otherBuffer leksikografski ispred ili iza bafera buf ili su identični. Upotrebu metoda compare()
+ilustrovaćemo primerom:
+
+<xmp class = "primer_ta"> 
+// kreiramo dva bafera
+var buffer1 = new Buffer('ABC');
+var buffer2 = new Buffer('ABCD');
+
+// upoređujemo ih
+var result = buffer1.compare(buffer2);
+
+// i proveramo povratnu vrednost metoda
+if(result < 0) {
+   console.log(buffer1 +" je ispred " + buffer2);
+} else if(result === 0) {
+   console.log(buffer1 +" je identičan " + buffer2);
+} else {
+   console.log(buffer1 +" je iza " + buffer2);
+}
+</xmp>
+
+<h2>Kopiranje bafera</h2>
+
+Pored upoređivanja bafera, česta operacija sa baferima je i kopiranje sadržaja jednog bafera u drugi. Da bismo kopirali jedan bafer
+u drugi potrebno je da koristimo metod <span class="font-weight-bold">copy()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+buf.copy(targetBuffer[, targetStart][, sourceStart][, sourceEnd])
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">targetBuffer</span> - Obavezan parametar. Bafer u koji se upisuje sadržaj.</li>
+   <li><span class="font-weight-bold">targetStart</span> - Opcioni parametar. Indeks u baferu odakle se počinje upisivanje, podrazumevano 0.</li>
+   <li><span class="font-weight-bold">sourceStart</span> - Opcioni parametar. Indeks u polaznom baferu od kojeg počinje kopiranje, podrazumevano 0.</li>
+   <li><span class="font-weight-bold">sourceEnd</span> - Opcioni parametar. Indeks u polaznom baferu do kojeg se vrši kopiranje, podrazumevano jednak dužini celog bafera.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Upotrebu metoda ilustrovaćemo sledećim primerom:
+
+<xmp class = "primer_ta"> 
+// kreiramo bafer koji sadrži string ABC
+var buffer1 = new Buffer('ABC');
+
+// kreiramo neinicijalizovani bafer dužine 3 bajta
+var buffer2 = new Buffer(3);
+
+// kopiramo sadržaj prvog bafera u drugi bafer
+buffer1.copy(buffer2);
+
+// prikazujemo rezultat kopiranja
+console.log("Sadržaj drugog bafera: " + buffer2.toString());
+</xmp>
+
+<h2>Izdvajanje sadržaja iz bafera</h2>
+
+Pored nabrojanih, česta operacija sa baferima je i izdvajanje njihovih neprekidnih manjih celina, tj. podbafera. Da bismo to postigli
+potrebno je da koristimo metod <span class="font-weight-bold">slice()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+buf.slice([start][, end])
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">start</span> - Opcioni parametar. Indeks u baferu odakle počinje izdvajanje, podrazumevano 0.</li>
+   <li><span class="font-weight-bold">end</span> - Opcioni parametar. Indeks u baferu dokle se izdvaja, podrazumevano jednak dužini bafera.</li>
+</ul>
+<br/>
+
+Po izvršavanju metod vraća novi bafer koji pokazuje na istu memoriju kao i polazni. Novi bafer je pomeren za start bajtova i isečen na odgovarajući
+broj bajtova. Metod kao argumente prihvata i negativne brojeve. Kada se koriste negativni brojevi indeksiranje počinje od kraja bafera. Upotrebu metoda
+slice() ilustrovaćemo sledećim primerom:
+
+<xmp class = "primer_ta"> 
+// kreiramo bafer koji sadrži string
+var buffer1 = new Buffer('Elektronski kurs NodeJS');
+
+// izvlačimo podbafer iz polaznog bafera
+var buffer2 = buffer1.slice(0,12);
+
+// štampamo rezultat izvršavanja
+console.log("Dobijeni podbafer: " + buffer2.toString());
+</xmp>
+
+

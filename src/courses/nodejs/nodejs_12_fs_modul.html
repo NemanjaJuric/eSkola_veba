@@ -1,0 +1,634 @@
+<h1>Fajl sistem - fs modul</h1>
+
+U okviru serverskih aplikacija često se javlja potreba za kreiranjem, čitanjem, pisanjem, modifikovanjem i brisanjem fajlova.
+NodeJS radni okvir omogućava korisniku da uz pomoć JavaScript-a upravlja fajlovima na vrlo jednostavan način upotrebom modula
+<span class="font-weight-bold">fs</span>. Da bismo uključili modul fs, potrebno je da kao i do sada koristimo ključnu reč 
+<span class="font-weight-bold">require</span>. Sve primere iz nastavka lekcije sačuvaćemo u fajlu <span class="font-weight-bold">fs.js</span>.
+
+<xmp class = "primer_ta"> 
+var fs = require(fs);
+</xmp>
+
+Sve funkcije definisane u okviru fs modula imaju i sinhronu i asinhronu, tj. neblokirajuću verziju. S obzirom da je NodeJS 
+prvenstveno neblokirajući radni okvir u nastavku lekcije biće reči samo o asinhronim funkcijama. Svaka asinhrona funkcija 
+kao poslednji argument ima povratni poziv. Svaka sinhrona funkcija u svom imenu ima rec Sync i nema povratni poziv kao argument. Sinhrone 
+funkcije neće biti razmatrane u okviru lekcije. 
+
+<h2>Otvaranje fajla </h2>
+
+Da bismo otvorili fajl potrebno je da koristimo metod <span class="font-weight-bold">open()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.open(path, flags[, mode], callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">path</span> - Obavezan parametar. Putanja na kojoj se fajl nalazi.</li>
+   <li><span class="font-weight-bold">flags</span> - Obavezan parametar. Mod u kome se fajl otvara (r - čitanje, w - pisanje, a - nadovezivanje, r+,w+,a+ - kombinobani modovi za istovremeno čitanje i pisanje).</li>
+   <li><span class="font-weight-bold">mode</span> - Opcioni parametar. Prava pristupa koja se pridružuju fajlu u slučaju kreiranja.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima dva argumenta: err - objekat greške, fd - fajl deskriptor.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Nakon uspešnog otvaranja fajla, argument fd povratnog poziva će biti inicijalizovan.
+Prilikom upotrebe metoda open, neophodno je proveravanje argumenta err, jer u slučaju greške fd neće biti inicijalizovan.
+Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+
+// asinhrono otvaramo fajl
+console.log("Započinjemo otvaranje fajla!");
+// otvaramo fajl i definišemo povratni poziv
+fs.open('ulaz.txt', 'r', function(err, fd) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Fajl uspešno otvoreno!");     
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   S obzirom da je otvaranje fajla asinhrona operacija, sve operacije koje želimo da primenimo na fajlu
+   moraju biti implementirane u okviru povratnog poziva u delu nakon uspešne provere greške.
+ </div>
+
+<h2>Informacije o fajlu </h2>
+
+Tokom izvršavanja aplikacije na serveru, može se javiti potreba da saznamo pojedine informacije o fajlu, na primer veličinu fajla, i da
+to saopštimo korisniku. Da bismo saznali veličinu fajla ne moramo uopšte da ga otvaramo, čitamo njegov sadržaj i da brojimo bajtove,
+već je dovoljno da pitamo fajl sistem da nam saopšti tu informaciju. To postižemo pomoću <span class="font-weight-bold">stat()</span> metoda. Pored veličine fajla, na ovaj način
+moguće je saznati i ko je vlasnik fajla, kog tipa je fajl, kada mu je poslednji put pristupljeno, kada je poslednji put modifikovan itd. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.stat(path, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">path</span> - Obavezan parametar. Putanja na kojoj se fajl nalazi.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima dva argumenta: err - objekat greške, stats - objekat koji sadrži informacije o fajlu.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Nakon uspešnog otvaranja fajla, argument stats povratnog poziva će biti inicijalizovan.
+Prilikom upotrebe metoda stat, neophodno je proveravanje argumenta err, jer u slučaju greške stat neće biti inicijalizovan.
+Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+
+// asinhrono otvaramo fajl
+console.log("Čitamo informacije o fajlu!");
+// otvaramo fajl i definišemo povratni poziv
+fs.stat('ulaz.txt', function(err, stats) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Informacije pročitane!");  
+   
+   // prikazujemo dobijene informacije
+   console.log(stats);
+   
+   // proveravamo tip fajla
+   console.log("Da li je običan fajl ? " + stats.isFile());
+   console.log("D li je direktorijum ? " + stats.isDirectory()); 
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+<h2>Čitanje iz fajla </h2>
+
+Najčešća operacija kada su u pitanju fajlovi je upravo čitanje sadržaja fajla. Da bismo pročitali sadržaj fajla potrebno je 
+da fajl prvo otvorimo i tek tada da pročitamo sadržaj.Preciznije, čitanje fajla treba da izvršimo u okviru povratnog poziva
+asinhronog metoda za otvaranje fajla. Metod koji se koristi za čitanje sadržaja fajla pomoću otvorenog fajl deskriptora je 
+<span class="font-weight-bold">read()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.read(fd, buffer, offset, length, position, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">fd</span> - Obavezan parametar. Fajl deskriptor fajla koji se čita.</li>
+   <li><span class="font-weight-bold">buffer</span> - Obavezan parametar. Bafer u koji se učitava sadržaj fajla.</li>
+   <li><span class="font-weight-bold">offset</span> - Obavezan parametar. Indeks u baferu odakle počinje upisivanje.</li>
+   <li><span class="font-weight-bold">length</span> - Obavezan parametar. Broj bajtova koje treba pročitati.</li>
+   <li><span class="font-weight-bold">position</span> - Obavezan parametar. Pozicija u fajlu odakle treba započeti čitanje. Ako je null, čitanje kreće od trenutne pozicije.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima dva argumenta: err - objekat greške, bytesRead - broj pročitanih bajtova.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Nakon uspešnog čitanja sadržaja fajla, argument bytesRead povratnog poziva će biti inicijalizovan.
+Prilikom upotrebe metoda read, neophodno je proveravanje argumenta err, jer u slučaju greške bytesRead neće biti inicijalizovan.
+Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+// kreiramo neinicijaliyovani bafer dužine 1024 bajta
+var buf = new Buffer(1024);
+
+// asinhrono otvaramo fajl
+console.log("Čitamo informacije o fajlu!");
+// otvaramo fajl i definišemo povratni poziv
+fs.open('ulaz.txt', 'r', function(err, fd) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Fajl uspešno otvoren!");  
+   console.log("Pokrećemo čitanje fajla");
+   
+   // asinhrono pozivamo metod read
+   fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
+   
+      //  ako se desila greška
+      if (err){
+         // štampamo poruku o grešci
+         console.log(err);
+      }
+ 
+      //  prikazujemo koliko bajtova je pročitano
+      console.log(bytes + " bajtova je pročitano");
+      
+      // ako je nešto zaista pročitano
+      if(bytes > 0){
+         // prikazujemo samo onaj deo bafera koji sadrži 
+         // pročitane podatke
+         console.log(buf.slice(0, bytes).toString());
+      }
+   }); 
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+Prilikom čitanja fajlova i upotrebe bafera neophodno je obratiti pažnju na količinu
+pročitanih bajtova. Često je količina pročitanih bajtova manja od veličine bafera. U tom slučaju je neophodno izdvojiti
+ samo onaj deo bafera koji sadrži pročitani sadržaj, a ne celokupan bafer. U suprotnom, pored trenutno pročitanog 
+ sadržaja prikazaće se i ostaci ranijih čitanja, koji nam nisu potrebni
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Za čitanje fajla ne moraju da se koriste fajl deskriptori. Metod koji čita fajl na osnovu njegovog imena se naziva 
+   <span class="font-weight-bold">readFile()</span> i biće opisan u nastavku.
+</div>
+
+<h2>Pisanje u fajl </h2>
+
+Pored čitanja sadržaja, česta operacija je i pisanje u fajl. Da bismo upisali neki sadržaj u fajl bez upotrebe fajl deskriptora možemo da koristimo metod 
+<span class="font-weight-bold">writeFile()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.writeFile(filename, data[, options], callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">filename</span> - Obavezan parametar. Ime fajla u koji se upisuje sadržaj.</li>
+   <li><span class="font-weight-bold">data</span> - Obavezan parametar. Podaci koje treba upisati u fajl.</li>
+   <li><span class="font-weight-bold">options</span> - Opcioni parametar. Prava pristupa koja se pridružuju fajlu u slučaju kreiranja.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima jedan argument: err - objekat greške.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. U slučaju da fajl ne postoji, writeFile() metod će kreirati fajl sa zadatim imenom. 
+Ako fajl postoji, njegov sadržaj će biti pregažen. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+
+// asinhrono upisujemo sadržaj u fajl
+console.log("Počinje upisivanje!");
+// upisujemo sadržaj u fajl ulaz.txt
+fs.writeFile('ulaz.txt', 'NodeJS je lak i jednostavan!', function(err) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Sadržaj upisan u fajl!");  
+   console.log("Čitamo šta je u fajlu!");
+   
+   // asinhrono pozivamo metod readFile
+   fs.readFile('ulaz.txt', function(err, data){
+   
+      //  ako se desila greška
+      if (err){
+         // štampamo poruku o grešci
+         console.log(err);
+      }
+ 
+      //  prikazujemo pročitani sadržaj
+      console.log("Pročitano je: " * data.ToString());
+   }); 
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Kao i u slučaju čitanja sadržaja iz fajla, moguće je koristiti fajl deskriptore i za pisanje sadržaja u fajl.
+</div>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 18.</span><br/>
+   Uraditi ovaj zadatak uz pomoć fajl deskriptora.
+</div>
+
+Sadržaj je moguće upisati i bez brisanja postojećeg sadržaja, tj. nadovezati novi
+sadržaj na kraj fajla. Da bismo to postigli pomoću fajl deskriptora potrebno je da fajl otvorimo u "a" modu ili da koristimo metod appendFile() ako ne želimo da koristimo fajl deskriptore. U slučaju da fajl ne postoji, <span class="font-weight-bold">appendFile()</span> metod će ga kreirati.  
+
+<h2>Zatvaranje fajla </h2>
+
+Prilikom otvaranja fajla, neophodno je da fajl nakon upotrebe zatvorimo. U suprotnom može se desiti da dođemo u situaciju da ne možemo da otvorimo novi fajl jer smo dostigli unapred odredjeni maksimalni broj otvorenih fajlova na sistemu. Iako deluje nemoguće, potrebno je da imamo u vidu da su NodeJS aplikacije serverske 
+i da se izvršavaju u izuzetnom dugačkom vremenskom periodu, pa je ovaj nepovoljni
+scenario sasvim moguć. Otvoreni fajl se zatvara pomoću metoda <span class="font-weight-bold">close()</span>. Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.close(fd, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">fd</span> - Obavezan parametar. Fajl deskriptor fajla koji treba zatvoriti.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima jedan argumenta: err - objekat greške.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+// kreiramo neinicijalizovani bafer dužine 1024 bajta
+var buf = new Buffer(1024);
+
+// asinhrono otvaramo fajl
+console.log("Čitamo informacije o fajlu!");
+// otvaramo fajl i definišemo povratni poziv
+fs.open('ulaz.txt', 'r', function(err, fd) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Fajl uspešno otvoren!");  
+   console.log("Pokrećemo čitanje fajla");
+   
+   // asinhrono pozivamo metod read
+   fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
+   
+      //  ako se desila greška
+      if (err){
+         // štampamo poruku o grešci
+         console.log(err);
+      }
+ 
+      //  prikazujemo koliko bajtova je pročitano
+      console.log(bytes + " bajtova je pročitano");
+      
+      // ako je nešto zaista pročitano
+      if(bytes > 0){
+         // prikazujemo samo onaj deo bafera koji sadrži 
+         // pročitane podatke
+         console.log(buf.slice(0, bytes).toString());
+      }
+     
+      // nakon završenog čitanja, treba da zatvorimo fajl.
+      // kao i do sada, to ćemo učiniti asinhrono
+      fs.close(fd, function(err) {
+         //  ako se desila greška
+         if (err){
+             // štampamo poruku o grešci
+             console.log(err);
+         }
+ 
+         //  prikazujemo poruku
+         console.log("Fajl uspešno zatvoren!");
+      });
+   }); 
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Eksplicitno zatvaranje fajla pomoću close() je neophodno samo nakon poziva open() metoda.
+</div>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 19.</span><br/>
+   Prekopirati fajl ulaz.txt u novi fajl sa imenom ulaz_kopija.txt.
+</div>
+
+<h2>Brisanje sadržaja fajla </h2>
+
+Pored upisivanja i čitanja, moguće je i obrisati sadržaj fajla. 
+Sadržaj u fajlu se briže tako što se promeni njegova veličina, tj. iseče se na potreban broj bajtova. 
+Na ovom mestu potrebno je napomenuti da se brisanje sadržaja fajla može raditi samo sa kraja, 
+a nikako sa početka. Da bismo obrisali sadržaj fajla potrebno je da koristimo metod <span class="font-weight-bold">ftruncate() .</span><br/> Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.ftruncate(fd, len, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">fd</span> - Obavezan parametar. Fajl deskriptor fajla koji treba zatvoriti.</li>
+   <li><span class="font-weight-bold">len</span> - Obavezan parametar. Nova veličina fajla.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima jedan argument: err - objekat greške.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+// kreiramo neinicijalizovani bafer dužine 1024 bajta
+var buf = new Buffer(1024);
+
+// asinhrono otvaramo fajl
+console.log("Čitamo informacije o fajlu!");
+// otvaramo fajl i definišemo povratni poziv
+fs.open('ulaz.txt', 'r', function(err, fd) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Fajl uspešno otvoren!");   
+   console.log("Menjamo veličinu fajla!");
+   
+   // asinhrono menjamo veličinu fajla na 10 bajtova
+   fs.ftruncate(fd, 10, function(err){
+   
+      //  ako se desila greška
+      if (err){
+         // štampamo poruku o grešci
+         console.log(err);
+      }
+ 
+      //  prikazujemo koliko bajtova je pročitano
+      console.log("Sadržaj fajla nakon brisanja:");
+      
+     
+      // asinhrono pozivamo metod read
+      fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
+   
+         //  ako se desila greška
+         if (err){
+            // štampamo poruku o grešci
+            console.log(err);
+         }
+ 
+         //  prikazujemo koliko bajtova je pročitano
+         console.log(bytes + " bajtova je pročitano");
+      
+         // ako je nešto zaista pročitano
+         if(bytes > 0){
+            // prikazujemo samo onaj deo bafera koji sadrži 
+            // pročitane podatke
+            console.log(buf.slice(0, bytes).toString());
+         }
+     
+         // nakon završenog čitanja, treba da zatvorimo fajl.
+         // kao i do sada, to ćemo učiniti asinhrono
+         fs.close(fd, function(err) {
+            //  ako se desila greška
+            if (err){
+                // štampamo poruku o grešci
+                console.log(err);
+            }
+ 
+            //  prikazujemo poruku
+            console.log("Fajl uspešno zatvoren!");
+         });
+      }); 
+   });
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+<h2>Menjanje imena fajla </h2>
+
+Prilikom slanja fajla na server često se javlja potreba za preimenovanjem tog fajla.
+ Da bismo fajlu promenili ime ili putanju na kojoj se nalazi treba da koristimo
+metod <span class="font-weight-bold">rename() .</span><br/> Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.rename(oldPath, newPath, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">oldPath</span> - Obavezan parametar. Putanja do fajla koji treba preimenovati.</li>
+   <li><span class="font-weight-bold">newPath</span> - Obavezan parametar. Nova putanja fajla.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima jedan argument: err - objekat greške.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+// kreiramo neinicijalizovani bafer dužine 1024 bajta
+var buf = new Buffer(1024);
+
+// asinhrono otvaramo fajl
+console.log("Menjamo ime fajlu!");
+// fajl ulaz.txt preimenovaćemo u noviUlaz.txt
+fs.rename('ulaz.txt', 'noviUlaz.txt', function(err) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, pokušaćemo da pročitamo sadržaj novog fajla
+   console.log("Čitamo novi fajl!");   
+   fs.open('ulaz.txt', 'r', function(err, fd) {
+   
+      // proveramo da li se desila greška
+      if (err) {
+         // štampamo poruku o grešci i prekidamo metod
+         return console.error(err);
+      }
+     
+      // asinhrono pozivamo metod read, ako je otvaranje fajla uspelo
+      fs.read(fd, buf, 0, buf.length, 0, function(err, bytes){
+   
+         //  ako se desila greška
+         if (err){
+            // štampamo poruku o grešci
+            console.log(err);
+         }
+ 
+         //  prikazujemo koliko bajtova je pročitano
+         console.log(bytes + " bajtova je pročitano");
+      
+         // ako je nešto zaista pročitano
+         if(bytes > 0){
+            // prikazujemo samo onaj deo bafera koji sadrži 
+            // pročitane podatke
+            console.log(buf.slice(0, bytes).toString());
+         }
+     
+         // nakon završenog čitanja, treba da zatvorimo fajl.
+         // kao i do sada, to ćemo učiniti asinhrono
+         fs.close(fd, function(err) {
+            //  ako se desila greška
+            if (err){
+                // štampamo poruku o grešci
+                console.log(err);
+            }
+  
+            //  prikazujemo poruku
+            console.log("Fajl uspešno zatvoren!");
+         });
+      });
+   });
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!");
+</xmp>
+
+
+<h2>Brisanje fajla </h2>
+
+Na kraju, fajlove koji nam više nisu potrebni možemo i da obrišemo pomoću fs modula. 
+Metod koji treba da koristimo je <span class="font-weight-bold">unlink().</span> Sintaksa je sledeća:
+
+<xmp class = "primer_ta"> 
+fs.unlink(path, callback)
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Svi parametri u uglastim zagradama su opcioni.
+</div>
+
+Argumenti metoda su sledeći:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">path</span> - Obavezan parametar. Putanja do fajla koji treba obrisati.</li>
+   <li><span class="font-weight-bold">callback</span> - Obavezan parametar. Povratni poziv koji ima jedan argument: err - objekat greške.</li> 
+</ul>
+<br/>
+
+Metod nema povratnu vrednost. Upotrebu metoda ilustrovaćemo na primeru:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul fs
+var fs = require("fs");
+
+// aisnhrono otvaramo fajl
+console.log("Brišemo fajl!");
+// fajl ulaz.txt preimenovaćemo u noviUlaz.txt
+fs.unlink('ulaz1.txt', function(err) {
+   
+   // proveramo da li se desila greška
+   if (err) {
+      // štampamo poruku o grešci i prekidamo metod
+      return console.error(err);
+   }
+   
+   // Ako je sve u redu, štampamo poruku o uspehu
+   console.log("Fajl je uspešno obrisan!");   
+});
+
+// štampamo poruku o kraju
+console.log("Kraj programa!")
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 20.</span><br/>
+   Premestiti fajl ulaz.txt na novu lokaciju sa imenom ulaz_novi.txt. Na koliko načina možemo ovo da postignemo?
+</div>

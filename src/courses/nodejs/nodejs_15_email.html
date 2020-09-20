@@ -1,0 +1,316 @@
+<h1>Slanje mejlova</h1>
+
+U okviru aplikacija i rada sa korisnicima često se javlja potreba za slanjem mejlova direktno sa stranice. Da bismo to omogućili korisniku koristićemo 
+eksterni modul <span class="font-weight-bold">nodemailer</span>. Potrebno je da prvo dodamo modul svojoj instalaciji NodeJS radnog okvira uz pomoć
+<span class="font-weight-bold">NPM</span> alata. To ćemo postići izvršavanjem sledeće komande u konzoli:
+
+<xmp class = "primer_ta"> 
+npm install nodemailer
+</xmp>
+
+Nakon uspešne instalacije, možemo da koristimo modul nodemailer u okviru NodeJS aplikacija jednostavnim uključivanjem modula
+pomoću ključne reči <span class="font-weight-bold">require</span>. U nastavku lekcije napravićemo jednostavnu aplikaciju
+koja putem forme omogućava korisniku da pošalje mejl. 
+
+<h2>Prikaz forme</h2>
+
+Prvo što treba da uradimo je da kreiramo veb server koji će korisniku prikazati formu nakon što pristupi stranici. Kod servera
+čuvaćemo u dokumentu <span class="font-weight-bold">nodemailer.js</span>. Kod servera kojim se prikazuje forma je sledeći:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+
+   // kreiramo formu
+   odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+   odgovor.write("<html><head><title>Nodemailer modul</title><head><body>");
+   odgovor.write('<form action="mejl" method="post">');
+   odgovor.write('Ime i prezime: <input type="text" name="ime" id="ime"><br>');
+   odgovor.write('Mejl adresa: <input type="text" name="mejl" id="mejl"><br>');
+   odgovor.write('Subject: <input type="text" name="sub" id="sub"><br>');
+   odgovor.write('Sadržaj poruke: <textarea id="poruka" name="poruka" rows="4" cols="50">Unesite poruku</textarea><br>');
+   odgovor.write('<input type="submit" value="Pošalji mejl">');
+   odgovor.write('</form>');
+   odgovor.write("</body></html>");
+   odgovor.end();
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp>
+
+<h2>Obrada podataka sa forme</h2>
+
+Nakon što korisnik popuni podatke na formi, otkuca sadržaj poruke i klikne na dugme <span class="font-weight-bold">Pošalji mejl</span>,
+pregledač će pokušati da pristupi stranici <span class="font-weight-bold">127.0.0.1:8081/mejl</span>, što znači da u okviru koda
+servera treba da izvršimo rutiranje i otkrijemo koju stranicu korisnik želi da poseti. Da bismo to postigli izmenićemo kod na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+   
+   if (zahtev.url === "/mejl") {
+
+      // obrada podataka sa forme
+   }
+   else {
+
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Nodemailer modul</title><head><body>");
+      odgovor.write('<form action="mejl" method="post">');
+      odgovor.write('Ime i prezime: <input type="text" name="ime" id="ime"><br>');
+      odgovor.write('Mejl adresa: <input type="text" name="mejl" id="mejl"><br>');
+      odgovor.write('Subject: <input type="text" name="sub" id="sub"><br>');
+      odgovor.write('Sadržaj poruke: <textarea id="poruka" name="poruka" rows="4" cols="50">Unesite poruku</textarea><br>');
+      odgovor.write('<input type="submit" value="Pošalji mejl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp>
+
+Prvi korak kod obrade podataka sa forme jeste da izdvojimo polja forme koja nam je korisnik poslao. Forma nam šalje podatke
+pomoću POST metoda, pa je neophodno da motrimo na događaje <span class="font-weight-bold">data</span> i <span class="font-weight-bold">end</span>
+objekta <span class="font-weight-bold">zahtev</span>. U okviru rukovaoca za data događaj pamtićemo podatke u baferu, a u okviru end događaja
+obradićemo pristigle podatke, tj. razdvojićemo polja iz forme i pripremiti sve što je potrebno za slanje mejla. Kod koji izdvaja polja forme je u nastavku:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+
+   // proveravamo koju stranicu korisnik zeli da poseti
+   if (zahtev.url == "/mejl" && zahtev.method == "POST") {
+      
+      // kreiramo prazan bafer na koji ćemo nadovezati delove forme
+      var bafer = [];
+
+      zahtev.on('data', function(paket) {
+         // nadovezujemo pristigle delove
+         bafer.push(paket);
+      });
+
+      zahtev.on('end', function() {
+
+         var poruka = Buffer.concat(bafer).toString();
+
+         // parsiramo polja forme
+         var poljaForme = poruka.split('&');
+         var ime = poljaForme[0].split('=')[1];
+         var mejl = poljaForme[1].split('=')[1];
+         var subject = poljaForme[2].split('=')[1];
+         var sadrzajPoruke = poljaForme[3].split('=')[1].replace(/\+/gi,' ');
+       
+         // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+         odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+
+         // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+         odgovor.write('<html>');
+         odgovor.write('<head><title>Sadržaj forme</title></head>');
+         odgovor.write('<body>');
+         odgovor.write('<h1>Ime i prezime, ' + ime + '!</h1>');
+         odgovor.write('<h1>Mejl, ' + mejl + '!</h1>');
+         odgovor.write('<h1>Naslov, ' + subject + '!</h1>');
+         odgovor.write('<h1>Poruka, ' + sadrzajPoruke + '!</h1>');
+         odgovor.write('</body>');
+         odgovor.write('</html>');
+
+         return odgovor.end();
+      });
+
+   }
+   else {
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Nodemailer modul</title><head><body>");
+      odgovor.write('<form action="mejl" method="post">');
+      odgovor.write('Ime i prezime: <input type="text" name="ime" id="ime"><br>');
+      odgovor.write('Mejl adresa: <input type="text" name="mejl" id="mejl"><br>');
+      odgovor.write('Subject: <input type="text" name="sub" id="sub"><br>');
+      odgovor.write('Sadržaj poruke: <textarea id="poruka" name="poruka" rows="4" cols="50">Unesite poruku</textarea><br>');
+      odgovor.write('<input type="submit" value="Pošalji mejl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp> 
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Pre slanja podataka sa forme na server, neophodno je izvršiti validaciju istih na strani klijenta.
+</div>
+
+<h2>Slanje mejla</h2>
+
+Nakon što se izvrši parsiranje podataka sa forme, potrebno je poslati mejl na adresu koju je korisnik uneo. 
+To ćemo učiniti upotrebom <span class="font-weight-bold">nodemailer</span> modula. 
+Da bismo to postigli potrebno je da definišemo <span class="font-weight-bold">transporter</span> objekat kojim se definiše pošiljalac, zatim treba da definišemo 
+sadržaj mejla i na kraju da ga pošaljemo. Transporter objekat kreiramo na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo nodemailer modul
+var nodemailer = require('nodemailer');
+
+// kreiramo pošiljaoca. potrebno je da navedemo servis, korisnicko ime i sifru
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'mejl_adresa@gmail.com',
+    pass: 'šifra_naloga'
+  }
+});
+</xmp>
+
+Dalje, potrebno je definisati samu poruku koja se šalje:
+
+<xmp class = "primer_ta"> 
+var mailOptions = {
+  from: 'mejl_adresa@gmail.com',
+  to: 'adresa_primaoca',
+  subject: 'Naslov poruke',
+  text: 'Sadržaj poruke!'
+};
+</xmp>
+
+Na kraju, potrebno je poslati poruku na sledeći način uz pomoć <span class="font-weight-bold">sendMail()</span> metoda iz modula <span class="font-weight-bold">nodemailer</span>:
+
+<xmp class = "primer_ta"> 
+transporter.sendMail(mailOptions, function(error, info){
+  
+  // proveravamo greške
+  if (error) {
+    // štamapmo poruku o grešci ako se desila
+    console.log(error);
+  } else {
+    // u suprotnom prijavljujemo uspeh
+    console.log('Poruka poslata: ' + info.response);
+  }
+}); 
+</xmp>
+
+S obzirom da smo sada naučili kako da pošaljemo mejl, ažuriraćemo kod servera na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo modul http
+var http = require("http");
+// uključujemo nodemailer modul
+var nodemailer = require("nodemailer");
+
+// kreiramo veb server koji osluškuje port 8081
+http.createServer(function(zahtev, odgovor){
+
+   // proveravamo koju stranicu korisnik želi da poseti
+   if (zahtev.url == "/mejl" && zahtev.method == "POST") {
+      
+      // kreiramo prazan bafer na koji ćemo nadovezati delove forme
+      var bafer = [];
+
+      zahtev.on('data', function(paket) {
+         // nadovezujemo pristigle delove
+         bafer.push(paket);
+      });
+
+      zahtev.on('end', function() {
+
+         var poruka = Buffer.concat(bafer).toString();
+
+         // parsiramo polja forme
+         var poljaForme = poruka.split('&');
+         var ime = poljaForme[0].split('=')[1];
+         var mejl = poljaForme[1].split('=')[1];
+         var subject = poljaForme[2].split('=')[1];
+         var sadrzajPoruke = poljaForme[3].split('=')[1].replace(/\+/gi,' ');
+
+         // kreiramo pošiljaoca. Potrebno je da navedemo servis, korisnicko ime i šifru
+         var transporter = nodemailer.createTransport({
+           service: 'gmail',
+           auth: {
+             user: 'mejl_adresa@gmail.com',
+             pass: 'šifra_naloga'
+           }
+         });
+         
+         // kreiramo sadržaj poruke
+         var mailOptions = {
+           from: 'mejl_adresa@gmail.com',
+           to: mejl,
+           subject: subject,
+           text: sadrzajPoruke
+         };
+
+         // asinhrono šaljemo mejl
+         transporter.sendMail(mailOptions, function(error, info){
+  
+           // proveravamo greške
+           if (error) {
+             // štampamo poruku o grešci ako se desila
+             console.log(error);
+           } else {
+            
+             // u suprotnom prijavljujemo uspeh
+             // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+             odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+
+             // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+             odgovor.write('<html>');
+             odgovor.write('<head><title>Slanje mejla</title></head>');
+             odgovor.write('<body>');
+             odgovor.write('<h1>Poruka uspešno poslata!</h1>');
+             odgovor.write('</body>');
+             odgovor.write('</html>');
+
+             return odgovor.end();
+           }
+         });  
+      });
+   }
+   else {
+      // kreiramo formu
+      odgovor.writeHead(200, {"Content-type": "text/html; charset=utf-8"});
+      odgovor.write("<html><head><title>Nodemailer modul</title><head><body>");
+      odgovor.write('<form action="mejl" method="post">');
+      odgovor.write('Ime i prezime: <input type="text" name="ime" id="ime"><br>');
+      odgovor.write('Mejl adresa: <input type="text" name="mejl" id="mejl"><br>');
+      odgovor.write('Subject: <input type="text" name="sub" id="sub"><br>');
+      odgovor.write('Sadržaj poruke: <textarea id="poruka" name="poruka" rows="4" cols="50">Unesite poruku</textarea><br>');
+      odgovor.write('<input type="submit" value="Pošalji mejl">');
+      odgovor.write('</form>');
+      odgovor.write("</body></html>");
+      odgovor.end();
+   }
+
+}).listen(8081);
+
+// prikazujemo poruku u konzoli
+console.log("Serveru se pristupa na adresi: 127.0.0.1:8081/");
+</xmp> 
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Pored validacije podataka na formi, pre slanja mejla, neophodno je proveriti da zaista čovek hoće da pošalje mejl, a ne robot.
+</div>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 23.</span><br/>
+   Na koji način treba modifikovati program da bi se isti mejl poslao na više adresa u isto vreme?
+</div>

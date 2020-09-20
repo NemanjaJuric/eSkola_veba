@@ -1,0 +1,127 @@
+<h1>HTTP modul - zahtevi i odgovori</h1>
+
+<span class="font-weight-bold">HTTP</span> modul je ugrađeni modul NodeJS radnog okvira i koristi se za prenos podataka pomoću Hyper Text Transfer Protocol (HTTP) protokola. Da bismo koristili HTTP modul potrebno je da ga uključimo u svoju aplikaciju pomoću ključne reči <span class="font-weight-bold">require</span>. HTTP modul nam omogućava da kreiramo veb server koji će obrađivati zahteve klijenata na sledeći način:
+
+<xmp class = "primer_ta"> 
+// Uključujemo modul http i definišemo promenljivu 
+// http u kojoj čuvamo instancu modula
+var http = require("http"); 
+
+// kreiramo server koji će osluškivati port 8081
+// prilikom kreiranja servera odmah vezujemo povratnu rutinu
+// koja će se izvršiti kada klijent pokuša da pristupi portu 8081
+http.createServer(function (zahtev, odgovor) {
+
+   // telo povratne rutine 
+   // u kojem ćemo obraditi zahtev i poslati odgovor
+   
+}).listen(8081);
+
+// Definišemo poruku koja će biti ispisana 
+// nakon pokretanja servera
+console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
+</xmp>
+
+Pre nego što se posvetimo implementiranju test programa, treba napomenuti sledeće:<br/><br/>
+
+<ul>
+   <li>Prilikom kreiranja servera odmah smo definisali povratni poziv koji će se izvršiti svaki put kada se klijent konektuje na našu stranicu preko porta 8081.</li>
+   <li>Kreiranjem servera u pozadini je registrovan "connection" događaj kojem je kao rukovalac događajem dodeljen povratni poziv koji smo definisali u okviru kreiranja servera.</li>
+   <li>Server će biti blokiran i čekaće nove konekcije sve dok ga mi eksplicitno ne isključimo komandom CTRL+C.</li>
+   <li>Argumenti povratnog poziva služe za obradu zahteva i slanje odgovora. Argument, tj. objekat <span class="font-weight-bold">zahtev</span> sadrži sve informacije o klijentu i zahtevu koji je poslat serveru. Argument, tj. objekat <span class="font-weight-bold">odgovor</span> omogućava serveru da prosledi rezultat obrade zahteva klijentu.</li> 
+</ul>
+<br/>
+
+U nastavku lekcije, napisaćemo aplikaciju pomoću koje možemo da ispitamo pristigli zahtev i da generišemo odgovor korisniku. Aplikaciju ćemo sačuvati u fajlu <span class="font-weight-bold">http_modul.js</span>.
+
+<h2>Obrada zahteva</h2>
+
+Najjednostavnije što možemo da učinimo sa pristiglim zahtevom je da ga prikažemo u konzoli i da ispitamo njegov sadržaj. Da bismo to postigli potrebno je samo da dodamo sledeću liniju koda:
+
+<xmp class = "primer_ta"> 
+http.createServer(function (zahtev, odgovor) {
+
+   // prikazujemo kompletan sadržaj zahteva
+   console.log(zahtev);
+   
+}).listen(8081);
+</xmp>
+
+Da bismo testirali aplikaciju potrebno je da se u konzoli pozicioniramo u direktorijum gde se nalazi fajl <span class="font-weight-bold">http_modul.js</span> i da pokrenemo server komandom:
+
+<xmp class = "primer_ta"> 
+node http_modul.js
+</xmp>
+
+Nakon pokretanja, potrebno je da u pregledaču posetimo adresu <span class="font-weight-bold">127.0.0.1:8081/</span> i u konzoli ćemo dobiti ispis sličan ovome:
+
+<img src="courses/nodejs/5_http_modul/slika18.jpg" class="img-fluid img-md center">
+
+Prikazani sadržaj zahteva sadrži informacije o adresi, zaglavljima, metodi pristupa, tipu podataka, pregledaču i njegovoj verziji i još puno informacija koja nam možda uopšte nisu potrebne. U okviru objekta <span class="font-weight-bold">zahtev</span> postoji veliki broj polja pomoću kojih možemo da izdvajamo samo one delove koji su nam potrebni. Na primer, želimo da saznamo adresu, port i metod pristupa koje klijent koristi. Da bismo to postigli, modifikovaćemo povratni poziv na sledeći način:
+
+<xmp class = "primer_ta"> 
+http.createServer(function (zahtev, odgovor) {
+
+   // prikazujemo samo url, metod i http zaglavlje iz zahteva
+   console.log(zahtev. url, zahtev.method, zahtev.headers);
+   
+}).listen(8081);
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Kada god menjamo kod servera neophodno je da restartujemo server. U suprotnom, promene neće imati nikakvog efekta.
+</div>
+
+Nakon ponovnog pokretanja, potrebno je da u pregledaču posetimo adresu <span class="font-weight-bold">127.0.0.1:8081/</span> i u konzoli ćemo dobiti ispis sličan ovome:
+
+<img src="courses/nodejs/5_http_modul/slika19.jpg" class="img-fluid img-md center">
+
+<span class="font-weight-bold">URL</span> iz <span class="font-weight-bold">zahteva</span> je <span class="font-weight-bold">/</span>, jer iza porta nismo naveli ništa. Metod pristupa je GET, a HTTP zaglavlje sadrži informacije o klijentu. Pristupićemo još jednom našoj veb stranici, ali ćemo ovoga puta navesti neki tekst iza porta, npr. <span class="font-weight-bold">127.0.0.1:8081/index.html</span>. Na strani servera, dobićemo sledeću poruku: 
+
+<img src="courses/nodejs/5_http_modul/slika20.jpg" class="img-fluid img-md center">
+
+Na prikazanoj slici vidimo da je <span class="font-weight-bold">url</span> polje objekta <span class="font-weight-bold">zahtev</span> ima vrednost <span class="font-weight-bold">/index.html</span>.
+
+<h2>Generisanje odgovora</h2>
+
+Sada kada smo obradili zahtev korisnika, ne bi bilo loše da ga obavestimo o rezultatima tog zahteva, tj. da mu pošaljemo odgovor. Kao odgovor, možemo da generišemo html stranu koja sadrži neku poruku. Prvi korak koji treba da uradimo jeste da generišemo HTTP zaglavlje kojim ćemo saopštiti klijentu koji tip odgovora šaljemo, a nakon toga i sam sadržaj poruke. Kod servera modifikujemo na sledeći način:
+
+<xmp class = "primer_ta"> 
+http.createServer(function (zahtev, odgovor) {
+
+   // prikazujemo samo url, metod i http zaglavlje iz zahteva
+   console.log(zahtev. url, zahtev.method, zahtev.headers);
+   
+   // kao tip sadržaja postavljamo tekstualni html
+   odgovor.setHeader('Content-Type', 'text/html');
+   
+   // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+   odgovor.write('<html>');
+   odgovor.write('<head><title>HTTP modul primeri</title></head>');
+   odgovor.write('<body>');
+   odgovor.write('<h1>Zdravo!</h1>');
+   odgovor.write('</body>');
+   odgovor.write('</html>');
+   
+   // na kraju je neohodno da pozovemo metod end nad objektom odgovor
+   odgovor.end();
+   
+   // nakon poziva metoda end() ne smemo više da referišemo na objekat odgovor
+   
+}).listen(8081);
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Postoje alati i radni okviri koji mogu automatski da postavljaju zaglavlja i sadržaj odgovora. Radi jednostavnosti, statuse i sadržaj ćemo postavljati ručno u nastavku kursa.
+</div>
+
+Nakon restartovanja servera i ponovnog pristupa veb stranici <span class="font-weight-bold">127.0.0.1:8081/</span> dobićemo sledeću poruku:
+
+<img src="courses/nodejs/5_http_modul/slika21.jpg" class="img-fluid img-md center">
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 11.</span><br/>
+   Modifikovati primer iz lekcije tako da pored pozdravne poruke, korisniku saopšti kojim metodom je pristupio sajtu i koju stranicu je želeo da otvori.
+</div>

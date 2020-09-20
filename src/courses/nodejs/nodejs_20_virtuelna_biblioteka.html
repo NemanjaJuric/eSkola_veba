@@ -1,0 +1,103 @@
+﻿<h1>Virtuelna biblioteka</h1>
+
+S obzirom da smo sada naučili kako da upravljamo stranicama, bazama podataka i sesijama, potrebno je da to sve objednimo u jednu pravu veb aplikaciju
+koja omogućava korisnicima da pregledaju sadržaj u virtuelnoj biblioteci. Pored pregledanja, korisnici mogu da se registruju i na taj način steknu mogućnost
+da dodaju knjige u biblioteku, da ažuriraji podatke o knjigama i da ih brišu. Odavde zaključujemo da aplikacija ima dva režima za dva postojeća tipa korisnika:
+
+<br/><br/>
+
+<ul>
+   <li>Neregistrovani</li>
+   <li>Registrovani</li>
+</ul>
+<br/>
+
+U neregistrovanom režimu korisnici mogu da vide koje su sve knjige u bazi, da se prijave na svoj nalog ako ga imaju i da se registruju, ako nemaju nalog. 
+Da bi aplikacija prešla u registrovani režim potrebno je
+da se registrovani korisnik prijavi na svoj nalog. Nakon prijave, korisnik dobija mogućnost da dodaje nove knjige, da ažurira podatke o postojećim, da briše knjige
+iz baze i da se na kraju rada odjavi sa svog naloga. Da bismo razlikovali režime rada aplikacije koristićemo sesije. Nakon što se korisnik prijavi na svoj nalog,
+pokreće se sesija na ranije opisani način. Nakon što se korisnik odjavi sa naloga, sesija se završava. 
+
+<h2>Organizacija koda u aplikaciji</h2>
+Aplikacija će biti podeljena u tri fajla: <br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">sql.js</span>  - korisnički definisan modul kojim se vrši interakcija sa sistemom za upravljanje bazom podataka.</li>
+   <li><span class="font-weight-bold">rutiranje.js</span>  - korisnički definisan modul za upravljanje stranicama i kontrolu pristupa.</li>
+   <li><span class="font-weight-bold">app.js</span>  - glavni kod aplikacije kojim se pokreće server koji osluškuje zahteve klijenta.</li>
+</ul>
+<br/>
+
+U nastavku kursa, sadržaj svakog od navedenih fajlova biće detaljno opisan.  
+U prethodnim lekcijama smo napravili bazu podataka <span class="font-weight-bold">knjige</span> i dve tabele,
+<span class="font-weight-bold">knjiga</span> i <span class="font-weight-bold">korisnik</span>. Baza podataka <span class="font-weight-bold">knjige</span>
+ je polazne tačka od koje krećemo u narednim lekcijama. 
+ 
+ <h2>Korisnički interfejs</h2>
+ 
+ Korisnički interfejs treba da bude jednostavan, lak za upotrebu i vizuelno dopadljiv. Da bismo to postigli, stranicu ćemo urediti uz pomoć CSS-a. 
+ U svakom trenutku korisnik treba da zna koje su mu sve stranice dostupne i da zna na kojoj se stranici trenutno nalazi. Takođe, treba voditi računa da 
+ neprijavljeni korisnici ne mogu da ubacuju, menjaju i brišu knjige, niti mogu da se odjave. Neprijavljeni korisnici mogu samo da izlistaju knjige, da se registruju 
+ ili da se prijave ukoliko već imaju nalog. Prijavljeni korisnici mogu da listaju, ubacuju, menjaju i brišu knjige, kao i da se odjave. Prijavljeni korisnici ne
+ mogu da se ponovo registruju niti mogu da se prijave ponovo. Imajući sve u ovo u vidu, dizajn početne stranice biće sledeći:
+ 
+ <img src="courses/nodejs/20_virtuelna_biblioteka/slika1.jpg" class="img-fluid img-md center">
+ 
+ Nakon što pristupi početnoj stranici, korisniku će biti prikazano ime aplikacije, meni sa obeleženom aktivnom stranicom 
+ i sadržaj tabele <span class="font-weight-bold">knjiga</span>. Neprijavljenim korisnicima su na raspolaganju još stranica za registraciju sa odgovarajućom formom:
+ 
+ <img src="courses/nodejs/20_virtuelna_biblioteka/slika2.jpg" class="img-fluid img-md center">
+  
+ Nakon što popuni sva potrebna polja i klikne na dugme <span class="font-weight-bold">Registruj se</span>, korisnik će dobiti poruku o uspešnoj registraciji. 
+ 
+ <div class="zadatak">
+   <span class="font-weight-bold">Zadatak 34.</span><br/>
+   Razmislite kako bismo mogli da proverimo da li je korisnik uneo sve potrebne podatke i kako da proverimo da li je mejl adresa već iskorišćena 
+   u nekoj prethodnoj registraciji. 
+</div>
+
+ Pored stranice za registraciju, neprijavljeni korisnici na raspolaganju imaju i stranicu za prijavljivanje sa njoj pridruženom formom:
+ 
+<img src="courses/nodejs/20_virtuelna_biblioteka/slika3.jpg" class="img-fluid img-md center">
+ 
+Nakon što popuni polja korisničko ime i šifra i klikne na dugme <span class="font-weight-bold">Uloguj se</span>, aplikacija će proveriti da li postoji nalog sa tim podacima
+i prikazati korisniku odgovarajuću poruku. Po uspešnom logovanju, aplikacija započinje sesiju.
+U slučaju da neprijavljeni korisnik pristupi bilo kojoj stranici kojoj nema pravo, aplikacija će mu prikazati odgovarajuću poruku, tj. da prvo mora da se uloguje:
+ 
+<img src="courses/nodejs/20_virtuelna_biblioteka/slika4.jpg" class="img-fluid img-md center">
+
+Nakon što se korisnik prijavi, aplikacija će mu omogućiti pristup svim ostalim stranicama. Na primer, stranica za dodavanje knjige ima sledeći izgled:
+
+ <img src="courses/nodejs/20_virtuelna_biblioteka/slika5.jpg" class="img-fluid img-md center">
+ 
+Nakon što popuni sva polja i klikne na dugme <span class="font-weight-bold">Unesi novu knjigu</span>, aplikacija će korisniku prikazati poruku o uspehu ili neuspehu tražene operacije. Da bi korisnik
+mogao da izmeni neke podatke o postojećoj knjizi, potrebno je da prvo unese identifikator knjige i da klikne na dugme <span class="font-weight-bold">Pronаđi knjigu</span>:
+
+ <img src="courses/nodejs/20_virtuelna_biblioteka/slika6.jpg" class="img-fluid img-md center">
+ 
+ Nakon uspešnog pronalaska knjige u bazi podataka, aplikacija će korisniku prikazati formu sa postojećim podacima koje korisnik može da menja:
+ 
+  <img src="courses/nodejs/20_virtuelna_biblioteka/slika7.jpg" class="img-fluid img-md center">
+  
+ Kada unese sve izmene koje želi i klikne na dugme <span class="font-weight-bold">Izmeni knjigu</span>, promene će biti sačuvane u bazi i korisnik će biti obavešten o uspehu operacije. Da bi se knjiga 
+ obrisala potrebno je da korisnik unese identifikator knjige i da klikne na dugme <span class="font-weight-bold">Obriši knjigu</span>:
+ 
+ <img src="courses/nodejs/20_virtuelna_biblioteka/slika8.jpg" class="img-fluid img-md center">
+  
+ Po izvršenju operacije, korisniku će biti prikazana poruka o uspehu. Prijavljeni korisnici ne mogu da se ponovo registruju ili prijave i u slučaju pristupa tim
+ stranicama potrebno im je prikazati odgovarajuću poruku:
+ 
+  <img src="courses/nodejs/20_virtuelna_biblioteka/slika9.jpg" class="img-fluid img-md center">
+  
+  Na kraju, da bi se korisnik odjavio, potrebno je da poseti <span class="font-weight-bold">Logout</span> stranicu. Tada će sesija biti prekinuta i korisnik će biti obavešten o odjavljivanju:
+  
+   <img src="courses/nodejs/20_virtuelna_biblioteka/slika10.jpg" class="img-fluid img-md center">
+ 
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Sve stranice u aplikaciji se kreiraju dinamički na serverskoj strani uz pomoć radnog okvira NodeJS u zavisnosti od akcije koju korisnik izvrši.
+</div>
+ 
+ 
+ 
+ 

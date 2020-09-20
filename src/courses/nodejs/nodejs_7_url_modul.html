@@ -1,0 +1,286 @@
+<h1>URL modul</h1>
+
+<span class="font-weight-bold">URL</span> modul NodeJS okvira omogućava parsiranje veb adresa, tj. putanja kojima korisnik želi da pristupi. Uz pomoć URL modula moguće je 
+podeliti putanju na delove koji su čitljivi. U prethodnoj lekciji smo naučili kako da otkrijemo kojoj putanji u okviru naše stranice
+korisnik želi da pristupi, ali problem koji postoji jeste kada korisnik pokuša da unese korisničko ime i lozinku i klikne da dugme 
+<span class="font-weight-bold">Uloguj se</span>. Upravo to ćemo da pokušamo da uradimo, unećemo korisničko ime i lozinku i kliknuti na dugme:
+
+<img src="courses/nodejs/7_url_modul/slika25.jpg" class="img-fluid img-md center">
+
+Rezultat izvršavanja je prikazan na slici:
+
+<img src="courses/nodejs/7_url_modul/slika26.jpg" class="img-fluid img-md center">
+
+Da bi nam bilo jasno zašto smo nakon klika na dugme <span class="font-weight-bold">Uloguj se</span> dobili poruku da tražena stranica 
+ne postoji, dovoljno je da pogledamo sadržaj adresne linije nakon klika na dugme:
+
+<xmp class = "primer_ta"> 
+http://127.0.0.1:8081/login?username=pera&password=peric
+</xmp>
+
+Odavde lako zaključujemo da je putanja kojoj korisnik želi da pristupi zapravo  <span class="font-weight-bold">/login?username=pera&password=peric</span>.
+Ova putanja sačinjena je iz dva dela. Jedan deo predstavlja sama stranica kojoj korisnik želi da pristupi <span class="font-weight-bold">/login</span>, a ostatak
+<span class="font-weight-bold">?username=pera&password=peric</span> je zapravo sadržaj polja forme, tj. upit, koji se šalje <span class="font-weight-bold">GET</span> metodom. 
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   GET i POST metod su dva najčešća metoda kojim se podaci sa forme šalju serveru. GET metod podatke šalje javno nadovezujući ih na putanju, a POST metod podatke šalje tajno. Podrazumevano se koristi GET metod.
+</div>
+
+Putanju i upit možemo da pokušamo da parsiramo ručno, ali mnogo je lakše da koristimo <span class="font-weight-bold">URL</span> modul NodeJS radnog okvira i da tako raščlanimo 
+sadržaj putanje. Neophodne je da prvo uključimo <span class="font-weight-bold">URL</span> modul uz pomoć ključne reči <span class="font-weight-bold">require</span>. Kod servera
+modifikujemo na sledeći način i čuvamo ga u fajlu <span class="font-weight-bold">url_modul.js</span>:
+
+<xmp class = "primer_ta"> 
+// Uključujemo modul http i definišemo promenljivu 
+// http u kojoj čuvamo instancu modula
+var http = require("http"); 
+// uključujemo i url modul
+var url = require("url");
+
+// kreiramo server koji će osluškivati port 8081
+// prilikom kreiranja servera odmah vezujemo povratnu rutinu
+http.createServer(function (zahtev, odgovor) {
+
+   // pamtimo putanju koju korisnik želi da poseti
+   var putanja = zahtev.url;
+   // nakon što smo saznali putanju potrebno je da je parsiramo
+   var elementi = url.parse(putanja, true);
+   
+   // nakon što je url modul izdvojio elemente putanje, možemo lako da pristupimo
+   // elementima putanje
+   
+   // pathname je stranica koju korisnik želi da poseti
+   var stranica = elementi.pathname;
+   
+   // vrednosti polja iz forme možemo lako da pročitamo iz query objekta parsiranog izraza
+   var korisnicko_ime = elementi.query.username;
+   var sifra = elementi.query.password;
+   
+   // potrebno je da proverimo koju stranicu korisnik želi da poseti
+   if (stranica === "/index") {
+   
+      // kao tip sadržaja postavljamo tekstualni html
+      odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+      
+      // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+      odgovor.write('<html>');
+      odgovor.write('<head><title>HTTP modul primeri</title></head>');
+      odgovor.write('<body>');
+      odgovor.write('<h1>Zdravo!</h1>');
+      odgovor.write('</body>');
+      odgovor.write('</html>');
+   }
+   else if (stranica == "/login") {
+      
+      // kada smo saznali da korisnik želi da poseti login stranicu, potrebno je da proverimo
+      // da li nam sa te stranice dolazi nakon klika na dugme ili je prvi put otvara
+      
+      // ako je korisnik popunio oba polja, treba da pozdravimo
+      if (typeof korisnicko_ime != 'undefined' && typeof sifra != 'undefined' && korisnicko_ime != '' && sifra != '') {
+      
+         // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+         odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+         
+         // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+         odgovor.write('<html>');
+         odgovor.write('<head><title>HTTP modul primeri</title></head>');
+         odgovor.write('<body>');
+         odgovor.write('<h1>Zdravo, ' + korisnicko_ime + '!</h1>');
+         odgovor.write('</body>');
+         odgovor.write('</html>');
+      }
+      // u suprotnom, prikazaćemo mu opet login formu
+      else {
+         // do sada smo za postavljanje http zaglavlja koristili metod setHeader() koji omogućava
+         // postavljanje samo jednog zaglavlja. U ovom primeru ilustrovaćemo upotrebu metoda 
+         // writeHead() kojim se može postaviti veći broj svojstava zaglavlja
+         
+         // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+         odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+         
+         // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+         odgovor.write('<html>');
+         odgovor.write('<head><title>HTTP modul primeri</title></head>');
+         odgovor.write('<body>');
+         odgovor.write('<form>');
+         odgovor.write('Korisničko ime:<input type="text" name="username" /><br/>');
+         odgovor.write('Lozinka:<input type="password" name="password" /><br/>');
+         odgovor.write('Lozinka:<input type="submit" value="Uloguj se" /><br/>');
+         odgovor.write('</form>');
+         odgovor.write('</body>');
+         odgovor.write('</html>');
+      }
+   }
+   else {    
+   
+      // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 404
+      odgovor.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+      odgovor.write('<html>');
+      odgovor.write('<head><title>HTTP modul primeri</title></head>');
+      odgovor.write('<body>');
+      odgovor.write('<h1>Greška 404: Tražena stranica ne postoji!</h1>');
+      odgovor.write('</body>');
+      odgovor.write('</html>');
+   }
+
+   // na kraju je neohodno da pozovemo metod end nad objektom odgovor
+   odgovor.end();
+   
+   // nakon poziva metoda end() ne smemo više da referišemo na objekat odgovor
+   
+}).listen(8081);
+
+// Definišemo poruku koja će biti ispisana 
+// nakon pokretanja servera
+console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
+</xmp>
+
+Da bismo se uverili da će ovako modifikovan server zaista pozdraviti korisnika nakon što klikne na dugme <span class="font-weight-bold">Uloguj se</span>,
+pokrenućemo server ponovo, pristupiti stranici <span class="font-weight-bold">127.0.0.1:8081/login</span>, popuniti polja u formi i kliknuti na dugme. Rezultat
+izvršavanja biće sledeći:
+
+ <img src="courses/nodejs/7_url_modul/slika27.jpg" class="img-fluid img-md center">
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 13.</span><br/>
+   Šta bi se desilo kada bismo kliknuli na dugme Uloguj se, a da prethodno nismo popunili oba polja forme? Pre nego što
+   pokušate to u programu, probajte da zaključite na osnovu koda.
+</div>
+
+Iako je sada sa serverom sve u redu i sve radi onako kako očekujemo, ipak imamo jedan ozbiljan sigurnosni propust. Propust se ogleda u tome
+što korisničko ime i šifru korisnika šaljemo pomoću GET metoda, tj. javno. Da bismo uklonili ovaj propust podesićemo da metod slanja parametara
+naše forme bude POST, tj. slaćemo korisničko ime i sifru kao skrivene parametre. Da bismo to učinili potrebno je da modifikujemo kod servera na sledeći način:
+
+<xmp class = "primer_ta"> 
+// Uključujemo modul http i definišemo promenljivu 
+// http u kojoj čuvamo instancu modula
+var http = require("http"); 
+// uključujemo i url modul
+var url = require("url");
+
+// kreiramo server koji će osluškivati port 8081
+// prilikom kreiranja servera odmah vezujemo povratnu rutinu
+http.createServer(function (zahtev, odgovor) {
+   
+   // iz zahteva saznajemo metod pristupa
+   var metodPristupa = zahtev.method;   
+   
+   // pamtimo putanju koju korisnik želi da poseti
+   var putanja = zahtev.url;
+   // nakon što smo saznali putanju potrebno je da je parsiramo
+   var elementi = url.parse(putanja, true);
+   
+   // nakon što je url modul izdvojio elemente putanje, možemo lako da pristupimo
+   // elementima putanje
+   
+   // pathname je stranica koju korisnik želi da poseti
+   var stranica = elementi.pathname;
+   
+   // vrednosti polja iz forme možemo lako da pročitamo iz query objekta parsiranog izraza
+   var korisnicko_ime = elementi.query.username;
+   var sifra = elementi.query.password;
+   
+   // potrebno je da proverimo koju stranicu korisnik želi da poseti
+   if (stranica === "/index") {
+   
+      // kao tip sadržaja postavljamo tekstualni html
+      odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+      
+      // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+      odgovor.write('<html>');
+      odgovor.write('<head><title>HTTP modul primeri</title></head>');
+      odgovor.write('<body>');
+      odgovor.write('<h1>Zdravo!</h1>');
+      odgovor.write('</body>');
+      odgovor.write('</html>');
+   }
+   else if (stranica == "/login") {
+      
+      // kada smo saznali da korisnik želi da poseti login stranicu, potrebno je da proverimo
+      // da li nam sa te stranice dolazi nakon klika na dugme ili je prvi put otvara
+      
+      // ako je korisnik popunio oba polja, treba da pozdravimo
+      if (metodPristupa === "POST" && typeof korisnicko_ime != 'undefined' && typeof sifra != 'undefined' 
+            && korisnicko_ime != '' && sifra != '') {
+      
+         // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+         odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+         
+         // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+         odgovor.write('<html>');
+         odgovor.write('<head><title>HTTP modul primeri</title></head>');
+         odgovor.write('<body>');
+         odgovor.write('<h1>Zdravo, ' + korisnicko_ime + '!</h1>');
+         odgovor.write('</body>');
+         odgovor.write('</html>');
+      }
+      // u suprotnom, prikazaćemo mu opet login formu
+      else {
+         // do sada smo za postavljanje http zaglavlja koristili metod setHeader() koji omogućava
+         // postavljanje samo jednog zaglavlja. U ovom primeru ilustrovaćemo upotrebu metoda 
+         // writeHead() kojim se može postaviti veći broj svojstava zaglavlja
+         
+         // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 200
+         odgovor.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+         
+         // nakon što smo postavili zaglavlje, možemo da generišemo i odgovor
+         odgovor.write('<html>');
+         odgovor.write('<head><title>HTTP modul primeri</title></head>');
+         odgovor.write('<body>');
+         odgovor.write('<form method="POST" action="/login">');
+         odgovor.write('Korisničko ime:<input type="text" name="username" /><br/>');
+         odgovor.write('Lozinka:<input type="password" name="password" /><br/>');
+         odgovor.write('Lozinka:<input type="submit" value="Uloguj se" /><br/>');
+         odgovor.write('</form>');
+         odgovor.write('</body>');
+         odgovor.write('</html>');
+      }
+   }
+   else {    
+   
+      // status kojim se klijentu saopštava da tražena stranica ne postoji ima broj 404
+      odgovor.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
+      odgovor.write('<html>');
+      odgovor.write('<head><title>HTTP modul primeri</title></head>');
+      odgovor.write('<body>');
+      odgovor.write('<h1>Greška 404: Tražena stranica ne postoji!</h1>');
+      odgovor.write('</body>');
+      odgovor.write('</html>');
+   }
+
+   // na kraju je neohodno da pozovemo metod end nad objektom odgovor
+   odgovor.end();
+   
+   // nakon poziva metoda end() ne smemo više da referišemo na objekat odgovor
+   
+}).listen(8081);
+
+// Definišemo poruku koja će biti ispisana 
+// nakon pokretanja servera
+console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
+</xmp>
+
+Nakon što sačuvamo sve izmene u kodu servera, ponovo ga pokrenemo, pristupimo login stranici, ukucamo korisničko ime i šifru i kliknemo na dugme <span class="font-weight-bold">Uloguj se</span>
+dobićemo sledeći rezultat, tj. naizgled neće se desiti ništa:
+
+<img src="courses/nodejs/7_url_modul/slika28.jpg" class="img-fluid img-md center">
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 14.</span><br/>
+   Da li možete da pretpostavite šta je u pitanju i zbog čega se ne dešava ništa? Pokušajte da povežete ovu situaciju
+   sa ranijim znanjem PHP-a ili nekog drugog serverskog jezika, ako ga posedujete.
+</div>
+
+Razlog zašto se ništa ne dešava se krije u tome kako radi naš server. Naš server svoj rad bazira na tumačenju i parsiranju adresa. Podaci
+koji se šalju serveru pomoću GET metoda se šalju tako što se nadovezuju na putanju i to odgovora onome kako naš server prihvata podatke.
+Podaci koji se šalju serveru pomoću POST metoda ne šalju se nadovezivanjem na adresu, već se šalju kao sirovi tok podataka. Da bismo mogli
+pravilno da obrađujemo takav oblik komunikacije, neophodno je da uvedemo koncept bafera (eng. buffer) i tokova (eng. stream) o čemu će biti reči 
+u narednim lekcijama. 
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 15.</span><br/>
+   Modifikovati kod servera tako da prikazuje korisniku i formular za registraciju nakon što pristupi putanji /registracija. Polja koja treba prikazati korisniku
+   su ime, prezime, korisničko ime, šifra, potvrda šifre i mejl adresa, kao i dugme Registruj se. Nakon klika na dugme, server treba klijentu da vrati poruku 
+   koja sadrži sve parametre registracije. Metod slanja podataka treba da bude GET.
+</div>

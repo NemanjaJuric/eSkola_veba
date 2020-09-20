@@ -1,0 +1,74 @@
+<h1>NodeJS i baze podataka</h1>
+
+U dosadašnjem delu kursa pažnju smo u najvećoj meri posvetili komunikaciji između klijenta i servera i obradi podataka 
+koje bi klijent slao serveru pomoću formi. Jasno je da pored obrade tih podataka, veb aplikacija treba da podržava logički
+organizovano skladištenje podataka. Osim skladištenja, aplikacija treba da podržava efikasnu pretragu, ažuriranje i po potrebi
+uklanjanje podataka kada više nisu potrebni. Najlakše, ovo možemo da postignemo upotrebom baza podataka u okviru svojih aplikacija. 
+<br/><br/>
+
+U najopštijem smislu, bazu podataka možemo posmatrati kao orgranizovanu ili uređenu kolekciju podataka. Da bismo mi kao korisnici
+mogli da koristimo tako organizovane podatke, potrebno je da se upoznamo sa kompleksnim softverom koji se jednim imenom zove Sistem za Upravljanje
+Bazom Podataka (eng. DataBase Management System, DBMS), skraćeno SUBP. SUBP je softver koji korisnicima, aplikacijama i samoj
+bazi podataka omogućava da upravljaju podacima u okviru baze podataka. Pod upravljanjem podacima podrazumeva se kreiranje, 
+pretraživanje, ažuriranje i brisanje podataka. Najčešće podaci u bazi podataka su organizovani u tabelama koje su međusobno
+povezane relacijama. U okviru tabele, podaci su opisani atributima i organizovani po redovima. Baze podataka organizovane na ovaj način nazivaju se relacione 
+baze podataka. Interakcija sa bazom podataka
+ostvaruje se pomoću jezika upita koji se naziva SQL. 
+<br/>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Da bi čitalac mogao na pravi način da prati i razume ostatak elektronskog kursa NodeJS potrebno je 
+   da ima osnovno znanje o relacionim bazama podataka i SQL jeziku.
+</div>
+
+U nastavku elektronskog kursa NodeJS, razmatraćemo samo relacione baze podataka. Kao sistem za upravljanje bazom
+podataka koristićemo MySQL, koji nije uključen u instalaciju NodeJS radnog okvira. 
+Ukoliko ne posedujete instaliran MySQL SUBP na svom računaru, možete ga lako instalirati kao deo različith platformi za razvoj veb
+aplikacija poput WAMP Servera koji je potpuno besplatan i lak za upotrebu. Dalje, da bismo mogli da koristimo MySQL bazu podataka 
+u okviru svoje aplikacije potrebno je da instaliramo  <span class="font-weight-bold">mysql</span> modul NodeJS radnog okvira. 
+To ćemo učiniti sledećom komandom u konzoli:
+
+<xmp class = "primer_ta"> 
+npm install mysql
+</xmp>
+
+Nakon instalacije <span class="font-weight-bold">mysql:</span> modula možemo da razvijamo aplikacije koje koriste baze podataka. 
+
+<h2>Kreiranje baze podataka</h2>
+Da bismo mogli da koristimo bazu podataka, potrebno je da je prvo kreiramo. Pored kreiranja baze podataka, potrebno je 
+da napravimo model podataka tako što podatke opišemo tabelama i relacijama koje postoje između njih. Često, ovo je najteži korak, 
+jer pogrešno napravljen model može uzrokovati razne anomalije sa podacima tokom izvršavanja aplikacije. Modeliranje baze podataka
+značajno prevazilazi opseg ovog kursa i o tome neće biti reči u nastavku. 
+
+<h2>CRUD operacije</h2>
+Nakon kreiranja baze podataka, svih potrebnih tabela i relacija između njih, potrebno je definisati sve osnovne operacije nad 
+podacima. Jednim imenom, sve te operacije se nazivaju CRUD operacije. CRUD je zapravo akronim nastao od engleskog naziva četiri osnovne
+operacije sa podacima:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">Create (C)</span>  - Kreiranje podataka, tj. novih redova u tabeli.</li>
+   <li><span class="font-weight-bold">Read (R)</span>  - Čitanje, tj. pretraživanje podataka u bazi podataka.</li>
+   <li><span class="font-weight-bold">Update (U)</span>  - Ažuriranje podataka u tabeli.</li>
+   <li><span class="font-weight-bold">Delete (C)</span>  - Brisanje podataka iz baze podataka.</li>
+</ul>
+<br/>
+
+Navedene operacije su direktno podržane u okviru sistema za upravljanje podacima i jeziku upita SQL. Sve operacije će biti detaljnije
+objašnjene u nastavku uputstva.
+
+<h2>Sesije i kolačići</h2>
+Sesije i kolačići nisu direktno u vezi sa bazama podataka, ali korisniku mogu značajno da olakšavaju upotrebu aplikacije i 
+da podignu korisničko iskustvo na viši nivo. <span class="font-weight-bold">Kolačići</span> predstavljaju organizovani skup podataka koje veb aplikacija pamti na klijentkom
+računaru. <span class="font-weight-bold">Sesija</span> se može posmatrati kao skup informacija koje se pamte na serveru od momenta konektovanja, pa sve dok korisnik ima interakciju sa veb sajtom ili veb aplikacijom. Najčešće, sesije i kolačići se koriste zajedno. Prilikom konektovanja ili logovanja u aplikaciji, 
+započinje se sesija i generiše se jedinstveni identifikator sesije koji će u okviru servera biti upamćen u bazi podataka, a u okviru klijenta
+u kolačiću. Čim korisnik želi da poseti novu stranicu u okviru veb aplikacije, klijent automatski kroz http zahtev šalje serveru kolačić sa 
+idetifikatorom sesije pomoću koga server zna šta treba da prikaže korisniku. 
+<br/><br/>
+Ovo ćemo ilustrovati na jednostavnom primeru veb prodavnice. Da bi korisnik mogao da napravi porudžbinu potrebno je da se uloguje,
+da izabere artikle koje želi, da ih stavi u svoju korpu i da izvrši plaćanje. Po uspešnom logovanju, na serveru će biti pokrenuta 
+sesija, generisaće se identifikator sesije i u bazi podataka biće upamćeno kom korisniku je dodeljen taj identifikator kao i sadržaj 
+njegove korpe. Pored ovoga, u kolačiću na korisnikovom računaru biće upamćen identifikator sesije. Nakon što korisnik pređe na 
+stranicu sa artiklima koje želi, serveru se kroz http zahtev šalje i kolačić sa identifikatorom sesije na osnovu koga server
+zna čiju korpu treba da prikaže. Komunikacija se odvija na ovaj način sa svakom akcijom koju korisnik napravi. Na kraju, kada se korisnik
+izloguje iz aplikacije, uništava se kolačić sa identifikatorom sesije na njegovom računaru i prekida se sesija na serveru.

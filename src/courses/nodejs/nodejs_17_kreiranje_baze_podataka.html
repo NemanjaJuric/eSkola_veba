@@ -1,0 +1,248 @@
+<h1>Kreiranje baze podataka</h1>
+
+Da bismo ilustrovali upotrebu baza podataka pomoću NodeJS radnog okvira, u narednim lekcijama napravićemo virtuelnu
+biblioteku, tj. napravićemo bazu podataka koja sadrži podatke o knjigama. Takođe, treba da definišemo
+dve grupe korisnika naše biblioteke. Jedna grupa korisnika može da pretražuje sadržaj biblioteke, a druga grupa korisnika
+može da ga uređuje. Pod uređivanjem, podrazumevamo da korisnici te grupe mogu da dodaju, ažuriraju i uklanjanju knjige. 
+Da bi korisnik mogao da uređuje sadržaj biblioteke potrebno je da se registruje i prijavi na svoj nalog. U nastavku lekcije, 
+biće opisan postupak interakcije sa SUBP i kreiranje same baze podataka. Kao što smo rekli u uvodnoj lekciji o bazama podataka, neophodno je
+da instaliramo <span class="font-weight-bold">mysql</span>  modul u okviru NodeJS radnog okvira. To postižemo sledećom naredbom u konzoli:
+
+<xmp class = "primer_ta"> 
+npm install mysql
+</xmp>
+
+<h2>Povezivanje sa SUBP</h2>
+
+Da bismo bilo šta mogli da uradimo sa bazom podataka, prvi korak jeste da se povežemo na sistem za upravljanje bazom podataka. 
+Uz pomoć mysql modula potrebno je prvo da kreiramo objekat kojim opisujemo samu konekciju, a zatim da se asinhrono konektujemo
+na sistem za upravljanje bazom podataka. Prilikom konektovanja, potrebno je da navedemo adresu sistema za upravljanje bazom podataka,
+korisničko ime i šifru. Sve što smo opisali, u kodu se postiže na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo mysql modul
+var mysql = require('mysql');
+
+// kreiramo objekat kojim opisujemo konekciju
+var con = mysql.createConnection({
+  host: "localhost",    
+  user: "korisničko_ime",
+  password: "šifra"
+});
+
+// asinhrono se povezujemo sa SUBP
+con.connect(function(err) {
+  // proveravamo da li se desila greška
+  if (err) 
+    // štampamo poruku o grešci i prekidamo izvršavanje
+    return console.log(err);
+   
+  // u slučaju uspešnog konektovanja štampamo poruku o uspehu
+  console.log("Uspešno povezivanje!");
+});
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Korisničko ime i šifra su upravo oni kojima se pristupa sistemu za upravljanje bazom podataka, a host
+   je adresa SUBP. localhost označava da se SUBP nalazi na lokalnom, a ne na udaljenom računaru.
+</div>
+
+<h2>Kreiranje baze podataka</h2>
+
+Nakon uspešnog povezivanja sa SUBP, potrebno je da kreiramo bazu podataka. Bazu podataka ćemo nazvati <span class="font-weight-bold">knjige</span>  i možemo je kreirati
+uz pomoć jednostavne SQL naredbe:
+
+<xmp class = "primer_ta"> 
+CREATE DATABASE knjige
+</xmp>
+
+Da bi se baza podataka zaista kreirala, potrebno je da ovaj upit prosledimo SUBP nakon što se uspešno konektujemo na njega. Potrebno
+je da kod za konektovanje na bazu izmenimo na sledeći način:
+
+<xmp class = "primer_ta"> 
+// uključujemo mysql modul
+var mysql = require('mysql');
+
+// kreiramo objekat kojim opisujemo konekciju
+var con = mysql.createConnection({
+  host: "localhost",    
+  user: "korisničko_ime",
+  password: "šifra"
+});
+
+// asinhrono se povezujemo sa SUBP
+con.connect(function(err) {
+  // proveravamo da li se desila greška
+  if (err) 
+    // štampamo poruku o grešci i prekidamo izvršavanje
+    return console.log(err);
+   
+  // u slučaju uspešnog konektovanja štampamo poruku o uspehu
+  console.log("Uspešno povezivanje!");
+  
+  // kreiramo sql upit
+  var sql = "CREATE DATABASE knjige";
+  
+  // asinhrono šaljemo upit SUBP
+  con.query(sql, function(err, result)) {
+      // proveravamo da li se desila greška
+      if (err) ;
+         // štampamo poruku o grešci i prekidamo izvršavanje
+         return console.log(err);
+      
+      // štampamo poruku o uspehu
+      console.log("Baza podataka je kreirana!");
+  });
+});
+</xmp>
+
+Kod za kreiranje baze podataka <span class="font-weight-bold">knjige</span> biće sačuvan u fajlu <span class="font-weight-bold">conn.js</span>.
+
+<h2>Dodavanje tabela u bazu podataka</h2>
+
+Nakon uspešnog kreiranja baze podataka, potrebno je da kreiramo tabele koje će sadržati naše podatke. Potrebno je da imamo dve
+tabele u bazi podataka. Jedna tabela će predstavljati parametre za logovanje korisnika koji imaju pravo da uređuju knjige, a 
+druga tabela će sadržati informacije o knjigama. Tabela <span class="font-weight-bold">korisnik</span>  imaće sledeća polja:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">id</span>  - Primarni ključ, jedinstveni identifikator svakog korisnika, nenegativan ceo broj, nenula polje.</li>
+   <li><span class="font-weight-bold">kor_ime</span>   - Korisničko ime, tekst dužine 64, jedinstveno polje, nenula polje.</li>
+   <li><span class="font-weight-bold">sifra</span>   - Šifra, tekst dužine 64, nenula polje.</li>
+   <li><span class="font-weight-bold">mejl</span>   - Mejl adresa korisnika, tekst dužine 64, jedinstveno polje, nenula polje.</li>
+   <li><span class="font-weight-bold">ime</span>   - Ime korisnika, tekst dužine 64, nenula polje.</li>
+   <li><span class="font-weight-bold">prezime</span>   - Prezime korisnika, tekst dužine 64, nenula polje.</li>
+   <li><span class="font-weight-bold">godiste</span>   - Godina rođenja korisnika, nenegativan ceo broj, nenula polje.</li>
+</ul>
+<br/>
+
+Da bismo kreirali tabelu korisnik, formiraćemo sledeću sql naredbu:
+
+<xmp class = "primer_ta"> 
+CREATE Table knjige.korisnik (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+    `kor_ime` VARCHAR(64) NOT NULL,
+    `sifra` VARCHAR(64) NOT NULL,
+    `mejl` VARCHAR(64) NOT NULL,
+    `ime` VARCHAR(64) NOT NULL,
+    `prezime` VARCHAR(64) NOT NULL,
+    `godiste` INT UNSIGNED NOT NULL, 
+    PRIMARY KEY(`id`), 
+    UNIQUE(`kor_ime`), 
+    UNIQUE(`mejl`)
+)
+</xmp>
+
+Tabela <span class="font-weight-bold">knjiga</span>  imaće sledeća polja:<br/><br/>
+
+<ul>
+   <li><span class="font-weight-bold">id</span>  - Primarni ključ, jedinstveni identifikator svakog korisnika, nenegativan ceo broj, nenula polje.</li>
+   <li><span class="font-weight-bold">naslov</span>   - Naslov knjige, tekst dužine 128, nenula polje.</li>
+   <li><span class="font-weight-bold">autor</span>   - Autor knjige, tekst dužine 128, nenula polje.</li>
+   <li><span class="font-weight-bold">izdavac</span>   - Ime izdavača, tekst dužine 64, nenula polje.</li>
+   <li><span class="font-weight-bold">zanr</span>   - Ime žanra, tekst dužine 64, nenula polje.</li>
+   <li><span class="font-weight-bold">god_izdanja</span>   - Godina izdanja, nenegativan ceo broj, nenula polje.</li>
+   <li><span class="font-weight-bold">br_str</span>   - Broj stranica, nenegativan ceo broj, nenula polje.</li>
+   <li><span class="font-weight-bold">tiraz</span>   - Tiraž izdanja, nenegativan ceo broj, nenula polje.</li>
+</ul>
+<br/>
+
+Da bismo kreirali tabelu korisnik, formiraćemo sledeću sql naredbu:
+
+<xmp class = "primer_ta"> 
+CREATE Table knjige.knjiga (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+    `naslov` VARCHAR(128) NOT NULL,
+    `autor` VARCHAR(128) NOT NULL,
+    `izdavac` VARCHAR(64) NOT NULL,
+    `zanr` VARCHAR(64) NOT NULL,
+    `god_izdanja` INT UNSIGNED NOT NULL,
+    `br_str` INT UNSIGNED NOT NULL, 
+    `tiraz` INT UNSIGNED NOT NULL, 
+    PRIMARY KEY(`id`)
+)
+</xmp>
+
+Na kraju, ostaje samo još da uz pomoć NodeJS radnog okvira zaista kreiramo ove dve tabele tako što ćemo ove upite proslediti
+SUBP. U prethodnom delu lekcije smo već kreirali bazu podataka koja se zove knjige i sada možemo da izmenimo objekat konekcije
+tako da se konektujemo direktno na tu bazu, a ne samo na SUBP. Nakon što se povežemo, kreiraćemo tabele korisnik i knjiga u okviru
+baze podataka knjige. Kod za dodavanje tabela <span class="font-weight-bold">korisnik</span> i <span class="font-weight-bold">knjiga</span> biće
+sačuvan u fajlu <span class="font-weight-bold">db.js</span> koji ima sledeći sadržaj:
+
+<xmp class = "primer_ta"> 
+// uključujemo mysql modul
+var mysql = require('mysql');
+
+// kreiramo objekat kojim opisujemo konekciju
+var con = mysql.createConnection({
+  host: "localhost",    
+  user: "korisničko_ime",
+  password: "šifra",
+  database: "knjige"
+});
+
+// asinhrono se povezujemo sa SUBP
+con.connect(function(err) {
+  // proveravamo da li se desila greška
+  if (err) 
+    // štampamo poruku o grešci i prekidamo izvršavanje
+    return console.log(err);
+   
+  // u slučaju uspešnog konektovanja štampamo poruku o uspehu
+  console.log("Uspešno povezivanje!");
+  
+  // kreiramo sql upit kojim kreiramo tabelu korisnik
+  var sql = 'CREATE Table knjige.korisnik (\
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,\
+    `kor_ime` VARCHAR(64) NOT NULL,\
+    `sifra` VARCHAR(64) NOT NULL,\
+    `mejl` VARCHAR(64) NOT NULL,\
+    `ime` VARCHAR(64) NOT NULL,\
+    `prezime` VARCHAR(64) NOT NULL,\
+    `godiste` INT UNSIGNED NOT NULL,\
+    PRIMARY KEY(`id`), \
+    UNIQUE(`kor_ime`), \
+    UNIQUE(`mejl`)\
+    )';
+  
+  // asinhrono šaljemo upit SUBP
+  con.query(sql, function(err, result)) {
+      // proveravamo da li se desila greška
+      if (err) 
+         // štampamo poruku o grešci i prekidamo izvrđavanje
+         return console.log(err);
+      
+      // štampamo poruku o uspehu
+      console.log("Tabela korisnik uspesno kreirana!");
+      
+      // definišemo upit kojim se kreira tabela knjiga
+      sql = 'CREATE Table knjige.knjiga (\
+         `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
+         `naslov` VARCHAR(128) NOT NULL,\
+         `autor` VARCHAR(128) NOT NULL,\
+         `izdavac` VARCHAR(64) NOT NULL,\
+         `zanr` VARCHAR(64) NOT NULL,\
+         `god_izdanja` INT UNSIGNED NOT NULL,\
+         `br_str` INT UNSIGNED NOT NULL, \
+         `tiraz` INT UNSIGNED NOT NULL, \
+         PRIMARY KEY(`id`)\
+         )';
+      
+      // asinhrono šaljemo upit SUBP
+      con.query(sql, function(err, result)) {
+         // proveravamo da li se desila greška
+         if (err) 
+             // štampamo poruku o grešci i prekidamo izvršavanje
+             return console.log(err);
+      
+         // štampamo poruku o uspehu
+         console.log("Tabela knjiga uspesno kreirana!");
+      });
+  });
+});
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 24.</span><br/>
+   Po uzoru na primer iz lekcije, uz pomoć NodeJS i SQL kreirati bazu podataka o filmovima.
+</div>

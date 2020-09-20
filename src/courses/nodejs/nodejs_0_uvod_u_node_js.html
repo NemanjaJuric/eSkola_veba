@@ -1,0 +1,70 @@
+<h1> Uvod u NodeJS</h1>
+NodeJS je moderan radni okvir za JavaScript koji se izvršava na serverima, besplatan je i kompatibilan sa svim trenutno aktuelnim platformama. Da bi se NodeJS ispravno koristio neophodno je da čitalac poseduje osnovno poznavanje veb tehnologija i programiranja, kao i da je upoznat sa osnovnim konceptima klijent-server arhitekture i upravljanja bazama podataka.
+
+<h2>Šta je NodeJS?</h2>
+NodeJS je serversko radno okruženje otvorenog koda za JavaScirpt. Za razliku od JavaScript-a, koji se izvršava u pregledaču i koristi se za dinamičku kontrolu prikaza veb stranice na strani klijenta, NodeJS omogućava korisnicima da izvršavaju JavaScript kod na serveru. Korišćenjem NodeJS-a dobija se mogućnost korišćenja JavaScript-a kao klasičnog programskog jezika, tj. van okvira pregledača. S obzirom da se NodeJS izvršava na strani servera, JavaScriptu se dodaju sledeće funkcionalnosti:<br/><br/>
+<ul>
+   <li>Generisanje dinamičkog sadržaja na veb stranicama.</li>
+   <li>Upravljanje fajlovima na strani servera (kreiranje, otvaranje, čitanje, pisanje, zatvaranje, brisanje, modifikovanje).</li>
+   <li>Skupljanje i obrađivanje podataka iz formulara.</li>
+   <li>Upravljanje podacima u bazi podataka.</li>
+</ul>
+<br/>
+Upotrebom NodeJS-a moguće je razvijati kompleksne veb aplikacije isključivo na jednom programskom jeziku, JavaScriptu. 
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 1.</span><br/>
+   Da li ste upoznati sa još nekim programskim jezikom koji se može izvršavati uporedo i na pregledaču i na serveru?
+</div>
+
+<h2>Zašto NodeJS?</h2>
+Konceptualno, kada korisnik otkuca adresu veb strane u pregledaču i pritisne taster Enter na tastaturi, tada pregledač šalje zahtev serveru da mu dostavi tu stranicu, server prihvata taj zahtev, pronalazi stranicu i isporučuje je pregledaču. Nakon isporučivanja stranice, pregledač korisniku prikazuje stranicu.<br/>
+
+Razmotrimo detaljnije šta se dešava na serveru sa pristiglim zahtevom kada se koristi PHP:<br/><br/>
+<ul>
+   <li>Aplikacija šalje zahtev fajl sistemu.</li>
+   <li>Aplikacija čeka blokirajuće sve dok sistem ne otvori i ne pročita traženi fajl.</li>
+   <li>Sadržaj dokumenta se šalje korisniku, tj. pregledaču.</li>
+   <li>Aplikacija je spremna da prihvati novi zahtev. </li>
+</ul>
+<br/>
+
+Razmotrimo detaljnije šta se dešava na serveru sa pristiglim zahtevom kada se koristi NodeJS:<br/><br/>
+<ul>
+   <li>Aplikacija šalje zahtev fajl sistemu.</li>
+   <li>Aplikacija je spremna da prihvati novi zahtev. </li>
+   <li>Nakon što server otvori i pročita sadržaj fajla, aplikacija vraća sadržaj klijentu, tj. pregledaču.</li>
+</ul>
+<br/>
+
+NodeJS eliminiše čekanje dok server izvršava jedan zahtev i odmah prelazi na naredni zahtev. Na taj način povećava se odzivnost aplikacije.
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 2.</span><br/>
+   Da li znate kako se naziva režim upravljanja ulazno-izlaznim operacijama koje koristi NodeJS?
+</div>
+
+<h2>Kako se koristi NodeJS?</h2>
+NodeJS je radni okvir za JavaScript, pa će kompletan programski kod koji se izvršava na serveru uvek biti JavaScript. Programski kod se čuva na serveru u fajlovima sa .js ekstenzijom. S obzirom da se NodeJS aplikacija izvršava na serveru postoji nekoliko stvari koje treba imati u vidu:<br/><br/>
+<ul>
+   <li>NodeJS fajlovi sadrže opise poslova koji treba da se izvrše nakon što se desi neki događaj.</li>
+   <li>Najjednostavniji događaj može da bude kada neki klijent pokuša da pristupi nekom portu na serveru. </li>
+   <li>Da bi bilo koji NodeJS fajl imao bilo kakvog efekta, potrebno je da se prvo inicijalizuje na serveru.</li>
+</ul>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 3.</span><br/>
+   Kako biste definisali termin "posao"? A termin "radni okvir"?
+</div>
+
+<h2>Šta pokriva ovaj kurs?</h2>
+Kurs pokriva osnovne veštine neophodne za pravilno korišćenje NodeJS radnog okvira. Kurs je podeljen na dve celine: <br/><br/>
+<ul>
+   <li>Osnove NodeJS i upravljanje stranicama.</li>
+   <li>Upravljanje podacima u bazi podataka pomoću NodeJS i SQL-a. </li>
+</ul>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Elektronski kurs NodeJS podrazumeva da čitalac poseduje osnovno poznavanje veb tehnologija i programiranja, kao i da je upoznat sa osnovnim konceptima klijent-server arhitekture i upravljanja bazama podataka. Kada su veb tehnologije u pitanju, korisnik treba da je upoznat sa osnovama HTML-a, JavaScript-a i HTTP protokola. 
+</div>

@@ -1,0 +1,274 @@
+﻿<h1>Virtuelna biblioteka - sql modul</h1>
+
+Radi lakšeg održavanja koda, aplikaciju smo podelili na tri celine. Jedna celina predstavlja interakciju sa sistemom za upravljanje bazom podataka. Osnovni način
+interakcije sa SUBP je definisan sledećim koracima:<br/><br/>
+
+<ul>
+   <li>Pripremiti željeni SQL upit.</li>
+   <li>Konektovati se na bazu podataka.</li>
+   <li>Izvršiti željeni upit i obraditi rezultate upita.</li>
+   <li>Diskonektovati se sa baze podataka.</li>
+</ul>
+<br/>
+
+Na ovom mestu potrebno je naglasiti dve stvari. Jedna stvar vezana je za samo diskonektovanje sa baze podataka. Naime, moguće je napisati aplikaciju tako da drži otvorenu
+konekciju sa bazom sve vreme dok traje sesija. Medjutim, ovakav pristup značajno smanjuje odzivnost aplikacije, jer u svakom trenutku samo određen broj konekcija može 
+biti aktivan. Pored toga, korisnik će većinu vremena tokom sesije da potroši na pretraživanje podataka koje mu mi prikažemo iz baze, a ne na samo slanje upita. Imajući
+sve ovo u vidu, nakon svakog upita diskonektovaćemo se sa baze podataka. <br/><br/>
+
+Druga stvar o kojoj treba voditi računa jeste činjenica da je NodeJS pre svega asinhroni radni okvir. Tokom implementacije programa moramo posebnu 
+pažnju da posvetimo dizajnu funkcija da bismo iskoristili neblokirajući režim na najbolji mogući način. U praksi, ovo znači da ćemo svakoj operaciji za koju
+znamo da se izvršava asinhrono dodeliti funkciju koja kao poslednji argument prihvata povratni poziv u kojem ćemo izvršiti obradu rezultata te asinhrone operacije. 
+U slučaju da ne znamo da li je neka operacija asinhrona ili ne, možemo da pretpostavimo da je operacija blokirajuća i da pokušamo sa implementacijom na klasičan način. 
+Ako nismo u pravu, odmah nakon prvog pokretanja videćemo da se aplikacija ne ponaša na očekivani način.<br/><br/>
+
+Da bismo kreirali interfejs za interakciju sa SUBP i bazom podataka <span class="font-weight-bold">knjige</span>, kreiraćemo korisnički definisani modul
+koji čemo sačuvati u fajlu <span class="font-weight-bold">sql.js</span>. Opšta struktura fajla je sledeća:
+
+<xmp class = "primer_ta"> 
+// uključivanje potrebnih modula
+
+// definicije funkcija za kreiranje upita
+
+// definicije funkcija za konektovanje na bazu
+
+// definicije funkcija za izvršavanje upita
+
+// eksportovanje funkcija koje korisnik može
+// da koristi u okviru drugih modula
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Da bismo uopšte mogli da uradimo bilo šta sa SUBP, potrebno je da imamo instaliran modul <span class="font-weight-bold">mysql</span>. 
+   To se može postići komandom <span class="font-weight-bold">npm install mysql</span>.
+</div>
+
+Uključivanje modula <span class="font-weight-bold">mysql</span> će biti prva naredba u fajlu <span class="font-weight-bold">sql.js</span>, tj:
+
+<xmp class = "primer_ta"> 
+var mysql = require("mysql");
+</xmp>
+
+<h2>Generisanje SQL upita</h2>
+
+Da bismo olakšali korisniku upotrebu baze podataka i smanjili pisanje istih upita više puta, generisanje upita ćemo izdvojiti u poseban skup funkcija. 
+U opisu aplikacije smo rekli da svako može da vidi sadržaj naše biblioteke, pa prvi upit može da bude onaj kojim izlistavamo sadržaj tabele 
+<span class="font-weight-bold">knjiga</span>. Upit je sledeći:
+
+<xmp class = "primer_ta"> 
+SELECT `naslov`, `autor`, `izdavac`, `zanr`, `god_izdanja`, `br_str`, `tiraz`, `id` FROM `knjiga`
+</xmp>
+
+Ili u obliku JavaScript funkcije:
+
+<xmp class = "primer_ta"> 
+function sveKnjigeUpit(){
+   
+   return "SELECT `naslov`, `autor`, `izdavac`, `zanr`, `god_izdanja`, `br_str`, `tiraz`, `id` FROM `knjiga`";
+}
+</xmp>
+
+Pored čitanja svih knjiga iz baze podataka, korisniku treba omogućiti i pristup pojedinačnoj knjizi na osnovu njenog identifikatora u bazi. U kodu, to postižemo
+tako što kao argument funkcije prosledimo željeni <span class="font-weight-bold">id</span> i u upitu dodamo <span class="font-weight-bold">WHERE</span> klauzu:
+
+<xmp class = "primer_ta"> 
+function knjigaUpit(id) {
+   
+   return "SELECT `naslov`, `autor`, `izdavac`, `zanr`, `god_izdanja`, `br_str`, `tiraz`, `id` FROM `knjiga` WHERE id = "+id;
+}
+</xmp>
+
+Da bi korisnik uopšte mogao da pročita neku knjigu iz baze podataka, u bazu podataka je prvo neophodno uneti knjige. Da bismo uneli knjigu u bazu podataka, treba nam 
+upit sledeće strukture:
+
+<xmp class = "primer_ta"> 
+INSERT INTO `knjiga`(`naslov`, `autor`, `izdavac`, `zanr`, `god_izdanja`, `br_str`, `tiraz`) 
+VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7])
+</xmp>
+
+U kodu, neophodno je da sve atribute knjige saznamo od korisnika i da ih kao argumente funkcije prosledimo funkciji koja će kreirati odgovarajući INSERT upit.
+
+<xmp class = "primer_ta"> 
+function unesiKnjigaUpit(naslov, autor,izdavac, zanr, god, br_str, tiraz){
+   
+   var upit = "INSERT INTO `knjiga`(`naslov`, `autor`, `izdavac`, `zanr`, `god_izdanja`, `br_str`, `tiraz`) VALUES ("
+   
+   upit += "'" + naslov + "', ";
+   upit += "'" + autor + "', ";
+   upit += "'" + izdavac + "', ";
+   upit += "'" + zanr + "', ";
+   upit += god + ", ";
+   upit += br_str + ", ";
+   upit += tiraz;
+   upit += ")";
+   
+   return upit;
+}
+</xmp>
+
+Registrovani korisnici mogu i da ažuriraju podatke o knjigama, ali i da brišu knjige iz baze podataka. U prvom slučaju radi se o UPDATE, a u drugom o DELETE upitu. 
+U oba slučaja potrebno je da znamo <span class="font-weight-bold">id</span> knjige da bismo mogli da izvršimo traženu operaciju baš na toj knjizi. U slučaju ažuriranja,
+potrebno je da znamo i sve ostale parametre knjige. U kodu, to postižemo na sledeći način:
+
+<xmp class = "primer_ta"> 
+function izmeniKnjiguUpit(naslov, autor, izdavac, zanr, god, br_str, tiraz, id){
+   
+   var upit = "UPDATE `knjiga` SET ";
+   
+   upit += "`naslov` = '" + naslov + "', ";
+   upit += "`autor` = '" + autor + "', ";
+   upit += "`izdavac` = '" + izdavac + "', ";
+   upit += "`zanr` = '" + zanr + "', ";
+   upit += "`god_izdanja` = " + god + ", ";
+   upit += "`br_str` = " + br_str + ", ";
+   upit += "`tiraz` = " + tiraz + " ";
+   
+   upit += "WHERE `id` = " + id;
+   
+   return upit;
+}
+
+function obrisiKnjiguUpit(id) {
+   
+   return "DELETE FROM `knjiga` WHERE `id` = " + id;
+}
+</xmp>
+
+Na kraju, da bismo uopšte mogli da izvršimo bilo koju od operacija nad tabelom knjiga, a da se ne radi o čitanju sadržaja, moramo da imamo registrovane korisnike.
+Da bi korisnik bio registrovan, moramo da upamtimo njegove podatke u tabeli <span class="font-weight-bold">korisnik</span>. SQL upit kojim ubacujemo korisnika
+u tabelu je sledeći:
+
+<xmp class = "primer_ta"> 
+INSERT INTO `korisnik`(`kor_ime`, `sifra`, `mejl`, `ime`, `prezime`, `godiste`) 
+VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
+</xmp>
+
+Da bismo kreirali upit, prvo je potrebno da od korisnika saznamo sve neophodne informacije i da ih kao argumente prosledimo funkciji:
+
+<xmp class = "primer_ta"> 
+function unesiKorisnikaUpit(ime, prezime, kor_ime, sifra, mejl, godiste){
+   
+   var upit = "INSERT INTO korisnik (kor_ime, sifra, mejl, ime, prezime, godiste) VALUES (";
+   
+   upit += "'" + kor_ime + "', ";
+   upit += "'" + sifra + "', ";
+   upit += "'" + mejl + "', ";
+   upit += "'" + ime + "', ";
+   upit += "'" + prezime + "', ";
+   upit += godiste;
+   upit += ")";
+   
+   return upit;
+}
+</xmp>
+
+Na kraju, ostaje samo da omogućimo korisniku da se uloguje na svoj nalog. Potrebno je da korisnik unese svoje korisnicko ime i šifru. Nakon što korisnik to unese, 
+proverićemo u bazi podataka da li u tabeli <span class="font-weight-bold">korisnik</span> postoji takav unos. Upit kojim izdvajamo korisnika sa unetim korisničkim
+imenom i šifrom je sledeći:
+
+<xmp class = "primer_ta"> 
+SELECT * FROM korisnik WHERE kor_ime = '[value-1]' AND sifra = '[value-2]'
+</xmp>
+
+Da bismo generisali ovaj upit, neophodno je da kao argumente prosledimo korisničko ime i šifru. Funkcija je sledeća:
+
+<xmp class = "primer_ta"> 
+function nadjiKorisnikaUpit(user,pass) {
+   
+   return "SELECT * FROM korisnik WHERE kor_ime = '" + user + "' AND sifra = '" + pass + "'";
+}
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 35.</span><br/>
+   Dopuniti sql modul funkcijama kojima je moguće izlistati sve korisnike, kao i obrisati i ažurirati podatke korisnika sa zadatim id-em.
+</div>
+
+<h2>Konektovanje na bazu</h2>
+
+Da bismo se konektovali na bazu potrebno je da definišemo parametre konekcije. Parametre konekcije ćemo vratiti kao objekat iz pomocne funkcije:
+
+<xmp class = "primer_ta"> 
+function kreirajKonekciju() {
+
+   var con = mysql.createConnection({
+     host: "localhost", 
+     user: "korisnicko_ime",
+     password: "sifra",
+     database: "knjige"
+   });
+   
+   return con;
+}
+</xmp>
+
+<div class="napomena">
+   <span class="font-weight-bold">Napomena:</span><br/>
+   Korisničko ime i šifra su upravo oni kojima se pristupa sistemu za upravljanje bazom podataka, a host
+   je adresa SUBP. localhost označava da se SUBP nalazi na lokalnom, a ne na udaljenom računaru.
+</div>
+
+
+<h2>Izvršavanje upita</h2>
+
+Da bismo izvršili upit potrebno je da znamo o kom upitu se radi, da se konektujemo na bazu i da obradimo rezultate izvršavanja. Moramo da povedemo računa da
+su sve operacije koje tražimo od SUBP asinhrone, pa u okviru svoje funkcije kao poslednji parametar moramo da prihvatimo povratni poziv koji će imati onoliko argumenata
+koliko nam treba za proveru grešaka. Funkcija kojom izvršavamo sve upite je sledeća:
+
+<xmp class = "primer_ta"> 
+function izvrsiUpit(upit, resultCallback){
+   
+   var con = kreirajKonekciju();
+   
+   con.connect(function(err) {
+      
+      if (err) {
+         resultCallback(null);
+         return;
+      }
+      
+      console.log(upit);
+      
+      con.query(upit, function(err, result){
+         
+         if (err) {
+            resultCallback(null);
+            return;
+         }
+         
+         console.log(result);
+         
+         con.end(function(err){
+            
+            resultCallback(result);
+         });
+      });
+   });
+}
+</xmp>
+ 
+Kada pozivamo ovu funkciju u svom kodu u nekom drugom modulu, kao prvi argument ćemo uvek proslediti željeni upit. Kao drugi argument prosledićemo
+anonimnu funkciju koja prihvata jedan argument. Nakon izvršenja poziva, taj argument će biti upravo <span class="font-weight-bold">result</span>. 
+Svi SQL upiti imaju isti način izvršavanja i zato možemo da ih objednimo u jednu funkciju i tako umanjimo inače nepotrebno dupliranje koda. 
+
+<h2>Eksportovanje funkcija</h2>
+
+Na kraju korisnički definisanog modula, ostaje nam samo da eksportujemo funkcije koje će nam biti potrebne u drugim modulima, kao i da im definišemo imena pod kojima
+će biti vidljive korisniku u drugim modulima. To postižemo na sledeći način:
+
+<xmp class = "primer_ta"> 
+module.exports.izvrsi = izvrsiUpit;
+module.exports.sveKnjige = sveKnjigeUpit;
+module.exports.unesiKorisnika = unesiKorisnikaUpit;
+module.exports.nadjiKorisnika = nadjiKorisnikaUpit;
+module.exports.unesiKnjigu = unesiKnjigaUpit;
+module.exports.nadjiKnjigu = knjigaUpit;
+module.exports.izmeniKnjigu = izmeniKnjiguUpit;
+module.exports.obrisiKnjigu = obrisiKnjiguUpit;
+</xmp>
+
+<div class="zadatak">
+   <span class="font-weight-bold">Zadatak 36.</span><br/>
+   Eksportovati i sve funkcije iz Zadatka 35.
+</div>

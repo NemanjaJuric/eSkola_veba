@@ -159,6 +159,10 @@ $android-official: #a2c53d;
     background-color: $spring-primary !important;
 }
 
+.bkg-nodejs{
+    background-color: $express-primary !important;
+}
+
 .bkg-express{
     background-color: $express-primary !important;
 }
@@ -293,6 +297,10 @@ $android-official: #a2c53d;
 
 .hover-spring:hover{
     color: $spring-primary;
+}
+
+.hover-nodejs:hover{
+    color: $express-primary;
 }
 
 .hover-express:hover{

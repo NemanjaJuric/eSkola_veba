@@ -2907,6 +2907,185 @@
     ]
   },
   {
+    "name": "Node.js",
+    "id": "nodejs",
+    "logo": "<i class='fab fa-node-js'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "detailsText": "NodeJS je serversko radno okruženje otvorenog koda za JavaScirpt. Za razliku od JavaScript-a, koji se izvršava u pregledaču i koristi se za dinamičku kontrolu prikaza veb stranice na strani klijenta, NodeJS omogućava korisnicima da izvršavaju JavaScript kod na serveru. Korišćenjem NodeJS-a dobija se mogućnost korišćenja JavaScript-a kao klasičnog programskog jezika, tj. van okvira pregledača. S obzirom da se NodeJS izvršava na strani servera.",
+    "lessons": [
+      {
+        "name": "Uvod u Node.js",
+        "url": "nodejs_0_uvod_u_node_js",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Instalacija Node.js",
+        "url": "nodejs_1_instalacija_node_js",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Prva aplikacija",
+        "url": "nodejs_2_prva_aplikacija",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Povratni pozivi",
+        "url": "nodejs_3_povratni_pozivi",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Programiranje vođeno događajima",
+        "url": "nodejs_4_programiranje_vodjeno_dogadjajima",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "HTTP modul",
+        "url": "nodejs_5_http_modul",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "HTTP rutiranje",
+        "url": "nodejs_6_http_rutiranje",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "URL modul",
+        "url": "nodejs_7_url_modul",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Baferi i tokovi",
+        "url": "nodejs_8_baferi_tokovi",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Baferi",
+        "url": "nodejs_9_baferi",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Tokovi",
+        "url": "nodejs_10_tokovi",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "URL modul - forme",
+        "url": "nodejs_11_url_modul_forme",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "FS modul",
+        "url": "nodejs_12_fs_modul",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Eksterni moduli",
+        "url": "nodejs_13_eksterni_moduli",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Formidable modul",
+        "url": "nodejs_14_formidable",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Email",
+        "url": "nodejs_15_email",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Baze podataka",
+        "url": "nodejs_16_baze_podataka",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Kreiranje baze podataka",
+        "url": "nodejs_17_kreiranje_baze_podataka",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "CRUD operacije",
+        "url": "nodejs_18_crud_operacije",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Sesije i kolačići",
+        "url": "nodejs_19_sesije_kolacici",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Virtuelna biblioteka",
+        "url": "nodejs_20_virtuelna_biblioteka",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Virtuelna biblioteka - sql modul",
+        "url": "nodejs_21_virtuelna_biblioteka_sql",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Virtuelna biblioteka - rutiranje",
+        "url": "nodejs_22_virtuelna_biblioteka_rutiranje",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      },
+      {
+        "name": "Zaključak",
+        "url": "nodejs_23_zakljucak",
+        "type": "lesson",
+        "parentCourse": "nodejs",
+        "sublessons": null
+      }
+    ]
+  },
+  {
     "name": "Express js",
     "id": "express",
     "logo": "<i class='fab fa-node' aria-hidden='true'></i>",
