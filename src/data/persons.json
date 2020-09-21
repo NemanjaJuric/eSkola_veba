@@ -173,5 +173,17 @@
     "course": "Jupyter",
     "url": "assets/images/team/milina_smiljanic.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Miomir Stojanović",
+    "course": "ECMA Script",
+    "url": "assets/images/team/user.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Sanda Baljošević",
+    "course": "Node.js",
+    "url": "assets/images/team/user.jpg",
+    "mainPosition": false
   }
 ]
