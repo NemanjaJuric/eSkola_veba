@@ -1943,6 +1943,13 @@
         "sublessons": null
       },
       {
+        "name": "Objekti",
+        "url": "ecma_Objects",
+        "type": "lesson",
+        "parentCourse": "ecma",
+        "sublessons": null
+      },
+      {
         "name": "Verzije",
         "url": "ecma_Verzije",
         "type": "lesson",

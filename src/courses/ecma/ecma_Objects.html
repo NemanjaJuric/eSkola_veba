@@ -1,0 +1,105 @@
+<h1>Objekti</h1>
+Objekti u Javascript-u nam omogućavaju da definišemo nove tipove podataka. Za razliku od 
+promenljivih koje mogu da imaju samo jednu vrednost, objekti mogu imati više.
+Vrednosti mogu biti niz drugih objekata ili primitivnih tipova podataka, te vrednosti zovemo još i polja.
+<br>
+Postoje dva načinda da se kreira objekat:
+<ul>
+<li>
+Koristeći literale objekta
+</li>
+<li>
+Koristeći konstruktor
+</li>
+</ul>
+<br>
+
+<xmp class="primer_ta">
+var user =  {};  
+var name = new Object(); 
+</xmp>
+<h2>Klase</h2>
+Klase su neizostavni deo objektno orijentisanog programiranja (OOP). Klase se koriste za definisanje nacrta za modeliranje objekata u stvarnom svetu i organizovanje koda u delove koji se mogu ponovo koristiti. Pre ES6, bilo je teško napraviti klasu u JavaScriptu. 
+<br>
+U ES6 možemo da kreiramo klasu pomoću ključne reči class. 
+<xmp class="primer_ta">
+class Student{  
+    constructor(name, age){  
+    this.name = name;  
+    this.age = age;  
+    }  
+  
+}  
+</xmp>
+
+Definicija klase može da sadrži samo konstruktore i funkcije. Ove komponente se zajedno nazivaju članovima podataka klase. Klase sadrže konstruktore koji memoriju dodeljuju objektima klase. Klase sadrže funkcije koje su odgovorne za izvršavanje radnji sa objektima.
+<br>
+Kao i drugi programski orijentisani objekti, pomoću nove ključne reči možemo da instanciramo objekat klase.
+<xmp class="primer_ta">
+var stu = new Student('Peter', 22)  
+</xmp>
+<h2>Nasleđivanje</h2>
+Nasleđivanje je mogućnost kreiranja novih entiteta od postojećih. Klasa koja je proširena za kreiranje nove klase naziva se nadređena klasa, dok se novostvorena klasa naizva potklasa.
+<br>
+Pre ES6, implementacija nasleđivanja zahtevala je nekoliko koraka. Ali ES6 je pojednostavlila implementaciju nasleđivanja koristeći extends i super.
+<xmp class="primer_ta">
+class Parent {   
+   show() {   
+      document.write("show() metod klase Perent <br>"); 
+   }  
+}  
+class Child extends Parent {   
+   show() {  
+      super.show();  
+      document.write("i show() metod klase Child <br>");  
+   }   
+}   
+var obj = new Child();   
+obj.show(); 
+</xmp>
+<div class="zadatak">
+Zadatak: Definisati klasu 'oblik' koja ima atribute x i y (kordinate) i metod koji će omogućiti njegovo pomeranje , a zatim definisati klasu 'krug' koja nasledjuje 'oblik'.
+</div>
+<xmp class="primer_ta">
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Primer</title>
+
+<script>
+class Shape {
+    constructor (id, x, y) {
+        this.id = id
+        this.move(x, y)
+    }
+    move (x, y) {
+        this.x = x
+        this.y = y
+    }
+	toString(){
+		document.write(this.x+" "+this.y);
+	}
+}
+class Circle extends Shape {
+    constructor (id, x, y, radius) {
+        super(id, x, y)
+        this.radius = radius
+    }
+}
+var k = new Circle(1,1,1);
+k.move(2,2);
+k.toString();
+</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+</xmp>
+<button class="button_copy"> Vidi primer </button>

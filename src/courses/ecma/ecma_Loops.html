@@ -133,9 +133,9 @@ Neodređena petlja ima beskonačno iteracija. Koristi se kada je broj ponavljanj
 
 <h2  style="color:brown">While petlja</h2>
 
-While петља је контролни ток који омогућава понавлјање извршеног кода на основу датог Боолеовог услова.
-Састоји се од блок кода и израза/стања.<br><br>
-While петља проверава израз/стање пре извршавања блока; зато је ова контролна структура иначе позната као test петља.<br>
+While petlja je kontrolni tok koji omogućava ponavljanje izvršenog koda na osnovu datog Booleovog uslova.
+Sastoji se od blok koda i izraza.<br><br>
+While petlja proverava izraz pre izvršavanja bloka; zato je ova kontrolna struktura inače poznata kao test petlja.<br>
 <xmp class="primer_ta">
 let count = 6, fact = 1;
 while (count > 0)
@@ -145,20 +145,13 @@ fact = fact * count--;
 console.log(fact);
 </xmp>
 
-<h3>Тачке које треба запамтити</h3>
 
-<ul><li>Услов је увек потребан у while петљи зато што је потребно покренути петљу. If the condition returns true, then the loop will<br>
- start over again, but if it returns false, the loop will stop.</li>
-<li>Ако је услов увек тачан, онда петља се никада неће завршити.</li>
-</ul><
+<h2>Do…while petlja</h2>
 
-<h2 style="color:brown">Do…while петља</h2>
+To je izjava kontrolnog toka koja barem jednom izvršava blok koda, a onda zavisno od uslova izvršava blok više puta.<br><br>
+Do…while petlja proverava uslov posle izvršenja bloka, zato je ova kontrolna struktura isto poznata kao post-test petlja.
+Isto je moguće da se uslov proceni kao tačan, što će stvoriti beskonačnu petlju.(infinitive loop)<br>
 
-То је изјава контролног протока који барем једном извршава блок код, а онда ће зависити од услова да ли петља извршава блок више пута.<br><br>
-Do…while петља проверава стање после извршења блока, зато је ова контролна структура исто позната као post-test петља.
-Исто је могуће <br>да се услов процени као тачан, што ће створити бесконачну петљу.(infinitive loop)<br>
-
-<h3>Syntax</h3>
 <xmp class="primer_ta">
 let count = 6, fact = 1;
 do {
@@ -166,9 +159,11 @@ fact = fact * count--;
 } while (count > 0);
 </xmp>
 
-Кључна разлика између горе два наведена примера је у томе што се while петља уноси само ако је услов који је пренесен оцењен тачним. <br>
-Али do…while петлја извршава изјаву једном, дешава се због почетне итерације do...while петље која не узима у обзир као Бооловим изразом.<br>
-Затим за даље иретације, while ће проверити стање и узима контролу из петље.<br>
-
+Ključna razlika između gore dva navedena primera je u tome što se while petlja unosi samo ako je uslov koji je prenesen ocenjen tačnim. <br>
+Ali do…while petlja izvršava izjavu jednom, dešava se zbog početne iteracije do...while petlje koja ne uzima u obzir kao Boolovim izrazom.<br>
+Zatim za dalje iretacije, while će proveriti stanje i uzima kontrolu iz petlje.<br>
+<div class="zadatak">
+Zadatak: Napisati kod koji za dati niz celih brojeva nepoznate dužine ispisuje samo one brojeve koji su deljivi sa 3. Npr. [13,3,7,6,2,12] -> [3,6,12] 
+</div>
 
 
