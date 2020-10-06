@@ -185,5 +185,11 @@
     "course": "Node.js",
     "url": "assets/images/team/user.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Aleksandar Promicać",
+    "course": "Angular JS",
+    "url": "assets/images/team/aleksandar_promicac.jpg",
+    "mainPosition": false
   }
 ]
