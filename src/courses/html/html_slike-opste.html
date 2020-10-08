@@ -1,106 +1,96 @@
 ﻿<h1><b>Slike</b></h1>
 
-<h2><b>
-Odabir odgovarajućeg formata slike
-</b></h2>
+<h2><b> Odabir odgovarajućeg formata slike </b></h2>
 
-Već na početku pravljenja sajta treba znati koji tipovi
-slika su odgovarajući za koju namenu na Web-u (JPEG, GIF, PNG itd...) 
-jer odabir tipa slike ima uticaja na brzinu kojom se 
-stranice učitavaju.
-<br><br>
-JPEG koristi matematički algoritam za kompresiju slike čime se smanji kvalitet slike. 
-Što je viša kompresija manja je jasnoća i veličina slike. Slike JPEG formata se najčešće koriste za fotografije. 
-<br><br>
-GIF ne može imati više od 256 boja, ali održava originalne boje slike. 
-Što manji broj boja na slici, manja je i veličina slike. GIF takodje dozvoljava
-i providnost svakog piksela na slici. GIF se obično koristi za slike sa punom 
+Već na početku pravljenja sajta treba znati koji tipovi slika su odgovarajući za
+koju namenu na Web-u (JPEG, GIF, PNG itd...) jer odabir tipa slike ima uticaja
+na brzinu kojom se stranice učitavaju.
+<br /><br />
+JPEG koristi matematički algoritam za kompresiju slike čime se smanji kvalitet
+slike. Što je viša kompresija manja je jasnoća i veličina slike. Slike JPEG
+formata se najčešće koriste za fotografije.
+<br /><br />
+GIF ne može imati više od 256 boja, ali održava originalne boje slike. Što manji
+broj boja na slici, manja je i veličina slike. GIF takodje dozvoljava i
+providnost svakog piksela na slici. GIF se obično koristi za slike sa punom
 bojom, kao što je logo ili ikonica.
-<br><br>
+<br /><br />
 PNG predstavlja boje slično kao GIF, ali omogućava 16 miliona boja kao i alfa
-transparentnost (50% providnost). PNG se obično koristi za raznovrsne slike 
-složenijeg dizajna. 
-<br><br>
-Cilj je da se stranice otvaraju što brže moguće. 
-Kompresovanje slika je odličan način da se to postigne, ali treba voditi računa o ravnoteži izmedju kvaliteta i veličine 
-slike. Korišćenje previsoke rezolucije slika ne čini nikome uslugu. 
-<br>
-
+transparentnost (50% providnost). PNG se obično koristi za raznovrsne slike
+složenijeg dizajna.
+<br /><br />
+Cilj je da se stranice otvaraju što brže moguće. Kompresovanje slika je odličan
+način da se to postigne, ali treba voditi računa o ravnoteži izmedju kvaliteta i
+veličine slike. Korišćenje previsoke rezolucije slika ne čini nikome uslugu.
+<br />
 
 <h2><b>Korišćenje &ltimg&gt etikete za dodavanje slika</b></h2>
 
+Slike se na sajt dodaju pomoću &ltimg&gt etikete koja mora da poseduje bar
+sledeća dva atributa:
+<br />- 'src' atribut koji pokazuje putanju do slike i <br />- 'alt' atribut
+koji obezbeđuje opis slike.
 
-Slike se na sajt dodaju pomoću &ltimg&gt etikete koja mora da
-poseduje bar sledeća dva atributa:
-<br>- 'src' atribut koji pokazuje putanju do slike i
-<br>- 'alt' atribut koji obezbeđuje opis slike.
-
-<xmp class = "primer_ta" >
+<xmp class="primer_ta">
 Primer:
-&ltimg src="MihailoPetrovic.jpg" alt="Mihailo Petrović"/&gt
+    <img src="MihailoPetrovic.jpg" alt="Mihailo Petrović"/>
 </xmp>
-<br>
-Slika se pomoću &ltimg&gt etikete može dodati i iz spoljašnjeg linka na sledeći način:
-<xmp class = "primer_ta" >
-&ltimg src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mihailo_Petrovi%C4%87_Alas,_portrait_by_Uro%C5%A1_Predi%C4%87.jpg" alt="Mihailo Petrović"/&gt
+<br />
+Slika se pomoću &ltimg&gt etikete može dodati i iz spoljašnjeg linka na sledeći
+način:
+<xmp class="primer_ta">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mihailo_Petrovi%C4%87_Alas,_portrait_by_Uro%C5%A1_Predi%C4%87.jpg" alt="Mihailo Petrović"/>
 </xmp>
 
 <h3>Atribut 'src'</h3>
 
-Pomoću 'src' atributa saopštavamo pregledaču putanju do
-željene slike. Vredost atributa je URL i baš kao i kod 
-linkova, URL može biti apsolutna ili relativna u zavisnosti
-od toga da li je reč o spoljašnjem ili unutrašnjem linku.
-Dobra praksa za slike koje se koriste na sajtu jeste da 
-one uvek budu na serveru, jer korišćenje spoljašnjih linkova
-može biti nepouzdan način zbog eventualnog uklanjanja slika
-sa korišćenih sajtova.
-U najvećem broju slučajeva na sajtovima se za slike koriste
-zasebni folderi.
-
+Pomoću 'src' atributa saopštavamo pregledaču putanju do željene slike. Vredost
+atributa je URL i baš kao i kod linkova, URL može biti apsolutna ili relativna u
+zavisnosti od toga da li je reč o spoljašnjem ili unutrašnjem linku. Dobra
+praksa za slike koje se koriste na sajtu jeste da one uvek budu na serveru, jer
+korišćenje spoljašnjih linkova može biti nepouzdan način zbog eventualnog
+uklanjanja slika sa korišćenih sajtova. U najvećem broju slučajeva na sajtovima
+se za slike koriste zasebni folderi.
 
 <h3>Atribut 'alt'</h3>
 
-Atribut 'alt' treba da se pojavi u svakom &ltimg&gt
-elementu i njegova vrednost treba da je tekstualni opis 
-slike. Ovaj atribut je bitan jer njegova vrednost opisuje
-sliku u slučaju da npr. pregledač ne može da prikaže sliku,
-postojaće tekstualna alternativa, što je prednost i za 
-Web pretraživače.
-
+Atribut 'alt' treba da se pojavi u svakom &ltimg&gt elementu i njegova vrednost
+treba da je tekstualni opis slike. Ovaj atribut je bitan jer njegova vrednost
+opisuje sliku u slučaju da npr. pregledač ne može da prikaže sliku, postojaće
+tekstualna alternativa, što je prednost i za Web pretraživače.
 
 <h3><b>Dimenzije slika</b></h3>
 
-Dimenzije slika mogu biti navedene pomoću atributa 'height' 
-i 'width'. Oni određuju visinu i 
-širinu slike. Vrednosti ovih atributa u najvećem broju 
-slučajeva prikazani su u pikseplima, ali mogu biti navedene
-i u procentu prozora pregledača.
-<br>
+Dimenzije slika mogu biti navedene pomoću atributa 'height' i 'width'. Oni
+određuju visinu i širinu slike. Vrednosti ovih atributa u najvećem broju
+slučajeva prikazani su u pikseplima, ali mogu biti navedene i u procentu prozora
+pregledača.
+<br />
 
-<xmp class = "primer_ta" >
+<xmp class="primer_ta">
 Primer:
-&ltimg src="MihailoPetrovic.jpg" alt="Mihailo Petrović" height="240" width="181"/&gt
+<img src="MihailoPetrovic.jpg" alt="Mihailo Petrović" height="240" width="181"/>
 </xmp>
 
 <h3><b>Poravnavanje slika</b></h3>
 
-
-Kako bi pozicionirali sliku unutar stranice, ili unutar nekog elementa
-stranice koristimo 'algin' atribut. Atribut 'algin' može
-imati sledeće vrednosti:
-<br>- 'top' - gornja ivica slike se poravnava sa gornjom ivicom teksta
-<br>- 'middle' - sredina slike poravnava se sa donjom ivicom teksta
-<br>- 'bottom' - donja ivica slike se poravnava sa donjom ivicom teksta, što obično podiže sliku iznad teksta
-<br>- 'left' - slika se poravnava sa levom ivicom prozora ili elementa u kom se nalazi dok se tekst nalazi oko slike
-<br>- 'right' - slika se poravnava sa desnom ivicom prozora ili elementa u kom se nalazi dok se tekst nalazi oko slike
-<br>
-<xmp class = "primer_ta" >
+Kako bi pozicionirali sliku unutar stranice, ili unutar nekog elementa stranice
+koristimo 'algin' atribut. Atribut 'algin' može imati sledeće vrednosti:
+<br />- 'top' - gornja ivica slike se poravnava sa gornjom ivicom teksta <br />-
+'middle' - sredina slike poravnava se sa donjom ivicom teksta <br />- 'bottom' -
+donja ivica slike se poravnava sa donjom ivicom teksta, što obično podiže sliku
+iznad teksta <br />- 'left' - slika se poravnava sa levom ivicom prozora ili
+elementa u kom se nalazi dok se tekst nalazi oko slike <br />- 'right' - slika
+se poravnava sa desnom ivicom prozora ili elementa u kom se nalazi dok se tekst
+nalazi oko slike
+<br />
+<xmp class="primer_ta">
 Primer:
-&ltimg src="MihailoPetrovic.jpg" alt="Mihailo Petrović" align="left"/&gt
+<img src="MihailoPetrovic.jpg" alt="Mihailo Petrović" align="left"/>
 </xmp>
 
-<div class = "zadatak">
-<b>Zadatak:</b>
-Sliku MihailoPetrovic.jpg uneti na sajt tako da ima visinu 160 piksela, širinu 120 piksela i tako da se poravnava sa gornjom ivicom teksta.
-<div class = "zadatak">
+<div class="zadatak">
+  <b>Zadatak:</b>
+  Sliku MihailoPetrovic.jpg uneti na sajt tako da ima visinu 160 piksela, širinu
+  120 piksela i tako da se poravnava sa gornjom ivicom teksta.
+</div>
