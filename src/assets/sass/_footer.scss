@@ -1,26 +1,26 @@
-.footer{
-    background-color: $material-dark-gray;
-    color: $light;
-    font-size: 16px;
-    padding-top: 20px;
+.footer {
+  background-color: $material-dark-gray;
+  color: $light;
+  font-size: 16px;
+  padding-top: 20px;
 }
 
-.footer__bottom{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: $material-gray;
+.footer__bottom {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $material-gray;
 }
 
-.strip{
-    height: 8px;
-    background-color: $material-light-gray;
+.strip {
+  height: 8px;
+  background-color: $material-light-gray;
 }
 
 @media screen and (max-width: 768px) {
-    .footer{
-        text-align: center
-    }
-    .margin-left{
-        margin: 0;
-    }
+  .footer {
+    text-align: center;
+  }
+  .margin-left {
+    margin: 0;
+  }
 }

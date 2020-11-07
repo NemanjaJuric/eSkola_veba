@@ -8,13 +8,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        "assets",
-        "courses",
-        "podaci",
-        "data",
-        "libs"
-      ],
+      "assets": ["assets", "courses", "podaci", "data", "libs"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -27,7 +21,7 @@
         "../node_modules/codemirror/lib/codemirror.css",
         "../node_modules/codemirror/addon/hint/show-hint.css",
         "../node_modules/codemirror/addon/display/fullscreen.css",
-        "assets/sass/main.scss"    
+        "assets/sass/main.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

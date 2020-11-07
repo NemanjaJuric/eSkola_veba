@@ -1,32 +1,49 @@
 <h1>Vrste promenljivih</h1>
 
-<p style="text-align: justify;">Promenljiva je imenovani prostor u memoriji kojim program može da manipuliše. Svaku
-promenljivu karakterišu: ime, tip i vrednost. Ime promenljive je identifikator. Tip promenljive je
-jedan od dostupnih tipova podataka koje Java obezbeđuje. Promenljiva sadrži vrednost ili je
-pokazivač na objekat. Ako sadrži vrednost, ta vrednost je literal (primitivni tip).<br>
-Svaka promenljiva mora biti deklarisana pomoću naredbe za deklaraciju promenljivih. Pored
-deklarisanja, naredbom za deklaraciju mogu biti zadate i početne vrednosti promenljivih.
-<br><br>
-Postoje tri vrste promenljivih u programskom jeziku Java:</p>
-<ul style="text-align: justify;">
-  <li><b>Lokalna promenljive</b> - deklarisane unutar metode, konstruktora ili bloka naredbi. One postoje samo za vreme izvršavanja metode, kostruktora ili bloka, po završetku izvršavanja one se brišu iz memorije. Zato se ni ne mogu koristiti negde izvan svoje metode.
-    Modifikatori pristupa se ne mogu koristiti uz lokalne promenljive. Ove promenljive moraju imati eksplicitno dodeljenu vrednost pre korišćenja, jer im se pri alociranju ne dodeljuje nikakav podrazumevana vrednost.
-</li>
-  <li><b>Instancne promenljive</b> - deklarišu se u klasi ali izvan metoda, konstruktora ili bilo kakvih
-blokova. Instancne promenljive se kreiraju u trenutku kreiranja objekat korišćenjem
-ključne reči <b>new</b> i prestaju da postoje kada objekat bude uništen. Modifikatori pristupa se
-mogu koristiti uz ovaj tip promenljive. Vidljive su za sve metode, konstruktore ili blokove
-unutar klase. Instancne promenljive imaju podrazumevane vrednosti. Za brojeve,
-podrazumevana vrednost je 0, za <b>boolean</b> je <b>false</b>, a za referencu objekata je <b>null</b> .
-Vrednosti se mogu dodeliti tokom deklaracije ili unutar konstruktora. Može im se pristupiti
-direktno pozivom imena promenljive unutar klase. Međutim, u okviru statičkih metoda,
-treba ih pozvati koristeći sledeći poziv <i>referencaObjekta.imePromenljive</i>.</li>
-  <li><b>Klasne promenljive</b> - nazivaju se i statičkim, deklarišu se unutar klase upotrebom
-modifikatora static pri deklaraciji. Statičke promenljive se stvaraju kada se program
-pokreće i prestaju da postoje kada se program zaustavi. Ove promenljive se automatski
-inicijalizuju podrazumevanim vrednostima (iste kao kod instancnih promenljivih). Može
-im se pristupiti i kada ne postoji instanca te klase, i to pozivanjem klase na sledeći način -
-imeKlase.imepromenljive. Kada se statičke promenljive proglase javnim konstantama
-pomoću modifikatora <b>public</b> i <b>final</b>, onda se imena takvih promenljivih pišu velikim
-slovom .</li>
+<p style="text-align: justify">
+  Promenljiva je imenovani prostor u memoriji kojim program može da manipuliše.
+  Svaku promenljivu karakterišu: ime, tip i vrednost. Ime promenljive je
+  identifikator. Tip promenljive je jedan od dostupnih tipova podataka koje Java
+  obezbeđuje. Promenljiva sadrži vrednost ili je pokazivač na objekat. Ako
+  sadrži vrednost, ta vrednost je literal (primitivni tip).<br />
+  Svaka promenljiva mora biti deklarisana pomoću naredbe za deklaraciju
+  promenljivih. Pored deklarisanja, naredbom za deklaraciju mogu biti zadate i
+  početne vrednosti promenljivih.
+  <br /><br />
+  Postoje tri vrste promenljivih u programskom jeziku Java:
+</p>
+<ul style="text-align: justify">
+  <li>
+    <b>Lokalna promenljive</b> - deklarisane unutar metode, konstruktora ili
+    bloka naredbi. One postoje samo za vreme izvršavanja metode, kostruktora ili
+    bloka, po završetku izvršavanja one se brišu iz memorije. Zato se ni ne mogu
+    koristiti negde izvan svoje metode. Modifikatori pristupa se ne mogu
+    koristiti uz lokalne promenljive. Ove promenljive moraju imati eksplicitno
+    dodeljenu vrednost pre korišćenja, jer im se pri alociranju ne dodeljuje
+    nikakav podrazumevana vrednost.
+  </li>
+  <li>
+    <b>Instancne promenljive</b> - deklarišu se u klasi ali izvan metoda,
+    konstruktora ili bilo kakvih blokova. Instancne promenljive se kreiraju u
+    trenutku kreiranja objekat korišćenjem ključne reči <b>new</b> i prestaju da
+    postoje kada objekat bude uništen. Modifikatori pristupa se mogu koristiti
+    uz ovaj tip promenljive. Vidljive su za sve metode, konstruktore ili blokove
+    unutar klase. Instancne promenljive imaju podrazumevane vrednosti. Za
+    brojeve, podrazumevana vrednost je 0, za <b>boolean</b> je <b>false</b>, a
+    za referencu objekata je <b>null</b> . Vrednosti se mogu dodeliti tokom
+    deklaracije ili unutar konstruktora. Može im se pristupiti direktno pozivom
+    imena promenljive unutar klase. Međutim, u okviru statičkih metoda, treba ih
+    pozvati koristeći sledeći poziv <i>referencaObjekta.imePromenljive</i>.
+  </li>
+  <li>
+    <b>Klasne promenljive</b> - nazivaju se i statičkim, deklarišu se unutar
+    klase upotrebom modifikatora static pri deklaraciji. Statičke promenljive se
+    stvaraju kada se program pokreće i prestaju da postoje kada se program
+    zaustavi. Ove promenljive se automatski inicijalizuju podrazumevanim
+    vrednostima (iste kao kod instancnih promenljivih). Može im se pristupiti i
+    kada ne postoji instanca te klase, i to pozivanjem klase na sledeći način -
+    imeKlase.imepromenljive. Kada se statičke promenljive proglase javnim
+    konstantama pomoću modifikatora <b>public</b> i <b>final</b>, onda se imena
+    takvih promenljivih pišu velikim slovom .
+  </li>
 </ul>

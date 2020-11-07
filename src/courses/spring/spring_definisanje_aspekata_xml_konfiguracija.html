@@ -1,21 +1,25 @@
 <h1>Definisanje aspekata - XML konfiguracija</h1>
-Ovaj način definisanja aspekata zahteva pisanje AOP konfiguracije u okviru XML datoteke. 
-<br>
+Ovaj način definisanja aspekata zahteva pisanje AOP konfiguracije u okviru XML
+datoteke.
+<br />
 Koriste se sledeće etikete:
 <ul>
-	<li>&ltaop:config> - definiše se kompletna kofiguracija aspekta</li>
-	<li> &ltaop:aspect> - definiše aspekt</li>
-	<li> &ltaop:before> - definiše se advice tipa before</li>
-	<li> &ltaop:atfer> - definiše se advice tipa after</li>
-	<li> &ltaop:after-returning> - definiše se advice tipa after-returning</li>
-	<li> &ltaop:after-throwing> - definiše se advice tipa after-throwing</li>
-	<li> &ltaop:around> - definiše se advice tipa around</li>
-	<li> &ltaop:poincut> - definiše se pointcut</li>
+  <li>&ltaop:config> - definiše se kompletna kofiguracija aspekta</li>
+  <li>&ltaop:aspect> - definiše aspekt</li>
+  <li>&ltaop:before> - definiše se advice tipa before</li>
+  <li>&ltaop:atfer> - definiše se advice tipa after</li>
+  <li>&ltaop:after-returning> - definiše se advice tipa after-returning</li>
+  <li>&ltaop:after-throwing> - definiše se advice tipa after-throwing</li>
+  <li>&ltaop:around> - definiše se advice tipa around</li>
+  <li>&ltaop:poincut> - definiše se pointcut</li>
 </ul>
 
-U narednom primeru predstavljena je klasa IdentityCardTaker koja će biti definisana kao aspekt u okviru XML datoteke, kao i klasa ValidityChecker na koju će taj aspekt biti primenjen.
-<br>
-<xmp class = "primer_ta">
+U narednom primeru predstavljena je klasa IdentityCardTaker koja će biti
+definisana kao aspekt u okviru XML datoteke, kao i klasa ValidityChecker na koju
+će taj aspekt biti primenjen.
+<br />
+<xmp class="primer_ta"
+>
 public class IdentityCardTaker {
 	
 	public void leaveIC() {
@@ -28,7 +32,8 @@ public class IdentityCardTaker {
 
 }
 </xmp>
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 public class ValidityChecker {
 	
 	public void check() {
@@ -38,10 +43,12 @@ public class ValidityChecker {
 
 }
 </xmp>
-<br>
-Pre poziva metode check() biće izvršena metoda leaveIC(), a nakon metode check() biće pozvana metoda takeIC(). Da bi se to postiglo, odgovarajuća XML datoteka treba da ima sledeći oblik. 
-<br>
-<xmp class = "primer_ta">
+<br />
+Pre poziva metode check() biće izvršena metoda leaveIC(), a nakon metode check()
+biće pozvana metoda takeIC(). Da bi se to postiglo, odgovarajuća XML datoteka
+treba da ima sledeći oblik.
+<br />
+<xmp class="primer_ta">
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -63,8 +70,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 </xmp>
 
 Main metoda:
-<br>
-<xmp class = "primer_ta">
+<br />
+<xmp class="primer_ta"
+>
 public static void main(String[] args) {
 
    	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
@@ -73,35 +81,12 @@ public static void main(String[] args) {
   	validityChecker.check();
 }
 </xmp>
-<br>
+<br />
 Rezultat naredbe validityChecker.check(); je:
-<br>
+<br />
 Leave your identity card!
-<br>
+<br />
 Checking validity!
-<br>
+<br />
 Take your identity card!
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br />

@@ -1,31 +1,38 @@
 <h1>Datum i Vreme</h1>
-<br>
+<br />
 U programskom jeziku PHP se za rad sa datumima i vremenom koristi format poznat
-kao UNIX-ova vremenska oznaka.  Radi se o broju sekundi proteklih od početka UNIX
-epohe, odnosno od ponoći 1.  Januara 1970.  godine.<br>
+kao UNIX-ova vremenska oznaka. Radi se o broju sekundi proteklih od početka UNIX
+epohe, odnosno od ponoći 1. Januara 1970. godine.<br />
 PHP pruža moćne alate koji omogućuju lak rad sa datumima i vremenom.
-<br>
-Funkcija <b>time</b> daje sve informacije koje su potrebne za trenutni datum i vreme. Ona nema argumente, a njen rezultat je ceo broj. <br>
+<br />
+Funkcija <b>time</b> daje sve informacije koje su potrebne za trenutni datum i
+vreme. Ona nema argumente, a njen rezultat je ceo broj. <br />
 Ceo broj koji vraća je vreme u UNIX vremenskoj oznaci.
-<br>
-<span class = "primer_text"> echo time(); </span>
-<br>
-Kad se izvrši ova komanda dobija se oblik koji je nečitljiv, ali PHP nudi alate da ovaj broj pretvori u zapis koji je čitljiv.
-<br>
+<br />
+<span class="primer_text"> echo time(); </span>
+<br />
+Kad se izvrši ova komanda dobija se oblik koji je nečitljiv, ali PHP nudi alate
+da ovaj broj pretvori u zapis koji je čitljiv.
+<br />
 <h2>Funkcija date</h2>
-Najznačajnija funkcija za rad sa datumima je svakako funkcija <span class="primer_text">date</span>. Ona služi za pretvaranje UNIX vremenske oznake u željeni format. Argumenti koje prima su format i vremenska oznaka. Ukoliko se vremenska oznaka izostavi, uzima se trenutni datum i vreme. Funkcija date vraća formatirani string koji predstavlja datum.
-<br>
+Najznačajnija funkcija za rad sa datumima je svakako funkcija
+<span class="primer_text">date</span>. Ona služi za pretvaranje UNIX vremenske
+oznake u željeni format. Argumenti koje prima su format i vremenska oznaka.
+Ukoliko se vremenska oznaka izostavi, uzima se trenutni datum i vreme. Funkcija
+date vraća formatirani string koji predstavlja datum.
+<br />
 Ovo su neki karakteri koji se koriste pri formatiranju datuma:
 <ul>
-	<li>d - Predstavlja dan u mesecu (01 - 31);</li>
-	<li>m - Predstavlja mesec (01-12);</li>
-	<li>Y - Predstavlja godinu (zapisana sa 4 cifre);</li>
-	<li>l - Predstavlja dan u nedelji.</li>
+  <li>d - Predstavlja dan u mesecu (01 - 31);</li>
+  <li>m - Predstavlja mesec (01-12);</li>
+  <li>Y - Predstavlja godinu (zapisana sa 4 cifre);</li>
+  <li>l - Predstavlja dan u nedelji.</li>
 </ul>
-Karaktere kao sto su "/", "." ili "-" je dozvoljeno koristiti pri formatiranju datuma.
-<br>
+Karaktere kao sto su "/", "." ili "-" je dozvoljeno koristiti pri formatiranju
+datuma.
+<br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 echo "Today is " . date("Y/m/d") . "<br>";
 echo "Today is " . date("Y.m.d") . "<br>";
@@ -33,63 +40,71 @@ echo "Today is " . date("Y-m-d") . "<br>";
 echo "Today is " . date("l");
 ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<div class = "napomena">Primetiti da će rezultat biti trenutni datum</div>
-<br>
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">Primetiti da će rezultat biti trenutni datum</div>
+<br />
 Ovo su neki karakteri koji se koriste pri formatiranju vremena.
 <ul>
-	<li>h - Predstavlja časove (01 - 12);</li>
-	<li>i - Predstavlja minute (00 - 59);</li>
-	<li>s - Predstavlja sekunde (00 - 59);</li>
-	<li>a - Predstavlja vreme pre podne ili posle podne (am ili pm).</li>
+  <li>h - Predstavlja časove (01 - 12);</li>
+  <li>i - Predstavlja minute (00 - 59);</li>
+  <li>s - Predstavlja sekunde (00 - 59);</li>
+  <li>a - Predstavlja vreme pre podne ili posle podne (am ili pm).</li>
 </ul>
-<br>
+<br />
 Primer:
-<br>
-<span class = "primer_text">  echo "Trenutno vreme je: " . date("h:i:sa"); </span>
-<br>
+<br />
+<span class="primer_text"> echo "Trenutno vreme je: " . date("h:i:sa"); </span>
+<br />
 <h2>Funkcija <i>mktime</i></h2>
-<br>
-Drugi argument funkcije <span class="primer_text">date</span> je UNIX vremenska oznaka, koja je u obliku koji nije čitljiv.
-<xmp class=primer_ta>
+<br />
+Drugi argument funkcije <span class="primer_text">date</span> je UNIX vremenska
+oznaka, koja je u obliku koji nije čitljiv.
+<xmp class="primer_ta">
 <?php
 echo date("Y-m-d","1359780799");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-Funkcija <span class="primer_text">mktime</span> se koristi za pretvaranje podataka o datumu i vremenu u UNIX vremensku oznaku, koja se koristi kao drugi argument funkcije <span class="primer_text">date</span>.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Funkcija <span class="primer_text">mktime</span> se koristi za pretvaranje
+podataka o datumu i vremenu u UNIX vremensku oznaku, koja se koristi kao drugi
+argument funkcije <span class="primer_text">date</span>.
+<br />
 Sintaksa funkcije <span class="primer_text">mktime</span>:
-<br>
-<span class = "primer_text">mktime(sati,minuti,sekunde,mesec,dan,godina)</span>
-<br><br>
-Svi argumenti funkcije <span class="primer_text">mktime</span> su opcioni. Ukoliko se izostave, koriste se trenutni datum i trenutno vreme. Nije dopušteno izostavljanje parametara koji predstavlja vreme. Ako vreme nije bitno, mogu se zadati nule kao vrednosti parametara sati, minuti, sekunde.
-Primer u kome se kreira datum i vreme uz pomoć funkcije <span class="primer_text">mktime</span>:
-<xmp class = "primer_ta">
+<br />
+<span class="primer_text">mktime(sati,minuti,sekunde,mesec,dan,godina)</span>
+<br /><br />
+Svi argumenti funkcije <span class="primer_text">mktime</span> su opcioni.
+Ukoliko se izostave, koriste se trenutni datum i trenutno vreme. Nije dopušteno
+izostavljanje parametara koji predstavlja vreme. Ako vreme nije bitno, mogu se
+zadati nule kao vrednosti parametara sati, minuti, sekunde. Primer u kome se
+kreira datum i vreme uz pomoć funkcije <span class="primer_text">mktime</span>:
+<xmp class="primer_ta">
 <?php
 $datum = mktime(8,32,46,8,13,2018);
 echo "Kreirani datum je " . date("Y-m-d h:i:sa",$datum);
 ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 <h2>Funkcija strtotime</h2>
-<br>
-Funkcija <span class="primer_text">strtotime</span> se koristi da string zadat na engleskom jeziku pretvori u UNIX vremensku oznaku.
-<br><br>
+<br />
+Funkcija <span class="primer_text">strtotime</span> se koristi da string zadat
+na engleskom jeziku pretvori u UNIX vremensku oznaku. <br /><br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $d = strtotime("7:50pm April 2018");
 echo "Kreirani datum je ".date("Y-m-d h:i:sa",$d);
 ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-PHP je veoma pametan u prevođenju stringa u datum, tako da funkcija <span class="primer_text">strtotime</span> kao argument može da prihvati dosta vrednosti.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+PHP je veoma pametan u prevođenju stringa u datum, tako da funkcija
+<span class="primer_text">strtotime</span> kao argument može da prihvati dosta
+vrednosti.
+<br />
 <b>Primeri:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $d=strtotime("tomorrow");
 echo date("Y-m-d h:i:sa", $d)."<br>";
@@ -101,29 +116,37 @@ $d=strtotime("+3 Months");
 echo date("Y-m-d h:i:sa", $d)."<br>";
 ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<div class = "napomena">Funkcija <span class="primer_text">strtotime</span> nije perfektna. Ne zaboravite da proverite string koji koristite kao argument.
-<br>
-Funkcija <span class="primer_text">strtotime</span> vraća datum ako je korektan zapis stringa, a ako nije vraća <b>false</b>.
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">
+  Funkcija <span class="primer_text">strtotime</span> nije perfektna. Ne
+  zaboravite da proverite string koji koristite kao argument.
+  <br />
+  Funkcija <span class="primer_text">strtotime</span> vraća datum ako je
+  korektan zapis stringa, a ako nije vraća <b>false</b>.
 </div>
 <h2>Funkcija getdate</h2>
-Funkcija <span class="primer_text">getDate</span> se koristi za dohvatanje pojedinog podatka iz vremenske oznake. Funkcija prima vremensku oznaku kao argument: <span class="primer_text">getDate(vremenska oznaka)</span> Vremenska oznaka je opcioni argument. Predstavlja datum i vreme u UNIX formatu. Ako se ne navede podrazumevana vrednost je trenutni datum i vreme.
-<br>
-Rezultat funkcije <span class="primer_text">getDate</span> je asocijativni niz koji sadrži 10 elemenata, odnosno 10 podataka o datumu i vremenu.
+Funkcija <span class="primer_text">getDate</span> se koristi za dohvatanje
+pojedinog podatka iz vremenske oznake. Funkcija prima vremensku oznaku kao
+argument: <span class="primer_text">getDate(vremenska oznaka)</span> Vremenska
+oznaka je opcioni argument. Predstavlja datum i vreme u UNIX formatu. Ako se ne
+navede podrazumevana vrednost je trenutni datum i vreme.
+<br />
+Rezultat funkcije <span class="primer_text">getDate</span> je asocijativni niz
+koji sadrži 10 elemenata, odnosno 10 podataka o datumu i vremenu.
 <ul>
-	<li>[seconds] - sekunde</li>
-	<li>[minutes] - minuti</li>
-	<li>[hours] - sati</li>
-	<li>[mday] - dan u mesecu</li>
-	<li>[wday] - dan u nedelji</li>
-	<li>[mon] - mesec</li>
-	<li>[year] - godina</li>
-	<li>[yday] - dan u godini</li>
-	<li>[weekday] - ime dana u nedelji</li>
-	<li>[month] - ime meseca</li>
+  <li>[seconds] - sekunde</li>
+  <li>[minutes] - minuti</li>
+  <li>[hours] - sati</li>
+  <li>[mday] - dan u mesecu</li>
+  <li>[wday] - dan u nedelji</li>
+  <li>[mon] - mesec</li>
+  <li>[year] - godina</li>
+  <li>[yday] - dan u godini</li>
+  <li>[weekday] - ime dana u nedelji</li>
+  <li>[month] - ime meseca</li>
 </ul>
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $datum_niz = getDate();
 foreach ( $datum_niz as $kljuc => $vrednost){
@@ -136,15 +159,20 @@ $datum.=$datum_niz['year'];
 echo $datum;
 ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 <h2>Funkcija checkDate</h2>
-Pomoću  funkcije <span class="primer_text">checkDate</span> moguće je utvrditi da li je datum ispravan (ovo je korisno kada korisnik unosi datum preko forme).<br>
-Sintaksa funkcije <span class="primer_text">checkDate</span>:<br>
-<span class="primer_text">checkDate(int meseci, int dan, int godina);</span> <br>
-Primeri:<br>
-<span class="primer_text">checkDate(4,15,2018);</span> vraća true<br>
-<span class="primer_text">checkDate(4,31,2018);</span> vraća false, jer April ima samo 30 dana.<br>
-<div class = "zadatak">
-<b>Zadatak:</b> Koristeći funkciju <span class="primer_text">getDate</span>, napisati program koji će da ispiše danasnji datum oblika: ime dana, dan u mesecu / mesec / godina. <br>
-Primer: Today is Monday, 26/3/2018.
+Pomoću funkcije <span class="primer_text">checkDate</span> moguće je utvrditi da
+li je datum ispravan (ovo je korisno kada korisnik unosi datum preko forme).<br />
+Sintaksa funkcije <span class="primer_text">checkDate</span>:<br />
+<span class="primer_text">checkDate(int meseci, int dan, int godina);</span>
+<br />
+Primeri:<br />
+<span class="primer_text">checkDate(4,15,2018);</span> vraća true<br />
+<span class="primer_text">checkDate(4,31,2018);</span> vraća false, jer April
+ima samo 30 dana.<br />
+<div class="zadatak">
+  <b>Zadatak:</b> Koristeći funkciju <span class="primer_text">getDate</span>,
+  napisati program koji će da ispiše danasnji datum oblika: ime dana, dan u
+  mesecu / mesec / godina. <br />
+  Primer: Today is Monday, 26/3/2018.
 </div>

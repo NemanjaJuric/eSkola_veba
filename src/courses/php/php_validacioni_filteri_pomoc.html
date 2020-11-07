@@ -1,10 +1,4 @@
-$broj =1;
-$min = -2.5;
-$max = 3.5;
-
-if(!filter_var($broj,FILTER_VALIDATE_FLOAT,array("options"=> array("min_range"=>$min,"max_range"=>$max)))===false){
-	echo "Promenljiva je u traženom opsegu";
-}
-else{
-	echo "Promenljiva nije u traženom opsegu";
-}
+$broj =1; $min = -2.5; $max = 3.5;
+if(!filter_var($broj,FILTER_VALIDATE_FLOAT,array("options"=>
+array("min_range"=>$min,"max_range"=>$max)))===false){ echo "Promenljiva je u
+traženom opsegu"; } else{ echo "Promenljiva nije u traženom opsegu"; }

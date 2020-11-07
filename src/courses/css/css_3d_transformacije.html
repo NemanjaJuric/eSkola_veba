@@ -1,40 +1,51 @@
 <h1><b>3D transformacije</b></h1>
-<br>
-Za razliku od 2D transformacija sada se nalazimo u trodimenzionom koordinatnom sistemu. 
-<br>
+<br />
+Za razliku od 2D transformacija sada se nalazimo u trodimenzionom koordinatnom
+sistemu.
+<br />
 Metode su slične kao i u prethodnoj lekciji:
-<br>
-<ul><b>Translacija:</b>
-<li>translate3d(x,y,z) - 3D translacija</li>
-<li>translateX(x) - 3D translacija po X-osi</li>
-<li>translateY(y) - 3D translacija po Y-osi</li>
-<li>translateZ(z) - 3D translacija po Z-osi</li>
+<br />
+<ul>
+  <b>Translacija:</b>
+  <li>translate3d(x,y,z) - 3D translacija</li>
+  <li>translateX(x) - 3D translacija po X-osi</li>
+  <li>translateY(y) - 3D translacija po Y-osi</li>
+  <li>translateZ(z) - 3D translacija po Z-osi</li>
 </ul>
-<ul><b>Rotacija:</b>
-<li>rotate3d(angleX,angleY,angleZ) - 3D rotacija</li>
-<li>rotateX(angle) - 3D rotacija oko X-ose</li>
-<li>rotateY(angle) -  3D rotacija oko Y-ose</li>
-<li>rotateZ(angle) - 3D rotacija oko Z-ose</li>
+<ul>
+  <b>Rotacija:</b>
+  <li>rotate3d(angleX,angleY,angleZ) - 3D rotacija</li>
+  <li>rotateX(angle) - 3D rotacija oko X-ose</li>
+  <li>rotateY(angle) - 3D rotacija oko Y-ose</li>
+  <li>rotateZ(angle) - 3D rotacija oko Z-ose</li>
 </ul>
-<xmp class = "primer_ta" rows=4 disabled>
+<xmp class="primer_ta" rows="4" disabled
+>
 div {
     -webkit-transform: rotateZ(60deg); /* Safari */
     transform: rotateZ(60deg);
 }
 </xmp>
-<ul><b>Skaliranje:</b>
-<li>scale3d(x,y,z) - 3D skaliranje</li>
-<li>scaleX(x) - 3D skaliranje po X-osi</li>
-<li>scaleY(y) - 3D skaliranje po Y-osi</li>
-<li>scaleZ(z) - 3D skaliranje po Z-osi</li>
+<ul>
+  <b>Skaliranje:</b>
+  <li>scale3d(x,y,z) - 3D skaliranje</li>
+  <li>scaleX(x) - 3D skaliranje po X-osi</li>
+  <li>scaleY(y) - 3D skaliranje po Y-osi</li>
+  <li>scaleZ(z) - 3D skaliranje po Z-osi</li>
 </ul>
-<ul><b>Kombinacija 3D metoda:</b>
-<li>matrix3d (n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) - definiše 3D transformaciju pomoću 16 parametara</li>
+<ul>
+  <b>Kombinacija 3D metoda:</b>
+  <li>
+    matrix3d (n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n) - definiše 3D transformaciju
+    pomoću 16 parametara
+  </li>
 </ul>
-<br>
+<br />
 
-<div class = "zadatak">
-<b>Zadatak:</b> 
-<br>a) Izmeniti deo koda tako da se pravougaonik rotira oko Y-ose za 250 stepeni u trodimenzionom koordinatnom sistemu. 
-<br>b) Izmeniti deo koda tako da se pravougaonik rotira oko Z-ose za 120 stepeni u trodimenzionom koordinatnom sistemu. 
+<div class="zadatak">
+  <b>Zadatak:</b>
+  <br />a) Izmeniti deo koda tako da se pravougaonik rotira oko Y-ose za 250
+  stepeni u trodimenzionom koordinatnom sistemu. <br />b) Izmeniti deo koda tako
+  da se pravougaonik rotira oko Z-ose za 120 stepeni u trodimenzionom
+  koordinatnom sistemu.
 </div>

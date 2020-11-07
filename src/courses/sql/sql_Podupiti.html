@@ -1,67 +1,81 @@
 <h1><b>Podupiti</b></h1>
-Podupit je upit unutar nekog upita. Razlikujemo dva tipa podupita. Prvi tip su podupiti koji se pišu
-iza ključne reči FROM nekog drugog upita i oni se nazivaju podupiti za izvedene tabele. Drugi tip su
-podupiti koji se pišu iza ključne reči WHERE nekog drugog upita i oni se nazivaju podupiti za izraze.
-<br>
-<br>
+Podupit je upit unutar nekog upita. Razlikujemo dva tipa podupita. Prvi tip su
+podupiti koji se pišu iza ključne reči FROM nekog drugog upita i oni se nazivaju
+podupiti za izvedene tabele. Drugi tip su podupiti koji se pišu iza ključne reči
+WHERE nekog drugog upita i oni se nazivaju podupiti za izraze.
+<br />
+<br />
 <h2>Podupiti za izvedene tabele</h2>
 Sledeći upit vraća imena svih radnika firme koji rade kao vozači.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT vozac.ime, vozac.prezime FROM (SELECT * FROM radnik WHERE polozaj = 'vozac') AS vozac;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Analizirajmo ovaj upit. Podupit ovog upita je
-<span class = "primer_text" >SELECT * FROM radnik WHERE polozaj = 'vozac'</span>. Izvršavanjem podupita se
-dobija izvedena tabela u kojoj se nalaze svi podaci o radnicima koji rade kao vozači. Toj izvedenoj tabeli
-je dodeljen alijas <b>vozac</b>. Nakon izvršravanja podupita i formiranja izvedene tabele, nastavlja se
-sa izvršavanjem upita. Sada se pretražuje izvedena tabela <b>vozac</b> i vraćaju se imena i prezimena
-svih vozača.
-<br><br>
-Sledećim upitom se dobijaju imena svih radnika iz Niša koji su išli na službeni put.
-<xmp class = "primer_ta" >
+<span class="primer_text">SELECT * FROM radnik WHERE polozaj = 'vozac'</span>.
+Izvršavanjem podupita se dobija izvedena tabela u kojoj se nalaze svi podaci o
+radnicima koji rade kao vozači. Toj izvedenoj tabeli je dodeljen alijas
+<b>vozac</b>. Nakon izvršravanja podupita i formiranja izvedene tabele,
+nastavlja se sa izvršavanjem upita. Sada se pretražuje izvedena tabela
+<b>vozac</b> i vraćaju se imena i prezimena svih vozača. <br /><br />
+Sledećim upitom se dobijaju imena svih radnika iz Niša koji su išli na službeni
+put.
+<xmp class="primer_ta"
+>
 SELECT nislija.ime, nislija.prezime FROM sluzbeni_put JOIN (SELECT radnik.id_radnika, radnik.ime, radnik.prezime FROM radnik WHERE radno_mesto = 'Nis') AS nislija ON nislija.id_radnika = sluzbeni_put.putnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Prvo se izvršava podupit i formira se izvedena tabela <b>nislija</b> koja ima tri kolone: id_radnika, ime i
-prezime radnika. Ta tabela čuva podatke o radnicima koji rade u Nišu. Zatim se izvedena tabela <b>nislija</b>
-povezuje sa tebelom <b>sluzbeni_put</b> po kriterijumu da se podatak u koloni id_radnika tabele
-<b>nislija</b> poklapa sa podatkom u koloni putnik tabele <b>sluzbeni_put</b>.
+<button class="button_copy">Vidi primer</button>
+<br />
+Prvo se izvršava podupit i formira se izvedena tabela <b>nislija</b> koja ima
+tri kolone: id_radnika, ime i prezime radnika. Ta tabela čuva podatke o
+radnicima koji rade u Nišu. Zatim se izvedena tabela <b>nislija</b> povezuje sa
+tebelom <b>sluzbeni_put</b> po kriterijumu da se podatak u koloni id_radnika
+tabele <b>nislija</b> poklapa sa podatkom u koloni putnik tabele
+<b>sluzbeni_put</b>.
 <div class="zadatak">
-  Pomoću podupita odrediti imena svih radnika koji su išli na službeni put u 2017. godini.
+  Pomoću podupita odrediti imena svih radnika koji su išli na službeni put u
+  2017. godini.
 </div>
 <h2>Podupiti za izraze</h2>
 Sledećim upitom dobijamo radnika koji ima najveću platu.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime FROM radnik WHERE plata = (SELECT MAX(plata) FROM radnik);
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Izvršavanjem podupita dobija se vrednost najveće plate, a zatim se ispisuje ime radnika koji ima tu platu.
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Izvršavanjem podupita dobija se vrednost najveće plate, a zatim se ispisuje ime
+radnika koji ima tu platu.
+<br /><br />
 Podupite možemo koristiti i sa operatorima IN i BETWEEN.
-<br>
+<br />
 Sve radnike koji nisu išli na službeni put lako možemo dobiti sledećim upitom.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT radnik.ime, radnik.prezime FROM radnik WHERE radnik.id_radnika NOT IN (SELECT sluzbeni_put.putnik FROM sluzbeni_put);
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Podupit vraća ID svih radnika koji su išli na službeno putovanje, a zatim se izlistavaju imena svih radnika
-čiji se ID ne nalazi u izvedenoj tabeli.
-<br>
-<br>
-Odrediti sve radnike koji imaju platu u opsegu između najveće plate trgovca i najveće plate vozača.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Podupit vraća ID svih radnika koji su išli na službeno putovanje, a zatim se
+izlistavaju imena svih radnika čiji se ID ne nalazi u izvedenoj tabeli.
+<br />
+<br />
+Odrediti sve radnike koji imaju platu u opsegu između najveće plate trgovca i
+najveće plate vozača.
+<br />
 Za ovakve zadatke pogodna je naredba BETWEEN i podupiti.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj FROM radnik WHERE plata BETWEEN (SELECT MAX(plata) FROM radnik WHERE polozaj = 'trgovac') AND (SELECT MAX(plata) FROM radnik WHERE polozaj = 'vozac');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Primećujemo da ovde imamo dva podupita. Jednim podupitom se određuje majveća plata trgovca a drugim podupitom
-se određuje najveća plata vozača. Rezulteti ta dva podupita čine granične vrednosti operatora BETWEEN.
+<button class="button_copy">Vidi primer</button>
+<br />
+Primećujemo da ovde imamo dva podupita. Jednim podupitom se određuje majveća
+plata trgovca a drugim podupitom se određuje najveća plata vozača. Rezulteti ta
+dva podupita čine granične vrednosti operatora BETWEEN.
 <div class="zadatak">
-  Odrediti imena svih radnika koji su primljeni na posao nakon zaposlenja poslednjeg vozača.
+  Odrediti imena svih radnika koji su primljeni na posao nakon zaposlenja
+  poslednjeg vozača.
 </div>

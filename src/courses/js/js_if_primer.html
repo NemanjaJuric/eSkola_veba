@@ -1,34 +1,27 @@
 <html>
-<head>
+  <head> </head>
+  <body>
+    <div>
+      <input type="number" name="broj" id="broj" min="1" max="10" />
+      <button onclick="ispitaj()">OK</button>
+    </div>
+    <br />
+    <hr />
+    <div id="ispis"></div>
 
-</head>
-<body>
+    <script>
+      document.getElementById("broj").defaultValue = "1";
+      function ispitaj() {
+        var broj = document.getElementById("broj").value;
+        var ispis = "";
+        if (broj == 5) {
+          ispis = "Uneli ste broj 5!";
+        } else {
+          ispis = "Uneli ste broj koji nije 5!";
+        }
 
-	<div>
-		<input type="number" name="broj" id="broj" min="1" max="10">
-		<button onclick="ispitaj()">OK</button>
-	</div>
-	<br>
-	<hr>
-	<div id="ispis">
-	
-	</div>
-
-	<script>
-		document.getElementById("broj").defaultValue = "1";
-		function ispitaj() {
-			var broj = document.getElementById("broj").value;
-			var ispis = '';
-			if (broj == 5) { 
-				ispis = 'Uneli ste broj 5!';
-			}
-			else { 
-				ispis = 'Uneli ste broj koji nije 5!';
-			}
-			
-			document.getElementById('ispis').innerHTML = ispis;
-		}
-	</script>
-
-</body>
+        document.getElementById("ispis").innerHTML = ispis;
+      }
+    </script>
+  </body>
 </html>

@@ -1,39 +1,10 @@
-﻿namespace moj_imenski_prostor
-{ 
-    export class moja_klasa
-     {
-        ime_polja_1: string;
-        ime_polja_2: number;
-        ime_polja_3: string;
-
-        constructor(ime_polja_1: string, ime_polja_2: number )
-        { 
-            this.ime_polja_1 = ime_polja_1;
-            this.ime_polja_2 = ime_polja_2;
-        }
-        
-        metod_1():void
-        { 
-            alert('Ovaj metod pripada objektu klase koja se zove moja_klasa i nalazi u imenskom prostoru moj_imenski_prostor.');
-        }
-     }
-}
-
-
-
-
-namespace moj_imenski_prostor_1
-{ 
-   export let moj_objekat = new moj_imenski_prostor.moja_klasa('Pozdrav iz imenskog prostora moj_imenski_prostor!', 10);
-    
-}
-
-
-
-
-let moj_objekat_1 = new moj_imenski_prostor.moja_klasa('Ovaj obejkat se nalazi u telu programa.', 9);
-
-
-moj_imenski_prostor_1.moj_objekat.metod_1();
-
-moj_objekat_1.metod_1();
+﻿namespace moj_imenski_prostor { export class moja_klasa { ime_polja_1: string;
+ime_polja_2: number; ime_polja_3: string; constructor(ime_polja_1: string,
+ime_polja_2: number ) { this.ime_polja_1 = ime_polja_1; this.ime_polja_2 =
+ime_polja_2; } metod_1():void { alert('Ovaj metod pripada objektu klase koja se
+zove moja_klasa i nalazi u imenskom prostoru moj_imenski_prostor.'); } } }
+namespace moj_imenski_prostor_1 { export let moj_objekat = new
+moj_imenski_prostor.moja_klasa('Pozdrav iz imenskog prostora
+moj_imenski_prostor!', 10); } let moj_objekat_1 = new
+moj_imenski_prostor.moja_klasa('Ovaj obejkat se nalazi u telu programa.', 9);
+moj_imenski_prostor_1.moj_objekat.metod_1(); moj_objekat_1.metod_1();

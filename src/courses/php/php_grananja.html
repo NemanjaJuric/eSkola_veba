@@ -1,18 +1,20 @@
 <h1><b>Grananja</b></h1>
-<br>
+<br />
 Kada pišemo program često želimo da se on izvršava na različite načine u
- različitim situacijama ili u odnosu na neki uslov određujemo koji deo
- programa će se izvršavati. U takvim slučajevima se koriste naredbe grananja.
-<br><br>
-Naredba <b>if</b> ispituje uslov i izvršava određene naredbe ako je uslov ispunjen.
-<xmp class = "primer_ta">
+različitim situacijama ili u odnosu na neki uslov određujemo koji deo programa
+će se izvršavati. U takvim slučajevima se koriste naredbe grananja.
+<br /><br />
+Naredba <b>if</b> ispituje uslov i izvršava određene naredbe ako je uslov
+ispunjen.
+<xmp class="primer_ta"
+>
 if ( uslov ) {
  naredbe
  }
 </xmp>
-<br><br>
+<br /><br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $a=3;
 $b=11;
@@ -22,20 +24,21 @@ if($a < $b)
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Ako želimo da izvršimo neke naredbe i kada uslov nije ispunjen,
- koristimo <b>if else</b>.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Ako želimo da izvršimo neke naredbe i kada uslov nije ispunjen, koristimo
+<b>if else</b>.
+<xmp class="primer_ta"
+>
 if ( uslov ) {
  naredbe
 } else {
   naredbe
 }
 </xmp>
-<br><br>
+<br /><br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $a=3;
 $b=11;
@@ -47,10 +50,11 @@ if($a < $b)
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 U slučaju da imamo više od dva uslova, koristemo naredbu <b>if elseif else</b>.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 if ( uslov ) {
  naredbe
 } elseif (uslov) {
@@ -59,9 +63,9 @@ if ( uslov ) {
   naredbe
 }
 </xmp>
-<br><br>
+<br /><br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $a=3;
 $b=11;
@@ -75,13 +79,14 @@ if($a < $b)
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Grananje <b>switch</b> je slično if else grananju. Kao ulazni parametar ima
-promenljivu ili izraz. Nakon ključne reči <b>case</b> pišemo moguće
-vrednosti promenljive ili izraza i (:) i naredbe koje će se izvršavati ako
-promenljiva ili izraz imaju tu vrednost.
-<xmp class = "primer_ta">
+promenljivu ili izraz. Nakon ključne reči <b>case</b> pišemo moguće vrednosti
+promenljive ili izraza i (:) i naredbe koje će se izvršavati ako promenljiva ili
+izraz imaju tu vrednost.
+<xmp class="primer_ta"
+>
 switch ( izraz ) {
  case vrednost1:
     naredbe koje se izvršavaju ako je izraz = vrednost1
@@ -94,11 +99,12 @@ switch ( izraz ) {
     naredbe koje se izvršavaju ako je izraz različit od svih prethodnih vrednosti
 }
 </xmp>
-<br><br>
-Da se ne bi nastavilo sa izvršavanjem sledećeg slučaja, koristi se <b>break</b>
-ili <b>continue</b>. Pomoću <b>default</b> možemo navesti deo programa (podrazumevani slučaj) koji
-će se izvršavati ako se nijedan drugi slučaj ne izvrši.
-<xmp class = "primer_ta">
+<br /><br />
+Da se ne bi nastavilo sa izvršavanjem sledećeg slučaja, koristi se
+<b>break</b> ili <b>continue</b>. Pomoću <b>default</b> možemo navesti deo
+programa (podrazumevani slučaj) koji će se izvršavati ako se nijedan drugi
+slučaj ne izvrši.
+<xmp class="primer_ta">
 <?php
 $boja = "plava";
 
@@ -117,13 +123,14 @@ switch ($boja) {
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-<div class = "napomena">
-Naredba <b>break</b> prekida izvršavanje petlje ili granaja. <br>
-Naredba <b>continue</b> preskače preostale naredbe i prelazi na sledeću iteraciju.
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+<div class="napomena">
+  Naredba <b>break</b> prekida izvršavanje petlje ili granaja. <br />
+  Naredba <b>continue</b> preskače preostale naredbe i prelazi na sledeću
+  iteraciju.
 </div>
-<div class = "zadatak">
-Napisati program koji pomoću switch ispituje da li je broj b manji, veći
-ili jednak od broja 15 i ispisuje odgovarajuću poruku.
+<div class="zadatak">
+  Napisati program koji pomoću switch ispituje da li je broj b manji, veći ili
+  jednak od broja 15 i ispisuje odgovarajuću poruku.
 </div>

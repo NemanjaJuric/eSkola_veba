@@ -1,25 +1,38 @@
 <h1>HTTP modul - rutiranje</h1>
 
-Veb stranicu možemo da otvorimo na više načina. U okviru stranice možemo da pristupimo direktno glavnoj strani, 
-odeljku za kontakt, odeljku za prijavljivanje itd. <span class="font-weight-bold">Rutiranje</span> predstavlja postupak kojim možemo da otkrijemo kom delu
-stranice klijent želi da pristupi i da adekvatno odgovorimo na taj zahtev.<br/><br/>
+Veb stranicu možemo da otvorimo na više načina. U okviru stranice možemo da
+pristupimo direktno glavnoj strani, odeljku za kontakt, odeljku za
+prijavljivanje itd. <span class="font-weight-bold">Rutiranje</span> predstavlja
+postupak kojim možemo da otkrijemo kom delu stranice klijent želi da pristupi i
+da adekvatno odgovorimo na taj zahtev.<br /><br />
 
-U prethodnoj lekciji smo naučili kako da iskoristimo svojstva zahteva da bismo izvukli putanju koju korisnik želi, 
-metod kojim pristupa stranici kao i http zaglavlje. Taj primer ćemo proširiti tako što ćemo u kod povratnog poziva servera
-dodati deo kojim proveramo kojoj putanji na našoj strani korisnik želi da pristupi. U okviru aplikacije dozvolićemo samo
-dve putanje kojima korisnik može da pristupi: <br/><br/>
+U prethodnoj lekciji smo naučili kako da iskoristimo svojstva zahteva da bismo
+izvukli putanju koju korisnik želi, metod kojim pristupa stranici kao i http
+zaglavlje. Taj primer ćemo proširiti tako što ćemo u kod povratnog poziva
+servera dodati deo kojim proveramo kojoj putanji na našoj strani korisnik želi
+da pristupi. U okviru aplikacije dozvolićemo samo dve putanje kojima korisnik
+može da pristupi: <br /><br />
 
 <ul>
-   <li><span class="font-weight-bold">/index</span> - kada korisnik pristupi ovoj putanji prikazaćemo mu pozdravnu poruku.</li>
-   <li><span class="font-weight-bold">/login</span> - kada korisnik pristupi ovoj putanji prikazaćemo mu formu u kojoj može da unese korisničko ime i lozinku.</li>
-   <li>U slučaju da korisnik želi da pristupi bilo kojoj drugoj putanji, reći ćemo mu da takva stranica ne postoji.</li>
+  <li>
+    <span class="font-weight-bold">/index</span> - kada korisnik pristupi ovoj
+    putanji prikazaćemo mu pozdravnu poruku.
+  </li>
+  <li>
+    <span class="font-weight-bold">/login</span> - kada korisnik pristupi ovoj
+    putanji prikazaćemo mu formu u kojoj može da unese korisničko ime i lozinku.
+  </li>
+  <li>
+    U slučaju da korisnik želi da pristupi bilo kojoj drugoj putanji, reći ćemo
+    mu da takva stranica ne postoji.
+  </li>
 </ul>
-<br/>
+<br />
 
-Da bismo razlikovali kojoj stranici korisnik želi da pristupi dovoljno je da proverimo polje url objekta zahtev. 
-Kod servera modifikujemo na sledeći način:
+Da bismo razlikovali kojoj stranici korisnik želi da pristupi dovoljno je da
+proverimo polje url objekta zahtev. Kod servera modifikujemo na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"> 
 http.createServer(function (zahtev, odgovor) {
 
    // pamtimo putanju koju korisnik želi da poseti
@@ -81,29 +94,53 @@ http.createServer(function (zahtev, odgovor) {
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Nema potrebe da napamet učite sva svojstva HTTP zaglavlja i sve moguće statuse HTTP protokola, jer su lako dostupni na primer <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">ovde</a>.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Nema potrebe da napamet učite sva svojstva HTTP zaglavlja i sve moguće statuse
+  HTTP protokola, jer su lako dostupni na primer
+  <a
+    href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"
+    target="_blank"
+    >ovde</a
+  >.
 </div>
 
-Modifikovani kod servera sačuvaćemo u fajlu <span class="font-weight-bold">http_rutiranje.js</span>. Da bismo testirali program 
-potrebno je da ga prvo pokrenemo i da u pregledaču proverimo da li se aplikacija ponaša na očekivani način. Prvo ćemo proveriti 
-šta se dešava kada u pregledaču pristupimo stranici <span class="font-weight-bold">127.0.0.1:8081/index</span>. Trebalo bi da dobijemo sledeće:
+Modifikovani kod servera sačuvaćemo u fajlu
+<span class="font-weight-bold">http_rutiranje.js</span>. Da bismo testirali
+program potrebno je da ga prvo pokrenemo i da u pregledaču proverimo da li se
+aplikacija ponaša na očekivani način. Prvo ćemo proveriti šta se dešava kada u
+pregledaču pristupimo stranici
+<span class="font-weight-bold">127.0.0.1:8081/index</span>. Trebalo bi da
+dobijemo sledeće:
 
-<img src="courses/nodejs/6_http_rutiranje/slika22.jpg" class="img-fluid img-md center">
+<img
+  src="courses/nodejs/6_http_rutiranje/slika22.jpg"
+  class="img-fluid img-md center"
+/>
 
-Ako u pregledaču pristupimo stranici pomoću <span class="font-weight-bold">127.0.0.1:8081/login</span> prikazaće se sledeća forma za prijavljivanje:
+Ako u pregledaču pristupimo stranici pomoću
+<span class="font-weight-bold">127.0.0.1:8081/login</span> prikazaće se sledeća
+forma za prijavljivanje:
 
-<img src="courses/nodejs/6_http_rutiranje/slika23.jpg" class="img-fluid img-md center">
+<img
+  src="courses/nodejs/6_http_rutiranje/slika23.jpg"
+  class="img-fluid img-md center"
+/>
 
-Ako u pregledaču pokušamo da pristupimo stranici na bilo koji drugi način, na primer pomoću adrese <span class="font-weight-bold">127.0.0.1:8081/</span>, prikazaće nam se poruka o grešci.
+Ako u pregledaču pokušamo da pristupimo stranici na bilo koji drugi način, na
+primer pomoću adrese <span class="font-weight-bold">127.0.0.1:8081/</span>,
+prikazaće nam se poruka o grešci.
 
-<img src="courses/nodejs/6_http_rutiranje/slika24.jpg" class="img-fluid img-md center">
+<img
+  src="courses/nodejs/6_http_rutiranje/slika24.jpg"
+  class="img-fluid img-md center"
+/>
 
-U sledećoj lekciji naučićemo kako da uz pomoć NodeJS parsiramo podatke koje nam šalje forma. U našem slučaju kako da saznamo korisničko ime i lozinku koje je uneo korisnik.
+U sledećoj lekciji naučićemo kako da uz pomoć NodeJS parsiramo podatke koje nam
+šalje forma. U našem slučaju kako da saznamo korisničko ime i lozinku koje je
+uneo korisnik.
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 12.</span><br/>
-   Modifikovati primer iz lekcije tako da pored pozdravne poruke, korisniku saopšti kojim metodom je pristupio sajtu i koju stranicu je želeo da otvori.
+  <span class="font-weight-bold">Zadatak 12.</span><br />
+  Modifikovati primer iz lekcije tako da pored pozdravne poruke, korisniku
+  saopšti kojim metodom je pristupio sajtu i koju stranicu je želeo da otvori.
 </div>
-
-

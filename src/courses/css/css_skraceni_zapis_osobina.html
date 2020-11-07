@@ -1,12 +1,16 @@
-﻿<h1>Skraćeni zapis osobina </h1>
-<br>
-Neka CSS svojstva omogućavaju da se sa nizom vrenosti zameni nabrajanje. Biće jasnije na primenu.
-<br><br>
+﻿<h1>Skraćeni zapis osobina</h1>
+<br />
+Neka CSS svojstva omogućavaju da se sa nizom vrenosti zameni nabrajanje. Biće
+jasnije na primenu.
+<br /><br />
 <h2>Margine i uokvirenja</h2>
-<br> 
-<b> margin </b> omogućava da se spoje <b>margin-top</b>, <b>margin-right</b>, <b>margin-bottom</b>, i <b>margin-left</b> u sledecoj formi <b>osobina: top right bottom left;</b>
-<br>
-<xmp class="primer_ta" rows="6"disabled>
+<br />
+<b> margin </b> omogućava da se spoje <b>margin-top</b>, <b>margin-right</b>,
+<b>margin-bottom</b>, i <b>margin-left</b> u sledecoj formi
+<b>osobina: top right bottom left;</b>
+<br />
+<xmp class="primer_ta" rows="6" disabled
+>
 p {
     margin-top: 1px;
     margin-right: 5px;
@@ -14,55 +18,66 @@ p {
     margin-left: 20px;
 }
 </xmp>
-<br>
+<br />
 Možemo zapisati:
-<br>
-<xmp class="primer_ta" >
+<br />
+<xmp class="primer_ta"
+>
 p {
     margin: 1px 5px 10px 20px;
 }
 </xmp>
-<br>
+<br />
 <b>padding</b> funkcioniše po istom principu.
-<br>
-Ako se navedu samo dve vrednosti, prva će se odnositi na <b>top</b> i <b>botton</b>, a druga na <b>left</b> i <b>right</b>. Naime, na primeu to izgleda ovako : <i>padding: 1em 10em;</i>
-<br><br>
+<br />
+Ako se navedu samo dve vrednosti, prva će se odnositi na <b>top</b> i
+<b>botton</b>, a druga na <b>left</b> i <b>right</b>. Naime, na primeu to
+izgleda ovako : <i>padding: 1em 10em;</i> <br /><br />
 <h2>Granice</h2>
-<br>
-<b>border-width</b> se koristi na isti način kao i prethodne dve osobine. Ukoliko želimo da spojimo <b> border-width</b>, <b>border-color</b>, i <b> border-style</b> u jednu celinu, to ćemo moći na sledeći način.
-<br>
-<xmp class="primer_ta" >
+<br />
+<b>border-width</b> se koristi na isti način kao i prethodne dve osobine.
+Ukoliko želimo da spojimo <b> border-width</b>, <b>border-color</b>, i
+<b> border-style</b> u jednu celinu, to ćemo moći na sledeći način.
+<br />
+<xmp class="primer_ta"
+>
 p {
     border-width: 1px;
     border-color: red;
     border-style: solid;
 }
 </xmp>
-<br>
+<br />
 Jednostavnije, to izgleda ovako:
-<br>
-<xmp class="primer_ta" >
+<br />
+<xmp class="primer_ta"
+>
 p {
     border: 1px red solid;
 }
 </xmp>
-<br>
+<br />
 <b>border-top</b> i <b>border-right</b> takođe imaju skraćeni zapis.
-<b><br>
-<h2>Stilovi</h2>
-<br>
-Svojstva vezana za stilove se mogu spojiti pomoću jednog svojstva <b>font</b>.
-Kombinacija je sledeća:[style] [variant] [weight] [size]/[line-height] [family]
-<br>
-<xmp class="primer_ta"  >
+<b
+  ><br />
+  <h2>Stilovi</h2>
+  <br />
+  Svojstva vezana za stilove se mogu spojiti pomoću jednog svojstva <b>font</b>.
+  Kombinacija je sledeća:[style] [variant] [weight] [size]/[line-height]
+  [family]
+  <br />
+  <xmp class="primer_ta"
+>
 p {
     font: italic bold 12px/2 courier;
 }
-</xmp>
-<br>
-Sve zajedno:
-<br>
-<xmp class="primer_ta" >
+</xmp
+  >
+  <br />
+  Sve zajedno:
+  <br />
+  <xmp class="primer_ta"
+>
 p {
     font: 14px/1.5 "Times New Roman", times, serif;
     padding: 30px 10px;
@@ -71,5 +86,7 @@ p {
     border-color: red green blue yellow;
     margin: 10px 50px;
 }
-</xmp>
-<br><br>
+</xmp
+  >
+  <br /><br
+/></b>

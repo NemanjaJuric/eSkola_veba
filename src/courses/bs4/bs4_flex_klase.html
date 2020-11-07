@@ -1,12 +1,13 @@
 <h1>Grupa klasa flex</h1>
-Jedna od razlika između radnih okruženja Bootstrap 3 i Bootstrap 4
-jeste što se u okruženju Bootstrap 4 koristi flexbox za pozicioniranje
-elemenata na veb strani, dok su se u okruženju Bbootstrap 3 pretežno koristili
-elementi <span class="primer_text">float</span>. Da bi se elementi respoređivali, roditeljskom
-elementu je potrebno zadati klasu <span class="primer_text">.d-flex</span>.
-<br>
-<img src="courses/bs4/flex2.png" class="img-fluid img-lg">
-<br>
+Jedna od razlika između radnih okruženja Bootstrap 3 i Bootstrap 4 jeste što se
+u okruženju Bootstrap 4 koristi flexbox za pozicioniranje elemenata na veb
+strani, dok su se u okruženju Bbootstrap 3 pretežno koristili elementi
+<span class="primer_text">float</span>. Da bi se elementi respoređivali,
+roditeljskom elementu je potrebno zadati klasu
+<span class="primer_text">.d-flex</span>.
+<br />
+<img src="courses/bs4/flex2.png" class="img-fluid img-lg" />
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -29,27 +30,34 @@ elementu je potrebno zadati klasu <span class="primer_text">.d-flex</span>.
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 Raspored elemenata u vrsti, odnosno horizontalno, postavlja se koristeći klase
-<span class="primer_text">.flex-row</span> i <span class="primer_text">.flex-row-reverse</span> koje se dodaju roditeljskom elementu,
-pored klase <span class="primer_text">.d-flex</span>. Klasa <span class="primer_text">.flex-row</span> poravnava elemente uz levu ivicu,
-od prvog navedenog ka poslednjem, bez proreda među njima, dok klasa
-<span class="primer_text">.flex-row-reverse</span> poravnava elemente uz desnu ivicu, od prvog navedenog
-ka poslednjem u smeru sa desna na levo, takođe bez proreda među njima.
-<br>
-Raspored elemenata u koloni, odnosno vertikalno, postavlja se koristeći
-klase <span class="primer_text">.flex-column</span> i <span class="primer_text">.flex-column-reverse</span>, pri čemu se
-funkcionalnost ovih klasa omogućava na isti način kao i funkcionalnost
-klasa za raspored elemenata u vrsti.
-<br><br>
-Klase <span class="primer_text">.justify-content-*</span> zadaju raspored elemenata, klasa
-<span class="primer_text">.justify-content-start</span> poravnava elemente uz levu ivicu bez
-proreda među njima; klasa <span class="primer_text">.justify-content-end</span>, poravnava elemente
-uz desnu ivicu bez proreda; klasa <span class="primer_text">.justify-content-center</span> centrira
-elemente, bez proreda dok klasa <span class="primer_text">.justify-content-between</span> poravnava
-elemente tako da je prored među susednim elementima jednak i klasa
-<span class="primer_text">.justify-content-aroud</span> poravnava tako da postoji prazan prostor
-jednakih širina pre prvog i nakon poslednjeg elementa.
+<span class="primer_text">.flex-row</span> i
+<span class="primer_text">.flex-row-reverse</span> koje se dodaju roditeljskom
+elementu, pored klase <span class="primer_text">.d-flex</span>. Klasa
+<span class="primer_text">.flex-row</span> poravnava elemente uz levu ivicu, od
+prvog navedenog ka poslednjem, bez proreda među njima, dok klasa
+<span class="primer_text">.flex-row-reverse</span> poravnava elemente uz desnu
+ivicu, od prvog navedenog ka poslednjem u smeru sa desna na levo, takođe bez
+proreda među njima.
+<br />
+Raspored elemenata u koloni, odnosno vertikalno, postavlja se koristeći klase
+<span class="primer_text">.flex-column</span> i
+<span class="primer_text">.flex-column-reverse</span>, pri čemu se
+funkcionalnost ovih klasa omogućava na isti način kao i funkcionalnost klasa za
+raspored elemenata u vrsti. <br /><br />
+Klase <span class="primer_text">.justify-content-*</span> zadaju raspored
+elemenata, klasa
+<span class="primer_text">.justify-content-start</span> poravnava elemente uz
+levu ivicu bez proreda među njima; klasa
+<span class="primer_text">.justify-content-end</span>, poravnava elemente uz
+desnu ivicu bez proreda; klasa
+<span class="primer_text">.justify-content-center</span> centrira elemente, bez
+proreda dok klasa
+<span class="primer_text">.justify-content-between</span> poravnava elemente
+tako da je prored među susednim elementima jednak i klasa
+<span class="primer_text">.justify-content-aroud</span> poravnava tako da
+postoji prazan prostor jednakih širina pre prvog i nakon poslednjeg elementa.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -92,36 +100,47 @@ jednakih širina pre prvog i nakon poslednjeg elementa.
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Ukoliko se svakom elementu koji se nalazi unutar roditeljskog elementa sa
-klasom <span class="primer_text">d-flex</span> doda klasa <span class="primer_text">.flex-fill</span>, svaki element će imati
-istu širinu. Element sa klasom <span class="primer_text">.flex-grow-1</span> je širine koja je
-dovoljna da popuni ostatak praznog prostora u roditeljskom elementu. Klasa
-<span class="primer_text">.flex-shrink-1</span> se dodaje elementu čiju širinu treba smanjiti,
-ukoliko je to potrebno. Raspored elementa unutar roditeljskog elementa sa
-klasom <span class="primer_text">.d-flex</span> se može zadati klasama <span class="primer_text">.order-*</span>.
-Elementu je moguće zadati i klasu <span class="primer_text">.mr-auto</span>, koja ga maksimalno pomera u
-levo, za klasu <span class="primer_text">.ml-auto</span> važi da ga maksimalno pomera na desno.
-<br>
-Klase tipa <span class="primer_text">wrap</span> se koriste kada se unutar roditeljskog elementa sa klasom
-<span class="primer_text">.d-flex</span> nalazi više elemenata nego što se može uklopiti u
-širinu tog roditeljskog elementa. Klasa <span class="primer_text">.flex-nowrap</span> sve elemente
-ređa u jednom redu pri čemu neki od njih ispadaju izvan roditeljskog elementa.
-Klasa <span class="primer_text">.flex-wrap</span> prikazuje elemente u više redova, pri čemu nijedan
-element ne ispada iz roditeljskog elementa. Klasa <span class="primer_text">.flex-wrap-reverse</span>
-takođe elemente prikazuje u više redova, pri čemu je prikaz redova sada
-obrnut u odnosu na prikaz u klasi <span class="primer_text">.flex-wrap</span>.
-<br>
-Ako se elementi unutar roditeljskog elementa sa klasom <span class="primer_text">.d-flex</span> pomoću
-neke od klasa iz grupe <span class="primer_text">wrap</span> prikazuju u više redova, mogu se koristiti
-klase <span class="primer_text">.align-content-*</span> za pozocoioniranje redova. Klasa
-<span class="primer_text">.align-content-start</span> poravnava sve redove uz gornju ivicu bez proreda
-među njima; klasa <span class="primer_text">.align-content-end</span> poravnava sve redove uz donju ivicu bez proreda;
-klasa <span class="primer_text">.align-content-center</span> centrira redove, takođe bez proreda. Klasa
-<span class="primer_text">.align-content-around</span> poravnava redove sa odgovarajućim proredom i praznim
-prostorom pre prvog i nakon poslednjeg reda. Klasa <span class="primer_text">.align-content-stretch</span>
-zadaje podjednaku visinu svim redovima tako da je zbirna visina svih redova jednaka visini roditeljskog elementa.
-<br>
+<br />
+Ukoliko se svakom elementu koji se nalazi unutar roditeljskog elementa sa klasom
+<span class="primer_text">d-flex</span> doda klasa
+<span class="primer_text">.flex-fill</span>, svaki element će imati istu širinu.
+Element sa klasom <span class="primer_text">.flex-grow-1</span> je širine koja
+je dovoljna da popuni ostatak praznog prostora u roditeljskom elementu. Klasa
+<span class="primer_text">.flex-shrink-1</span> se dodaje elementu čiju širinu
+treba smanjiti, ukoliko je to potrebno. Raspored elementa unutar roditeljskog
+elementa sa klasom <span class="primer_text">.d-flex</span> se može zadati
+klasama <span class="primer_text">.order-*</span>. Elementu je moguće zadati i
+klasu <span class="primer_text">.mr-auto</span>, koja ga maksimalno pomera u
+levo, za klasu <span class="primer_text">.ml-auto</span> važi da ga maksimalno
+pomera na desno.
+<br />
+Klase tipa <span class="primer_text">wrap</span> se koriste kada se unutar
+roditeljskog elementa sa klasom <span class="primer_text">.d-flex</span> nalazi
+više elemenata nego što se može uklopiti u širinu tog roditeljskog elementa.
+Klasa <span class="primer_text">.flex-nowrap</span> sve elemente ređa u jednom
+redu pri čemu neki od njih ispadaju izvan roditeljskog elementa. Klasa
+<span class="primer_text">.flex-wrap</span> prikazuje elemente u više redova,
+pri čemu nijedan element ne ispada iz roditeljskog elementa. Klasa
+<span class="primer_text">.flex-wrap-reverse</span> takođe elemente prikazuje u
+više redova, pri čemu je prikaz redova sada obrnut u odnosu na prikaz u klasi
+<span class="primer_text">.flex-wrap</span>.
+<br />
+Ako se elementi unutar roditeljskog elementa sa klasom
+<span class="primer_text">.d-flex</span> pomoću neke od klasa iz grupe
+<span class="primer_text">wrap</span> prikazuju u više redova, mogu se koristiti
+klase <span class="primer_text">.align-content-*</span> za pozocoioniranje
+redova. Klasa <span class="primer_text">.align-content-start</span> poravnava
+sve redove uz gornju ivicu bez proreda među njima; klasa
+<span class="primer_text">.align-content-end</span> poravnava sve redove uz
+donju ivicu bez proreda; klasa
+<span class="primer_text">.align-content-center</span> centrira redove, takođe
+bez proreda. Klasa
+<span class="primer_text">.align-content-around</span> poravnava redove sa
+odgovarajućim proredom i praznim prostorom pre prvog i nakon poslednjeg reda.
+Klasa <span class="primer_text">.align-content-stretch</span>
+zadaje podjednaku visinu svim redovima tako da je zbirna visina svih redova
+jednaka visini roditeljskog elementa.
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -156,15 +175,20 @@ zadaje podjednaku visinu svim redovima tako da je zbirna visina svih redova jedn
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Vertikalni prikaz jednog reda se može postaviti pomoću klasa <span class="primer_text">.align-items-*</span>.
-Vrednost * može biti <span class="primer_text">start</span>: odnosno red je poravnat uz gornju i levu ivicu;
-<span class="primer_text">end</span>: red je poravnat uz donju i levu ivicu; <span class="primer_text">center</span>: red je centriran;
-<span class="primer_text">baseline</span>: red je poravnat u odnosu na donju ivicu sadžaja elemenata u redu i
-<span class="primer_text">stretch</span>: odnosno red se prostire celom visinom roditeljskog elementa. Klase
-<span class="primer_text">.align-self-*</span> se zadaju pojedinačno elementima koji se pozicioniraju
-nezavisno od ostalih elemenata unutar istog roditeljskog elementa.
+<br />
+Vertikalni prikaz jednog reda se može postaviti pomoću klasa
+<span class="primer_text">.align-items-*</span>. Vrednost * može biti
+<span class="primer_text">start</span>: odnosno red je poravnat uz gornju i levu
+ivicu; <span class="primer_text">end</span>: red je poravnat uz donju i levu
+ivicu; <span class="primer_text">center</span>: red je centriran;
+<span class="primer_text">baseline</span>: red je poravnat u odnosu na donju
+ivicu sadžaja elemenata u redu i <span class="primer_text">stretch</span>:
+odnosno red se prostire celom visinom roditeljskog elementa. Klase
+<span class="primer_text">.align-self-*</span> se zadaju pojedinačno elementima
+koji se pozicioniraju nezavisno od ostalih elemenata unutar istog roditeljskog
+elementa.
 
 <div class="zadatak">
-  <b>Zadatak:</b> Napraviti tri elementa koja su poređana vertikalno u obrnutom redosledu.
+  <b>Zadatak:</b> Napraviti tri elementa koja su poređana vertikalno u obrnutom
+  redosledu.
 </div>

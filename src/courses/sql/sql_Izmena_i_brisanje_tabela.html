@@ -1,28 +1,36 @@
 <h1><b>Upiti za izmenu i brisanje tabela</b></h1>
-Ako smo napravili neku tabelu u bazi, pa smo naknadno primetili da moramo da je malo promenimo, to možemo
-učiniti pomoću sledećih upita.<br><br>
+Ako smo napravili neku tabelu u bazi, pa smo naknadno primetili da moramo da je
+malo promenimo, to možemo učiniti pomoću sledećih upita.<br /><br />
 <b>Upit za dodavanje kolone u tabelu:</b>
-<br>
-<span class = "primer_text" >ALTER TABLE ime_postojece_tabele ADD ime_kolone tip_podatka;</span>
-<br><br>
-U prethodnoj lekciji smo napravili tabelu osoba sa kolonoma jmbg, ime, prezime, godine. Sledeći upit toj
-tabeli dodaje kolonu nadimak:<br>
-<span class = "primer_text" >ALTER TABLE osoba ADD nadimak VARCHAR(20);</span>
-<br><br>
+<br />
+<span class="primer_text"
+  >ALTER TABLE ime_postojece_tabele ADD ime_kolone tip_podatka;</span
+>
+<br /><br />
+U prethodnoj lekciji smo napravili tabelu osoba sa kolonoma jmbg, ime, prezime,
+godine. Sledeći upit toj tabeli dodaje kolonu nadimak:<br />
+<span class="primer_text">ALTER TABLE osoba ADD nadimak VARCHAR(20);</span>
+<br /><br />
 <b>Upit za brisanje kolone iz tabele:</b>
-<br>
-<span class = "primer_text" >ALTER TABLE ime_postojece_tabele DROP ime_kolone;</span>
-<br><br>
-Iskoristimo opet tabelu osoba iz prethodne lekcije. Sledećim upitom brišemo kolonu prezime iz tabele:<br>
-<span class = "primer_text" >ALTER TABLE osoba DROP prezime;</span>
-<br><br>
+<br />
+<span class="primer_text"
+  >ALTER TABLE ime_postojece_tabele DROP ime_kolone;</span
+>
+<br /><br />
+Iskoristimo opet tabelu osoba iz prethodne lekcije. Sledećim upitom brišemo
+kolonu prezime iz tabele:<br />
+<span class="primer_text">ALTER TABLE osoba DROP prezime;</span>
+<br /><br />
 <b>Upit za promenu tipa podatka u koloni tabele:</b>
-<br>
-<span class = "primer_text" >ALTER TABLE ime_postojece_tabele MODIFY COLUMN ime_kolone tip_podatka;</span>
-<br><br>
-U tabeli osoba iz prethodne lekcije, tip podatka kolone godine iz INT promenimo u YEAR:<br>
-<span class = "primer_text" >ALTER TABLE osoba MODIFY COLUMN godine YEAR;</span>
-<br><br>
+<br />
+<span class="primer_text"
+  >ALTER TABLE ime_postojece_tabele MODIFY COLUMN ime_kolone tip_podatka;</span
+>
+<br /><br />
+U tabeli osoba iz prethodne lekcije, tip podatka kolone godine iz INT promenimo
+u YEAR:<br />
+<span class="primer_text">ALTER TABLE osoba MODIFY COLUMN godine YEAR;</span>
+<br /><br />
 <b>Upit za brisanje tabele iz baze:</b>
-<br>
-<span class = "primer_text" >DROP TABLE ime_tabele;</span>
+<br />
+<span class="primer_text">DROP TABLE ime_tabele;</span>

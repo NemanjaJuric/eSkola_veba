@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Canvas tekst primer</title>
-</head>
-<body>
-<h1>Crtanje teksta u Canvas-u. Primeri</h1>
+  <head>
+    <title>Canvas tekst primer</title>
+  </head>
+  <body>
+    <h1>Crtanje teksta u Canvas-u. Primeri</h1>
 
-<p>Primer koji demonstrira poziv metode fillText, postavlja font na 30px "Arial" i ispisuje "Hello world":</p>
+    <p>
+      Primer koji demonstrira poziv metode fillText, postavlja font na 30px
+      "Arial" i ispisuje "Hello world":
+    </p>
 
-<canvas id="myCanvasfill" width="200" height="100"
-style="border:1px solid #d3d3d3;"></canvas>
-<script>
-var canvas = document.getElementById("myCanvasfill");
-var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-ctx.fillText("Hello World", 10, 50);
-</script>
+    <canvas
+      id="myCanvasfill"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvasfill");
+      var ctx = canvas.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillText("Hello World", 10, 50);
+    </script>
 
-<p>Primer koji demonstrira poziv metode strokeText, postavlja font na 30px "Arial" i ispisuje "Hello world":</p>
+    <p>
+      Primer koji demonstrira poziv metode strokeText, postavlja font na 30px
+      "Arial" i ispisuje "Hello world":
+    </p>
 
-<canvas id="myCanvasStroke" width="200" height="100"
-style="border:1px solid #d3d3d3;"></canvas>
-<script>
-var canvas = document.getElementById("myCanvasStroke");
-var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-ctx.strokeText("Hello World",10,50);
-</script>
-
-</body>
+    <canvas
+      id="myCanvasStroke"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvasStroke");
+      var ctx = canvas.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.strokeText("Hello World", 10, 50);
+    </script>
+  </body>
 </html>

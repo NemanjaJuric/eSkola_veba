@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>  
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <h2>Primer Validacija</h2>
 
-<h2>Primer Validacija</h2>
+    <form
+      ng-app="mojaAplikacija"
+      ng-controller="validateCtrl"
+      name="myForm"
+      novalidate
+    >
+      <p>
+        Ime:<br />
+        <input type="text" name="user" ng-model="user" required />
+        <span
+          style="color: red"
+          ng-show="myForm.user.$dirty && myForm.user.$invalid"
+        >
+          <span ng-show="myForm.user.$error.required">Ime je obavezno.</span>
+        </span>
+      </p>
 
-<form ng-app="mojaAplikacija" ng-controller="validateCtrl" 
-name="myForm" novalidate>
+      <p>
+        Email:<br />
+        <input type="email" name="email" ng-model="email" required />
+        <span
+          style="color: red"
+          ng-show="myForm.email.$dirty && myForm.email.$invalid"
+        >
+          <span ng-show="myForm.email.$error.required">Email je obavezan.</span>
+          <span ng-show="myForm.email.$error.email"
+            >Pogreï¿½na email adresa.</span
+          >
+        </span>
+      </p>
 
-<p>Ime:<br>
-<input type="text" name="user" ng-model="user" required>
-<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-<span ng-show="myForm.user.$error.required">Ime je obavezno.</span>
-</span>
-</p>
+      <p>
+        <input
+          type="submit"
+          ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid"
+        />
+      </p>
+    </form>
 
-<p>Email:<br>
-<input type="email" name="email" ng-model="email" required>
-<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-<span ng-show="myForm.email.$error.required">Email je obavezan.</span>
-<span ng-show="myForm.email.$error.email">Pogrešna email adresa.</span>
-</span>
-</p>
-
-<p>
-<input type="submit"
-ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-myForm.email.$dirty && myForm.email.$invalid">
-</p>
-
-</form>
-
-<script>
-var app = angular.module('mojaAplikacija', []);
-app.controller('validateCtrl', function($scope) {
-    $scope.user = '';
-    $scope.email = 'john.doe@gmail.com';
-});
-</script>
-
-</body>
+    <script>
+      var app = angular.module("mojaAplikacija", []);
+      app.controller("validateCtrl", function ($scope) {
+        $scope.user = "";
+        $scope.email = "john.doe@gmail.com";
+      });
+    </script>
+  </body>
 </html>

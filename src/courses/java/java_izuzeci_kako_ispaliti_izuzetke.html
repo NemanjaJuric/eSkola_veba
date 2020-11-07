@@ -1,28 +1,48 @@
 <h1>Kako baciti/ispaliti izuzetke</h1>
-<br>
+<br />
 
-Pre nego što uspete da uhvatite izuzetak, neki kod negde mora da ga baci/ispali. Bilo koji kod može baciti/ispaliti izuzetak: vaš kod, kod iz paketa koji je napisao neko drugi, poput paketa koji dolaze sa Java platformom ili Java (runtime) okruženjem. Bez obzira šta baca/ispaljuje izuzetak, izuzeci su uvek bačeni sa <span class = "primer_text"><b>throw</b></span> naredbom.
-<br><br>
+Pre nego što uspete da uhvatite izuzetak, neki kod negde mora da ga baci/ispali.
+Bilo koji kod može baciti/ispaliti izuzetak: vaš kod, kod iz paketa koji je
+napisao neko drugi, poput paketa koji dolaze sa Java platformom ili Java
+(runtime) okruženjem. Bez obzira šta baca/ispaljuje izuzetak, izuzeci su uvek
+bačeni sa <span class="primer_text"><b>throw</b></span> naredbom. <br /><br />
 
-Kao što ste verovatno primetili, Java platforma obezbeđuje veliki broj klasa za izuzetke. Sve klase su potomci <span class = "primer_text">Throwable</span> klase i sve omogućavaju programima da se razlikuju po različitim tipovima izuzetaka koji se mogu dogoditi tokom izvršavanja programa.
-<br><br>
+Kao što ste verovatno primetili, Java platforma obezbeđuje veliki broj klasa za
+izuzetke. Sve klase su potomci <span class="primer_text">Throwable</span> klase
+i sve omogućavaju programima da se razlikuju po različitim tipovima izuzetaka
+koji se mogu dogoditi tokom izvršavanja programa. <br /><br />
 
-Takođe možete kreirati sopstvene klase izuzetaka da biste predstavili probleme koji se mogu pojaviti unutar klasa koje pišete. U stavri, ako ste vi programer koji piše paket, možda ćete morati da kreirate sopstveni skup klasa izuzetaka kako biste omogućili korisnicima da razlikuju greške koje se mogu pojaviti u vašem paketu od grešaka koje se javljaju na Java platformi ili drugim paketima.
-<br><br>
+Takođe možete kreirati sopstvene klase izuzetaka da biste predstavili probleme
+koji se mogu pojaviti unutar klasa koje pišete. U stavri, ako ste vi programer
+koji piše paket, možda ćete morati da kreirate sopstveni skup klasa izuzetaka
+kako biste omogućili korisnicima da razlikuju greške koje se mogu pojaviti u
+vašem paketu od grešaka koje se javljaju na Java platformi ili drugim paketima.
+<br /><br />
 
-Takođe možete da kreirate i lančane izuzetke. O tome ćemo govoriti u narednoj sekciji.
-<br><br>
+Takođe možete da kreirate i lančane izuzetke. O tome ćemo govoriti u narednoj
+sekciji.
+<br /><br />
 
 <h2>throw naredba</h2>
-<br>
+<br />
 
-Sve metode koriste <span class = "primer_text">throw</span> naredbu da bace/ispale izuzetak. <span class = "primer_text">throw</span> naredba zahteva jedan jedini argument: (throwable) objekat koji se može baciti/ispaliti. Objekti koji se mogu baciti/ispaliti su instance bilo koje podklase <span class = "primer_text">Throwable</span> klase. Evo jednog primera <span class = "primer_text">throw</span> naredbe.
-<xmp class = "primer_ta">
+Sve metode koriste <span class="primer_text">throw</span> naredbu da bace/ispale
+izuzetak. <span class="primer_text">throw</span> naredba zahteva jedan jedini
+argument: (throwable) objekat koji se može baciti/ispaliti. Objekti koji se mogu
+baciti/ispaliti su instance bilo koje podklase
+<span class="primer_text">Throwable</span> klase. Evo jednog primera
+<span class="primer_text">throw</span> naredbe.
+<xmp class="primer_ta"
+>
 throw someThrowableObject;
 </xmp>
 
-Pogledajmo <span class = "primer_text">throw</span> naredbu u pravom primeru. Sledeća <span class = "primer_text">pop</span> metoda preuzeta je iz klase koja implementira standardni stek objekat. Metoda ukljanja element sa vrha steka i vraća uklonjeni element. 
-<xmp class = "primer_ta">
+Pogledajmo <span class="primer_text">throw</span> naredbu u pravom primeru.
+Sledeća <span class="primer_text">pop</span> metoda preuzeta je iz klase koja
+implementira standardni stek objekat. Metoda ukljanja element sa vrha steka i
+vraća uklonjeni element.
+<xmp class="primer_ta"
+>
 public Object pop() {
     Object obj;
 
@@ -37,62 +57,103 @@ public Object pop() {
 }
 </xmp>
 
-<span class = "primer_text">pop</span> metoda proverava da li ima elemenata na steku. Ako je stek prazan (njegova veličina je jednaka 0), <span class = "primer_text">pop</span> metoda instancira novi <span class = "primer_text">EmptyStackException</span> objekat (član java.util paketa) i baca/ispaljuje ga. Sekcija "Kreiranje klasa izuzetaka" koja se nalazi u ovoj lekciji objašnjava kako da kreirate sopstvene klase izuzetaka. Za sada sve što treba da zapamtite je da možete bacati/ispaljivati samo objekte klasa koje nasleđuju <span class = "primer_text">java.lang.Throwable</span> klasu.
-<br><br>
+<span class="primer_text">pop</span> metoda proverava da li ima elemenata na
+steku. Ako je stek prazan (njegova veličina je jednaka 0),
+<span class="primer_text">pop</span> metoda instancira novi
+<span class="primer_text">EmptyStackException</span> objekat (član java.util
+paketa) i baca/ispaljuje ga. Sekcija "Kreiranje klasa izuzetaka" koja se nalazi
+u ovoj lekciji objašnjava kako da kreirate sopstvene klase izuzetaka. Za sada
+sve što treba da zapamtite je da možete bacati/ispaljivati samo objekte klasa
+koje nasleđuju <span class="primer_text">java.lang.Throwable</span> klasu.
+<br /><br />
 
-Primetite da deklaracija <span class = "primer_text">pop</span> metoda ne sadrži <span class = "primer_text">throws</span> klauzulu. <span class = "primer_text">EmptyStackException </span> nije provereni izuzetak, tako da <span class = "primer_text">pop</span> metoda ne mora da naglašava da bi se on mogao dogoditi.
-<br><br>
+Primetite da deklaracija <span class="primer_text">pop</span> metoda ne sadrži
+<span class="primer_text">throws</span> klauzulu.
+<span class="primer_text">EmptyStackException </span> nije provereni izuzetak,
+tako da <span class="primer_text">pop</span> metoda ne mora da naglašava da bi
+se on mogao dogoditi. <br /><br />
 
 <h2>Throwable klasa i njene podklase</h2>
-<br>
+<br />
 
-Šta su Throwable objekti? Objekti koji nasleđuju nešto iz <span class = "primer_text">Throwable</span> klase, uključujući direkte potomke (objekti koji nasleđuju direktno iz <span class = "primer_text">Throwable</span> klase) i indirektne potomke (objekti koji nasleđuju od dece ili unuka <span class = "primer_text">Thorwable</span> klase). Donja slika ilustruje hijerarhiju <span class = "primer_text">Throwable</span> klase i njenih najznačajnijih podklasa. Kao što vidite, <span class = "primer_text">Throwable</span> ima dva diretna potomka: Error i Exception.
-<br><br>
+Šta su Throwable objekti? Objekti koji nasleđuju nešto iz
+<span class="primer_text">Throwable</span> klase, uključujući direkte potomke
+(objekti koji nasleđuju direktno iz
+<span class="primer_text">Throwable</span> klase) i indirektne potomke (objekti
+koji nasleđuju od dece ili unuka
+<span class="primer_text">Thorwable</span> klase). Donja slika ilustruje
+hijerarhiju <span class="primer_text">Throwable</span> klase i njenih
+najznačajnijih podklasa. Kao što vidite,
+<span class="primer_text">Throwable</span> ima dva diretna potomka: Error i
+Exception. <br /><br />
 
-<img src="courses/java/java_izuzeci_slike/izuzeci_throwable.png" class="img-fluid img-sm">
-<br>
+<img
+  src="courses/java/java_izuzeci_slike/izuzeci_throwable.png"
+  class="img-fluid img-sm"
+/>
+<br />
 
 <h2>Error klasa</h2>
-<br>
+<br />
 
-Kada dinamičko povezivanje ne uspe ili dođe do drugog teškog kvara na Java virtuelnoj mašini, virtuelna mašina baca/ispaljuje grešku (Error). Jednostavni programi obično ne hvataju i ne bacaju Error greške.
-<br><br>
+Kada dinamičko povezivanje ne uspe ili dođe do drugog teškog kvara na Java
+virtuelnoj mašini, virtuelna mašina baca/ispaljuje grešku (Error). Jednostavni
+programi obično ne hvataju i ne bacaju Error greške.
+<br /><br />
 
 <h2>Exception klasa</h2>
-<br>
+<br />
 
-Većina programa baca/ispaljuje i hvata objekte koji potiču od klase Exception. Exception (izuzetak) označava da je došlo do problema, ali nije ozbiljan sistemski problem. Većina programa koje napišete će bacati/ispaljivati i hvatati Exception objekte za razliku od Error objekata.
-<br><br>
+Većina programa baca/ispaljuje i hvata objekte koji potiču od klase Exception.
+Exception (izuzetak) označava da je došlo do problema, ali nije ozbiljan
+sistemski problem. Većina programa koje napišete će bacati/ispaljivati i hvatati
+Exception objekte za razliku od Error objekata.
+<br /><br />
 
-Java platforma definiše mnoge potomke Exception klase. Ovi potomci predstavljaju različite tipove izuzetaka koji se mogu pojaviti. Na primer, <span class = "primer_text">IllegalAccessException</span> signalizira da određeni metod nije moguće pronaći, a <span class = "primer_text">NegativeArraySizeException</span> ukazuje da je program pokušao da kreira niz negativne veličine.
-<br><br>
+Java platforma definiše mnoge potomke Exception klase. Ovi potomci predstavljaju
+različite tipove izuzetaka koji se mogu pojaviti. Na primer,
+<span class="primer_text">IllegalAccessException</span> signalizira da određeni
+metod nije moguće pronaći, a
+<span class="primer_text">NegativeArraySizeException</span> ukazuje da je
+program pokušao da kreira niz negativne veličine. <br /><br />
 
-Jedna podklasa Exception klase, RuntimeExcepiton, rezervisana je za izuzetke koji ukazuju na pogrešnu upotrebu API-a. Jedan primer (runtime) izuzetka je NullPointerException, koji se javlja kada metoda pokušava da pristupi članu objekta preko null reference. Lekcija "Neprovereni izuzeci - Kontraverza" govori o tome zašto većina aplikacija ne bi trebalo da baca/ispaljuje (runtime) izuzetke ili objkete podklase RuntimeExcepiton.
-<br><br>
+Jedna podklasa Exception klase, RuntimeExcepiton, rezervisana je za izuzetke
+koji ukazuju na pogrešnu upotrebu API-a. Jedan primer (runtime) izuzetka je
+NullPointerException, koji se javlja kada metoda pokušava da pristupi članu
+objekta preko null reference. Lekcija "Neprovereni izuzeci - Kontraverza" govori
+o tome zašto većina aplikacija ne bi trebalo da baca/ispaljuje (runtime)
+izuzetke ili objkete podklase RuntimeExcepiton.
+<br /><br />
 
 <h2>Lančani izuzeci</h2>
-<br>
+<br />
 
-Aplikacija često reaguje na izuzetak bacanjem/ispaljivanjem drugog izuzetka. Zapravo, prvi izuzetak izaziva drugi izuzetak. Može biti korisno znati kada jedan izuzetak izaziva drugi. Lančani izuzeci pomažu programeru da to uradi.
-<br><br>
+Aplikacija često reaguje na izuzetak bacanjem/ispaljivanjem drugog izuzetka.
+Zapravo, prvi izuzetak izaziva drugi izuzetak. Može biti korisno znati kada
+jedan izuzetak izaziva drugi. Lančani izuzeci pomažu programeru da to uradi.
+<br /><br />
 
-Slede metode i konstruktori u Throwable klasi koji vam omogućavaju rad sa lančanim izuzecima.
-<br><br>
+Slede metode i konstruktori u Throwable klasi koji vam omogućavaju rad sa
+lančanim izuzecima.
+<br /><br />
 
 &nbsp&nbsp&nbsp Throwable getCause()
-<br>
+<br />
 &nbsp&nbsp&nbsp Throwable initCause(Throwable)
-<br>
+<br />
 &nbsp&nbsp&nbsp Throwable(String, Throwable)
-<br>
+<br />
 &nbsp&nbsp&nbsp Throwable(Throwable)
-<br><br>
+<br /><br />
 
-Argument Throwable u initCause i konstruktoru je izuzetak koji je prouzrokovao trenutni izuzetak. getCause vraća izuzetak koji je izazvao trenutni izuzetak, a initCause postavlja uzrok trenutnog izuzetka.
-<br><br>
+Argument Throwable u initCause i konstruktoru je izuzetak koji je prouzrokovao
+trenutni izuzetak. getCause vraća izuzetak koji je izazvao trenutni izuzetak, a
+initCause postavlja uzrok trenutnog izuzetka.
+<br /><br />
 
 Sledeći primer pokazuje kako koristiti lančani izuzetak.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 try {
 
 } catch (IOException e) {
@@ -100,19 +161,27 @@ try {
 }
 </xmp>
 
-U ovom primeru, kada se uhvati IOException, kreira se novi SampleException izuzetak sa priloženim originalnim uzrokom i lanac izuzetaka se baca/ispaljuje rukovaocu izuzecima na višem nivou.
-<br><br>
+U ovom primeru, kada se uhvati IOException, kreira se novi SampleException
+izuzetak sa priloženim originalnim uzrokom i lanac izuzetaka se baca/ispaljuje
+rukovaocu izuzecima na višem nivou.
+<br /><br />
 
 <h2>Pristup informacijama sa steka poziva (Stek trag)</h2>
-<br>
+<br />
 
-Pretpostavimo da rukovalac izuzecima višeg nivoa želi da ispiše sadržaj steka poziva (stek trag) u nekom svom formatu.
-<div class = "napomena">
-<b>Definicija:</b> Stek trag pruža informacije o istoriji izvršavanja trenutne niti i navodi imena klasa i metoda koje su pozvane do trenutka kada se dogodio izuzetak. Stek trag je koristan (debugging) alat za uklanjanje grešaka, koji ćete maksimalno koristiti kada se dogodi neki izuzetak.
+Pretpostavimo da rukovalac izuzecima višeg nivoa želi da ispiše sadržaj steka
+poziva (stek trag) u nekom svom formatu.
+<div class="napomena">
+  <b>Definicija:</b> Stek trag pruža informacije o istoriji izvršavanja trenutne
+  niti i navodi imena klasa i metoda koje su pozvane do trenutka kada se dogodio
+  izuzetak. Stek trag je koristan (debugging) alat za uklanjanje grešaka, koji
+  ćete maksimalno koristiti kada se dogodi neki izuzetak.
 </div>
 
-Naredni kod demonstrira kako pozvati <span class = "primer_text">getStackTrace</span> metodu nad objektom izuzetka.
-<xmp class = "primer_ta">
+Naredni kod demonstrira kako pozvati
+<span class="primer_text">getStackTrace</span> metodu nad objektom izuzetka.
+<xmp class="primer_ta"
+>
 catch (Exception cause) {
     StackTraceElement elements[] = cause.getStackTrace();
     for (int i = 0, n = elements.length; i < n; i++) {       
@@ -123,13 +192,15 @@ catch (Exception cause) {
     }
 }
 </xmp>
-<br>
+<br />
 
 <h2>Logovanje API-a</h2>
-<br>
+<br />
 
-Sledeći isečak koda beleži u <span class = "primer_text">catch</span> bloku gde se dogodio izuzetak.
-<xmp class = "primer_ta">
+Sledeći isečak koda beleži u <span class="primer_text">catch</span> bloku gde se
+dogodio izuzetak.
+<xmp class="primer_ta"
+>
 try {
     Handler handler = new FileHandler("OutFile.log");
     Logger.getLogger("").addHandler(handler);
@@ -142,52 +213,94 @@ try {
     }
 }
 </xmp>
-<br>
+<br />
 
 <h2>Kreiranje klasa izuzetaka</h2>
-<br>
+<br />
 
-Kada se suočite sa odabirom tipa izuzetka za bacanje/ispaljivanje, možete koristiti neki napisan od strane nekog drugog - Java platforma obezbeđuje puno klasa izuzetaka koje možete koristiti - ili možete napisati svoju. Svoju klasu izuzetka trebate napisati ako odgovorite sa "da" na neko od sledećih pitanja, u suprotnom, verovatno možete da koristite tuđe.
-<br><br>
+Kada se suočite sa odabirom tipa izuzetka za bacanje/ispaljivanje, možete
+koristiti neki napisan od strane nekog drugog - Java platforma obezbeđuje puno
+klasa izuzetaka koje možete koristiti - ili možete napisati svoju. Svoju klasu
+izuzetka trebate napisati ako odgovorite sa "da" na neko od sledećih pitanja, u
+suprotnom, verovatno možete da koristite tuđe.
+<br /><br />
 
 <ul>
-<li>Da li vam je potreban tip izuzetka koji nisu predstavljeni onim izuzecima koji već postoje na Java platformi?</li>
-<li>Da li bi korisnicima pomoglo ako bi mogli razlikovati vaše izuzetke od izuzetaka koje bacaju/ispaljuju klase napisane od strane drugih programera?</li>
-<li>Da li vaš kod baca/ispaljuje više srodnih izuzetaka?</li>
-<li>Ako koristite tuđe izuzetke, da li će korisnici imati pristup tim izuzecima? Slično pitanje je da li bi vaš paket trebao da bude nezavisan i samostalan (self-contained)?</li>
+  <li>
+    Da li vam je potreban tip izuzetka koji nisu predstavljeni onim izuzecima
+    koji već postoje na Java platformi?
+  </li>
+  <li>
+    Da li bi korisnicima pomoglo ako bi mogli razlikovati vaše izuzetke od
+    izuzetaka koje bacaju/ispaljuju klase napisane od strane drugih programera?
+  </li>
+  <li>Da li vaš kod baca/ispaljuje više srodnih izuzetaka?</li>
+  <li>
+    Ako koristite tuđe izuzetke, da li će korisnici imati pristup tim izuzecima?
+    Slično pitanje je da li bi vaš paket trebao da bude nezavisan i samostalan
+    (self-contained)?
+  </li>
 </ul>
-<br>
+<br />
 
 <b>Primer</b>
-<br><br>
+<br /><br />
 
-Pretpostavimo da pišete klasu povezane liste (LinkedList). Klasa između ostalih sadrži i sledeće metode:
-<br><br>
+Pretpostavimo da pišete klasu povezane liste (LinkedList). Klasa između ostalih
+sadrži i sledeće metode:
+<br /><br />
 
 <ul>
-<li><span class = "primer_text">objectAt(int n)</span> - Vraća objekat sa n-te pozicije u listi. Baca/Ispaljuje izuzetak ako je argument manji od 0 ili veći od trenutnog broja objekata u listi.</li>
-<li><span class = "primer_text">firstObject()</span> - Vraća prvi objekat iz liste. Baca/Ispaljuje izuzetak ako je lista prazna.</li>
-<li><span class = "primer_text">indexOf(Object o)</span> - Pretražuje listu za navedeni objekat i vraća njegovu poziciju u listi. Baca/Ispaljuje izuzetak ako objekat koji je prosleđen metodi nije na listi.</li>
+  <li>
+    <span class="primer_text">objectAt(int n)</span> - Vraća objekat sa n-te
+    pozicije u listi. Baca/Ispaljuje izuzetak ako je argument manji od 0 ili
+    veći od trenutnog broja objekata u listi.
+  </li>
+  <li>
+    <span class="primer_text">firstObject()</span> - Vraća prvi objekat iz
+    liste. Baca/Ispaljuje izuzetak ako je lista prazna.
+  </li>
+  <li>
+    <span class="primer_text">indexOf(Object o)</span> - Pretražuje listu za
+    navedeni objekat i vraća njegovu poziciju u listi. Baca/Ispaljuje izuzetak
+    ako objekat koji je prosleđen metodi nije na listi.
+  </li>
 </ul>
-<br>
+<br />
 
-Klasa povezane liste (LinkedList) može baciti/ispaliti više izuzetaka i bilo bi zgodno da budete u mogućnosti da uhvatite sve izuzetke bačene/ispaljene od strane klase povezane liste, jednim rukovaocem/obrađivačem izuzetaka. Takođe, ako planirate da distribuirate vašu povezanu listu u paketu, sav srodni kod treba da bude upakovan zajedno. Stoga, povezana lista treba da obezbedi svoj skup klasa izuzetaka.
-<br><br>
+Klasa povezane liste (LinkedList) može baciti/ispaliti više izuzetaka i bilo bi
+zgodno da budete u mogućnosti da uhvatite sve izuzetke bačene/ispaljene od
+strane klase povezane liste, jednim rukovaocem/obrađivačem izuzetaka. Takođe,
+ako planirate da distribuirate vašu povezanu listu u paketu, sav srodni kod
+treba da bude upakovan zajedno. Stoga, povezana lista treba da obezbedi svoj
+skup klasa izuzetaka.
+<br /><br />
 
-Sledeća slika ilustruje jednu moguću hijerarhiju klasa izuzetaka koje baca/ispaljuje klasa povezana lista.
-<br><br>
-<img src="courses/java/java_izuzeci_slike/izuzeci_povezana_lista_hijerarhija.png" class="img-fluid img-sm">
-<br><br>
+Sledeća slika ilustruje jednu moguću hijerarhiju klasa izuzetaka koje
+baca/ispaljuje klasa povezana lista.
+<br /><br />
+<img
+  src="courses/java/java_izuzeci_slike/izuzeci_povezana_lista_hijerarhija.png"
+  class="img-fluid img-sm"
+/>
+<br /><br />
 
 <h2>Odabir bazne klase (superclass)</h2>
-<br>
+<br />
 
-Bilo koja podklasa Exception klase može se koristiti kao roditeljska klasa LinkedListException klase. Međutim, uvidom u te podklase vidimo da su one neprimerene jer su ili previše specijalizovane ili potpuno nepovezane sa LinkedListException klasom. Stoga bi roditeljska klasa LinkedListException klase trebalo da bude Exception.
-<br><br>
+Bilo koja podklasa Exception klase može se koristiti kao roditeljska klasa
+LinkedListException klase. Međutim, uvidom u te podklase vidimo da su one
+neprimerene jer su ili previše specijalizovane ili potpuno nepovezane sa
+LinkedListException klasom. Stoga bi roditeljska klasa LinkedListException klase
+trebalo da bude Exception.
+<br /><br />
 
-Većina apleta i aplikacija koje napišete bacaće/ispaljivaće objekte koji su direktni ili indirekti potomci klase Exception. Error izuzeci se obično koriste za ozbiljne greške u sistemu, poput onih koje sprečavaju pokretanje JVM.
+Većina apleta i aplikacija koje napišete bacaće/ispaljivaće objekte koji su
+direktni ili indirekti potomci klase Exception. Error izuzeci se obično koriste
+za ozbiljne greške u sistemu, poput onih koje sprečavaju pokretanje JVM.
 
-<div class = "napomena">
-Za čitljiviji kod dobra je praksa da se reč "Exception" dodaje na imena svih klasa koje nasleđuju (direktno ili indirektno) klasu Exception.
+<div class="napomena">
+  Za čitljiviji kod dobra je praksa da se reč "Exception" dodaje na imena svih
+  klasa koje nasleđuju (direktno ili indirektno) klasu Exception.
 </div>
-<br>
+<br />

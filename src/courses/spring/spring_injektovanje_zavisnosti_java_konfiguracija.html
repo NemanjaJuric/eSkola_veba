@@ -1,12 +1,23 @@
 <h1>Injektovanje zavisnosti - Java konfiguracija</h1>
-U prethodnoj lekciji predstavljen je način povezivanja zrna korišćenjem XML konfiguracije. Međutim, radni okvir Spring Framework daje mogućnost kreiranja kontejnera i zrna korišćenjem čistog Java koda. U ovom slučaju nije potrebno kreirati XML datoteku, već se informacije o zrnima koji ce biti kreirani od strane kontejnera nalaze u klasi koja ima anotaciju @Configuration. Da bi se deklarisalo zrno, u okviru klase sa anotacijom @Configuration potrebno je napisati metod koji vraća objekat koji će biti registrovan kao zrno. Taj metod treba da ima anotaciju @Bean.
-<br>
-Na osnovu @Bean anotacije Spring zna da objekat koji taj metod vraća treba da bude registrovan kao zrno u Spring kontejneru. 
-<br>
-Jedna od implementacija ApplicationContext interfejsa jeste i klasa AnnotationConfigApplicationContext pomoću koje ce biti kreiran kontejner baziran na Java konfiguraciji. 
-<br>
+U prethodnoj lekciji predstavljen je način povezivanja zrna korišćenjem XML
+konfiguracije. Međutim, radni okvir Spring Framework daje mogućnost kreiranja
+kontejnera i zrna korišćenjem čistog Java koda. U ovom slučaju nije potrebno
+kreirati XML datoteku, već se informacije o zrnima koji ce biti kreirani od
+strane kontejnera nalaze u klasi koja ima anotaciju @Configuration. Da bi se
+deklarisalo zrno, u okviru klase sa anotacijom @Configuration potrebno je
+napisati metod koji vraća objekat koji će biti registrovan kao zrno. Taj metod
+treba da ima anotaciju @Bean.
+<br />
+Na osnovu @Bean anotacije Spring zna da objekat koji taj metod vraća treba da
+bude registrovan kao zrno u Spring kontejneru.
+<br />
+Jedna od implementacija ApplicationContext interfejsa jeste i klasa
+AnnotationConfigApplicationContext pomoću koje ce biti kreiran kontejner baziran
+na Java konfiguraciji.
+<br />
 Primer klase koja ima @Configuration anotaciju:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 @Configuration
 public class StudentConfig {
 
@@ -19,7 +30,7 @@ public class StudentConfig {
 
 </xmp>
 Prethodna kofiguracija ekvivalentna je sledećoj XML kofiguraciji:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:context="http://www.springframework.org/schema/context"
@@ -37,7 +48,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 </xmp>
 Klasa Student može da ima sledeći oblik:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public class Student {
 
@@ -56,7 +68,8 @@ public class Student {
 
 </xmp>
 Primer main metode:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public static void main(String[] args) {
 
@@ -68,13 +81,15 @@ public static void main(String[] args) {
 }
 
 </xmp>
-Rezultat naredbe student.getFirstName();  je: Stevan
-<br>
+Rezultat naredbe student.getFirstName(); je: Stevan
+<br />
 <h2>Povezivanje zrna</h2>
-Za ilustraciju povezivanja zrna korišćenjem Java kofiguracije prikazane su klase Copier i Printer. 
-<br>
+Za ilustraciju povezivanja zrna korišćenjem Java kofiguracije prikazane su klase
+Copier i Printer.
+<br />
 Klasa Copier:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public class Copier{
 	
@@ -93,7 +108,8 @@ public class Copier{
 </xmp>
 Klasa Printer:
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public class Printer {
 	
@@ -106,7 +122,8 @@ public class Printer {
 
 </xmp>
 Konfiguracijska klasa:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 @Configuration
 public class CopierConfig {
@@ -124,7 +141,8 @@ public class CopierConfig {
 </xmp>
 
 Primer main metode:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public static void main(String[] args) {
 
@@ -136,4 +154,4 @@ public static void main(String[] args) {
 
 </xmp>
 
-Rezultat naredbe copier.print(); je: Printer is ready for printing. 
+Rezultat naredbe copier.print(); je: Printer is ready for printing.

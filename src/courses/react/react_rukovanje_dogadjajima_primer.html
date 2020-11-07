@@ -3,42 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Ucitaj React. -->
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-        class Toggle extends React.Component {
-          constructor(props) {
-            super(props);
-            this.state = {isToggleOn: true};
+      class Toggle extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { isToggleOn: true };
 
-            // Ovo vezivanje je neophodno da bi "this" radilo u povratnom pozivu
-            this.handleClick = this.handleClick.bind(this);
-          }
-
-          handleClick() {
-            this.setState(state => ({
-              isToggleOn: !state.isToggleOn
-            }));
-          }
-
-          render() {
-            return (
-              <button onClick={this.handleClick}>
-                {this.state.isToggleOn ? 'ON' : 'OFF'}
-              </button>
-            );
-          }
+          // Ovo vezivanje je neophodno da bi "this" radilo u povratnom pozivu
+          this.handleClick = this.handleClick.bind(this);
         }
 
+        handleClick() {
+          this.setState((state) => ({
+            isToggleOn: !state.isToggleOn,
+          }));
+        }
 
-        ReactDOM.render(
-          <Toggle />,
-          document.getElementById('root')
-        );
+        render() {
+          return (
+            <button onClick={this.handleClick}>
+              {this.state.isToggleOn ? "ON" : "OFF"}
+            </button>
+          );
+        }
+      }
+
+      ReactDOM.render(<Toggle />, document.getElementById("root"));
     </script>
   </body>
 </html>

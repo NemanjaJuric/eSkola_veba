@@ -1,9 +1,12 @@
-<h1>Početak rada u Express.js<h1>
+<h1>
+  Početak rada u Express.js
+  <h1>
+    <h2>Pokretanje servera</h2>
 
-<h2>Pokretanje servera</h2>
-
-Korišćenjem Express.js okruženja, server se pokreće tako što nakon kreiranja JavaScript fajla <b>index.js</b> sa kodom:
-<xmp class = "primer_ta">
+    Korišćenjem Express.js okruženja, server se pokreće tako što nakon kreiranja
+    JavaScript fajla <b>index.js</b> sa kodom:
+    <xmp class="primer_ta"
+>
 var express = require('express');
 var app = express();
 
@@ -12,28 +15,49 @@ app.get('/', function(req, res){
 });
 
 app.listen(2020);
- </xmp>
+ </xmp
+    >
 
-isti se pokrene iz CMD komandom:
-<br><span class = "primer_text">
-> node index.js
-</span><br><br>
+    isti se pokrene iz CMD komandom:
+    <br /><span class="primer_text"> > node index.js </span><br /><br />
 
-Da je server pokrenut kako treba, može se proveriti u nekom internet pretraživaču (Mozilla Firefox, Google Chrome ...) tako što pozivom adrese:<br>
-<span class = "primer_text">http://localhost:2020</span> <br><br>
+    Da je server pokrenut kako treba, može se proveriti u nekom internet
+    pretraživaču (Mozilla Firefox, Google Chrome ...) tako što pozivom
+    adrese:<br />
+    <span class="primer_text">http://localhost:2020</span> <br /><br />
 
-odgovor treba da bude poruka "Zdravo svete!" kao na slici:
-<br><img src="courses/express/pocetak_rada/get_zdravo_svete.png" class="img-fluid img-md"><br><br>
+    odgovor treba da bude poruka "Zdravo svete!" kao na slici:
+    <br /><img
+      src="courses/express/pocetak_rada/get_zdravo_svete.png"
+      class="img-fluid img-md"
+    /><br /><br />
 
-Aplikacija radi tako što se u prvoj linij koda pristupi modulu express funkcijom <b>require</b> a zatim se kreira instanca modula i čuva se u promenljivoj var app na kojoj se zatim definiše šta će se dogoditi kada server dobije <b>get</b> zahtev.<br><br>
+    Aplikacija radi tako što se u prvoj linij koda pristupi modulu express
+    funkcijom <b>require</b> a zatim se kreira instanca modula i čuva se u
+    promenljivoj var app na kojoj se zatim definiše šta će se dogoditi kada
+    server dobije <b>get</b> zahtev.<br /><br />
 
-Prvi argument funkcije get jeste stirng kojim se zadaje ruta '/' (u sledećem delu biće više reči o rutama) dok je drugi argument funkcija (callback function) koja će biti pozvana kada server bude dobio get zahtev sa zadatom rutom.<br>
-Ta funkcija ima argumente <b>req</b> (skraćeno od request - zahtev) i <b>res</b> (skraćeno od response - odgovor).<br>
-Objekat req predstavlja Http zahtev sa raznim propertima koji nose informacije o zahtevu.<br>
-Objekat res predstavlja Http odgovor koji će server poslati kada dobije Http zahtev, a funkcijom <b>res.send()</b> u ovom slučaju klijentu će biti poslat objekat koji nosi poruku "Zdravo svete!".<br><br>
+    Prvi argument funkcije get jeste stirng kojim se zadaje ruta '/' (u sledećem
+    delu biće više reči o rutama) dok je drugi argument funkcija (callback
+    function) koja će biti pozvana kada server bude dobio get zahtev sa zadatom
+    rutom.<br />
+    Ta funkcija ima argumente <b>req</b> (skraćeno od request - zahtev) i
+    <b>res</b> (skraćeno od response - odgovor).<br />
+    Objekat req predstavlja Http zahtev sa raznim propertima koji nose
+    informacije o zahtevu.<br />
+    Objekat res predstavlja Http odgovor koji će server poslati kada dobije Http
+    zahtev, a funkcijom <b>res.send()</b> u ovom slučaju klijentu će biti poslat
+    objekat koji nosi poruku "Zdravo svete!".<br /><br />
 
-Funkcija app.listen definisana sa:<br>
-<span class = "primer_text">app.listen(port, [host], [backlog], [callback]);</span><br>
-pokreće server na portu (broj koji je zadat jedinim obaveznim parametrom <b>port</b>) i domenu koji je zadat parametrom <b>host</b>.<br>
-<b>backlog</b> je maksimalan broj Http zahteva koje server može da stavi na red za izvršavanje. Podrazumevana vrednost je 511.<br>
-<b>callback</b> je funkcija koja će se pozvati kada se server pokrene tj. kada počne sa prihvatanjem Http zahteva.
+    Funkcija app.listen definisana sa:<br />
+    <span class="primer_text"
+      >app.listen(port, [host], [backlog], [callback]);</span
+    ><br />
+    pokreće server na portu (broj koji je zadat jedinim obaveznim parametrom
+    <b>port</b>) i domenu koji je zadat parametrom <b>host</b>.<br />
+    <b>backlog</b> je maksimalan broj Http zahteva koje server može da stavi na
+    red za izvršavanje. Podrazumevana vrednost je 511.<br />
+    <b>callback</b> je funkcija koja će se pozvati kada se server pokrene tj.
+    kada počne sa prihvatanjem Http zahteva.
+  </h1>
+</h1>

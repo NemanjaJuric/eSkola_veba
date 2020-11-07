@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+      <table>
+        <tr ng-repeat="x in imena">
+          <td>{{ x.Ime }}</td>
+          <td>{{ x.Zemlja}}</td>
+        </tr>
+      </table>
+    </div>
 
-<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
-
-<table>
-  <tr ng-repeat="x in imena">
-    <td>{{ x.Ime }}</td>
-    <td>{{ x.Zemlja}}</td>
-  </tr>
-</table>
-
-</div>
-
-
-<script>
-var app = angular.module('mojaAplikacija', []);
-app.controller('mojKontroler', function($scope) {
-    $scope.imena = [
-      { "Ime" : "Pera Perić", "Grad" : "Beograd", "Zemlja" : "Srbija" },
-      { "Ime" : "John Doe", "Grad" : "New York", "Zemlja" : "USA" },
-      { "Ime" : "Koniglich", "Grad" : "Barcelona", "Zemlja" : "Španija" },
-      { "Ime" : "Wolski", "Grad" : "Arhus", "Zemlja" : "Danska" }
-    ];
-    });
-</script>
-
-</body>
+    <script>
+      var app = angular.module("mojaAplikacija", []);
+      app.controller("mojKontroler", function ($scope) {
+        $scope.imena = [
+          { Ime: "Pera Perić", Grad: "Beograd", Zemlja: "Srbija" },
+          { Ime: "John Doe", Grad: "New York", Zemlja: "USA" },
+          { Ime: "Koniglich", Grad: "Barcelona", Zemlja: "Španija" },
+          { Ime: "Wolski", Grad: "Arhus", Zemlja: "Danska" },
+        ];
+      });
+    </script>
+  </body>
 </html>

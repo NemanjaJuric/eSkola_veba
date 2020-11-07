@@ -1,10 +1,13 @@
 <h1>Paginacija (engl. Pagination)</h1>
-Radi bolje preglednosti, odnosno, da bi se izbeglo beskonačno skrolovanje veb strane
-uvodi se podela sadržaja na više strana, paginacija.
-U okruženju Bootstrap 4 to se radi tako što se elementu <span class="primer_text">&ltul&gt</span>
-doda klasa <span class="primer_text">.pagination</span>, svakom <span class="primer_text">&ltli&gt</span> elementu klasa
-<span class="primer_text">.page-item</span>, a elementima <span class="primer_text">&lta&gt</span>
-unutar svakog od elemenata liste se doda klasa <span class="primer_text">.page-link</span>.
+Radi bolje preglednosti, odnosno, da bi se izbeglo beskonačno skrolovanje veb
+strane uvodi se podela sadržaja na više strana, paginacija. U okruženju
+Bootstrap 4 to se radi tako što se elementu
+<span class="primer_text">&ltul&gt</span> doda klasa
+<span class="primer_text">.pagination</span>, svakom
+<span class="primer_text">&ltli&gt</span> elementu klasa
+<span class="primer_text">.page-item</span>, a elementima
+<span class="primer_text">&lta&gt</span> unutar svakog od elemenata liste se
+doda klasa <span class="primer_text">.page-link</span>.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -35,7 +38,8 @@ unutar svakog od elemenata liste se doda klasa <span class="primer_text">.page-l
   Za potrebe ove lekcije umesto pravih linkova stoje #.
 </div>
 Klasom <span class="primer_text">.active</span> je moguće prikazati koja je
-stranica trenutno prikazana, nju treba dodati elementu <span class="primer_text">&ltli&gt</span>.
+stranica trenutno prikazana, nju treba dodati elementu
+<span class="primer_text">&ltli&gt</span>.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -62,9 +66,10 @@ stranica trenutno prikazana, nju treba dodati elementu <span class="primer_text"
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Klasu <span class="primer_text">.disabled</span> dodajemo onom elementu liste kome
-korisnik trenutno ne može da pristupi. U sledećem slučaju to je link koji vodi na prethodnu stranu koja ne postoji.
+<br />
+Klasu <span class="primer_text">.disabled</span> dodajemo onom elementu liste
+kome korisnik trenutno ne može da pristupi. U sledećem slučaju to je link koji
+vodi na prethodnu stranu koja ne postoji.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -91,12 +96,13 @@ korisnik trenutno ne može da pristupi. U sledećem slučaju to je link koji vod
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Veličina i pozicija paginacije</h2>
 Postoje dve klase kojima se može zadati veličina bloka sa linkovima strana, ove
 klase se dodaju elementu <span class="primer_text">&ltul&gt</span>, a one su
-<span class="primer_text">.pagination-lg</span> za veće blokove i <span class="primer_text">.pagination-sm</span>
- za manje blokove.
+<span class="primer_text">.pagination-lg</span> za veće blokove i
+<span class="primer_text">.pagination-sm</span>
+za manje blokove.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -132,12 +138,15 @@ klase se dodaju elementu <span class="primer_text">&ltul&gt</span>, a one su
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Takođe, blokove sa paginacijom je moguće i poravnati, postoje levo, desno i centralno poravnanje.
-Standardno poravnanje je levo pa za njega nije potrebna klasa za poravnanje, ukoliko hoćemo centralno da
-poravnamo blok sa paginacijom to se radi klasom <span class="primer_text">.justify-content-center</span>
-koja se dodaje elementu <span class="primer_text">&ltul&gt</span>. Desno porvananje se omogućava dodavanjem klase
-<span class="primer_text">.justify-content-end</span> elementu <span class="primer_text">&ltul&gt</span>.
+<br />
+Takođe, blokove sa paginacijom je moguće i poravnati, postoje levo, desno i
+centralno poravnanje. Standardno poravnanje je levo pa za njega nije potrebna
+klasa za poravnanje, ukoliko hoćemo centralno da poravnamo blok sa paginacijom
+to se radi klasom <span class="primer_text">.justify-content-center</span> koja
+se dodaje elementu <span class="primer_text">&ltul&gt</span>. Desno porvananje
+se omogućava dodavanjem klase
+<span class="primer_text">.justify-content-end</span> elementu
+<span class="primer_text">&ltul&gt</span>.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -172,11 +181,14 @@ koja se dodaje elementu <span class="primer_text">&ltul&gt</span>. Desno porvana
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Paginacija pomoću kartica</h2>
-Paginaciju pomoću kartica je moguće napraviti pomoću klase <span class="primer_text">.breadcrumb</span>.
-Klasu <span class="primer_text">.breadcrumb</span> treba zadati elementu <span class="primer_text">&ltul&gt</span>, dok
-klasu <span class="primer_text">.breadcrumb-item</span> treba dodati svakom elementu te liste. Pogledati sledeći primer.
+Paginaciju pomoću kartica je moguće napraviti pomoću klase
+<span class="primer_text">.breadcrumb</span>. Klasu
+<span class="primer_text">.breadcrumb</span> treba zadati elementu
+<span class="primer_text">&ltul&gt</span>, dok klasu
+<span class="primer_text">.breadcrumb-item</span> treba dodati svakom elementu
+te liste. Pogledati sledeći primer.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -204,6 +216,6 @@ klasu <span class="primer_text">.breadcrumb-item</span> treba dodati svakom elem
 <button class="button_copy">Vidi primer</button>
 <div class="zadatak">
   <b>Zadatak:</b> Napraviti paginaciju sa 5 strana, dodati linkove za prethodnu
-  i sledeću stranu, onemogućiti pristup jednoj strani i označiti koja je aktivna.
-  Centrirati blok sa paginacijom i neka blok bude mali.
+  i sledeću stranu, onemogućiti pristup jednoj strani i označiti koja je
+  aktivna. Centrirati blok sa paginacijom i neka blok bude mali.
 </div>

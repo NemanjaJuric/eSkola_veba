@@ -1,42 +1,54 @@
 <h1>Nasleđivanje</h1>
 
-<p style="text-align: justify;"><b>Nasleđivanje</b> (engl. <i>inheritance</i>) je jedan od osnovnih koncepata objektno-orijentisanog
-programiranja, ono predstavlja mehanizam koji obezbeđuje da jedna klasa nasleđuje sve atribute
-(polja) i ponašanja (metode) neke druge klase. Ideja na kojoj se zasniva nasleđivanje je da se mogu
-kreirati nove klase koje u potpunosti preuzimaju funkcionalnost postojeće klase. Ta nova klasa
-sadrži sve sto i klasa od koje je nastala, ali i nove, samo svoje atribute ili metode.<br><br>
-Dakle, različite klase mogu imati neka zajednička svojstva koja se, recimo, čuvaju u nekoj opštoj
-klasi, koju onda mogu deliti razne klase. Klasa koja nasleđuje neku drugu klasu naziva se izvedena
-klasa ili potklasa (eng. <i>subclass</i>), a klasa čija se svojstva nasleđuju natklasa (engl. <i>superclass</i>).
-Nasleđivanje se obezbeđuje ključnom rečju <b>extends</b> i sintaksa nasleđivanja izgleda ovako:</p>
+<p style="text-align: justify">
+  <b>Nasleđivanje</b> (engl. <i>inheritance</i>) je jedan od osnovnih koncepata
+  objektno-orijentisanog programiranja, ono predstavlja mehanizam koji
+  obezbeđuje da jedna klasa nasleđuje sve atribute (polja) i ponašanja (metode)
+  neke druge klase. Ideja na kojoj se zasniva nasleđivanje je da se mogu
+  kreirati nove klase koje u potpunosti preuzimaju funkcionalnost postojeće
+  klase. Ta nova klasa sadrži sve sto i klasa od koje je nastala, ali i nove,
+  samo svoje atribute ili metode.<br /><br />
+  Dakle, različite klase mogu imati neka zajednička svojstva koja se, recimo,
+  čuvaju u nekoj opštoj klasi, koju onda mogu deliti razne klase. Klasa koja
+  nasleđuje neku drugu klasu naziva se izvedena klasa ili potklasa (eng.
+  <i>subclass</i>), a klasa čija se svojstva nasleđuju natklasa (engl.
+  <i>superclass</i>). Nasleđivanje se obezbeđuje ključnom rečju <b>extends</b> i
+  sintaksa nasleđivanja izgleda ovako:
+</p>
 
-  <div class = "napomena">
-    class imePodklase extends imeSuperklase {<br>
-        //polja i metode <br>
-    } <br>
-  </div>
+<div class="napomena">
+  class imePodklase extends imeSuperklase {<br />
+  //polja i metode <br />
+  } <br />
+</div>
 
-<p style="text-align: justify;">Klasa može da ima samo jednu direktnu natklasu, ali svaka klasa može da ima neograničeni broj izvedenih
-klasa.
-<br><br>
-Za jednostavan primer nasleđivanja može se uzeti nova klasa UkrasnaKutija, koja nasleđuje već
-poznatu klasu Kutija (primer 25). Primerak nove klase bi bila kutija pa bi imala sve osobine jedne
-kutije, ali i nešto što je karakteristično samo za nju, a to je u ovom slučaju boja. Pozivanjem
-konstruktora nove klase dodeliće se vrednosti svim atributima jedne ukrasne kutije, znači objekat
-nove klase dobiće vrednosti za visinu, dužinu, širinu i boju.<br>
-Treba primetiti da se na ovaj način kôd duplira, time što se u okviru novog konstruktora eksplicitno
-dodeljuju vrednosti promenljivama koje su zajedničke za obe klase - visina, dužina, širina. Pa se
-na neki način kôd iz konstruktora natklase ponavlja u novom konstruktoru. Osim što je neefikasno,
-ovaj postupak zahteva i da potklasi bude dozvoljen pristup tim članovima. Nekada je potrebno da
-natklasa čuva svoje podatke tj. da joj pojedini članovi imaju modifikator pristupa private, pa u
-tom slučaju potklasa ne bi mogla da pristupi tim promenljivama direktno, niti da ih inicijalizuje.
-Ovaj problem u programskom jeziku Java je regulisan pomoću ključne reči super.
-Kad god potklasa treba da se „obrati” svojoj natklasi ona to može učiniti pomoći ključne reči
-<b>super</b>. U primeru 27 prikazano nasleđivanje i upotreba ključne reči <b>super</b> za pozivanje konstruktora
-natklase.</p>
+<p style="text-align: justify">
+  Klasa može da ima samo jednu direktnu natklasu, ali svaka klasa može da ima
+  neograničeni broj izvedenih klasa. <br /><br />
+  Za jednostavan primer nasleđivanja može se uzeti nova klasa UkrasnaKutija,
+  koja nasleđuje već poznatu klasu Kutija (primer 25). Primerak nove klase bi
+  bila kutija pa bi imala sve osobine jedne kutije, ali i nešto što je
+  karakteristično samo za nju, a to je u ovom slučaju boja. Pozivanjem
+  konstruktora nove klase dodeliće se vrednosti svim atributima jedne ukrasne
+  kutije, znači objekat nove klase dobiće vrednosti za visinu, dužinu, širinu i
+  boju.<br />
+  Treba primetiti da se na ovaj način kôd duplira, time što se u okviru novog
+  konstruktora eksplicitno dodeljuju vrednosti promenljivama koje su zajedničke
+  za obe klase - visina, dužina, širina. Pa se na neki način kôd iz konstruktora
+  natklase ponavlja u novom konstruktoru. Osim što je neefikasno, ovaj postupak
+  zahteva i da potklasi bude dozvoljen pristup tim članovima. Nekada je potrebno
+  da natklasa čuva svoje podatke tj. da joj pojedini članovi imaju modifikator
+  pristupa private, pa u tom slučaju potklasa ne bi mogla da pristupi tim
+  promenljivama direktno, niti da ih inicijalizuje. Ovaj problem u programskom
+  jeziku Java je regulisan pomoću ključne reči super. Kad god potklasa treba da
+  se „obrati” svojoj natklasi ona to može učiniti pomoći ključne reči
+  <b>super</b>. U primeru 27 prikazano nasleđivanje i upotreba ključne reči
+  <b>super</b> za pozivanje konstruktora natklase.
+</p>
 
 <b>Primer 27.</b> – Upotreba nasleđivanja
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 public class Kutija {
     double sirina;
     double visina;
@@ -74,7 +86,8 @@ class Test {
 }
 </xmp>
 Nakon pokretanja ovog programa dobija se poruka
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   Boja kutije je plava
   Zapremina je 60.0
 </xmp>

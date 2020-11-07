@@ -1,58 +1,80 @@
 <h1>Uvod u jQuery</h1>
-<br>
-JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili određene animacija i izvršili Ajax pozive.
-<br>
-<br>
-Prilično je laka za koristiti, posebno ako ste vec upoznati sa HTML, CSS i JavaScript tehnologijama. 
-<br>
-<br>
-Ukoliko nemate nikakvo znanje iz HTML, CSS i JavaScripta tehnologija preporučujemo da naučite bar neke osnovne koncepte i sintaksu pre nego krenete sa učenjem JQuery biblioteke.
-<br>
-<br>
+<br />
+JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće
+da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili
+određene animacija i izvršili Ajax pozive.
+<br />
+<br />
+Prilično je laka za koristiti, posebno ako ste vec upoznati sa HTML, CSS i
+JavaScript tehnologijama.
+<br />
+<br />
+Ukoliko nemate nikakvo znanje iz HTML, CSS i JavaScripta tehnologija
+preporučujemo da naučite bar neke osnovne koncepte i sintaksu pre nego krenete
+sa učenjem JQuery biblioteke.
+<br />
+<br />
 Za početak prođimo kroz preuzimanje JQuery biblioteke sa interneta.
-<br>
-<br>
+<br />
+<br />
 JQuery možete da preuzmete <a href="http://jquery.com">ovde</a>.
-<br>
-<br>
-Najlakši način da je uključite u vašu web stranicu (posebno za lokalna testiranja) jeste da biblioteku koju ste preuzeli preimenujete u jquery.js i potom pozicionirate u isti folder sa html dokumentom sa kojim je povezujete.
-<br>
-<br>
-JQuery biblioteku cemo da ukljucimo tagom <span class = "primer_text"> &ltscript&gt </span> na sledeći način:
-<br>
-<br>
-<span class = "primer_text"> &ltscript type=”text/javascript” src=”jquery.js"&gt &lt/script&gt</span>	
-<br>
-<br>
-Takođe je moguće uključiti i direktno preko zvaničnog sajta i to na sledeći način:
-<br>	
-<br>
-<span class="primer_text"> &ltscript src="https://code.jquery.com/jquery-latest.min.js"&gt &lt/script&gt </span>
-<br>
-<br>
-<div class = "napomena">
-<b>Napomena:</b> Nakon preuzimanja JQuery biblioteke sa sajta ime će da sadrži određeni broj verzije tipa: jquery-x.y.z.js,
-ukoliko je ne preimenujete u jquery.js prehodni kod neće raditi i neophodno je izmeniti vrednost src atributa u "jquery-x.y.z.js".
+<br />
+<br />
+Najlakši način da je uključite u vašu web stranicu (posebno za lokalna
+testiranja) jeste da biblioteku koju ste preuzeli preimenujete u jquery.js i
+potom pozicionirate u isti folder sa html dokumentom sa kojim je povezujete.
+<br />
+<br />
+JQuery biblioteku cemo da ukljucimo tagom
+<span class="primer_text"> &ltscript&gt </span> na sledeći način:
+<br />
+<br />
+<span class="primer_text">
+  &ltscript type=”text/javascript” src=”jquery.js"&gt &lt/script&gt</span
+>
+<br />
+<br />
+Takođe je moguće uključiti i direktno preko zvaničnog sajta i to na sledeći
+način:
+<br />
+<br />
+<span class="primer_text">
+  &ltscript src="https://code.jquery.com/jquery-latest.min.js"&gt &lt/script&gt
+</span>
+<br />
+<br />
+<div class="napomena">
+  <b>Napomena:</b> Nakon preuzimanja JQuery biblioteke sa sajta ime će da sadrži
+  određeni broj verzije tipa: jquery-x.y.z.js, ukoliko je ne preimenujete u
+  jquery.js prehodni kod neće raditi i neophodno je izmeniti vrednost src
+  atributa u "jquery-x.y.z.js".
 </div>
-<br>
-<br>
-Sintaksa jQuery biblioteke je mahom napravljena da bi se "izabrali"  HTML elementi i nad njima izveli određeni događaji.
-<br>
-<br>
+<br />
+<br />
+Sintaksa jQuery biblioteke je mahom napravljena da bi se "izabrali" HTML
+elementi i nad njima izveli određeni događaji.
+<br />
+<br />
 Osnovna jQuery sintaksa je: $(selector).action()
-<br>
-<br>
+<br />
+<br />
 <ul>
-	<li>Znak $ definiše odnosno pristupa jQuery biblioteci.</li>
-	<li>(selector) se odnosi na odabir elementa ili skupa elemenata DOM drveta.</li>
-	<li>.action() se odnosi na događaj koji želimo da se izvrši nad elementom ili skupom elemenata.</li>
+  <li>Znak $ definiše odnosno pristupa jQuery biblioteci.</li>
+  <li>
+    (selector) se odnosi na odabir elementa ili skupa elemenata DOM drveta.
+  </li>
+  <li>
+    .action() se odnosi na događaj koji želimo da se izvrši nad elementom ili
+    skupom elemenata.
+  </li>
 </ul>
-<br>
-<br>
-Primer jedne jQuery funkcije koja klikom na sve objekte tipa paragraf ih sakriva: 
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+Primer jedne jQuery funkcije koja klikom na sve objekte tipa paragraf ih
+sakriva:
+<br />
+<br />
+<xmp class="primer_ta">
 <script>
 $(document).ready(function(){
     $("p").click(function(){
@@ -62,11 +84,12 @@ $(document).ready(function(){
 </script>
 </xmp>
 
-<br>
-<br>
-<div class = "zadatak">
-<b>Zadatak:</b> U primeru svi paragrafi nestaju kada klikneš na njih. Napravi i ti jedan paragraf i u njemu napiši nešto po 
-svom izboru. Klikni na njega da vidiš da li će nestati.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> U primeru svi paragrafi nestaju kada klikneš na njih. Napravi
+  i ti jedan paragraf i u njemu napiši nešto po svom izboru. Klikni na njega da
+  vidiš da li će nestati.
 </div>
-<br>
-<br>
+<br />
+<br />

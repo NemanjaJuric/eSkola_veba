@@ -1,32 +1,33 @@
 ﻿<!--<!DOCTYPE html>-->
 <html>
-<head>
+  <head>
     <title>JavaScript Datumi zadatak</title>
-</head>
+  </head>
 
-<body>
-
-    <div style="text-align:center"><h1>JavaScript Datumi zadatak</h1></div>
+  <body>
+    <div style="text-align: center"><h1>JavaScript Datumi zadatak</h1></div>
     <div>
-        <h2>
-            ZADATAK (postavka zadatka)
-        </h2>
-        <p>Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom obliku, redni broj dana u nedelji, kao i broj milisekundi od 1. januara 1970. godine.</p>
-        <button onclick="myFunction()">Try it</button>
-        <p id="demo1"></p>
-        <p id="demo2"></p>
-        <script>
-            function myFunction() {
-                var date = new Date();
-                var n = date.toDateString();
-                var time = date.toLocaleTimeString();
+      <h2>ZADATAK (postavka zadatka)</h2>
+      <p>
+        Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom
+        obliku, redni broj dana u nedelji, kao i broj milisekundi od 1. januara
+        1970. godine.
+      </p>
+      <button onclick="myFunction()">Try it</button>
+      <p id="demo1"></p>
+      <p id="demo2"></p>
+      <script>
+        function myFunction() {
+          var date = new Date();
+          var n = date.toDateString();
+          var time = date.toLocaleTimeString();
 
-                var numberOfSeconds = date.getTime();
+          var numberOfSeconds = date.getTime();
 
-                document.getElementById('demo1').innerHTML = n + ' ' + time;
-                document.getElementById('demo2').innerHTML = numberOfSeconds;
-            }
-        </script>
+          document.getElementById("demo1").innerHTML = n + " " + time;
+          document.getElementById("demo2").innerHTML = numberOfSeconds;
+        }
+      </script>
     </div>
-</body>
+  </body>
 </html>

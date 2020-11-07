@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style> 
-            div{
-                background-color:cornflowerblue;
-                padding: 10px;
-                border-radius: 5px;
-                font-weight: bold;
-                font-family: monospace;
-                
-                width: 100px;
-                height: 50px; 
-                transition: width 2s,height 4s; 
-            }
-            #prvi_primer:hover{
-                width: 300px;
-                height: 150px;
-            }
-            .drugi_primer:hover{
-                width: 300px;    
-            }
-            #div1{ transition-timing-function: ease;    
-                    transition-delay: 2s;   }
-            #div2{ transition-timing-function: ease-in  }
-            #div3{ transition-timing-function: ease-out }
-            #div4{ transition-timing-function: linear   }
-        </style>
-    </head>
-    <body>
-        <div id="prvi_primer"> <span> Primer prelaza po širini i dužini</span></div>
-        <br><br>
-        <div id="div1" class="drugi_primer"> ease <br> Transformacija će se izvršiti za 2 sekunde </div><br>
-        <div id="div2" class="drugi_primer"> ease-in </div><br>
-        <div id="div3" class="drugi_primer"> ease-out </div><br>
-        <div id="div4" class="drugi_primer"> liner </div>
+  <head>
+    <style>
+      div {
+        background-color: cornflowerblue;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-family: monospace;
 
-    </body>
+        width: 100px;
+        height: 50px;
+        transition: width 2s, height 4s;
+      }
+      #prvi_primer:hover {
+        width: 300px;
+        height: 150px;
+      }
+      .drugi_primer:hover {
+        width: 300px;
+      }
+      #div1 {
+        transition-timing-function: ease;
+        transition-delay: 2s;
+      }
+      #div2 {
+        transition-timing-function: ease-in;
+      }
+      #div3 {
+        transition-timing-function: ease-out;
+      }
+      #div4 {
+        transition-timing-function: linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="prvi_primer"><span> Primer prelaza po širini i dužini</span></div>
+    <br /><br />
+    <div id="div1" class="drugi_primer">
+      ease <br />
+      Transformacija će se izvršiti za 2 sekunde
+    </div>
+    <br />
+    <div id="div2" class="drugi_primer">ease-in</div>
+    <br />
+    <div id="div3" class="drugi_primer">ease-out</div>
+    <br />
+    <div id="div4" class="drugi_primer">liner</div>
+  </body>
 </html>

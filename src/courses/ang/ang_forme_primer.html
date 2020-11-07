@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+      <form novalidate>
+        First Name:<br />
+        <input type="text" ng-model="korisnik.ime" /><br />
+        Last Name:<br />
+        <input type="text" ng-model="korisnik.prezime" />
+        <br /><br />
+        <button ng-click="reset()">RESET</button>
+      </form>
+      <p>form = {{korisnik}}</p>
+      <p>master = {{master}}</p>
+    </div>
 
-<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
-  <form novalidate>
-    First Name:<br>
-    <input type="text" ng-model="korisnik.ime"><br>
-    Last Name:<br>
-    <input type="text" ng-model="korisnik.prezime">
-    <br><br>
-    <button ng-click="reset()">RESET</button>
-  </form>
-  <p>form = {{korisnik}}</p>
-  <p>master = {{master}}</p>
-</div>
-
-<script>
-var app = angular.module('mojaAplikacija', []);
-app.controller('mojKontroler', function($scope) {
-    $scope.master = {ime:"Pera", prezime:"Perić"};
-    $scope.reset = function() {
-        $scope.korisnik = angular.copy($scope.master);
-    };
-    $scope.reset();
-});
-</script>
-
-</body>
+    <script>
+      var app = angular.module("mojaAplikacija", []);
+      app.controller("mojKontroler", function ($scope) {
+        $scope.master = { ime: "Pera", prezime: "Perić" };
+        $scope.reset = function () {
+          $scope.korisnik = angular.copy($scope.master);
+        };
+        $scope.reset();
+      });
+    </script>
+  </body>
 </html>

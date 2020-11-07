@@ -1,21 +1,29 @@
-@keyframes grow{
-    0%{
-        transform: scale(0);
-    }
-    90%{
-        transform: scale(1.2);
-    }
-    100%{
-        transform: scale(1);
-    }
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-@keyframes scale{
-    from{transform: scale(1)}
-    to{transform: scale(1.2)}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }
 
-@keyframes scale-small{
-    from{transform: scale(1)}
-    to{transform: scale(1.1)}
+@keyframes scale-small {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }

@@ -1,8 +1,10 @@
 ﻿<h1>Box model, margine, uokvirenja, ivice i zakrivljene ivice</h1>
-<br>
-Margine i uokvirenja su dva najčešća alata za razdvajanja teksta. Margina predstavlja razmak od ivica, a uokvirenje (padding) razmak od ostalih elemenata.
-<br>
-<xmp class="primer_ta" >
+<br />
+Margine i uokvirenja su dva najčešća alata za razdvajanja teksta. Margina
+predstavlja razmak od ivica, a uokvirenje (padding) razmak od ostalih elemenata.
+<br />
+<xmp class="primer_ta"
+>
 h2 {
     font-size: 1.5em;
     background-color: #ccc;
@@ -10,42 +12,81 @@ h2 {
     padding: 40px;
 }
 </xmp>
-<br>
-Ovo znači da se ostavlja prostor za margine od 20 piksela za drugo zaglavlje (h2) i uokviruje se sa 40 piksela.
-<br>
-Za svaku stranu elementa (gore, dole, levo i desno) mogu se pojedinačno podesiti margine i uokvirenja ( margin-top, margin-right, margin-bottom, margin-left, padding-top, padding-right, padding-bottom i padding-left). 
-<br><br>
+<br />
+Ovo znači da se ostavlja prostor za margine od 20 piksela za drugo zaglavlje
+(h2) i uokviruje se sa 40 piksela.
+<br />
+Za svaku stranu elementa (gore, dole, levo i desno) mogu se pojedinačno podesiti
+margine i uokvirenja ( margin-top, margin-right, margin-bottom, margin-left,
+padding-top, padding-right, padding-bottom i padding-left).
+<br /><br />
 <h2>Box model</h2>
-<br>
-Margine, uokvirenja i ivice su elementi Box Modela. Box Model funkcioniše na sledeći način: u sredini se nalazi oblast sadržaja, nju okružuju još tri Box-a, najširi je margina Box, uži od njega je border Box i na kraju je padding Box. Na slici to izgleda ovako:		
-<br>
-<div id="boxmodel" style="color: #a06700; margin: 20px 0; overflow: auto; padding: 10px 20px 20px 20px; background-color: #a90;">
-    Margina box
-    <div style="padding: 10px 20px 20px 20px; margin: 10px 20px 20px 20px; background-color: #a4bb55;">
-        Border box
-        <div style="padding: 10px 20px 20px 20px; margin: 10px 20px 20px 20px; background-color: #a9ddaa;">
-            Padding box
-            <div style="padding: 20px; margin: 10px 20px 20px 20px; background-color: #aaa;">
-                Element box
-            </div>
-        </div>
+<br />
+Margine, uokvirenja i ivice su elementi Box Modela. Box Model funkcioniše na
+sledeći način: u sredini se nalazi oblast sadržaja, nju okružuju još tri Box-a,
+najširi je margina Box, uži od njega je border Box i na kraju je padding Box. Na
+slici to izgleda ovako:
+<br />
+<div
+  id="boxmodel"
+  style="
+    color: #a06700;
+    margin: 20px 0;
+    overflow: auto;
+    padding: 10px 20px 20px 20px;
+    background-color: #a90;
+  "
+>
+  Margina box
+  <div
+    style="
+      padding: 10px 20px 20px 20px;
+      margin: 10px 20px 20px 20px;
+      background-color: #a4bb55;
+    "
+  >
+    Border box
+    <div
+      style="
+        padding: 10px 20px 20px 20px;
+        margin: 10px 20px 20px 20px;
+        background-color: #a9ddaa;
+      "
+    >
+      Padding box
+      <div
+        style="
+          padding: 20px;
+          margin: 10px 20px 20px 20px;
+          background-color: #aaa;
+        "
+      >
+        Element box
+      </div>
     </div>
-</div>		
-<br>
-Treblo bi napomenuti da nije neophodno koristiti sve Box-ove iako su jako korisni i da se ovaj model moze primeniti na svaki element na stranici. 
-<br><br>
+  </div>
+</div>
+<br />
+Treblo bi napomenuti da nije neophodno koristiti sve Box-ove iako su jako
+korisni i da se ovaj model moze primeniti na svaki element na stranici.
+<br /><br />
 <h2>Ivice</h2>
-<br>
+<br />
 Ivice mogu biti primenjene na elemente unutar HTML tela.
-<br>
-Da bi se napravile ivice oko elementa sve sto je potrebno je border-style. Moguće vrednosti za stil su: solid, dotted, dashed, double, groove, ridge, inset i outset.
+<br />
+Da bi se napravile ivice oko elementa sve sto je potrebno je border-style.
+Moguće vrednosti za stil su: solid, dotted, dashed, double, groove, ridge, inset
+i outset.
 
-<br>
-<b>border-width</b>-om se podešava širina ivica, najčešće korišćenjem piksela za vrednost.Naravno, postoje i sledeće opcije: border-top-width, border-right-width, border-bottom-width i border-left-width.
-<br>
+<br />
+<b>border-width</b>-om se podešava širina ivica, najčešće korišćenjem piksela za
+vrednost.Naravno, postoje i sledeće opcije: border-top-width,
+border-right-width, border-bottom-width i border-left-width.
+<br />
 Na kraju, moguće je postaviti boju pomoću border-color.
-<br>
-<xmp class="primer_ta" >
+<br />
+<xmp class="primer_ta"
+>
 
 h2 {
     border-style: dashed;//crvena isprekidana linija
@@ -55,18 +96,23 @@ h2 {
     border-color: red;
 }
 </xmp>
-<br>
+<br />
 Ovim će gore navedena svojstva biti primenjena na sve elemente u h2 poglavlju.
-<br><br>
+<br /><br />
 <h1>Zakivljene ivice</h1>
-<br>
-Zakrivljene ivice nam služe da redizajniramo izgled jednog dela teksta(ili fotografije) sa unutrašnje strane. Primera radi, ako imamo neko nabrajanje i želimo da ga oivičimo samo sa unutrašnje strane (tako da spoljna ivica ostne u pravougaonom obliku), možemo napraviti razlicite oblike!
-<br><br>
+<br />
+Zakrivljene ivice nam služe da redizajniramo izgled jednog dela teksta(ili
+fotografije) sa unutrašnje strane. Primera radi, ako imamo neko nabrajanje i
+želimo da ga oivičimo samo sa unutrašnje strane (tako da spoljna ivica ostne u
+pravougaonom obliku), možemo napraviti razlicite oblike!
+<br /><br />
 <h2>Poluprečnik zakrivljenja</h2>
-<br>
-<b>border-radius</b> svojstvo se koristi da se napravi zakrivljenje na svakoj od četiri ivice.
-<br>
-<xmp class="primer_ta" >
+<br />
+<b>border-radius</b> svojstvo se koristi da se napravi zakrivljenje na svakoj od
+četiri ivice.
+<br />
+<xmp class="primer_ta"
+>
 #marilyn {
     background: #fff;
     width: 100px;
@@ -74,10 +120,12 @@ Zakrivljene ivice nam služe da redizajniramo izgled jednog dela teksta(ili foto
     border-radius: 20px;
 }
 </xmp>
-<br>
-Naravno, ukoliko želite standardni izgled, sa dodatnom ivicom, to ćete postići na sledeći način:
-<br>
-<xmp class="primer_ta" >
+<br />
+Naravno, ukoliko želite standardni izgled, sa dodatnom ivicom, to ćete postići
+na sledeći način:
+<br />
+<xmp class="primer_ta"
+>
 #ok_a_border_then {
     border: 5px solid #8b2;
     width: 100px;
@@ -85,12 +133,15 @@ Naravno, ukoliko želite standardni izgled, sa dodatnom ivicom, to ćete postić
     border-radius: 5px;
 }
 </xmp>
-<br><br>
+<br /><br />
 <h2>Različita zakrivljenost ivica</h2>
-<br>
-<b>border-top-left-radius</b>, <b>border-top-right-radius</b>, <b>border-bottom-right-radius</b>, i <b>border-bottom-left-radius</b> možemo primeniti na svaku pojedinačnu ivicu.
-<br>
-<xmp class="primer_ta" >
+<br />
+<b>border-top-left-radius</b>, <b>border-top-right-radius</b>,
+<b>border-bottom-right-radius</b>, i <b>border-bottom-left-radius</b> možemo
+primeniti na svaku pojedinačnu ivicu.
+<br />
+<xmp class="primer_ta"
+>
 #monroe {
     background: #fff;
     width: 100px;
@@ -98,14 +149,19 @@ Naravno, ukoliko želite standardni izgled, sa dodatnom ivicom, to ćete postić
     border-radius: 6px 12px 18px 24px;
 }
 </xmp>
-<br>
-Korišćenjem samo dve vrednosti (umesto četiri), prva će se odnositi na gornju-levu i donju-desnu, a druga na ostale dve. Opet, ako imamo tri vrdnosti, prva se odnosi na gornju-levu ivicu, druga na gornju-desnu i donju-levu, a treca na preostalu.
-<br><br>
+<br />
+Korišćenjem samo dve vrednosti (umesto četiri), prva će se odnositi na
+gornju-levu i donju-desnu, a druga na ostale dve. Opet, ako imamo tri vrdnosti,
+prva se odnosi na gornju-levu ivicu, druga na gornju-desnu i donju-levu, a treca
+na preostalu.
+<br /><br />
 <h2>Elipse</h2>
-<br>
-Mozemo  napraviti i interesantnije oblike razdvajanjem horizontalnog i vertikalnog poluprečnika (radijusa), sto činimo pomoću znaka “/”.
-<br>
-<xmp class="primer_ta" >
+<br />
+Mozemo napraviti i interesantnije oblike razdvajanjem horizontalnog i
+vertikalnog poluprečnika (radijusa), sto činimo pomoću znaka “/”.
+<br />
+<xmp class="primer_ta"
+>
 #nanoo {
         background: #fff;
         width: 100px;
@@ -115,5 +171,4 @@ Mozemo  napraviti i interesantnije oblike razdvajanjem horizontalnog i vertikaln
         border-bottom-right-radius: 50px;
 }
 </xmp>
-<br><br>
-
+<br /><br />

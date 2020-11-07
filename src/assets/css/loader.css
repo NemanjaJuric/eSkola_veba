@@ -13,10 +13,10 @@
 }
 
 .loader:before {
-    content: '';
-    display: block;
-    padding-top: 100%;
-  }
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
 
 .circular {
   animation: rotate 2s linear infinite;
@@ -76,13 +76,13 @@
   }
 }
 
-.loader-heading-wrapper{
+.loader-heading-wrapper {
   text-align: center;
   position: fixed;
   bottom: 0px;
   width: 100%;
 }
 
-.logo-sm{
-    width: 60px;
+.logo-sm {
+  width: 60px;
 }

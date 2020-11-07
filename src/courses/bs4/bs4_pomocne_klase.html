@@ -1,7 +1,7 @@
 <h1>Pomoćne klase za stilizovanje elemenata bez CSS koda</h1>
-Klasa iz grupe <span class="primer_text">.border</span> dodaje okvir blok elementima,
-postoje i klase koje zadaju specifičnu boju okvira.
-Klasa iz grupe <span class="primer_text">.rounded</span> zaobljuje ivice blok elemenata.
+Klasa iz grupe <span class="primer_text">.border</span> dodaje okvir blok
+elementima, postoje i klase koje zadaju specifičnu boju okvira. Klasa iz grupe
+<span class="primer_text">.rounded</span> zaobljuje ivice blok elemenata.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -53,17 +53,22 @@ Klasa iz grupe <span class="primer_text">.rounded</span> zaobljuje ivice blok el
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Klase <span class="primer_text">.float-left</span> i <span class="primer_text">.float-right</span> poravnavaju elemente uz levu
-odnosno uz desnu ivicu, pri čemu klasa <span class="primer_text">.clearfix</span>, koja je zadata
-sekciji unutar koje se nalaze elementi sa ovim klasama, resetuje prethodna poravnanja.
-Klasa <span class="primer_text">.float-none</span> poništava poravnanje elementa. Poravnavanje na
-ekranima različitih širina se može realizovati dodavanjem klasa
-<span class="primer_text">.float-*-left</span> i <span class="primer_text">.float-*-right</span>, gde se umesto * piše
-<span class="primer_text">sm</span> (za poravnavanje na ekranima širim od 576px), <span class="primer_text">md</span>
-(za poravnavanje na ekranima širim od 768px), <span class="primer_text">lg</span> (za poravnavanje na
-ekranima širim od 992px) ili <span class="primer_text">xl</span> (za poravnavanje na ekranima širim od 1200px).
-<br>
+<br />
+Klase <span class="primer_text">.float-left</span> i
+<span class="primer_text">.float-right</span> poravnavaju elemente uz levu
+odnosno uz desnu ivicu, pri čemu klasa
+<span class="primer_text">.clearfix</span>, koja je zadata sekciji unutar koje
+se nalaze elementi sa ovim klasama, resetuje prethodna poravnanja. Klasa
+<span class="primer_text">.float-none</span> poništava poravnanje elementa.
+Poravnavanje na ekranima različitih širina se može realizovati dodavanjem klasa
+<span class="primer_text">.float-*-left</span> i
+<span class="primer_text">.float-*-right</span>, gde se umesto * piše
+<span class="primer_text">sm</span> (za poravnavanje na ekranima širim od
+576px), <span class="primer_text">md</span> (za poravnavanje na ekranima širim
+od 768px), <span class="primer_text">lg</span> (za poravnavanje na ekranima
+širim od 992px) ili <span class="primer_text">xl</span> (za poravnavanje na
+ekranima širim od 1200px).
+<br />
 Klasa <span class="primer_text">.mx-auto</span> centrira element.
 <xmp class="primer_ta">
 <div class="clearfix">
@@ -71,31 +76,38 @@ Klasa <span class="primer_text">.mx-auto</span> centrira element.
   <span class="float-right">Float right</span>
 </div>
 </xmp>
-<br>
-Klasom <span class="primer_text">.w-*</span> se može zadati širina elementa, pri čemu se umesto *
-piše broj, procenat širine roditeljskog elementa koji zauzima element
-kome je zadata klasa. Klasa <span class="primer_text">.mw-*</span> zadaje maksimalnu širinu.
-Isto ovo se može zadavati za širinu klasama <span class="primer_text">.h-*</span>.
-<br>
+<br />
+Klasom <span class="primer_text">.w-*</span> se može zadati širina elementa, pri
+čemu se umesto * piše broj, procenat širine roditeljskog elementa koji zauzima
+element kome je zadata klasa. Klasa
+<span class="primer_text">.mw-*</span> zadaje maksimalnu širinu. Isto ovo se
+može zadavati za širinu klasama <span class="primer_text">.h-*</span>.
+<br />
 <xmp class="primer_ta">
 <div class="border w-200">
     <span>Ovo je element koji ima okvir i širine je 50% širine elementa unutar kog se nalazi. </span>
 </div>
 </xmp>
-<br>
-U radnom okruženju Bootstrap 4 se pomoću klasa mogu dodati spoljašnje
-i unutrašnje margine. Ovo se ostvaruje na taj način što se klase pišu
-<span class="primer_text">(atribut)(pozicija)-(velicina)</span>, gde se za <span class="primer_text">(atribut)</span> mogu uzeti
-vrednosti <span class="primer_text">m</span> za spoljašnju i <span class="primer_text">p</span> za unutrašnju marginu.
-Vrednosti za deo klase <span class="primer_text">(pozicija)</span> mogu biti <span class="primer_text">t</span> za gornju marginu,
-<span class="primer_text">b</span> za donju, <span class="primer_text">l</span> za levu,
-<span class="primer_text">r</span> za desnu, <span class="primer_text">x</span> za levu i desnu i
-<span class="primer_text">y</span> za gornju i donju. Vrednost dela <span class="primer_text">(velicina)</span> ide od 0 do 5,
-gde veličina 0 zadaje vrednost odabrane margine na 0, veličina 1
-zadaje vrednost na .25 rem, veličina 2 na .5rem, veličina 3 na
-1rem, veličina 4 na 1.5rem i veličina 5 na 3rem, dok veličina
-<span class="primer_text">auto</span> postavlja spoljašnju marginu na
-<span class="primer_text">auto</span>, što centrira element i horizontalno i vertikalno.
+<br />
+U radnom okruženju Bootstrap 4 se pomoću klasa mogu dodati spoljašnje i
+unutrašnje margine. Ovo se ostvaruje na taj način što se klase pišu
+<span class="primer_text">(atribut)(pozicija)-(velicina)</span>, gde se za
+<span class="primer_text">(atribut)</span> mogu uzeti vrednosti
+<span class="primer_text">m</span> za spoljašnju i
+<span class="primer_text">p</span> za unutrašnju marginu. Vrednosti za deo klase
+<span class="primer_text">(pozicija)</span> mogu biti
+<span class="primer_text">t</span> za gornju marginu,
+<span class="primer_text">b</span> za donju,
+<span class="primer_text">l</span> za levu,
+<span class="primer_text">r</span> za desnu,
+<span class="primer_text">x</span> za levu i desnu i
+<span class="primer_text">y</span> za gornju i donju. Vrednost dela
+<span class="primer_text">(velicina)</span> ide od 0 do 5, gde veličina 0 zadaje
+vrednost odabrane margine na 0, veličina 1 zadaje vrednost na .25 rem, veličina
+2 na .5rem, veličina 3 na 1rem, veličina 4 na 1.5rem i veličina 5 na 3rem, dok
+veličina <span class="primer_text">auto</span> postavlja spoljašnju marginu na
+<span class="primer_text">auto</span>, što centrira element i horizontalno i
+vertikalno.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -115,11 +127,11 @@ zadaje vrednost na .25 rem, veličina 2 na .5rem, veličina 3 na
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Vertikalno poravnavanje teksta u linijskim elementima se ostvaruje
-dodavanjem klasa <span class="primer_text">.align-*</span>, pri čemu ove klase funkcionišu samo
-na linijskim i linijskim-blok elementima. Tako se elementi iz prvog dela prvog primera mogu poravnati
-na drugačiji način.
+<br />
+Vertikalno poravnavanje teksta u linijskim elementima se ostvaruje dodavanjem
+klasa <span class="primer_text">.align-*</span>, pri čemu ove klase funkcionišu
+samo na linijskim i linijskim-blok elementima. Tako se elementi iz prvog dela
+prvog primera mogu poravnati na drugačiji način.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -153,15 +165,18 @@ na drugačiji način.
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 Prilagodljiv prikaz videa i slajdova se može omogućiti dodavanjem klasa koje
-pripadaju grupi <span class="primer_text">embeded</span>. Klase <span class="primer_text">.embeded-responsive</span> i
-<span class="primer_text">.embeded-responsive-XbyY</span> se dodaju spoljšnjoj sekciju pri čemu
-<span class="primer_text">X</span> i <span class="primer_text">Y</span> predstavljaju u kom odnosu će se unutrašnji element
-prikazivati. Elementu koji se nalazi u okviru ove sekcije, obično su to
-elementi <span class="primer_text">&ltiframe&gt</span> ili <span class="primer_text">&ltvideo&gt</span> treba dodati klasu
+pripadaju grupi <span class="primer_text">embeded</span>. Klase
+<span class="primer_text">.embeded-responsive</span> i
+<span class="primer_text">.embeded-responsive-XbyY</span> se dodaju spoljšnjoj
+sekciju pri čemu <span class="primer_text">X</span> i
+<span class="primer_text">Y</span> predstavljaju u kom odnosu će se unutrašnji
+element prikazivati. Elementu koji se nalazi u okviru ove sekcije, obično su to
+elementi <span class="primer_text">&ltiframe&gt</span> ili
+<span class="primer_text">&ltvideo&gt</span> treba dodati klasu
 <span class="primer_text">.embeded-responsive-item</span>.
-<br>
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -190,16 +205,21 @@ elementi <span class="primer_text">&ltiframe&gt</span> ili <span class="primer_t
 </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Funkcionalnost ikonica za zatvaranje prozora, koje se obično označavaju sa
-"X", dobija se dodavanjem klase <span class="primer_text">.close</span>. Na primer,
-<span class="primer_text">&ltbutton type="button" class="close"&gt&amp;times;&lt/button&gt</span>. Simbol 	&amp;times; je
-entitet za "X". Klasa <span class="primer_text">.close</span> dodaje desno poravnanje elementu <span class="primer_text">&ltbutton&gt</span>.
-<br>
-Element sa klasom <span class="primer_text">.d-block</span> će biti blok element, ako je elementu
-zadata klasa <span class="primer_text">.d-*-block</span>, gde je * neka od vrednosti <span class="primer_text">sm</span>,
-<span class="primer_text">lg</span>, <span class="primer_text">md</span> ili <span class="primer_text">xl</span>,
-to znači da će element biti blok element na ekranima odgovarajuće širine.
+<br />
+Funkcionalnost ikonica za zatvaranje prozora, koje se obično označavaju sa "X",
+dobija se dodavanjem klase <span class="primer_text">.close</span>. Na primer,
+<span class="primer_text"
+  >&ltbutton type="button" class="close"&gt&amp;times;&lt/button&gt</span
+>. Simbol &amp;times; je entitet za "X". Klasa
+<span class="primer_text">.close</span> dodaje desno poravnanje elementu
+<span class="primer_text">&ltbutton&gt</span>.
+<br />
+Element sa klasom <span class="primer_text">.d-block</span> će biti blok
+element, ako je elementu zadata klasa
+<span class="primer_text">.d-*-block</span>, gde je * neka od vrednosti
+<span class="primer_text">sm</span>, <span class="primer_text">lg</span>,
+<span class="primer_text">md</span> ili <span class="primer_text">xl</span>, to
+znači da će element biti blok element na ekranima odgovarajuće širine.
 <div class="zadatak">
   <b>Zadatak:</b> Napraviti krug žute boje sa crvenim okvirom.
 </div>

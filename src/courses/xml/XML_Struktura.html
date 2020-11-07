@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>XML_Struktura</title>
   </head>
   <body>
     <h1>Struktura stabla</h1>
-    XML dokumenti sadrže podatke u obliku znakovnih niski, obeležene tekstualnim etiketama.
-    Etikete su oblika &#60;element&#62;, &#60;osoba&#62;, &#60;naziv&#62;, &#60;karakteristika&#62; i slično. One podsećaju na HTML etikete, ali je razlika u tome što HTML ima definisan skup etiketa koje se smeju koristiti,
-    na primer : &#60;p&#62; - paragraf, &#60;table&#62; - tabela, &#60;ul&#62; - unordered list (neuređena lista), itd.
-    XML sintaksa omogućava meta označavanje, odnosno daje slobodu autorima da sami kreiraju etikete.
-    Jedna početna i njoj odgovarajuća krajnja etiketa zajedno sa tekstualnim sadržajem između njih čine <b>element</b> XML dokumenta.
-<br>
-<br>
-XML dokumenti su formirani u obliku „stabla elemenata“. „Stablo“ počinje od korenskog elementa i grana se preko ostalih elemenata „roditelja“, „dece“, sve dalje do, može se reći, elemenata „listova“. Svi elementi imaju svoj tekstualni deo i mogu sadržati druge elemente (podelemente) i atribute, o čemu će više reči biti kasnije. Nazivi „element roditelj“, „element dete“ i slicno, koriste se da bi se objasnila veza izmedju elemenata u XML stablu. Element „roditelj“ je onaj koji ima svoje podelemente „decu“. Svaki element može imati svoje podelemente. „Braća“ i „sestre“ elementi su elementi istog nivoa. Da bi ova struktura bila jasnija, ona se može i slikovito predstaviti. Uopšten primer strukture stabla XML dokumenta može se videti u primeru 1.
-<br>
-<br>
-<b>Primer 1: </b>Struktura stabla XML dokumenta
-    <xmp class = "primer_ta">
+    XML dokumenti sadrže podatke u obliku znakovnih niski, obeležene tekstualnim
+    etiketama. Etikete su oblika &#60;element&#62;, &#60;osoba&#62;,
+    &#60;naziv&#62;, &#60;karakteristika&#62; i slično. One podsećaju na HTML
+    etikete, ali je razlika u tome što HTML ima definisan skup etiketa koje se
+    smeju koristiti, na primer : &#60;p&#62; - paragraf, &#60;table&#62; -
+    tabela, &#60;ul&#62; - unordered list (neuređena lista), itd. XML sintaksa
+    omogućava meta označavanje, odnosno daje slobodu autorima da sami kreiraju
+    etikete. Jedna početna i njoj odgovarajuća krajnja etiketa zajedno sa
+    tekstualnim sadržajem između njih čine <b>element</b> XML dokumenta.
+    <br />
+    <br />
+    XML dokumenti su formirani u obliku „stabla elemenata“. „Stablo“ počinje od
+    korenskog elementa i grana se preko ostalih elemenata „roditelja“, „dece“,
+    sve dalje do, može se reći, elemenata „listova“. Svi elementi imaju svoj
+    tekstualni deo i mogu sadržati druge elemente (podelemente) i atribute, o
+    čemu će više reči biti kasnije. Nazivi „element roditelj“, „element dete“ i
+    slicno, koriste se da bi se objasnila veza izmedju elemenata u XML stablu.
+    Element „roditelj“ je onaj koji ima svoje podelemente „decu“. Svaki element
+    može imati svoje podelemente. „Braća“ i „sestre“ elementi su elementi istog
+    nivoa. Da bi ova struktura bila jasnija, ona se može i slikovito
+    predstaviti. Uopšten primer strukture stabla XML dokumenta može se videti u
+    primeru 1.
+    <br />
+    <br />
+    <b>Primer 1: </b>Struktura stabla XML dokumenta
+    <xmp class="primer_ta">
    <koren>
     <roditelj>
       <dete_brat>
@@ -30,8 +44,8 @@ XML dokumenti su formirani u obliku „stabla elemenata“. „Stablo“ počinj
    </koren>
     </xmp>
 
-<b>Primer 2: </b>Jednostavan XML dokument „obavestenje.xml“
- <xmp class = "primer_ta">
+    <b>Primer 2: </b>Jednostavan XML dokument „obavestenje.xml“
+    <xmp class="primer_ta">
 <obavestenje>
         <od>Autor</od>
         <za>Čitalac</za>
@@ -42,15 +56,23 @@ XML dokumenti su formirani u obliku „stabla elemenata“. „Stablo“ počinj
  </obavestenje>
 </xmp>
 
-Etikete u primeru 2: &#60;obavestenje&#62;, &#60;od&#62;, &#60;za&#62;, &#60;naslov&#62;, &#60;poruka&#62; nisu definisane XML-standardom, već su osmišljene od strane autora. Međutim, XML zadaje stroga sintaksna pravila po kojima se dokumenti oblikuju. Jedno od tih pravila je i to da svaka početna etiketa mora imati odgovarajuću završnu etiketu.
-  <br>
-  <br>
-Meta označavanje omogućava XML dokumentima da budu samoopisivi. Etikete ukazuju na vrstu podataka koje obeležavaju.  Dakle, iz same strukture se jasno vidi šta opisuje dati XML dokument i kakve informacije sadrži.  Prema tome, može se odmah primetiti da XML dokument „bioskop.xml“ prikazan u primeru 3 sadrži informacije o repertoaru bioskopa.
-<br>
-<br>
-<b>Primer 3: </b>XML dokument „bioskop.xml“
+    Etikete u primeru 2: &#60;obavestenje&#62;, &#60;od&#62;, &#60;za&#62;,
+    &#60;naslov&#62;, &#60;poruka&#62; nisu definisane XML-standardom, već su
+    osmišljene od strane autora. Međutim, XML zadaje stroga sintaksna pravila po
+    kojima se dokumenti oblikuju. Jedno od tih pravila je i to da svaka početna
+    etiketa mora imati odgovarajuću završnu etiketu.
+    <br />
+    <br />
+    Meta označavanje omogućava XML dokumentima da budu samoopisivi. Etikete
+    ukazuju na vrstu podataka koje obeležavaju. Dakle, iz same strukture se
+    jasno vidi šta opisuje dati XML dokument i kakve informacije sadrži. Prema
+    tome, može se odmah primetiti da XML dokument „bioskop.xml“ prikazan u
+    primeru 3 sadrži informacije o repertoaru bioskopa.
+    <br />
+    <br />
+    <b>Primer 3: </b>XML dokument „bioskop.xml“
 
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    <xmp class="primer_ta"><?xml version="1.0" encoding="UTF-8"?>
       <bioskop>
         <film zanr="horor">
           <naziv> It </naziv>
@@ -73,26 +95,39 @@ Meta označavanje omogućava XML dokumentima da budu samoopisivi. Etikete ukazuj
       </bioskop>
 </xmp>
 
-Na samom početku dokumenta navedena je XML deklaracija:
-    <br>
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?></xmp>
+    Na samom početku dokumenta navedena je XML deklaracija:
+    <br />
+    <xmp class="primer_ta"><?xml version="1.0" encoding="UTF-8"?></xmp>
 
-Naredna linija predstavlja početak stabla o kome je bilo reči. Zapravo, ova linija otvara korenski element „bioskop“. Svi elementi unutar elementa „bioskop“ su njegova „deca“ koja će sadržati sve potrebne informacije da bi se dovoljno detaljno opisao repertoar bioskopa. Prvi podelement (dete) elementa „bioskop“ je „film“. Primećuje se da u datom primeru postoje tri  elementa pod istim tim nazivom i to su elementi istog nivoa („braća i sestre“ elementi). Svaki od njih ima četiri podelementa. Dakle, element „film“ je roditeljski element i ima četvoro dece: „naziv“, „reditelj“, „trajanje“ i „cena“.
- <br>
- <br>
-<b>Primer 4: </b>Roditeljski element film i njegovi podelementi
+    Naredna linija predstavlja početak stabla o kome je bilo reči. Zapravo, ova
+    linija otvara korenski element „bioskop“. Svi elementi unutar elementa
+    „bioskop“ su njegova „deca“ koja će sadržati sve potrebne informacije da bi
+    se dovoljno detaljno opisao repertoar bioskopa. Prvi podelement (dete)
+    elementa „bioskop“ je „film“. Primećuje se da u datom primeru postoje tri
+    elementa pod istim tim nazivom i to su elementi istog nivoa („braća i
+    sestre“ elementi). Svaki od njih ima četiri podelementa. Dakle, element
+    „film“ je roditeljski element i ima četvoro dece: „naziv“, „reditelj“,
+    „trajanje“ i „cena“.
+    <br />
+    <br />
+    <b>Primer 4: </b>Roditeljski element film i njegovi podelementi
 
-<xmp class = "primer_ta"><film zanr="fantastika">
+    <xmp class="primer_ta"><film zanr="fantastika">
           <naziv> Interstellar </naziv>
           <reditelj> Christopher Nolan</reditelj>
           <trajanje>2h 49min</trajanje>
           <cena>400 dinara</cena>
  </film>
 </xmp>
-Može se primetiti da svaki element ima svoju početnu i krajnju etiketu. Za razliku od HTML-a, XML ne dozvoljava elemente kao što je &lt;br&gt;. Poslednja linija datog XML dokumenta predstavlja kraj korenskog elementa. Tu se „bioskop“ zatvara i ovim se završava XML dokument.
- <br>
- <br>
-S obzirom na to da je celokupan sadržaj (i podaci i etikete) XML dokumenata tekstualan, oni se mogu pisati pomoću uređivača teksta, koji su svim korisnicima lako dostupni. Važno je da kreirani XML dokumenti imaju ekstenziju „ .xml “.
-
+    Može se primetiti da svaki element ima svoju početnu i krajnju etiketu. Za
+    razliku od HTML-a, XML ne dozvoljava elemente kao što je &lt;br&gt;.
+    Poslednja linija datog XML dokumenta predstavlja kraj korenskog elementa. Tu
+    se „bioskop“ zatvara i ovim se završava XML dokument.
+    <br />
+    <br />
+    S obzirom na to da je celokupan sadržaj (i podaci i etikete) XML dokumenata
+    tekstualan, oni se mogu pisati pomoću uređivača teksta, koji su svim
+    korisnicima lako dostupni. Važno je da kreirani XML dokumenti imaju
+    ekstenziju „ .xml “.
   </body>
 </html>

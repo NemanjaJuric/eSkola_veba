@@ -1,56 +1,86 @@
 <h1>Podešavanje radnog okruženja</h1>
-U prethodnim lekcijama objašnjeno je šta je komponenta u radnom okviru Angular 4, koja je njena uloga i koja je uloga modula u razvoju Angular aplikacija.
-Za potrebe učenja, u okviru veb-sajt-a, postoji mogućnost napraviti veb aplikaciju pomoću veb alata unoseći kod. Veb alat se zove "Plunker" 
-u kom unošenjem koda iz prethodnih lekcija se dobija Angular aplikacija koja prikazuje tekst na ekranu "Zdravo svete!".
-<br/><br/>
-<iframe src="https://embed.plnkr.co/LdlJzEXPxBtzArUZSff0/" frameborder="0" width="100%" height="500px"></iframe>
-<br/><br/>
-U veb alatu iznad može se videti kako izgleda aplikacija koja je kreirana na kraju prethodne lekcije. Sadržaj veb aplikacije u veb alatu "Plunker" se može izmeniti,
-tako što će se ukucati novi kod u datoteci "glavna.komponenta.html". Na primer, uneti novi element paragrafa i u njmu upisati "Ovo je moja prva Angular aplikacija".
-<br><br/><br/>
-Za one koji žele da imaju potpuno radno okruženje na svom računaru, da bi mogli da kreiraju Angular aplikacije, potrebno je instalirati nekoliko njegovih zavisnosti.
-<br/>
-Angular tim se potrudio da obezbedi da instalacija bude dovoljno modularna, kako bi veb aplikacija postala manje ili više obimna, u zavisnosti od potreba projekta.
-<br/>
-Da bi se započela implementacija Angular aplikacija, prvo i najvažnije je kreirati direktorijum (npr. Angular4) i proveriti da li 
-je NPM CLI (eng. Node Package Manager Command Line Interface) dostupan na sistemu i da li je pravilno ažuriran na najnoviju stabilnu verziju. 
-Proverava se tako što se u konzoli Terminala (na operativnim sistemima Mac ili Linux) ili u CMD (na operativnom sistemu Windows) ukuca komanda <br/><br/>
-<span class = "primer_text">[sudo] npm init </span>
-<br/>
-<br/>
-<div class = "napomena"><b>Napomena:</b>Komanda sudo je obavezna na operativnim sistemima Mac i Linux. </div>
-Ako nije, otvorite veb stranicu <a href="http://nodejs.org">nodejs.org</a> i instalirati najnoviji Node.js. 
-<br/>
-Nakon instalacije potrebno je pokrenuti CMD i u terminalu uneti sledeću skup komandi: <br/>
-<xmp class = "primer_ta">
+U prethodnim lekcijama objašnjeno je šta je komponenta u radnom okviru Angular
+4, koja je njena uloga i koja je uloga modula u razvoju Angular aplikacija. Za
+potrebe učenja, u okviru veb-sajt-a, postoji mogućnost napraviti veb aplikaciju
+pomoću veb alata unoseći kod. Veb alat se zove "Plunker" u kom unošenjem koda iz
+prethodnih lekcija se dobija Angular aplikacija koja prikazuje tekst na ekranu
+"Zdravo svete!".
+<br /><br />
+<iframe
+  src="https://embed.plnkr.co/LdlJzEXPxBtzArUZSff0/"
+  frameborder="0"
+  width="100%"
+  height="500px"
+></iframe>
+<br /><br />
+U veb alatu iznad može se videti kako izgleda aplikacija koja je kreirana na
+kraju prethodne lekcije. Sadržaj veb aplikacije u veb alatu "Plunker" se može
+izmeniti, tako što će se ukucati novi kod u datoteci "glavna.komponenta.html".
+Na primer, uneti novi element paragrafa i u njmu upisati "Ovo je moja prva
+Angular aplikacija".
+<br /><br /><br />
+Za one koji žele da imaju potpuno radno okruženje na svom računaru, da bi mogli
+da kreiraju Angular aplikacije, potrebno je instalirati nekoliko njegovih
+zavisnosti.
+<br />
+Angular tim se potrudio da obezbedi da instalacija bude dovoljno modularna, kako
+bi veb aplikacija postala manje ili više obimna, u zavisnosti od potreba
+projekta.
+<br />
+Da bi se započela implementacija Angular aplikacija, prvo i najvažnije je
+kreirati direktorijum (npr. Angular4) i proveriti da li je NPM CLI (eng. Node
+Package Manager Command Line Interface) dostupan na sistemu i da li je pravilno
+ažuriran na najnoviju stabilnu verziju. Proverava se tako što se u konzoli
+Terminala (na operativnim sistemima Mac ili Linux) ili u CMD (na operativnom
+sistemu Windows) ukuca komanda <br /><br />
+<span class="primer_text">[sudo] npm init </span>
+<br />
+<br />
+<div class="napomena">
+  <b>Napomena:</b>Komanda sudo je obavezna na operativnim sistemima Mac i Linux.
+</div>
+Ako nije, otvorite veb stranicu <a href="http://nodejs.org">nodejs.org</a> i
+instalirati najnoviji Node.js.
+<br />
+Nakon instalacije potrebno je pokrenuti CMD i u terminalu uneti sledeću skup
+komandi: <br />
+<xmp class="primer_ta"
+>
 git clone https://github.com/angular/quickstart.git Angular4
 cd Angular4  
 [sudo] npm install 
 [sudo] npm start 
-</xmp> 
-<br/>
+</xmp>
+<br />
 Ovo je najbrži način instalacije radnog okvira Angular 4.
-<br/><br/>
-Drugi način je instalacija komandnog alata Angular CLI (eng. Angular Command Line Interface). <br/>
-Pomoću njega se može na jednostavan način izgraditi osnovna Angular aplikacija i odličan je alat za razvoj velikih Angular projekata.<br/>
-Za kreiranje Angular aplikacije preko komandnog alata Angular CLI prvo treba otvoriti prozor Terminala na operativnim sistemima Mac ili Linux (CMD na operativnom sistemu Windows)
-i pokrenuti nekoliko komandi za njegovu instalaciju.<br/>
-<xmp class = "primer_ta">[sudo] npm install -g @angular/cli </xmp>
-Kada se završi instalacija, sledeći korak je kreiranje Angular projekta. Jednostavnim komandnim funkcijama ići do direktorijuma u kom bi trebalo da se nalazi projekat i ukucati komandu
-<xmp class = "primer_ta">ng new Angular4</xmp>
-kako bi se na računaru instalirale sve zavisnosti radnog okvira Angular.<br/>
-Sledeći korak je ući u direktorijum i pokrenuti aplikaciju pomoću komandi 
-<xmp class = "primer_ta">
+<br /><br />
+Drugi način je instalacija komandnog alata Angular CLI (eng. Angular Command
+Line Interface). <br />
+Pomoću njega se može na jednostavan način izgraditi osnovna Angular aplikacija i
+odličan je alat za razvoj velikih Angular projekata.<br />
+Za kreiranje Angular aplikacije preko komandnog alata Angular CLI prvo treba
+otvoriti prozor Terminala na operativnim sistemima Mac ili Linux (CMD na
+operativnom sistemu Windows) i pokrenuti nekoliko komandi za njegovu
+instalaciju.<br />
+<xmp class="primer_ta">[sudo] npm install -g @angular/cli </xmp>
+Kada se završi instalacija, sledeći korak je kreiranje Angular projekta.
+Jednostavnim komandnim funkcijama ići do direktorijuma u kom bi trebalo da se
+nalazi projekat i ukucati komandu
+<xmp class="primer_ta">ng new Angular4</xmp>
+kako bi se na računaru instalirale sve zavisnosti radnog okvira Angular.<br />
+Sledeći korak je ući u direktorijum i pokrenuti aplikaciju pomoću komandi
+<xmp class="primer_ta"
+>
 cd my-app
 ng serve --open
 </xmp>
-Na stranici pregledača će se otvoriti veb stranica sa natpisom "app works!". <br/>
-<br/>
-U tom slučaju znači da je završeno podešavanje radnog prostora i može se započeti implementacija Angular aplikacija. 
-<br/><br/>
-Na kraju otvoriti projekat u uređivaču teksta. 
-Izbor je na čitaocu, preporuke su "Sublime Text 3", "Atom", "WebStorm" i "Visual Studio Code".
-<br/>
-<br/>
-
-
+Na stranici pregledača će se otvoriti veb stranica sa natpisom "app works!".
+<br />
+<br />
+U tom slučaju znači da je završeno podešavanje radnog prostora i može se
+započeti implementacija Angular aplikacija.
+<br /><br />
+Na kraju otvoriti projekat u uređivaču teksta. Izbor je na čitaocu, preporuke su
+"Sublime Text 3", "Atom", "WebStorm" i "Visual Studio Code".
+<br />
+<br />

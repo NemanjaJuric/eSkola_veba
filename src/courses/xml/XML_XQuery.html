@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>XQuery</title>
   </head>
   <body>
     <h1>XQuery</h1>
-    XQuery služi za postavljanje upita nad XML dokumentom. Izgrađen je na osnovu XPath izraza, i koristi iste operatore i funkcije kao i XPath. Međutim, dok XPath može raditi samo sa jednim XML dokumentom, XQuery je dizajniran i za rad sa dobro formiranim delovima XML dokumenta, nizom delova XML dokumenata i nizom XML dokumenata. XQuery omogućava pisanje izraza (upita) koji služe za pronalaženje i izdvajanje elemenata i atributa iz XML dokumenta. Na primer, on može dati odgovor na sledeći zahtev: „Pronađi cenu filma „Interstellar“ u dokumentu „bioskop.xml“ i odredi kolika bi ona bila nakon sniženja od 20%“. XQuery podržava iste tipove podataka kao i XML Schema.
-     <br><br>
-     Kao i XPath, XQuery prepoznaje strukturu stabla XML dokumenta i razlikuje sedam vrsti čvorova: korenski čvor, čvorove elemenata, atributa, teksta, komentara, prostora imena i instrukcija za obradu. Osim samih čvorova, XQuery razaznaje i veze između njih: roditelje, decu, pretke i potomke.
-    <br><br><b>XQuery sintaksna pravila:</b>
-    <br><br>XQuery je osetljiv na veličinu slova i sva imena elemenata i atributa koje on koristi moraju biti validna XML imena. Znakovni nizovi se, kao i u XML dokumentima, navode pod dvostrukim ili jednostrukim navodnicima. U XQuery izrazima se mogu pojaviti promenljive koje se definišu znakom „$“ za kojim sledi ime promenljive (primer: „$ime“). Sintaksa komentara se razlikuje od sintakse XML komentara. Komentar je ograđen zagradama i dvotačkama, na sledeći način:
-    <br><br> <span class = "primer_text">(: Ovo je jedan komentar :)</span>
-<br>
-     <h2>XQuery izrazi</h2>
-     Postoji šest tipova XQuery izraza, i to su:
+    XQuery služi za postavljanje upita nad XML dokumentom. Izgrađen je na osnovu
+    XPath izraza, i koristi iste operatore i funkcije kao i XPath. Međutim, dok
+    XPath može raditi samo sa jednim XML dokumentom, XQuery je dizajniran i za
+    rad sa dobro formiranim delovima XML dokumenta, nizom delova XML dokumenata
+    i nizom XML dokumenata. XQuery omogućava pisanje izraza (upita) koji služe
+    za pronalaženje i izdvajanje elemenata i atributa iz XML dokumenta. Na
+    primer, on može dati odgovor na sledeći zahtev: „Pronađi cenu filma
+    „Interstellar“ u dokumentu „bioskop.xml“ i odredi kolika bi ona bila nakon
+    sniženja od 20%“. XQuery podržava iste tipove podataka kao i XML Schema.
+    <br /><br />
+    Kao i XPath, XQuery prepoznaje strukturu stabla XML dokumenta i razlikuje
+    sedam vrsti čvorova: korenski čvor, čvorove elemenata, atributa, teksta,
+    komentara, prostora imena i instrukcija za obradu. Osim samih čvorova,
+    XQuery razaznaje i veze između njih: roditelje, decu, pretke i potomke.
+    <br /><br /><b>XQuery sintaksna pravila:</b> <br /><br />XQuery je osetljiv
+    na veličinu slova i sva imena elemenata i atributa koje on koristi moraju
+    biti validna XML imena. Znakovni nizovi se, kao i u XML dokumentima, navode
+    pod dvostrukim ili jednostrukim navodnicima. U XQuery izrazima se mogu
+    pojaviti promenljive koje se definišu znakom „$“ za kojim sledi ime
+    promenljive (primer: „$ime“). Sintaksa komentara se razlikuje od sintakse
+    XML komentara. Komentar je ograđen zagradama i dvotačkama, na sledeći način:
+    <br /><br />
+    <span class="primer_text">(: Ovo je jedan komentar :)</span>
+    <br />
+    <h2>XQuery izrazi</h2>
+    Postoji šest tipova XQuery izraza, i to su:
 
-     <ul>
-       <li>Izrazi putanja;</li>
-       <li>Konstruktori elemenata;</li>
-       <li>FLWOR izrazi;</li>
-       <li>Uslovni izrazi;</li>
-       <li>Kvantifikovani izrazi;</li>
-       <li>Izrazi koji koriste operatore i fukcije.</li>
-     </ul>
-     Pomoću ovih izraza mogu se pretraživati i veb dokumenti, izdvajati informacije koje se koriste u veb servisima i slično.
-     <br><br>Za ilustrovanje primera  XQuery izraza, koristiće se XML dokument „bioskop.xml“.
-     <br><br><b>Primer 67:</b> XML dokument "bioskop.xml"
-     <xmp class = "primer_ta">
+    <ul>
+      <li>Izrazi putanja;</li>
+      <li>Konstruktori elemenata;</li>
+      <li>FLWOR izrazi;</li>
+      <li>Uslovni izrazi;</li>
+      <li>Kvantifikovani izrazi;</li>
+      <li>Izrazi koji koriste operatore i fukcije.</li>
+    </ul>
+    Pomoću ovih izraza mogu se pretraživati i veb dokumenti, izdvajati
+    informacije koje se koriste u veb servisima i slično.
+    <br /><br />Za ilustrovanje primera XQuery izraza, koristiće se XML dokument
+    „bioskop.xml“. <br /><br /><b>Primer 67:</b> XML dokument "bioskop.xml"
+    <xmp class="primer_ta">
     <?xml version="1.0" encoding="UTF-8"?>
       <bioskop>
         <film zanr="horor">
@@ -50,29 +68,41 @@
         </film>
       </bioskop>
 </xmp>
-<br>
+    <br />
     <h2>Izrazi putanja</h2>
-    XQuery izrazi putanja služe kao vodiči kroz elemente i atribute XML dokumenta. Kako XQuery može raditi sa više XML dokumenata istovremeno, postoji funkcija doc("ime_dokumenta.xml") kojom se bira i otvara željeni XML dokument.
-    <br><br>Sintaksa XQuery izraza putanja je jako slična sintaksi XPath izraza putanja.
+    XQuery izrazi putanja služe kao vodiči kroz elemente i atribute XML
+    dokumenta. Kako XQuery može raditi sa više XML dokumenata istovremeno,
+    postoji funkcija doc("ime_dokumenta.xml") kojom se bira i otvara željeni XML
+    dokument.
+    <br /><br />Sintaksa XQuery izraza putanja je jako slična sintaksi XPath
+    izraza putanja.
 
-    <br><br><b>Primer 68:</b> XQuery izraz putanje
-    <xmp class = "primer_ta">doc("bioskop.xml")/bioskop/film/naziv</xmp>
-    Primer 68 pokazuje XQuery izraz putanje za pronalaženje svih „naziv“ podelemenata elementa „film“ u dokumentu „bioskop.xml“. Korakom /bioskop pronalazi korenski element „bioskop“, korakom /film pronalaze se svi „film“ podelementi elementa „bioskop“, i konačno, korakom /naziv pronalaze se svi „naziv“ podelementi svih „film“ elemenata.
-    <br><br>
+    <br /><br /><b>Primer 68:</b> XQuery izraz putanje
+    <xmp class="primer_ta">doc("bioskop.xml")/bioskop/film/naziv</xmp>
+    Primer 68 pokazuje XQuery izraz putanje za pronalaženje svih „naziv“
+    podelemenata elementa „film“ u dokumentu „bioskop.xml“. Korakom /bioskop
+    pronalazi korenski element „bioskop“, korakom /film pronalaze se svi „film“
+    podelementi elementa „bioskop“, i konačno, korakom /naziv pronalaze se svi
+    „naziv“ podelementi svih „film“ elemenata.
+    <br /><br />
     Rezultat XQuery izraza iz primera 68 je:
-    <xmp class = "primer_ta">
+    <xmp class="primer_ta">
       <naziv> Ghostbusters </naziv>
       <naziv> It </naziv>
       <naziv> Interstellar </naziv>
     </xmp>
-    XQuery izrazi koriste i predikte kojima se dodatno sužava skup informacija koje se izdvajaju iz XML dokumenta. Kao što je poznato iz primera XPath izraza, predikti se navode unutar uglastih zagrada.
-    <br><br>
-    Primer 69 prikazuje XQuery izraz koji pronalazi sve filmove koji su podelementi elementa „bioskop“ i čija je cena manja od 350.
+    XQuery izrazi koriste i predikte kojima se dodatno sužava skup informacija
+    koje se izdvajaju iz XML dokumenta. Kao što je poznato iz primera XPath
+    izraza, predikti se navode unutar uglastih zagrada.
+    <br /><br />
+    Primer 69 prikazuje XQuery izraz koji pronalazi sve filmove koji su
+    podelementi elementa „bioskop“ i čija je cena manja od 350.
 
-    <br><br><b>Primer 69:</b> Predikat u XQuery izrazu
-    <xmp class = "primer_ta">doc("bioskop.xml")/bioskop/film[cena< 350]</xmp>
-    Rezultat ovog izraza je potpuni element „film“ koji odgovara zadatim uslovima:
-    <xmp class = "primer_ta">
+    <br /><br /><b>Primer 69:</b> Predikat u XQuery izrazu
+    <xmp class="primer_ta">doc("bioskop.xml")/bioskop/film[cena< 350]</xmp>
+    Rezultat ovog izraza je potpuni element „film“ koji odgovara zadatim
+    uslovima:
+    <xmp class="primer_ta">
       <film zanr="komedija">
         <naziv> Ghostbusters </naziv>
         <reditelj>Ivan Reitman</reditelj>
@@ -81,20 +111,30 @@
       </film>
     </xmp>
     Već je napomenuto da XQuery izrazi koriste iste operatore kao i XPath.
-    <br><br>Primer 70 prikazuje XQuery izraz koji iz dokumenta „bioskop.xml“ izdvaja cenu za 5 karata za film „IT“.
-    <br><br><b>Primer 70:</b> Operator u XQuery izrazu
-    <xmp class = "primer_ta">doc("bioskop.xml")/bioskop/film[naziv="It"]/cena * 5 </xmp>
-<br>
+    <br /><br />Primer 70 prikazuje XQuery izraz koji iz dokumenta „bioskop.xml“
+    izdvaja cenu za 5 karata za film „IT“. <br /><br /><b>Primer 70:</b>
+    Operator u XQuery izrazu
+    <xmp class="primer_ta"
+>doc("bioskop.xml")/bioskop/film[naziv="It"]/cena * 5 </xmp
+    >
+    <br />
     <h2>FLWOR izrazi</h2>
-    FLWOR je akronim za „For, Let, Where, Order by, Return“. Izgovara se isto kao i engleska reč „flower“. Klauza „for“ je iterativna konstrukcija. Ona promenljivoj dodeljuje rezultat zadatog XPath izraza nakon svake iteracije. Klauza „let“ takođe dodeljuje vrednosti promenljivim, ali se dodeljivanje vrši jednom, nema iterativnog postupka. Najbolji način da se prikaže razlika između „for“ i „let“ klauze je kroz primer.
+    FLWOR je akronim za „For, Let, Where, Order by, Return“. Izgovara se isto
+    kao i engleska reč „flower“. Klauza „for“ je iterativna konstrukcija. Ona
+    promenljivoj dodeljuje rezultat zadatog XPath izraza nakon svake iteracije.
+    Klauza „let“ takođe dodeljuje vrednosti promenljivim, ali se dodeljivanje
+    vrši jednom, nema iterativnog postupka. Najbolji način da se prikaže razlika
+    između „for“ i „let“ klauze je kroz primer.
 
-    <br><br><b>Primer 71: </b> „for“ klauza
-    <xmp class = "primer_ta">
+    <br /><br /><b>Primer 71: </b> „for“ klauza
+    <xmp class="primer_ta"
+>
       for $x in (1 to 4)
       return <provera>{$x}</provera>
     </xmp>
     Izraz iz primera 71 ima rezultat:
-    <xmp class = "primer_ta">
+    <xmp class="primer_ta"
+>
       <provera>1</provera>
       <provera>2</provera>
       <provera>3</provera>
@@ -102,45 +142,65 @@
     </xmp>
 
     <b>Primer 72: </b> „let“ klauza
-    <xmp class = "primer_ta">
+    <xmp class="primer_ta"
+>
       let $x := (1 to 4)
       return <provera>{$x}</provera>
     </xmp>
     Izraz iz primera 72 ima rezultat:
-    <xmp class = "primer_ta">
+    <xmp class="primer_ta">
       <provera>1 2 3 4</provera>
     </xmp>
 
-    Klauzom „where“ zadaju se uslovi pomoću kojih se dalje sužava skup čvorova koji je dobijen klauzama „for“ ili „let“. Klauzom „order by“ zadaje se pravilo po kome će dobijeni niz čvorova biti sortiran. Klauzom „return“ formira se rezultat FLWOR izraza. Ona se izvršava jednom za svaki čvor koji je prošao klauzu „where“, sve što se vrati njenim izvršavanjem predstavlja konačan rezultat celog FLWOR izraza. Ne moraju se sve pomenute klauze naći u jednom FLWOR izrazu.
-    <br><br><b>Primer 73:</b> FLWOR izraz
-    <xmp class = "primer_ta">
+    Klauzom „where“ zadaju se uslovi pomoću kojih se dalje sužava skup čvorova
+    koji je dobijen klauzama „for“ ili „let“. Klauzom „order by“ zadaje se
+    pravilo po kome će dobijeni niz čvorova biti sortiran. Klauzom „return“
+    formira se rezultat FLWOR izraza. Ona se izvršava jednom za svaki čvor koji
+    je prošao klauzu „where“, sve što se vrati njenim izvršavanjem predstavlja
+    konačan rezultat celog FLWOR izraza. Ne moraju se sve pomenute klauze naći u
+    jednom FLWOR izrazu.
+    <br /><br /><b>Primer 73:</b> FLWOR izraz
+    <xmp class="primer_ta"
+>
       for $x in doc("bioskop.xml")/bioskop/film
       where $x/cena < 400
       order by $x/naziv
       return $x/naziv
     </xmp>
-    Primer 73 prikazuje FLWOR izraz koji u dokumentu "bioskop.xml" pronalazi sve elemente čija je cena manja od 400 i sortira ih prema nazivima.
-    <br><br>Rezultat ovog FLWOR izraza je:
-    <xmp class = "primer_ta">
+    Primer 73 prikazuje FLWOR izraz koji u dokumentu "bioskop.xml" pronalazi sve
+    elemente čija je cena manja od 400 i sortira ih prema nazivima.
+    <br /><br />Rezultat ovog FLWOR izraza je:
+    <xmp class="primer_ta">
       <naziv> Ghostbusters </naziv>
       <naziv> It </naziv>
     </xmp>
     U primeru 73:
     <ul>
-      <li>Klauza <b>for</b> selektuje „film“ podelemente elementa  „bioskop“ i dodaje ih promenljivoj $x.</li>
-      <li>Klauza <b>where</b> selektuje samo one „film“ elemente čija je cena manja od 400 dinara.</li>
+      <li>
+        Klauza <b>for</b> selektuje „film“ podelemente elementa „bioskop“ i
+        dodaje ih promenljivoj $x.
+      </li>
+      <li>
+        Klauza <b>where</b> selektuje samo one „film“ elemente čija je cena
+        manja od 400 dinara.
+      </li>
       <li>Klauza <b>oder by</b> definiše sortiranje elemenata po nazivu.</li>
-      <li>Klauza <b>return</b> specifikuje da ono što treba da se vrati moraju biti nazivi filmova.</li>
+      <li>
+        Klauza <b>return</b> specifikuje da ono što treba da se vrati moraju
+        biti nazivi filmova.
+      </li>
     </ul>
 
-
-<br>
-   <h2>Konstruktori elemenata</h2>
-   Postoje XQuery izrazi koji kreiraju nove elemente. Oni se nazivaju konstruktorima elemenata.
-   <br><br>
-   Jedan tip konstruktora elemenata su direktni konstruktori. Oni koriste XML oznake i imena elemenata koja su njima zadata su konstantna. Direktni konstruktor prikazan je u primeru 74.
-   <br><br><b>Primer 74:</b> Direktni konstruktor
-   <xmp class = "primer_ta">
+    <br />
+    <h2>Konstruktori elemenata</h2>
+    Postoje XQuery izrazi koji kreiraju nove elemente. Oni se nazivaju
+    konstruktorima elemenata.
+    <br /><br />
+    Jedan tip konstruktora elemenata su direktni konstruktori. Oni koriste XML
+    oznake i imena elemenata koja su njima zadata su konstantna. Direktni
+    konstruktor prikazan je u primeru 74.
+    <br /><br /><b>Primer 74:</b> Direktni konstruktor
+    <xmp class="primer_ta">
      <film zanr="drama">
           <naziv>Gone Girl</naziv>
           <reditelj>David Fincher</reditelj>
@@ -148,11 +208,24 @@
           <cena>350</cena>
     </film>
    </xmp>
-   U primeru 74, generisan je element „film“ koji ima atribute „zanr“ i sadrži podelemente „naziv“, „reditelj“, „trajanje“ i „cena“.
-   <br><br>Unutar direktnih konstruktora, mogu se koristiti vitičaste zagrade „{}“ koje ograđuju druge XQuery izraze. Vitičaste zagrade odvajaju XQuery izraze od ostatka tekstualnog sadržaja. U rezultatu takvih konstruktora, svi ograđeni izrazi biće zamenjeni njihovim rezultatima.
-   <div class = "zadatak">Zadatak: Generisati element „film“ koji ima atribute „zanr“ i sadrži podelemente „naziv“, „reditelj“, „trajanje“ i „cena“. Pretpostaviti da su promenljivim $zanr, $naziv, $reditelj, $trajanje, i $cena već dodeljene vrednosti u nekom drugom delu upita, tako da $zanr ima vrednost „triler“, $naziv ima vrednost „&lt;naziv&gt; Gone Girl &lt;/naziv&gt;“, $reditelj  ima vrednost „&lt;reditelj&gt;David Fincher&lt;/reditelj&gt;“, $trajanje ima vrednost „&lt;trajanje&gt;2h 29min&lt;/trajanje&gt;“ i $cena ima vrednost „&lt;cena&gt;350&lt;/cena&gt;“.</div>
-   <br><b>Rešenje:</b>
-   <xmp class = "primer_ta">
+    U primeru 74, generisan je element „film“ koji ima atribute „zanr“ i sadrži
+    podelemente „naziv“, „reditelj“, „trajanje“ i „cena“.
+    <br /><br />Unutar direktnih konstruktora, mogu se koristiti vitičaste
+    zagrade „{}“ koje ograđuju druge XQuery izraze. Vitičaste zagrade odvajaju
+    XQuery izraze od ostatka tekstualnog sadržaja. U rezultatu takvih
+    konstruktora, svi ograđeni izrazi biće zamenjeni njihovim rezultatima.
+    <div class="zadatak">
+      Zadatak: Generisati element „film“ koji ima atribute „zanr“ i sadrži
+      podelemente „naziv“, „reditelj“, „trajanje“ i „cena“. Pretpostaviti da su
+      promenljivim $zanr, $naziv, $reditelj, $trajanje, i $cena već dodeljene
+      vrednosti u nekom drugom delu upita, tako da $zanr ima vrednost „triler“,
+      $naziv ima vrednost „&lt;naziv&gt; Gone Girl &lt;/naziv&gt;“, $reditelj
+      ima vrednost „&lt;reditelj&gt;David Fincher&lt;/reditelj&gt;“, $trajanje
+      ima vrednost „&lt;trajanje&gt;2h 29min&lt;/trajanje&gt;“ i $cena ima
+      vrednost „&lt;cena&gt;350&lt;/cena&gt;“.
+    </div>
+    <br /><b>Rešenje:</b>
+    <xmp class="primer_ta">
      let $zanr:="triler"
      let $naziv:=<naziv>Gone Girl</naziv>
      let $reditelj:=<reditelj>David Fincher</reditelj>
@@ -166,8 +239,8 @@
              {$cena}
             </film>
    </xmp>
-   Rezultat ovog konstruktora biće sledeći element:
-   <xmp class = "primer_ta">
+    Rezultat ovog konstruktora biće sledeći element:
+    <xmp class="primer_ta">
      <film zanr="drama">
            <naziv>Gone Girl</naziv>
            <reditelj>David Fincher</reditelj>
@@ -176,9 +249,17 @@
      </film>
    </xmp>
 
-     Osim direktnih konstruktora postoje i konstruktori čija se sintaksa razlikuje od XML sintakse. Oni počinju ključnom reči koja identifikuje vrstu čvora koji se generiše: element – za elemente, attribute – za atribute,  namespace – za prostore imena, comment – za komentare, processing-instruction – za instrukcije za obradu, text – za tekstualni sadržaj i document – za korenski čvor. Nakon vrste čvora navodi se ime koje će taj čvor imati, a zatim se navodi i vrednost čvora unutar vitičastih zagrada.
-      <br><br><b>Primer 75:</b> Konstruktor
-        <xmp class = "primer_ta">
+    Osim direktnih konstruktora postoje i konstruktori čija se sintaksa
+    razlikuje od XML sintakse. Oni počinju ključnom reči koja identifikuje vrstu
+    čvora koji se generiše: element – za elemente, attribute – za atribute,
+    namespace – za prostore imena, comment – za komentare,
+    processing-instruction – za instrukcije za obradu, text – za tekstualni
+    sadržaj i document – za korenski čvor. Nakon vrste čvora navodi se ime koje
+    će taj čvor imati, a zatim se navodi i vrednost čvora unutar vitičastih
+    zagrada.
+    <br /><br /><b>Primer 75:</b> Konstruktor
+    <xmp class="primer_ta"
+>
           element film {
                   attribute zanr {"drama" },
                   element naziv { "Gone Girl"},
@@ -186,108 +267,169 @@
                   element trajanje {"2h 29min "},
                   element cena {"350"}
                 }
-        </xmp>
+        </xmp
+    >
 
-    U primeru 75, generisan je već pomenuti element „film“ sa atributom „zanr“ i podelementima „naziv“, „reditelj“, „trajanje“ i „cena“.
-<br>
+    U primeru 75, generisan je već pomenuti element „film“ sa atributom „zanr“ i
+    podelementima „naziv“, „reditelj“, „trajanje“ i „cena“.
+    <br />
     <h2>Uslovni izrazi</h2>
-    Uslovni izrazi sastoje se od klauza „if“, „then“ i „else“. Klauza „if“ sadrži XQuery izraz koji predstavlja test čvorova. Taj izraz se obavezno navodi unutar običnih zagrada. Ukoliko je njegova istinitosna vrednost „true“, kao rezultat celog uslovnog izraza vraća se vrednost izraza koji je zadat klauzom „then“. U suprotnom, rezultat celog uslovnog izraza biće vrednost izraza koji je zadat klauzom „else“.
-    <br><br><b>Primer 76:</b> Primena klauze „if“
-      <xmp class = "primer_ta">
+    Uslovni izrazi sastoje se od klauza „if“, „then“ i „else“. Klauza „if“
+    sadrži XQuery izraz koji predstavlja test čvorova. Taj izraz se obavezno
+    navodi unutar običnih zagrada. Ukoliko je njegova istinitosna vrednost
+    „true“, kao rezultat celog uslovnog izraza vraća se vrednost izraza koji je
+    zadat klauzom „then“. U suprotnom, rezultat celog uslovnog izraza biće
+    vrednost izraza koji je zadat klauzom „else“.
+    <br /><br /><b>Primer 76:</b> Primena klauze „if“
+    <xmp class="primer_ta"
+>
         for $f in doc("bioskop.xml")/bioskop/film
         return if ($f/@zanr="komedija")
         then <komedija>{data($f/naziv)}</komedija>
         else <ostalo>{data($f/naziv)}</ostalo>
-      </xmp>
-      Primer 76 prikazuje primenu klaze „if“. Iz dokumenta „bioskop.xml“, izdvajaju se svi filmovi čiji je žanr „komedija“ pod istoimenim etiketama, a filmovi bilo kog drugog žanra izdvajaju se pod etiketama „ostalo“.
-      <br><br>Rezultat uslovnog izraza iz primera 76 biće:
-      <xmp class = "primer_ta">
+      </xmp
+    >
+    Primer 76 prikazuje primenu klaze „if“. Iz dokumenta „bioskop.xml“,
+    izdvajaju se svi filmovi čiji je žanr „komedija“ pod istoimenim etiketama, a
+    filmovi bilo kog drugog žanra izdvajaju se pod etiketama „ostalo“.
+    <br /><br />Rezultat uslovnog izraza iz primera 76 biće:
+    <xmp class="primer_ta"
+>
         <ostalo>It</ostalo>
         <komedija>Ghostbusters</komedija>
         <ostalo>Interstellar</ostalo>
-      </xmp>
+      </xmp
+    >
 
-<br>
+    <br />
     <h2>Kvantifikovani izrazi</h2>
-    Kvantifikovani XQuery izrazi u sebi sadrže klauze „some“ ili „every“ koji su ekvivalenti matematičkim kvantifikatorima „postoji“ i „svaki“, redom. Klauza „some“ se koristi da bi se ispitalo da li postoji bar jedan čvor u posmatranom skupu čvorova koji ispunjava dati uslov, a klauza "every" da bi se ispitalo da li svi čvorovi posmatranog skupa zadovoljavaju dati uslov.
-    <br><br><b>Primer 77:</b> Primena klauze „some“
-      <xmp class = "primer_ta">
+    Kvantifikovani XQuery izrazi u sebi sadrže klauze „some“ ili „every“ koji su
+    ekvivalenti matematičkim kvantifikatorima „postoji“ i „svaki“, redom. Klauza
+    „some“ se koristi da bi se ispitalo da li postoji bar jedan čvor u
+    posmatranom skupu čvorova koji ispunjava dati uslov, a klauza "every" da bi
+    se ispitalo da li svi čvorovi posmatranog skupa zadovoljavaju dati uslov.
+    <br /><br /><b>Primer 77:</b> Primena klauze „some“
+    <xmp class="primer_ta"
+>
         for $f in doc("bioskop.xml")/bioskop/film
         where some $c in $f/cena satisfies ($c = 300)
         return $f/naziv
-      </xmp>
-      Rezultat izraza iz primera 77 je naziv onog filma iz dokumenta "bioskop.xml" čija je cena 300, ukoliko takav film postoji. Dakle, rezultat je:
-      <xmp class = "primer_ta">
+      </xmp
+    >
+    Rezultat izraza iz primera 77 je naziv onog filma iz dokumenta "bioskop.xml"
+    čija je cena 300, ukoliko takav film postoji. Dakle, rezultat je:
+    <xmp class="primer_ta">
         <naziv> Ghostbusters </naziv>
       </xmp>
-      <b>Primer 78:</b> Primena klauze „every“
-        <xmp class = "primer_ta">
+    <b>Primer 78:</b> Primena klauze „every“
+    <xmp class="primer_ta"
+>
           for $f in doc("bioskop.xml")/bioskop/film
           where every $n in $f/naziv satisfies contains($n, "I")
           return $f/cena
-        </xmp>
-      Rezultat izraza iz primera 78 je cena onog filma iz dokumenta "bioskop.xml" koji u svim svojim nazivima sadrži slovo „I“ (može se desiti da element „film“ ima više podelemenata „naziv“). Dakle, rezultat su cene filmova „It“ i „Interstelar“:
-      <xmp class = "primer_ta">
+        </xmp
+    >
+    Rezultat izraza iz primera 78 je cena onog filma iz dokumenta "bioskop.xml"
+    koji u svim svojim nazivima sadrži slovo „I“ (može se desiti da element
+    „film“ ima više podelemenata „naziv“). Dakle, rezultat su cene filmova „It“
+    i „Interstelar“:
+    <xmp class="primer_ta"
+>
         <cena>350</cena>
         <cena>400</cena>
-      </xmp>
-     U slučaju da nijedan naziv nije sadržao slovo „I“, bila bi prijavljena greška.
-<br>
+      </xmp
+    >
+    U slučaju da nijedan naziv nije sadržao slovo „I“, bila bi prijavljena
+    greška.
+    <br />
     <h2>Izrazi u kojima se koriste operatori i funkcije</h2>
-    XQuery podržava istu biblioteku funkcija i operatora kao i XPath, i takođe dozvoljava da korisnici definišu nove funkcije kojima će proširiti ovu biblioteku. Tako se mogu definisati funkcije koje prikupljaju informacije iz dokumenta, računaju ih, sortiraju, menjaju i obrađuju ih na bilo koji način na koji korisnik želi.
-    <br><br><b>Operatori</b>
-    <br>XQuery koristi iste operatore, koji odgovaraju osnovnim računskim operacijama, kao i XPath. Mala razlika nastaje u slučaju operatora za poređenje vrednosti. Zapravo, osim operatora =, !=, <, <=, >, >= koriste se i operatori eq, ne, lt, le, gt i ge. Razlika između ovih operatora može se videti na sledećim primerima.
-    <br><br><b>Primer 79:</b> Primena operatora „>“
-      <xmp class = "primer_ta">
+    XQuery podržava istu biblioteku funkcija i operatora kao i XPath, i takođe
+    dozvoljava da korisnici definišu nove funkcije kojima će proširiti ovu
+    biblioteku. Tako se mogu definisati funkcije koje prikupljaju informacije iz
+    dokumenta, računaju ih, sortiraju, menjaju i obrađuju ih na bilo koji način
+    na koji korisnik želi.
+    <br /><br /><b>Operatori</b> <br />XQuery koristi iste operatore, koji
+    odgovaraju osnovnim računskim operacijama, kao i XPath. Mala razlika nastaje
+    u slučaju operatora za poređenje vrednosti. Zapravo, osim operatora =, !=,
+    <, <=, >, >= koriste se i operatori eq, ne, lt, le, gt i ge. Razlika između
+    ovih operatora može se videti na sledećim primerima. <br /><br /><b
+      >Primer 79:</b
+    >
+    Primena operatora „>“
+    <xmp class="primer_ta"
+>
         doc("bioskop.xml")/bioskop/film/cena > 300
-      </xmp>
-      XQuery izraz  iz primera 79 vraća vrednost „true“ ukoliko bilo koji element „cena“ ima vrednost veću od 300.
-      <b>Primer 80:</b> Primena operatora „lt“
-        <xmp class = "primer_ta">
+      </xmp
+    >
+    XQuery izraz iz primera 79 vraća vrednost „true“ ukoliko bilo koji element
+    „cena“ ima vrednost veću od 300.
+    <b>Primer 80:</b> Primena operatora „lt“
+    <xmp class="primer_ta"
+>
           doc("bioskop.xml")/bioskop//film[@zanr="komedija"]/cena lt "380"
-        </xmp>
-      XQuery izraz iz primera 80 ispituje samo atomske vrednosti (ne može ispitati niz vrednosti) i vraća vrednost „true“ ukoliko postoji element „cena“ čija je vrednost manja od 380.
-      Ukoliko bi se više elemenata „cena“ vratilo zadatom putanjom lokacije, bila bi prijavljena greška u primeru 80.
+        </xmp
+    >
+    XQuery izraz iz primera 80 ispituje samo atomske vrednosti (ne može ispitati
+    niz vrednosti) i vraća vrednost „true“ ukoliko postoji element „cena“ čija
+    je vrednost manja od 380. Ukoliko bi se više elemenata „cena“ vratilo
+    zadatom putanjom lokacije, bila bi prijavljena greška u primeru 80.
 
-      <br><br><b>Funkcije</b>
-      <br>Funkcije se mogu pozivati na bilo kojim mestima na kojima se mogu pozivati i drugi XQuery ili XPath izrazi.
-      <br><br><b>Primer 81:</b> Funkcija se poziva unutar elementa
-        <xmp class = "primer_ta">
+    <br /><br /><b>Funkcije</b> <br />Funkcije se mogu pozivati na bilo kojim
+    mestima na kojima se mogu pozivati i drugi XQuery ili XPath izrazi.
+    <br /><br /><b>Primer 81:</b> Funkcija se poziva unutar elementa
+    <xmp class="primer_ta"
+>
           <naziv>{upper-case($nazivfilma)}</naziv>
-        </xmp>
-        <b>Primer 82:</b> Funkcija se poziva na mestu predikata u izrazima putanja
-          <xmp class = "primer_ta">
+        </xmp
+    >
+    <b>Primer 82:</b> Funkcija se poziva na mestu predikata u izrazima putanja
+    <xmp class="primer_ta"
+>
             doc("bioskop.xml")/bioskop/film[substring(naziv,1,5)='Ghost']
-          </xmp>
-        <b>Primer 83:</b> Funkcija se poziva u klauzi „let“
-          <xmp class = "primer_ta">
+          </xmp
+    >
+    <b>Primer 83:</b> Funkcija se poziva u klauzi „let“
+    <xmp class="primer_ta"
+>
            let $krataknaziv := (substring($nazivfilma,1,5))
-          </xmp>
-        Ukoliko u biblioteci funkcija koju koristi XQuery nema funkcija koje su korisniku potrebne, on ih može sam definisati. To može uraditi unutar XQuery izraza ili u posebnoj biblioteci. Sintaksa za definisanje funkcija od strane korisnika je prikazana je u primeru 84.
-      <br><br><b>Primer 84:</b> Definicija funkcije
-          <xmp class = "primer_ta">
+          </xmp
+    >
+    Ukoliko u biblioteci funkcija koju koristi XQuery nema funkcija koje su
+    korisniku potrebne, on ih može sam definisati. To može uraditi unutar XQuery
+    izraza ili u posebnoj biblioteci. Sintaksa za definisanje funkcija od strane
+    korisnika je prikazana je u primeru 84.
+    <br /><br /><b>Primer 84:</b> Definicija funkcije
+    <xmp class="primer_ta"
+>
             declare function local:imeFunkcije($promenljiva as tip_podataka)
             as tipPodatkaKojiSeVraća
                   {
                     ...telo funkcije...
                   };
-          </xmp>
-        Tipovi podataka koji se dodeljuju promenljivim su uglavnom tipovi podataka definisani XML Schemom.
-        <br><br><b>Primer 85:</b> Definisanje funkcije koja računa cenu filma nakon popusta od 20%
-          <xmp class = "primer_ta">
+          </xmp
+    >
+    Tipovi podataka koji se dodeljuju promenljivim su uglavnom tipovi podataka
+    definisani XML Schemom.
+    <br /><br /><b>Primer 85:</b> Definisanje funkcije koja računa cenu filma
+    nakon popusta od 20%
+    <xmp class="primer_ta"
+>
             declare function local:manjaCena($c as xs:decimal?,$p as xs:decimal?)
             as xs:decimal?
                   { let $popust := ($c * $p) div 100
                     return ($c - $popust) };
                 let $popust := 20
                 let $film := doc("bioskop.xml")/bioskop//film[@zanr="komedija"]
-          </xmp>
-          Funkcija se nakon definicije poziva na sledeći način:
-          <xmp class = "primer_ta">
+          </xmp
+    >
+    Funkcija se nakon definicije poziva na sledeći način:
+    <xmp class="primer_ta"
+>
           return <manjaCena>{local:manjaCena($film/cena,$popust)}</manjaCena>
-          </xmp>
-          Rezultat je 240.
-     <br>
-     <br>
+          </xmp
+    >
+    Rezultat je 240.
+    <br />
+    <br />
   </body>
 </html>

@@ -1,206 +1,243 @@
 <h1><b>Pretraga tabele (WHERE)</b></h1>
-U prethodnoj lekciji smo videli kako da izlistamo sadržaj neke tabele. Najčešće nam neće trebati svi podaci
-iz tabele, nego samo određeni redovi koji ispunjavaju neki uslov. To se radi pomoću ključne reči WHERE.
-<br>
-<b>Uslovni upit:</b><br>
-<xmp class = "primer_ta" >
+U prethodnoj lekciji smo videli kako da izlistamo sadržaj neke tabele. Najčešće
+nam neće trebati svi podaci iz tabele, nego samo određeni redovi koji
+ispunjavaju neki uslov. To se radi pomoću ključne reči WHERE.
+<br />
+<b>Uslovni upit:</b><br />
+<xmp class="primer_ta"
+>
 SELECT ime_kolone1, ..., ime_koloneN
 FROM ime_tabele
 WHERE uslov;
 </xmp>
-<div class = "napomena">
-	Radi preglednosti, prilikom pisanja upita vršimo nazubljivanje. Tehničke karakteristike platforme ne dozvoljavaju
-	višelinijske upite, pa ih zbog toga moramo pisati u jednoj liniji.
+<div class="napomena">
+  Radi preglednosti, prilikom pisanja upita vršimo nazubljivanje. Tehničke
+  karakteristike platforme ne dozvoljavaju višelinijske upite, pa ih zbog toga
+  moramo pisati u jednoj liniji.
 </div>
-Uslov je neki izraz koji koristi relacioni operator koji vraća logičku vrednost TRUE ili FALSE.<br>
+Uslov je neki izraz koji koristi relacioni operator koji vraća logičku vrednost
+TRUE ili FALSE.<br />
 Koristićemo sledeće relacione operatore:
-<table class = "tabela">
-	<thead>
-		<tr>
-			<th>Operator</th>
-			<th>Značenje</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>=</td>
-			<td>jednako</td>
-		</tr>
-		<tr>
-			<td>></td>
-			<td>veće od</td>
-		</tr>
-		<tr>
-			<td><</td>
-			<td>manje od</td>
-		</tr>
-		<tr>
-			<td>>=</td>
-			<td>veće ili jednako</td>
-		</tr>
-		<tr>
-			<td><=</td>
-			<td>manje ili jednako</td>
-		</tr>
-		<tr>
-			<td>!= ili <></td>
-			<td>različito</td>
-		</tr>
-		<tr>
-			<td>IS NULL i IS NOT NULL</td>
-			<td>da li je vrednost NULL ili nije</td>
-		</tr>
-	</tbody>
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Značenje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>jednako</td>
+    </tr>
+    <tr>
+      <td>></td>
+      <td>veće od</td>
+    </tr>
+    <tr>
+      <td><</td>
+      <td>manje od</td>
+    </tr>
+    <tr>
+      <td>>=</td>
+      <td>veće ili jednako</td>
+    </tr>
+    <tr>
+      <td><=</td>
+      <td>manje ili jednako</td>
+    </tr>
+    <tr>
+      <td>!= ili <></td>
+      <td>različito</td>
+    </tr>
+    <tr>
+      <td>IS NULL i IS NOT NULL</td>
+      <td>da li je vrednost NULL ili nije</td>
+    </tr>
+  </tbody>
 </table>
-<br><br>
+<br /><br />
 Hajde da pronađemo sve radnike koji imaju platu veću od 50000 dinara:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, plata FROM radnik WHERE plata > 50000;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Možemo pisati uslove i za kolone koje čuvaju tekstualne podatke. Npr. hajde da pronađemo sve vozače:
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Možemo pisati uslove i za kolone koje čuvaju tekstualne podatke. Npr. hajde da
+pronađemo sve vozače:
+<xmp class="primer_ta"
+>
 SELECT ime, prezime FROM radnik WHERE polozaj = 'vozac';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Pronađite sve radnike koji su se zaposlili u 2018. godini (Pazite u kom formatu se pišu datumi).
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">
+  Pronađite sve radnike koji su se zaposlili u 2018. godini (Pazite u kom
+  formatu se pišu datumi).
 </div>
 <h2>Složeni uslovi</h2>
-Do sada smo pronalazili redove iz tabele koji su ispunjavali samo jedan uslov, ali moguće je u jednom upitu
-kombinovati više uslova. Za povezivanje uslova koriste se logički operatori <b>AND</b> (konjukcija) i
-<b>OR</b> (disjunkcija). Postoji još jedan logički operator <b>NOT</b> (negacija).
-<br>
+Do sada smo pronalazili redove iz tabele koji su ispunjavali samo jedan uslov,
+ali moguće je u jednom upitu kombinovati više uslova. Za povezivanje uslova
+koriste se logički operatori <b>AND</b> (konjukcija) i <b>OR</b> (disjunkcija).
+Postoji još jedan logički operator <b>NOT</b> (negacija).
+<br />
 Ovi operatori se izračunavaju sledećim redosledom:
 <ul>
-	<li>NOT</li>
-	<li>AND</li>
-	<li>OR</li>
+  <li>NOT</li>
+  <li>AND</li>
+  <li>OR</li>
 </ul>
 Znači, NOT ima najviši prioritet, a operator OR najniži.
-<br>
-Naravno, na prioritet izvršavanja operatora možemo uticati postavljanjem zagrada.
-<br>
-Napišimo sada jedan upit sa složenim uslovom. Neka se traže svi radnici koji su trgovci i imaju platu veću od
-40000 dinara:<br>
-<xmp class = "primer_ta" >
+<br />
+Naravno, na prioritet izvršavanja operatora možemo uticati postavljanjem
+zagrada.
+<br />
+Napišimo sada jedan upit sa složenim uslovom. Neka se traže svi radnici koji su
+trgovci i imaju platu veću od 40000 dinara:<br />
+<xmp class="primer_ta"
+>
 SELECT ime, prezime FROM radnik WHERE polozaj = 'trgovac' AND plata > 40000;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Hajde sad da vidimo koji trgovci imaju platu veću od 40000 dinara a rade u Nišu ili Novom Sadu:<br>
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Hajde sad da vidimo koji trgovci imaju platu veću od 40000 dinara a rade u Nišu
+ili Novom Sadu:<br />
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj, plata, radno_mesto FROM radnik WHERE polozaj = 'trgovac' AND plata > 40000 AND (radno_mesto = 'Nis' OR radno_mesto = 'Novi Sad');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Pronađete radnike koji su se zaposlili u 2017. godini i rade u Beogradu ili Nišu.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">
+  Pronađete radnike koji su se zaposlili u 2017. godini i rade u Beogradu ili
+  Nišu.
 </div>
 <h2>Operatori IN i BETWEEN</h2>
-Prilikom pisanja upita sa složenim uslovima korisno je koristiti operatore IN i BETWEEN. Njihovo značenje je
-najlakše opisati na primeru.<br>
-Sledećim upitom pronalazimo sve radnike koji rade u Nišu ili Novom Sadu a imaju platu između 40000 i 60000 dinara:
-<xmp class = "primer_ta" >
+Prilikom pisanja upita sa složenim uslovima korisno je koristiti operatore IN i
+BETWEEN. Njihovo značenje je najlakše opisati na primeru.<br />
+Sledećim upitom pronalazimo sve radnike koji rade u Nišu ili Novom Sadu a imaju
+platu između 40000 i 60000 dinara:
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, plata, radno_mesto FROM radnik WHERE radno_mesto IN ('Nis', 'Novi Sad') AND plata BETWEEN 40000 AND 60000;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Operator IN označava da se vrednost u koloni sa njegove leve strane mora nalaziti u skupu sa njegove desne strane.
-<br>
-Operator BETWEEN označava da se vrednost u koloni sa njegove leve strane mora nalaziti između graničnih vrednosti
-(uključujući i granične vrednosti) koje su sa njegove desne strane.
-<br>
-Uslov ovog upita smo mogli napisati i bez upotrebe operatora IN i BETWEEN, ali taj uslov je malo duži i
-nerazumljiviji za čitanje. Taj uslov bi bio ovakav:<br>
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Operator IN označava da se vrednost u koloni sa njegove leve strane mora
+nalaziti u skupu sa njegove desne strane.
+<br />
+Operator BETWEEN označava da se vrednost u koloni sa njegove leve strane mora
+nalaziti između graničnih vrednosti (uključujući i granične vrednosti) koje su
+sa njegove desne strane.
+<br />
+Uslov ovog upita smo mogli napisati i bez upotrebe operatora IN i BETWEEN, ali
+taj uslov je malo duži i nerazumljiviji za čitanje. Taj uslov bi bio ovakav:<br />
+<xmp class="primer_ta"
+>
 (radno_mesto = 'Nis' OR radno_mesto = 'Novi Sad') AND plata >= 40000 AND plata <= 60000
 </xmp>
 Narednim upitom pronalazime sve radnike firme koji nisu trgovci ili vozači.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj FROM radnik WHERE polozaj NOT IN ('trgovac', 'vozac');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Pronađite sve trgovce i vozače koji rade u Beogradu ili Novom Sadu a primljeni su na posao u 2017. godini.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">
+  Pronađite sve trgovce i vozače koji rade u Beogradu ili Novom Sadu a primljeni
+  su na posao u 2017. godini.
 </div>
 <h2>Operator LIKE</h2>
-Prilikom pretreživanja tekstualnih podataka, česta je pojava da se traže neki podaci koji koji počinju
-tačno određenim slovom, ili se završavaju nekim karakterom, ili nizom karaktera... (npr. treba pronaći
-sve osobe čije prezime počinje slovom "P", a ime se završava slovima "na").
-<br>
+Prilikom pretreživanja tekstualnih podataka, česta je pojava da se traže neki
+podaci koji koji počinju tačno određenim slovom, ili se završavaju nekim
+karakterom, ili nizom karaktera... (npr. treba pronaći sve osobe čije prezime
+počinje slovom "P", a ime se završava slovima "na").
+<br />
 Takvu pretragu možemo izvršiti pomoću operatora <b>LIKE</b>:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 	SELECT ime_kolone1, ..., ime_koloneN
 	FROM ime_tabele
 	WHERE ime_kolone1 LIKE obrazac;
 </xmp>
-Obrazac se piše pod znacima navoda i on opisuje uslov koji traženi tekstualni podatak treba da ispuni.
-Prilikom pisanja obrazaca koristimo dva specijalna karaktera: <b>%</b> i <b>_</b>.
-<br>
+Obrazac se piše pod znacima navoda i on opisuje uslov koji traženi tekstualni
+podatak treba da ispuni. Prilikom pisanja obrazaca koristimo dva specijalna
+karaktera: <b>%</b> i <b>_</b>.
+<br />
 <ul>
-	<li><b>%</b> - Označava da se na njegovom mestu može (a i ne mora) nalaziti bilo koji karakter ili
-		više njih</li>
-		<li><b>_</b> - Označava da se na njegovom mestu mora nalaziti tačno jedan karakter</li>
+  <li>
+    <b>%</b> - Označava da se na njegovom mestu može (a i ne mora) nalaziti bilo
+    koji karakter ili više njih
+  </li>
+  <li>
+    <b>_</b> - Označava da se na njegovom mestu mora nalaziti tačno jedan
+    karakter
+  </li>
 </ul>
 Značenje ovih specijalnih karaktera biće jasnije nakon sledeće tabele:
-<table class = "tabela">
-	<thead>
-		<tr>
-			<th>Primer obrasca</th>
-			<th>Značenje</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>'a%'</td>
-			<td>Označava sve reči koje počinju slovom "a"</td>
-		</tr>
-		<tr>
-			<td>'%a'</td>
-			<td>Označava sve reči koje se završavaju slovom "a"</td>
-		</tr>
-		<tr>
-			<td>'%na'</td>
-			<td>Označava sve reči koje se završavjau nizom slova "na"</td>
-		</tr>
-		<tr>
-			<td>'b_a'</td>
-			<td>Označava sve troslovne reči koje počinju slovm "b" a završavaju se slovm "a"</td>
-		</tr>
-		<tr>
-			<td>'%a_a'</td>
-			<td>Označava sve reči koje imaju bar tri karaktera, završavaju se na "a" i treći karakter od
-				pozadi im je "a"</td>
-		</tr>
-	</tbody>
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Primer obrasca</th>
+      <th>Značenje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>'a%'</td>
+      <td>Označava sve reči koje počinju slovom "a"</td>
+    </tr>
+    <tr>
+      <td>'%a'</td>
+      <td>Označava sve reči koje se završavaju slovom "a"</td>
+    </tr>
+    <tr>
+      <td>'%na'</td>
+      <td>Označava sve reči koje se završavjau nizom slova "na"</td>
+    </tr>
+    <tr>
+      <td>'b_a'</td>
+      <td>
+        Označava sve troslovne reči koje počinju slovm "b" a završavaju se slovm
+        "a"
+      </td>
+    </tr>
+    <tr>
+      <td>'%a_a'</td>
+      <td>
+        Označava sve reči koje imaju bar tri karaktera, završavaju se na "a" i
+        treći karakter od pozadi im je "a"
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br><br>
+<br /><br />
 Sledećim upitom pronalazimo sve radnike čije ime počinje slovom "M".
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj FROM radnik WHERE ime LIKE 'M%';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "napomena">
-	Prilikom upoređivanja slova, ne pravi se razlika između malih i velikih slova.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="napomena">
+  Prilikom upoređivanja slova, ne pravi se razlika između malih i velikih slova.
 </div>
 Sada pronalazimo sve radnike kojima je drugo slovo prezimena slovo "o".
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj FROM radnik WHERE prezime LIKE '_o%';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Šta nam vraća naredni upit?
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT ime, prezime, polozaj FROM radnik WHERE polozaj LIKE '% %';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Vraća nam one radnike koji su na položaju koji ima dve reči.
-<div class = "zadatak">
-	Pronađite sve radnike kojima prezime ne počinje slovm "P".
+<div class="zadatak">
+  Pronađite sve radnike kojima prezime ne počinje slovm "P".
 </div>

@@ -3,65 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <!-- Ucitaj React. -->
-    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-        function TodoList(props) {
-          const todoItems = props.todoList.map(function (todoItem, index) {
-            return <p key={index} >{(index+1) + '. ' + todoItem}</p>
-          });
+      function TodoList(props) {
+        const todoItems = props.todoList.map(function (todoItem, index) {
+          return <p key={index}>{index + 1 + ". " + todoItem}</p>;
+        });
+        return (
+          <div>
+            <p>TODO spisak:</p>
+            {todoItems}
+          </div>
+        );
+      }
+
+      class TODO extends React.Component {
+        constructor(props) {
+          super(props);
+          this.handleChange = this.handleChange.bind(this);
+          this.handleButtonClick = this.handleButtonClick.bind(this);
+          this.state = { todoItemText: "", todoList: this.props.todoList };
+        }
+
+        render() {
           return (
             <div>
-              <p>TODO spisak:</p>
-              {todoItems} 
+              <input
+                value={this.state.todoItemText}
+                onChange={this.handleChange}
+              />
+              <button onClick={this.handleButtonClick}>
+                Dodaj novu stavku
+              </button>
+
+              <TodoList todoList={this.state.todoList} />
             </div>
           );
         }
 
-        class TODO extends React.Component {
-          constructor(props) {
-            super(props);
-            this.handleChange = this.handleChange.bind(this);
-            this.handleButtonClick = this.handleButtonClick.bind(this);
-            this.state = {todoItemText: '', todoList: this.props.todoList};
-          }
-
-          render() {
-            return (
-              <div>
-                <input value={this.state.todoItemText}
-                       onChange={this.handleChange} />
-                <button onClick={this.handleButtonClick}>
-                  Dodaj novu stavku
-                </button>
-                
-                <TodoList todoList={this.state.todoList} />
-              </div>
-            );
-          }
-
-          handleChange(e) {
-            this.setState({todoItemText: e.target.value});
-          }
-
-          handleButtonClick() {
-            const newTodoItem = this.state.todoItemText;
-            
-            // uzimamo trenutne elemente i kreiramo novi niz u koji dodajemo novu stavku na kraj tog niza
-            const newTodoList = [...this.state.todoList, newTodoItem];
-            this.setState({todoList: newTodoList});
-          }
+        handleChange(e) {
+          this.setState({ todoItemText: e.target.value });
         }
 
-        const todoExample = ["Kupiti 500g čokolada za kuvanje", "Kupiti 1l mleka", "Kupiti gomilu slatkiša"];
-        ReactDOM.render(
-          <TODO todoList={todoExample} />,
-          document.getElementById('root')
-        );
+        handleButtonClick() {
+          const newTodoItem = this.state.todoItemText;
+
+          // uzimamo trenutne elemente i kreiramo novi niz u koji dodajemo novu stavku na kraj tog niza
+          const newTodoList = [...this.state.todoList, newTodoItem];
+          this.setState({ todoList: newTodoList });
+        }
+      }
+
+      const todoExample = [
+        "Kupiti 500g čokolada za kuvanje",
+        "Kupiti 1l mleka",
+        "Kupiti gomilu slatkiša",
+      ];
+      ReactDOM.render(
+        <TODO todoList={todoExample} />,
+        document.getElementById("root")
+      );
     </script>
   </body>
 </html>

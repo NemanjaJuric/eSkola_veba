@@ -1,9 +1,11 @@
 <h1><b>Popunjavanje i pregled tabele</b></h1>
-Od ove lekcije, konačno možemo početi sa upotrebom interaktivnog dela ove platforme.
-<br>
-Za potrebe ovih lekcija kreirana je tabele <b>radnik</b> koju ćemo koristiti za vežbanje upita.
-Tabelu <b>radnik</b> smo kreirali sledećim upitom:
-<xmp class = "primer_ta" >
+Od ove lekcije, konačno možemo početi sa upotrebom interaktivnog dela ove
+platforme.
+<br />
+Za potrebe ovih lekcija kreirana je tabele <b>radnik</b> koju ćemo koristiti za
+vežbanje upita. Tabelu <b>radnik</b> smo kreirali sledećim upitom:
+<xmp class="primer_ta"
+>
 CREATE TABLE radnik (
 	id_radnika INT NOT NULL AUTO_INCREMENT,
 	ime VARCHAR(20) NOT NULL,
@@ -16,68 +18,81 @@ CREATE TABLE radnik (
 	PRIMARY KEY (`id_radnika`)
 );
 </xmp>
-Tabele je već napravljena, upit je ovde prikazan samo da biste videli koje kolone ima i koji tip podataka
-se nalazi u njima.
+Tabele je već napravljena, upit je ovde prikazan samo da biste videli koje
+kolone ima i koji tip podataka se nalazi u njima.
 <h2>Pregled tabele</h2>
-<br>
-Sadržaj neke tabele izlistavamo sledećim upitom:<br>
-<span class = "primer_text" >SELECT * FROM ime_tabele;</span>
-<br>
+<br />
+Sadržaj neke tabele izlistavamo sledećim upitom:<br />
+<span class="primer_text">SELECT * FROM ime_tabele;</span>
+<br />
 Da bismo izlistali sadržaj naše tabele <b>radnik</b>, upotrebićemo sledeći upit:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT * FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button> Klikom na ovo dugme izlistaće se sadržaj naše tabele
-<br>
-Šta ako nećemo da izlistamo sve kolone iz tabele? Sada ćemo videti kako da dobijemo samo imena i prezimena
-svih zaposlenih u firmi:
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button> Klikom na ovo dugme izlistaće
+se sadržaj naše tabele
+<br />
+Šta ako nećemo da izlistamo sve kolone iz tabele? Sada ćemo videti kako da
+dobijemo samo imena i prezimena svih zaposlenih u firmi:
+<xmp class="primer_ta"
+>
 SELECT ime, prezime FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Dakle, posle ključne reči SELECT samo navodimo imena kolona koje želimo da pročitamo.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Dakle, posle ključne reči SELECT samo navodimo imena kolona koje želimo da
+pročitamo.
+<br />
 <div class="zadatak">
-  Probajte sami da napišete upit za izlistavanje imena i prezimena svih zaposlenih sa njihovim brojevima telefona.
+  Probajte sami da napišete upit za izlistavanje imena i prezimena svih
+  zaposlenih sa njihovim brojevima telefona.
 </div>
-<br>
+<br />
 <h2>Unos podataka u tabelu</h2>
-Unosićemo podatke u tabelu <b>radnik</b>. Kolona id_radnika je podešena na AUTO_INCREMENT, pa kada
-budemo unosili novog radnika u tabelu, nećemo unositi nikakav podatak u tu kolonu.
-<br>
-<b>Upit za unos reda u tabelu:</b><br>
-<xmp class = "primer_ta" >
+Unosićemo podatke u tabelu <b>radnik</b>. Kolona id_radnika je podešena na
+AUTO_INCREMENT, pa kada budemo unosili novog radnika u tabelu, nećemo unositi
+nikakav podatak u tu kolonu.
+<br />
+<b>Upit za unos reda u tabelu:</b><br />
+<xmp class="primer_ta"
+>
 INSERT INTO ime_tabele (ime_kolone1, ... , ime_koloneN)
 VALUES (podatak1, ... , podatakN);
 </xmp>
-Hajde da u našu tabelu unesemo radnika Petra Petrovica, koji ima platu 40000 dinara, radi na mestu trgovca u
-Beogradu. Počeo je da radi 10. maja 2017. godine i broj telefona mu je 0119876543.
-<br>
-<xmp class = "primer_ta" >
+Hajde da u našu tabelu unesemo radnika Petra Petrovica, koji ima platu 40000
+dinara, radi na mestu trgovca u Beogradu. Počeo je da radi 10. maja 2017. godine
+i broj telefona mu je 0119876543.
+<br />
+<xmp class="primer_ta"
+>
 INSERT INTO radnik (ime, prezime, plata, polozaj, radno_mesto, datum_zaposlenja, telefon)
 VALUES ('Petar', 'Petrovic', 40000, 'trgovac', 'Beograd', '2017-05-10', '0119876543');
 </xmp>
-Upiti se, radi preglednosti nazubljuju na prikazani način, ali zbog tehničkih karakteristika ove platforme,
-mi upite moramo pisati u jednom redu:
-<xmp class = "primer_ta" >
+Upiti se, radi preglednosti nazubljuju na prikazani način, ali zbog tehničkih
+karakteristika ove platforme, mi upite moramo pisati u jednom redu:
+<xmp class="primer_ta"
+>
 INSERT INTO radnik (ime, prezime, plata, polozaj, radno_mesto, datum_zaposlenja, telefon) VALUES ('Petar', 'Petrovic', 40000, 'trgovac', 'Beograd', '2017-05-10', '0119876543');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Primećujete da je većina podataka koji se unose pod znacima navoda, to je zato što te kolone čuvaju tekstualni
-podatak (pogledajte upit za kreiranje tabele <b>radnik</b>). Obratite pažnju kako unosimo datum zaposlenja,
-pod znacima navoda i u tačno definisanom formatu YYYY-MM-DD.
-<br>
-Da biste proverili da li ste zaista dodali radnika Petra Petrovića u tabelu, izlistajte njen sadržaj pomoću
-gore navedenog upita.
-<br>
-<br>
-Moguće je dodati i više redova jednim upitom. Potrebno je samo nabrajati željene podatke (razdvojene zapetom)
-iza ključne reči VALUES, kao što je urađeno u sledećem primeru.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Primećujete da je većina podataka koji se unose pod znacima navoda, to je zato
+što te kolone čuvaju tekstualni podatak (pogledajte upit za kreiranje tabele
+<b>radnik</b>). Obratite pažnju kako unosimo datum zaposlenja, pod znacima
+navoda i u tačno definisanom formatu YYYY-MM-DD.
+<br />
+Da biste proverili da li ste zaista dodali radnika Petra Petrovića u tabelu,
+izlistajte njen sadržaj pomoću gore navedenog upita.
+<br />
+<br />
+Moguće je dodati i više redova jednim upitom. Potrebno je samo nabrajati željene
+podatke (razdvojene zapetom) iza ključne reči VALUES, kao što je urađeno u
+sledećem primeru.
+<xmp class="primer_ta"
+>
 INSERT INTO radnik (ime, prezime, plata, polozaj, radno_mesto, datum_zaposlenja, telefon) VALUES ('Marko', 'Markovic', 40000, 'trgovac', 'Beograd', '2017-05-10', '0119876544'), ('Pera', 'Peric', 40000, 'trgovac', 'Beograd', '2017-05-10', '0118876544'), ('Jova', 'Jovic', 40000, 'trgovac', 'Beograd', '2017-05-10', '0119876554');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Ovim upitom smo dodali tri radnika: Marka Markovic, Peru Peric i Jovu Jovic.

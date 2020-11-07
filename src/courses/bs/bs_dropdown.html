@@ -1,120 +1,94 @@
 <h1>Dropdown</h1>
 Dropdown je plagin (eng. plugin) koji omogućava prikazivanje padajućeg menija.
- Može se priključiti:
+Može se priključiti:
 <ul>
-<li>samostalno (upotrebom fajla "dropdown.js")</li>
-<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  <li>samostalno (upotrebom fajla "dropdown.js")</li>
+  <li>
+    ili u kompletu (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  </li>
 </ul>
-<br>
+
+<br />
 Korišćenje dropdown plagina se svodi na korišćenje klasa datih u tabeli.
 <table class="table table-striped">
-<thead>
-<th>Klasa</th>
-<th>Opis</th>
-</thead>
-<tbody>
+  <thead>
+    <th>Klasa</th>
+    <th>Opis</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.dropdown</td>
+      <td>Ukazuje na padajući meni koji se izlistava na dole.</td>
+    </tr>
 
+    <tr>
+      <td>.dropup</td>
+      <td>Ukazuje na padajući meni koji se izlistava na gore.</td>
+    </tr>
 
-<tr>
-<td>
-.dropdown
-</td>
-<td>
-Ukazuje na padajući meni koji se izlistava na dole.
-</td>
-</tr>
+    <tr>
+      <td>.dropdown-menu</td>
+      <td>Kreira padajući meni.</td>
+    </tr>
 
+    <tr>
+      <td>.dropdown-menu-right</td>
+      <td>Prikazuje padajući meni desno poravnat.</td>
+    </tr>
 
-<tr>
-<td>
-.dropup
-</td>
-<td>
-Ukazuje na padajući meni koji se izlistava na gore.
-</td>
-</tr>
+    <tr>
+      <td>.dropdown-header</td>
+      <td>Dodaje zaglavlje padajućem meniju.</td>
+    </tr>
 
-<tr>
-<td>
-.dropdown-menu
-</td>
-<td>
-Kreira padajući meni.
-</td>
-</tr>
+    <tr>
+      <td>.disabled</td>
+      <td>Onemogućava stavku iz padajućeg menija.</td>
+    </tr>
 
-
-<tr>
-<td>
-.dropdown-menu-right
-</td>
-<td>
-Prikazuje padajući meni desno poravnat.
-</td>
-</tr>
-
-
-<tr>
-<td>
-.dropdown-header
-</td>
-<td>
-Dodaje zaglavlje padajućem meniju.
-</td>
-</tr>
-
-
-<tr>
-<td>
-.disabled
-</td>
-<td>
-Onemogućava stavku iz padajućeg menija.
-</td>
-</tr>
-
-<tr>
-<td>
-.divider
-</td>
-<td>
-Razdvaja stavke padajućeg menija horizontalnom linijom.
-</td>
-</tr>
-
-</tbody>
+    <tr>
+      <td>.divider</td>
+      <td>Razdvaja stavke padajućeg menija horizontalnom linijom.</td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
+<br />
+<br />
 <h2>Kreiranje padajućeg menija</h2>
 
-Padajući meni se kreira pomoću <span class="primer_text">&ltdiv&gt</span> elementa klase <span class="primer_text">.dropdown</span> ili klase
- <span class="primer_text">.dropup</span>  u kom
-se nalaze obavezni elementi: dugme i neuređena lista.
-<br><br>
-Dugme služi za otvaranje padajućeg menija. Zadaje se upotrebom <span class="primer_text">&ltbutton&gt</span>
-elementa klase <span class="primer_text">.dropdown-toggle</span>.<br>
-Izmedju etiketa <span class="primer_text">&ltbutton&gt</span> i <span class="primer_text">&lt/button&gt </span> preporučuje se navođenje sledeće
+Padajući meni se kreira pomoću
+<span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.dropdown</span> ili klase
+<span class="primer_text">.dropup</span> u kom se nalaze obavezni elementi:
+dugme i neuređena lista. <br /><br />
+Dugme služi za otvaranje padajućeg menija. Zadaje se upotrebom
+<span class="primer_text">&ltbutton&gt</span> elementa klase
+<span class="primer_text">.dropdown-toggle</span>.<br />
+Izmedju etiketa <span class="primer_text">&ltbutton&gt</span> i
+<span class="primer_text">&lt/button&gt </span> preporučuje se navođenje sledeće
 linije koda:
-<span class="primer_text"> &ltspan class="caret"&gt &lt/span&gt </span><br>
+<span class="primer_text"> &ltspan class="caret"&gt &lt/span&gt </span><br />
 jer obezbeđuje grafički prikaz strelice na dugmetu.
-<br><br>
-Neuređena lista unutar padajućeg menija prikazuje opcije koje padajući meni nudi. Zadaje se upotrebom <span class="primer_text">&ltul&gt</span>
-elementa klase <span class="primer_text">.dropdown-menu</span>. Uobičajeno je da se unutar svake stavke nalazi link.
-<br>
-<br>
+<br /><br />
+Neuređena lista unutar padajućeg menija prikazuje opcije koje padajući meni
+nudi. Zadaje se upotrebom <span class="primer_text">&ltul&gt</span> elementa
+klase <span class="primer_text">.dropdown-menu</span>. Uobičajeno je da se
+unutar svake stavke nalazi link.
+<br />
+<br />
 Funkcionalnost padajućeg menija se može zadati na dva načina:
 <ul>
-<li>upotrebom <span class="primer_text">data-* atributa </span></li>
-<li>upotrebom jQuery biblioteke</li>
+  <li>upotrebom <span class="primer_text">data-* atributa </span></li>
+  <li>upotrebom jQuery biblioteke</li>
 </ul>
-<br>
-<br>
+<br />
+<br />
 <h3>Upotreba <span class="primer_text">data-* atributa </span></h3>
-Funkcionalnost padajućeg menija upotrebom <span class="primer_text">data-* atributa </span> se ostvaruje kada se na nivou pomenutog 
-dugmeta navede <br>
-<span class="primer_text">data-toggle="dropdown"</span> atribut.
-Sledeći primer prikazuje padajući meni dobijen na ovaj način.
+Funkcionalnost padajućeg menija upotrebom
+<span class="primer_text">data-* atributa </span> se ostvaruje kada se na nivou
+pomenutog dugmeta navede <br />
+<span class="primer_text">data-toggle="dropdown"</span> atribut. Sledeći primer
+prikazuje padajući meni dobijen na ovaj način.
 <textarea class="primer_ta" rows="14" disabled>
 <div class="dropdown">
 	<button class="btn btn-default
@@ -131,7 +105,7 @@ Sledeći primer prikazuje padajući meni dobijen na ovaj način.
 	</ul>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,13 +133,15 @@ Sledeći primer prikazuje padajući meni dobijen na ovaj način.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h3>Upotreba jQuery biblioteke</h3>
-Funkcionalnost padajućeg menija upotrebom jQuery biblioteke se ostvaruje pozivom metoda 
-<span class="primer_text">.dropdown()</span> nad pomenutim dugmetom ali uprkos tome,
-upotreba atributa <br> <span class="primer_text">data-toggle="dropdown"</span> je i u ovom slučaju neophodna.
-Sledeći primer prikazuje padajući meni dobijen na ovaj način.
+Funkcionalnost padajućeg menija upotrebom jQuery biblioteke se ostvaruje pozivom
+metoda
+<span class="primer_text">.dropdown()</span> nad pomenutim dugmetom ali uprkos
+tome, upotreba atributa <br />
+<span class="primer_text">data-toggle="dropdown"</span> je i u ovom slučaju
+neophodna. Sledeći primer prikazuje padajući meni dobijen na ovaj način.
 <textarea class="primer_ta" rows="19" disabled>
 <div class="dropdown">
 	<button class="btn btn-info
@@ -187,7 +163,7 @@ Sledeći primer prikazuje padajući meni dobijen na ovaj način.
 	});
 </script>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -220,31 +196,26 @@ Sledeći primer prikazuje padajući meni dobijen na ovaj način.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Dropdown opcije</h2>
 Dropdown plagin ne podržava nijednu opciju.
-<br>
-<br>
+<br />
+<br />
 <h2>Dropdown metodi</h2>
 Dropdown podržava jedan metod, dat u tabeli.
 <table class="table table-striped">
-<thead>
-<th>Metod</th>
-<th>Opis</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td>
-.dropdown("toggle")
-</td>
-<td>
-Omogućava prikazivanje, odnosno skrivanje padajućeg menija.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Metod</th>
+    <th>Opis</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.dropdown("toggle")</td>
+      <td>Omogućava prikazivanje, odnosno skrivanje padajućeg menija.</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -272,33 +243,31 @@ Omogućava prikazivanje, odnosno skrivanje padajućeg menija.
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
+<br />
+<br />
 <h2>Dropdown događaji</h2>
 Sledeća tabela prikazuje događaje dropdown plagina.
 <table class="table table-striped">
-<thead>
-<th>Događaj</th>
-<th>Opis</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td>
-show.bs.dropdown
-</td>
-<td>
-Događaj se realizuje neposredno pre nego što se padajući meni prikaže.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Događaj</th>
+    <th>Opis</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>show.bs.dropdown</td>
+      <td>
+        Događaj se realizuje neposredno pre nego što se padajući meni prikaže.
+      </td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -326,21 +295,17 @@ Događaj se realizuje neposredno pre nego što se padajući meni prikaže.
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>
-shown.bs.dropdown
-</td>
-<td>
-Događaj se realizuje nakon što je padajući meni prikazan.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>shown.bs.dropdown</td>
+      <td>Događaj se realizuje nakon što je padajući meni prikazan.</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -368,21 +333,20 @@ Događaj se realizuje nakon što je padajući meni prikazan.
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>
-hide.bs.dropdown
-</td>
-<td>
-Događaj se realizuje neposredno pre nego što će padajući meni biti sakriven.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>hide.bs.dropdown</td>
+      <td>
+        Događaj se realizuje neposredno pre nego što će padajući meni biti
+        sakriven.
+      </td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -410,21 +374,17 @@ Događaj se realizuje neposredno pre nego što će padajući meni biti sakriven.
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>
-hidden.bs.dropdown
-</td>
-<td>
-Događaj se realizuje nakon što je padajući meni sakriven.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>hidden.bs.dropdown</td>
+      <td>Događaj se realizuje nakon što je padajući meni sakriven.</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -452,25 +412,27 @@ Događaj se realizuje nakon što je padajući meni sakriven.
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
+<br />
+<br />
 <h2>Klase dropdown plagina</h2>
-U svim prethodnim primerima, padajući meni je bio kreiran pomoću klase <span class="primer_text">.dropdown</span> na nivou 
-<span class="primer_text">&ltdiv&gt</span> elementa.
-Kao što je već rečeno, ova klasa prikazuje padajući meni izlistavajući ga na dole.
-U nastavku će biti prikazana upotreba preostalih klasa.
-<br>
-<br>
+U svim prethodnim primerima, padajući meni je bio kreiran pomoću klase
+<span class="primer_text">.dropdown</span> na nivou
+<span class="primer_text">&ltdiv&gt</span> elementa. Kao što je već rečeno, ova
+klasa prikazuje padajući meni izlistavajući ga na dole. U nastavku će biti
+prikazana upotreba preostalih klasa.
+<br />
+<br />
 
-<h3> Klasa <span class="primer_text">.dropup</span> </h3>
- Klasa  <span class="primer_text">.dropup</span>
- omogućava izlistavanje padajućeg menija nagore.
+<h3>Klasa <span class="primer_text">.dropup</span></h3>
+Klasa <span class="primer_text">.dropup</span>
+omogućava izlistavanje padajućeg menija nagore.
 <textarea class="primer_ta" rows="14" disabled>
 <div class="dropup">
 	<button class="btn btn-default
@@ -487,7 +449,7 @@ U nastavku će biti prikazana upotreba preostalih klasa.
 	</ul>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -516,14 +478,17 @@ U nastavku će biti prikazana upotreba preostalih klasa.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-Upotrebom klase <span class="primer_text">.dropup</span>, strelica na dugmetu se automatski okreće nagore.
-<br>
-<br>
+<br />
+Upotrebom klase <span class="primer_text">.dropup</span>, strelica na dugmetu se
+automatski okreće nagore.
+<br />
+<br />
 <h3>Klasa <span class="primer_text">.dropdown-menu-right</span></h3>
-Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom <br> <span class="primer_text">.dropdown-menu</span>, 
- se koristi na nivou <span class="primer_text">&ltul&gt</span> elementa.
- Njenom upotrebom, padajući meni se prikazuje desno poravnat prilikom otvaranja.
+Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom
+<br />
+<span class="primer_text">.dropdown-menu</span>, se koristi na nivou
+<span class="primer_text">&ltul&gt</span> elementa. Njenom upotrebom, padajući
+meni se prikazuje desno poravnat prilikom otvaranja.
 <textarea class="primer_ta" rows="17" disabled>
 <div class="dropdown">
 	<button class="btn btn-default
@@ -542,8 +507,8 @@ Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom <
 	   </li>
 	</ul>
 </div>
-</textarea> 
-<textarea class="primer_ta"  style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -571,11 +536,13 @@ Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom <
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h3>Klasa <span class="primer_text">.dropdown-header</span></h3>
- Klasa <span class="primer_text">.dropdown-header</span> se koristi na nivou <span class="primer_text">&ltli&gt</span> elementa
- neuređene liste. Njenom upotrebom, tekstualni sadržaj tog elementa će se prikazati većim fontom, u vidu zaglavlja.
+Klasa <span class="primer_text">.dropdown-header</span> se koristi na nivou
+<span class="primer_text">&ltli&gt</span> elementa neuređene liste. Njenom
+upotrebom, tekstualni sadržaj tog elementa će se prikazati većim fontom, u vidu
+zaglavlja.
 <textarea class="primer_ta" rows="17" disabled>
 <div class="dropdown">
 	<button class="btn btn-default
@@ -595,7 +562,7 @@ Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom <
 	</ul>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -625,11 +592,12 @@ Klasa <span class="primer_text">.dropdown-menu-right</span>, zajedno sa klasom <
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h3>Klasa <span class="primer_text">.disabled</span></h3>
-Klasa <span class="primer_text">.disabled</span> se koristi na nivou <span class="primer_text">&ltli&gt</span> elementa
- neuređene liste. Njenom upotrebom, stavka padajućeg menija postaje neaktivna.
+Klasa <span class="primer_text">.disabled</span> se koristi na nivou
+<span class="primer_text">&ltli&gt</span> elementa neuređene liste. Njenom
+upotrebom, stavka padajućeg menija postaje neaktivna.
 <textarea class="primer_ta" rows="16" disabled>
 <div class="dropdown">
 	<button class="btn btn-default
@@ -647,8 +615,8 @@ Klasa <span class="primer_text">.disabled</span> se koristi na nivou <span class
 	   </li>
 	</ul>
 </div>
-</textarea>   
-<textarea class="primer_ta"  style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -676,12 +644,13 @@ Klasa <span class="primer_text">.disabled</span> se koristi na nivou <span class
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Klasa  <span class="primer_text">.divider</span></h3>
-Klasa <span class="primer_text">.divider</span> se koristi na nivou praznog 
-<span class="primer_text">&ltli&gt</span> elementa neuređene liste. Time se postiže da se na tom mestu prikaže
-horizontalna linija koja razdvaja preostale stavke liste.
+<br />
+<br />
+<h3>Klasa <span class="primer_text">.divider</span></h3>
+Klasa <span class="primer_text">.divider</span> se koristi na nivou praznog
+<span class="primer_text">&ltli&gt</span> elementa neuređene liste. Time se
+postiže da se na tom mestu prikaže horizontalna linija koja razdvaja preostale
+stavke liste.
 <textarea class="primer_ta" rows="15" disabled>
 <div class="dropdown">
 	<button class="btn btn-default
@@ -699,7 +668,7 @@ horizontalna linija koja razdvaja preostale stavke liste.
 	</ul>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -728,13 +697,15 @@ horizontalna linija koja razdvaja preostale stavke liste.
 </textarea>
 <button class="button_copy">Vidi primer</button>
 
-<br>
-<br>    
+<br />
+<br />
 <div class="napomena">
-Napomena: u svim prethodnim primerima, 
-vrednost atributa href je postavljena na "#" kako 
-ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link.
+  Napomena: u svim prethodnim primerima, vrednost atributa href je postavljena
+  na "#" kako ne bi došlo do greške 404. U realnoj situaciji, umesto # treba
+  staviti pravi link.
 </div>
 <div class="zadatak">
-Napraviti padajući meni koji se otvara nagore i sadrži zaglavlje sa dve stavke. Obezbediti da stavke budu razdvojene linijom i da jedna stavka bude neaktivna.
+  Napraviti padajući meni koji se otvara nagore i sadrži zaglavlje sa dve
+  stavke. Obezbediti da stavke budu razdvojene linijom i da jedna stavka bude
+  neaktivna.
 </div>

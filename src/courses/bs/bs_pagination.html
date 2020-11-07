@@ -1,10 +1,12 @@
 <h1>Pagination</h1>
-Pagination je klasa koja se koristi za obeležavanje stranica u vidu numerisanih dugmadi. 
-Obeležavanje stranica se koristi kod velikih veb sajtova.<br>
+Pagination je klasa koja se koristi za obeležavanje stranica u vidu numerisanih
+dugmadi. Obeležavanje stranica se koristi kod velikih veb sajtova.<br />
 Numerisana dugmad se obično koristi za prelazak sa jedne stranice na drugu.
-Prikazivanje dugmeta se realizuje upotrebom neuredjene liste <span class="primer_text">&ltul&gt</span> klase
- <span class="primer_text">.pagination</span> čije su stavke linkovi koji odvode na željenu stranicu.
-<br>
+Prikazivanje dugmeta se realizuje upotrebom neuredjene liste
+<span class="primer_text">&ltul&gt</span> klase
+<span class="primer_text">.pagination</span> čije su stavke linkovi koji odvode
+na željenu stranicu.
+<br />
 Osnovni kod za prikazivanje numerisanih dugmadi je sledeći:
 <textarea class="primer_ta" rows="5" disabled>
 <ul class="pagination">
@@ -13,7 +15,7 @@ Osnovni kod za prikazivanje numerisanih dugmadi je sledeći:
   <li><a href="#">3</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,14 +36,14 @@ Osnovni kod za prikazivanje numerisanih dugmadi je sledeći:
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Obeležavanje aktivne stranice</h2>
-Obeležavanje aktivne stranice se realizuje upotrebom
-dugmeta u plavoj boji. To se postiže
-upotrebom klase <span class="primer_text">.active</span> nad <span class="primer_text">&ltli&gt</span> elementom
-koji označava aktivnu stranicu.<br>
-Obeležavanje aktivne stranice izgleda ovako:<br>
+Obeležavanje aktivne stranice se realizuje upotrebom dugmeta u plavoj boji. To
+se postiže upotrebom klase <span class="primer_text">.active</span> nad
+<span class="primer_text">&ltli&gt</span> elementom koji označava aktivnu
+stranicu.<br />
+Obeležavanje aktivne stranice izgleda ovako:<br />
 <textarea class="primer_ta" rows="5" disabled>
 <ul class="pagination">
   <li><a href="#">1</a></li>
@@ -49,7 +51,7 @@ Obeležavanje aktivne stranice izgleda ovako:<br>
   <li><a href="#">3</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,13 +72,14 @@ Obeležavanje aktivne stranice izgleda ovako:<br>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2> Obeležavanje neaktivne stranice</h2>
-Obeležavanje neaktivne stranice se realizuje upotrebom neaktivnog
-dugmeta. To se postiže upotrebom klase <span class="primer_text">.disabled</span> nad <span class="primer_text">&ltli&gt</span> elementom
-koji označava neaktivnu stranicu.<br>
-Obeležavanje neaktivne stranice izgleda ovako:<br>
+<br />
+<br />
+<h2>Obeležavanje neaktivne stranice</h2>
+Obeležavanje neaktivne stranice se realizuje upotrebom neaktivnog dugmeta. To se
+postiže upotrebom klase <span class="primer_text">.disabled</span> nad
+<span class="primer_text">&ltli&gt</span> elementom koji označava neaktivnu
+stranicu.<br />
+Obeležavanje neaktivne stranice izgleda ovako:<br />
 <textarea class="primer_ta" rows="5" disabled>
 <ul class="pagination">
   <li class="disabled"><a href="#">1</a></li>
@@ -84,7 +87,7 @@ Obeležavanje neaktivne stranice izgleda ovako:<br>
   <li><a href="#">3</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,17 +108,17 @@ Obeležavanje neaktivne stranice izgleda ovako:<br>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Veličina dugmadi za obeležavanje</h2>
 Dugmad za obeležavanje se može prikazati u tri veličine:
 <ul>
-<li>podrazumevanoj</li>
-<li>maloj (klasa <span class="primer_text">.pagination-sm</span>)</li>
-<li>velikoj (klasa <span class="primer_text">.pagination-lg</span>) .</li>
+  <li>podrazumevanoj</li>
+  <li>maloj (klasa <span class="primer_text">.pagination-sm</span>)</li>
+  <li>velikoj (klasa <span class="primer_text">.pagination-lg</span>) .</li>
 </ul>
-<br>
-<br>
+<br />
+<br />
 <h3>Klasa <span class="primer_text">.pagination-sm</span></h3>
 Upotrebom ove klase dobija se mala dugmad za obeležavanje.
 <textarea class="primer_ta" disabled rows="5">
@@ -125,7 +128,7 @@ Upotrebom ove klase dobija se mala dugmad za obeležavanje.
   <li><a href="#">3</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,7 +148,7 @@ Upotrebom ove klase dobija se mala dugmad za obeležavanje.
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br><br>
+<button class="button_copy">Vidi primer</button><br /><br />
 
 <h3>Klasa <span class="primer_text">.pagination-lg</span></h3>
 Upotrebom ove klase dobija se velika dugmad za obeležavanje.
@@ -156,7 +159,7 @@ Upotrebom ove klase dobija se velika dugmad za obeležavanje.
   <li><a href="#">3</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -177,9 +180,9 @@ Upotrebom ove klase dobija se velika dugmad za obeležavanje.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2>Klasa <span class="primer_text">.breadcrumb</span> </h2>
+<br />
+<br />
+<h2>Klasa <span class="primer_text">.breadcrumb</span></h2>
 Koristi se za obeležavanje stranica pomoću kartica.
 <textarea class="primer_ta" rows="5" disabled>
 <ul class="breadcrumb">
@@ -188,7 +191,7 @@ Koristi se za obeležavanje stranica pomoću kartica.
   <li><a href="#">Zahtevi</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -210,12 +213,13 @@ Koristi se za obeležavanje stranica pomoću kartica.
 </textarea>
 <button class="button_copy">Vidi primer</button>
 <div class="napomena">
-Napomena: u svim prethodnim primerima, 
-vrednost atributa href je postavljena na "#" kako 
-ne bi došlo do greške 404. U realnoj situaciji, umesto # treba staviti pravi link.
+  Napomena: u svim prethodnim primerima, vrednost atributa href je postavljena
+  na "#" kako ne bi došlo do greške 404. U realnoj situaciji, umesto # treba
+  staviti pravi link.
 </div>
 
 <div class="zadatak">
-Napraviti pet numerisanih dugmadi za obeležavanje stranica od kojih je neko aktivno i neko neaktivno. Obezbediti 
-da se dugmad prikazuje u najvećoj mogućoj veličini.
+  Napraviti pet numerisanih dugmadi za obeležavanje stranica od kojih je neko
+  aktivno i neko neaktivno. Obezbediti da se dugmad prikazuje u najvećoj mogućoj
+  veličini.
 </div>

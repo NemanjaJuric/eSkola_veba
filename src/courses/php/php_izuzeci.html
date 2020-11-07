@@ -1,13 +1,27 @@
 <h1>Izuzeci</h1>
-Izuzetak obično signalizira grešku ili neki neobičan događaj u programu koji zaslužuje posebnu pažnju. Ukoliko se usred koda koji rukuje normalnim operacijama programa, istovremeno rukuje mnoštvom greškama, struktura programa postaje kompliovana i teška za razumevanje. <br>
-Glavna korist od izuzetaka jeste što oni razdvajaju kod koji obrađuje greške od koda koji se izvršava kada stvari idu glatko. Ne treba sve greške u programima signalizirati izuzecima, samo neuobičajene ili katastrofalne. <br>
-Primer kada nema potrebe koristiti izuzetke je neispravan ulazni podatak. Za to ne treba koristi izuzetke, jer se radi o uobičajenom događaju. <br>
-Razlog za takvu odluku je što rukovanje izuzecima uključuje mnogo dodatnog procesiranja, pa će program koji rukuje izuzecima većinu vremena, biti sporiji nego što bi mogao da bude. <br>
-PHP pruža moćan mehanizam za rukovanje izuzecima. Za razliku od tradicionalnog pristupa rukovanja greškama, rukovanje izuzecima je objektno orjentisan metod za rukovanje greškama. Rukovanje izuzecima je podržano u programskom jeziku PHP od verzije PHP 5. <br>
-Za izuzetak se kaže da je "izbačen" (engl. thrown). Za kod koji prima izuzetak kao parametar, se kaže da ga "hvata" (engl. catch). Kada se izbaci izuzetak, kod koji sledi se neće izvršiti, a PHP će pokušati da pronađe odgovarajući blok "catch".
-Ako izuzetak nije uhvaćen, fatalna greška će biti izdata sa porukom "Uncaught Ekception". <br>
+Izuzetak obično signalizira grešku ili neki neobičan događaj u programu koji
+zaslužuje posebnu pažnju. Ukoliko se usred koda koji rukuje normalnim
+operacijama programa, istovremeno rukuje mnoštvom greškama, struktura programa
+postaje kompliovana i teška za razumevanje. <br />
+Glavna korist od izuzetaka jeste što oni razdvajaju kod koji obrađuje greške od
+koda koji se izvršava kada stvari idu glatko. Ne treba sve greške u programima
+signalizirati izuzecima, samo neuobičajene ili katastrofalne. <br />
+Primer kada nema potrebe koristiti izuzetke je neispravan ulazni podatak. Za to
+ne treba koristi izuzetke, jer se radi o uobičajenom događaju. <br />
+Razlog za takvu odluku je što rukovanje izuzecima uključuje mnogo dodatnog
+procesiranja, pa će program koji rukuje izuzecima većinu vremena, biti sporiji
+nego što bi mogao da bude. <br />
+PHP pruža moćan mehanizam za rukovanje izuzecima. Za razliku od tradicionalnog
+pristupa rukovanja greškama, rukovanje izuzecima je objektno orjentisan metod za
+rukovanje greškama. Rukovanje izuzecima je podržano u programskom jeziku PHP od
+verzije PHP 5. <br />
+Za izuzetak se kaže da je "izbačen" (engl. thrown). Za kod koji prima izuzetak
+kao parametar, se kaže da ga "hvata" (engl. catch). Kada se izbaci izuzetak, kod
+koji sledi se neće izvršiti, a PHP će pokušati da pronađe odgovarajući blok
+"catch". Ako izuzetak nije uhvaćen, fatalna greška će biti izdata sa porukom
+"Uncaught Ekception". <br />
 Primer gde je izuzetak izbačen, ali nije uhvaćen:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 function checkNum($number){
 if($number>=1){
@@ -19,17 +33,39 @@ return true;
 checkNum(2);
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 <h2>Rukovanje izuzecima</h2>
-Da bi izbegli grešku iz prethodnog primera, potrebno je napisati odgovarajući kod koji će da hvata izbačeni izuzetak. Za rukovanje izuzecima tamo gde se oni dese, potrebno je uključiti 2 bloka koda i jednu komandu.
+Da bi izbegli grešku iz prethodnog primera, potrebno je napisati odgovarajući
+kod koji će da hvata izbačeni izuzetak. Za rukovanje izuzecima tamo gde se oni
+dese, potrebno je uključiti 2 bloka koda i jednu komandu.
 <ul>
-	<li><span class="primer_text">try</span> - Obuhvata kod gde se može javiti jedan ili više izuzetaka. Naredbe koje mogu da izbace izuzetak koji treba uhvatiti moraju biti unutar <span class="primer_text">try</span> bloka.</li>
-	<li> <span class="primer_text">throw</span> - komanda kojom se izbacuje izuzetak. Svakoj komandi <span class="primer_text">throw</span> odgovara bar jedna komanda <span class="primer_text">catch</span>.</li>
-	<li><span class="primer_text">catch</span> blok - Obuhvata kod koji hvata izuzetak i pravi objekat tipa koji sadrži informacije o izuzetku.</li>
+  <li>
+    <span class="primer_text">try</span> - Obuhvata kod gde se može javiti jedan
+    ili više izuzetaka. Naredbe koje mogu da izbace izuzetak koji treba uhvatiti
+    moraju biti unutar <span class="primer_text">try</span> bloka.
+  </li>
+  <li>
+    <span class="primer_text">throw</span> - komanda kojom se izbacuje izuzetak.
+    Svakoj komandi <span class="primer_text">throw</span> odgovara bar jedna
+    komanda <span class="primer_text">catch</span>.
+  </li>
+  <li>
+    <span class="primer_text">catch</span> blok - Obuhvata kod koji hvata
+    izuzetak i pravi objekat tipa koji sadrži informacije o izuzetku.
+  </li>
 </ul>
-Kada dođe do ispaljivanja izuzetka, sve naredbe koje dolaze iza naredbe koja je proizvela izuzetak se preskaču, a program nastavlja izvršenje u <span class="primer_text">catch</span> bloku koji upravlja tim izuzetkom. Tada se izvršava složena naredba <span class="primer_text">catch</span> bloka koja je izabrana a zatim se izvršavanje programa nastavlja u naredbi koja sledi iza poslednjeg <span class="primer_text">catch</span> bloka u listi. Ako ne postoji <span class="primer_text">catch</span> blok, program će izbaciti grešku kao u prethodnom primeru. Naredni primer pokazuje korišćenje <span class="primer_text">try</span>, <span class="primer_text">catch</span> sintakse, za obradu grešaka.
+Kada dođe do ispaljivanja izuzetka, sve naredbe koje dolaze iza naredbe koja je
+proizvela izuzetak se preskaču, a program nastavlja izvršenje u
+<span class="primer_text">catch</span> bloku koji upravlja tim izuzetkom. Tada
+se izvršava složena naredba <span class="primer_text">catch</span> bloka koja je
+izabrana a zatim se izvršavanje programa nastavlja u naredbi koja sledi iza
+poslednjeg <span class="primer_text">catch</span> bloka u listi. Ako ne postoji
+<span class="primer_text">catch</span> blok, program će izbaciti grešku kao u
+prethodnom primeru. Naredni primer pokazuje korišćenje
+<span class="primer_text">try</span>,
+<span class="primer_text">catch</span> sintakse, za obradu grešaka.
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
     //kreiranje funkcije sa izuzetkom
     function checkNum($number) {
@@ -50,17 +86,38 @@ Kada dođe do ispaljivanja izuzetka, sve naredbe koje dolaze iza naredbe koja je
     }
     ?> 
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-U primeru je izbačen i uhvaćen izuzetak, jer je kao argument funkcije <span class="primer_text">checkNum</span> prosleđen broj veći od 1. <span class="primer_text">Catch</span> blok hvata izuzetak i kreira objekat ($e) koji čuva informacije o izuzetku. Poruka o grešci se poziva pomoću <span class="primer_text">$e->getMessage()</span>. Nijedna komanda u <span class="primer_text">try</span> bloku navedena posle izbačenog izuzetka neće biti izvršena. <br>
-Za pozivanje poruke greške iz izuzetka korišćena je funkcija <span class="primer_text">getMessage</span>. Od značaja mogu biti i sledeće funkcije:
+<button class="button_copy">Vidi primer</button><br />
+U primeru je izbačen i uhvaćen izuzetak, jer je kao argument funkcije
+<span class="primer_text">checkNum</span> prosleđen broj veći od 1.
+<span class="primer_text">Catch</span> blok hvata izuzetak i kreira objekat ($e)
+koji čuva informacije o izuzetku. Poruka o grešci se poziva pomoću
+<span class="primer_text">$e->getMessage()</span>. Nijedna komanda u
+<span class="primer_text">try</span> bloku navedena posle izbačenog izuzetka
+neće biti izvršena. <br />
+Za pozivanje poruke greške iz izuzetka korišćena je funkcija
+<span class="primer_text">getMessage</span>. Od značaja mogu biti i sledeće
+funkcije:
 <ul>
-	<li><span class="primer_text">getFile</span> - vraća punu putanju do datoteke u kojoj je izbačen izuzetak.</li>
-	<li><span class="primer_text">getLine</span> - vraća broj linije u kodu, gde je izbačen izuzetak.</li>
-	<li><span class="primer_text">getTraceAsString</span> -  vraća vraća niz s podacima o stablu pozivanja koji omogućavaju utvrđivanje mesta na kome je izbačen izuzetak, formatiran kao string.</li>
+  <li>
+    <span class="primer_text">getFile</span> - vraća punu putanju do datoteke u
+    kojoj je izbačen izuzetak.
+  </li>
+  <li>
+    <span class="primer_text">getLine</span> - vraća broj linije u kodu, gde je
+    izbačen izuzetak.
+  </li>
+  <li>
+    <span class="primer_text">getTraceAsString</span> - vraća vraća niz s
+    podacima o stablu pozivanja koji omogućavaju utvrđivanje mesta na kome je
+    izbačen izuzetak, formatiran kao string.
+  </li>
 </ul>
-Moguće je kreirati sopstvenu funkciju koja se poziva ukoliko dodje do neuhvaćenog izuzetka. Našu funkciju aktiviramo pomoću funkcije <span class="primer_text">set_exception_handler</span>, koja kao argument prima ime naše funkcije. <br>
+Moguće je kreirati sopstvenu funkciju koja se poziva ukoliko dodje do
+neuhvaćenog izuzetka. Našu funkciju aktiviramo pomoću funkcije
+<span class="primer_text">set_exception_handler</span>, koja kao argument prima
+ime naše funkcije. <br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 function exception_handler($e){
 	echo "Neuhvćen izuzetak: ". $e->getMessage()
@@ -70,9 +127,11 @@ throw new Exception("Nije uhvaćen izuzetak");
 echo "ovaj deo koda nije izvršen";
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 
 <b>Zadatak:</b>
-<div class = "zadatak">
-Napisati program u kom dvema promenljivama dodeljujemo vrednost. Trebalo bi izračunati njihov količnik. Ukoliko unesemo kao delilac nula ispaliti i uhvatiti izuzetak sa porukom da je nedozvoljeno deljenje nulom.
+<div class="zadatak">
+  Napisati program u kom dvema promenljivama dodeljujemo vrednost. Trebalo bi
+  izračunati njihov količnik. Ukoliko unesemo kao delilac nula ispaliti i
+  uhvatiti izuzetak sa porukom da je nedozvoljeno deljenje nulom.
 </div>

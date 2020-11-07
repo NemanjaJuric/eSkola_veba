@@ -1,8 +1,13 @@
 <h1>Komponente</h1>
-Komponente predstvljaju jedan od centralnih elemenata Vue aplikacija. Zapravo ovo se ne odnosi samo na Vue radni okvir već i na JavaScript radne okvire uopšte. Ovde ćemo se upoznati sa konceptom i nekim jednostavnijim primerima iz razloga što komponente predstavljaju jako obiman i donekle kompleksan deo Vue radnog okvira.
-Osnovna ideja komponenti je da se naprave delovi koda koji mogu ponovo da se upotrebljavaju na različitim mestima. Na neki način komponente predstavljaju osnovni gradivni element Vue aplikacija.
-S tim u vezi posmatrajmo sledeći primer.
-<xmp class = "primer_ta">
+Komponente predstvljaju jedan od centralnih elemenata Vue aplikacija. Zapravo
+ovo se ne odnosi samo na Vue radni okvir već i na JavaScript radne okvire
+uopšte. Ovde ćemo se upoznati sa konceptom i nekim jednostavnijim primerima iz
+razloga što komponente predstavljaju jako obiman i donekle kompleksan deo Vue
+radnog okvira. Osnovna ideja komponenti je da se naprave delovi koda koji mogu
+ponovo da se upotrebljavaju na različitim mestima. Na neki način komponente
+predstavljaju osnovni gradivni element Vue aplikacija. S tim u vezi posmatrajmo
+sledeći primer.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +28,23 @@ S tim u vezi posmatrajmo sledeći primer.
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Uveli smo novo svojstvo unutar Vue instance- template. Unutar svojstva template nalaziće se html kod koji želimo da prikažemo na mestu na koje Vue instance utiče.Dovoljno je samo da traženi html kod(koji može biti povezan sa podacima Vue instance kao u našem slučaju gde je prisutna string interpolacija) postoji u okviru template svojstva. Nije potrebno ništa dodatno pisati i dodavati u html kodu.<br>
-Ideja nam je da se sadržaj ovog svojstva template nadje na više mesta u html kodu. Za razliku od prethodnih primera Vue instanca će sada da referiše na html element(div u našem slučaju) sa klasom app(u prošlim primerima je referisao na div koji za vrednost id atributa ima app). Ovo se može videti iz el svojstva Vue instance. Ono što smo uradili je da smo dva puta napisali odgovarajući div unutar html koda. Medjutim, ime Pera se prikazuje samo jdnom. Razlog tome je što je taj div u vezi sa Vue instancom i što ta Vue instanca jednom konstruisana ne može da referiše na nekoliko različitih grupa html elemenata već samo na prvi odgovoarajući. Ovde u igru ulaze komponente.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Uveli smo novo svojstvo unutar Vue instance- template. Unutar svojstva template
+nalaziće se html kod koji želimo da prikažemo na mestu na koje Vue instance
+utiče.Dovoljno je samo da traženi html kod(koji može biti povezan sa podacima
+Vue instance kao u našem slučaju gde je prisutna string interpolacija) postoji u
+okviru template svojstva. Nije potrebno ništa dodatno pisati i dodavati u html
+kodu.<br />
+Ideja nam je da se sadržaj ovog svojstva template nadje na više mesta u html
+kodu. Za razliku od prethodnih primera Vue instanca će sada da referiše na html
+element(div u našem slučaju) sa klasom app(u prošlim primerima je referisao na
+div koji za vrednost id atributa ima app). Ovo se može videti iz el svojstva Vue
+instance. Ono što smo uradili je da smo dva puta napisali odgovarajući div
+unutar html koda. Medjutim, ime Pera se prikazuje samo jdnom. Razlog tome je što
+je taj div u vezi sa Vue instancom i što ta Vue instanca jednom konstruisana ne
+može da referiše na nekoliko različitih grupa html elemenata već samo na prvi
+odgovoarajući. Ovde u igru ulaze komponente.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,11 +76,28 @@ Ideja nam je da se sadržaj ovog svojstva template nadje na više mesta u html k
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Osvrnimo se pre svega na ulogu Vue komponente. Vue komponenta predstavlja na neki način ekstenziju Vue instance. Prema tome svojstva data i template se mogu prebaciti iz bazne Vue instance u komponentu.Posmatrajmo sada definiciju komponente. Komponentu definišemo pomoću funkcije Vue.component kojoj prosledjujemo naziv komponente i objekat koji predstavlja sadržaj komponente(sličan postupak kao i kod definisanja bazne Vue instance samo bez naziva). Na neki način pomoću komponenti definišemo naš sopstveni html element koji smo u našem slučaju nazvali 'prva-komponenta'. Unutar objekta se nalazi sadržaj komponente i kao što smo već rekli unutar komponente se nalaze svojstva data i template. Razlika u odnosu na prethodni slučaj sa baznom komponentom je što data svojstvo za vrednost ne uzima objekat već funkciju koja vraća objekat.<br>
-Dalje u html kodu koristimo komponentu u obliku html etikete. Treba uzeti u obzir da se komponenta može koristiti samo u okviru html elemenata koji su zahvaćeni baznom Vue instancom sa kojom je komponenta povezana. Konkretno komponente možemo koristiti unutar elementa div na koji referiše bazna Vue instanca.Kao što možemo da primetimo, sadržaj komponente se neće prikazivati izvan tog div elementa.<br>
-Do sada nismo spominjali da je moguče imati više od jedne bazne Vue instance.Naime moguća je sledeća situacija:
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Osvrnimo se pre svega na ulogu Vue komponente. Vue komponenta predstavlja na
+neki način ekstenziju Vue instance. Prema tome svojstva data i template se mogu
+prebaciti iz bazne Vue instance u komponentu.Posmatrajmo sada definiciju
+komponente. Komponentu definišemo pomoću funkcije Vue.component kojoj
+prosledjujemo naziv komponente i objekat koji predstavlja sadržaj
+komponente(sličan postupak kao i kod definisanja bazne Vue instance samo bez
+naziva). Na neki način pomoću komponenti definišemo naš sopstveni html element
+koji smo u našem slučaju nazvali 'prva-komponenta'. Unutar objekta se nalazi
+sadržaj komponente i kao što smo već rekli unutar komponente se nalaze svojstva
+data i template. Razlika u odnosu na prethodni slučaj sa baznom komponentom je
+što data svojstvo za vrednost ne uzima objekat već funkciju koja vraća
+objekat.<br />
+Dalje u html kodu koristimo komponentu u obliku html etikete. Treba uzeti u
+obzir da se komponenta može koristiti samo u okviru html elemenata koji su
+zahvaćeni baznom Vue instancom sa kojom je komponenta povezana. Konkretno
+komponente možemo koristiti unutar elementa div na koji referiše bazna Vue
+instanca.Kao što možemo da primetimo, sadržaj komponente se neće prikazivati
+izvan tog div elementa.<br />
+Do sada nismo spominjali da je moguče imati više od jedne bazne Vue
+instance.Naime moguća je sledeća situacija:
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,10 +142,13 @@ Do sada nismo spominjali da je moguče imati više od jedne bazne Vue instance.N
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Dodali smo još jednu baznu Vue instancu ali ono što možemo da primetimo je da je Vue komponenta ekstenzije obe Vue instance.Šta ako želimo da jedna Vue komponenta bude vezana za jednu Vue instancu a druga komponenta za drugu Vue instancu?<br>
+<button class="button_copy">Vidi primer</button><br />
+Dodali smo još jednu baznu Vue instancu ali ono što možemo da primetimo je da je
+Vue komponenta ekstenzije obe Vue instance.Šta ako želimo da jedna Vue
+komponenta bude vezana za jednu Vue instancu a druga komponenta za drugu Vue
+instancu?<br />
 Posmatrajmo sledeći primer.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,6 +196,20 @@ Posmatrajmo sledeći primer.
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Primetimo da smo definisali komponentu mojaKomponenta i da je njena vrednost objekat koji smo ranije prosledjivali u okviru  Vue.component funkcije. Dalje smo u okviru prve Vue instance(uz pomoć novog svojstva components) definisali naziv komponente i prosledili naziv definisane komponente. Primećujemo da se na ekranu sada prikazuje samo sadržaj prvog div elementa.Drugi div element je u vezi sa drugom Vue instancom a u njoj nismo definisali svojstvo components odnosno nismo definisali da li postoje neke komponente koje će se prikazivati unutar div elementa. Ono što možemo da uradimo je da npr. definišemo drugu komponentu a da je zatim prosledimo drugoj Vue instanci uz pomoć svojstva components. Na taj način ćemo postići prvobitni cilj.
-<div class = "zadatak">Proširiti prethodni primer tako što ćete definisati novu komponentu koja će biti vezana za drugu Vue instancu. Sadržaj te komponente treba da se nadje unutar div etikete na koju referiše druga Vue instanca.<div> 
+<button class="button_copy">Vidi primer</button><br />
+Primetimo da smo definisali komponentu mojaKomponenta i da je njena vrednost
+objekat koji smo ranije prosledjivali u okviru Vue.component funkcije. Dalje smo
+u okviru prve Vue instance(uz pomoć novog svojstva components) definisali naziv
+komponente i prosledili naziv definisane komponente. Primećujemo da se na ekranu
+sada prikazuje samo sadržaj prvog div elementa.Drugi div element je u vezi sa
+drugom Vue instancom a u njoj nismo definisali svojstvo components odnosno nismo
+definisali da li postoje neke komponente koje će se prikazivati unutar div
+elementa. Ono što možemo da uradimo je da npr. definišemo drugu komponentu a da
+je zatim prosledimo drugoj Vue instanci uz pomoć svojstva components. Na taj
+način ćemo postići prvobitni cilj.
+<div class="zadatak">
+  Proširiti prethodni primer tako što ćete definisati novu komponentu koja će
+  biti vezana za drugu Vue instancu. Sadržaj te komponente treba da se nadje
+  unutar div etikete na koju referiše druga Vue instanca.
+  <div></div>
+</div>

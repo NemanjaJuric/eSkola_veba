@@ -1,51 +1,59 @@
-
 <h1>Kreiranje klase i objekta</h1>
 <h2>Opšti oblik klase</h2>
 
-<p style="text-align: justify;">Klasa se deklariše pomoću rezervisane reči class. Opšti oblik definicije klase je:</p>
-<div class = "napomena">
-  class imeKlase { <br>
-      tip promenljiva_instance1; <br>
-      tip promenljiva_instance2; <br>
-      …<br>
-      tip promenljiva_instanceN;<br>
+<p style="text-align: justify">
+  Klasa se deklariše pomoću rezervisane reči class. Opšti oblik definicije klase
+  je:
+</p>
+<div class="napomena">
+  class imeKlase { <br />
+  tip promenljiva_instance1; <br />
+  tip promenljiva_instance2; <br />
+  …<br />
+  tip promenljiva_instanceN;<br />
 
-      tip imeMetode1 (lista-parametra) {<br>
-      //telo metode<br>
-      }
-      tip imeMetode2 (lista-parametra) {<br>
-      //telo metode<br>
-      }<br>
-      ...<br>
-      tip imeMetodeN (lista-parametra) {<br>
-      //telo metode<br>
-      }<br>
-}
+  tip imeMetode1 (lista-parametra) {<br />
+  //telo metode<br />
+  } tip imeMetode2 (lista-parametra) {<br />
+  //telo metode<br />
+  }<br />
+  ...<br />
+  tip imeMetodeN (lista-parametra) {<br />
+  //telo metode<br />
+  }<br />
+  }
 </div>
 
-<p style="text-align: justify;">Promenljive definisane unutar klase nazivaju se <b>promenljive instance</b>. One definišu stanje objekata
-(atributi) isvaki objekat sadrži sopstvenu kopiju tih promenljivih. Kôd klase se nalazi u
-metodama. Metode i promenljive nazivaju se zajedničkim imenom članovi klase. U opštem
-slučaju, metode klase određuju ponašanje objekta tj. akcije i operacije nad atributima.<br>
-Primer 19. prikazuje jednostavnu klasu koja ima samo tri atributa.</p>
-
+<p style="text-align: justify">
+  Promenljive definisane unutar klase nazivaju se <b>promenljive instance</b>.
+  One definišu stanje objekata (atributi) isvaki objekat sadrži sopstvenu kopiju
+  tih promenljivih. Kôd klase se nalazi u metodama. Metode i promenljive
+  nazivaju se zajedničkim imenom članovi klase. U opštem slučaju, metode klase
+  određuju ponašanje objekta tj. akcije i operacije nad atributima.<br />
+  Primer 19. prikazuje jednostavnu klasu koja ima samo tri atributa.
+</p>
 
 <b>Primer 19.</b> – Jednostavna klasa
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   class Kutija {
       double sirina;
       double visina;
       double dubina;
   }
 </xmp>
-<p style="text-align: justify;">Ova klasa definiše novi tip podataka koji se zove Kutija. To ime se koristi za deklarisanje objekta
-tipa Kutija. Svaki objekat ove klase imaće svoje vrednosti za promenljive širina, visina, dubina.
-U Test klasi napravljen je objekat ove klase i dodeljene su mu vrednosti za dimenzije. Za te
-vrednosti program računa i ispisuje zapreminu.<br>
-U okviru primera 20. proširena je klasa Kutija iz prethodnog primera i pored promenljivih kreirana
-je i jedna metoda koja izračunava zapreminu.</p>
+<p style="text-align: justify">
+  Ova klasa definiše novi tip podataka koji se zove Kutija. To ime se koristi za
+  deklarisanje objekta tipa Kutija. Svaki objekat ove klase imaće svoje
+  vrednosti za promenljive širina, visina, dubina. U Test klasi napravljen je
+  objekat ove klase i dodeljene su mu vrednosti za dimenzije. Za te vrednosti
+  program računa i ispisuje zapreminu.<br />
+  U okviru primera 20. proširena je klasa Kutija iz prethodnog primera i pored
+  promenljivih kreirana je i jedna metoda koja izračunava zapreminu.
+</p>
 <b>Primer 20.</b> – Proširena klasa
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   class Kutija {
       double sirina;
       double visina;
@@ -60,17 +68,21 @@ je i jedna metoda koja izračunava zapreminu.</p>
 
 <h2>Kreiranje objekta</h2>
 
-<p style="text-align: justify;">Objekat određene klase kreira se u dva koraka. Prvo se deklariše promenljiva čiji tip odgovara
-klasi. Ta promenljiva ne definiše objekat, već samo može da pokazuje na njega. Zatim se kreira
-stvarna fizička kopija objekta koja se dodeljuje toj promenljivoj. To se postiže pomoću ključne
-reči new. Operator new dinamički dodeljuje memoriju za objekat i programu vraća reference na
-taj blok memorije. Ta referenca se smešta u promenljivu, ona predstavlja adresu objekta koji je
-napravljen u memoriji pomoću ključne reči <b>new</b>.<br>
-U primeru 21. u Test klasi kreiran je objekat klase Kutija i dodeljene su mu vrednosti za dimenzije. Za te
-vrednosti program računa i ispisuje zapreminu.</p>
+<p style="text-align: justify">
+  Objekat određene klase kreira se u dva koraka. Prvo se deklariše promenljiva
+  čiji tip odgovara klasi. Ta promenljiva ne definiše objekat, već samo može da
+  pokazuje na njega. Zatim se kreira stvarna fizička kopija objekta koja se
+  dodeljuje toj promenljivoj. To se postiže pomoću ključne reči new. Operator
+  new dinamički dodeljuje memoriju za objekat i programu vraća reference na taj
+  blok memorije. Ta referenca se smešta u promenljivu, ona predstavlja adresu
+  objekta koji je napravljen u memoriji pomoću ključne reči <b>new</b>.<br />
+  U primeru 21. u Test klasi kreiran je objekat klase Kutija i dodeljene su mu
+  vrednosti za dimenzije. Za te vrednosti program računa i ispisuje zapreminu.
+</p>
 
 <b>Primer 21.</b> – Kreiranje objekta
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   class Test {
       public static void main(String[] args) {
         //kreiranje objekata klase Kutija
@@ -90,21 +102,27 @@ vrednosti program računa i ispisuje zapreminu.</p>
   }
 </xmp>
 Nakon pokretanja ovog programa dobija se ispis:
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 Zapremina je 3000.0
- </xmp>
+ </xmp
+>
 U prethodnom primeru objekat je kreiran na sledeći način:
-<div class = "napomena">
-Kutija mojaKutija = new Kutija( );
-</div>
-<p style="text-align: justify;">U ovom izrazu izvršena su oba opisana koraka koja se izvršavaju pri kreiranju objekta. Da bi
-postupak bio jasniji ovaj izraz se može razložiti na dva izraza:</p>
-<div class = "napomena">
-  Kutija mojaKutija;<br>
+<div class="napomena">Kutija mojaKutija = new Kutija( );</div>
+<p style="text-align: justify">
+  U ovom izrazu izvršena su oba opisana koraka koja se izvršavaju pri kreiranju
+  objekta. Da bi postupak bio jasniji ovaj izraz se može razložiti na dva
+  izraza:
+</p>
+<div class="napomena">
+  Kutija mojaKutija;<br />
   mojaKutija = new Kutija( );
 </div>
-<p style="text-align: justify;">U prvom izrazu deklariše se promenljiva mojaKutija koja će sadržati reference na objekat tipa
-Kutija. Ta promenljiva ima podrazumevanu vrednost <b>null</b> i ne pokazuje ni na jedan objekat. U
-drugom koraku najpre se pomoću ključne reči new kreira objekat u memoriji, zatim se operatorom
-dodele promenljivoj mojaKutija dodeljuje referenca na njega. Zapravo mojaKutija sadrži
-memorijsku adresu objekta.</p>
+<p style="text-align: justify">
+  U prvom izrazu deklariše se promenljiva mojaKutija koja će sadržati reference
+  na objekat tipa Kutija. Ta promenljiva ima podrazumevanu vrednost
+  <b>null</b> i ne pokazuje ni na jedan objekat. U drugom koraku najpre se
+  pomoću ključne reči new kreira objekat u memoriji, zatim se operatorom dodele
+  promenljivoj mojaKutija dodeljuje referenca na njega. Zapravo mojaKutija
+  sadrži memorijsku adresu objekta.
+</p>

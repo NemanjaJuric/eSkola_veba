@@ -2,8 +2,8 @@
 <h3>Šta su stringovi?</h3>
 <p>JavaScript stringovi se koriste za čuvanje i rad sa tekstom</p>
 <p>
-    String može biti bilo koji tekst (niz znakova) između jednostrukih ili dvostrukih navodnika.
-    Na primer, ''e-skola weba'' ili 'grupa 5ML'.
+  String može biti bilo koji tekst (niz znakova) između jednostrukih ili
+  dvostrukih navodnika. Na primer, ''e-skola weba'' ili 'grupa 5ML'.
 </p>
 <b>Primer 1:</b>
 <xmp class="primer_ta" rows="14" disabled>
@@ -21,7 +21,10 @@
 </html>
 </xmp>
 <button class="button_copy">Vidi Primer</button>
-<p> U okviru stringa mogu se koristiti i navodnici koji se razlikuju od navodnika koji taj niz znakova okružuju.</p>
+<p>
+  U okviru stringa mogu se koristiti i navodnici koji se razlikuju od navodnika
+  koji taj niz znakova okružuju.
+</p>
 <b>Primer 2:</b>
 <xmp class="primer_ta">
     <!DOCTYPE html>
@@ -39,7 +42,7 @@
 </html>
 </xmp>
 <button class="button_copy">Vidi Primer</button>
-<h3>Dužina  stringa</h3>
+<h3>Dužina stringa</h3>
 <p>Dužina stringa može se proveriti pomoću ugrađene funkcije LENGTH.</p>
 <b>Primer 3:</b>
 <xmp class="primer_ta">
@@ -57,15 +60,19 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 <h3>Specijalni znaci</h3>
-<p>Stringovi moraju biti napisani između navodnika, jer JavaSkript može pogrešno shvatiti na primer sledeću konstrukciju:</p>
+<p>
+  Stringovi moraju biti napisani između navodnika, jer JavaSkript može pogrešno
+  shvatiti na primer sledeću konstrukciju:
+</p>
 <b>Primer 4:</b>
 <span class="primer_text">
-    var y = "We are the so-called "Vikings" from the north."
+  var y = "We are the so-called "Vikings" from the north."
 </span>
 <button class="button_copy">Vidi Primer</button>
 <p>
-    String će biti iseckan na "We are the so-caled".
-    Da bi se izbegao ovaj problem, rešenje je da se koristi  znak \ (escape ili backslash). On pretvara specijalni znak u deo stringa.
+  String će biti iseckan na "We are the so-caled". Da bi se izbegao ovaj
+  problem, rešenje je da se koristi znak \ (escape ili backslash). On pretvara
+  specijalni znak u deo stringa.
 </p>
 <b>Primer 5:</b>
 <xmp class="primer_ta" rows="14" disabled>
@@ -85,10 +92,12 @@
 <br />
 We are the so-called "Vikings" from the north.
 <br />
-<h3>Stringovi kao  objekti</h3>
+<h3>Stringovi kao objekti</h3>
 <p>
-    JavaScript stringovi su primitivne vrednosti, sastavljene od znakova ( <span class="primer_text">var custorginn = "Jovan")</span>.
-    Ali stringovi takođe mogu biti definisani i kao objekti sa ključnim rečima ( <span class="primer_text">var FirstName = novi string ( "Jovan")</span> )
+  JavaScript stringovi su primitivne vrednosti, sastavljene od znakova (
+  <span class="primer_text">var custorginn = "Jovan")</span>. Ali stringovi
+  takođe mogu biti definisani i kao objekti sa ključnim rečima (
+  <span class="primer_text">var FirstName = novi string ( "Jovan")</span> )
 </p>
 <b>Primer 6:</b>
 <xmp class="primer_ta" rows="14" disabled>
@@ -126,9 +135,14 @@ We are the so-called "Vikings" from the north.
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 <h2>Operacije nad stringovima</h2>
-<p>Nad primitivnim vrednostima, kao što su ''grupa 5ML'', ne mogu se izvršavati operacije (zato što nisu objekti).</p>
 <p>
-    Ali u JavaScript-u, operacije se mogu primenjivati i nad primitivnim vrednostima, jer JavaSkript tretira primitivne vrednosti kao objekte pri izvršavanju operacija.
+  Nad primitivnim vrednostima, kao što su ''grupa 5ML'', ne mogu se izvršavati
+  operacije (zato što nisu objekti).
+</p>
+<p>
+  Ali u JavaScript-u, operacije se mogu primenjivati i nad primitivnim
+  vrednostima, jer JavaSkript tretira primitivne vrednosti kao objekte pri
+  izvršavanju operacija.
 </p>
 <b>Primer 8:</b>
 <xmp class="primer_ta">
@@ -145,7 +159,10 @@ We are the so-called "Vikings" from the north.
 
 </xmp>
 <button class="button_copy">Vidi Primer</button>
-<p>Operacija indexOf () vraća indeks (položaj)  prvog pojavljivanju određenog teksta u stringu:</p>
+<p>
+  Operacija indexOf () vraća indeks (položaj) prvog pojavljivanju određenog
+  teksta u stringu:
+</p>
 <b>Primer 9:</b>
 <xmp class="primer_ta">
     <!DOCTYPE html>
@@ -167,7 +184,10 @@ We are the so-called "Vikings" from the north.
 
 </xmp>
 <button class="button_copy">Vidi Primer</button>
-<p>Operacija search() traži u stringu zadatu vrednost i vraća poziciju poklapanja:</p>
+<p>
+  Operacija search() traži u stringu zadatu vrednost i vraća poziciju
+  poklapanja:
+</p>
 <b>Primer 10:</b>
 <xmp class="primer_ta">
     <!DOCTYPE html>
@@ -188,7 +208,9 @@ We are the so-called "Vikings" from the north.
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 <p>Ako izostavite drugi parametar, pretraga će se nastaviti do kraja niza.</p>
-<p>Operacija The slice() izdvaja deo stringa i vraca izdvojeni deo kao novi niz.</p>
+<p>
+  Operacija The slice() izdvaja deo stringa i vraca izdvojeni deo kao novi niz.
+</p>
 <b>Primer 11:</b>
 <xmp class="primer_ta">
     <!DOCTYPE html>
@@ -208,7 +230,10 @@ We are the so-called "Vikings" from the north.
 </html>
 </xmp>
 <button class="button_copy">Vidi Primer</button>
-<p>Operacija Substring () je slična operaciji  slice(). Razlika je jedino u tome što ne može da prihvati negativne indekse.</p>
+<p>
+  Operacija Substring () je slična operaciji slice(). Razlika je jedino u tome
+  što ne može da prihvati negativne indekse.
+</p>
 <b>Primer 12:</b>
 <xmp class="primer_ta">
     <!DOCTYPE html>
@@ -230,6 +255,7 @@ We are the so-called "Vikings" from the north.
 <br />
 <br />
 <b>Zadatak:</b>
-<div class="zadatak">Izmeniti program koji za niz znakova (string) ''Isprobaj i ti.'' Određuje njegovu dužinu, kao i indeks (položaj) prvog pojavljivanja reči "proba".</div>
-
-
+<div class="zadatak">
+  Izmeniti program koji za niz znakova (string) ''Isprobaj i ti.'' Određuje
+  njegovu dužinu, kao i indeks (položaj) prvog pojavljivanja reči "proba".
+</div>

@@ -1,10 +1,16 @@
 <h2>Mape</h2>
-Na neki način, mape su slične listama. Mape predstavljaju udruženje ključeva i vrednosti, gde se ključevi koriste za upućivanje na vrednosti.
-<br>
-Dok je lista obično vezana za određeni poredak, jer je to u osnovi jedini način pronalaska vrednosti unutar nje, mapa koristi svoje ključeve za pronalaženje pridružene vrednsoti. Za razliku od lista, mape moraju uvek biti okružene roditeljima i moraju biti odvojene zarezima. 
-Drugim rečima, koristićemo listu kada nam je potreban indeks (na primer n-ti član) i mapu kada nam je potreban ključ (string):
-<br>
-<xmp class = "primer_ta" >
+Na neki način, mape su slične listama. Mape predstavljaju udruženje ključeva i
+vrednosti, gde se ključevi koriste za upućivanje na vrednosti.
+<br />
+Dok je lista obično vezana za određeni poredak, jer je to u osnovi jedini način
+pronalaska vrednosti unutar nje, mapa koristi svoje ključeve za pronalaženje
+pridružene vrednsoti. Za razliku od lista, mape moraju uvek biti okružene
+roditeljima i moraju biti odvojene zarezima. Drugim rečima, koristićemo listu
+kada nam je potreban indeks (na primer n-ti član) i mapu kada nam je potreban
+ključ (string):
+<br />
+<xmp class="primer_ta"
+>
 $message-themes: (  
 'info': deepskyblue,  
 'danger': tomato,
@@ -12,10 +18,11 @@ $message-themes: (
 'confirm': lightgreen, 
   );
 </xmp>
-<br>
-Kako ključevi, tako i vrednosti mogu biti bilo koji SassScript objekti. Mapa može imati samo jednu vrednost povezanu sa zadatim ključem, iako ta vrednost može biti lista. Zadata vrednost može biti povezana sa više ključeva takođe.
-Kao i liste, sa mapama se najviše manipuliše korišćenjem SassScript funkcija.
-Funkcija map-get pretražuje vrednosti u mapi, map-merge dodaje vrednost u mapu. 
-<br>
-@each directive se koristi za dodeljivanje stila svakom ključu/vrednosti u mapi. 
-
+<br />
+Kako ključevi, tako i vrednosti mogu biti bilo koji SassScript objekti. Mapa
+može imati samo jednu vrednost povezanu sa zadatim ključem, iako ta vrednost
+može biti lista. Zadata vrednost može biti povezana sa više ključeva takođe. Kao
+i liste, sa mapama se najviše manipuliše korišćenjem SassScript funkcija.
+Funkcija map-get pretražuje vrednosti u mapi, map-merge dodaje vrednost u mapu.
+<br />
+@each directive se koristi za dodeljivanje stila svakom ključu/vrednosti u mapi.

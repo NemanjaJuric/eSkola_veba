@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Elementi</title>
   </head>
   <body>
     <h1>Elementi</h1>
-    Elementi su osnovni gradivni blokovi XML dokumenta. XML element je celina koju čine početna i završna etiketa i naveden tekstualni sadržaj između njih. 
-    <br><br><b>Primer 5: </b>Element
-    <xmp class = "primer_ta"><element> Sve ovo je jedan element.</element></xmp>
-    Tekstualni sadržaj ovog elementa je „Sve ovo je jedan element.“ Važno je da razmaci (beline) takodje čine deo tekstualnog sadržaja i da se više uzastopnih razmaka neće sažeti u jedan.
-    Dakle, ukoliko je tekst unet na sledeći način:
-    <xmp class = "primer_ta"><element> Ovde se nalazi                          velika praznina </element></xmp>
+    Elementi su osnovni gradivni blokovi XML dokumenta. XML element je celina
+    koju čine početna i završna etiketa i naveden tekstualni sadržaj između
+    njih.
+    <br /><br /><b>Primer 5: </b>Element
+    <xmp class="primer_ta"><element> Sve ovo je jedan element.</element></xmp>
+    Tekstualni sadržaj ovog elementa je „Sve ovo je jedan element.“ Važno je da
+    razmaci (beline) takodje čine deo tekstualnog sadržaja i da se više
+    uzastopnih razmaka neće sažeti u jedan. Dakle, ukoliko je tekst unet na
+    sledeći način:
+    <xmp
+      class="primer_ta"><element> Ovde se nalazi                          velika praznina </element></xmp>
     On će tako i ostati sačuvan u XML dokumentu.
-    <br><br>
+    <br /><br />
     Element može sadržati tekst, atribute i druge elemente.
-    <br><br><b>Primer 6: </b>Sadržaj elementa
-    <xmp class = "primer_ta">
+    <br /><br /><b>Primer 6: </b>Sadržaj elementa
+    <xmp class="primer_ta">
  <bioskop>
         <film zanr="komedija">
           <naziv> Ghostbusters </naziv>
@@ -26,54 +31,88 @@
         </film>
 </bioskop>
 </xmp>
-    Primećuje se da elementi „bioskop“ i „film“ sadrže druge elemente; element „film“ sadrži atribut (zanr = "komedija"); a elementi „naziv“, „reditelj“, „trajanje“, „cena“ sadrže samo tekst.
-    Elemente koji nemaju tekstualni sadržaj nazivamo praznim elementima. Prazan element se može zapisati na dva načina, što je prikazano u primerima 7 i 8.
-<br><br><b>Primer 7: </b>Prazan element
-    <xmp class = "primer_ta"><prazno> </prazno></xmp>
-  <b>Primer 8:  </b>Još jedan način zadavanja praznog elementa
-    <xmp class = "primer_ta"><prazno /></xmp>
+    Primećuje se da elementi „bioskop“ i „film“ sadrže druge elemente; element
+    „film“ sadrži atribut (zanr = "komedija"); a elementi „naziv“, „reditelj“,
+    „trajanje“, „cena“ sadrže samo tekst. Elemente koji nemaju tekstualni
+    sadržaj nazivamo praznim elementima. Prazan element se može zapisati na dva
+    načina, što je prikazano u primerima 7 i 8.
+    <br /><br /><b>Primer 7: </b>Prazan element
+    <xmp class="primer_ta"><prazno> </prazno></xmp>
+    <b>Primer 8: </b>Još jedan način zadavanja praznog elementa
+    <xmp class="primer_ta"><prazno /></xmp>
     I prazni elementi mogu sadržati atribute.
     <h2>Imenovanje elemenata</h2>
-    Ime elementa se zadaje odgovarajućim etiketama. XML imena mogu sadržati sva velika i mala slova engleskog jezika (dakle sve karaktere od a do z i od A do Z) kao i cifre, 0 – 9. I ne samo to, dozvoljena su i neengleska slova i ideogrami, kao na primer: &scaron;, &beta;, &#x06B9; , itd. Što se znakova interpunkcije tiče, u imenima se mogu naći samo sledeći: „ . “ (tačka), „ - “ (crta) i „ _ “ (donja crta).
-    Ostali znakovi interpunkcije nisu dozvoljeni.
-    <br><br>
-    Potrebno je obratiti pažnju na sledeća pravila prilikom imenovanja elemenata:
+    Ime elementa se zadaje odgovarajućim etiketama. XML imena mogu sadržati sva
+    velika i mala slova engleskog jezika (dakle sve karaktere od a do z i od A
+    do Z) kao i cifre, 0 – 9. I ne samo to, dozvoljena su i neengleska slova i
+    ideogrami, kao na primer: &scaron;, &beta;, &#x06B9; , itd. Što se znakova
+    interpunkcije tiče, u imenima se mogu naći samo sledeći: „ . “ (tačka), „ -
+    “ (crta) i „ _ “ (donja crta). Ostali znakovi interpunkcije nisu dozvoljeni.
+    <br /><br />
+    Potrebno je obratiti pažnju na sledeća pravila prilikom imenovanja
+    elemenata:
     <ul>
-      <li>Imena elemenata su osetljiva na veličinu slova (eng. case sensitive).</li>
-      <li>Imena elemenata moraju početi slovom, ne brojem ili znakom interpunkcije.</li>
-      <li>Imena elemenata ne smeju početi slovima <i>xml, XML, Xml</i> i slično.</li>
-      <li>Imena elemenata ne smeju sadržati razmake. </li>
-      <li>Ne postoje rezervisana imena (osim <i>xml</i>), tako da bilo koja reč može biti ime elementa.</li>
+      <li>
+        Imena elemenata su osetljiva na veličinu slova (eng. case sensitive).
+      </li>
+      <li>
+        Imena elemenata moraju početi slovom, ne brojem ili znakom
+        interpunkcije.
+      </li>
+      <li>
+        Imena elemenata ne smeju početi slovima <i>xml, XML, Xml</i> i slično.
+      </li>
+      <li>Imena elemenata ne smeju sadržati razmake.</li>
+      <li>
+        Ne postoje rezervisana imena (osim <i>xml</i>), tako da bilo koja reč
+        može biti ime elementa.
+      </li>
     </ul>
-    <br>
-    Dobra praksa je davati kratke nazive koji dobro opisuju element. Na primer: &lt;ime&gt;, &lt;prezime&gt; &lt;boja&gt;, itd.
-    U slučaju da se naziv mora sastojati iz više reči, najbolje je birati najkraći jasan opis. Recimo bolje je element nazvati &lt;otvorena_vrata&gt; umesto &lt;vrata_koja_su_otvorena&gt.
-    Treba izbegavati karaktere kao što su "-", ".", ":" jer nazive koji sadrže ove karaktere neki softveri mogu pogrešno protumačiti. Recimo, &lt;ime.osobe&gt; može protumačiti kao razdvajanje "ime" od "osobe"; &lt;ime-osobe&gt; može protumačiti
-    kao da je "osobe" svojstvo objekta "ime" i slično. Takođe, treba biti oprezan sa specifičnim karakterima kao što su š,ć,č,đ i slični, jer ih neki softveri ne mogu podržati.
-    <br>
-    <br>Ne postoji stil koji je definisan za imenovanje elemenata, ali neki od predloga su: &lt;imeosobe&gt;, &lt;IMEOSOBE&gt;, &lt;imeo_sobe&gt;, &lt;imeosobe&gt;, &lt;ImeOsobe&gt;, &lt;imeOsobe&gt;. Za koji god stil se autor opredeli, trebalo bi da se njega drži kroz ceo dokument.
-    Često za XML dokument postoji odgovarajuća baza, dobra praksa je elementima davati nazive po pravilu po kojem su oni nazvani u toj bazi.
+    <br />
+    Dobra praksa je davati kratke nazive koji dobro opisuju element. Na primer:
+    &lt;ime&gt;, &lt;prezime&gt; &lt;boja&gt;, itd. U slučaju da se naziv mora
+    sastojati iz više reči, najbolje je birati najkraći jasan opis. Recimo bolje
+    je element nazvati &lt;otvorena_vrata&gt; umesto
+    &lt;vrata_koja_su_otvorena&gt. Treba izbegavati karaktere kao što su "-",
+    ".", ":" jer nazive koji sadrže ove karaktere neki softveri mogu pogrešno
+    protumačiti. Recimo, &lt;ime.osobe&gt; može protumačiti kao razdvajanje
+    "ime" od "osobe"; &lt;ime-osobe&gt; može protumačiti kao da je "osobe"
+    svojstvo objekta "ime" i slično. Takođe, treba biti oprezan sa specifičnim
+    karakterima kao što su š,ć,č,đ i slični, jer ih neki softveri ne mogu
+    podržati.
+    <br />
+    <br />Ne postoji stil koji je definisan za imenovanje elemenata, ali neki od
+    predloga su: &lt;imeosobe&gt;, &lt;IMEOSOBE&gt;, &lt;imeo_sobe&gt;,
+    &lt;imeosobe&gt;, &lt;ImeOsobe&gt;, &lt;imeOsobe&gt;. Za koji god stil se
+    autor opredeli, trebalo bi da se njega drži kroz ceo dokument. Često za XML
+    dokument postoji odgovarajuća baza, dobra praksa je elementima davati nazive
+    po pravilu po kojem su oni nazvani u toj bazi.
 
     <h2>Elementi u XML-u su proširivi</h2>
-    XML dokumenti se mogu slobodno proširivati novim podacima i isto tako se iz njih mogu brisati postojeći podaci, bez bojazni da će to izazvati grešku kod softvera koji koristi taj dokument.
-    Proširivost XML dokumenata se može ilustrovati na primeru 9.
-    <br><br><b>Primer 9: </b>XML dokument „stan.xml“
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    XML dokumenti se mogu slobodno proširivati novim podacima i isto tako se iz
+    njih mogu brisati postojeći podaci, bez bojazni da će to izazvati grešku kod
+    softvera koji koristi taj dokument. Proširivost XML dokumenata se može
+    ilustrovati na primeru 9.
+    <br /><br /><b>Primer 9: </b>XML dokument „stan.xml“
+    <xmp class="primer_ta"><?xml version="1.0" encoding="UTF-8"?>
       <stan>
           <soba1> Kuhinja </soba1>
           <soba2> Kupatilo </soba2>
           <poruka> Dobro došli!</poruka>
       </stan>
    </xmp>
-    Primera radi, neka postoji aplikacija koja iz ovog XML dokumenta može izdvojiti informacije o sobama i poruku, i interpretira to kao što je prikazano na slici 1.
-    <br><br><b>Slika 1: </b>Interpretacija XML dokumenta „stan.xml“
-    <br>
-    <img src="courses/xml/sobe.png">
-    <br>
-    Može se desiti da autor XML dokumenta u nekom trenutku želi da doda još novih informacija. Na primer, još jednu sobu.
-    Proširiće svoj XML dokument kao što pokazuje primer 10.
-    <br><br><b>Primer 10: </b>Proširen XML dokument „stan.xml“
-    <xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    Primera radi, neka postoji aplikacija koja iz ovog XML dokumenta može
+    izdvojiti informacije o sobama i poruku, i interpretira to kao što je
+    prikazano na slici 1.
+    <br /><br /><b>Slika 1: </b>Interpretacija XML dokumenta „stan.xml“
+    <br />
+    <img src="courses/xml/sobe.png" />
+    <br />
+    Može se desiti da autor XML dokumenta u nekom trenutku želi da doda još
+    novih informacija. Na primer, još jednu sobu. Proširiće svoj XML dokument
+    kao što pokazuje primer 10.
+    <br /><br /><b>Primer 10: </b>Proširen XML dokument „stan.xml“
+    <xmp class="primer_ta"><?xml version="1.0" encoding="UTF-8"?>
       <stan>
           <soba1> Kuhinja </soba1>
           <soba2> Kupatilo </soba2>
@@ -81,15 +120,20 @@
           <poruka> Dobro dosli!</poruka>
       </stan>
     </xmp>
-      Važno je da pri ovom dodavanju informacija XML dokumentu, aplikacija koja izdvaja i interpretira informacije neće prijaviti grešku. Zapravo, aplikacija će i dalje moći da pronađe i interpretira tražene elemente, bez obzira na informacije koje su naknadno dodate.
-<h2>Korenski element </h2>
-Svaki XML dokument mora imati korenski element (eng. root element).
-Ovaj element nema svoje roditeljske elemente, ali je on roditelj svim ostalim elementima u posmatranom XML dokumentu,
-tj. sadrži sve ostale elemente tog dokumenta. Nekada se on naziva i element dokumenta (eng. Document element).
-S obzirom na to da XML ima samoopisujuću sintaksu, na osnovu korenskog elementa se može uvideti šta opisuje posmatrani XML dokument.
-U primeru 11, korenski element XML dokumenta „osoba.xml“ je element „osoba“.
-<br><br><b>Primer 11: </b>XML dokument „osoba.xml“
-<xmp class = "primer_ta"><?xml version="1.0" encoding="UTF-8"?>
+    Važno je da pri ovom dodavanju informacija XML dokumentu, aplikacija koja
+    izdvaja i interpretira informacije neće prijaviti grešku. Zapravo,
+    aplikacija će i dalje moći da pronađe i interpretira tražene elemente, bez
+    obzira na informacije koje su naknadno dodate.
+    <h2>Korenski element</h2>
+    Svaki XML dokument mora imati korenski element (eng. root element). Ovaj
+    element nema svoje roditeljske elemente, ali je on roditelj svim ostalim
+    elementima u posmatranom XML dokumentu, tj. sadrži sve ostale elemente tog
+    dokumenta. Nekada se on naziva i element dokumenta (eng. Document element).
+    S obzirom na to da XML ima samoopisujuću sintaksu, na osnovu korenskog
+    elementa se može uvideti šta opisuje posmatrani XML dokument. U primeru 11,
+    korenski element XML dokumenta „osoba.xml“ je element „osoba“.
+    <br /><br /><b>Primer 11: </b>XML dokument „osoba.xml“
+    <xmp class="primer_ta"><?xml version="1.0" encoding="UTF-8"?>
   <?xml version="1.0" encoding="UTF-8"?>
   <osoba>
             <ime> Pera </ime>
@@ -101,7 +145,8 @@ U primeru 11, korenski element XML dokumenta „osoba.xml“ je element „osoba
             </datum_rodjenja>
   </osoba>
 </xmp>
-Ostali elementi su deca elementa „osoba“ i ceo dokument iz primera 11 zapravo predstavlja informacije o toj osobi.
-<br><br>
+    Ostali elementi su deca elementa „osoba“ i ceo dokument iz primera 11
+    zapravo predstavlja informacije o toj osobi.
+    <br /><br />
   </body>
 </html>

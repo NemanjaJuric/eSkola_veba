@@ -1,38 +1,79 @@
 <h1>Uvod u objektno orjentisano programiranje</h1>
-Ključni koncepti objektno orjentisanog programskog jezika su: baziranost na objektima i klasama, podržavanje nasleđivanja i podržavanje polimorfizma.
+Ključni koncepti objektno orjentisanog programskog jezika su: baziranost na
+objektima i klasama, podržavanje nasleđivanja i podržavanje polimorfizma.
 <h2>Objekti i klase</h2>
-Objektno orjentisan softver se sastoji od više samostalnih objekata koji su međusobno povezani atributima i operacijama. Atributi su svojstva ili promenjljive koje se odnose na objekat. Operacije su metode, radnje ili funkcije koje objekat može da izvršava. <br>
-Objekat u programskom jeziku PHP može biti bilo šta što je vezano za softver, na primer neki fajl, polje za unos teksta, ili neki objekti iz stvarnog sveta koje treba predstaviti u softveru, na primer neki proizvodi, kupci itd. <br>
-Objekti se mogu grupisati u klase. Svaka klasa predstavlja skup određenih objekata koji imaju izvestan broj zajedničkih karakteristika. Jedna klasa predstavlja sve objekte koji mogu da obave iste operacije, koji se identično ponašaju i imaju iste atribute koji predstavljaju iste stvari, mada se vrednosti tih atributa mogu razlikovati od jednog objekta do drugog.
+Objektno orjentisan softver se sastoji od više samostalnih objekata koji su
+međusobno povezani atributima i operacijama. Atributi su svojstva ili
+promenjljive koje se odnose na objekat. Operacije su metode, radnje ili funkcije
+koje objekat može da izvršava. <br />
+Objekat u programskom jeziku PHP može biti bilo šta što je vezano za softver, na
+primer neki fajl, polje za unos teksta, ili neki objekti iz stvarnog sveta koje
+treba predstaviti u softveru, na primer neki proizvodi, kupci itd. <br />
+Objekti se mogu grupisati u klase. Svaka klasa predstavlja skup određenih
+objekata koji imaju izvestan broj zajedničkih karakteristika. Jedna klasa
+predstavlja sve objekte koji mogu da obave iste operacije, koji se identično
+ponašaju i imaju iste atribute koji predstavljaju iste stvari, mada se vrednosti
+tih atributa mogu razlikovati od jednog objekta do drugog.
 <h2>Struktura klase</h2>
-Deklaracija klase se sastoji od ključne reči <span class="primer_text">class</span> i imena klase. Najjednostavnija definicija klase prikazana je u sledećem primeru.
-<xmp class = "primer_ta">
+Deklaracija klase se sastoji od ključne reči
+<span class="primer_text">class</span> i imena klase. Najjednostavnija
+definicija klase prikazana je u sledećem primeru.
+<xmp class="primer_ta"
+>
 class ime{   
  
 }
 </xmp>
-Klase bez atributa i operacija su beskorisne. Kroz atribute objekta se definišu podaci koji opisuju stanje, odnosno osobine objekta. Atributi klase se definišu tako što se unutar klase deklariše promenljiva ispred koje stoji rezervisana reč <span class="primer_text">var</span>. Sledeći primer definiše klasu "ime" s dva atributa, <span class="primer_text">$atribut1</span>/ i <span class="primer_text">$atribut2</span>.
-<xmp class = "primer_ta">
+Klase bez atributa i operacija su beskorisne. Kroz atribute objekta se definišu
+podaci koji opisuju stanje, odnosno osobine objekta. Atributi klase se definišu
+tako što se unutar klase deklariše promenljiva ispred koje stoji rezervisana reč
+<span class="primer_text">var</span>. Sledeći primer definiše klasu "ime" s dva
+atributa, <span class="primer_text">$atribut1</span>/ i
+<span class="primer_text">$atribut2</span>.
+<xmp class="primer_ta"
+>
 class ime{
     var $atribut1;
     var $atribut2;
 }
 </xmp>
-Operacije se deklarišu kao funkcije unutar definicije klase. Funkcija se kreira pomoću rezervisane reči <span class="primer_text">function</span>. Funkcija mora da ima svoje ime, a može imati proizvoljan broj argumenata. Vrednosti izvršavanja funkcije mogu biti vraćene opcionom naredbom <span class="primer_text">return</span>. <br> 
-U sledećem primeru definiše se klasa koja ima dve operacije. Operacija <span class="primer_text">operacija1</span> nema parametre, dok <span class="primer_text">operacija2</span> ima dva parametra.
-<xmp class = "primer_ta">
+Operacije se deklarišu kao funkcije unutar definicije klase. Funkcija se kreira
+pomoću rezervisane reči <span class="primer_text">function</span>. Funkcija mora
+da ima svoje ime, a može imati proizvoljan broj argumenata. Vrednosti
+izvršavanja funkcije mogu biti vraćene opcionom naredbom
+<span class="primer_text">return</span>. <br />
+U sledećem primeru definiše se klasa koja ima dve operacije. Operacija
+<span class="primer_text">operacija1</span> nema parametre, dok
+<span class="primer_text">operacija2</span> ima dva parametra.
+<xmp class="primer_ta"
+>
 class ime{
     function operacija1() {}
     function operacija2($arg1, $arg2) {}
 }
 </xmp>
-Funkcije imaju posebnu ulogu u klasama. Funkcije, sastavni delovi klasa, nazivaju se <b>metodi</b> ili <b>metode</b>.<br>
-Specifične akcije koje će objekat moći da uradi se definišu u klasi u njenim metodama. Cilj metoda je da menjaju vrednosti atributa objekta i tako menjaju stanje, odnosno osobine objekta.
+Funkcije imaju posebnu ulogu u klasama. Funkcije, sastavni delovi klasa,
+nazivaju se <b>metodi</b> ili <b>metode</b>.<br />
+Specifične akcije koje će objekat moći da uradi se definišu u klasi u njenim
+metodama. Cilj metoda je da menjaju vrednosti atributa objekta i tako menjaju
+stanje, odnosno osobine objekta.
 <h2>Konstruktori</h2>
-Funkcija koja učestvuje u kreiranju klase naziva se konstruktor. Ona se automatski poziva pri kreiranju objekta klase. <br> 
-Bilo koji kod koji treba da se izvrši prilikom prve pojave objekta treba da se smesti u konstruktor. Konstruktor se najčešće koristi za inicijalizaciju vrednosti, to jest za dodeljivanje početnih vrednosti atributima. <br>
-Konstruktor se deklari\v se kao i ostale operacije, ali ima specijalno ime <span class="primer_text">construct</span>. U ranijim verzijama se ime konstruktora poklapalo sa imenom klase, ali od verzije 7.0 ova sintaksa je zastarela (engl. deprecated), i u budućnosti će biti potpuno izbačena iz upotrebe. PHP prvo traži konstruktor nazvan <span class="primer_text">construct</span>, a ako ga ne nađe traži metod koji ima isto ime kao klasa, da bi i stare klase mogle da se izvršavaju. Konstruktor kao i druge metode može ručno da se pozove ali njegova glavna svrha je da se automatski poziva prilikom pravljenja objekta. U narednom primeru prikazano je kreiranje konstruktora klase ime.
-<xmp class = "primer_ta">
+Funkcija koja učestvuje u kreiranju klase naziva se konstruktor. Ona se
+automatski poziva pri kreiranju objekta klase. <br />
+Bilo koji kod koji treba da se izvrši prilikom prve pojave objekta treba da se
+smesti u konstruktor. Konstruktor se najčešće koristi za inicijalizaciju
+vrednosti, to jest za dodeljivanje početnih vrednosti atributima. <br />
+Konstruktor se deklari\v se kao i ostale operacije, ali ima specijalno ime
+<span class="primer_text">construct</span>. U ranijim verzijama se ime
+konstruktora poklapalo sa imenom klase, ali od verzije 7.0 ova sintaksa je
+zastarela (engl. deprecated), i u budućnosti će biti potpuno izbačena iz
+upotrebe. PHP prvo traži konstruktor nazvan
+<span class="primer_text">construct</span>, a ako ga ne nađe traži metod koji
+ima isto ime kao klasa, da bi i stare klase mogle da se izvršavaju. Konstruktor
+kao i druge metode može ručno da se pozove ali njegova glavna svrha je da se
+automatski poziva prilikom pravljenja objekta. U narednom primeru prikazano je
+kreiranje konstruktora klase ime.
+<xmp class="primer_ta">
 class ime{
     function __construct($arg1){
     echo "Pozvan konstruktor sa argumentom $arg1<br>"
@@ -40,9 +81,13 @@ class ime{
 }
 </xmp>
 <h2>Instanciranje klase</h2>
-Programiranje objekta – člana klase naziva se pravljenje instance ili instanciranje klase. Objekat se pravi upotrebom rezervisane reči <span class="primer_text">new</span>. Potrebno je navesti klasu i zadati argumente konstruktora. <br>
-U narednom primeru definiše se klasa "ime" sa konstruktorom i zatim  se prave tri objekta te klase.
-<xmp class = "primer_ta">
+Programiranje objekta – člana klase naziva se pravljenje instance ili
+instanciranje klase. Objekat se pravi upotrebom rezervisane reči
+<span class="primer_text">new</span>. Potrebno je navesti klasu i zadati
+argumente konstruktora. <br />
+U narednom primeru definiše se klasa "ime" sa konstruktorom i zatim se prave tri
+objekta te klase.
+<xmp class="primer_ta">
 <?php
 class ime{
     function __construct($arg1){
@@ -55,10 +100,16 @@ class ime{
     $c = new ime();
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 <h2>Upotreba atributa klase</h2>
-Unutar klase postoji promenljiva <span class="primer_text">this</span> koja se odnosi na samu klasu. Ova promenljiva ne može biti korišćena izvan klase. Dizajnirana je da se koristi u naredbama unutar klase kako bi omogućila pristup promenljivima same klase. Obično se koristi u formatu <span class="primer_text">$this->atr</span>, gde je $atr jedan atribut klase. Na primer:
-<xmp class = "primer_ta">
+Unutar klase postoji promenljiva <span class="primer_text">this</span> koja se
+odnosi na samu klasu. Ova promenljiva ne može biti korišćena izvan klase.
+Dizajnirana je da se koristi u naredbama unutar klase kako bi omogućila pristup
+promenljivima same klase. Obično se koristi u formatu
+<span class="primer_text">$this->atr</span>, gde je $atr jedan atribut klase. Na
+primer:
+<xmp class="primer_ta"
+>
 class ime {
     var $atribut;
     function operacija($parametar){
@@ -68,11 +119,14 @@ class ime {
     }
 }    
 </xmp>
-<div class = "napomena">
- Obratiti pažnju da se znak $ koristi ispred promenljive <span class="primer_text">this</span>, ali ne i ispred promenljive <span class="primer_text">atribut</span>.
+<div class="napomena">
+  Obratiti pažnju da se znak $ koristi ispred promenljive
+  <span class="primer_text">this</span>, ali ne i ispred promenljive
+  <span class="primer_text">atribut</span>.
 </div>
-Pošto se u prethodnom primeru ni na koji način ne ograničava pristup atributima klase, može im se pristupiti van klase, na sledeći način:
-<xmp class = "primer_ta">
+Pošto se u prethodnom primeru ni na koji način ne ograničava pristup atributima
+klase, može im se pristupiti van klase, na sledeći način:
+<xmp class="primer_ta">
 <?php
 class ime {
     var $atribut;
@@ -82,9 +136,19 @@ class ime {
     echo $a -> atribut; 
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Međutim ovakav direktan pristup atributima izvan klase nije preporučljiv. Jedna od prednosti objektno orjentisanog razvoja je ta što podstiče enkapsuliranje (skrivanje podataka). Umesto direktnog pristupa atributima klase moguće je definisati pristupne funkcije, pomoću kojih bi se pristupalo atributima. U narednom primeru pristupna funkcija <span class="primer_text">get_nadimak</span> vraća atribut $nadimak. Na taj način je moguće pristupiti van klase atributu klase. Funkcija <span class="primer_text">set_nadimak</span> čiji je argument <span class="primer_text">$nova_vrednost</span> koristi se da se atributu klase pristupi van klase i dodeli vrednost <span class="primer_text">$nova_vrednost</span>.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button> <br />
+Međutim ovakav direktan pristup atributima izvan klase nije preporučljiv. Jedna
+od prednosti objektno orjentisanog razvoja je ta što podstiče enkapsuliranje
+(skrivanje podataka). Umesto direktnog pristupa atributima klase moguće je
+definisati pristupne funkcije, pomoću kojih bi se pristupalo atributima. U
+narednom primeru pristupna funkcija
+<span class="primer_text">get_nadimak</span> vraća atribut $nadimak. Na taj
+način je moguće pristupiti van klase atributu klase. Funkcija
+<span class="primer_text">set_nadimak</span> čiji je argument
+<span class="primer_text">$nova_vrednost</span> koristi se da se atributu klase
+pristupi van klase i dodeli vrednost
+<span class="primer_text">$nova_vrednost</span>.
+<xmp class="primer_ta">
 <?php
 class ime {
     var $nadimak = "Pera";
@@ -102,10 +166,12 @@ $a -> set_nadimak("Neki nadimak");
 echo $a -> get_nadimak();
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 <h2>Pozivanje operacija klase</h2>
-Opraija klase se poziva na isti način kao i atribut klase. U narednom primeru prikazana je klasa "ime".
-<xmp class = "primer_ta">
+Opraija klase se poziva na isti način kao i atribut klase. U narednom primeru
+prikazana je klasa "ime".
+<xmp class="primer_ta"
+>
 class ime{
     function operacija1(){
         
@@ -115,15 +181,25 @@ class ime{
     }
 } 
 </xmp>
-Neka je pomoću naredbe <span class="primer_text">$a = new ime();</span> kreiran objekat klase ime. <br>
-Operacije se pozivaju navođenjem imena i potrebnih parametara u zagradama. S obzirom da te operacije pripadaju objektima a ne nekoj običnoj funkciji, potrebno je naglasiti kom objektu pripada. Ime objekta se koristi isto kao i prilikom pristupanja atributu tog objekta. U narednom primeru se pozivaju operacije klase ime.
-<xmp class = "primer_ta">
+Neka je pomoću naredbe <span class="primer_text">$a = new ime();</span> kreiran
+objekat klase ime. <br />
+Operacije se pozivaju navođenjem imena i potrebnih parametara u zagradama. S
+obzirom da te operacije pripadaju objektima a ne nekoj običnoj funkciji,
+potrebno je naglasiti kom objektu pripada. Ime objekta se koristi isto kao i
+prilikom pristupanja atributu tog objekta. U narednom primeru se pozivaju
+operacije klase ime.
+<xmp class="primer_ta"
+>
 $x = $a -> operacija1();
 $y = $a -> operacija2(11,'proba');
 </xmp>
 <h2>Funkcije sa opcionim argumentima</h2>
-Opcioni argument funkcije se mora nalaziti na kraju liste argumenata i imati podrazumevanu vrednost koja je najčešće <span class="primer_text">null</span> ili prazan string. U narednom primeru se u klasi Osoba definiše funkcija čiji je drugi argument opcion, kao i pozivi te funkcije sa opcionim i bez opcionog argumenta.
-<xmp class = "primer_ta">
+Opcioni argument funkcije se mora nalaziti na kraju liste argumenata i imati
+podrazumevanu vrednost koja je najčešće
+<span class="primer_text">null</span> ili prazan string. U narednom primeru se u
+klasi Osoba definiše funkcija čiji je drugi argument opcion, kao i pozivi te
+funkcije sa opcionim i bez opcionog argumenta.
+<xmp class="primer_ta">
 <?php
     class Osoba{
         var $ime = "Pera";
@@ -137,17 +213,30 @@ Opcioni argument funkcije se mora nalaziti na kraju liste argumenata i imati pod
     $objekat->pozdrav(); // greska -$ime je obavezno
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Prva dva poziva funkcije su korektna jer drugi argument može a i ne mora da se navede. Treći poziv funkcije nije korektan jer je prvi argument obavezan, pa nastaje greška.
+<button class="button_copy">Vidi primer</button> <br />
+Prva dva poziva funkcije su korektna jer drugi argument može a i ne mora da se
+navede. Treći poziv funkcije nije korektan jer je prvi argument obavezan, pa
+nastaje greška.
 <h2>Modifikatori pristupa</h2>
-Modifikatori pristupa određuju pravo pristupa članovima klase. Članovi klase (atributi i operacije) mogu imati sledeća prava pristupa:
+Modifikatori pristupa određuju pravo pristupa članovima klase. Članovi klase
+(atributi i operacije) mogu imati sledeća prava pristupa:
 <ul>
-	<li>public (javni) - članovima klase koji se deklarišu kao javni može se pristupati i unutar i izvan klase;</li>
-	<li>protected (zaštićen) - članovima klase koji se deklarišu kao zaštićen može se pristupiti samo unutar te klase i u klasama koje nasleđuju klasu;</li>
-	<li>private (privatni) - članovima klase koji se deklarišu kao privatni može se pristupati samo unutar te klase, ne mogu da se nasleđuju. Funkcije označene kao privatne su uglavnom pomoćne funkcije koje se koriste unutar klase.</li>
+  <li>
+    public (javni) - članovima klase koji se deklarišu kao javni može se
+    pristupati i unutar i izvan klase;
+  </li>
+  <li>
+    protected (zaštićen) - članovima klase koji se deklarišu kao zaštićen može
+    se pristupiti samo unutar te klase i u klasama koje nasleđuju klasu;
+  </li>
+  <li>
+    private (privatni) - članovima klase koji se deklarišu kao privatni može se
+    pristupati samo unutar te klase, ne mogu da se nasleđuju. Funkcije označene
+    kao privatne su uglavnom pomoćne funkcije koje se koriste unutar klase.
+  </li>
 </ul>
-Naredni primer ilustruje privatne  javne metode klase.
-<xmp class = "primer_ta">
+Naredni primer ilustruje privatne javne metode klase.
+<xmp class="primer_ta">
 <?php
     class Osoba{
         var $ime = "Pera";
@@ -163,12 +252,23 @@ Naredni primer ilustruje privatne  javne metode klase.
     $objekat->pozdrav2(); //poziv privatnog metoda van klase proizrokovaće grešku.
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Kako je metod <span class="primer_text">pozdrav</span> javni (public), njemu je moguće pristupiti izvan klase. Kako je metod <span class="primer_text">pozdrav2</span> privatni (private), njemu nije moguće direktno pristupiti van klase. Zbog toga će program izbaciti grešku.
+<button class="button_copy">Vidi primer</button> <br />
+Kako je metod <span class="primer_text">pozdrav</span> javni (public), njemu je
+moguće pristupiti izvan klase. Kako je metod
+<span class="primer_text">pozdrav2</span> privatni (private), njemu nije moguće
+direktno pristupiti van klase. Zbog toga će program izbaciti grešku.
 <h2>Nasleđivanje</h2>
-Nasleđivanje je bitan deo objektno orjentisanog programiranja. Nasleđivanje predstalja kreiranje klase bazirane na nekoj već definisanoj klasi. Bazna klasa (natklasa) je klasa iz koje se vrši izvođenje. Izvedena klasa naziva se još i direktna potklasa bazne klase. Moguće je izvoditi klasu iz izvedene klase. <br>
-Nasleđivanje se obavlja pomoću rezervisane reči <span class="primer_text">extends</span>. U klasi koja nasleđuje, dostupna su sva svojstva i metode iz natklase koje nisu privatne. Pored toga, u potklasi mogu biti definisani i novi članovi. Primer nasleđivanja dat je u narednom primeru.
-<xmp class = primer_ta>
+Nasleđivanje je bitan deo objektno orjentisanog programiranja. Nasleđivanje
+predstalja kreiranje klase bazirane na nekoj već definisanoj klasi. Bazna klasa
+(natklasa) je klasa iz koje se vrši izvođenje. Izvedena klasa naziva se još i
+direktna potklasa bazne klase. Moguće je izvoditi klasu iz izvedene klase.
+<br />
+Nasleđivanje se obavlja pomoću rezervisane reči
+<span class="primer_text">extends</span>. U klasi koja nasleđuje, dostupna su
+sva svojstva i metode iz natklase koje nisu privatne. Pored toga, u potklasi
+mogu biti definisani i novi članovi. Primer nasleđivanja dat je u narednom
+primeru.
+<xmp class="primer_ta">
 <?php
     class Osoba{
         public $ime;
@@ -189,11 +289,19 @@ Nasleđivanje se obavlja pomoću rezervisane reči <span class="primer_text">ext
     $zaposleni->opis("Pera",5000);
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Kako klasa Zaposleni nasleđuje klasu Osoba, pored toga što nasledjuje atribut <span>$ime</span>, nasleđuje i konstruktor klase Osoba. Pored toga, u klasi Zaposleni definisani su i novi atribtut <span class="primer_text">$plata</span> i metod <span>opis</span>.
+<button class="button_copy">Vidi primer</button> <br />
+Kako klasa Zaposleni nasleđuje klasu Osoba, pored toga što nasledjuje atribut
+<span>$ime</span>, nasleđuje i konstruktor klase Osoba. Pored toga, u klasi
+Zaposleni definisani su i novi atribtut
+<span class="primer_text">$plata</span> i metod <span>opis</span>.
 <h2>Redefinisanje (engl. Overriding)</h2>
-Ponekad je korisno deklarisati iste atribute i operacije kao u nadklasi. To se može uraditi da bi se nekom atributu u potklasi dala drugačija vrednost u odnosu na isti atribut u natklasi ili da bi se operaciji u potklasi promenila funkcionalnost u odnosu na istu operaciju u natklasi. Promena funkcionalnosti u potklasi je redefinisanje. Neka su date klasa Osoba i klasa Zaposleni koja je nasleđuje.
-<xmp class = primer_ta>
+Ponekad je korisno deklarisati iste atribute i operacije kao u nadklasi. To se
+može uraditi da bi se nekom atributu u potklasi dala drugačija vrednost u odnosu
+na isti atribut u natklasi ili da bi se operaciji u potklasi promenila
+funkcionalnost u odnosu na istu operaciju u natklasi. Promena funkcionalnosti u
+potklasi je redefinisanje. Neka su date klasa Osoba i klasa Zaposleni koja je
+nasleđuje.
+<xmp class="primer_ta">
 class Osoba {
     var $plata = 0;
     function opis(){
@@ -202,7 +310,7 @@ class Osoba {
     }
 }
 </xmp>
-<xmp class = primer_ta>
+<xmp class="primer_ta">
 class Zaposleni extends Osoba {
     var $plata=5000;
     function opis(){
@@ -211,27 +319,39 @@ class Zaposleni extends Osoba {
     }
 }
 </xmp>
-U klasi Zaposleni je promenjena podrazumevana vrednost atributa <span class="primer_text">$plata</span>, i funkcionalnost operacije <span class="primer_text">opis</span>. <br>
-Definisanje klase Zaposleni ne utiče na prvobitnu definiciju klase Osoba, atribut <span>$plata</span> i metod <span class="primer_text">opis</span> u klasi Osoba ostaju nepromenjeni. <br>
+U klasi Zaposleni je promenjena podrazumevana vrednost atributa
+<span class="primer_text">$plata</span>, i funkcionalnost operacije
+<span class="primer_text">opis</span>. <br />
+Definisanje klase Zaposleni ne utiče na prvobitnu definiciju klase Osoba,
+atribut <span>$plata</span> i metod <span class="primer_text">opis</span> u
+klasi Osoba ostaju nepromenjeni. <br />
 Primeri poziva metoda klase Osoba i klase Zaposleni:
-<xmp class = primer_ta>
+<xmp class="primer_ta"
+>
 $osoba = new Osoba();
 $osoba->operacija();
 </xmp>
 Rezultat:
-<span class="primer_text">Osoba</span> <br>
+<span class="primer_text">Osoba</span> <br />
 <span class="primer_text">plata je 0</span>
-<xmp class = primer_ta>
+<xmp class="primer_ta"
+>
 $zaposleni = new Zaposleni();
 $zaposleni->operacija();
 </xmp>
 Rezultat:
-<span class="primer_text">Zaposleni</span> <br>
-<span class="primer_text">plata je 5000</span> <br>
-Moguće je pristupiti metodama bazne klase uz pomoć operatora :: i rezervisane reči <span class="primer_text">parent</span>. Prsitupa se naredbom <span class="primer_text">parent::metoda</span>. <br>
-Moguće je zabraniti redefinisanje (overriding) pojedinih metoda sa ključnom reči <span class="primer_text">final</span>. <br>
-U narednom primeru se redefiniše metod <span class="primer_text">opis</span> bazne klase. U primeru je takođe pomoću reči <span class="primer_text">final</span> onemogućeno redefinisanje metoda <span class="primer_text">zabranjeno_redefinisanje</span>.
-<xmp class = primer_ta>
+<span class="primer_text">Zaposleni</span> <br />
+<span class="primer_text">plata je 5000</span> <br />
+Moguće je pristupiti metodama bazne klase uz pomoć operatora :: i rezervisane
+reči <span class="primer_text">parent</span>. Prsitupa se naredbom
+<span class="primer_text">parent::metoda</span>. <br />
+Moguće je zabraniti redefinisanje (overriding) pojedinih metoda sa ključnom reči
+<span class="primer_text">final</span>. <br />
+U narednom primeru se redefiniše metod
+<span class="primer_text">opis</span> bazne klase. U primeru je takođe pomoću
+reči <span class="primer_text">final</span> onemogućeno redefinisanje metoda
+<span class="primer_text">zabranjeno_redefinisanje</span>.
+<xmp class="primer_ta">
 <?php
 class Osoba{
     var $ime;
@@ -254,9 +374,12 @@ class Osoba{
     echo $zaposleni->zabranjeno_redefinisanje();
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Ukoliko se kao u naredno primeru, pokuša da se redefiniše metod <span class="primer_text">zabranjeno_redefinisanje</span> u klasi Zaposleni, program izbacuje grešku.
-<xmp class=primer_ta>
+<button class="button_copy">Vidi primer</button> <br />
+Ukoliko se kao u naredno primeru, pokuša da se redefiniše metod
+<span class="primer_text">zabranjeno_redefinisanje</span> u klasi Zaposleni,
+program izbacuje grešku.
+<xmp class="primer_ta"
+>
 class Zaposleni extends Osoba{
         function opis(){
            return  parent::opis()."zaposlena";
@@ -266,11 +389,21 @@ class Zaposleni extends Osoba{
         }
     }
 </xmp>
-Greška koju će program izbaciti: <br>
-<span class="primer_text">Fatal error: Cannot override final metod Osoba::zabranjeno_redefinisanje()</span>
+Greška koju će program izbaciti: <br />
+<span class="primer_text"
+  >Fatal error: Cannot override final metod
+  Osoba::zabranjeno_redefinisanje()</span
+>
 <h2>Statička polja klase</h2>
-Ponekad klase poseduju i elemente koji se mogu "pozvati" i bez instanciranja same klase. Ovakvi elementi nazivaju se statički elementi i mogu biti istog tipa kao i svi ostali elementi jedne klase (metode i atributi). Definicija ovakvih elemenata vrši se ključnom rečju <span class="primer_text">static</span>. U narednom primeru je definisana statička promenljiva <span class="primer_text">$x</span> i statička metoda <span class="primer_text">f</span>.
-<xmp class=primer_ta>
+Ponekad klase poseduju i elemente koji se mogu "pozvati" i bez instanciranja
+same klase. Ovakvi elementi nazivaju se statički elementi i mogu biti istog tipa
+kao i svi ostali elementi jedne klase (metode i atributi). Definicija ovakvih
+elemenata vrši se ključnom rečju <span class="primer_text">static</span>. U
+narednom primeru je definisana statička promenljiva
+<span class="primer_text">$x</span> i statička metoda
+<span class="primer_text">f</span>.
+<xmp class="primer_ta"
+>
 class mojaKlasa
 {
     public static $x=20;
@@ -279,10 +412,22 @@ class mojaKlasa
         }  
 }
 </xmp>
-Statičke promenljive i statičke metode su zajedničke za sve objekte neke klase. Prilikom pozivanja statičkih elemenata, instanca klase nije neophodna, već se elementi pozivaju direknim unosom klase koja ih sadrži, pri čemu, umesto znaka <span class="primer_text">-></span> koristi se znak :: (scope resolution operator). <br>
-Za pozivanje statičkih svojstava i metoda unutar klase koristi se <span class="primer_text">self::svojstvo</span>, odnosno <span class="primer_text">self::metoda</span>. Za pristup statičkoj metodi ili promenljivoj u okviru iste klase koristi se ključna reč <span class="primer_text">self</span>, self je klasama što je <span class="primer_text">$this</span> objektima. Za pozivanje statičkih svojstava i metoda izvan klase koristi se <span class="primer_text">ImeKlase::svojstvo</span>, odnosno <span class="primer_text">ImeKlase::metoda</span>.
-U narednom primeru je prikazano pozivanje statičke promenljive i metode unutar klase.
-<xmp class=primer_ta>
+Statičke promenljive i statičke metode su zajedničke za sve objekte neke klase.
+Prilikom pozivanja statičkih elemenata, instanca klase nije neophodna, već se
+elementi pozivaju direknim unosom klase koja ih sadrži, pri čemu, umesto znaka
+<span class="primer_text">-></span> koristi se znak :: (scope resolution
+operator). <br />
+Za pozivanje statičkih svojstava i metoda unutar klase koristi se
+<span class="primer_text">self::svojstvo</span>, odnosno
+<span class="primer_text">self::metoda</span>. Za pristup statičkoj metodi ili
+promenljivoj u okviru iste klase koristi se ključna reč
+<span class="primer_text">self</span>, self je klasama što je
+<span class="primer_text">$this</span> objektima. Za pozivanje statičkih
+svojstava i metoda izvan klase koristi se
+<span class="primer_text">ImeKlase::svojstvo</span>, odnosno
+<span class="primer_text">ImeKlase::metoda</span>. U narednom primeru je
+prikazano pozivanje statičke promenljive i metode unutar klase.
+<xmp class="primer_ta">
 <?php
     class Krug{
         public static $pi = 3.14;
@@ -297,11 +442,22 @@ U narednom primeru je prikazano pozivanje statičke promenljive i metode unutar 
     echo Krug::vrati();
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button> <br>
-Statički elementi često mogu biti veoma korisni, ako se radi na velikom projektu, s mnogo klasa. Da bi se pristupilo elementima jedne klase iz druge klase, moraju se ti elementi ručno provlačiti kroz klasu, što može biti veoma bolno i može se dobiti zbrkan kod što nikako nije poželjno, statički elementi rešavaju taj problem.
-<div class = "zadatak">
-Napisati klasu Zivotinja koja sadrži privatni atribut <span class="primer_text">vrsta</span>, pristupne metode i  metod <span class="primer_text">Ispis</span>koji ispisuje vrednost tog atributa. Napisati konstrukotor klase koji kao argument dobije vrednost atributa <span class="primer_text">vrsta</span>. Napisati klasu Pas koja nasleđuje klasu Zivotinja i koja ima 2 atributa <span class="primer_text">ime</span> i <span class="primer_text">rasa</span>. Napisati i konstrukor klase Pas.  Konstruktor prima 2 argumenta, kojima se zadaju vrednost atributa <span class="primer_text">ime</span> i <span class="primer_text">rasa</span>. Redefinisati metod <span class="primer_text">Ispis</span> iz bazne klase. Na kraju kreirati jedan objekat klase Pas.
+<button class="button_copy">Vidi primer</button> <br />
+Statički elementi često mogu biti veoma korisni, ako se radi na velikom
+projektu, s mnogo klasa. Da bi se pristupilo elementima jedne klase iz druge
+klase, moraju se ti elementi ručno provlačiti kroz klasu, što može biti veoma
+bolno i može se dobiti zbrkan kod što nikako nije poželjno, statički elementi
+rešavaju taj problem.
+<div class="zadatak">
+  Napisati klasu Zivotinja koja sadrži privatni atribut
+  <span class="primer_text">vrsta</span>, pristupne metode i metod
+  <span class="primer_text">Ispis</span>koji ispisuje vrednost tog atributa.
+  Napisati konstrukotor klase koji kao argument dobije vrednost atributa
+  <span class="primer_text">vrsta</span>. Napisati klasu Pas koja nasleđuje
+  klasu Zivotinja i koja ima 2 atributa <span class="primer_text">ime</span> i
+  <span class="primer_text">rasa</span>. Napisati i konstrukor klase Pas.
+  Konstruktor prima 2 argumenta, kojima se zadaju vrednost atributa
+  <span class="primer_text">ime</span> i <span class="primer_text">rasa</span>.
+  Redefinisati metod <span class="primer_text">Ispis</span> iz bazne klase. Na
+  kraju kreirati jedan objekat klase Pas.
 </div>
-
-
-

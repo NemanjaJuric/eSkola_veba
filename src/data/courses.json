@@ -6,7 +6,8 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
-    "detailsText": "Kurs je u pripremi.",
+    "sections": ["klijentsko_programiranje"],
+    "detailsText": "HTML je standardni jezik za kreiranje veb stranica. Naziv je skraćenica od Hyper Text Markup Language. Jezik HTML se zasniva na eksplicitnom obeležavanju logičke strukture dokumenta.",
     "lessons": [
       {
         "name": "Uvod u HTML",
@@ -193,6 +194,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "\n        CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.\n        ",
     "lessons": [
       {
@@ -426,6 +428,11 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": [
+      "klijentsko_programiranje",
+      "serversko_programiranje",
+      "programski_jezici"
+    ],
     "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira. ",
     "lessons": [
       {
@@ -730,6 +737,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "JQuery je trenutno najpopularnija JavaScript biblioteka, koristimo je najčešće da bismo manipulisali DOM(Document Object Model) elementima, da bismo pravili određene animacije, Ajax aplikacije i još mnogo toga. \n        Prilično je laka za koristiti, posebno ako ste vec upoznati sa CSS-om i JavaScript-om. ",
     "lessons": [
       {
@@ -783,6 +791,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "Bootstrap je front-end css frejmvork čija je osnovna namena kreiranje responzivnih veb stranica, tj. \n        stranica koje mogu da prilagođavaju svoj izgled u zavisnosti od rezolucije uredjaja na kojem se prikazuiju. \n        Bootstrap pruža veoma dobar temelj za njihovo kreiranje zbog svoje prilagodljivosti i nudi način da se uštedi vreme, \n        a postigne zadovoljavajući kvalitet. Nalazi se u klasi najpopularnijih radnih okruženja za razvoj veb aplikacija.",
     "lessons": [
       {
@@ -1053,6 +1062,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "Bootstrap 4 je najpopularnije HTML, CSS i JS radno okruženje za kreiranje veb stranica čiji je prikaz prilagodljiv na uređajima svih rezolucija.",
     "lessons": [
       {
@@ -1267,6 +1277,7 @@
     "type": "book",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "",
     "lessons": [
       {
@@ -1469,6 +1480,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "AngularJS je JavaScript MVC framework napravljen od strane Google-a koji vam omogućava da pravite dobro struktuirane, lake za testiranje i održavanje front-end aplikacije. AngularJS je MVC framework koji definiše brojne koncepte za pravilno organizovanje vaše veb aplikacije. Aplikacija je definisana uz pomoć modula koji mogu zavistiti jedan od drugih. AngularJS proširuje HTML pružajući direktive vašim oznakama pomoću kojih možete praviti moćne i dinamičke stranice. Takođe možete napraviti sopstvene direktive pomoću kojih ćete vršiti DOM manipulaciju. Takođe implementira two-way vezivanje podataka, vezujući vaš HTML (view) sa javascript objektima (models) na veoma lak način.",
     "lessons": [
       {
@@ -1641,6 +1653,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "Angular 4 je radni okvir programskog jezika JavaScript. Koristi se za razvoj modernih veb aplikacija koje su zasnovane na dizajnu arhitekture koji se sastoji od veb komponenata međusobno povezanih pomoću njihovog posebnog U/I interfejsa. ",
     "lessons": [
       {
@@ -1736,7 +1749,8 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
-    "detailsText": "",
+    "sections": ["klijentsko_programiranje"],
+    "detailsText": "React je popuralrna JavaScript biblioteka za kreiranje korisničkih interfejsa.",
     "lessons": [
       {
         "name": "Uvod u React",
@@ -1831,7 +1845,8 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
-    "detailsText": "U pripremi",
+    "sections": ["klijentsko_programiranje"],
+    "detailsText": "Vue ili VueJS je radni okvir programskog jezika JavaScript koji služi za pravljenje veb aplikacija, korisničkih interfejsa a može se koristiti i za izradu jednostranih aplikacija(eng- Single Page Applications). Ono što je specifično za Vue je da se pomoću Vue radnog okvira može uticati isključivo na vizuelni deo veb aplikacije odnosno vizuelni sloj(eng - view layer).",
     "lessons": [
       {
         "name": "Uvod u Vue.js",
@@ -1898,6 +1913,11 @@
     "type": "course",
     "lang": "application/typescript",
     "displayLang": "Javascript",
+    "sections": [
+      "klijentsko_programiranje",
+      "serversko_programiranje",
+      "programski_jezici"
+    ],
     "detailsText": "ECMAScript  je specifikacija skriptnog jezika koja je standardizovana od strane ECMAScript International.",
     "lessons": [
       {
@@ -1965,6 +1985,11 @@
     "type": "course",
     "lang": "application/typescript",
     "displayLang": "TypeScript",
+    "sections": [
+      "klijentsko_programiranje",
+      "serversko_programiranje",
+      "programski_jezici"
+    ],
     "detailsText": "TypeScript je objektno orijentisan programski jezik otvorenog koda i predstavlja strogi sintaksni nadskup programskog jezika JavaScript. Razvija ga i održava kompanija Microsoft. TypeScript se koristi za razvoj JavaScript aplikacija za klijentsku i serversku stranu (Node.js). Ovaj jezik najviše dolazi do izražaja prilikom razvoja složenih i obimnih aplikacija. Neke od karakteristika ovog jezika su anotacija i provera tipa tokom kompilacije, enumerisani tipovi, interfejsi, imenski prostori, moduli , klase itd. TypeScript je poprilièno nov programski jezik i ispunjava najnovije ECMAScript standarde.",
     "lessons": [
       {
@@ -2046,6 +2071,7 @@
     "type": "course",
     "lang": "application/x-httpd-php",
     "displayLang": "Json",
+    "sections": ["veb_tehnologije"],
     "detailsText": "\n        JSON (JavaScript Object Notation) je jedan od lakših tekstualnih otvorenih standarda ( javno dostupnih ) dizajniran za čitljivu razmenu podataka. Lak je i za čitanje i pisanje, kao i za generisanje i analiziranje. Izveden je iz JavaScript jezika za predstavljanje jednostavnih struktura podataka i asocijativnih nizova, odnosno objekata. JSON je prvi put korišćen u State Software kompaniji koju je osnovao Douglas Crockford koji je takodje i izumeo JSON. Veb sajt JSON.org je počeo sa radom 2002.godine a GOOGLE počinje sa upotrebom JSONa za svoje gData web protokole decembra 2006.",
     "lessons": [
       {
@@ -2064,6 +2090,7 @@
     "type": "course",
     "lang": "application/x-httpd-php",
     "displayLang": "PHP",
+    "sections": ["serversko_programiranje", "programski_jezici"],
     "detailsText": "(PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog koda. Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i tolerantan jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i JavaScript-a da bismo lakše naučili PHP.",
     "lessons": [
       {
@@ -2250,6 +2277,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": ["serversko_programiranje"],
     "detailsText": "Laravel je radni okvir programskog jezika PHP.",
     "lessons": [
       {
@@ -2359,6 +2387,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": ["serversko_programiranje", "programski_jezici"],
     "detailsText": "Ono što se želelo postići programskim jezikom Java, a što je najvećim delom i ostvareno, predstavlja povezivanje velikog broja različitih domena, tako da se omogućava funkcionisanje aplikacionog servera i funkcionisanje mobilnog telefona, kreiranje naučnih programa, razvoj softvera, implementacija međuplanetarne navigacije i još mnogo štošta... – James Gosling",
     "lessons": [
       {
@@ -2825,7 +2854,8 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
-    "detailsText": "",
+    "sections": ["serversko_programiranje"],
+    "detailsText": "Spring je najpopularniji radni okvir za pisanje Java EE aplikacija. Spring je softver otvorenog koda, potpuno je besplatan za korišćenje i poseduje veliku bazu korisnika koja ga kontinualno unapređuje. Izvorni kod je dostupan na GitHub-u.",
     "lessons": [
       {
         "name": "Radni okvir Spring",
@@ -2920,6 +2950,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": ["serversko_programiranje"],
     "detailsText": "NodeJS je serversko radno okruženje otvorenog koda za JavaScirpt. Za razliku od JavaScript-a, koji se izvršava u pregledaču i koristi se za dinamičku kontrolu prikaza veb stranice na strani klijenta, NodeJS omogućava korisnicima da izvršavaju JavaScript kod na serveru. Korišćenjem NodeJS-a dobija se mogućnost korišćenja JavaScript-a kao klasičnog programskog jezika, tj. van okvira pregledača. S obzirom da se NodeJS izvršava na strani servera.",
     "lessons": [
       {
@@ -3099,7 +3130,8 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
-    "detailsText": "U pripremi",
+    "sections": ["serversko_programiranje"],
+    "detailsText": "Express.js je framework (programski okvir) tj. standardni serverski okvir za Node.js. Razvio ga je TJ Holowaychuk, a održavan je od strane Node.js fondacije. Za razumevanje istog, potrebno je osnovno poznavanje HTML, JavaScript kao i klijent-server arhitekture.",
     "lessons": [
       {
         "name": "Podesavanje okruzenja",
@@ -3166,7 +3198,8 @@
     "type": "course",
     "lang": "text/x-mysql",
     "displayLang": "SQL",
-    "detailsText": "U pripremi",
+    "sections": ["baze_podataka"],
+    "detailsText": "MySQL je sistem pomoću koga upravljamo relacionim bazama podataka. ",
     "lessons": [
       {
         "name": "Uvod i instalacija",
@@ -3303,7 +3336,8 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
-    "detailsText": "",
+    "sections": ["veb_tehnologije"],
+    "detailsText": "XML (eXtensible Markup Language) je standard kojim se generiše struktura podataka koje treba čuvati u memoriji, razmeniti ili dalje obrađivati. Nastao je iz potrebe za postojanjem standarda za obeležavanje koji je jednostavan za parsiranje i obradu. Preporučen je od strane W3C (World Wide Web Consortium) 1998. godine.",
     "lessons": [
       {
         "name": "Uvod u XML",
@@ -3412,6 +3446,7 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
+    "sections": ["klijentsko_programiranje"],
     "detailsText": "Koristi se za iscrtavanje grafičkih elemenata, fotografskih kompozicija i pravljenje jednostavnh animacija pomoću nekog skript jezika, najčešćce javascript.",
     "lessons": [
       {
@@ -3507,7 +3542,8 @@
     "type": "course",
     "lang": "text/html",
     "displayLang": "HTML",
-    "detailsText": "",
+    "sections": ["klijentsko_programiranje"],
+    "detailsText": "SVG (skraćeno od Scalable Vector Graphics) je jezik za opisivanje dvodimenzionalne grafike i grafičkih aplikacija u jeziku XML. SVG je pogodan za veb aplikacije zasnovane na podacima, interaktivnoj, personalizovanoj grafici iz izvora podataka u realnom vremenu.",
     "lessons": [
       {
         "name": "Uvod u SVG",
@@ -3630,6 +3666,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": [],
     "detailsText": "",
     "lessons": [
       {
@@ -3704,6 +3741,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
+    "sections": ["veb_tehnologije"],
     "detailsText": "Internet je svetski sistem umreženih računarskih mreža koji povezuje veliki broj različitih mreža i računara širom cele planete na jedan nehijerarhijski način. S obzirom na to da je veoma kompleksan, teško je definisati ga jednom rečenicom. Sa jedne strane, internet se definiše preko hardverskih, komunikacionih i softverskih komponenti koje ga sačinjavaju: kablovi, bežična veza, sateliti, ruteri, internet dobavljači... Sa druge strane, definišemo ga preko usluga koje nudi svojim korisnicima: pregled hipertekstualnih dokumenata, elektronske pošte, prenos fajlova, prijavljivanje na udaljene računare, instant poruke, reprodukcija slike i zvuka u realnom vremenu... Broj računara na internetu se trenutno procenjuje na oko 150 milijardi. Količina informacija koju ti računari poseduju je ogromna, i teško je prikazati realno kolika je ona zaista. ",
     "lessons": [
       {

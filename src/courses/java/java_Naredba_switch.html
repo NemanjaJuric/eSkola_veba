@@ -1,33 +1,43 @@
-<h1>Naredba <b><b>switch</b></b></h1>
+<h1>
+  Naredba <b><b>switch</b></b>
+</h1>
 
-<p style="text-align: justify;">Naredba <b><b>switch</b></b> koristi se za testiranje uslova. Kod naredbe <b>switch</b> se izbor jednog od više
-alternativnih blokova naredbi za izvršavanje vrši na osnovu jednog celobrojnog ili znakovnog
-izraza (char, int, short ili byte). U zavisnosti od vrednosti tog izraza izvršava se niz naredbi
-pridružen jednom od slučajeva označenih klauzulama case. Pri tom se redom traži prva konstanta
-uz klauzulu case koja je jednaka vrednosti izraza i izvršava se niz naredbi pridružen tom slučaju.
-Opšti oblik naredbe <b>switch</b> izgleda ovako:</p>
+<p style="text-align: justify">
+  Naredba <b><b>switch</b></b> koristi se za testiranje uslova. Kod naredbe
+  <b>switch</b> se izbor jednog od više alternativnih blokova naredbi za
+  izvršavanje vrši na osnovu jednog celobrojnog ili znakovnog izraza (char, int,
+  short ili byte). U zavisnosti od vrednosti tog izraza izvršava se niz naredbi
+  pridružen jednom od slučajeva označenih klauzulama case. Pri tom se redom
+  traži prva konstanta uz klauzulu case koja je jednaka vrednosti izraza i
+  izvršava se niz naredbi pridružen tom slučaju. Opšti oblik naredbe
+  <b>switch</b> izgleda ovako:
+</p>
 
-  <div class = "napomena">
-switch (izraz) { <br>
-  case vrednost1: naredbe1 <br>
-  break; <br>
-  case vrednost2: naredbe2 <br>
-  break; <br>
-  . <br>
-  . <br>
-  . <br>
-  default: podrazmevane naredbe <br>
-}
-  </div>
+<div class="napomena">
+  switch (izraz) { <br />
+  case vrednost1: naredbe1 <br />
+  break; <br />
+  case vrednost2: naredbe2 <br />
+  break; <br />
+  . <br />
+  . <br />
+  . <br />
+  default: podrazmevane naredbe <br />
+  }
+</div>
 
-<p style="text-align: justify;">Ukoliko se nijedna konstanta ne poklapa sa vrednošću izraza, izvršava se naredba <b>default</b>. Pošto
-naredba <b>default</b> nije obavezna, u slučaju kada se nijedna konstanta ne poklopi sa vrednošću iz
-izraza, a <b>default</b> ne postoji, ništa se ne dešava. Naredba <b>break</b> se koristi unutar naredbe <b>switch</b> kao
-završetak grupe naredbi.
-Upotreba naredbe <b>switch</b> može se videti u primeru 8.</p>
+<p style="text-align: justify">
+  Ukoliko se nijedna konstanta ne poklapa sa vrednošću izraza, izvršava se
+  naredba <b>default</b>. Pošto naredba <b>default</b> nije obavezna, u slučaju
+  kada se nijedna konstanta ne poklopi sa vrednošću iz izraza, a
+  <b>default</b> ne postoji, ništa se ne dešava. Naredba <b>break</b> se koristi
+  unutar naredbe <b>switch</b> kao završetak grupe naredbi. Upotreba naredbe
+  <b>switch</b> može se videti u primeru 8.
+</p>
 
 <b>Primer 8.</b> – Ispitivanje uslova naredbom switch
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 public class Test {
     public static void main(String[] args) {
         int br = 20; // inicijalizacija promenljive
@@ -49,5 +59,7 @@ public class Test {
   }
 </xmp>
 Pri pokretanju ovog programa na ekranu se ispisuje poruka:
-<xmp class = "primer_ta" title="">
-vrednost je 20  </xmp>
+<xmp class="primer_ta" title=""
+>
+vrednost je 20  </xmp
+>

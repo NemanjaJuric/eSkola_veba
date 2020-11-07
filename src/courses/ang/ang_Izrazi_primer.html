@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <p>Promeni boju tekstualnog polja:</p>
 
-<p>Promeni boju tekstualnog polja:</p>
+    <div ng-app="" ng-init="mojaBoja='lightblue'">
+      <input
+        style="background-color:{{mojaBoja}}"
+        ng-model="mojaBoja"
+        value="{{mojaBoja}}"
+      />
+    </div>
 
-<div ng-app="" ng-init="mojaBoja='lightblue'">
+    <p>AngularJS rešava vrednost izraza i vratiti rezultat.</p>
 
-<input style="background-color:{{mojaBoja}}" ng-model="mojaBoja" value="{{mojaBoja}}">
-
-</div>
-
-<p>AngularJS rešava vrednost izraza i vratiti rezultat.</p>
-
-<p>Boja tekstualnog polja će biti šta god da napišete u polju.</p>
-<br>
-
-</body>
+    <p>Boja tekstualnog polja će biti šta god da napišete u polju.</p>
+    <br />
+  </body>
 </html>

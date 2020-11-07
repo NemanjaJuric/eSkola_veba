@@ -1,24 +1,27 @@
 <h1>Funkcija @if</h1>
-Ugrađena funkcija <b>@if</b> omogućava podelu po uslovima i vraća samo jedan od mogućih ishoda.
-<br>
-<br>
- To činimo na sledeći način:
- <br>
- <textarea class="primer_ta" rows="5" disabled>
+Ugrađena funkcija <b>@if</b> omogućava podelu po uslovima i vraća samo jedan od
+mogućih ishoda.
+<br />
+<br />
+To činimo na sledeći način:
+<br />
+<textarea class="primer_ta" rows="5" disabled>
    p{
    @if 2+3 == 4  {border: 2px solid red;}
    @if 3<4 {border: 3px dotted pink;}
    @if null {border: 4px double orange;}
     }
-   </textarea>
-   <br>
-   <br>
-   Ako nije ispunjen nijedan od uslova, definišemo null.
-   <br>
-   <br>
- Takođe, funkcija <b>@if</b> može biti praćena sa nekoliko <b>@else</b> iskaza, kao na primer:
- <br>
- <textarea class="primer_ta" rows="12" disabled>
+   </textarea
+>
+<br />
+<br />
+Ako nije ispunjen nijedan od uslova, definišemo null.
+<br />
+<br />
+Takođe, funkcija <b>@if</b> može biti praćena sa nekoliko <b>@else</b> iskaza,
+kao na primer:
+<br />
+<textarea class="primer_ta" rows="12" disabled>
 $position: top;
 p {
   @if $position == left {
@@ -31,4 +34,5 @@ p {
     color: black;
   }
 }
-  </textarea>
+  </textarea
+>

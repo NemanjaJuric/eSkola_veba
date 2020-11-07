@@ -1,15 +1,5 @@
 <?php
 function checkNum($number){
-	if($number>=1){
-	throw new Exception("Vrednost mora biti manja od 1");
-	}
-	return true;
-}
-try{
-	checkNum(2);
-	echo "Ako vidis ovo broj je manji od 1";
-}
-catch(Exception $e){
-	echo "Message: ".$e->getMessage();
-}
-?>
+	if($number>=1){ throw new Exception("Vrednost mora biti manja od 1"); } return
+true; } try{ checkNum(2); echo "Ako vidis ovo broj je manji od 1"; }
+catch(Exception $e){ echo "Message: ".$e->getMessage(); } ?>

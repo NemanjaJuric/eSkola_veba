@@ -1,12 +1,13 @@
-import { Lesson } from '../classes/lesson'
+import { Lesson } from "../classes/lesson";
 
 export class Course {
-    name: string;
-    id: string;
-    logo: string;
-    type: string;
-    detailsText: string;
-    lang: string;
-    displayLang: string;
-    lessons: Array<Lesson>;
+  name: string;
+  id: string;
+  logo: string;
+  type: string;
+  detailsText: string;
+  lang: string;
+  displayLang: string;
+  sections: Array<string>;
+  lessons: Array<Lesson>;
 }

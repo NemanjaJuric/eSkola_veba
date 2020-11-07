@@ -1,23 +1,36 @@
-﻿<h1>Petlje</h1><!-- I ovo spada u iskaze za kontrolu toka ali cini mi se da moze da stoji kao posebna lekcija-->
-<br> 
-U situacijama kada je potrebno da se neki blok koda izvrši više puta koriste se petlje. Petlje mogu biti konačne i beskonačne. Konačne petlje su petlje kod kojih je broj iteracija poznat i konačan. 
-Petlje kod kojih je broj iteracija nepoznat ili nije definisan nazivaju se beskonačne petlje. Beskonačne petlje se obično implementiraju pomoću iskaza kontrole toka <b>while</b> i <b>do...while </b>  dok konačne petlje pomoću iskaza <b>for</b>.
-<br> 
-<h3>For petlja</h3>   
+﻿<h1>Petlje</h1>
+<!-- I ovo spada u iskaze za kontrolu toka ali cini mi se da moze da stoji kao posebna lekcija-->
+<br />
+U situacijama kada je potrebno da se neki blok koda izvrši više puta koriste se
+petlje. Petlje mogu biti konačne i beskonačne. Konačne petlje su petlje kod
+kojih je broj iteracija poznat i konačan. Petlje kod kojih je broj iteracija
+nepoznat ili nije definisan nazivaju se beskonačne petlje. Beskonačne petlje se
+obično implementiraju pomoću iskaza kontrole toka <b>while</b> i
+<b>do...while </b> dok konačne petlje pomoću iskaza <b>for</b>.
+<br />
+<h3>For petlja</h3>
 Sintaksa za <b>for</b> petlju je sledeća:
 
- <xmp class = "primer_ta">  
+<xmp class="primer_ta"
+>  
  for( početna_vrednost_brojača; uslov; korak)
       {
  
      //iskazi koji želimo da se izvrše
  
       }
- </xmp>
- <b>Brojač</b> je promenljiva pomoću koje se vrši kontrola nad iteracijama. Blok koda se izvršava svaki put kada <b>uslov</b> ima vrednost true. U slučaju da <b>uslov</b> ima vrednost false dolazi do prestanka izvršavanja koda u for petlji.
- Obično vrednost uslova zavisi od brojač tj. ako brojač zadovoljava uslov onda je vrednost true. U nastavku će biti naveden primer da to ne mora da bude slučaj. <b>Korak</b> predstavlja izraz koji menja vrednost brojača svaki put kada se izvrši iteracija.
- 
- <xmp class = "primer_ta">  
+ </xmp
+>
+<b>Brojač</b> je promenljiva pomoću koje se vrši kontrola nad iteracijama. Blok
+koda se izvršava svaki put kada <b>uslov</b> ima vrednost true. U slučaju da
+<b>uslov</b> ima vrednost false dolazi do prestanka izvršavanja koda u for
+petlji. Obično vrednost uslova zavisi od brojač tj. ako brojač zadovoljava uslov
+onda je vrednost true. U nastavku će biti naveden primer da to ne mora da bude
+slučaj. <b>Korak</b> predstavlja izraz koji menja vrednost brojača svaki put
+kada se izvrši iteracija.
+
+<xmp class="primer_ta"
+>  
  
  let i:number =0;
   
@@ -27,11 +40,13 @@ Sintaksa za <b>for</b> petlju je sledeća:
  alert(i);
  
  }
- </xmp>
+ </xmp
+>
 
- Prethodni primer prikazuje brojeve od 1 do 10.
- 
- <xmp class = "primer_ta">  
+Prethodni primer prikazuje brojeve od 1 do 10.
+
+<xmp class="primer_ta"
+>  
  
 let j: number = 5;
 let i: number = 0;
@@ -43,24 +58,30 @@ for (i;j>1;i++)
      alert(i);
  }
     
- </xmp>
+ </xmp
+>
 
- Ovaj primer radi isto što i prethodni samo što vrednost uslova ne zavisi direktno od brojača.
- <xmp class = "primer_ta">  
+Ovaj primer radi isto što i prethodni samo što vrednost uslova ne zavisi
+direktno od brojača.
+<xmp class="primer_ta"
+>  
  for(;;)
  {
  
  alert('Ovo je beskonačna petlja');
  
  }
- </xmp>
- 
- Na ovaj način pomoću for može se implementirati beskonačna petlja.
- <br> 
- <br> 
- Jedan od načina da se pristupi elementima kolekcije kao što su npr. nizovi je upotrebom <b>for</b> , <b>for...of</b>  ili <b>for...in</b> petlje.
+ </xmp
+>
 
- <xmp class = "primer_ta">
+Na ovaj način pomoću for može se implementirati beskonačna petlja.
+<br />
+<br />
+Jedan od načina da se pristupi elementima kolekcije kao što su npr. nizovi je
+upotrebom <b>for</b> , <b>for...of</b> ili <b>for...in</b> petlje.
+
+<xmp class="primer_ta"
+>
  let niz:string[]=['Danas', 'je' , 'lep' , 'dan', '.'];
  let i:number = 0;
  let s: string='';
@@ -71,11 +92,13 @@ for (i;j>1;i++)
  s = s+ ' ' + niz[i];
  }
  alert('Ko nije razumeo piše ' + s);
- </xmp>
+ </xmp
+>
 
- ili
- 
- <xmp class = "primer_ta">
+ili
+
+<xmp class="primer_ta"
+>
  let niz:string[]=['Danas', 'je' , 'lep' , 'dan', '.'];
  let i
  let s: string='';
@@ -86,11 +109,13 @@ for (i;j>1;i++)
  s = s+ ' ' + i;
  }
  alert('Ko nije razumeo piše ' + s);
- </xmp>
- 
- ili
- 
- <xmp class = "primer_ta">
+ </xmp
+>
+
+ili
+
+<xmp class="primer_ta"
+>
  let niz:string[]=['Danas', 'je' , 'lep' , 'dan', '.'];
  let i
  let s: string='';
@@ -101,11 +126,17 @@ for (i;j>1;i++)
  s = s+ ' ' + niz[i];
  }
  alert('Ko nije razumeo, piše ' + s);
- </xmp>
- Kod upotrebe <b>for...in</b> petlje treba voditi računa jer on ne pristupa elementima niza već njihovim indeksima. Kao što je prikazano postoji razlika između  <b>for...of</b>  i <b>for...in</b>. 
- <b>For...in</b> se može koristiti da se pristupi svim enumerisanim osobinama nekog objekta dok <b>for...of</b> se uglavnom koristi da se pristupi elementima kolekcije. U sledećem primeru prikazana je jedna od razlika između <b>for...in</b> i <b>for...of</b>.
- 
- <xmp class = "primer_ta">
+ </xmp
+>
+Kod upotrebe <b>for...in</b> petlje treba voditi računa jer on ne pristupa
+elementima niza već njihovim indeksima. Kao što je prikazano postoji razlika
+između <b>for...of</b> i <b>for...in</b>. <b>For...in</b> se može koristiti da
+se pristupi svim enumerisanim osobinama nekog objekta dok <b>for...of</b> se
+uglavnom koristi da se pristupi elementima kolekcije. U sledećem primeru
+prikazana je jedna od razlika između <b>for...in</b> i <b>for...of</b>.
+
+<xmp class="primer_ta"
+>
 Object.prototype.objCustom = function() {}; 
 Array.prototype.arrCustom = function() {};
 
@@ -135,21 +166,30 @@ for (let i of niz) {
 alert(s1);
 alert(s2);
 alert(s3);
- </xmp>
- Funkcije <b>objCustom</b> pripada klasi Object dok funkcija <b>arrCustom</b> pripada klasi Array. Obe ove funkcije se nasleđuju i zajedno sa atributem <b>foo</b> nalaze u objektu niz. Funkcija <b>hasOwnProperty()</b> služi da proveri da li je neka osobina nasleđena.
- <br>
-<h3>While i do...while petlja</h3> 
-Sintaksa za <b>while</b> petlju je sledeća:   
- <xmp class = "primer_ta">  
+ </xmp
+>
+Funkcije <b>objCustom</b> pripada klasi Object dok funkcija
+<b>arrCustom</b> pripada klasi Array. Obe ove funkcije se nasleđuju i zajedno sa
+atributem <b>foo</b> nalaze u objektu niz. Funkcija
+<b>hasOwnProperty()</b> služi da proveri da li je neka osobina nasleđena.
+<br />
+<h3>While i do...while petlja</h3>
+Sintaksa za <b>while</b> petlju je sledeća:
+<xmp class="primer_ta"
+>  
  while(uslov)
   {
  
   //iskazi koji se izvršavaju ako je vrednost uslova true
  
   }
- </xmp>
- <b>Uslov</b> je izraz koji može imati vrednost true ili false. Ako je vrednost izraza true izvršava se blok koda u suprotnom dolazi do prekida izvršavanja koda u <b>while</b> petlje.
- <xmp class = "primer_ta">  
+ </xmp
+>
+<b>Uslov</b> je izraz koji može imati vrednost true ili false. Ako je vrednost
+izraza true izvršava se blok koda u suprotnom dolazi do prekida izvršavanja koda
+u <b>while</b> petlje.
+<xmp class="primer_ta"
+>  
  let i:number =0;
   
  while(i<11)
@@ -157,9 +197,11 @@ Sintaksa za <b>while</b> petlju je sledeća:
  alert(i);
  i++
  }
- </xmp>
- Implementacija primera sa početka lekcije pomoću <b>while</b> petlje. 
- <xmp class = "primer_ta">  
+ </xmp
+>
+Implementacija primera sa početka lekcije pomoću <b>while</b> petlje.
+<xmp class="primer_ta"
+>  
  let i:number =0;
  let j:number =1;
  
@@ -172,17 +214,21 @@ Sintaksa za <b>while</b> petlju je sledeća:
  i=j-i;
  alert(j);
  }
- </xmp>
+ </xmp
+>
 Prethodni primer ispisuje prvih 12 članova fibonačijevog niza.
-<xmp class = "primer_ta">  
+<xmp class="primer_ta"
+>  
  while(true)
   {
  
  alert('Implementacija beskonačne petlje pomoću while iskaza');
  
   }
- </xmp>
- <xmp class = "primer_ta">
+ </xmp
+>
+<xmp class="primer_ta"
+>
  let j:number=1;
  
  while(j>5)
@@ -193,20 +239,27 @@ Prethodni primer ispisuje prvih 12 članova fibonačijevog niza.
  
   }
   alert(j);
- </xmp>
- U prethodnom primeru prikazana je situacija kada ne dolazi do izvršavaja koda unutar while petlje jer uslov nije zadovoljen u prvoj iteraciji.
-<br>
-<br>
-Za razliku od while petlje u <b>do...while</b> petlji dolazi do izvršavanja koda makar jedanput. Ovo je posledica sintakse jer se prvo izvršava kod pa se tek onda proverava uslov. Sintaksa je sledeća:
-<xmp class = "primer_ta">  
+ </xmp
+>
+U prethodnom primeru prikazana je situacija kada ne dolazi do izvršavaja koda
+unutar while petlje jer uslov nije zadovoljen u prvoj iteraciji.
+<br />
+<br />
+Za razliku od while petlje u <b>do...while</b> petlji dolazi do izvršavanja koda
+makar jedanput. Ovo je posledica sintakse jer se prvo izvršava kod pa se tek
+onda proverava uslov. Sintaksa je sledeća:
+<xmp class="primer_ta"
+>  
  do {
  
   //iskazi
  
   } while(uslov);
- </xmp>
- Naredni primer prikazuje upotrebu do...while petlje.
- <xmp class = "primer_ta">
+ </xmp
+>
+Naredni primer prikazuje upotrebu do...while petlje.
+<xmp class="primer_ta"
+>
  let j:number=1;
  
  do {
@@ -216,12 +269,15 @@ Za razliku od while petlje u <b>do...while</b> petlji dolazi do izvršavanja kod
  
   } while(j>5)
   alert(j);
- </xmp>
+ </xmp
+>
 Iskazi <b>CONTINUE</b> i <b>BREAK</b>
-<br>
-<br>
-Iskaz <b>continue</b> prekida trenutnu iteraciju tj. prekida se izvršavanje koda u petlji i prelazi se na sledeću iteraciju. 
- <xmp class = "primer_ta">  
+<br />
+<br />
+Iskaz <b>continue</b> prekida trenutnu iteraciju tj. prekida se izvršavanje koda
+u petlji i prelazi se na sledeću iteraciju.
+<xmp class="primer_ta"
+>  
  let i:number =0;
   
  while(i<20)
@@ -236,11 +292,14 @@ Iskaz <b>continue</b> prekida trenutnu iteraciju tj. prekida se izvršavanje kod
  alert(i);
  }
  }
- </xmp>
- Prethodni primer prikazuje samo neparne brojeve. (Ako je broj paran iteracija se preskače i prelazi se na sledeću tj. kada je broj neparan)
-  <br>
- Iskaz <b>break</b> prekida trenutnu iteraciju i izlazi iz petlje.
- <xmp class = "primer_ta">  
+ </xmp
+>
+Prethodni primer prikazuje samo neparne brojeve. (Ako je broj paran iteracija se
+preskače i prelazi se na sledeću tj. kada je broj neparan)
+<br />
+Iskaz <b>break</b> prekida trenutnu iteraciju i izlazi iz petlje.
+<xmp class="primer_ta"
+>  
 let i:number =20;
   
  while(i<21)
@@ -260,13 +319,17 @@ let i:number =20;
  }
  
  alert('Ovaj program prikazuje neparne brojeve od 19 do -1');
- </xmp>
-<div class = "napomena">
-Iskaz <b>continue</b> je moguće koristiti samo u okviru petlje dok <b>break</b> u okviru petlje i switch iskaza. 
+ </xmp
+>
+<div class="napomena">
+  Iskaz <b>continue</b> je moguće koristiti samo u okviru petlje dok
+  <b>break</b> u okviru petlje i switch iskaza.
 </div>
-<div class = "zadatak">
-Za zadatke za koje je potrebno da se unese vrednost dovoljno je uneti sledeći blok koda pri pisanju programa:
- <xmp class = "primer_ta">  
+<div class="zadatak">
+  Za zadatke za koje je potrebno da se unese vrednost dovoljno je uneti sledeći
+  blok koda pri pisanju programa:
+  <xmp class="primer_ta"
+>  
 let unos1 = document.createElement("input");
 document.body.appendChild(unos1);
 
@@ -280,11 +343,16 @@ dugme1.textContent = "Računaj";
     let i: number=+unos1.value; 
   
   } 
- </xmp>
-Vrednost <b>i</b> predstavlja vrednost koja je uneta u text polje. Ako je uneta vrednost string onda: <span class = "primer_text"> let i: number=unos1.value </span>. Funkcija <span class = "primer_text">  dugme1.onclick </span> se poziva(kod koji je napisan u njoj se izvršava) pritiskom na dugme "Računaj".
-<br><br>
-<b>Zadatak6:</b><br>
-a)Napisati program koji za uneti prirodan broj n prikazuje njegov faktorijel.
-<br>
-b)Napisati program koji u niz dimenzije 5x5 upisuje elemente fibonačijevog niza i prikazuje elemente sa glavne dijagonale.
+ </xmp
+  >
+  Vrednost <b>i</b> predstavlja vrednost koja je uneta u text polje. Ako je
+  uneta vrednost string onda:
+  <span class="primer_text"> let i: number=unos1.value </span>. Funkcija
+  <span class="primer_text"> dugme1.onclick </span> se poziva(kod koji je
+  napisan u njoj se izvršava) pritiskom na dugme "Računaj". <br /><br />
+  <b>Zadatak6:</b><br />
+  a)Napisati program koji za uneti prirodan broj n prikazuje njegov faktorijel.
+  <br />
+  b)Napisati program koji u niz dimenzije 5x5 upisuje elemente fibonačijevog
+  niza i prikazuje elemente sa glavne dijagonale.
 </div>

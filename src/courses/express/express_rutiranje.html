@@ -3,27 +3,39 @@
 <h2>Definisanje</h2>
 
 U Express aplikaciji rute se definišu na sledeći način:
-<br><br>
-<span class = "primer_text">app.method(path, handler)</span> <br><br>
+<br /><br />
+<span class="primer_text">app.method(path, handler)</span> <br /><br />
 
-gde <b>method</b> predstavlja neku od metoda get, post, put, delete, all, set itd. za koje se vezuju odgovarajući Http zahtevi:<br>
-<b>GET</b> - metoda se koristi za preuzimanje informacija sa datog servera koristeći dati URI (Uniform Resource Identifier - niz znakova koji se koriste za identifikaciju imena veb resursa). GET zahtev samo 
- preuzima podatke sa servera i nema drugi uticaj na iste.<br>
-<b>HEAD</b> - Isti je kao GET, ali prenosi samo status i zaglavlje<br>
-<b>POST</b> - metoda zahteva da server prihvati podatke priložene u zahtevu kao novi objekat resursa koji identifikuje URI.
- To može biti informacija o korisniku, fajl itd.<br>
-<b>PUT</b> - metoda zahteva da server prihvati podatke priložene u zahtevu kao modifikaciju postojećeg objekta identifikovanog pomoću URI. Ako objekat ne postoji, onda PUT metoda treba da ga kreira<br>
-<b>DELETE</b> - metoda zahteva da server izbriše navedeni resurs tj. objekat. dat u URI<br>
-<b>CONNECT</b> - metoda uspostavlja vezu sa serverom identifikovanim sa datim URI<br>
-<b>OPTIONS</b> - metoda omogućuje klijentu da sazna koje Http metode i druge opcije podržava server<br>
-<b>TRACE</b> - metoda služi za debagovanje tako što vraća klijentu ono sto je poslao.<br><br>
+gde <b>method</b> predstavlja neku od metoda get, post, put, delete, all, set
+itd. za koje se vezuju odgovarajući Http zahtevi:<br />
+<b>GET</b> - metoda se koristi za preuzimanje informacija sa datog servera
+koristeći dati URI (Uniform Resource Identifier - niz znakova koji se koriste za
+identifikaciju imena veb resursa). GET zahtev samo preuzima podatke sa servera i
+nema drugi uticaj na iste.<br />
+<b>HEAD</b> - Isti je kao GET, ali prenosi samo status i zaglavlje<br />
+<b>POST</b> - metoda zahteva da server prihvati podatke priložene u zahtevu kao
+novi objekat resursa koji identifikuje URI. To može biti informacija o
+korisniku, fajl itd.<br />
+<b>PUT</b> - metoda zahteva da server prihvati podatke priložene u zahtevu kao
+modifikaciju postojećeg objekta identifikovanog pomoću URI. Ako objekat ne
+postoji, onda PUT metoda treba da ga kreira<br />
+<b>DELETE</b> - metoda zahteva da server izbriše navedeni resurs tj. objekat.
+dat u URI<br />
+<b>CONNECT</b> - metoda uspostavlja vezu sa serverom identifikovanim sa datim
+URI<br />
+<b>OPTIONS</b> - metoda omogućuje klijentu da sazna koje Http metode i druge
+opcije podržava server<br />
+<b>TRACE</b> - metoda služi za debagovanje tako što vraća klijentu ono sto je
+poslao.<br /><br />
 
-<b>path</b> predstavlja rutu (putanju) za koji će zahtev biti pozvan<br><br>
+<b>path</b> predstavlja rutu (putanju) za koji će zahtev biti pozvan<br /><br />
 
-<b>handler</b> predstavlja (callback) funkciju koja će biti izvršena kada se za dobijeni zahtev pronađe odgovarajuća ruta.<br><br>
+<b>handler</b> predstavlja (callback) funkciju koja će biti izvršena kada se za
+dobijeni zahtev pronađe odgovarajuća ruta.<br /><br />
 
 Primer:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('express');
 var app = express();
 
@@ -36,27 +48,44 @@ app.post('/testRuta', function(req, res){
 });
 
 app.listen(2020);
- </xmp>
+ </xmp
+>
 
-<b>Get</b> zahtev sa rutom testRuta se može testirati iz pretraživača sa:<br>
-<span class = "primer_text">http://localhost:2020/testRuta</span> <br>
+<b>Get</b> zahtev sa rutom testRuta se može testirati iz pretraživača sa:<br />
+<span class="primer_text">http://localhost:2020/testRuta</span> <br />
 
 a odgovor treba da bude kao na slici:
-<br><img src="courses/express/rutiranje/get_testRuta.png" class="img-fluid img-md"><br><br>
+<br /><img
+  src="courses/express/rutiranje/get_testRuta.png"
+  class="img-fluid img-md"
+/><br /><br />
 
-Za naprednije testiranje Http zahteva pogodno je korišćenje alata kao što su Advanced REST client (Google Chrome ekstenzija), Postman ili jednostavno kroz CMD koristeći cURL.<br>
-<b>Post</b> zahtev sa rutom testRuta pomoću Advanced REST client se može testirati odabirom metoda <b>POST</b> i postavljanjem URL <b>http://localhost:2020/testRuta</b><br>
+Za naprednije testiranje Http zahteva pogodno je korišćenje alata kao što su
+Advanced REST client (Google Chrome ekstenzija), Postman ili jednostavno kroz
+CMD koristeći cURL.<br />
+<b>Post</b> zahtev sa rutom testRuta pomoću Advanced REST client se može
+testirati odabirom metoda <b>POST</b> i postavljanjem URL
+<b>http://localhost:2020/testRuta</b><br />
 Odgovor treba da bude kao na slici:
-<br><img src="courses/express/rutiranje/post_testRuta.png" class="img-fluid img-md"><br><br>
+<br /><img
+  src="courses/express/rutiranje/post_testRuta.png"
+  class="img-fluid img-md"
+/><br /><br />
 
-Obrada zahteva za određenu rutu bez obzira o kom se tipu Http zahteva radi može se realizovati metodom <b>all</b> na sledeći način:
-<xmp class = "primer_ta">
+Obrada zahteva za određenu rutu bez obzira o kom se tipu Http zahteva radi može
+se realizovati metodom <b>all</b> na sledeći način:
+<xmp class="primer_ta"
+>
 app.all('/testRuta', function(req, res){
    res.send("Obrada bilo kog HTTP zahteva sa rutom testRuta");
-});</xmp>
+});</xmp
+>
 
-Da bi kod bio lak za održavanje, preporučuje se da rute budu izdvojene u poseban fajl npr. <b>things.js</b> (gde će se koristiti Express.Router) koji sadrži sledeći kod:
-<xmp class = "primer_ta">
+Da bi kod bio lak za održavanje, preporučuje se da rute budu izdvojene u poseban
+fajl npr. <b>things.js</b> (gde će se koristiti Express.Router) koji sadrži
+sledeći kod:
+<xmp class="primer_ta"
+>
 var express = require('express');
 var router = express.Router();
 
@@ -69,10 +98,12 @@ router.post('/', function(req, res){
 });
 
 /*eksportuje se router tj. kada se sa require učita things.js fajl učitaće se zapravo router*/
-module.exports = router;</xmp>
+module.exports = router;</xmp
+>
 
 Sada u <b>index.js</b> treba učitati ruter pa će kod biti:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('Express');
 var app = express();
 
@@ -80,7 +111,12 @@ var things = require('./things.js');
 
 app.use('/test', things);
 
-app.listen(2020);</xmp>
+app.listen(2020);</xmp
+>
 
-Ovde se sa app.use postavlja ruter za zadatu '/test' rutu, pa bi test izgledao ovako:
-<br><img src="courses/express/rutiranje/test_things.png" class="img-fluid img-md"><br><br>
+Ovde se sa app.use postavlja ruter za zadatu '/test' rutu, pa bi test izgledao
+ovako:
+<br /><img
+  src="courses/express/rutiranje/test_things.png"
+  class="img-fluid img-md"
+/><br /><br />

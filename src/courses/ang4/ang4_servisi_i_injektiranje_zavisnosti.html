@@ -1,30 +1,46 @@
 <h1>Angular servisi i injektiranje zavisnosti</h1>
-<iframe src="https://embed.plnkr.co/I27FGx0mlpM6hVz460Bt/" frameborder="0" width="100%" height="500px"></iframe>
-Treba razmotriti sledeću strukturu aplikacije. Neka su GlavnaKomponenta, OsobaKomponenta, PodaciKomponenta i DetaljiKomponenta koje sadrže neke metode.
-Na primer, kada se unesu novi podaci u komponentama PodaciKomponenta i DetaljiKomponenta treba da se ispiše informacija u konzoli o tome.
-Ove informacije u konzoli su prilično slične. Ne bi trebalo ponavljati kod u različitim komponentama. To je gomilanje koda i posle nekog vremena postane taj kod nečitljiv.
-Kreiranjem liste osoba u komponenti OsobaKomponenta, problem bi bio ako bi čitanje te liste bilo potrebno u drugom delu aplikacije. 
-Bilo bi dobro kada bi postojala klasa koja će skladištiti te podatke. Zato postoje servisi koji su još jedan deo Angular aplikacije, još jedna klasa koja je centralno skladište podataka.
-Na primer, može se kreirati servis za listu osoba i na jednostavan način pristupati tim podacima iz svake komponente.
-
-Na sledećem primeru će malo bolje biti objašnjeno zašto su potrebni servisi. 
-Treba napraviti aplikaciju koja će sadržati listu računa sa statusom (aktivan, neaktivan ili blokiran).
-Dakle, u ovoj aplikaciji treba napraviti servis za skladištenje podataka.
-Na ovaj način će i komponente na lakši način komunicirati između sebe.
-To je još jedna oblast gde servisi mogu biti od pomoći.
-U primeru postoje dve komponente: GlavnaKomponenta i RacunKomponenta
-Do sada je korišćeno vezivanje podataka pomoću parametra unosa i vezivanje događaja pomoću parametra ispisa za razmenjivanje podataka između komponenti.
-Aplikacija izgleda prilično kompleksno kada se prosleđuju podaci iz jedne u drugu komponentu pomoću vezivanja podataka, iako je prilično jednostavna. E tu u pomoć pristižu servisi.
+<iframe
+  src="https://embed.plnkr.co/I27FGx0mlpM6hVz460Bt/"
+  frameborder="0"
+  width="100%"
+  height="500px"
+></iframe>
+Treba razmotriti sledeću strukturu aplikacije. Neka su GlavnaKomponenta,
+OsobaKomponenta, PodaciKomponenta i DetaljiKomponenta koje sadrže neke metode.
+Na primer, kada se unesu novi podaci u komponentama PodaciKomponenta i
+DetaljiKomponenta treba da se ispiše informacija u konzoli o tome. Ove
+informacije u konzoli su prilično slične. Ne bi trebalo ponavljati kod u
+različitim komponentama. To je gomilanje koda i posle nekog vremena postane taj
+kod nečitljiv. Kreiranjem liste osoba u komponenti OsobaKomponenta, problem bi
+bio ako bi čitanje te liste bilo potrebno u drugom delu aplikacije. Bilo bi
+dobro kada bi postojala klasa koja će skladištiti te podatke. Zato postoje
+servisi koji su još jedan deo Angular aplikacije, još jedna klasa koja je
+centralno skladište podataka. Na primer, može se kreirati servis za listu osoba
+i na jednostavan način pristupati tim podacima iz svake komponente. Na sledećem
+primeru će malo bolje biti objašnjeno zašto su potrebni servisi. Treba napraviti
+aplikaciju koja će sadržati listu računa sa statusom (aktivan, neaktivan ili
+blokiran). Dakle, u ovoj aplikaciji treba napraviti servis za skladištenje
+podataka. Na ovaj način će i komponente na lakši način komunicirati između sebe.
+To je još jedna oblast gde servisi mogu biti od pomoći. U primeru postoje dve
+komponente: GlavnaKomponenta i RacunKomponenta Do sada je korišćeno vezivanje
+podataka pomoću parametra unosa i vezivanje događaja pomoću parametra ispisa za
+razmenjivanje podataka između komponenti. Aplikacija izgleda prilično kompleksno
+kada se prosleđuju podaci iz jedne u drugu komponentu pomoću vezivanja podataka,
+iako je prilično jednostavna. E tu u pomoć pristižu servisi.
 
 <h2>Kreiranje servisa</h2>
-Kreiranje servisa je vrlo jednostavno. Na primer, u app direktorijumu napraviti novu datoteku pod nazivom racuni.servis.ts i u njemu napraviti klasu
-<xmp class = "primer_ta">
+Kreiranje servisa je vrlo jednostavno. Na primer, u app direktorijumu napraviti
+novu datoteku pod nazivom racuni.servis.ts i u njemu napraviti klasu
+<xmp class="primer_ta"
+>
 export class RacuniServis {
 	
 }
-</xmp> 
-Servis je obična TypeScript klasa. Unutar klase napraviti listu objekata Račun sa parametrima brojRacuna i status.
-<xmp class = "primer_ta">
+</xmp>
+Servis je obična TypeScript klasa. Unutar klase napraviti listu objekata Račun
+sa parametrima brojRacuna i status.
+<xmp class="primer_ta"
+>
 export class RacuniServis {
 	racuni: { brojRacuna: number, status: string}[] = [ { brojRacuna: 12345, status: 'otvoren' }, 
 														{ brojRacuna: 11111, status: 'zatvoren' },
@@ -32,11 +48,14 @@ export class RacuniServis {
 														{ brojRacuna: 11223, status: 'otvoren' }
 														];
 }
-</xmp> 
-Ovo je dobar primer gde se može na lep način objasniti na koji način se preko servisa skladište podaci i upravlja njima.
-Sada se kroz listu računa prolazi iz servisa, a ne iz komponente samo je potrebno injektirati taj servis u komponentu.
-Dodati u klasu metodu dodajRacun za koju treba koristiti funkciju push za dodavanje u listu računa.
-<xmp class = "primer_ta">
+</xmp>
+Ovo je dobar primer gde se može na lep način objasniti na koji način se preko
+servisa skladište podaci i upravlja njima. Sada se kroz listu računa prolazi iz
+servisa, a ne iz komponente samo je potrebno injektirati taj servis u
+komponentu. Dodati u klasu metodu dodajRacun za koju treba koristiti funkciju
+push za dodavanje u listu računa.
+<xmp class="primer_ta"
+>
 export class RacuniServis {
 	racuni: { brojRacuna: number, status: string}[] = [ { brojRacuna: 12345, status: 'otvoren' }, 
 														{ brojRacuna: 11111, status: 'zatvoren' },
@@ -49,47 +68,61 @@ export class RacuniServis {
 	}
 
 }
-</xmp> 
-Sada kada je napravljen servis treba ga upotrebiti u nekoj od komponenti.
-Prvo ga treba uvesti u komponentu, a zatim napraviti instancu klase RacuniServis().
+</xmp>
+Sada kada je napravljen servis treba ga upotrebiti u nekoj od komponenti. Prvo
+ga treba uvesti u komponentu, a zatim napraviti instancu klase RacuniServis().
 Uvodi se kao i sve ostale klase
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 import { RacuniServis } from 'putanja-do-datoteke/racuni.servis;
-</xmp> 
+</xmp>
 Treba analizirati sledeći kod
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 const porukaServis = new PorukaServis()
-</xmp> 
-Ako na ovaj način se uvede servis u komponentu aplikacija će raditi, ali ovaj način je pogrešan. 
-Na ovaj način ne treba koristiti servise u radnom okviru Angular. Generalno, Angular obezbeđuje mnogo bolji način za pristupanje servisima. 
-Ne bi trebalo ručno praviti instancu.
-U sledecoj delu lekcije biće obradiđeno koji alat nam Angular nudi za pristupanje servisima. 
+</xmp>
+Ako na ovaj način se uvede servis u komponentu aplikacija će raditi, ali ovaj
+način je pogrešan. Na ovaj način ne treba koristiti servise u radnom okviru
+Angular. Generalno, Angular obezbeđuje mnogo bolji način za pristupanje
+servisima. Ne bi trebalo ručno praviti instancu. U sledecoj delu lekcije biće
+obradiđeno koji alat nam Angular nudi za pristupanje servisima.
 
 <h2>Injektiranje servisa u komponentu</h2>
-U prethodnom delu lekcije je kreiran servis i rečeno je da se ne koriste ručno kreirane instance.
-Radni okvir Angular nudi odličan alat za pristup servisima. To je injektiranje zavisnosti radnog okvira Angular. 
-Šta je injektiranje zavisnosti? Zavisnost je neka klasa od koje zavisi neka druga klasa.
-Na primer, novi-racun komponenta zavisi od servisa racuni.servis.ts zbog metode koja se poziva u komponenti.
-Injektor zavisnosti jednostavno ubacuje tu zavisnost, tj. instancu te klase, automatski. 
-Treba informisati radni okvir Angular kada je podnet zahtev za takvu instancu, a to će se desiti dodavanjem konstruktora u klasu komponente u kojoj se koristi taj servis.
-On se može vezati parametrom, koristeći TypeScript prečicu dodavanjem pristupa ispred imena argumenta da se istog trenutka kreira
- parametar istog imena i dodati mu tip koji nije opcioni, tj. mora se odrediti tip koji je, u stvari, ime željenog servisa
-<xmp class = "primer_ta">
+U prethodnom delu lekcije je kreiran servis i rečeno je da se ne koriste ručno
+kreirane instance. Radni okvir Angular nudi odličan alat za pristup servisima.
+To je injektiranje zavisnosti radnog okvira Angular. Šta je injektiranje
+zavisnosti? Zavisnost je neka klasa od koje zavisi neka druga klasa. Na primer,
+novi-racun komponenta zavisi od servisa racuni.servis.ts zbog metode koja se
+poziva u komponenti. Injektor zavisnosti jednostavno ubacuje tu zavisnost, tj.
+instancu te klase, automatski. Treba informisati radni okvir Angular kada je
+podnet zahtev za takvu instancu, a to će se desiti dodavanjem konstruktora u
+klasu komponente u kojoj se koristi taj servis. On se može vezati parametrom,
+koristeći TypeScript prečicu dodavanjem pristupa ispred imena argumenta da se
+istog trenutka kreira parametar istog imena i dodati mu tip koji nije opcioni,
+tj. mora se odrediti tip koji je, u stvari, ime željenog servisa
+<xmp class="primer_ta"
+>
 constructor(private racuniServis: RacuniServis){ }
-</xmp> 
-<div class = "napomena">
-<b>Napomena:</b>Nemojte zaboraviti da uvedete tu klasu iz datoteke.
+</xmp>
+<div class="napomena">
+  <b>Napomena:</b>Nemojte zaboraviti da uvedete tu klasu iz datoteke.
 </div>
-Ovaj jednostavan kod informiše radni okvir Angular da je komponenti potrebna instanca ovog servisa.
-Na koji način se informiše Angular o tome? Ko je odgovoran za kreiranje komponenti?
-Naravno, radni okvir Angular je odgovoran zato što je u dekoratoru komponente postavljena vrednost selektora. A kada Angular prođe kroz ove selektore on instancira komponentu. 
-Sada, dok god je radni okvir odgovoran za instanciranje komponenti, on  treba da ih konstruiše na odgovarajući način.
-Ako su definisani u konstruktoru i zahteva se neki argument, Angular će ga prepoznati i pokušati da dodeli taj argument, tj. tip tog argumenta u ovom slučaju.
-Potrebno je instancirati racuniServis klasu. Ovo je skoro dovoljno.
-Sada Angular zna za instancu, ali ne zna kako da je dodeli. Treba dodati još jedan korak i "objasniti" radnom okviru Angular kako da obezbedi servis.
-To zvuči veoma komplikovano, ali je u stvari veoma jednostavno.
-Samo treba dodati parametar <span class="primer_text">providers</span> u dekorator komponente.
-<xmp class = "primer_ta">
+Ovaj jednostavan kod informiše radni okvir Angular da je komponenti potrebna
+instanca ovog servisa. Na koji način se informiše Angular o tome? Ko je
+odgovoran za kreiranje komponenti? Naravno, radni okvir Angular je odgovoran
+zato što je u dekoratoru komponente postavljena vrednost selektora. A kada
+Angular prođe kroz ove selektore on instancira komponentu. Sada, dok god je
+radni okvir odgovoran za instanciranje komponenti, on treba da ih konstruiše na
+odgovarajući način. Ako su definisani u konstruktoru i zahteva se neki argument,
+Angular će ga prepoznati i pokušati da dodeli taj argument, tj. tip tog
+argumenta u ovom slučaju. Potrebno je instancirati racuniServis klasu. Ovo je
+skoro dovoljno. Sada Angular zna za instancu, ali ne zna kako da je dodeli.
+Treba dodati još jedan korak i "objasniti" radnom okviru Angular kako da
+obezbedi servis. To zvuči veoma komplikovano, ali je u stvari veoma jednostavno.
+Samo treba dodati parametar <span class="primer_text">providers</span> u
+dekorator komponente.
+<xmp class="primer_ta"
+>
 import { Component } from '@angular/core';
 import { RacuniServis } from 'putanja-do-datoteke/racuni.servis';
 
@@ -103,11 +136,14 @@ export class RacunKomponenta{
 	
 }
 </xmp>
-Sa tim sada Angular analizira komponentu, prepoznaje da je moguće dodeliti servis RacuniServis i postavljen je da može da to odradi.
-Kad se konačno konstruiše komponenta, on vidi da postoji takva instanca i tada zna kako da dodeli tu instancu. 
-Sada na jednostavan način se može pristupiti metodama i listi, koje smo kreirali u servisu, bilo gde u komponenti.
-U komponenti RacunKomponenta dodati funkciju koja čita iz liste računa u servisu i dodaje u prazan niz računa sve učitane račune
-<xmp class = "primer_ta">
+Sa tim sada Angular analizira komponentu, prepoznaje da je moguće dodeliti
+servis RacuniServis i postavljen je da može da to odradi. Kad se konačno
+konstruiše komponenta, on vidi da postoji takva instanca i tada zna kako da
+dodeli tu instancu. Sada na jednostavan način se može pristupiti metodama i
+listi, koje smo kreirali u servisu, bilo gde u komponenti. U komponenti
+RacunKomponenta dodati funkciju koja čita iz liste računa u servisu i dodaje u
+prazan niz računa sve učitane račune
+<xmp class="primer_ta">
 import { Component } from '@angular/core';
 import { RacuniServis } from 'putanja-do-datoteke/racuni.servis';
 
@@ -129,13 +165,18 @@ export class RacunKomponenta{
 	}	
 }
 </xmp>
-Za pozivanje funkcije ucitajRacune() u trenutku kreiranja komponente odradiće se implementiranjem u ngOnInit metodu radnog okvira Angular. 
-On nam nudi razne interfejse za dosezanje kritičkih momenata u životnom ciklusu komponente: pri kreiranju komponente, posle svake promene u komponenti i eventualnog uništenja komponente.
-Svaki interfejs ima jedinstvenu metodu. Kada komponenta implementira tu metodu, Angular je poziva u odgovarajućem trenutku.
-Dakle, treba dodati implementaciju za OnInit interfejs u izraz klase, kao i uvesti interfejs OnInit iz biblioteke '@angular/core'. 
-Na kraju napisati ngOnInit metodu sa logičkom inicijalizacijom unutar metode. Kao što je već rečeno, Angular će je pozvati u odgovarajućem trenutku. 
-U ovom slučaju, inicijalizirati je sa funkcijom ucitajRacune()
-<xmp class = "primer_ta">
+Za pozivanje funkcije ucitajRacune() u trenutku kreiranja komponente odradiće se
+implementiranjem u ngOnInit metodu radnog okvira Angular. On nam nudi razne
+interfejse za dosezanje kritičkih momenata u životnom ciklusu komponente: pri
+kreiranju komponente, posle svake promene u komponenti i eventualnog uništenja
+komponente. Svaki interfejs ima jedinstvenu metodu. Kada komponenta implementira
+tu metodu, Angular je poziva u odgovarajućem trenutku. Dakle, treba dodati
+implementaciju za OnInit interfejs u izraz klase, kao i uvesti interfejs OnInit
+iz biblioteke '@angular/core'. Na kraju napisati ngOnInit metodu sa logičkom
+inicijalizacijom unutar metode. Kao što je već rečeno, Angular će je pozvati u
+odgovarajućem trenutku. U ovom slučaju, inicijalizirati je sa funkcijom
+ucitajRacune()
+<xmp class="primer_ta">
 import { Component, OnInit } from '@angular/core';
 import { RacuniServis } from 'putanja-do-datoteke/racuni.servis';
 
@@ -161,6 +202,7 @@ export class RacunKomponenta implements OnInit{
 	}	
 }
 </xmp>
-<div class = "zadatak">
-<b>Zadatak:</b>Napraviti servis koji će sadržati podatke o listi letova i metodu za dodavanje novog leta. 
+<div class="zadatak">
+  <b>Zadatak:</b>Napraviti servis koji će sadržati podatke o listi letova i
+  metodu za dodavanje novog leta.
 </div>

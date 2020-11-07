@@ -1,16 +1,32 @@
 ﻿<h1>Objektno orijentisano programiranje</h1>
-Objektno orijentisano programiranje je programska paradigma zasnovana na konceptu "objekta", koji može da sadrži podatke u vidu polja i kôd u vidu procedure koja se još naziva metod. Osim ovog koncepta objektno orijentisano programiranje  odlikuju i 
-koncepti kao što su klase, nasleđivanje, enkapsulacija, apstraktne klase, polimorfizam itd. Zbog toga objektno orijentisano programiranje ima bitnu ulogu u programskom jeziku TypeScript.
+Objektno orijentisano programiranje je programska paradigma zasnovana na
+konceptu "objekta", koji može da sadrži podatke u vidu polja i kôd u vidu
+procedure koja se još naziva metod. Osim ovog koncepta objektno orijentisano
+programiranje odlikuju i koncepti kao što su klase, nasleđivanje, enkapsulacija,
+apstraktne klase, polimorfizam itd. Zbog toga objektno orijentisano
+programiranje ima bitnu ulogu u programskom jeziku TypeScript.
 <h3>Objekti</h3>
- Svaki entitet koji ima stanje i ispoljava ponašanje naziva se objekata. Objekat u programskom jeziku TypeScript predstavlja samostalan entitet koji se sastoji od podataka i procedura <!--postupak--> koje manipulišu<!--rukuju--> podacima.
- Polja u objektu opisuju karakteristike<!--osobine--> objekta dok metode opisuju njegovo ponašanje. Ako uzmemo npr. psa kao primer objekta on ima svoje karakteristike kao što su ime, visina, rasa, težina i ponašanja kao što je lajati, trčati, pružiti šapu itd. 
-Objekat može da sadrži razne vrste podataka počevši od prostih tipova(kao što su brojevi ili niske karaktera), strukture (kao što su nizovi) pa sve drugih objekata. U programskom jeziku TypeScript objekat se može kreirati <!--definisatina-->na dva načina:  
-<ul style="list-style-type:circle">
-  <li>Eksplicitno pomoću <span class = "primer_text"> {} </span></li>
+Svaki entitet koji ima stanje i ispoljava ponašanje naziva se objekata. Objekat
+u programskom jeziku TypeScript predstavlja samostalan entitet koji se sastoji
+od podataka i procedura
+<!--postupak-->
+koje manipulišu<!--rukuju-->
+podacima. Polja u objektu opisuju karakteristike<!--osobine-->
+objekta dok metode opisuju njegovo ponašanje. Ako uzmemo npr. psa kao primer
+objekta on ima svoje karakteristike kao što su ime, visina, rasa, težina i
+ponašanja kao što je lajati, trčati, pružiti šapu itd. Objekat može da sadrži
+razne vrste podataka počevši od prostih tipova(kao što su brojevi ili niske
+karaktera), strukture (kao što su nizovi) pa sve drugih objekata. U programskom
+jeziku TypeScript objekat se može kreirati
+<!--definisatina-->na dva načina:
+<ul style="list-style-type: circle">
+  <li>Eksplicitno pomoću <span class="primer_text"> {} </span></li>
   <li>Konstruktora klase</li>
-</ul> 
-U ovom odeljku opisan je prvi način kreiranja objekta. Sintaksa za eksplicitno kreiranje objekta je:
-<xmp class = "primer_ta">  
+</ul>
+U ovom odeljku opisan je prvi način kreiranja objekta. Sintaksa za eksplicitno
+kreiranje objekta je:
+<xmp class="primer_ta"
+>  
 let ime_objekta = {
                 ime_polja_1: vrednost_polja_1,
                 ime_polja_2: vrednost_polja_2,
@@ -27,11 +43,21 @@ let ime_objekta = {
                                         } 
                 };
  
- </xmp>
- Promenljiva <span class = "primer_text">ime_objekta</span> pokazuje <!--čuva adresu objekta?-->  na objekat koji je kreiran. Tip promenljive eksplicitno kreiranog objekta je uvek <b>Object</b> zbog toga se nikad ne deklariše tip promenljive.
- Sadržaj objekta se navodi unutar <span class = "primer_text"> {}</span>.  Uvek se prvo navodi ime za kojim zatim sledi znak <span class = "primer_text">:</span> posle kojeg se navodi vrednost polja ili deklaracija i definicija funkcije. (u zavisnosti od toga šta se definiše)
- Na kraju svake definicije <!--opisa--> polja ili funkcije ide znak <span class = "primer_text">,</span> posle kojeg počinje nova definicije.
- <xmp class = "primer_ta">  
+ </xmp
+>
+Promenljiva <span class="primer_text">ime_objekta</span> pokazuje
+<!--čuva adresu objekta?-->
+na objekat koji je kreiran. Tip promenljive eksplicitno kreiranog objekta je
+uvek <b>Object</b> zbog toga se nikad ne deklariše tip promenljive. Sadržaj
+objekta se navodi unutar <span class="primer_text"> {}</span>. Uvek se prvo
+navodi ime za kojim zatim sledi znak <span class="primer_text">:</span> posle
+kojeg se navodi vrednost polja ili deklaracija i definicija funkcije. (u
+zavisnosti od toga šta se definiše) Na kraju svake definicije
+<!--opisa-->
+polja ili funkcije ide znak <span class="primer_text">,</span> posle kojeg
+počinje nova definicije.
+<xmp class="primer_ta"
+>  
 let pas = {
 
     ime: 'Lesi',
@@ -70,12 +96,28 @@ alert(pas.brzina_kretanja(5, 0.5));
 alert(pas.svi_drugari());
 
 alert(pas instanceof Object); // Pomoću operatora instaceof može da se proveri da li određeni objekat pripada određenoj klasi
- </xmp>
-Znak <span class = "primer_text">.</span> se koristi da bi se pristupilo vrednostima polja i pozivima metoda objekata.<br><br> Da bi se pristupilo vrednosti polja sintaksa je:  <span class= "primer_text">ime_objekta.ime_polja</span>.<br><br> Da bi se pristupilo pozivu metoda sintaksa je:<span class= "primer_text">ime_objekta.ime_metoda(lista_argumenata)</span>.
-<div class = "napomena">Na isti način se pristupa vrednostima polja i pozivima metoda objekata koji su kreirani pomoću konstruktora klase. Jedina razlika je što u definiciji klase se koristi sintaksa <span class = "primer_text">this.ime_polja</span> ili <span class = "primer_text">this.ime_metoda(lista_argumenata)</span>. Upotrebom ključna reč <b>this</b> je način da se u klasi opiše sintaksa  
-<span class = "primer_text">ime_objekta.ime_polja</span> ili <span class = "primer_text">ime_objekta.ime_metoda(lista_argumenata)</span> koja ća važiti za sve objekte te klase.</div>
+ </xmp
+>
+Znak <span class="primer_text">.</span> se koristi da bi se pristupilo
+vrednostima polja i pozivima metoda objekata.<br /><br />
+Da bi se pristupilo vrednosti polja sintaksa je:
+<span class="primer_text">ime_objekta.ime_polja</span>.<br /><br />
+Da bi se pristupilo pozivu metoda sintaksa je:<span class="primer_text"
+  >ime_objekta.ime_metoda(lista_argumenata)</span
+>.
+<div class="napomena">
+  Na isti način se pristupa vrednostima polja i pozivima metoda objekata koji su
+  kreirani pomoću konstruktora klase. Jedina razlika je što u definiciji klase
+  se koristi sintaksa <span class="primer_text">this.ime_polja</span> ili
+  <span class="primer_text">this.ime_metoda(lista_argumenata)</span>. Upotrebom
+  ključna reč <b>this</b> je način da se u klasi opiše sintaksa
+  <span class="primer_text">ime_objekta.ime_polja</span> ili
+  <span class="primer_text">ime_objekta.ime_metoda(lista_argumenata)</span> koja
+  ća važiti za sve objekte te klase.
+</div>
 Objekte je moguće koristiti kao parametre funkcije.
- <xmp class = "primer_ta">  
+<xmp class="primer_ta"
+>  
 function moja_funkcija(o_1: { ime: string, prezime: string }, o_2:{godine:number, tezina:number}):string
 { 
 
@@ -83,29 +125,55 @@ return 'Ova osobe se zove ' + o_1.ime + ' ' +o_1.prezime + '. Ima '+o_2.godine+'
 }
 
 alert (moja_funkcija({ ime: 'Dušan', prezime: 'Dušanović' }, { godine: 26, tezina: 92 }));
- </xmp>
- Argumenti funkcije se prosleđuju kao <span class = "primer_text">{}</span> u kojima se mora isto navest imena parametara sa željenim vrednostima.
+ </xmp
+>
+Argumenti funkcije se prosleđuju kao <span class="primer_text">{}</span> u
+kojima se mora isto navest imena parametara sa željenim vrednostima.
 <h2>Klase</h2>
-Programski jezik TypeScript podržava koncept klase koja predstavlja jednu od osnovnih odlika objektno orijentisanog programiranja. Klasa predstavlja definiciju objekta, koje podatke može da sadrži i koje akcije može da obavlja. Ona služi kao matrica<!--plan--> po kojoj se objekti kreiraju. Objekat pripada određenoj klasi ako poseduje svojstva<!--osobine--> koje su opisane u toj klasi kao što su polja<!--atributi-->, metodi itd.
-<br><br>
-Za deklaraciju klase potrebno je koristiti ključnu reč <b>class</b>. Sintaksa je:
- <xmp class = "primer_ta">  
+Programski jezik TypeScript podržava koncept klase koja predstavlja jednu od
+osnovnih odlika objektno orijentisanog programiranja. Klasa predstavlja
+definiciju objekta, koje podatke može da sadrži i koje akcije može da obavlja.
+Ona služi kao matrica<!--plan-->
+po kojoj se objekti kreiraju. Objekat pripada određenoj klasi ako poseduje
+svojstva<!--osobine-->
+koje su opisane u toj klasi kao što su polja<!--atributi-->, metodi itd.
+<br /><br />
+Za deklaraciju klase potrebno je koristiti ključnu reč <b>class</b>. Sintaksa
+je:
+<xmp class="primer_ta"
+>  
 class ime_klasa 
 {
 
 //kôd kojim se opisuju svojstva klase
 
 }
- </xmp>
- Posle ključne reči <b>class</b> sledi ime klase za koje važi pravila davanja imena kao kod promenljivh. Nakon imena klase sledi definicija klase koja opisuje sva svojstva klase. Definicija klase može sadržati:<br>
- <ul style="list-style-type:circle">
-  <li><b>Polja -</b> Polje je bilo koja promenljiva deklarisana u klasi. Polja predstavljaju podatke koji se odnose na objekte i na taj način ih opisuju.</li>
-  <li><b>Konstruktor -</b> Konstruktor je specijalna funkcija koja se poziva prilikom  kreiranja objekta. </li>
-  <li><b>Metod -</b> Metod je funkcija koja predstavlja akciju koju objekat može da preduzme. </li>
-</ul> 
-<br>
-Polja,konstruktori i metodi se još nazivaju svojstvima klase.<!--Stvarno nemam pojma kako da prevedem data members a da ne zvuči glupo.--> Konstruktor omogućava da se tokom kreiranja objekta postave početne vrednosti  polja u objektu. Zbog toga prilikom deklarisanja i definisanja konstruktora u klasi treba odrediti polja koja će biti parametri u konstruktoru.
- <xmp class = "primer_ta">  
+ </xmp
+>
+Posle ključne reči <b>class</b> sledi ime klase za koje važi pravila davanja
+imena kao kod promenljivh. Nakon imena klase sledi definicija klase koja opisuje
+sva svojstva klase. Definicija klase može sadržati:<br />
+<ul style="list-style-type: circle">
+  <li>
+    <b>Polja -</b> Polje je bilo koja promenljiva deklarisana u klasi. Polja
+    predstavljaju podatke koji se odnose na objekte i na taj način ih opisuju.
+  </li>
+  <li>
+    <b>Konstruktor -</b> Konstruktor je specijalna funkcija koja se poziva
+    prilikom kreiranja objekta.
+  </li>
+  <li>
+    <b>Metod -</b> Metod je funkcija koja predstavlja akciju koju objekat može
+    da preduzme.
+  </li>
+</ul>
+<br />
+Polja,konstruktori i metodi se još nazivaju svojstvima klase.<!--Stvarno nemam pojma kako da prevedem data members a da ne zvuči glupo.-->
+Konstruktor omogućava da se tokom kreiranja objekta postave početne vrednosti
+polja u objektu. Zbog toga prilikom deklarisanja i definisanja konstruktora u
+klasi treba odrediti polja koja će biti parametri u konstruktoru.
+<xmp class="primer_ta"
+>  
 class Osoba 
   {
     ime: string;
@@ -131,23 +199,45 @@ class Osoba
   
  let Srbin = new Osoba('Stefan', 'Nemanja', 190);
  alert(Srbin.metod_klase());
- </xmp>
- U ovom primeru definisana je klasa koja ime <b>Osoba</b>. Ona sadrži polja <b>ime</b>, <b>prezime</b>, <b>visina</b>, <b>verska_pripadnost</b> i metod <b>metod_klase</b>.
- <br><br>
- <ul style="list-style-type:circle">
+ </xmp
+>
+U ovom primeru definisana je klasa koja ime <b>Osoba</b>. Ona sadrži polja
+<b>ime</b>, <b>prezime</b>, <b>visina</b>, <b>verska_pripadnost</b> i metod
+<b>metod_klase</b>. <br /><br />
+<ul style="list-style-type: circle">
   <li>Klasne deklaracije funkcija ne sadrži ključnu reč <b>function</b></li>
-  <li>Ime konstruktora svake klase je <b>constructor</b> </li>
-  <li>Može postojati više deklaracija konstruktora ali samo jedna implemnetacija. (function overloading)</li>
-  <li>Ključna reč <b>this</b> omogućava korišćenje polja i metoda unutar klase. Takodje <b>this</b> se koristi kako bi se izbegla dvosmislenost kada je ime polja i parametara metoda isto.</li>
-</ul> 
-<div class = "napomena">U zavisnosti od konteksta reč <b>constructor</b> može biti ključna reč zbog toga se preporučuje da se koristi samo pri imenovanju konstruktora klase. Ako se ne definiše konstruktor onda kompajler toj klasi dodeljuje generički konstruktor</div>
+  <li>Ime konstruktora svake klase je <b>constructor</b></li>
+  <li>
+    Može postojati više deklaracija konstruktora ali samo jedna implemnetacija.
+    (function overloading)
+  </li>
+  <li>
+    Ključna reč <b>this</b> omogućava korišćenje polja i metoda unutar klase.
+    Takodje <b>this</b> se koristi kako bi se izbegla dvosmislenost kada je ime
+    polja i parametara metoda isto.
+  </li>
+</ul>
+<div class="napomena">
+  U zavisnosti od konteksta reč <b>constructor</b> može biti ključna reč zbog
+  toga se preporučuje da se koristi samo pri imenovanju konstruktora klase. Ako
+  se ne definiše konstruktor onda kompajler toj klasi dodeljuje generički
+  konstruktor
+</div>
 
-Sintaksa za korišćenje polja unutar klase:<span class = "primer_text">this.ime_polja</span>
-<br><br>
+Sintaksa za korišćenje polja unutar klase:<span class="primer_text"
+  >this.ime_polja</span
+>
+<br /><br />
 <b>KREIRANJE OBJEKTA KLASE</b>
-<br><br>
-Da bi se kreirao objekat klase potrebno je upotrebiti ključnu reč <b>new</b> iza koje sledi ime klase. Objekti klase se još nazivaju instance.<br><br> Sintaksa je: <span class = "primer_text"> let ime_objekta = new ime_klase (lista_argumenata)</span>
-<xmp class = "primer_ta">  
+<br /><br />
+Da bi se kreirao objekat klase potrebno je upotrebiti ključnu reč <b>new</b> iza
+koje sledi ime klase. Objekti klase se još nazivaju instance.<br /><br />
+Sintaksa je:
+<span class="primer_text">
+  let ime_objekta = new ime_klase (lista_argumenata)</span
+>
+<xmp class="primer_ta"
+>  
 class Pas
   { 
 
@@ -171,12 +261,19 @@ class Pas
 let seoski_pas = new Pas('Žućo', 'mešanac');
 
 seoski_pas.lavež();
- </xmp>
- U ovom primeru je napravljen objekat <span class = "primer_text">seoski_pas</span> koji pripada klasi <span class = "primer_text">Pas</span>. Prilikom poziva konstruktora prosleđene su vrednosti  'Žućo' i 'mešanac'.
- <br><br>
- <b>Tip Objekta je klasa iz koje je izveden.</b>
- <div class = "napomena"> Pomoću operatora <b>inasanceof</b> može da se proveri da li objekat pripada određenoj klasi.</div>
- <xmp class = "primer_ta">  
+ </xmp
+>
+U ovom primeru je napravljen objekat
+<span class="primer_text">seoski_pas</span> koji pripada klasi
+<span class="primer_text">Pas</span>. Prilikom poziva konstruktora prosleđene su
+vrednosti 'Žućo' i 'mešanac'. <br /><br />
+<b>Tip Objekta je klasa iz koje je izveden.</b>
+<div class="napomena">
+  Pomoću operatora <b>inasanceof</b> može da se proveri da li objekat pripada
+  određenoj klasi.
+</div>
+<xmp class="primer_ta"
+>  
 class Nindž_klasa
     {
     polje: string = 'U suštini za ovaj primer klasa može da bude prazna.';
@@ -198,19 +295,34 @@ let j = new Još_opasnija_Nindž_klasa();
 alert(j instanceof Obična_klasa);
 alert(j instanceof Još_opasnija_Nindž_klasa);
 alert(j instanceof Nindž_klasa);
- </xmp>
- Operator <b>instanceof</b> vraća vrednost true i za nadklasu!
- <h3>Nasleđivanje klase</h3>
- Nasleđivanje <!--klase--> je mehanizam <!--koncept--> koji omogućava da se od postojeće klase dobije nova klasa koja sem konstruktora poseduje sve osobine kao postojeća klasa. Objekti nove klase poseduju ista polja i funckije kao objekti postojeće klase.
- Klasa od koje se dobija nova klase naziva se nadklasa, roditeljska ili super klasa. Klasa koja nastaje od roditeljske klase naziva se podklasa ili dečija<!--ptomak--> klasa. Da bi jedna klasa nasledila drugu klasu potrebno je koristi ključnu reč <b>extends</b>. <br><br>Sintaksa je:
- <xmp class = "primer_ta">  
+ </xmp
+>
+Operator <b>instanceof</b> vraća vrednost true i za nadklasu!
+<h3>Nasleđivanje klase</h3>
+Nasleđivanje
+<!--klase-->
+je mehanizam
+<!--koncept-->
+koji omogućava da se od postojeće klase dobije nova klasa koja sem konstruktora
+poseduje sve osobine kao postojeća klasa. Objekti nove klase poseduju ista polja
+i funckije kao objekti postojeće klase. Klasa od koje se dobija nova klase
+naziva se nadklasa, roditeljska ili super klasa. Klasa koja nastaje od
+roditeljske klase naziva se podklasa ili dečija<!--ptomak-->
+klasa. Da bi jedna klasa nasledila drugu klasu potrebno je koristi ključnu reč
+<b>extends</b>. <br /><br />Sintaksa je:
+<xmp class="primer_ta"
+>  
    class ime_podklasa extends ime_nadklase 
    {
    
    }
- </xmp>
- <div class = "napomena">Klasa može imati samo jednu nadklasu i neograničen broj podklasa. </div>
-<xmp class = "primer_ta">  
+ </xmp
+>
+<div class="napomena">
+  Klasa može imati samo jednu nadklasu i neograničen broj podklasa.
+</div>
+<xmp class="primer_ta"
+>  
 class Osoba
 { 
     ime: string;
@@ -263,12 +375,24 @@ let profesor_mateamtike = new Nastavnik('Matematika', false, 'Dušan', 24);
 
 profesor_mateamtike.pozdrav();
 alert(profesor_mateamtike.prosek_ocena_u_odeljenu(5, 4, 1, 1, 2, 4, 3, 3, 5));
- </xmp>
- U ovom primeru klasa <b>Nastavnik</b> nasleđuje klasu <b>Osoba</b>. Svaki nastavnik je osoba ali svaka osoba nije nastavnik. Pošto klasa <b>Nastavnik</b> nasleđuje klasu <b>Osoba</b> nema potrebe da se u klasi <b>Nastavnik</b> ponovo definišu polja <b>ime</b>, <b>prezime</b>, <b>godine</b> i metod <b>pozdrav</b>.
- <br><br>
-Za poziv metoda nadklase u metodu podklase koristi se ključna reč <b>super</b>. <br>Sintaksa je: <span class = "primer_text"> super.ime_metoda_nadklase </span>
-<div class = "napomena">Svaki konstruktor podklase mora sadržati poziv konstruktora nadklase. Za poziv konstruktora nadklase koristi se  <b>super(lista_argumenata)</b>. Tip povratne vrednosti konstruktora je void. <br>Ne postoji izraz <span class = "primer_text">super.ime_polja</span> već samo <span class = "primer_text">this.ime_polja</span> !</div>
-<xmp class = "primer_ta"> 
+ </xmp
+>
+U ovom primeru klasa <b>Nastavnik</b> nasleđuje klasu <b>Osoba</b>. Svaki
+nastavnik je osoba ali svaka osoba nije nastavnik. Pošto klasa
+<b>Nastavnik</b> nasleđuje klasu <b>Osoba</b> nema potrebe da se u klasi
+<b>Nastavnik</b> ponovo definišu polja <b>ime</b>, <b>prezime</b>,
+<b>godine</b> i metod <b>pozdrav</b>. <br /><br />
+Za poziv metoda nadklase u metodu podklase koristi se ključna reč <b>super</b>.
+<br />Sintaksa je: <span class="primer_text"> super.ime_metoda_nadklase </span>
+<div class="napomena">
+  Svaki konstruktor podklase mora sadržati poziv konstruktora nadklase. Za poziv
+  konstruktora nadklase koristi se <b>super(lista_argumenata)</b>. Tip povratne
+  vrednosti konstruktora je void. <br />Ne postoji izraz
+  <span class="primer_text">super.ime_polja</span> već samo
+  <span class="primer_text">this.ime_polja</span> !
+</div>
+<xmp class="primer_ta"
+> 
   //Umesto
   constructor(nastavni_predmet: string, razdredni_starešina: boolean, ime:string, godine:number)
          { 
@@ -291,12 +415,22 @@ Za poziv metoda nadklase u metodu podklase koristi se ključna reč <b>super</b>
            this.razdredni_starešina = razdredni_starešina;
          }
 </xmp>
-Ovo nije ispravan kod , već služi samo kao poređenje kako bi se razjasnila uloga konstruktora nadklase u konstruktoru podklase.
-<br><br>
-<b>PREVLADAVANJE<!--prevazilaženje u knjizi pise--><!--redefinicija--> <!--zamena imeplementacije metoda--> METODA <!--NADKLASE  metod overiding--></b>
-<br><br>
-Prevladavanje metoda <b>(method overriding)</b> je mehanizam koji omogućava da metod podklase ima istu deklaraciju <!--potpis-->(imena parametara i modifikator pristupa mogu da se razlikuju) ali različitu implementaciju od metoda nadklase.
-<xmp class = "primer_ta"> 
+Ovo nije ispravan kod , već služi samo kao poređenje kako bi se razjasnila uloga
+konstruktora nadklase u konstruktoru podklase.
+<br /><br />
+<b
+  >PREVLADAVANJE<!--prevazilaženje u knjizi pise--><!--redefinicija-->
+  <!--zamena imeplementacije metoda-->
+  METODA
+  <!--NADKLASE  metod overiding--></b
+>
+<br /><br />
+Prevladavanje metoda <b>(method overriding)</b> je mehanizam koji omogućava da
+metod podklase ima istu deklaraciju
+<!--potpis-->(imena parametara i modifikator pristupa mogu da se razlikuju) ali
+različitu implementaciju od metoda nadklase.
+<xmp class="primer_ta"
+> 
 class Država
    { 
     ime: string;
@@ -337,11 +471,17 @@ class Država
    alert(ue.Znak_dobrodošlice());
    alert(ks.Znak_dobrodošlice());
 </xmp>
-U klasi Grad je upotrebljeno prevladavanje metoda dok u klasi Pokrajina nije. Zbog toga pozivi metoda <span class = "primer_text"> Znak_dobrodošlice </span> klasa Država i Pokrajina su isti.
-<div class = "napomena">
-U zavisnosti od objekta koji je upotrebljen zavisi i koja će od istoimenih metoda biti pozvana. Ako se upotrebi objekat nadklase poziva se metod nadklase, ako se upotrebi objekat podklase poziva se metod podklase.
+U klasi Grad je upotrebljeno prevladavanje metoda dok u klasi Pokrajina nije.
+Zbog toga pozivi metoda
+<span class="primer_text"> Znak_dobrodošlice </span> klasa Država i Pokrajina su
+isti.
+<div class="napomena">
+  U zavisnosti od objekta koji je upotrebljen zavisi i koja će od istoimenih
+  metoda biti pozvana. Ako se upotrebi objekat nadklase poziva se metod
+  nadklase, ako se upotrebi objekat podklase poziva se metod podklase.
 </div>
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 class Banka
 {  
 Saznaj_kamtnu_stopu(){return 0;}  
@@ -369,15 +509,30 @@ saznaj_kamtnu_stopu():number{return 9;}
    alert(b.saznaj_kamtnu_stopu());
    alert(c.saznaj_kamtnu_stopu());
 </xmp>
-Societe_General, Intesa, AIK klase nasleđuju klasu Banka. Iako sve tri banke nasleđuju metod <span class = "primer_text">saznaj_kamtnu_stopu</span> pozivi metoda objekata ovih klasa vraćaju različite vrednosti
+Societe_General, Intesa, AIK klase nasleđuju klasu Banka. Iako sve tri banke
+nasleđuju metod <span class="primer_text">saznaj_kamtnu_stopu</span> pozivi
+metoda objekata ovih klasa vraćaju različite vrednosti
 <h3>Modifikatori pristupa</h3>
-Bezbednost podataka ima bitnu ulogu u programiranju. Da bi se neki kôd smatrao dobro napisanim osim što obavlja zadatke za koje je namenjen, podaci unutar koda moraju biti zaštićeni od zloupotrebe. To podrazumeva i da se sadržaj koda ne može menjati od strane trećeg lica, unositi vrednosti ili pristupati objektima i drugim strukturama u kodu.
-Jedan od načina da se obezbedi sigurnost podataka je upotrebom modifikatora pristupa. Sposobnost klase da kontroliše vidljivost svojih svojstava u odnosu na svojstva druge klasa naziva se enkapsulacija ili skrivanje podataka. Ova osobina se implementira pomoću modifikatora pristupa <b>public</b>, <b>protected</b> i <b>private</b>.
-<b>To su ključne reči koje se uvek  navode prve u deklaracijijama promenljivih i metoda.</b><br><br>
+Bezbednost podataka ima bitnu ulogu u programiranju. Da bi se neki kôd smatrao
+dobro napisanim osim što obavlja zadatke za koje je namenjen, podaci unutar koda
+moraju biti zaštićeni od zloupotrebe. To podrazumeva i da se sadržaj koda ne
+može menjati od strane trećeg lica, unositi vrednosti ili pristupati objektima i
+drugim strukturama u kodu. Jedan od načina da se obezbedi sigurnost podataka je
+upotrebom modifikatora pristupa. Sposobnost klase da kontroliše vidljivost
+svojih svojstava u odnosu na svojstva druge klasa naziva se enkapsulacija ili
+skrivanje podataka. Ova osobina se implementira pomoću modifikatora pristupa
+<b>public</b>, <b>protected</b> i <b>private</b>.
+<b
+  >To su ključne reči koje se uvek navode prve u deklaracijijama promenljivih i
+  metoda.</b
+><br /><br />
 <b>PUBLIC</b>
-<br><br>
-Svojstvima klase koji imaju modifikator pristupa <b>public</b> može se pristupiti iz bilo kog drugog dela koda.  Svojstva klase podrazumevano imaju modifikator pristupa <b>public</b>  osim ako eksplicitno nije navedeno drugačije.
-<xmp class = "primer_ta">
+<br /><br />
+Svojstvima klase koji imaju modifikator pristupa <b>public</b> može se
+pristupiti iz bilo kog drugog dela koda. Svojstva klase podrazumevano imaju
+modifikator pristupa <b>public</b> osim ako eksplicitno nije navedeno drugačije.
+<xmp class="primer_ta"
+>
 class Osoba
    { 
     public ime: string;
@@ -386,7 +541,8 @@ class Osoba
    }
 </xmp>
 Ova dva koda imaju potpuno isto značenje.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 class Osoba
    { 
     ime: string;
@@ -395,13 +551,15 @@ class Osoba
    }
 </xmp>
 <b>PROTECTED</b>
-<br><br>
-Svojstvima klase koji imaju modifikator pristupa <b>protected</b> mogu pristupiti samo svojstva u okviru iste klase ili svojstva podklasa.
-<br><br>
+<br /><br />
+Svojstvima klase koji imaju modifikator pristupa <b>protected</b> mogu
+pristupiti samo svojstva u okviru iste klase ili svojstva podklasa. <br /><br />
 <b>PRIVATE</b>
-<br><br>
-Svojstvima klase koji imaju modifikator pristupa <b>private</b> mogu pristupiti samo svojstva u okviru iste klase.
-<xmp class = "primer_ta">
+<br /><br />
+Svojstvima klase koji imaju modifikator pristupa <b>private</b> mogu pristupiti
+samo svojstva u okviru iste klase.
+<xmp class="primer_ta"
+>
 class Obrazovna_institucija
 { 
     ime: string;
@@ -455,15 +613,28 @@ let h: string = Defektološki.vrsta_studija; // Kompajler izbacuje gresku: Prope
 alert(Defektološki.akreditacija);
 </xmp>
 
-Metod <b>moto</b> (pripada klasi Obrazovna_institucija) ima modifikator pristupa <b>protected</b> zbog toga joj je moguće pristupiti u okviru klasa Fakultet ( klasa Fakultet nasleđuje klasu Obrazovna_institucija).  Polje <b>sedište</b> ima modifikator pristupa <b>private</b> zbog toga joj je nemoguće pristupiti u okviru klasa Fakultet.
-Metod <b>moto</b> koja pripada objektu Defektološki nemoguće joj je pristupiti u okviru glavnog tela programa jer imam modifikator pristupa <b>protected</b>. Polju <b>vrsta_studija</b> koja pripada objektu Defektološki nemoguće joj je pristupiti u okviru glavnog tela programa jer imam modifikator pristupa <b>private</b>. Polju 
-<b>akreditacija</b> moguće je pristupiti u okviru funkcije alert jer imam modifikator pristupa <b>public</b>.
-<br><br>
+Metod <b>moto</b> (pripada klasi Obrazovna_institucija) ima modifikator pristupa
+<b>protected</b> zbog toga joj je moguće pristupiti u okviru klasa Fakultet (
+klasa Fakultet nasleđuje klasu Obrazovna_institucija). Polje <b>sedište</b> ima
+modifikator pristupa <b>private</b> zbog toga joj je nemoguće pristupiti u
+okviru klasa Fakultet. Metod <b>moto</b> koja pripada objektu Defektološki
+nemoguće joj je pristupiti u okviru glavnog tela programa jer imam modifikator
+pristupa <b>protected</b>. Polju <b>vrsta_studija</b> koja pripada objektu
+Defektološki nemoguće joj je pristupiti u okviru glavnog tela programa jer imam
+modifikator pristupa <b>private</b>. Polju <b>akreditacija</b> moguće je
+pristupiti u okviru funkcije alert jer imam modifikator pristupa <b>public</b>.
+<br /><br />
 <b>GET I SET METODE</b>
-<br><br>
-Upotreba modifikatora pristupa doprinosi bezbednosti programa ali istovremeno utiče na vidljivost koda pa time i na njegovu dostpunost. Na ovaj način se smanjuje funkcionalnost koda i izbor implementacije rešenja problema. Jedan od načina da se ovaj problem prevaziđe je
-upotrebom <b>get</b> i <b>set</b> metoda. Metod <b>get</b> se koristi da bi se dobila vrednost polja a metod <b>set</b> de se polju dodelila nova vrednost. Za deklaraciju ovih metoda koriste se ključne reči <b>get</b> i <b>set</b>. <br><br>Sintaksa je:
-<xmp class = "primer_ta">
+<br /><br />
+Upotreba modifikatora pristupa doprinosi bezbednosti programa ali istovremeno
+utiče na vidljivost koda pa time i na njegovu dostpunost. Na ovaj način se
+smanjuje funkcionalnost koda i izbor implementacije rešenja problema. Jedan od
+načina da se ovaj problem prevaziđe je upotrebom <b>get</b> i <b>set</b> metoda.
+Metod <b>get</b> se koristi da bi se dobila vrednost polja a metod <b>set</b> de
+se polju dodelila nova vrednost. Za deklaraciju ovih metoda koriste se ključne
+reči <b>get</b> i <b>set</b>. <br /><br />Sintaksa je:
+<xmp class="primer_ta"
+>
 get get_polje():tip_polja
    { 
 
@@ -474,8 +645,11 @@ set set_polje(lista_parametara):void
 
    }
 </xmp>
-Dodela imena <b>get</b> i <b>set</b> metodama je izbor pojedinca ali stvar dobre prakse je da bude uniformna kako bi se dobilo na čitljivost koda. Obično imena <b>get</b> i <b>set</b> metoda sadrže ime polja kojem pristupaju.
-<xmp class = "primer_ta">
+Dodela imena <b>get</b> i <b>set</b> metodama je izbor pojedinca ali stvar dobre
+prakse je da bude uniformna kako bi se dobilo na čitljivost koda. Obično imena
+<b>get</b> i <b>set</b> metoda sadrže ime polja kojem pristupaju.
+<xmp class="primer_ta"
+>
 class Telefon     {
     public model: string;
     private proizvođač: string;
@@ -519,15 +693,29 @@ alert(japanac.get_veličina_ekrana);
 japanac.set_veličina_ekrana =5.5;
 alert(japanac.get_veličina_ekrana);
 </xmp>
-Pozivi metoda <b>get</b> i <b>set</b> su drugačiji od poziva ostalih metoda ili funkcija jer nemaju <span class = "primer_text"> () </span>. To su specijalni metodi.  Metod <b>get</b> nema parametre a povratna vrednost mu je vrednost polja.
-Metod <b>set</b> ima jedan parametar ali nema povratnu vrednost niti se tip povratne vrednosti navodi. Prilikom poziva <b>get</b> i <b>set</b> metoda sintaksa je:<br><br>
-<xmp class = "primer_ta"> ime_objekta.ime_get_metode  </xmp>
-<xmp class = "primer_ta"> ime_objekta.ime_set_metode = željena_vrednost_polja</xmp>
-<div class = "napomena">Moguće je dodeliti <b>get</b> i <b>set</b> metodama modifikatore pristupa <b>protected</b> i <b>private</b>  ali to u praksi ima veoma malo smisla. Druge metode se mogu pozivati unutar <b>set</b> metoda.</div>
+Pozivi metoda <b>get</b> i <b>set</b> su drugačiji od poziva ostalih metoda ili
+funkcija jer nemaju <span class="primer_text"> () </span>. To su specijalni
+metodi. Metod <b>get</b> nema parametre a povratna vrednost mu je vrednost
+polja. Metod <b>set</b> ima jedan parametar ali nema povratnu vrednost niti se
+tip povratne vrednosti navodi. Prilikom poziva <b>get</b> i <b>set</b> metoda
+sintaksa je:<br /><br />
+<xmp class="primer_ta"> ime_objekta.ime_get_metode  </xmp>
+<xmp class="primer_ta"
+> ime_objekta.ime_set_metode = željena_vrednost_polja</xmp
+>
+<div class="napomena">
+  Moguće je dodeliti <b>get</b> i <b>set</b> metodama modifikatore pristupa
+  <b>protected</b> i <b>private</b> ali to u praksi ima veoma malo smisla. Druge
+  metode se mogu pozivati unutar <b>set</b> metoda.
+</div>
 <b>READONLY</b>
-<br><br>
-Modifikator <b>readonly</b> se koristi da bi se naznačilo da je neku vrednost polja moguće samo čitati a ne i menjati. Ključna reč <b>readonly</b> se navode posle modifikatora pristupa. <br><br>Sintaksa je: <span class = "primer_text"> readonly ime_polja  </span>  
-<xmp class = "primer_ta">
+<br /><br />
+Modifikator <b>readonly</b> se koristi da bi se naznačilo da je neku vrednost
+polja moguće samo čitati a ne i menjati. Ključna reč <b>readonly</b> se navode
+posle modifikatora pristupa. <br /><br />Sintaksa je:
+<span class="primer_text"> readonly ime_polja </span>
+<xmp class="primer_ta"
+>
 class Klasa
 { 
     public readonly ime_polja_1: string;
@@ -546,11 +734,19 @@ alert(O.ime_polja_1);
 
 O.ime_polja_1 = 'AMD';//Cannot assign to 'ime_polja_1' because it is a constant or a read-only property.
 </xmp>
-U poslednjoj liniji koda kompajler izbacuje grešku jer se pokušava dodeliti nova vrednost polju koje je <b>readonly</b> ili konstanta.<br><br>
+U poslednjoj liniji koda kompajler izbacuje grešku jer se pokušava dodeliti nova
+vrednost polju koje je <b>readonly</b> ili konstanta.<br /><br />
 <b>STATIC</b>
-<br><br>
-Polja i metode koje dele svi objekti jedne klase nazivaju se statička. One se koriste da označe svojstva koja su zajednička za sve objekte. Da bi neko polje ili metod bilo statičko koriste se ključna reč <b>static</b>. Ključna reč <b>static</b> se navodi posle modifikatora pristupa i pre ključne reči <b>readonly</b>.<br><br>Sintaksa:<span class = "primer_text">static ime_polja_metoda</span> 
-<xmp class = "primer_ta">
+<br /><br />
+Polja i metode koje dele svi objekti jedne klase nazivaju se statička. One se
+koriste da označe svojstva koja su zajednička za sve objekte. Da bi neko polje
+ili metod bilo statičko koriste se ključna reč <b>static</b>. Ključna reč
+<b>static</b> se navodi posle modifikatora pristupa i pre ključne reči
+<b>readonly</b>.<br /><br />Sintaksa:<span class="primer_text"
+  >static ime_polja_metoda</span
+>
+<xmp class="primer_ta"
+>
 class Pas
 {
 
@@ -583,17 +779,32 @@ alert('Svaki pas pripada carstvu ' + Pas.carstvo );
 
 Pas.lavež();
 </xmp>
-Sintaksa za poziv statičkog metoda je: <span class = "primer_text">ime_klase.ime_statičkog_metoda(list_argum)</span>.<br><br> Sintaksa za pristup vrednosti statičkog polja je: <span class = "primer_text"> ime_klase.ime_statičkog_polja</span>. 
-<div class = "napomena">
-Prilikom kreiranja objekta u memoriji se alocira prostor za svako polje i metod. Tako da za npr. 100 objekata klase Osoba imamo 100 promenljivih koje čuvaju polje ime svake od 100 osoba. Ako bi se u klasi Osoba polje ime označilo <b>static</b> onda bi svih sto objekata polju ime pristupalo na jednoj lokaciji u memoriji.(umesto na 100 lokacija).
-Na ovaj način se čuva memorijski prostor. </div>
+Sintaksa za poziv statičkog metoda je:
+<span class="primer_text">ime_klase.ime_statičkog_metoda(list_argum)</span
+>.<br /><br />
+Sintaksa za pristup vrednosti statičkog polja je:
+<span class="primer_text"> ime_klase.ime_statičkog_polja</span>.
+<div class="napomena">
+  Prilikom kreiranja objekta u memoriji se alocira prostor za svako polje i
+  metod. Tako da za npr. 100 objekata klase Osoba imamo 100 promenljivih koje
+  čuvaju polje ime svake od 100 osoba. Ako bi se u klasi Osoba polje ime
+  označilo <b>static</b> onda bi svih sto objekata polju ime pristupalo na
+  jednoj lokaciji u memoriji.(umesto na 100 lokacija). Na ovaj način se čuva
+  memorijski prostor.
+</div>
 <h3>Apstraktna klasa</h3>
-Klasa čiji objekti se ne mogu napraviti<!--Instanciras--> naziva se apstraktna klasa. Klasa je apstraktna i ako sadrži jedan ili više apstraktnih metoda. Metod je apstraktan ako nema implementaciju. Apstraktni metodi se implementiraju u podklasi koja nije apstraktna. 
-Da bi se klasa ili metod deklarisali kao apstraktni koristi se ključna reč <b>abstract</b>. <br><br>Sintaksa je:<br><br>
-<span class = "primer_text"> abstract ime_klase </span><br><br>
-<span class = "primer_text"> abstract ime_metoda</span> 
-<br><br> Kod metoda ključna reč <b>abstract</b> se navodi posle modifikatora pristupa.
-<xmp class = "primer_ta">
+Klasa čiji objekti se ne mogu napraviti<!--Instanciras-->
+naziva se apstraktna klasa. Klasa je apstraktna i ako sadrži jedan ili više
+apstraktnih metoda. Metod je apstraktan ako nema implementaciju. Apstraktni
+metodi se implementiraju u podklasi koja nije apstraktna. Da bi se klasa ili
+metod deklarisali kao apstraktni koristi se ključna reč <b>abstract</b>.
+<br /><br />Sintaksa je:<br /><br />
+<span class="primer_text"> abstract ime_klase </span><br /><br />
+<span class="primer_text"> abstract ime_metoda</span>
+<br /><br />
+Kod metoda ključna reč <b>abstract</b> se navodi posle modifikatora pristupa.
+<xmp class="primer_ta"
+>
 abstract class Jezik
 { 
 
@@ -636,22 +847,51 @@ j.predstavljanje('Amaterasu');
 
 s.predstavljanje('Dušan');
 </xmp>
-Apstraktnu klasu Jezik nasleđuju dve klase (Japanski, Srpski) koje sadrže različite implementacije apstraktnog metoda pozdravljanje.
-<div class = "napomena">  Apstraktna klasa može da poseduje metode , polja i konstruktore. Ona može da bude i nadklasa i podklasa. Ako podklasa apstraktne klase ne implementira apstraktan metod kompajler će izbaciti grešku da metod nije implementiran. 
-Uprkos tome moguće je praviti objekte podklase i kôd će se izvršavati 'normalno' sve dok u sebi ne sadrži  poziv apstraktnog metoda. Zbog ovoga treba biti oprezan pri implementaciji apstraktnih metoda jer greška će ostati u kodu uprkos tome što prividno izgleda da program radi normalno.
+Apstraktnu klasu Jezik nasleđuju dve klase (Japanski, Srpski) koje sadrže
+različite implementacije apstraktnog metoda pozdravljanje.
+<div class="napomena">
+  Apstraktna klasa može da poseduje metode , polja i konstruktore. Ona može da
+  bude i nadklasa i podklasa. Ako podklasa apstraktne klase ne implementira
+  apstraktan metod kompajler će izbaciti grešku da metod nije implementiran.
+  Uprkos tome moguće je praviti objekte podklase i kôd će se izvršavati
+  'normalno' sve dok u sebi ne sadrži poziv apstraktnog metoda. Zbog ovoga treba
+  biti oprezan pri implementaciji apstraktnih metoda jer greška će ostati u kodu
+  uprkos tome što prividno izgleda da program radi normalno.
 </div>
-<div class = "zadatak"><b>Zadatak8:</b><br>
-a) Napisati klasu <b>Bankovni račun</b> koja treba da sadrži (može sadžati i druga svojstva) <b>polja ime</b>, <b>prezime</b>, <b>šifra</b>, <b>stanje na računu</b>, <b>dozvoljen minus</b> i metode <b>podizanje sa računa</b> i <b>provera stanje računa</b>. Konstruktor klase  ima parametre ime, prezime, stanje na računu i šifra.  Polja stanje na računu i šifra treba da bude dostupna samo svojstvima klase. Vrednost polja šifra može samo da se čita ne i menja.
-Metoda stanje na računu vraća stanje računa korisnika nakon unete ispravne šifre. Metod podizanje sa računa nakon unete šifre vraća traženu sumu  ako: 
-<ul style="list-style-type:circle">
-  <li>Stanje na računu je veće od tražene sume</li>
-  <li>Stanje na računu sa dozvoljenim minusom je veće od tražene sume i korisnik je odobrio da ulazak u dozvoljen minus</li>
-  <li>Vraća poruku da korisnik nije u mogućnosti da podigne traženu sumu </li>
-</ul> <br>
-Zadatak testirati na primeru.
-<br><br>
-b) Napisati klasu <b>Kompleksni broj</b> koja sadrži polja <b>x</b> i <b>y</b> kao i njihove get i set metode. Konstruktor ima parametre x i y. Napisati metod koji vraća zapis kompleksnog broja. Napisati metod koji vraća modul kompleksnog broja.
-Napisati statičke metode za sabiranje, oduzimanje, deljenje i množenje kompleksnih brojeva. Napisati statički metod koji vraća argument kompleksnog broja u stepenima. Napisati statički metod koji vraća konjugovani kompleksni broj.<br><br>
-c) Napisati klasu <b>Trougao</b> koja sadrži polja <b>a</b>, <b>b</b> i <b>c</b>. Klasa treba da sadži konstruktor koji inicijalizuje vrednost stranica i metode <b>površina </b> i <b>obima</b>. Pored ove klase treba napisati klase <b>Jednakostranični</b>, <b>Jednakokraki</b> i <b>Pravougli</b> koje nasleđuju klasu <b>Trougao</b>. Svaka od ovih klasa treba da ima svoj metod <b>površina</b> koji pri pozivu prevladava metod klase <b>Trougao</b>.
+<div class="zadatak">
+  <b>Zadatak8:</b><br />
+  a) Napisati klasu <b>Bankovni račun</b> koja treba da sadrži (može sadžati i
+  druga svojstva) <b>polja ime</b>, <b>prezime</b>, <b>šifra</b>,
+  <b>stanje na računu</b>, <b>dozvoljen minus</b> i metode
+  <b>podizanje sa računa</b> i <b>provera stanje računa</b>. Konstruktor klase
+  ima parametre ime, prezime, stanje na računu i šifra. Polja stanje na računu i
+  šifra treba da bude dostupna samo svojstvima klase. Vrednost polja šifra može
+  samo da se čita ne i menja. Metoda stanje na računu vraća stanje računa
+  korisnika nakon unete ispravne šifre. Metod podizanje sa računa nakon unete
+  šifre vraća traženu sumu ako:
+  <ul style="list-style-type: circle">
+    <li>Stanje na računu je veće od tražene sume</li>
+    <li>
+      Stanje na računu sa dozvoljenim minusom je veće od tražene sume i korisnik
+      je odobrio da ulazak u dozvoljen minus
+    </li>
+    <li>Vraća poruku da korisnik nije u mogućnosti da podigne traženu sumu</li>
+  </ul>
+  <br />
+  Zadatak testirati na primeru.
+  <br /><br />
+  b) Napisati klasu <b>Kompleksni broj</b> koja sadrži polja <b>x</b> i
+  <b>y</b> kao i njihove get i set metode. Konstruktor ima parametre x i y.
+  Napisati metod koji vraća zapis kompleksnog broja. Napisati metod koji vraća
+  modul kompleksnog broja. Napisati statičke metode za sabiranje, oduzimanje,
+  deljenje i množenje kompleksnih brojeva. Napisati statički metod koji vraća
+  argument kompleksnog broja u stepenima. Napisati statički metod koji vraća
+  konjugovani kompleksni broj.<br /><br />
+  c) Napisati klasu <b>Trougao</b> koja sadrži polja <b>a</b>, <b>b</b> i
+  <b>c</b>. Klasa treba da sadži konstruktor koji inicijalizuje vrednost
+  stranica i metode <b>površina </b> i <b>obima</b>. Pored ove klase treba
+  napisati klase <b>Jednakostranični</b>, <b>Jednakokraki</b> i
+  <b>Pravougli</b> koje nasleđuju klasu <b>Trougao</b>. Svaka od ovih klasa
+  treba da ima svoj metod <b>površina</b> koji pri pozivu prevladava metod klase
+  <b>Trougao</b>.
 </div>
-

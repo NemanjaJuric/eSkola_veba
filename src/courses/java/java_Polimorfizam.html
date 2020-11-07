@@ -1,39 +1,53 @@
 <h1>Polimorfizam</h1>
 
-<p style="text-align: justify;"><b>Polimorfizam</b> (engl. <i>polymorphism</i>) u programskom jeziku Java je koncept objektno-orijentisanog
-programiranja koji predstavlja mogućnost da se jedan isti poziv metoda ponaša različito u
-zavisnosti od tipa objekta nad kojim se metod primenjuje. Reč polimorfizam se izvodi iz dve grčke
-reči: poly (više) i morphe (oblik). Dakle, polimorfizam znači više oblika.
-Kada se posmatra promenljivu tipa bazne klase, recimo Zivotinja, osim što se u njoj može čuvati
-referenca na objekat te klase, Zivotinja, što je uobičajno, može se takođe čuvati i referenca na
-objekat proizvoljne potklase npr. Pas, Macka, Patka. Štaviše, to je jedan od uslova koji moraju biti
-ispunjeni da bi polimorfizam funkcionisao.</p>
-<img src="courses/java/polimorfizam.jpg" class="img-sm">
+<p style="text-align: justify">
+  <b>Polimorfizam</b> (engl. <i>polymorphism</i>) u programskom jeziku Java je
+  koncept objektno-orijentisanog programiranja koji predstavlja mogućnost da se
+  jedan isti poziv metoda ponaša različito u zavisnosti od tipa objekta nad
+  kojim se metod primenjuje. Reč polimorfizam se izvodi iz dve grčke reči: poly
+  (više) i morphe (oblik). Dakle, polimorfizam znači više oblika. Kada se
+  posmatra promenljivu tipa bazne klase, recimo Zivotinja, osim što se u njoj
+  može čuvati referenca na objekat te klase, Zivotinja, što je uobičajno, može
+  se takođe čuvati i referenca na objekat proizvoljne potklase npr. Pas, Macka,
+  Patka. Štaviše, to je jedan od uslova koji moraju biti ispunjeni da bi
+  polimorfizam funkcionisao.
+</p>
+<img src="courses/java/polimorfizam.jpg" class="img-sm" />
 
-
-<p style="text-align: justify;">Dakle, promenljiva tipa Zivotinja može da pokazuje na promenljivu tipa Pas, Macka, Patka, jer
-sve su to životinje i nastale su iz klase Zivotinja. Pa u konstataciji - Pas je zivotinja. – nema greške,
-jer pas jeste životinja. Kako je svaka klasa direktno ili indirektno izvedena iz klase Object, tako
-se može reći - Pas je objekat - i da opet konstatacija bude istinita.<br><br>
-Imajući ovo u vidu, može se zaključiti da se reference na objekat neke klase mogu čuvati u
-promenljivama tipa klase iz koje je izvedena. Koncept polimorfizma se ogleda u tome što se
-metode mogu ponašati različito u zavisnosti od toga na koji objekat neka promenljiva pokazuje.
-Metod koji će se polimorfno pozivati mora biti deklarisan i u baznoj i u izvedenim klasama za čije
-se objekte poziva taj metod.<br><br>
-Polimorfizam se primenjuje isključivo na metode, ne i na atribute klase.
-Uslovi koji moraju biti ispunjeni su:</p>
+<p style="text-align: justify">
+  Dakle, promenljiva tipa Zivotinja može da pokazuje na promenljivu tipa Pas,
+  Macka, Patka, jer sve su to životinje i nastale su iz klase Zivotinja. Pa u
+  konstataciji - Pas je zivotinja. – nema greške, jer pas jeste životinja. Kako
+  je svaka klasa direktno ili indirektno izvedena iz klase Object, tako se može
+  reći - Pas je objekat - i da opet konstatacija bude istinita.<br /><br />
+  Imajući ovo u vidu, može se zaključiti da se reference na objekat neke klase
+  mogu čuvati u promenljivama tipa klase iz koje je izvedena. Koncept
+  polimorfizma se ogleda u tome što se metode mogu ponašati različito u
+  zavisnosti od toga na koji objekat neka promenljiva pokazuje. Metod koji će se
+  polimorfno pozivati mora biti deklarisan i u baznoj i u izvedenim klasama za
+  čije se objekte poziva taj metod.<br /><br />
+  Polimorfizam se primenjuje isključivo na metode, ne i na atribute klase.
+  Uslovi koji moraju biti ispunjeni su:
+</p>
 <ul>
-  <li>u promenljivoj tipa bazne klase nalazi se referenca na objekat izvedene,</li>
+  <li>
+    u promenljivoj tipa bazne klase nalazi se referenca na objekat izvedene,
+  </li>
   <li>pozvani metod mora biti definisan u izvedenoj klasi,</li>
   <li>potpisi metoda u baznoj i izvedenoj klasi moraju biti isti,</li>
   <li>povratni tipovi metoda bazne i izvedene klase moraju biti isti,</li>
-  <li>pristupni nivo metoda izvedene klase ne sme biti restriktivniji od odgovarajućeg
-  pristupnog nivoa bazne.</li>
+  <li>
+    pristupni nivo metoda izvedene klase ne sme biti restriktivniji od
+    odgovarajućeg pristupnog nivoa bazne.
+  </li>
 </ul>
-<p style="text-align: justify;">U primeru 28. ilustrovano je kako funkcioniše princip polimorfizma kroz metod oglasavanje(), on
-će se u zavisnosti od vrste životinje različito ponašati.</p>
+<p style="text-align: justify">
+  U primeru 28. ilustrovano je kako funkcioniše princip polimorfizma kroz metod
+  oglasavanje(), on će se u zavisnosti od vrste životinje različito ponašati.
+</p>
 <b>Primer 28.</b> – Polomorfizam
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 class Zivotinja {
     String vrsta;
     //konstruktor
@@ -84,11 +98,13 @@ public class Test {
 }
 </xmp>
 Nakon pokretanja ovog programa dobija se poruka:
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   Pas kaže:
   Av, Av!
   Patka kaže:
   Kva, Kva!
 </xmp>
 
-Metoda se ponaša polimorfno, u zavisnosti od tipa objekta ispisuje odgovarajuću poruku
+Metoda se ponaša polimorfno, u zavisnosti od tipa objekta ispisuje odgovarajuću
+poruku

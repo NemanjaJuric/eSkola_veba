@@ -1,33 +1,35 @@
-<h1> Slike u Bootstrap-u </h1>
+<h1>Slike u Bootstrap-u</h1>
 
 Podsetimo se, osnovni kod za ubacivanje slika u HTML-u izgleda ovako:
 <textarea class="primer_ta" rows="1">
 <img src="slika.jpg">
 </textarea>
-<br>
-Kao što znamo, atribut <span class="primer_text">src</span> je obavezan. Osim njega, moguće je zadati i mnoge druge atribute.<br>
-Ono što Bootstrap uvodi su klase na nivou <span class="primer_text">&ltimg&gt</span> elementa.
-Pomoću Bootstrap-a možemo kreirati slike:
+<br />
+Kao što znamo, atribut <span class="primer_text">src</span> je obavezan. Osim
+njega, moguće je zadati i mnoge druge atribute.<br />
+Ono što Bootstrap uvodi su klase na nivou
+<span class="primer_text">&ltimg&gt</span> elementa. Pomoću Bootstrap-a možemo
+kreirati slike:
 <ul>
-<li>ovalnog oblika </li>
-<li>pravougaonog oblika </li> 
-<li>sa zaobljenim uglovima .</li>
+  <li>ovalnog oblika</li>
+  <li>pravougaonog oblika</li>
+  <li>sa zaobljenim uglovima .</li>
 </ul>
-<br>
-<br>
+<br />
+<br />
 <h2>Slike ovalnog oblika</h2>
-Upotrebom klase <span class="primer_text">.img-circle</span> na nivou <span class="primer_text">&ltimg&gt</span> elementa, 
-slika dobija ovalni oblik.
+Upotrebom klase <span class="primer_text">.img-circle</span> na nivou
+<span class="primer_text">&ltimg&gt</span> elementa, slika dobija ovalni oblik.
 <div class="napomena">
-Napomena: Internet Explorer 8 ne podržava slike ovalnog oblika.
+  Napomena: Internet Explorer 8 ne podržava slike ovalnog oblika.
 </div>
 <textarea class="primer_ta" rows="3" disabled>
 <img src="courses/bs/images/sl1.jpg"
 class="img-circle" alt="Slika1"
 width="304" height="236">
 </textarea>
-<br>
-<textarea disabled class="primer_ta" style="display:none;">
+<br />
+<textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -44,19 +46,20 @@ width="304" height="236">
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button> 
-<br>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Slike pravougaonog oblika</h2>
-Upotrebom klase <span class="primer_text">.img-thumbnail</span> na nivou <span class="primer_text">&ltimg&gt</span> elementa, 
-slika dobija pravougaoni oblik.<br>
+Upotrebom klase <span class="primer_text">.img-thumbnail</span> na nivou
+<span class="primer_text">&ltimg&gt</span> elementa, slika dobija pravougaoni
+oblik.<br />
 <textarea class="primer_ta" rows="3">
 <img src="courses/bs/images/sl2.jpg"
 class="img-thumbnail" alt="Slika2"
 width="304" height="236">
 </textarea>
-<br>
-<textarea disabled class="primer_ta" style="display:none;">
+<br />
+<textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -74,21 +77,22 @@ width="304" height="236">
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Slike sa zaobljenim uglovima</h2>
-Upotrebom klase <span class="primer_text">.img-rounded</span> na nivou <span class="primer_text">&ltimg&gt</span> elementa, 
-slika se prikazuje sa zaobljenim uglovima.
+Upotrebom klase <span class="primer_text">.img-rounded</span> na nivou
+<span class="primer_text">&ltimg&gt</span> elementa, slika se prikazuje sa
+zaobljenim uglovima.
 <div class="napomena">
-Napomena: Internet Explorer 8 ne podržava slike sa zaobljenim uglovima.
+  Napomena: Internet Explorer 8 ne podržava slike sa zaobljenim uglovima.
 </div>
 <textarea class="primer_ta" rows="3" disabled>
 <img src="courses/bs/images/sl3.jpg"
 class="img-rounded" alt="Slika3"
 width="304" height="236">
 </textarea>
-<br>
-<textarea disabled class="primer_ta" style="display:none;">
+<br />
+<textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -106,23 +110,27 @@ width="304" height="236">
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Slike koje se prilagođavaju uređaju</h2>
-Upotrebom klase <span class="primer_text">.img-responsive</span> nad nivou <span class="primer_text">&ltimg&gt</span> elementa, 
-slika se automatski prilagođava rezoluciji uređaja na kom se prikazuje.
-Klasa <span class="primer_text">.img-responsive</span> primenjuje sledeći CSS stil nad slikom:
+Upotrebom klase <span class="primer_text">.img-responsive</span> nad nivou
+<span class="primer_text">&ltimg&gt</span> elementa, slika se automatski
+prilagođava rezoluciji uređaja na kom se prikazuje. Klasa
+<span class="primer_text">.img-responsive</span> primenjuje sledeći CSS stil nad
+slikom:
 <ul>
-<li><span class="primer_text"> display: block;</span></li>
-<li><span class="primer_text">max-width: 100%; </span></li>
-<li><span class="primer_text"> height: auto;</span></li>.
-<textarea class="primer_ta" rows="3" disabled>
+  <li><span class="primer_text"> display: block;</span></li>
+  <li><span class="primer_text">max-width: 100%; </span></li>
+  <li><span class="primer_text"> height: auto;</span></li>
+  .
+  <textarea class="primer_ta" rows="3" disabled>
 <img class="img-responsive"
 src="courses/bs/images/sl4.jpg" alt="Slika4"
 width="460" height="345">
-</textarea>
- <br>
-<textarea disabled class="primer_ta" style="display:none;">
+</textarea
+  >
+  <br />
+  <textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -139,33 +147,42 @@ width="460" height="345">
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2>Video zapisi koji se prilagođavaju uređaju</h2>
-I video zapise je moguće prilagoditi veličini ekrana uređaja na kom se prikazuju.
-To se postiže upotebom klase <br>
-<span class="primer_text">.embed-responsive-item</span>.
-<br>
-Ovu klasu je moguće primeniti na sledećim elementima:
-<ul>
-<li><span class="primer_text">&ltiframe&gt</span></li>
-<li><span class="primer_text"> &ltembed&gt</span></li>
-<li><span class="primer_text">&ltvideo&gt</span></li>
-<li><span class="primer_text">&ltobject&gt</span>.</li><br>
-Za svaki od ovih elemenata potrebno je uvesti okružujući element <span class="primer_text">&ltdiv&gt</span>
- iste klase kojim će biti određen odnos prikaza. <br>
-U sledećem primeru je prikazano umetanje video zapisa korišćenjem elementa <span class="primer_text"> &ltiframe&gt</span>.
-<textarea class="primer_ta" rows="7" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h2>Video zapisi koji se prilagođavaju uređaju</h2>
+  I video zapise je moguće prilagoditi veličini ekrana uređaja na kom se
+  prikazuju. To se postiže upotebom klase
+  <br />
+  <span class="primer_text">.embed-responsive-item</span
+  >.
+  <br />
+  Ovu klasu je moguće primeniti na sledećim elementima:
+  <ul>
+    <li><span class="primer_text">&ltiframe&gt</span></li>
+    <li><span class="primer_text"> &ltembed&gt</span></li>
+    <li><span class="primer_text">&ltvideo&gt</span></li>
+    <li><span class="primer_text">&ltobject&gt</span>.</li>
+    <br />
+    Za svaki od ovih elemenata potrebno je uvesti okružujući element
+    <span class="primer_text">&ltdiv&gt</span>
+    iste klase kojim će biti određen odnos prikaza.
+    <br />
+    U sledećem primeru je prikazano umetanje video zapisa korišćenjem elementa
+    <span class="primer_text"> &ltiframe&gt</span
+    >.
+    <textarea class="primer_ta" rows="7" disabled>
 <div class="embed-responsive 
 embed-responsive-16by9">
   <iframe class="embed-responsive-item"
   src="https://www.youtube.com/embed/XGSy3_Czz8k">
   </iframe>
 </div>
- </textarea>
-<textarea disabled class="primer_ta" style="display:none;">
+ </textarea
+    >
+    <textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -183,35 +200,42 @@ embed-responsive-16by9">
 </div>
 </body> 
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<div class="napomena">
-Odnos prikaza neke slike opisuje proporcionalni odnos između njene širine i visine. Za prikaz video sadržaja, dostupni su <br>
-sledeći odnosi:
-<ul>
-<li>4:3 (univerzalni video format 20.veka)</li>
-<textarea class="primer_ta" rows="6" disabled>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <div class="napomena">
+      Odnos prikaza neke slike opisuje proporcionalni odnos između njene širine
+      i visine. Za prikaz video sadržaja, dostupni su <br />
+      sledeći odnosi:
+      <ul>
+        <li>4:3 (univerzalni video format 20.veka)</li>
+        <textarea class="primer_ta" rows="6" disabled>
 <div class="embed-responsive
 embed-responsive-4by3">
   <iframe class="embed-responsive-item"
   src="...">
   </iframe>
 </div>
-</textarea>
-<li>16:9 (univerzalni video format za HD televiziju i evropsku digitalnu televiziju)</li>
-<textarea class="primer_ta" rows="6" disabled>
+</textarea
+        >
+        <li>
+          16:9 (univerzalni video format za HD televiziju i evropsku digitalnu
+          televiziju)
+        </li>
+        <textarea class="primer_ta" rows="6" disabled>
 <div class="embed-responsive
 embed-responsive-16by9">
   <iframe class="embed-responsive-item"
   src="...">
   </iframe>
 </div>
-</textarea>
-</ul>
-</div>
-<h2>Galerija slika</h2>
-Galeriju je moguće napraviti upotrebom mrežnog sistema na sledeći način:
-<textarea class="primer_ta" rows="41" disabled>
+</textarea
+        >
+      </ul>
+    </div>
+    <h2>Galerija slika</h2>
+    Galeriju je moguće napraviti upotrebom mrežnog sistema na sledeći način:
+    <textarea class="primer_ta" rows="41" disabled>
 <div class="container-fluid">
   <div class="row">
   
@@ -253,8 +277,9 @@ Galeriju je moguće napraviti upotrebom mrežnog sistema na sledeći način:
 
   </div>
 </div>
-</textarea>
-<textarea disabled class="primer_ta" style="display:none;">
+</textarea
+    >
+    <textarea disabled class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>  
@@ -302,10 +327,13 @@ Galeriju je moguće napraviti upotrebom mrežnog sistema na sledeći način:
 </div>
 </body> 
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
 
-<div class="zadatak">
-<b>Zadatak:</b> 
-Napraviti galeriju sa tri slike. Neka svaka slika bude različitog oblika.
-</div>
+    <div class="zadatak">
+      <b>Zadatak:</b>
+      Napraviti galeriju sa tri slike. Neka svaka slika bude različitog oblika.
+    </div>
+  </ul>
+</ul>

@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style> 
-        span{
-            font-size: 20px;
-            font-family: monospace;
-            }
-        div{
-            width: 110px;
-            height: 90px;
-            border-radius: 10px; 
-            text-align: center;
-            font-weight: bold;
-            background-color:darkcyan;
-            }
-            div#prvi:hover{
-                transform: rotate(180deg);
-                transition-duration: 4s;
-            }
-            div#drugi:hover{
-                transform: rotateY(180deg);
-                transition-duration: 4s;
-            }   
-        </style>
-    </head>
-    <body>
-        <br>
-        <span>Pređite kursorom preko elementa </span>
-        <br>
-        <br>
-        <div id='prvi'> <br> 2D <br> Rotacija</div>
-        <br>  
-        <div id='drugi'> <br> 3D <br> Rotacija</div>
-    </body>
+  <head>
+    <style>
+      span {
+        font-size: 20px;
+        font-family: monospace;
+      }
+      div {
+        width: 110px;
+        height: 90px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        background-color: darkcyan;
+      }
+      div#prvi:hover {
+        transform: rotate(180deg);
+        transition-duration: 4s;
+      }
+      div#drugi:hover {
+        transform: rotateY(180deg);
+        transition-duration: 4s;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <span>Pređite kursorom preko elementa </span>
+    <br />
+    <br />
+    <div id="prvi">
+      <br />
+      2D <br />
+      Rotacija
+    </div>
+    <br />
+    <div id="drugi">
+      <br />
+      3D <br />
+      Rotacija
+    </div>
+  </body>
 </html>

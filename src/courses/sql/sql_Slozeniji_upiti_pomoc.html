@@ -1,4 +1,5 @@
-<xmp>
+<xmp
+>
   SELECT CONCAT(kupac.ime, " ", kupac.prezime) AS Kupac, SUM(narudzbina.cena) AS ukupno
   FROM kupac JOIN narudzbina ON narudzbina.kupac = kupac.id_kupca
   JOIN proizvod ON narudzbina.proizvod = proizvod.id_proizvoda

@@ -1,14 +1,20 @@
 ﻿<h1>Podizanje stanja nagore</h1>
-<br>
+<br />
 
-Često je potrebno da nekoliko komponenti prikazuju iste promenljive podatke. Preporučujemo da zajedničko stanje prebacite na najbližeg zajedničkog pretka. Hajde da vidimo kako se to radi.
-<br><br>
+Često je potrebno da nekoliko komponenti prikazuju iste promenljive podatke.
+Preporučujemo da zajedničko stanje prebacite na najbližeg zajedničkog pretka.
+Hajde da vidimo kako se to radi.
+<br /><br />
 
-U ovom odeljku napravićemo kalkulator temperature koji izračunava da li bi voda ključala na datoj temperaturi.
-<br><br>
+U ovom odeljku napravićemo kalkulator temperature koji izračunava da li bi voda
+ključala na datoj temperaturi.
+<br /><br />
 
-Počećemo sa komponentom koja se zove <span class = "primer_text">BoilingVerdict</span>. Prihvata temperaturu u Celzijusima kao svoj atribut ("props") i štampa da li je to dovoljno da bi voda ključala:
-<xmp class = "primer_ta">
+Počećemo sa komponentom koja se zove
+<span class="primer_text">BoilingVerdict</span>. Prihvata temperaturu u
+Celzijusima kao svoj atribut ("props") i štampa da li je to dovoljno da bi voda
+ključala:
+<xmp class="primer_ta">
 function BoilingVerdict(props) {
   if (props.celsius >= 100) {
     return <p>Voda bi ključala.</p>;
@@ -17,11 +23,15 @@ function BoilingVerdict(props) {
 }
 </xmp>
 
-Zatim ćemo kreirati komponentu koja se zove <span class = "primer_text">Calculator</span>. Ona prikazuje <span class = "primer_text">&ltinput&gt</span> koji vam omogućava da unesete temperaturu i čuva njenu vrednost u <span class = "primer_text">this.state.temperature</span>.
-<br><br>
+Zatim ćemo kreirati komponentu koja se zove
+<span class="primer_text">Calculator</span>. Ona prikazuje
+<span class="primer_text">&ltinput&gt</span> koji vam omogućava da unesete
+temperaturu i čuva njenu vrednost u
+<span class="primer_text">this.state.temperature</span>. <br /><br />
 
-Uz to, prikazuje <span class = "primer_text">BoilingVerdict</span> za trenutnu ulaznu vrednost.
-<xmp class = "primer_ta">
+Uz to, prikazuje <span class="primer_text">BoilingVerdict</span> za trenutnu
+ulaznu vrednost.
+<xmp class="primer_ta">
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
@@ -48,15 +58,20 @@ class Calculator extends React.Component {
   }
 }
 </xmp>
-<br>
+<br />
 
 <h2>Dodavanje drugog polja za unos</h2>
 
-Naš novi zahtev je da, pored unosa u Celzijusima, omogućimo i unos u Farenhajtima i da su oni sinhronizovani.
-<br><br>
+Naš novi zahtev je da, pored unosa u Celzijusima, omogućimo i unos u
+Farenhajtima i da su oni sinhronizovani.
+<br /><br />
 
-Možemo početi izdvajanjem <span class = "primer_text">TemperatureInput</span> komponente iz <span class = "primer_text">Calculator</span>. Na nju ćemo dodati novi <span class = "primer_text">scale</span> atribut koji može biti <span class = "primer_text">"c"</span> ili <span class = "primer_text">"f"</span>:
-<xmp class = "primer_ta">
+Možemo početi izdvajanjem
+<span class="primer_text">TemperatureInput</span> komponente iz
+<span class="primer_text">Calculator</span>. Na nju ćemo dodati novi
+<span class="primer_text">scale</span> atribut koji može biti
+<span class="primer_text">"c"</span> ili <span class="primer_text">"f"</span>:
+<xmp class="primer_ta">
 const scaleNames = {
   c: 'Celzijusima',
   f: 'Farenhajtima'
@@ -87,8 +102,9 @@ class TemperatureInput extends React.Component {
 }
 </xmp>
 
-Sada možemo promeniti <span class = "primer_text">Calculator</span> da prikaže dva polja za unos temperature:
-<xmp class = "primer_ta">
+Sada možemo promeniti <span class="primer_text">Calculator</span> da prikaže dva
+polja za unos temperature:
+<xmp class="primer_ta">
 class Calculator extends React.Component {
   render() {
     return (
@@ -101,13 +117,20 @@ class Calculator extends React.Component {
 }
 </xmp>
 
-Sada imamo dva polja za unos, ali kada unesete temperaturu u jedan od njih, drugi se ne ažurira. Ovo je u suprotnosti sa našim zahtevom: želimo da su usklađeni. Takođe ne možemo da prikažemo <span class = "primer_text">BoilingVerdict</span> iz <span class = "primer_text">Calculator</span>. <span class = "primer_text">Calculator</span> ne zna trenutnu temperaturu jer je skrivena u <span class = "primer_text">TemperatureInput</span>.
-<br><br>
+Sada imamo dva polja za unos, ali kada unesete temperaturu u jedan od njih,
+drugi se ne ažurira. Ovo je u suprotnosti sa našim zahtevom: želimo da su
+usklađeni. Takođe ne možemo da prikažemo
+<span class="primer_text">BoilingVerdict</span> iz
+<span class="primer_text">Calculator</span>.
+<span class="primer_text">Calculator</span> ne zna trenutnu temperaturu jer je
+skrivena u <span class="primer_text">TemperatureInput</span>. <br /><br />
 
 <h2>Pisanje funkcija za konverziju</h2>
 
-Prvo ćemo napisati dve funkcije za pretvaranje iz Celzijusa u Farenhajte i nazad:
-<xmp class = "primer_ta">
+Prvo ćemo napisati dve funkcije za pretvaranje iz Celzijusa u Farenhajte i
+nazad:
+<xmp class="primer_ta"
+>
 function toCelsius(fahrenheit) {
   return (fahrenheit - 32) * 5 / 9;
 }
@@ -117,11 +140,15 @@ function toFahrenheit(celsius) {
 }
 </xmp>
 
-Ove dve funkcije pretvaraju brojeve. Napisaćemo još jednu funkciju koja prihvata temperaturu kao string i konverzionu funkciju i vraća string. Koristićemo je za izračunavanje vrednosti jednog ulaza na osnovu drugog ulaza.
-<br><br>
+Ove dve funkcije pretvaraju brojeve. Napisaćemo još jednu funkciju koja prihvata
+temperaturu kao string i konverzionu funkciju i vraća string. Koristićemo je za
+izračunavanje vrednosti jednog ulaza na osnovu drugog ulaza.
+<br /><br />
 
-Ona vraća prazan string za nevalidnu temperaturu i rezultat zaokružuje na tri decimale:
-<xmp class = "primer_ta">
+Ona vraća prazan string za nevalidnu temperaturu i rezultat zaokružuje na tri
+decimale:
+<xmp class="primer_ta"
+>
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
@@ -133,13 +160,17 @@ function tryConvert(temperature, convert) {
 }
 </xmp>
 
-Na primer, <span class = "primer_text">tryConvert('abc', toCelsius)</span> vraća prazan string, a <span class = "primer_text">tryConvert('10.22', toFahrenheit)</span> vraća <span class = "primer_text">'50.396'</span>.
-<br><br>
+Na primer, <span class="primer_text">tryConvert('abc', toCelsius)</span> vraća
+prazan string, a
+<span class="primer_text">tryConvert('10.22', toFahrenheit)</span> vraća
+<span class="primer_text">'50.396'</span>. <br /><br />
 
 <h2>Podizanje stanja nagore</h2>
 
-Trenutno obe <span class = "primer_text">TemperatureInput</span> komponente samostalno održavaju svoje vrednosti u lokalnom stanju:
-<xmp class = "primer_ta">
+Trenutno obe <span class="primer_text">TemperatureInput</span> komponente
+samostalno održavaju svoje vrednosti u lokalnom stanju:
+<xmp class="primer_ta"
+>
 class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
@@ -156,34 +187,66 @@ class TemperatureInput extends React.Component {
     // ...  
 </xmp>
 
-Međutim želimo da ova dva ulaza budu u međusobnoj sinhronizaciji. Kada ažuriramo unos u Celzijusima, polje u Farenhajtima treba da prikazuje konvertovanu temperaturu i obrnuto.
-<br><br>
+Međutim želimo da ova dva ulaza budu u međusobnoj sinhronizaciji. Kada ažuriramo
+unos u Celzijusima, polje u Farenhajtima treba da prikazuje konvertovanu
+temperaturu i obrnuto.
+<br /><br />
 
-U React-u, deljenje stanja ostvaruje se izdvajanjem u najbližeg zajedničkog pretka komponenti kojima treba deljeno stanje. To se naziva "podizanje stanja nagore". Uklonićemo lokalno stanje iz <span class = "primer_text">TemperatureInput</span> i prebaciti ga u <span class = "primer_text">Calculator</span>.
-<br><br>
+U React-u, deljenje stanja ostvaruje se izdvajanjem u najbližeg zajedničkog
+pretka komponenti kojima treba deljeno stanje. To se naziva "podizanje stanja
+nagore". Uklonićemo lokalno stanje iz
+<span class="primer_text">TemperatureInput</span> i prebaciti ga u
+<span class="primer_text">Calculator</span>. <br /><br />
 
-Ako <span class = "primer_text">Calculator</span> poseduje zajedničko stanje, on postaje "izvor istine" za trenutnu temperaturu u oba polja. Može ih postaviti tako da vrednosti u poljima budu jednake jedna drugoj (u odgovarajućim jedinicama). Budući da atributi ("props") obe <span class = "primer_text">TemperatureInput</span> komponente dolaze iz iste roditeljske <span class = "primer_text">Calculator</span> komponente, dva ulazna polja će uvek biti u sinhronizaciji.
-<br><br>
+Ako <span class="primer_text">Calculator</span> poseduje zajedničko stanje, on
+postaje "izvor istine" za trenutnu temperaturu u oba polja. Može ih postaviti
+tako da vrednosti u poljima budu jednake jedna drugoj (u odgovarajućim
+jedinicama). Budući da atributi ("props") obe
+<span class="primer_text">TemperatureInput</span> komponente dolaze iz iste
+roditeljske <span class="primer_text">Calculator</span> komponente, dva ulazna
+polja će uvek biti u sinhronizaciji. <br /><br />
 
 Pogledajmo kako to funkcioniše korak po korak.
-<br><br>
+<br /><br />
 
-Prvo ćemo zameniti <span class = "primer_text">this.state.temperature</span> sa <span class = "primer_text">this.props.temperature</span> u <span class = "primer_text">TemperatureInput</span> komponenti. Za sada se pretvarajmo da <span class = "primer_text">this.props.temperature</span> već postoji. Mada ćemo je prosleđivati iz <span class = "primer_text">Calculator</span> komponente u budućnosti:
-<xmp class = "primer_ta">
+Prvo ćemo zameniti <span class="primer_text">this.state.temperature</span> sa
+<span class="primer_text">this.props.temperature</span> u
+<span class="primer_text">TemperatureInput</span> komponenti. Za sada se
+pretvarajmo da <span class="primer_text">this.props.temperature</span> već
+postoji. Mada ćemo je prosleđivati iz
+<span class="primer_text">Calculator</span> komponente u budućnosti:
+<xmp class="primer_ta"
+>
 render() {
     // Pre: const temperature = this.state.temperature;
     const temperature = this.props.temperature;
     // ...
 </xmp>
 
-Znamo da su atributi ("props") samo za čitanje. Kada je <span class = "primer_text">temperature</span> bilo smešteno u lokalnom stanju, <span class = "primer_text">TemperatureInput</span> je mogla da pozove <span class = "primer_text">this.setState()</span> da bi je promenilo. Međutim sada kada <span class = "primer_text">temperature</span> dolazi, iz roditeljske komponente, kao atribut ("props"), <span class = "primer_text">TemperatureInput</span> nema kontrolu nad njom.
-<br><br>
+Znamo da su atributi ("props") samo za čitanje. Kada je
+<span class="primer_text">temperature</span> bilo smešteno u lokalnom stanju,
+<span class="primer_text">TemperatureInput</span> je mogla da pozove
+<span class="primer_text">this.setState()</span> da bi je promenilo. Međutim
+sada kada <span class="primer_text">temperature</span> dolazi, iz roditeljske
+komponente, kao atribut ("props"),
+<span class="primer_text">TemperatureInput</span> nema kontrolu nad njom.
+<br /><br />
 
-U React-u se ovo obično rešava tako što napravimo komponentu da bude "kontrolisana" komponenta. Baš kao što DOM <span class = "primer_text">&ltinput&gt</span> prihvata i <span class = "primer_text">value</span> i <span class = "primer_text">onChange</span> atribute, tako i korisnički definisana <span class = "primer_text">TemperatureInput</span> komponenta može prihvatiti i <span class = "primer_text">temperature</span> i  <span class = "primer_text">onTemperatureChange</span> atribute ("props") iz roditeljske <span class = "primer_text">Calculator</span> komponente.
-<br><br>
+U React-u se ovo obično rešava tako što napravimo komponentu da bude
+"kontrolisana" komponenta. Baš kao što DOM
+<span class="primer_text">&ltinput&gt</span> prihvata i
+<span class="primer_text">value</span> i
+<span class="primer_text">onChange</span> atribute, tako i korisnički definisana
+<span class="primer_text">TemperatureInput</span> komponenta može prihvatiti i
+<span class="primer_text">temperature</span> i
+<span class="primer_text">onTemperatureChange</span> atribute ("props") iz
+roditeljske <span class="primer_text">Calculator</span> komponente. <br /><br />
 
-Sada kada <span class = "primer_text">TemperatureInput</span> želi da ažurira svoju temperaturu, poziva <span class = "primer_text">this.props.onTemperatureChange</span>:
-<xmp class = "primer_ta">
+Sada kada <span class="primer_text">TemperatureInput</span> želi da ažurira
+svoju temperaturu, poziva
+<span class="primer_text">this.props.onTemperatureChange</span>:
+<xmp class="primer_ta"
+>
 handleChange(e) {
   // Pre: this.setState({temperature: e.target.value});
   this.props.onTemperatureChange(e.target.value);
@@ -191,14 +254,31 @@ handleChange(e) {
 </xmp>
 
 <div class="napomena">
-Nema posebnih značenja u imenima atributa temperature i onTemperatureChange u korisnički definisanim komponentama. Mogli smo da ih nazovemo bilo kako, na primer, da im damo imena value i onChange što je uobičajena konvencija.
+  Nema posebnih značenja u imenima atributa temperature i onTemperatureChange u
+  korisnički definisanim komponentama. Mogli smo da ih nazovemo bilo kako, na
+  primer, da im damo imena value i onChange što je uobičajena konvencija.
 </div>
 
-Atribut <span class = "primer_text">onTemperatureChange</span> biće prosleđen zajedno sa atributom <span class = "primer_text">temperature</span> od strane roditeljske <span class = "primer_text">Calculator</span> komponente. Ona će upravljati promenom modifikujući sopstveno lokalno stanje i na taj način će u oba polja za unos prikazati nove vrednosti. Uskoro ćemo pogledati novu implementaciju <span class = "primer_text">Calculator</span> komponente.
-<br><br>
+Atribut <span class="primer_text">onTemperatureChange</span> biće prosleđen
+zajedno sa atributom <span class="primer_text">temperature</span> od strane
+roditeljske <span class="primer_text">Calculator</span> komponente. Ona će
+upravljati promenom modifikujući sopstveno lokalno stanje i na taj način će u
+oba polja za unos prikazati nove vrednosti. Uskoro ćemo pogledati novu
+implementaciju <span class="primer_text">Calculator</span> komponente.
+<br /><br />
 
-Pre nego što se udubite u promene na <span class = "primer_text">Calculator</span> komponenti, hajde da ponovimo koje smo sve promene napravili u <span class = "primer_text">TemperatureInput</span> komponenti. Iz nje smo uklonili lokalno stanje i umesto da čitamo <span class = "primer_text">this.state.temperature</span>, sada čitamo <span class = "primer_text">this.props.temperature</span>. Umesto da zovemo <span class = "primer_text">this.setState()</span> kada želimo da napravimo promene, sada pozivamo <span class = "primer_text">this.props.onTemperatureChange()</span> što će nam proslediti <span class = "primer_text">Calculator</span>:
-<xmp class = "primer_ta">
+Pre nego što se udubite u promene na
+<span class="primer_text">Calculator</span> komponenti, hajde da ponovimo koje
+smo sve promene napravili u
+<span class="primer_text">TemperatureInput</span> komponenti. Iz nje smo
+uklonili lokalno stanje i umesto da čitamo
+<span class="primer_text">this.state.temperature</span>, sada čitamo
+<span class="primer_text">this.props.temperature</span>. Umesto da zovemo
+<span class="primer_text">this.setState()</span> kada želimo da napravimo
+promene, sada pozivamo
+<span class="primer_text">this.props.onTemperatureChange()</span> što će nam
+proslediti <span class="primer_text">Calculator</span>:
+<xmp class="primer_ta">
 class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
@@ -223,33 +303,43 @@ class TemperatureInput extends React.Component {
 }
 </xmp>
 
-A sada da se vratimo na <span class = "primer_text">Calculator</span> komponentu.
-<br><br>
+A sada da se vratimo na <span class="primer_text">Calculator</span> komponentu.
+<br /><br />
 
-Skladištićemo <span class = "primer_text">temperature</span> i <span class = "primer_text">scale</span> u lokalnom stanju. To je stanje koje smo "podigli" iz komponenti za unos i poslužiće kao "izvor istine" za obe komponente. To je minimalna reprezentacija svih podataka koje trebamo znati da bismo prikazali vrednosti u obe ulazne komponente.
-<br><br>
+Skladištićemo <span class="primer_text">temperature</span> i
+<span class="primer_text">scale</span> u lokalnom stanju. To je stanje koje smo
+"podigli" iz komponenti za unos i poslužiće kao "izvor istine" za obe
+komponente. To je minimalna reprezentacija svih podataka koje trebamo znati da
+bismo prikazali vrednosti u obe ulazne komponente. <br /><br />
 
-Na primer, ako unesemo 37 u Celzijusovo polje za unos, stanje <span class = "primer_text">Calculator</span> komponente će biti:
-<xmp class = "primer_ta">
+Na primer, ako unesemo 37 u Celzijusovo polje za unos, stanje
+<span class="primer_text">Calculator</span> komponente će biti:
+<xmp class="primer_ta"
+>
 {
   temperature: '37',
   scale: 'c'
 }
 </xmp>
 
-Ako kasnije ažuriramo Farenhajtovo polje za unos na 212, stanje <span class = "primer_text">Calculator</span> komponente će biti:
-<xmp class = "primer_ta">
+Ako kasnije ažuriramo Farenhajtovo polje za unos na 212, stanje
+<span class="primer_text">Calculator</span> komponente će biti:
+<xmp class="primer_ta"
+>
 {
   temperature: '212',
   scale: 'f'
 }
 </xmp>
 
-Mogli smo da sačuvamo vrednost od oba polja za unos, ali ispostavilo se da nije potrebno. Dovoljno je da sačuvate vrednost poslednjeg izmenjenog polja i skalu koju predstavlja. Tada možemo zaključiti vrednost drugog polja na osnovu trenutne vrednosti <span class = "primer_text">temperature</span> i <span class = "primer_text">scale</span>.
-<br><br>
+Mogli smo da sačuvamo vrednost od oba polja za unos, ali ispostavilo se da nije
+potrebno. Dovoljno je da sačuvate vrednost poslednjeg izmenjenog polja i skalu
+koju predstavlja. Tada možemo zaključiti vrednost drugog polja na osnovu
+trenutne vrednosti <span class="primer_text">temperature</span> i
+<span class="primer_text">scale</span>. <br /><br />
 
 Ulazi ostaju sinhronizovani jer se njihove vrednosti računaju iz istog stanja:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
@@ -290,42 +380,121 @@ class Calculator extends React.Component {
 }
 </xmp>
 
-Sada, bez obzira koje polje za unos menjate <span class = "primer_text">this.state.temperature</span> i <span class = "primer_text">this.state.scale</span> u <span class = "primer_text">Calculator</span> komponenti biće ažurirani. Jedno od ulaznih polja dobija vrednost takvu kakva je, pa je bilo koji korisnički unos sačuvan, a drugo ulazno polje se na osnovu njega preračunava.
-<br><br>
+Sada, bez obzira koje polje za unos menjate
+<span class="primer_text">this.state.temperature</span> i
+<span class="primer_text">this.state.scale</span> u
+<span class="primer_text">Calculator</span> komponenti biće ažurirani. Jedno od
+ulaznih polja dobija vrednost takvu kakva je, pa je bilo koji korisnički unos
+sačuvan, a drugo ulazno polje se na osnovu njega preračunava. <br /><br />
 
 Hajde da ponovimo šta se dešava kada ažurirate neko od polja za unos:
 <ul>
-<li>React poziva funkciju koja je na DOM <span class = "primer_text">&ltinput&gt</span> navedena kao onChange. U našem slučaju, ovo je metoda <span class = "primer_text">handleChange</span> u <span class = "primer_text">TemperatureInput</span> komponenti.</li>
-<li>Metoda <span class = "primer_text">handleChange</span> u <span class = "primer_text">TemperatureInput</span> komponenti poziva <span class = "primer_text">this.props.onTemperatureChange()</span> sa novom željenom vrednošću. Njene atribute ("props"), uključujući <span class = "primer_text">onTemperatureChange</span> obezbedila je roditeljska <span class = "primer_text">Calculator</span> komponenta.</li>
-<li>Kada je prethodno prikazana/postavljena <span class = "primer_text">Calculator</span> komponenta, ona je odredila da je <span class = "primer_text">onTemperatureChange</span> Celzijus <span class = "primer_text">TemperatureInput</span> komponente metoda <span class = "primer_text">handleCelsiusChange</span> iz <span class = "primer_text">Calculator</span> komponente, a <span class = "primer_text">onTemperatureChange</span> Farenhajt <span class = "primer_text">TemperatureInput</span> komponente je metoda <span class = "primer_text">handleFahrenheitChange</span> iz <span class = "primer_text">Calculator</span> komponente. Dakle, bilo koja od ove dve metode iz <span class = "primer_text">Calculator</span> komopnente se poziva u zavisnosti od unosa koji smo ažurirali.</li>
-<li>Unutar ovih metoda, <span class = "primer_text">Calculator</span> komponenta traži od React-a da izvrši ponovno prikazivanje, tako što poziva <span class = "primer_text">this.setState()</span> sa novom ulaznom vrednošću i trenutnom skalom unosa koji smo upravo ažurirali.</li>
-<li>React poziva <span class = "primer_text">render</span> metodu <span class = "primer_text">Calculator</span> komponente kako bi saznao kako Korisnički Interfejs treba da izgleda. Vrednosti oba ulazna polja izračunavaju se na osnovu trenutne temperature i aktivne skale. Ovde se vrši konverzija temperature.</li>
-<li>React poziva <span class = "primer_text">render</span> metodu pojedinačnih <span class = "primer_text">TemperatureInput</span> komponenti sa njihovim novi atributima ("props") koje odredi <span class = "primer_text">Calculator</span> komponenta. Saznaje kako bi trebalo njihov Korisnički Interfejs da izgleda</li>
-<li>React poziva <span class = "primer_text">render</span> metodu <span class = "primer_text">BoilingVerdict</span> komponente, prosleđujuči temperaturu u Celzijusima kao njen atribut ("props").</li>
-<li>React DOM ažurira DOM sa odlukom o ključanju tako da odgovara željenim ulaznim vrednostima. Ulazno polje čiju smo vrednost upravo promenili dobija trenutnu vrednost, a drugo ulazno polje se ažurira nakon konverzije.</li>
+  <li>
+    React poziva funkciju koja je na DOM
+    <span class="primer_text">&ltinput&gt</span> navedena kao onChange. U našem
+    slučaju, ovo je metoda <span class="primer_text">handleChange</span> u
+    <span class="primer_text">TemperatureInput</span> komponenti.
+  </li>
+  <li>
+    Metoda <span class="primer_text">handleChange</span> u
+    <span class="primer_text">TemperatureInput</span> komponenti poziva
+    <span class="primer_text">this.props.onTemperatureChange()</span> sa novom
+    željenom vrednošću. Njene atribute ("props"), uključujući
+    <span class="primer_text">onTemperatureChange</span> obezbedila je
+    roditeljska <span class="primer_text">Calculator</span> komponenta.
+  </li>
+  <li>
+    Kada je prethodno prikazana/postavljena
+    <span class="primer_text">Calculator</span> komponenta, ona je odredila da
+    je <span class="primer_text">onTemperatureChange</span> Celzijus
+    <span class="primer_text">TemperatureInput</span> komponente metoda
+    <span class="primer_text">handleCelsiusChange</span> iz
+    <span class="primer_text">Calculator</span> komponente, a
+    <span class="primer_text">onTemperatureChange</span> Farenhajt
+    <span class="primer_text">TemperatureInput</span> komponente je metoda
+    <span class="primer_text">handleFahrenheitChange</span> iz
+    <span class="primer_text">Calculator</span> komponente. Dakle, bilo koja od
+    ove dve metode iz <span class="primer_text">Calculator</span> komopnente se
+    poziva u zavisnosti od unosa koji smo ažurirali.
+  </li>
+  <li>
+    Unutar ovih metoda, <span class="primer_text">Calculator</span> komponenta
+    traži od React-a da izvrši ponovno prikazivanje, tako što poziva
+    <span class="primer_text">this.setState()</span> sa novom ulaznom vrednošću
+    i trenutnom skalom unosa koji smo upravo ažurirali.
+  </li>
+  <li>
+    React poziva <span class="primer_text">render</span> metodu
+    <span class="primer_text">Calculator</span> komponente kako bi saznao kako
+    Korisnički Interfejs treba da izgleda. Vrednosti oba ulazna polja
+    izračunavaju se na osnovu trenutne temperature i aktivne skale. Ovde se vrši
+    konverzija temperature.
+  </li>
+  <li>
+    React poziva <span class="primer_text">render</span> metodu pojedinačnih
+    <span class="primer_text">TemperatureInput</span> komponenti sa njihovim
+    novi atributima ("props") koje odredi
+    <span class="primer_text">Calculator</span> komponenta. Saznaje kako bi
+    trebalo njihov Korisnički Interfejs da izgleda
+  </li>
+  <li>
+    React poziva <span class="primer_text">render</span> metodu
+    <span class="primer_text">BoilingVerdict</span> komponente, prosleđujuči
+    temperaturu u Celzijusima kao njen atribut ("props").
+  </li>
+  <li>
+    React DOM ažurira DOM sa odlukom o ključanju tako da odgovara željenim
+    ulaznim vrednostima. Ulazno polje čiju smo vrednost upravo promenili dobija
+    trenutnu vrednost, a drugo ulazno polje se ažurira nakon konverzije.
+  </li>
 </ul>
-<br>
+<br />
 
-Svako ažuriranje prolazi kroz iste korake tako da ulazna polja ostaju sinhronizovana.
-<br><br>
+Svako ažuriranje prolazi kroz iste korake tako da ulazna polja ostaju
+sinhronizovana.
+<br /><br />
 
 <h2>Naučene lekcije</h2>
 
+Trebalo bi da postoji jedan "izvor istine" za sve podatke koji se menjaju u
+React aplikaciji. Obično se stanje prvo dodaje komponenti kojoj je potrebno za
+prikazivanje. Zatim, ako je to stanje potrebno i drugim komponentama, možete ga
+podići do najbližeg zajedničkog pretka. Umesto da pokušavate da sinhronizujete
+stanja između različitih komponenti, trebalo bi da se oslonite na protok
+podataka odozgo-nadole.
+<br /><br />
 
-Trebalo bi da postoji jedan "izvor istine" za sve podatke koji se menjaju u React aplikaciji. Obično se stanje prvo dodaje komponenti kojoj je potrebno za prikazivanje. Zatim, ako je to stanje potrebno i drugim komponentama, možete ga podići do najbližeg zajedničkog pretka. Umesto da pokušavate da sinhronizujete stanja između različitih komponenti, trebalo bi da se oslonite na protok podataka odozgo-nadole.
-<br><br>
+Podizanje stanja uključuje pisanje više "boilerplate" koda nego dvosmerni
+pristupi povezivanja, ali kao korist, potrebno je manje rada na pronalaženju i
+izolaciji grešaka. Budući da bilo koje stanje "živi" u nekoj komponenti i samo
+ta komponenta može da ga promeni, oblast u kojoj greške mogu da se jave uveliko
+se smanjuje. Pored toga, možete implementirati bilo koju prilagođenu logiku za
+odbacivanje ili transformisanje korisničkog unosa.
+<br /><br />
 
-Podizanje stanja uključuje pisanje više "boilerplate" koda nego dvosmerni pristupi povezivanja, ali kao korist, potrebno je manje rada na pronalaženju i izolaciji grešaka. Budući da bilo koje stanje "živi" u nekoj komponenti i samo ta komponenta može da ga promeni, oblast u kojoj greške mogu da se jave uveliko se smanjuje. Pored toga, možete implementirati bilo koju prilagođenu logiku za odbacivanje ili transformisanje korisničkog unosa.
-<br><br>
+Ako se nešto može izvesti iz atributa ("props") ili stanja, to verovatno ne bi
+trebalo biti u stanju. Na primer, umesto da čuvamo oba
+<span class="primer_text">celsiusValue</span> i
+<span class="primer_text">fahrenheitValue</span>, mi čuvamo samo poslednju
+izmenjenu <span class="primer_text">temperature</span> i njenu
+<span class="primer_text">scale</span>. Vrednost ostalih ulaznih polja se uvek
+može izračunati iz njih u <span class="primer_text">render()</span> metodi. To
+nam omogućava da očistimo ili primenimo zaokruživanje na drugo polje bez gubitka
+preciznosti u korisničkom unosu. <br /><br />
 
-Ako se nešto može izvesti iz atributa ("props") ili stanja, to verovatno ne bi trebalo biti u stanju. Na primer, umesto da čuvamo oba <span class = "primer_text">celsiusValue</span> i <span class = "primer_text">fahrenheitValue</span>, mi čuvamo samo poslednju izmenjenu <span class = "primer_text">temperature</span> i njenu <span class = "primer_text">scale</span>. Vrednost ostalih ulaznih polja se uvek može izračunati iz njih u <span class = "primer_text">render()</span> metodi. To nam omogućava da očistimo ili primenimo zaokruživanje na drugo polje bez gubitka preciznosti u korisničkom unosu.
-<br><br>
+Kada u KI vidite nešto pogrešno, možete koristiti "React Developer Tools" za
+pregled atributa ("props") i obilaskom stabla nagore dok ne nađete komponentu
+koja je odgovorna za ažuriranje stanja. Ovo vam omogućava da pratite greške do
+njihovog izvora:
+<br />
 
-Kada u KI vidite nešto pogrešno, možete koristiti "React Developer Tools" za pregled atributa ("props") i obilaskom stabla nagore dok ne nađete komponentu koja je odgovorna za ažuriranje stanja. Ovo vam omogućava da pratite greške do njihovog izvora:
-<br>
-
-<img src="courses/react/react_slike/react_devtools_stanje.gif" class="img-fluid img-md">
+<img
+  src="courses/react/react_slike/react_devtools_stanje.gif"
+  class="img-fluid img-md"
+/>
 
 <div class="zadatak">
-<b>Zadatak:</b> U editoru se nalazi kompletan primer iz ove lekcije, vaš zadatak je da isprobate sve isečke kodova i izgradite kompletan primer od početka.
+  <b>Zadatak:</b> U editoru se nalazi kompletan primer iz ove lekcije, vaš
+  zadatak je da isprobate sve isečke kodova i izgradite kompletan primer od
+  početka.
 </div>

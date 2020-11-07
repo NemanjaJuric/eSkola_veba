@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
+    <h2>String napisan u JSON-u konvertovan u JavaScript objekat</h2>
 
-<h2>String napisan u JSON-u konvertovan u JavaScript objekat</h2>
+    <p id="paragraf"></p>
 
-<p id="paragraf"></p>
-
-<script>
-var myJSON = '{"Ime":"Petar", "Prezime":"Petrović"}';
-var myObj = JSON.parse(myJSON);
-document.getElementById("paragraf").innerHTML = myObj.Ime;
-</script>
-
-</body>
+    <script>
+      var myJSON = '{"Ime":"Petar", "Prezime":"Petrović"}';
+      var myObj = JSON.parse(myJSON);
+      document.getElementById("paragraf").innerHTML = myObj.Ime;
+    </script>
+  </body>
 </html>

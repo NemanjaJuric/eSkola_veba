@@ -1,10 +1,12 @@
-<xmp>
+<xmp
+>
 SELECT ime, prezime, datum_zaposlenja
 FROM radnik
 WHERE datum_zaposlenja >= '2018-01-01';
 </xmp>
 
-<xmp>
+<xmp
+>
 SELECT ime, prezime, datum_zaposlenja, radno_mesto
 FROM radnik
 WHERE datum_zaposlenja >= '2017-01-01'
@@ -12,7 +14,8 @@ WHERE datum_zaposlenja >= '2017-01-01'
   AND (radno_mesto = 'Beograd' OR radno_mesto = 'Nis');
 </xmp>
 
-<xmp>
+<xmp
+>
 SELECT ime, prezime, polozaj, radno_mesto, datum_zaposlenja
 FROM radnik
 WHERE polozaj IN ('trgovac', 'vozac')
@@ -20,7 +23,8 @@ WHERE polozaj IN ('trgovac', 'vozac')
   AND datum_zaposlenja BETWEEN '2017-01-01' AND '2017-12-31';
 </xmp>
 
-<xmp>
+<xmp
+>
 SELECT ime, prezime
 FROM radnik
 WHERE prezime NOT LIKE 'P%';

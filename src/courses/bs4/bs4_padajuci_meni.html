@@ -1,18 +1,23 @@
 <h1>Padajući meni (engl. Dropdown menu)</h1>
-Jedan način za formiranje padajućeg menija u radnom okruženju Bootstrap 4 je sledeći:
-<br>
+Jedan način za formiranje padajućeg menija u radnom okruženju Bootstrap 4 je
+sledeći:
+<br />
 Sekciji <span class="primer_text">&ltdiv&gt</span> dodeljuje se klasa
-<span class="primer_text">.dropdown</span> koja indicira da se radi o padajućem meniju, a zatim
-se dodaju dugme i još jedna unutrašnja sekcija. Dugme mora imati klasu
-<span class="primer_text">.dropdown-toggle</span> i atribut
-<span class="primer_text">data-toggle="dropdown"</span> jer oni omogućavaju da klikom na dugme bude
-prikazana padajuća lista elemenata. Padajuću listu elemenata navodimo u okviru sekcije
+<span class="primer_text">.dropdown</span> koja indicira da se radi o padajućem
+meniju, a zatim se dodaju dugme i još jedna unutrašnja sekcija. Dugme mora imati
+klasu <span class="primer_text">.dropdown-toggle</span> i atribut
+<span class="primer_text">data-toggle="dropdown"</span> jer oni omogućavaju da
+klikom na dugme bude prikazana padajuća lista elemenata. Padajuću listu
+elemenata navodimo u okviru sekcije
 <span class="primer_text">&ltdiv&gt</span> kojoj je zadata klasa
-<span class="primer_text">.dropdown-menu</span>. Klasa <span class="primer_text">.dropdown-menu</span>,
-ustvari, pravi padajući meni. U okviru sekcije kojoj je zadata klasa
-<span class="primer_text">.dropdown-menu</span>, navode se linkovi <span class="primer_text">&lta&gt</span>,
-kojima se dodeljuje klasa <span class="primer_text">.dropdown-item</span> i oni predstavljaju elemente padajuće liste.
-<br>
+<span class="primer_text">.dropdown-menu</span>. Klasa
+<span class="primer_text">.dropdown-menu</span>, ustvari, pravi padajući meni. U
+okviru sekcije kojoj je zadata klasa
+<span class="primer_text">.dropdown-menu</span>, navode se linkovi
+<span class="primer_text">&lta&gt</span>, kojima se dodeljuje klasa
+<span class="primer_text">.dropdown-item</span> i oni predstavljaju elemente
+padajuće liste.
+<br />
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -42,30 +47,34 @@ kojima se dodeljuje klasa <span class="primer_text">.dropdown-item</span> i oni 
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Postoji mogućnost da se umesto dugmeta <span class="primer_text">&ltbutton&gt</span>
-koristi etiketa <span class="primer_text">&lta&gt</span> kojoj bi takođe
-trebalo zadati klasu <span class="primer_text">.dropdown-toggle</span> i atribut
+<br />
+Postoji mogućnost da se umesto dugmeta
+<span class="primer_text">&ltbutton&gt</span> koristi etiketa
+<span class="primer_text">&lta&gt</span> kojoj bi takođe trebalo zadati klasu
+<span class="primer_text">.dropdown-toggle</span> i atribut
 <span class="primer_text">data-toggle="dropdown"</span>.
-<br>
-Takođe, u okviru sekcije sa klasom <span class="primer_text">.dropdown-menu</span>, umesto
-linkova <span class="primer_text">&lta&gt</span>, moguće je dodavati dugmiće sa klasama
+<br />
+Takođe, u okviru sekcije sa klasom
+<span class="primer_text">.dropdown-menu</span>, umesto linkova
+<span class="primer_text">&lta&gt</span>, moguće je dodavati dugmiće sa klasama
 <span class="primer_text">.dropdown-item</span>.
-<br>
+<br />
 Element koji je manje važnosti ili koji ne pripada istoj kategoriji je moguće
 odvojiti jednom horizontalnom linijom unutar padajućeg menija.
-<br>
-<img src="courses/bs4/separator.jpg" class="img-fluid img-md">
-<br>
+<br />
+<img src="courses/bs4/separator.jpg" class="img-fluid img-md" />
+<br />
 Ovo se realizuje dodavanjem sekcije
 <span class="primer_text">&ltdiv class="dropdown-divider"&gt&lt/div&gt</span>
 iznad elementa koji treba odvojiti.
-<br>
-U radnom okruženju Bootstrap 4, zaglavlje padajućeg menija se može napraviti dodavanjem
-sekcije <span class="primer_text">&ltdiv class="dropdown-header"&gtZaglavlje menija&lt/div&gt</span>, dok se klasa
-<span class="primer_text">.disabled</span> koristi da bi se element kome je pridružena ta klasa
-prikazao kao blokiran. Klasa <span class="primer_text">.active</span> naglašava element kome je
-pridružena.
+<br />
+U radnom okruženju Bootstrap 4, zaglavlje padajućeg menija se može napraviti
+dodavanjem sekcije
+<span class="primer_text"
+  >&ltdiv class="dropdown-header"&gtZaglavlje menija&lt/div&gt</span
+>, dok se klasa <span class="primer_text">.disabled</span> koristi da bi se
+element kome je pridružena ta klasa prikazao kao blokiran. Klasa
+<span class="primer_text">.active</span> naglašava element kome je pridružena.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -96,18 +105,22 @@ pridružena.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Pozicioniranje padajućeg menija</h2>
-Pomoću klase <span class="primer_text">.dropright</span>, padajuća lista iskače sa desne strane dugmeta.
-<img src="courses/bs4/desno.JPG" alt="Dropright" class="img-fluid img-md">
-<br>
+Pomoću klase <span class="primer_text">.dropright</span>, padajuća lista iskače
+sa desne strane dugmeta.
+<img src="courses/bs4/desno.JPG" alt="Dropright" class="img-fluid img-md" />
+<br />
 Pomoću klase <span class="primer_text">.dropleft</span>, padajuća lista iskače
-levo od dugmeta. Pri čemu treba dodati i klasu <span class="primer_text">.float-right</span> kojom
-se ceo padajući meni ravna uz desnu ivicu i time je osolobođen prostor za iskakanje padajuće liste levo od dugmeta.
-<img src="courses/bs4/levo.JPG" alt="Dropleft" class="img-fluid img-md">
-<br>
-Prethodno navedene klase se dodaju elementu <span class="primer_text">&ltdiv&gt</span> koji
-sadrži klasu <span class="primer_text">.dropdown</span>.
+levo od dugmeta. Pri čemu treba dodati i klasu
+<span class="primer_text">.float-right</span> kojom se ceo padajući meni ravna
+uz desnu ivicu i time je osolobođen prostor za iskakanje padajuće liste levo od
+dugmeta.
+<img src="courses/bs4/levo.JPG" alt="Dropleft" class="img-fluid img-md" />
+<br />
+Prethodno navedene klase se dodaju elementu
+<span class="primer_text">&ltdiv&gt</span> koji sadrži klasu
+<span class="primer_text">.dropdown</span>.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -144,25 +157,33 @@ sadrži klasu <span class="primer_text">.dropdown</span>.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
-Padajuću listu je moguće poravnati sa desnom ivicom dugmeta padajućeg menija pomoću
-klase <span class="primer_text">.dropdown-menu-right</span> koja se dodaje elementu sa klasom
-<span class="primer_text">.dropdown-menu</span>.
-  <br>
-Padajuća lista može da iskače i na gore (engl. Dropup), to se dobija klasom <span class="primer_text">.dropup</span>
-koja se piše umesto klase <span class="primer_text">.dropdown</span>.
-<br>
+<br />
+Padajuću listu je moguće poravnati sa desnom ivicom dugmeta padajućeg menija
+pomoću klase <span class="primer_text">.dropdown-menu-right</span> koja se
+dodaje elementu sa klasom <span class="primer_text">.dropdown-menu</span>.
+<br />
+Padajuća lista može da iskače i na gore (engl. Dropup), to se dobija klasom
+<span class="primer_text">.dropup</span> koja se piše umesto klase
+<span class="primer_text">.dropdown</span>.
+<br />
 <h2>Grupisanje padajućih listi</h2>
 <ol>
-  <li>Grupisanje dugmića sa padajućim menijem se formira korišćenjem klase
-  <span class="primer_text">.btn-group</span> koja se zadaje sekciji u okviru koje se navode
-  dugmići i padajuća lista.</li>
-  <li>Nekompaktno grupisanje dugmeta sa padajućim menijem se formira korišćenjem klase
-  <span class="primer_text">.btn-group</span> koja se zadaje sekciji i u okviru koje se
-  navodi obično dugme, dugme padajuće liste i padajuća lista. Uu ovom slučaju padajuća lista iskače samo klikom
-  na strelicu pored dugmeta.</li>
-  <li>Vertikalno grupisanje dugmića i padajućeg menija se dobija korišćenjem klase
-    <span class="primer_text">.btn-group-vertical</span> umesto klase <span class="primer_text">.btn-group</span>.</li>
+  <li>
+    Grupisanje dugmića sa padajućim menijem se formira korišćenjem klase
+    <span class="primer_text">.btn-group</span> koja se zadaje sekciji u okviru
+    koje se navode dugmići i padajuća lista.
+  </li>
+  <li>
+    Nekompaktno grupisanje dugmeta sa padajućim menijem se formira korišćenjem
+    klase <span class="primer_text">.btn-group</span> koja se zadaje sekciji i u
+    okviru koje se navodi obično dugme, dugme padajuće liste i padajuća lista.
+    Uu ovom slučaju padajuća lista iskače samo klikom na strelicu pored dugmeta.
+  </li>
+  <li>
+    Vertikalno grupisanje dugmića i padajućeg menija se dobija korišćenjem klase
+    <span class="primer_text">.btn-group-vertical</span> umesto klase
+    <span class="primer_text">.btn-group</span>.
+  </li>
 </ol>
 <xmp class="primer_ta">
   <!DOCTYPE html>
@@ -222,8 +243,9 @@ koja se piše umesto klase <span class="primer_text">.dropdown</span>.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <div class="zadatak">
-  <b>Zadatak:</b> Napraviti pet grupa nekompaktno grupisanih dugmića i padajuće liste različitih boja, pri
-  čemu neki od linkova trebaju biti aktivni, a neki blokirani.
+  <b>Zadatak:</b> Napraviti pet grupa nekompaktno grupisanih dugmića i padajuće
+  liste različitih boja, pri čemu neki od linkova trebaju biti aktivni, a neki
+  blokirani.
 </div>

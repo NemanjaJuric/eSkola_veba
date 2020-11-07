@@ -1,21 +1,29 @@
 <div class="container-fluid m-t-1 m-b-1 wrapper">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="text-xs-center m-b-2 gray">
-                <h3 class="h3">TypeScript</h3>
-            </div>
-            <div class="code-panel-editor-md">
-                <editor [(code)]="tsCode" [theme]="'ts'" [displayLang]="'TypeScript'"></editor>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="text-xs-center m-b-2 gray">
-                <h3 class="h3">JavaScript</h3>
-            </div>
-            <div class="code-panel-editor-md">
-                <editor [(code)]="jsCode" [theme]="'js'" [displayLang]="'JavaScript'"></editor>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-xs-center m-b-2 gray">
+        <h3 class="h3">TypeScript</h3>
+      </div>
+      <div class="code-panel-editor-md">
+        <editor
+          [(code)]="tsCode"
+          [theme]="'ts'"
+          [displayLang]="'TypeScript'"
+        ></editor>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="text-xs-center m-b-2 gray">
+        <h3 class="h3">JavaScript</h3>
+      </div>
+      <div class="code-panel-editor-md">
+        <editor
+          [(code)]="jsCode"
+          [theme]="'js'"
+          [displayLang]="'JavaScript'"
+        ></editor>
+      </div>
+    </div>
+  </div>
 </div>
 <bottom-navigation (clickEmit)="click($event)"></bottom-navigation>

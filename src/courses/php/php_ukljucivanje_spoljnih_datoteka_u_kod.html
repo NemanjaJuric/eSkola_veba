@@ -1,23 +1,33 @@
 <h1>Uključivanje spoljnih datoteka u kod</h1>
-Moguće je  u PHP datoteku uključiti sadržaj druge datoteke pre nego što se program izvrši. Postoje 2 funkcije koje mogu spoljnu datoteku da uključe u PHP datoteku.
+Moguće je u PHP datoteku uključiti sadržaj druge datoteke pre nego što se
+program izvrši. Postoje 2 funkcije koje mogu spoljnu datoteku da uključe u PHP
+datoteku.
 <ul>
-	<li>include</li>
-	<li>require</li>
+  <li>include</li>
+  <li>require</li>
 </ul>
-Uključivanje datoteka je dosta korisno kad je potrebno da isti PHP, HTML kod ili običan tekst uključimo na više stranica sajta. To omogućuje programerima da uz minimalno napora promene izgled celog sajta. Najčešće koristimo pri uključivanju hedera i futera na više stranica sajta.
+Uključivanje datoteka je dosta korisno kad je potrebno da isti PHP, HTML kod ili
+običan tekst uključimo na više stranica sajta. To omogućuje programerima da uz
+minimalno napora promene izgled celog sajta. Najčešće koristimo pri uključivanju
+hedera i futera na više stranica sajta.
 <h2>Funkcija include</h2>
-Funkcija <span class="primer_text">include</span> ceo tekst iz odabrane datoteke kopira u datoteke u kojoj se poziva funkcija. Ako dođe do problema pri učitavanju datoteke, onda će funkcija <span class="primer_text">include</span> obezbediti upozorenje korisniku, ali će program nastaviti da se izvršava.
-<br>
-<br>
+Funkcija <span class="primer_text">include</span> ceo tekst iz odabrane datoteke
+kopira u datoteke u kojoj se poziva funkcija. Ako dođe do problema pri
+učitavanju datoteke, onda će funkcija
+<span class="primer_text">include</span> obezbediti upozorenje korisniku, ali će
+program nastaviti da se izvršava.
+<br />
+<br />
 Neka je data datoteka header.php koja će se koristiti u narednom sadržaju.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/php/include">Uključivanje datoteke</a> 
 <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/php/visedimenzioni_nizovi">Visedimenzioni nizovi</a> 
 <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/php/kolacici">Kolačići</a>
 </xmp>
-Sada je moguće kreirati više stranica i da se na svaku uključi ova datoteka da bi  napravili heder stranice. <br>
+Sada je moguće kreirati više stranica i da se na svaku uključi ova datoteka da
+bi napravili heder stranice. <br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <header>
 <?php
 include('header.php');
@@ -25,12 +35,15 @@ include('header.php');
 <p>Ovo je primer gde se pokazuje kako da se uključuje datoteka u kod.</p>	
 </header>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <h2>Funkcija require</h2>
-Funkcija <span class="primer_text">require</span> takođe ceo tekst iz odabrane datoteke kopira u datoteku u kojoj se poziva funkcija. Ako dođe do problema pri učitavanju datoteke onda program izbacuje gresku i zaustavlja se izvršavanje programa. <br>
+Funkcija <span class="primer_text">require</span> takođe ceo tekst iz odabrane
+datoteke kopira u datoteku u kojoj se poziva funkcija. Ako dođe do problema pri
+učitavanju datoteke onda program izbacuje gresku i zaustavlja se izvršavanje
+programa. <br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <header>
 <?php
 require('header.php');
@@ -38,25 +51,39 @@ require('header.php');
 <p>Ovo je primer gde se pokazuje kako se uključuje datoteka u kod.</p>	
 </header>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-Rezultat će biti isti kao kod prethodnog primera kada je korišćena funkcija <span class="primer_text">include</span>. <br>
-Dakle, kad se datoteka uspešno učita, nema razlike izmedju <span class="primer_text">include</span> i <span class="primer_text">require</span>. <br>
-Jedina razlika je ta, da kad dođe do problema pri uključivanju datoteke. Pri korišćenju <span class="primer_text">include</span> funkcije, program ce izbaciti upozorenje ali ostatak programa će se izvršiti, dok kod <span class="primer_text">require</span> funkcije neće doći do nastavka izvršenja programa.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Rezultat će biti isti kao kod prethodnog primera kada je korišćena funkcija
+<span class="primer_text">include</span>. <br />
+Dakle, kad se datoteka uspešno učita, nema razlike izmedju
+<span class="primer_text">include</span> i
+<span class="primer_text">require</span>. <br />
+Jedina razlika je ta, da kad dođe do problema pri uključivanju datoteke. Pri
+korišćenju <span class="primer_text">include</span> funkcije, program ce
+izbaciti upozorenje ali ostatak programa će se izvršiti, dok kod
+<span class="primer_text">require</span> funkcije neće doći do nastavka
+izvršenja programa.
+<br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 require('nepostojeći_fajl.php');
 ?>
 <p>Ovaj deo se neće izvršiti!</p>	
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<div class = "napomena">
-Treba koristiti funkciju require kad je za program neophodno da se datoteka učita.<br>
-Treba koristiti funkciju include kad za program nije neophodno da se datoteka učita.
+<button class="button_copy">Vidi primer</button>
+<div class="napomena">
+  Treba koristiti funkciju require kad je za program neophodno da se datoteka
+  učita.<br />
+  Treba koristiti funkciju include kad za program nije neophodno da se datoteka
+  učita.
 </div>
 <b>Zadatak:</b>
-<div class = "zadatak">
-Navesti kao argument funkcije <span class="primer_text">include</span> i <span class="primer_text">require</span> postojeću datoteku i uvideti da nema razlike između rezultata programa. Takođe navesti kao argument nepostojeću datoteku i uvideti razliku izmedju funkcija <span class="primer_text">include</span> i <span class="primer_text">require</span>.
+<div class="zadatak">
+  Navesti kao argument funkcije <span class="primer_text">include</span> i
+  <span class="primer_text">require</span> postojeću datoteku i uvideti da nema
+  razlike između rezultata programa. Takođe navesti kao argument nepostojeću
+  datoteku i uvideti razliku izmedju funkcija
+  <span class="primer_text">include</span> i
+  <span class="primer_text">require</span>.
 </div>

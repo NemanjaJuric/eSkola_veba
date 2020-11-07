@@ -1,45 +1,63 @@
 <h1>Interfejsi</h1>
 
-<p style="text-align: justify;"><b>Interfejsi</b> (engl. <i>interfaces</i>) u programskom jeziku Java predstavljaju mehanizam za postizanje
-potpune apstrakcije. Kada je potrebno specificirati zajednička svojstva povezanih klasa, ali i
-nepovezanih klasa koristi se interfejs. To je zapravo kolekcija apstraktnih metoda i konstanti, a u
-većini slučajeva, sadrži samo metode. Kako se za metode podrazumeva da su public i abstract, pa
-se ove ključne reči ne navode. Metode u interfejsu ne mogu biti statičke. Interfejs se definiše kao
-klasa, ali koristeći ključnu reč - <b>interface</b>.</p>
+<p style="text-align: justify">
+  <b>Interfejsi</b> (engl. <i>interfaces</i>) u programskom jeziku Java
+  predstavljaju mehanizam za postizanje potpune apstrakcije. Kada je potrebno
+  specificirati zajednička svojstva povezanih klasa, ali i nepovezanih klasa
+  koristi se interfejs. To je zapravo kolekcija apstraktnih metoda i konstanti,
+  a u većini slučajeva, sadrži samo metode. Kako se za metode podrazumeva da su
+  public i abstract, pa se ove ključne reči ne navode. Metode u interfejsu ne
+  mogu biti statičke. Interfejs se definiše kao klasa, ali koristeći ključnu reč
+  - <b>interface</b>.
+</p>
 
-<div class = "napomena">
-  public interface imeInterfejsa {<br>
-        ... <br>
+<div class="napomena">
+  public interface imeInterfejsa {<br />
+  ... <br />
   }
 </div>
 
-<p style="text-align: justify;">Interfejs se može posmatrati i kao jedna specifična klasa u jeziku Java. Svaki interfejs, pri
-kompajliranju, se pretvara u posebnu datoteku sa bajtkodom. Može se koristiti kao tip podataka za
-referencu promenljive. Kao i apstraktna klasa, interfejs ne može da ima svoj objekat.
-Interfejs se koristi tako što ga implementira neke klasa, pomoću ključne reči - implements. To se
-postiže na sledeći način:</p>
+<p style="text-align: justify">
+  Interfejs se može posmatrati i kao jedna specifična klasa u jeziku Java. Svaki
+  interfejs, pri kompajliranju, se pretvara u posebnu datoteku sa bajtkodom.
+  Može se koristiti kao tip podataka za referencu promenljive. Kao i apstraktna
+  klasa, interfejs ne može da ima svoj objekat. Interfejs se koristi tako što ga
+  implementira neke klasa, pomoću ključne reči - implements. To se postiže na
+  sledeći način:
+</p>
 
-<div class = "napomena">
-  public class imeKlase implements imeInterfejsa {<br>
-    ...<br>
+<div class="napomena">
+  public class imeKlase implements imeInterfejsa {<br />
+  ...<br />
   }
 </div>
 
-<p style="text-align: justify;">Svaka metoda deklarisana u interfejsu mora imati definiciju unutar klase da bi bilo moguće kreirati
-konkretne objekte te klase.
-<br>
-Važno je zapamtiti nekoliko pravila kojih se treba pridržavati u radu sa interfejsima.</p>
+<p style="text-align: justify">
+  Svaka metoda deklarisana u interfejsu mora imati definiciju unutar klase da bi
+  bilo moguće kreirati konkretne objekte te klase.
+  <br />
+  Važno je zapamtiti nekoliko pravila kojih se treba pridržavati u radu sa
+  interfejsima.
+</p>
 <ul>
-  <li>Metode koje se definišu unutar klase koja implementira interfejs moraju biti javne (public).</li>
-  <li>Ukoliko se ne definiše bar jedna metoda u klasi koja implementira interfejs, ta klasa postaje
-  apstraktna.,</li>
+  <li>
+    Metode koje se definišu unutar klase koja implementira interfejs moraju biti
+    javne (public).
+  </li>
+  <li>
+    Ukoliko se ne definiše bar jedna metoda u klasi koja implementira interfejs,
+    ta klasa postaje apstraktna.,
+  </li>
   <li>Klasa može implementirati više interfejsa.i,</li>
   <li>Interfejs može da nasleđuje interfejs (nasleđivanje).</li>
-  <li>Interfejs može da nasleđuje više interfejsa (višestruko nasleđivanje).</li>
+  <li>
+    Interfejs može da nasleđuje više interfejsa (višestruko nasleđivanje).
+  </li>
 </ul>
 
 <b>Primer 31.</b> – Implementiranje interfejsa
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 public interface Printable {
   void print();
 }
@@ -65,7 +83,8 @@ public class A1 implements Printable, Showable {
 }
 </xmp>
 Nakon pokretanja ovog programa dobija se poruka:
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
   Thank you
   Bye
 </xmp>

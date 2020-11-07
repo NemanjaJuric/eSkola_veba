@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-</head>
-<body>
-<div id="app">
-<p v-if="prikazi">Neki paragraf</p>
-<p>Neki drugi paragraf</p>
-<button @click="prikazi=!prikazi">Klikni</button> 
- </div>
+  <head>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="prikazi">Neki paragraf</p>
+      <p>Neki drugi paragraf</p>
+      <button @click="prikazi=!prikazi">Klikni</button>
+    </div>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                prikazi:true
-                       }
-           
-                       });
+      new Vue({
+        el: "#app",
+        data: {
+          prikazi: true,
+        },
+      });
     </script>
-</body>
+  </body>
 </html>

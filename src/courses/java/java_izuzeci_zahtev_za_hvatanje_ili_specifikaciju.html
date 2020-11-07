@@ -1,32 +1,59 @@
 <h1>Zahtev za hvatanje ili specifikaciju</h1>
-<br>
+<br />
 
-Ispravan kod programskog jezika Java mora poštovati zahtev za hvatanje ili specifikaciju. To znači da kod koji može baciti/ispaliti određene izuzetke mora biti ograđen nečim od sledećeg:
-<br>
+Ispravan kod programskog jezika Java mora poštovati zahtev za hvatanje ili
+specifikaciju. To znači da kod koji može baciti/ispaliti određene izuzetke mora
+biti ograđen nečim od sledećeg:
+<br />
 
 <ul>
-  <li>Naredba <span class = "primer_text">try</span> koja hvata izuzetak. Naredba <span class = "primer_text">try</span> mora da obezbedi rukovalac za izuzetak, kao što je objašnjeno u lekciji "Hvatanje i obrada izuzetaka".</li>
-  <li>Metoda koja specificira da može izbaciti izuzetak. Metoda mora obezbediti <span class = "primer_text">throws</span> klauzulu koja navodi izuzetke, kao što je objašnjeno u lekciji "Navođenje izuzetaka ispaljenih iz metode".</li>
+  <li>
+    Naredba <span class="primer_text">try</span> koja hvata izuzetak. Naredba
+    <span class="primer_text">try</span> mora da obezbedi rukovalac za izuzetak,
+    kao što je objašnjeno u lekciji "Hvatanje i obrada izuzetaka".
+  </li>
+  <li>
+    Metoda koja specificira da može izbaciti izuzetak. Metoda mora obezbediti
+    <span class="primer_text">throws</span> klauzulu koja navodi izuzetke, kao
+    što je objašnjeno u lekciji "Navođenje izuzetaka ispaljenih iz metode".
+  </li>
 </ul>
-<br>
+<br />
 
 Kod koji ne ispunjava zahtev za hvatanje ili specifikaciju neće se kompajlirati.
-<br><br>
+<br /><br />
 
-Nisu svi izuzeci podložni zahtevu za hvatanje ili specifikaciju. Da bismo razumeli zašto, moramo da razmotrimo tri osnove kategorije izuzetaka, od kojih je samo jedna podlegla zahtevu.
-<br><br>
+Nisu svi izuzeci podložni zahtevu za hvatanje ili specifikaciju. Da bismo
+razumeli zašto, moramo da razmotrimo tri osnove kategorije izuzetaka, od kojih
+je samo jedna podlegla zahtevu.
+<br /><br />
 
 <h2>Tri vrste izuzetaka</h2>
-<br>
+<br />
 
-Prva vrsta izuzetaka je <b>provereni</b> (checked) izuzetak. Ovo su specifični uslovi koje bi dobro napisana aplikacija trebala da predvidi i od njih se oporavi. 
-Na primer, pretpostavimo da aplikacija od korisnika traži ime datoteke, a zatim otvara dataoteku prosleđujući uneto ime konstruktoru za <span class = "primer_text">java.io.FileReader</span>. 
-Uglavnom korisnik unosi ime postojeće, moguće za čitanje datoteke, tako da kreiranje <span class = "primer_text">FileReader</span> objekta uspeva i izvršavanje aplikacije nastavlja normalnim tokom. 
-Ali nekada korisnik unese ime nepostojeće datoteke, a konstruktor baca/ispaljuje <span class = "primer_text">java.io.FileNotFoundException</span> izuzetak. Dobro napisan program će uhvatiti ovaj izuzetak i obavestiti korisnika o grešci, verovatno ispisujući poruku o tome da tražena datoteka ne postoji.
+Prva vrsta izuzetaka je <b>provereni</b> (checked) izuzetak. Ovo su specifični
+uslovi koje bi dobro napisana aplikacija trebala da predvidi i od njih se
+oporavi. Na primer, pretpostavimo da aplikacija od korisnika traži ime datoteke,
+a zatim otvara dataoteku prosleđujući uneto ime konstruktoru za
+<span class="primer_text">java.io.FileReader</span>. Uglavnom korisnik unosi ime
+postojeće, moguće za čitanje datoteke, tako da kreiranje
+<span class="primer_text">FileReader</span> objekta uspeva i izvršavanje
+aplikacije nastavlja normalnim tokom. Ali nekada korisnik unese ime nepostojeće
+datoteke, a konstruktor baca/ispaljuje
+<span class="primer_text">java.io.FileNotFoundException</span> izuzetak. Dobro
+napisan program će uhvatiti ovaj izuzetak i obavestiti korisnika o grešci,
+verovatno ispisujući poruku o tome da tražena datoteka ne postoji.
 
-<div class = "napomena">Još jedan način kako bismo mogli objasniti proverene izuzetke je: <b>Provereni</b> izuzetak je izuzetak koji kompajler proverava (i obaveštava o njemu) u vreme kompilacije, a nazivaju se i izuzecima kompilacije. Ovi izuzeci ne mogu se jednostavno zanemariti, programer bi se trebao pobrinuti za ove izuzetke.</div>
+<div class="napomena">
+  Još jedan način kako bismo mogli objasniti proverene izuzetke je:
+  <b>Provereni</b> izuzetak je izuzetak koji kompajler proverava (i obaveštava o
+  njemu) u vreme kompilacije, a nazivaju se i izuzecima kompilacije. Ovi izuzeci
+  ne mogu se jednostavno zanemariti, programer bi se trebao pobrinuti za ove
+  izuzetke.
+</div>
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 import java.io.File;
 import java.io.FileReader;
 
@@ -40,7 +67,8 @@ public class FilenotFound_Demo {
 </xmp>
 
 Ukoliko pokušate da kompajlirate gornji program, dobićete sledeći izuzetak:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 C:\>javac FilenotFound_Demo.java
 FilenotFound_Demo.java:8: error: unreported exception FileNotFoundException; must be caught or declared to be thrown
       FileReader fr = new FileReader(file);
@@ -48,32 +76,65 @@ FilenotFound_Demo.java:8: error: unreported exception FileNotFoundException; mus
 1 error
 </xmp>
 
-Provereni (checked) izuzeci podležu zahtevu hvatanja ili specifikacije. Svi izuzeci su provereni izuzeci, osim onih naznačenih od <span class = "primer_text">Error, RuntimeException</span> i njihovih podklasa.
-<br><br>
+Provereni (checked) izuzeci podležu zahtevu hvatanja ili specifikacije. Svi
+izuzeci su provereni izuzeci, osim onih naznačenih od
+<span class="primer_text">Error, RuntimeException</span> i njihovih podklasa.
+<br /><br />
 
-Druga vrsta izuzetaka je <b>Error</b>. Ovo su specifični uslovi koji su izvan aplikacije i koje aplikacija ne može predvideti niti se od njih oporaviti. 
-Na primer, pretpostavimo da aplikacija uspešno otvara datoteku za unos, ali nije u stanju da je pročita zbog sistemskog ili hardverskog kvara. 
-Neuspešno čitanje baciće/ispaliće <span class = "primer_text">java.io.IOError</span> izuzetak. 
-Aplikacija može uhvatiti ovaj izuzetak kako bi obavestila korisnika o problemu, ali takođe ima smisla da aplikacija odštampa stanje steka u momentu pojave Izuzetka i završi svoj rad.
+Druga vrsta izuzetaka je <b>Error</b>. Ovo su specifični uslovi koji su izvan
+aplikacije i koje aplikacija ne može predvideti niti se od njih oporaviti. Na
+primer, pretpostavimo da aplikacija uspešno otvara datoteku za unos, ali nije u
+stanju da je pročita zbog sistemskog ili hardverskog kvara. Neuspešno čitanje
+baciće/ispaliće <span class="primer_text">java.io.IOError</span> izuzetak.
+Aplikacija može uhvatiti ovaj izuzetak kako bi obavestila korisnika o problemu,
+ali takođe ima smisla da aplikacija odštampa stanje steka u momentu pojave
+Izuzetka i završi svoj rad.
 
-<div class = "napomena">Možete naići i na sledeću definiciju <b>Error</b> izuzetaka: To uopšte nisu izuzeci već problemi koji nastaju van kontrole korisnika ili programera. Greške se obično zanemaruju u vašem kodu jer retko možete učiniti bilo šta u vezi sa greškom. Na primer, ako se desi prelivanje steka (stack overflow), pojaviće se greška. Ignorišu se u fazi kompilacije.</div>
+<div class="napomena">
+  Možete naići i na sledeću definiciju <b>Error</b> izuzetaka: To uopšte nisu
+  izuzeci već problemi koji nastaju van kontrole korisnika ili programera.
+  Greške se obično zanemaruju u vašem kodu jer retko možete učiniti bilo šta u
+  vezi sa greškom. Na primer, ako se desi prelivanje steka (stack overflow),
+  pojaviće se greška. Ignorišu se u fazi kompilacije.
+</div>
 
-<b>Errors</b> ne podležu zahtevu za hvatanje ili specifikaciju. <b>Errors</b> su oni izuzeci naznačeni od <span class = "primer_text">Error</span> klase i njenih podklasa.
-<br><br>
+<b>Errors</b> ne podležu zahtevu za hvatanje ili specifikaciju. <b>Errors</b> su
+oni izuzeci naznačeni od <span class="primer_text">Error</span> klase i njenih
+podklasa. <br /><br />
 
-Treća vrsta izuzetaka je <b>runtime</b> izuzetak (izuzetak tokom izvršavanja). Ovo su specifični uslovi koji su interni za aplikaciju i koje aplikacija ne može predvideti niti se od njih oporaviti. Obično ukazuju na programske greške, kao što su logičke greške ili nepravilna upotreba API-ja. Na primer, razmotrite prethodno opisanu aplikaciju koja prosleđuje ime datoteke konstruktoru za <span class = "primer_text">FileReader</span>. Ako logička greška prouzrokuje da <span class = "primer_text">null</span> bude prosleđeno konstruktoru, konstruktor će baciti/ispaliti <span class = "primer_text">NullPointerException</span> izuzetak. Aplikacija može da uhvati ovaj izuzetak, ali verovatno ima više smisla eliminisati bug zbog kojeg se dogodio izuzetak.
-<br><br>
+Treća vrsta izuzetaka je <b>runtime</b> izuzetak (izuzetak tokom izvršavanja).
+Ovo su specifični uslovi koji su interni za aplikaciju i koje aplikacija ne može
+predvideti niti se od njih oporaviti. Obično ukazuju na programske greške, kao
+što su logičke greške ili nepravilna upotreba API-ja. Na primer, razmotrite
+prethodno opisanu aplikaciju koja prosleđuje ime datoteke konstruktoru za
+<span class="primer_text">FileReader</span>. Ako logička greška prouzrokuje da
+<span class="primer_text">null</span> bude prosleđeno konstruktoru, konstruktor
+će baciti/ispaliti
+<span class="primer_text">NullPointerException</span> izuzetak. Aplikacija može
+da uhvati ovaj izuzetak, ali verovatno ima više smisla eliminisati bug zbog
+kojeg se dogodio izuzetak. <br /><br />
 
-<b>Runtime</b> izuzeci ne podležu zahtevu za hvatanje ili specifikaciju. <b>Runtime</b> izuzeci su oni izuzeci naznačeni od <span class = "primer_text">RuntimeException</span> klase i njenih podklasa.
-<br><br>
+<b>Runtime</b> izuzeci ne podležu zahtevu za hvatanje ili specifikaciju.
+<b>Runtime</b> izuzeci su oni izuzeci naznačeni od
+<span class="primer_text">RuntimeException</span> klase i njenih podklasa.
+<br /><br />
 
-<b>Error(s)</b> i <b>runtime</b> izuzeci zajedno se nazivaju <b>neprovereni</b> (unchecked) izuzeci.
+<b>Error(s)</b> i <b>runtime</b> izuzeci zajedno se nazivaju
+<b>neprovereni</b> (unchecked) izuzeci.
 
-<div class = "napomena">Neprovereni izuzeci - <b>Neprovereni</b> izuzetak je izuzetak koji se dogodi u vreme izvršavanja. Oni se takođe nazivaju i runtime izuzeci (izuzeci tokom izvođenja). Izuzeci tokom izvođenja se zanemaruju u fazi kompilacije.</div>
+<div class="napomena">
+  Neprovereni izuzeci - <b>Neprovereni</b> izuzetak je izuzetak koji se dogodi u
+  vreme izvršavanja. Oni se takođe nazivaju i runtime izuzeci (izuzeci tokom
+  izvođenja). Izuzeci tokom izvođenja se zanemaruju u fazi kompilacije.
+</div>
 
-Na primer, ako ste u programu deklarisali niz veličine 4 i pokušavate pristupiti 5 elementu niza, tada će se dogoditi <span class = "primer_text">ArrayIndexOutOfBoundsExceptionexception</span> izuzetak.
+Na primer, ako ste u programu deklarisali niz veličine 4 i pokušavate pristupiti
+5 elementu niza, tada će se dogoditi
+<span class="primer_text">ArrayIndexOutOfBoundsExceptionexception</span>
+izuzetak.
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 public class Unchecked_Demo {
    
    public static void main(String args[]) {
@@ -84,15 +145,19 @@ public class Unchecked_Demo {
 </xmp>
 
 Ukoliko pokušate da kompajlirate gornji program, dobićete sledeći izuzetak:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
 	at Exceptions.Unchecked_Demo.main(Unchecked_Demo.java:8)
 </xmp>
-<br>
+<br />
 
 <h2>Zaobilaženje zahtev za hvatanje ili specifikaciju</h2>
-<br>
+<br />
 
-Neki programeri smatraju da je Zahtev za hvatanje ili specifikaciju ozbiljan propust mehanizma izuzetaka i zaobilaze ga upotrebom neproverenih (unchecked) umesto proverenih (checked) izuzetaka. U globalu, ovo se ne preporučuje. 
-Lekcija "Neprovereni izuzeci - Kontroverza" govori o tome kada je primereno da se koriste neprovereni izuzeci.
-<br><br>
+Neki programeri smatraju da je Zahtev za hvatanje ili specifikaciju ozbiljan
+propust mehanizma izuzetaka i zaobilaze ga upotrebom neproverenih (unchecked)
+umesto proverenih (checked) izuzetaka. U globalu, ovo se ne preporučuje. Lekcija
+"Neprovereni izuzeci - Kontroverza" govori o tome kada je primereno da se
+koriste neprovereni izuzeci.
+<br /><br />

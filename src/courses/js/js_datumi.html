@@ -1,7 +1,5 @@
 <h1>JavaScript Datumi</h1>
 
-
-
 <p>Brojeve u JavaScriptu možemo pisati sa ili bez decimala!</p>
 <b>Primer 1:</b>
 <xmp class="primer_ta" disabled>
@@ -33,7 +31,10 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Kada prikažete datum objekta u HTML, on se automatski konvertuje u string operacijom toString ().</p>
+<p>
+  Kada prikažete datum objekta u HTML, on se automatski konvertuje u string
+  operacijom toString ().
+</p>
 <b>Primer 3:</b>
 <xmp class="primer_ta" disabled>
     <!DOCTYPE html>
@@ -69,7 +70,10 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Operacija toUTCString() pretvara datum u niz znakova (string) standardnog oblika.</p>
+<p>
+  Operacija toUTCString() pretvara datum u niz znakova (string) standardnog
+  oblika.
+</p>
 <b>Primer 5:</b>
 <xmp class="primer_ta" disabled>
     <!DOCTYPE html>
@@ -95,7 +99,6 @@
 <button class="button_copy">Vidi Primer</button>
 
 <h1>JavaScript Formati Datuma</h1>
-
 
 <p>Datum u ISO formatu može biti napisan bez navođenja dana (GGGG-MM):</p>
 <b>Primer 6:</b>
@@ -137,7 +140,10 @@
 
 <button class="button_copy">Vidi Primer</button>
 
-<p>Datum u ISO formatu mogu biti pisani sa dodatim satima, minutima i sekundama (GGGG-MM-DDTčč: mm: SSZ):</p>
+<p>
+  Datum u ISO formatu mogu biti pisani sa dodatim satima, minutima i sekundama
+  (GGGG-MM-DDTčč: mm: SSZ):
+</p>
 <b>Primer 8:</b>
 <xmp class="primer_ta" disabled>
     var d = new Date("2015-03-25T12:00:00Z");
@@ -159,7 +165,10 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Ako želite da izmenite vreme u odnosu na UTC, uklonite Z i dodajte + HH: MM ili -HH: MM umesto:</p>
+<p>
+  Ako želite da izmenite vreme u odnosu na UTC, uklonite Z i dodajte + HH: MM
+  ili -HH: MM umesto:
+</p>
 <b>Primer 9:</b>
 <xmp class="primer_ta" disabled>
     var d = new Date("2015-03-25T12:00:00-06:30");
@@ -182,9 +191,14 @@
 
 <h1>JavaScript Operacije nad datumima</h1>
 
-<h2>Unutrašnji sat u Java Scrupt-u računa vreme od ponoći 1. januara 1970. godine.</h2>
+<h2>
+  Unutrašnji sat u Java Scrupt-u računa vreme od ponoći 1. januara 1970. godine.
+</h2>
 
-<p>Operacija getTime () prikazuje koliko je milisekundi prošlo od 1. januara 1970. godine do sada:</p>
+<p>
+  Operacija getTime () prikazuje koliko je milisekundi prošlo od 1. januara
+  1970. godine do sada:
+</p>
 <b>Primer 10:</b>
 <xmp class="primer_ta" disabled>
     <script>
@@ -207,7 +221,10 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Operacija getFullyear () prikazuje tekuću godinu u obliku četvorocifrenog broja:</p>
+<p>
+  Operacija getFullyear () prikazuje tekuću godinu u obliku četvorocifrenog
+  broja:
+</p>
 <b>Primer 11:</b>
 <xmp class="primer_ta" disabled>
     <script>
@@ -230,7 +247,7 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Operacija getDay () prikazuje redni broj  dana u tekućoj nedelji (0-6):</p>
+<p>Operacija getDay () prikazuje redni broj dana u tekućoj nedelji (0-6):</p>
 <b>Primer 12:</b>
 <xmp class="primer_ta" disabled>
     <script>
@@ -253,7 +270,10 @@
 </xmp>
 <button class="button_copy">Vidi Primer</button>
 
-<p>Može se koristiti i niz imena dana u nedelji. Tada će operacija getDay () prikazati naziv današnjeg dana:</p>
+<p>
+  Može se koristiti i niz imena dana u nedelji. Tada će operacija getDay ()
+  prikazati naziv današnjeg dana:
+</p>
 <b>Primer 13:</b>
 <xmp class="primer_ta" disabled>
     <script>
@@ -307,23 +327,7 @@
 <br />
 <br />
 <b>Zadatak:</b>
-<div class="zadatak">Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom obliku, kao i broj milisekundi od 1. januara 1970. godine</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="zadatak">
+  Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom obliku,
+  kao i broj milisekundi od 1. januara 1970. godine
+</div>

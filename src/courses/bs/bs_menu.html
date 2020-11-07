@@ -1,6 +1,6 @@
 <h1>Meni</h1>
-U HTML-u je meni najčešće definisan neuređenom listom čije su stavke linkovi koji odvode na određenu adresu.
-Najjednostavniji oblik menija je dat primerom:
+U HTML-u je meni najčešće definisan neuređenom listom čije su stavke linkovi
+koji odvode na određenu adresu. Najjednostavniji oblik menija je dat primerom:
 <textarea class="primer_ta" rows="6" disabled>
 <ul>
   <li><a href="#">Početna strana</a></li>
@@ -9,7 +9,7 @@ Najjednostavniji oblik menija je dat primerom:
   <li><a href="#">Osoblje</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +31,11 @@ Najjednostavniji oblik menija je dat primerom:
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-Da bi se kreirao horizontalni meni, potrebno je dodati klasu <br>
-<span class="primer_text">.list-inline</span> 
-na nivou <span class="primer_text">&ltul&gt</span> elementa.<br>
+<br />
+<br />
+Da bi se kreirao horizontalni meni, potrebno je dodati klasu <br />
+<span class="primer_text">.list-inline</span>
+na nivou <span class="primer_text">&ltul&gt</span> elementa.<br />
 <textarea class="primer_ta" rows="6" disabled>
 <ul class="list-inline">
   <li><a href="#">Početna strana</a></li>
@@ -44,7 +44,7 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.<br>
   <li><a href="#">Osoblje</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,20 +66,25 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.<br>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-Meni se sastoji iz komponenata (navigacionih komponenata).
-U Bootstrap-u postoje gotove klase koje stilizuju komponenate menija. Razlikujemo dve vrste komponenata:
+<br />
+Meni se sastoji iz komponenata (navigacionih komponenata). U Bootstrap-u postoje
+gotove klase koje stilizuju komponenate menija. Razlikujemo dve vrste
+komponenata:
 <ul>
-<li>tab komponente</li>
-<li>pill komponente .</li>
+  <li>tab komponente</li>
+  <li>pill komponente .</li>
 </ul>
-<br>
-<h2> Tab komponente</h2>
-Tab komponente su komponente menija koje se prikazuju kao uokvirene kartice bele boje.<br>
-Meni sa tab komponentama se formira upotrebom neuređene liste klase <span class="primer_text">.nav</span> i
- klase <span class="primer_text">.nav-tabs</span>.<br>
- Aktivna komponenta menija se označava kada se konkretnom <span class="primer_text">&ltli&gt</span> elementu neuređene liste pridruži 
- klasa <span class="primer_text">.active</span>. U sledećem primeru je to prva tab komponenta.
+<br />
+<h2>Tab komponente</h2>
+Tab komponente su komponente menija koje se prikazuju kao uokvirene kartice bele
+boje.<br />
+Meni sa tab komponentama se formira upotrebom neuređene liste klase
+<span class="primer_text">.nav</span> i klase
+<span class="primer_text">.nav-tabs</span>.<br />
+Aktivna komponenta menija se označava kada se konkretnom
+<span class="primer_text">&ltli&gt</span> elementu neuređene liste pridruži
+klasa <span class="primer_text">.active</span>. U sledećem primeru je to prva
+tab komponenta.
 <textarea class="primer_ta" rows="6" disabled>
 <ul class="nav nav-tabs">
     <li class="active"><a href="#">HTML</a></li>
@@ -88,7 +93,7 @@ Meni sa tab komponentama se formira upotrebom neuređene liste klase <span class
     <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,10 +115,11 @@ Meni sa tab komponentama se formira upotrebom neuređene liste klase <span class
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-U sledećem primeru glavni meni, sastavljen iz tab komponenata, sadrži komponentu koja ima padajući meni.
-<br>
+<br />
+<br />
+U sledećem primeru glavni meni, sastavljen iz tab komponenata, sadrži komponentu
+koja ima padajući meni.
+<br />
 <textarea class="primer_ta" rows="16" disabled>
 <ul class="nav nav-tabs">
     <li class="active"><a href="#">HTML</a></li>
@@ -132,7 +138,7 @@ U sledećem primeru glavni meni, sastavljen iz tab komponenata, sadrži komponen
     <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,14 +167,18 @@ U sledećem primeru glavni meni, sastavljen iz tab komponenata, sadrži komponen
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Pill komponenta</h2>
-Pill komponente su komponente menija koje se prikazuju kao kartice plave boje. <br>
-Meni sa pill komponentama se formira upotrebom neuređene liste klase <span class="primer_text">.nav</span> i
- klase <span class="primer_text">.nav-pills</span>.<br>
- Aktivna komponenta menija se označava kada se konkretnom <span class="primer_text">&ltli&gt</span> elementu neuređene liste pridruži 
- klasa <span class="primer_text">.active</span>. U sledećem primeru je to prva pill komponenta.
+Pill komponente su komponente menija koje se prikazuju kao kartice plave boje.
+<br />
+Meni sa pill komponentama se formira upotrebom neuređene liste klase
+<span class="primer_text">.nav</span> i klase
+<span class="primer_text">.nav-pills</span>.<br />
+Aktivna komponenta menija se označava kada se konkretnom
+<span class="primer_text">&ltli&gt</span> elementu neuređene liste pridruži
+klasa <span class="primer_text">.active</span>. U sledećem primeru je to prva
+pill komponenta.
 <textarea class="primer_ta" rows="6" disabled>
 <ul class="nav nav-pills">
   <li class="active"><a href="#">HTML</a></li>
@@ -177,7 +187,7 @@ Meni sa pill komponentama se formira upotrebom neuređene liste klase <span clas
   <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -199,9 +209,10 @@ Meni sa pill komponentama se formira upotrebom neuređene liste klase <span clas
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-U sledećem primeru glavni meni, sastavljen iz pill komponenata, sadrži komponentu koja ima padajući meni.
-<br>
+<br />
+U sledećem primeru glavni meni, sastavljen iz pill komponenata, sadrži
+komponentu koja ima padajući meni.
+<br />
 <textarea class="primer_ta" rows="16" disabled>
 <ul class="nav nav-pills">
     <li class="active"><a href="#">HTML</a></li>
@@ -220,7 +231,7 @@ U sledećem primeru glavni meni, sastavljen iz pill komponenata, sadrži kompone
     <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -249,13 +260,13 @@ U sledećem primeru glavni meni, sastavljen iz pill komponenata, sadrži kompone
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Meni sa vertikalnim komponentama</h2>
-<br>
-Meni sa vertikalnim komponentama se realizuje upotrebom klase <span class="primer_text">nav-stacked</span>
-na nivou <span class="primer_text">&ltul&gt</span> elementa.
-<br><br>
+<br />
+Meni sa vertikalnim komponentama se realizuje upotrebom klase
+<span class="primer_text">nav-stacked</span> na nivou
+<span class="primer_text">&ltul&gt</span> elementa. <br /><br />
 <h3>Meni sa vertikalnim tab komponentama</h3>
 
 <textarea class="primer_ta" rows="6" disabled>
@@ -266,7 +277,7 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.
     <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -288,7 +299,7 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br><br>
+<br /><br />
 <h3>Meni sa vertikalnim pill komponentama</h3>
 
 <textarea class="primer_ta" rows="6" disabled>
@@ -299,7 +310,7 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.
     <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -321,31 +332,41 @@ na nivou <span class="primer_text">&ltul&gt</span> elementa.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2> Meni sa dinamičkim komponentama</h2>
- 
-Meni sa dinamičkim komponentama podrazumeva da se klikom na njegove komponente prikazuje sadržaj koji se nalazi u okviru iste veb strane, 
-i dostupan je isključivo kada se klikne na tu komponentu.<br><br>
+<br />
+<br />
+<h2>Meni sa dinamičkim komponentama</h2>
+
+Meni sa dinamičkim komponentama podrazumeva da se klikom na njegove komponente
+prikazuje sadržaj koji se nalazi u okviru iste veb strane, i dostupan je
+isključivo kada se klikne na tu komponentu.<br /><br />
 
 <h3>Meni sa dinamičkim tab komponentama</h3>
-<br>
-Meni sa dinamičkim tab komponentama se formira iz dve celine.<br> 
-Prvu celinu čini sam meni, predstavljen neuređenom listom. Na nivou svake stavke nalazi se link koji pokazuje 
-na sadržaj u okviru iste strane. Obavezni atributi tog linka su:
- <span class="primer_text">data-toggle="tab"</span> i <span class="primer_text">href</span>. Vrednost <span class="primer_text">href</span>
- atributa jednaka je nazivu identifikatora onog elementa na koji link pokazuje, sa oznakom <span class="primer_text"> # </span> ispred.
- <br>
- <br>
- Drugu celinu čini <span class="primer_text">&ltdiv&gt</span> element klase <span class="primer_text">tab-content</span> u okviru kojeg se
- nalaze <span class="primer_text">&ltdiv&gt</span> elementi na koje linkovi pokazuju.
- Svaki od njih je klase <span class="primer_text">.tab-pane</span> i svaki je označen identifikatorom.
- <br>
- <br>
- U praksi je uvek jedna komponenta menija aktivna i prikazan sadržaj koji je u vezi sa njom. To se postiže tako što se 
- na nivou željene komponente navodi klasa <span class="primer_text">.active</span> a nad odgovarajućim <span class="primer_text">&ltdiv&gt</span>
- elementom klase <span class="primer_text">.active </span> i <span class="primer_text">.in</span>.
-<br>
+<br />
+Meni sa dinamičkim tab komponentama se formira iz dve celine.<br />
+Prvu celinu čini sam meni, predstavljen neuređenom listom. Na nivou svake stavke
+nalazi se link koji pokazuje na sadržaj u okviru iste strane. Obavezni atributi
+tog linka su:
+<span class="primer_text">data-toggle="tab"</span> i
+<span class="primer_text">href</span>. Vrednost
+<span class="primer_text">href</span> atributa jednaka je nazivu identifikatora
+onog elementa na koji link pokazuje, sa oznakom
+<span class="primer_text"> # </span> ispred.
+<br />
+<br />
+Drugu celinu čini <span class="primer_text">&ltdiv&gt</span> element klase
+<span class="primer_text">tab-content</span> u okviru kojeg se nalaze
+<span class="primer_text">&ltdiv&gt</span> elementi na koje linkovi pokazuju.
+Svaki od njih je klase <span class="primer_text">.tab-pane</span> i svaki je
+označen identifikatorom.
+<br />
+<br />
+U praksi je uvek jedna komponenta menija aktivna i prikazan sadržaj koji je u
+vezi sa njom. To se postiže tako što se na nivou željene komponente navodi klasa
+<span class="primer_text">.active</span> a nad odgovarajućim
+<span class="primer_text">&ltdiv&gt</span> elementom klase
+<span class="primer_text">.active </span> i
+<span class="primer_text">.in</span>.
+<br />
 <textarea class="primer_ta" rows="28" disabled>
 <ul class="nav nav-tabs">
     <li class="active">
@@ -375,8 +396,8 @@ na sadržaj u okviru iste strane. Obavezni atributi tog linka su:
         jQuery
     </div>
 </div>
-</textarea>      
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -413,10 +434,12 @@ jQuery</div>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati upotrebom klase  
-<span class="primer_text">.fade</span> na nivou <span class="primer_text">&ltdiv&gt</span> elementa.<br>
+<br />
+<br />
+Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati
+upotrebom klase
+<span class="primer_text">.fade</span> na nivou
+<span class="primer_text">&ltdiv&gt</span> elementa.<br />
 <textarea class="primer_ta" rows="29" disabled>
 <ul class="nav nav-tabs">
     <li class="active">
@@ -447,8 +470,8 @@ Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati u
         jQuery
     </div>
 </div>
-</textarea> 
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -484,15 +507,19 @@ jQuery</div>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>    
+<br />
+<br />
 <h3>Meni sa dinamičkim pill komponentama</h3>
-<br>
-Ovaj tip menija se kreira na isti način kao i meni sa dinamičkim tab komponentama, uz dve izmene:<br> 
-vrednost atributa <span class="primer_text">data-toggle</span> je <span class="primer_text">"pill"</span>  umesto <span class="primer_text">"tab"</span>
-i <span class="primer_text">&ltul&gt</span> element je klase <span class="primer_text">.nav-pills</span> 
-umesto <span class="primer_text">.nav-tags</span>.
-<br>
+<br />
+Ovaj tip menija se kreira na isti način kao i meni sa dinamičkim tab
+komponentama, uz dve izmene:<br />
+vrednost atributa <span class="primer_text">data-toggle</span> je
+<span class="primer_text">"pill"</span> umesto
+<span class="primer_text">"tab"</span> i
+<span class="primer_text">&ltul&gt</span> element je klase
+<span class="primer_text">.nav-pills</span> umesto
+<span class="primer_text">.nav-tags</span>.
+<br />
 <textarea class="primer_ta" rows="29" disabled>
 <ul class="nav nav-pills">
    <li class="active">
@@ -523,8 +550,8 @@ umesto <span class="primer_text">.nav-tags</span>.
        jQuery
    </div>
 </div>
-</textarea>      
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -561,10 +588,12 @@ jQuery</div>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati upotrebom klase  
-<span class="primer_text">.fade</span> na nivou <span class="primer_text">&ltdiv&gt</span> elementa.<br>
+<br />
+<br />
+Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati
+upotrebom klase
+<span class="primer_text">.fade</span> na nivou
+<span class="primer_text">&ltdiv&gt</span> elementa.<br />
 <textarea class="primer_ta" rows="29" disabled>
 <ul class="nav nav-pills">
    <li class="active">
@@ -595,8 +624,8 @@ Pojavljivanje tekstualnog sadržaja pritiskom na komponentu može se animirati u
         jQuery
    </div>
 </div>
-</textarea>      
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -632,11 +661,13 @@ jQuery</div>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2> Centriranje menija </h2>
-Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom klase 
-<span class="primer_text">nav-justified</span> na nivou <span class="primer_text">&ltul&gt</span> elementa.<br><br>
+<br />
+<br />
+<h2>Centriranje menija</h2>
+Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom
+klase
+<span class="primer_text">nav-justified</span> na nivou
+<span class="primer_text">&ltul&gt</span> elementa.<br /><br />
 
 <h3>Centriranje menija sa tab komponentama</h3>
 <textarea class="primer_ta" rows="6" disabled>
@@ -647,7 +678,7 @@ Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom kl
   <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -669,8 +700,8 @@ Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom kl
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h3>Centriranje menija sa pill komponentama</h3>
 <textarea class="primer_ta" rows="6" disabled>
 <ul class="nav nav-pills nav-justified">
@@ -680,7 +711,7 @@ Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom kl
   <li><a href="#">jQuery</a></li>
 </ul>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -701,14 +732,16 @@ Meni je moguće centrirati u odnosu na ivice ekrana. To se postiže upotrebom kl
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br>
-Na uređajima čija je rezolucija manja od 768px, komponente menija se prikazuju jedna ispod druge, dok se na uređajima veće
-rezolucije, komponente prikazuju u jednom redu.
-<br>
-<br>
+<button class="button_copy">Vidi primer</button><br />
+Na uređajima čija je rezolucija manja od 768px, komponente menija se prikazuju
+jedna ispod druge, dok se na uređajima veće rezolucije, komponente prikazuju u
+jednom redu.
+<br />
+<br />
 <h2>Meni u grid sistemu</h2>
-Sledeći primer  prikazuje meni sa vertikalnim pill komponentama gde je sam meni smešten u poslednjoj koloni grid sistema.
-<br>
+Sledeći primer prikazuje meni sa vertikalnim pill komponentama gde je sam meni
+smešten u poslednjoj koloni grid sistema.
+<br />
 <textarea class="primer_ta" rows="21" disabled>
 <div class="row">
     <div class="col-xs-3">
@@ -732,7 +765,7 @@ Sledeći primer  prikazuje meni sa vertikalnim pill komponentama gde je sam meni
     </div>
 </div>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -768,8 +801,8 @@ Sledeći primer  prikazuje meni sa vertikalnim pill komponentama gde je sam meni
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <div class="zadatak">
-Napraviti meni sa dve pill komponente. Klikom na svaku, prikazuje se tekstualni sadržaj ispod nje. Obezbediti da jedna od njih bude 
-aktivna.
+  Napraviti meni sa dve pill komponente. Klikom na svaku, prikazuje se
+  tekstualni sadržaj ispod nje. Obezbediti da jedna od njih bude aktivna.
 </div>

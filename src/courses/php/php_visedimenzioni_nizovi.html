@@ -1,10 +1,12 @@
 <h1><b>Višedimenzioni nizovi</b></h1>
-Ranije smo u tutorijalu opisali jednodimenzione nizove.<br>
-Višedimenzioni niz je niz u kome svaki element moze takodje da bude niz. Vrednostima u višedimenzionom nizu pristupamo pomoću vise indeksa. Dimenzija niza odredjuje broj indeksa koji su potrebni da bi pristupili elementima niza.
-<br>
-<br>
+Ranije smo u tutorijalu opisali jednodimenzione nizove.<br />
+Višedimenzioni niz je niz u kome svaki element moze takodje da bude niz.
+Vrednostima u višedimenzionom nizu pristupamo pomoću vise indeksa. Dimenzija
+niza odredjuje broj indeksa koji su potrebni da bi pristupili elementima niza.
+<br />
+<br />
 Dvodimenzioni niz izgleda ovako:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $ocene = array(
 "Marko" => array("Matematika" => 5, "Fizika" => 4, "Informatika" => 5),
@@ -13,22 +15,30 @@ $ocene = array(
 		);
 ?>
 </xmp>
-<br>
-<div class = "napomena">
-	<ul>
-		<li>Za dvodimenzioni niz su nam potrebna 2 indeksa da bi pristupili proizvoljnom elementu niza.</li>
-		<li>Za trodimenzionii niz su nam potrebna 3 indeksa da bi pristupili proizvoljnom elementu niza.</li>
-	</ul>
+<br />
+<div class="napomena">
+  <ul>
+    <li>
+      Za dvodimenzioni niz su nam potrebna 2 indeksa da bi pristupili
+      proizvoljnom elementu niza.
+    </li>
+    <li>
+      Za trodimenzionii niz su nam potrebna 3 indeksa da bi pristupili
+      proizvoljnom elementu niza.
+    </li>
+  </ul>
 </div>
-<br>
+<br />
 Primer kako pristupamo elementima niza:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 echo "Marko je iz fizike dobio ".$ocene['Marko']['Fizika']."<br>";
 echo "Janko je iz informatike dobio ".$ocene['Janko']['Informatika']."<br>";
 echo "Marija je iz matematike dobla ".$ocene['Marija']['Matematika']."<br>";
 </xmp>
-<br>
-<br>
-<div class = "zadatak">
-Napisati dvodimenzioni niz auti, u kom za svaki element čuvamo marku, ukupan broj auta te marke, i ukupan broj prodatih auta te marke. Za prvi u nizu ispisati marku, ukupan broj, i broj prodatih auta te marke.
+<br />
+<br />
+<div class="zadatak">
+  Napisati dvodimenzioni niz auti, u kom za svaki element čuvamo marku, ukupan
+  broj auta te marke, i ukupan broj prodatih auta te marke. Za prvi u nizu
+  ispisati marku, ukupan broj, i broj prodatih auta te marke.
 </div>

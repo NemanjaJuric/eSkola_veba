@@ -1,17 +1,20 @@
 <h1><b>DOM elementi</b></h1>
-<br>
-Objektni model dokumenta (DOM) omogućava pristup HTML dokumentima kao i izmenu njihovog sadržaja. 
-<br>
-Mi ćemo u ovom poglavlju objasniti kako DOM predstavlja HTML dokumenta u vidu drveta i za korisnika je najbitnije da shvati vezu DOM-a sa HTML dokumentima.
-<br>
-<br>
+<br />
+Objektni model dokumenta (DOM) omogućava pristup HTML dokumentima kao i izmenu
+njihovog sadržaja.
+<br />
+Mi ćemo u ovom poglavlju objasniti kako DOM predstavlja HTML dokumenta u vidu
+drveta i za korisnika je najbitnije da shvati vezu DOM-a sa HTML dokumentima.
+<br />
+<br />
 <h2><b>DOM kao stablo</b></h2>
-<br>
-Dom predstavlja HTML dokumenat pomoću strukture stabla. Na primer, uzmimo jednostavan HTML dokument koji je dat u primeru: 
-<br>
+<br />
+Dom predstavlja HTML dokumenat pomoću strukture stabla. Na primer, uzmimo
+jednostavan HTML dokument koji je dat u primeru:
+<br />
 Primer 1- Jednostavan HTML dokument
-<br>
-<xmp class = "primer_ta" rows=10 disabled>
+<br />
+<xmp class="primer_ta" rows="10" disabled>
 <!doctype html>
 <html>
 <head>
@@ -23,19 +26,26 @@ Primer 1- Jednostavan HTML dokument
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Slika 1 prikazuje HTML dokument iz primera 1 u vidu strukture stabla DOM-a
-<img src = "courses/js/images/grafikon.png" class = "primer_slika">
-<br>
-Prilikom korišćenja DOM-a, morate praviti razliku između pronalaženja elemenata, podešavanja elemenata i stavki koje se odnose na elemente, kao i na uklanjanje i brisanje elemenata.
-<br>
-<br>
+<img src="courses/js/images/grafikon.png" class="primer_slika" />
+<br />
+Prilikom korišćenja DOM-a, morate praviti razliku između pronalaženja elemenata,
+podešavanja elemenata i stavki koje se odnose na elemente, kao i na uklanjanje i
+brisanje elemenata.
+<br />
+<br />
 <h2><b>Rad sa čvorovima</b></h2>
-<br> 
-Elemente unutar strukture stabla nazivamo <i> čvorovima </i>. Čvorovi koji se nalaze na nivou ispod datog čvora poznati su pod nazivom <i> deca </i>.
-Na primer, u strukturi koja je prikazana na slici 1, čvor <span class = "primer_text"> &ltbody&gt </span> ima tri čvora deteta, sve <span class = "primer_text"> &ltp&gt </span> elemente, dok jedan od <span class = "primer_text"> &ltp&gt </span>elemenata ima svoje dete, a to je element <span class = "primer_text"> &lta&gt </span>. 
-Za čvor <span class = "primer_text"> &ltbody&gt </span> kažemo da je roditelj čvorova <span class = "primer_text"> &ltp&gt </span>.
-Možete koristiti metode da biste radili sa čvorovima. 
-Na primer, možete koristiti metode kao što je <i> appendChild() </i>, kako biste dodali čvorove roditelju.
-
+<br />
+Elemente unutar strukture stabla nazivamo <i> čvorovima </i>. Čvorovi koji se
+nalaze na nivou ispod datog čvora poznati su pod nazivom <i> deca </i>. Na
+primer, u strukturi koja je prikazana na slici 1, čvor
+<span class="primer_text"> &ltbody&gt </span> ima tri čvora deteta, sve
+<span class="primer_text"> &ltp&gt </span> elemente, dok jedan od
+<span class="primer_text"> &ltp&gt </span>elemenata ima svoje dete, a to je
+element <span class="primer_text"> &lta&gt </span>. Za čvor
+<span class="primer_text"> &ltbody&gt </span> kažemo da je roditelj čvorova
+<span class="primer_text"> &ltp&gt </span>. Možete koristiti metode da biste
+radili sa čvorovima. Na primer, možete koristiti metode kao što je
+<i> appendChild() </i>, kako biste dodali čvorove roditelju.

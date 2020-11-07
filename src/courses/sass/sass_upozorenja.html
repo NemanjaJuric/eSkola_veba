@@ -1,17 +1,29 @@
 <h1>Upozorenja</h1>
-Sposobnost odašiljanja upozorenja (<i>eng. warning</i>) u jeziku Sass nije nova. 
-Moguće je prikazati poruke ili vrednost bilo kojeg SassScript izraza na standardni izlaz putem <b>@warn</b> naredbe. 
-Upozorenje nema uticaj na proces kompilacije.
-Njegova jedina svrha je prikazivanje poruke u konzoli. 
-Postoji puno razloga za korišćenje upozorenja u programskom jeziku Sass:
+Sposobnost odašiljanja upozorenja (<i>eng. warning</i>) u jeziku Sass nije nova.
+Moguće je prikazati poruke ili vrednost bilo kojeg SassScript izraza na
+standardni izlaz putem <b>@warn</b> naredbe. Upozorenje nema uticaj na proces
+kompilacije. Njegova jedina svrha je prikazivanje poruke u konzoli. Postoji puno
+razloga za korišćenje upozorenja u programskom jeziku Sass:
 <ul>
-<li>obaveštavanje korisnika o pretpostavci koja je napravljena u kod kako bi se izbegla iznenađenja i teško praćene greške (<i>eng. hard-to-track-bugs</i>)</li>
-<li>savetovanje o zastareloj funkciji ili miksinu kao deo biblioteke ili radnog okvira <li>
+  <li>
+    obaveštavanje korisnika o pretpostavci koja je napravljena u kod kako bi se
+    izbegla iznenađenja i teško praćene greške (<i>eng. hard-to-track-bugs</i>)
+  </li>
+  <li>
+    savetovanje o zastareloj funkciji ili miksinu kao deo biblioteke ili radnog
+    okvira
+  </li>
+  <li></li>
 </ul>
+
 <p>
-Slanje upozorenje je jednostavno: započnite sa <b>@warn</b> naredbom, a zatim navedite šta god da je u pitanju. Upozorenja se obično daju da bi se pružile neke informacije i kontekst, pa često sadrže rečenicu koja objašnjava situaciju. 
-Ne morate koristiti niz, možete upozoriti brojem, listom, mapom, bilo šta.
+  Slanje upozorenje je jednostavno: započnite sa <b>@warn</b> naredbom, a zatim
+  navedite šta god da je u pitanju. Upozorenja se obično daju da bi se pružile
+  neke informacije i kontekst, pa često sadrže rečenicu koja objašnjava
+  situaciju. Ne morate koristiti niz, možete upozoriti brojem, listom, mapom,
+  bilo šta.
 </p>
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 @warn "Something went wrong.";
 </xmp>

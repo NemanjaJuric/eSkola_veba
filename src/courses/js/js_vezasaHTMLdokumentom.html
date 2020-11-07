@@ -1,15 +1,23 @@
 <h1><b>Veza sa HTML elementima</b></h1>
-<br>
-Kad programirate u JS, pronalaženje elemenata predstavlja osnovni način korišćenja DOM-a. U ovom odeljku ćemo ispitati dve glavne metode koje koristite za pronalaženje elemenata, a to su metode: <i> getElementById() </i> i <i> getElementByTagName() </i>.
-<br>
+<br />
+Kad programirate u JS, pronalaženje elemenata predstavlja osnovni način
+korišćenja DOM-a. U ovom odeljku ćemo ispitati dve glavne metode koje koristite
+za pronalaženje elemenata, a to su metode: <i> getElementById() </i> i
+<i> getElementByTagName() </i>.
+<br />
 
 <h3><b>Pronalaženje elemenata koristeći ID</b></h3>
-<br>
-Metoda <i><b> getElementById() </b></i> predstavlja glavnu metodu DOM-a. Ova metoda pronalazi određeni element HTML dokumenta i vraća ga kao referencu na taj element. Da biste pronašli određeni element potreban je <i> id </i> atribut. 
-<br> Na primer, iz primera 1 možete modifikovati HTML dokument kako biste elementu <span class = "primer_text"> &lta&gt </span> dodelili atribut <i> id </i>, što bi izgledalo ovako: 
-<br>
+<br />
+Metoda <i><b> getElementById() </b></i> predstavlja glavnu metodu DOM-a. Ova
+metoda pronalazi određeni element HTML dokumenta i vraća ga kao referencu na taj
+element. Da biste pronašli određeni element potreban je <i> id </i> atribut.
+<br />
+Na primer, iz primera 1 možete modifikovati HTML dokument kako biste elementu
+<span class="primer_text"> &lta&gt </span> dodelili atribut <i> id </i>, što bi
+izgledalo ovako:
+<br />
 
-<xmp class = "primer_ta" rows=12 disabled>
+<xmp class="primer_ta" rows="12" disabled>
 <!doctype html>
 <html>
 <head>
@@ -21,35 +29,51 @@ Metoda <i><b> getElementById() </b></i> predstavlja glavnu metodu DOM-a. Ova met
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-Pošto element a ima id atribut, možete ga pronaći koristeći metodu <i> getElementById() </i>
-<br>
-<xmp class = "primer_ta" rows=1 disabled>
+<button class="button_copy">Vidi primer</button>
+<br />
+Pošto element a ima id atribut, možete ga pronaći koristeći metodu
+<i> getElementById() </i>
+<br />
+<xmp class="primer_ta" rows="1" disabled
+>
 var a1 = document.getElementById("googlelink");
 </xmp>
-Referenca elementa sa ID-om googlelink biće smeštena unutar JavaScript promenljive a1. 
-<br>
+Referenca elementa sa ID-om googlelink biće smeštena unutar JavaScript
+promenljive a1.
+<br />
 <div class="zadatak">
-<b>Zadatak1: </b>Modifikovati HTML iz primera 1, tako da svi elementi &lt; p &gt; dobiju ID, tako da se oni mogu pronaći upotrebom metode getElementById(). Zatim, napisati deo koda koji prikazuje kako pronalazimo elemente.
-<br>
+  <b>Zadatak1: </b>Modifikovati HTML iz primera 1, tako da svi elementi &lt; p
+  &gt; dobiju ID, tako da se oni mogu pronaći upotrebom metode getElementById().
+  Zatim, napisati deo koda koji prikazuje kako pronalazimo elemente.
+  <br />
 </div>
-<br>
+<br />
 <h2><b> Pronalaženje pomoću imena oznake</b></h2>
-<br> Metoda <i><b>getElementById()</b></i> funkcioniše dobro kada želite da pronađete samo jedan ili nekoliko elemenata. Međutim, kada istovremeno želite da pronađete više od jednog elementa, preporučuje se korišćenje metode getElementByTagName().
-<br>
-Metoda <i><b>getElementByTagName()</b></i> vraća sve elemente određenog tipa oznake i to u obliku niza ili liste. Na primer, da biste pronašli sve slike oznake <span class = "primer_text"> &ltimg&gt </span> u dokumentu, ukucajte sledeći kod: 
-<br>
-<xmp class = "primer_ta" rows=1 disabled>
+<br />
+Metoda <i><b>getElementById()</b></i> funkcioniše dobro kada želite da pronađete
+samo jedan ili nekoliko elemenata. Međutim, kada istovremeno želite da pronađete
+više od jednog elementa, preporučuje se korišćenje metode getElementByTagName().
+<br />
+Metoda <i><b>getElementByTagName()</b></i> vraća sve elemente određenog tipa
+oznake i to u obliku niza ili liste. Na primer, da biste pronašli sve slike
+oznake <span class="primer_text"> &ltimg&gt </span> u dokumentu, ukucajte
+sledeći kod:
+<br />
+<xmp class="primer_ta" rows="1" disabled
+>
 var images = document.getElementsByTagName("img"); 
 </xmp>
-<br> 
-Zatim, možete ispitati osobine <span class = "primer_text"> &ltimg&gt </span> elementa, koje se nalazi unutar promenljive images, tako što ćete proći petljom kroz njih. 
-<br>
-Navešćemo jedan primer koji modifikuje tabelu. Ovaj kod menja boju pozadine svakog <span class = "primer_text"> &lttd&gt </span> elementa unutar tabele , svaki put kada korisnik klikne na link Klikni da izmeniš boju. 
-<br>
-Primer 2: 
-<xmp class = "primer_ta" rows=32 disabled>
+<br />
+Zatim, možete ispitati osobine
+<span class="primer_text"> &ltimg&gt </span> elementa, koje se nalazi unutar
+promenljive images, tako što ćete proći petljom kroz njih.
+<br />
+Navešćemo jedan primer koji modifikuje tabelu. Ovaj kod menja boju pozadine
+svakog <span class="primer_text"> &lttd&gt </span> elementa unutar tabele ,
+svaki put kada korisnik klikne na link Klikni da izmeniš boju.
+<br />
+Primer 2:
+<xmp class="primer_ta" rows="32" disabled>
 <!doctype html>
 <html>
 <head>
@@ -83,36 +107,48 @@ a2[i].style.background = "#aaabba";
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
- Ova funkcija pronalazi sve <span class = "primer_text"> &lttd&gt </span> elemente korišćenjem metode getElementByTagName() i smešta ih u niz a2: 
- <br>
- <xmp class= "primer_ta" rows = 1 disabled>
+<button class="button_copy">Vidi primer</button>
+<br />
+Ova funkcija pronalazi sve <span class="primer_text"> &lttd&gt </span> elemente
+korišćenjem metode getElementByTagName() i smešta ih u niz a2:
+<br />
+<xmp class="primer_ta" rows="1" disabled
+>
  var a2= document.getElementByTagName("td");
- </xmp>
- <br>
- <br>
- <h3> <b> Kreiranje elemenata </b></h3>
- <br>
- Nismo ograničeni samo na interakciju sa elementima koji postoje na stranici, već slobodno možemo dodavati elemente upotrebom DOM-a.
- Sada ćemo objasniti način na koji se to i radi:
- <h4> <b>Dodavanje teksta</b> </h4>
- <br>
- U najosnovnijem obliku metoda createElement() kreira ili dodaje element dokumentu. Navodimo jedan primer koda: 
-  var novielement = document.createElement("p");
-  <br>
-  Promenljiva novielement sada ima referencu ka novom elementu. Da bi naš elemenat bio vidljiv, moramo ga pridružiti elementu. Element dodajemo dokumentu koristeći metodu appendChild(), kao što je prikazano:
-  <br>
-  document.body.appendChild(novielement);
-  <br>
-  Međutim, kakvu korist imamo od elementa <span class = "primer_text"> &ltp&gt </span> ako on ne sadrži tekst? Ovde nam može pomoći element appendChild() sa metodom createTextNode(). Možemo dodati čvor teksta elementu <p> i to ovako: 
-  <br>
+ </xmp
+>
+<br />
+<br />
+<h3><b> Kreiranje elemenata </b></h3>
+<br />
+Nismo ograničeni samo na interakciju sa elementima koji postoje na stranici, već
+slobodno možemo dodavati elemente upotrebom DOM-a. Sada ćemo objasniti način na
+koji se to i radi:
+<h4><b>Dodavanje teksta</b></h4>
+<br />
+U najosnovnijem obliku metoda createElement() kreira ili dodaje element
+dokumentu. Navodimo jedan primer koda: var novielement =
+document.createElement("p");
+<br />
+Promenljiva novielement sada ima referencu ka novom elementu. Da bi naš elemenat
+bio vidljiv, moramo ga pridružiti elementu. Element dodajemo dokumentu koristeći
+metodu appendChild(), kao što je prikazano:
+<br />
+document.body.appendChild(novielement);
+<br />
+Međutim, kakvu korist imamo od elementa
+<span class="primer_text"> &ltp&gt </span> ako on ne sadrži tekst? Ovde nam može
+pomoći element appendChild() sa metodom createTextNode(). Možemo dodati čvor
+teksta elementu
+<p>
+  i to ovako:
+  <br />
   novielement.appendChild(document.createTextNode("Zdravo svima"));
-  <br>
+  <br />
   Ova tri reda koda možemo koristiti u telu dokumenta i imati ovako neki primer:
-  <br>
+  <br />
   Primer 3:
-  <xmp class = "primer_ta" rows=13 disabled>
+  <xmp class="primer_ta" rows="13" disabled>
 <!doctype html>
 <html>
 <head>
@@ -127,14 +163,17 @@ novielement.appendChild(document.createTextNode("Zdravo svima"));
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-<h4> <b> Dodavanje elementa i podešavanje ID-a </b></h4>
-Prethodni primer nam je pokazao kako se dodaje element. Pored dodavanja, nekad je potrebno dodati i neki atribut kao sto je ID za neki element. 
-<br>
+  <button class="button_copy">Vidi primer</button>
+  <br />
+</p>
+
+<h4><b> Dodavanje elementa i podešavanje ID-a </b></h4>
+Prethodni primer nam je pokazao kako se dodaje element. Pored dodavanja, nekad
+je potrebno dodati i neki atribut kao sto je ID za neki element.
+<br />
 Naredni kod se vezuje za prethodni primer kako bi se dodao atribut id:
-<br>
-<xmp class = "primer_ta" rows=14 disabled>
+<br />
+<xmp class="primer_ta" rows="14" disabled>
 <!doctype html>
 <html>
 <head>
@@ -150,15 +189,16 @@ novielement.appendChild(document.createTextNode("Zdravo svima"));
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <h2><b> Brisanje elemenata </b></h2>
-<br>
+<br />
 Možete ukloniti čvorove iz dokumenta koristeći metodu removeChild().
-<br>
-Nadovežimo se na prethodni primer i dodajmo još nekoliko elemenata <span class = "primer_text">&ltp&gt</span>.
-<br>
-<xmp class = "primer_ta" rows=15 disabled>
+<br />
+Nadovežimo se na prethodni primer i dodajmo još nekoliko elemenata
+<span class="primer_text">&ltp&gt</span>.
+<br />
+<xmp class="primer_ta" rows="15" disabled>
 <!doctype html>
 <html>
 <head>
@@ -175,19 +215,20 @@ element.appendChild(document.createTextNode("Zdravo svima, ja sam element" + i +
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
-Zatim, želimo da ukonimo neki od novokreiranih elemenata koristeći metodu removeChild().
-Ovo su dva reda koja su dodata kodu:
-<br>
-<xmp class= "primer_ta" rows = 2 disabled>
+<button class="button_copy">Vidi primer</button>
+<br />
+Zatim, želimo da ukonimo neki od novokreiranih elemenata koristeći metodu
+removeChild(). Ovo su dva reda koja su dodata kodu:
+<br />
+<xmp class="primer_ta" rows="2" disabled
+>
 var removeel = document.getElementById("element1");
 document.body.removeChild(removeel);
 </xmp>
-<br>
+<br />
 Celokupan primer dodavanja i uklanjanja elemenata izgleda ovako:
-<br>
-<xmp class = "primer_ta" rows=17 disabled>
+<br />
+<xmp class="primer_ta" rows="17" disabled>
 <!doctype html>
 <html>
 <head>
@@ -207,8 +248,9 @@ document.body.removeChild(removeel);
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <div class="zadatak">
-<b> Zadatak2: </b> Kreirati dokument u koji ćete dodati neki tekst,a zatim ukloniti tekst iz jednog reda pasusa.
+  <b> Zadatak2: </b> Kreirati dokument u koji ćete dodati neki tekst,a zatim
+  ukloniti tekst iz jednog reda pasusa.
 </div>

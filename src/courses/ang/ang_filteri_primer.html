@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="mojaAplikacija" ng-controller="kontrolerOsoba">
+      <p>Moje prezime je {{ prezime | uppercase }}</p>
+    </div>
 
-<div ng-app="mojaAplikacija" ng-controller="kontrolerOsoba">
-
-<p>Moje prezime je {{ prezime | uppercase }}</p>
-
-</div>
-
-<script>
-angular.module('mojaAplikacija', []).controller('kontrolerOsoba', function($scope) {
-    $scope.ime = "Marko",
-    $scope.prezime = "Petrovic"
-});
-</script>
-
-</body>
+    <script>
+      angular
+        .module("mojaAplikacija", [])
+        .controller("kontrolerOsoba", function ($scope) {
+          ($scope.ime = "Marko"), ($scope.prezime = "Petrovic");
+        });
+    </script>
+  </body>
 </html>

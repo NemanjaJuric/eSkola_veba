@@ -1,17 +1,19 @@
 <h1>Grupisanje dugmadi</h1>
 Dugmad se može grupisati linijski i vertikalno.
-<br>
-<br>
+<br />
+<br />
 <h2>Linijsko grupisanje</h2>
-Za linijsko grupisanje, dugmad je potrebno staviti unutar <span class="primer_text">&ltdiv&gt</span> 
-elementa klase <span class="primer_text">.btn-group</span>. U prethodnoj lekciji zaključili smo da se
-dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span>, <span class="primer_text">&ltinput&gt</span> i 
-<span class="primer_text">&lta&gt</span>.
- Razmotrimo linijsko grupisanje na svakom od ovih elemenata.
-<br><br>
+Za linijsko grupisanje, dugmad je potrebno staviti unutar
+<span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.btn-group</span>. U prethodnoj lekciji zaključili smo
+da se dugmad može predstaviti elementima
+<span class="primer_text">&ltbutton&gt</span>,
+<span class="primer_text">&ltinput&gt</span> i
+<span class="primer_text">&lta&gt</span>. Razmotrimo linijsko grupisanje na
+svakom od ovih elemenata. <br /><br />
 <ul>
-<li>Element <span class="primer_text">&ltbutton&gt:</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+  <li>Element <span class="primer_text">&ltbutton&gt:</span></li>
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group">
   <button type="button"
   class="btn btn-info">dugme 1</button>
@@ -20,8 +22,9 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
   <button type="button"
   class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,12 +43,13 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&ltinput&gt:</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&ltinput&gt:</span></li>
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group">
   <input type="button" class="btn btn-success"
   value="Dugme 1">
@@ -54,8 +58,9 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
   <input type="button" class="btn btn-success"
   value="Dugme 3">
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,11 +79,12 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&lta&gt:</span></li>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&lta&gt:</span></li>
 </ul>
 <textarea class="primer_ta" rows="5">
 <div class="btn-group">
@@ -87,7 +93,7 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
  <a href="#" class="btn btn-danger">dugme 3</a>
 </div>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,21 +114,23 @@ dugmad može predstaviti elementima <span class="primer_text">&ltbutton&gt</span
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Linijsko grupisanje duž celog ekrana</h2>
-Da bi se dugmad, koja je linijski grupisana, razvukla celom širinom ekrana, koristi se klasa <span class="primer_text">.btn-group-justified</span>
-na nivou okružujućeg <span class="primer_text">&ltdiv&gt</span> elementa.
-Razmotrimo linijsko grupisanje na svakoj od vrsta dugmadi.
-<br>
-<br>
+Da bi se dugmad, koja je linijski grupisana, razvukla celom širinom ekrana,
+koristi se klasa <span class="primer_text">.btn-group-justified</span> na nivou
+okružujućeg <span class="primer_text">&ltdiv&gt</span> elementa. Razmotrimo
+linijsko grupisanje na svakoj od vrsta dugmadi.
+<br />
+<br />
 <ul>
-<li>Element <span class="primer_text">&ltbutton&gt</span></li>
-<div class="napomena">
-Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&ltdiv&gt</span> klase  
-<span class="primer_text">.btn-group</span>.
-</div>
-<textarea class="primer_ta" rows="14" disabled>
+  <li>Element <span class="primer_text">&ltbutton&gt</span></li>
+  <div class="napomena">
+    Napomena: potrebno je svako dugme smestiti u poseban
+    <span class="primer_text">&ltdiv&gt</span> klase
+    <span class="primer_text">.btn-group</span>.
+  </div>
+  <textarea class="primer_ta" rows="14" disabled>
 <div class="btn-group btn-group-justified">
 	<div class="btn-group">
 		<button type="button" class="btn 
@@ -137,8 +145,9 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
 		btn-info">dugme 3</button>
 	</div>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,16 +172,18 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&ltinput&gt</span></li>
-<div class="napomena">
-Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&ltdiv&gt</span> klase  
-<span class="primer_text">.btn-group</span>.
-</div>
-<textarea class="primer_ta" rows="14" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&ltinput&gt</span></li>
+  <div class="napomena">
+    Napomena: potrebno je svako dugme smestiti u poseban
+    <span class="primer_text">&ltdiv&gt</span> klase
+    <span class="primer_text">.btn-group</span>.
+  </div>
+  <textarea class="primer_ta" rows="14" disabled>
 <div class="btn-group btn-group-justified">
 	<div class="btn-group">
 		<input type="button" class="btn 
@@ -187,8 +198,9 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
 		btn-success" value="Dugme 3">
 	</div>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -213,11 +225,12 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&lta&gt</span></li>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&lta&gt</span></li>
 </ul>
 <textarea class="primer_ta" rows="5">
 <div class="btn-group btn-group-justified">
@@ -226,7 +239,7 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
  <a href="#" class="btn btn-danger">dugme 3</a>
 </div>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,24 +260,26 @@ Napomena: potrebno je svako dugme smestiti u poseban <span class="primer_text">&
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Vertikalno grupisanje</h2>
-Za vertikalno grupisanje, dugmad je potrebno staviti unutar <span class="primer_text">&ltdiv&gt</span> 
-elementa klase <span class="primer_text">.btn-group-vertical</span>.
-Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
-<br>
-<br>
+Za vertikalno grupisanje, dugmad je potrebno staviti unutar
+<span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.btn-group-vertical</span>. Razmotrimo vertikalno
+grupisanje na svim vrstama dugmadi.
+<br />
+<br />
 <ul>
-<li>Element <span class="primer_text">&ltbutton&gt</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+  <li>Element <span class="primer_text">&ltbutton&gt</span></li>
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group-vertical">
   <button type="button" class="btn btn-info">dugme 1</button>
   <button type="button" class="btn btn-info">dugme 2</button>
   <button type="button" class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -283,19 +298,21 @@ Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&ltinput&gt</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&ltinput&gt</span></li>
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group-vertical">
   <input type="button" class="btn btn-success" value="Dugme 1">
   <input type="button" class="btn btn-success" value="Dugme 2">
   <input type="button" class="btn btn-success" value="Dugme 3">
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -314,11 +331,12 @@ Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li>Element <span class="primer_text">&lta&gt</span></li>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>Element <span class="primer_text">&lta&gt</span></li>
 </ul>
 <textarea class="primer_ta" rows="5">
 <div class="btn-group-vertical">
@@ -327,7 +345,7 @@ Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
  <a href="#" class="btn btn-danger">dugme 3</a>
 </div>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,22 +366,24 @@ Razmotrimo vertikalno grupisanje na svim vrstama dugmadi.
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2>Veličina dugmeta </h2>
-Umesto zadavanja veličine svakom pojedinačnom dugmetu, na nivou grupe je moguće zadati veličinu svima.
-To se postiže sledećim klasama:
+<br />
+<br />
+<h2>Veličina dugmeta</h2>
+Umesto zadavanja veličine svakom pojedinačnom dugmetu, na nivou grupe je moguće
+zadati veličinu svima. To se postiže sledećim klasama:
 <ul>
-<li><span class="primer_text">btn-group-lg</span></li>
-<li><span class="primer_text">btn-group-md</span></li>
-<li><span class="primer_text">btn-group-sm</span></li>
-<li><span class="primer_text">btn-group-xs</span>.</li>
-Svaka od klasa se zadaje na nivou okružujućeg <span class="primer_text">&ltdiv&gt</span> elementa.
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.btn-group-lg</span></h3>
-Upotrebom ove klase, grupiše se velika dugmad.
-<textarea class="primer_ta" rows="8" disabled>
+  <li><span class="primer_text">btn-group-lg</span></li>
+  <li><span class="primer_text">btn-group-md</span></li>
+  <li><span class="primer_text">btn-group-sm</span></li>
+  <li><span class="primer_text">btn-group-xs</span>.</li>
+  Svaka od klasa se zadaje na nivou okružujućeg
+  <span class="primer_text">&ltdiv&gt</span>
+  elementa.
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.btn-group-lg</span></h3>
+  Upotrebom ove klase, grupiše se velika dugmad.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group btn-group-lg">
   <button type="button"
   class="btn btn-info">dugme 1</button>
@@ -372,8 +392,9 @@ Upotrebom ove klase, grupiše se velika dugmad.
   <button type="button"
   class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -392,13 +413,14 @@ Upotrebom ove klase, grupiše se velika dugmad.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.btn-group-md</span></h3>
-Upotrebom ove klase, grupiše se dugmad srednje veličine.
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.btn-group-md</span></h3>
+  Upotrebom ove klase, grupiše se dugmad srednje veličine.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group btn-group-md">
   <button type="button"
   class="btn btn-info">dugme 1</button>
@@ -407,8 +429,9 @@ Upotrebom ove klase, grupiše se dugmad srednje veličine.
   <button type="button"
   class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -427,13 +450,14 @@ Upotrebom ove klase, grupiše se dugmad srednje veličine.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.btn-group-sm</span></h3>
-Upotrebom ove klase, grupiše se mala dugmad.
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.btn-group-sm</span></h3>
+  Upotrebom ove klase, grupiše se mala dugmad.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group btn-group-sm">
   <button type="button"
   class="btn btn-info">dugme 1</button>
@@ -442,8 +466,9 @@ Upotrebom ove klase, grupiše se mala dugmad.
   <button type="button"
   class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -462,13 +487,14 @@ Upotrebom ove klase, grupiše se mala dugmad.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.btn-group-xs</span></h3>
-Upotrebom ove klase, grupiše se veoma mala dugmad.
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.btn-group-xs</span></h3>
+  Upotrebom ove klase, grupiše se veoma mala dugmad.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="btn-group btn-group-xs">
   <button type="button"
   class="btn btn-info">dugme 1</button>
@@ -477,8 +503,9 @@ Upotrebom ove klase, grupiše se veoma mala dugmad.
   <button type="button"
   class="btn btn-info">dugme 3</button>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang>
 <head>
@@ -497,13 +524,14 @@ Upotrebom ove klase, grupiše se veoma mala dugmad.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h2>Padajući meni </h2>
-Grupisanjem je moguće kreirati dugme koje sadrži padajući meni.
-<textarea class="primer_ta" rows="10" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h2>Padajući meni</h2>
+  Grupisanjem je moguće kreirati dugme koje sadrži padajući meni.
+  <textarea class="primer_ta" rows="10" disabled>
 <div class="btn-group">
   <button type="button" class="btn btn-info
 	dropdown-toggle" data-toggle="dropdown"> 
@@ -514,8 +542,9 @@ Grupisanjem je moguće kreirati dugme koje sadrži padajući meni.
       <li><a href="#">Kina</a></li>
   </ul>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -538,11 +567,14 @@ Grupisanjem je moguće kreirati dugme koje sadrži padajući meni.
     </div>  
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button><br>
-Imajući u vidu ovo, moguće je grupisati dugmad od kojih neka sadrže padajući meni.<br>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button
+  ><br />
+  Imajući u vidu ovo, moguće je grupisati dugmad od kojih neka sadrže padajući
+  meni.<br />
 
-<textarea class="primer_ta" rows="17">
+  <textarea class="primer_ta" rows="17">
 <div class="btn-group">
   <button type="button"
   class="btn btn-info">Glavni grad</button>
@@ -560,9 +592,10 @@ Imajući u vidu ovo, moguće je grupisati dugmad od kojih neka sadrže padajući
     </ul>
   </div>
 </div>
-</textarea>
-<br>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <br />
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -588,10 +621,13 @@ Imajući u vidu ovo, moguće je grupisati dugmad od kojih neka sadrže padajući
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<div class="zadatak">
-<b>Zadatak:</b><br>
-Grupisati linijski dva dugmeta zelene boje tako da se prostiru celom širinom ekrana. Obezbediti da dugmad budu najveća moguća i da 
-se na jednom od njih nalazi padajući meni.
-</div>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <div class="zadatak">
+    <b>Zadatak:</b><br />
+    Grupisati linijski dva dugmeta zelene boje tako da se prostiru celom širinom
+    ekrana. Obezbediti da dugmad budu najveća moguća i da se na jednom od njih
+    nalazi padajući meni.
+  </div>
+</ul>

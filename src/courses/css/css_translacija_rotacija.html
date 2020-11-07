@@ -1,45 +1,59 @@
 <h1><b>2D transformacije</b></h1>
-<br>
-Transformacija je efekat koji utiče na element tako što menja njegov oblik, veličinu ili poziciju. CSS3 transformacije omogućavaju pomeranje, okretanje, iskošenje i rastezanje elemenata. Postoje 2D i 3D transformacije. 2D se više koriste u praksi, pa ćemo se njima više baviti.
-<br>
-<div class = "napomena">
-CSS model opisuje koordinatni sistem u kojem je svaki element pozicioniran. Pozicije i veličine elemenata izražavaju se u pikselima počevši od gornjeg levog ugla. 
+<br />
+Transformacija je efekat koji utiče na element tako što menja njegov oblik,
+veličinu ili poziciju. CSS3 transformacije omogućavaju pomeranje, okretanje,
+iskošenje i rastezanje elemenata. Postoje 2D i 3D transformacije. 2D se više
+koriste u praksi, pa ćemo se njima više baviti.
+<br />
+<div class="napomena">
+  CSS model opisuje koordinatni sistem u kojem je svaki element pozicioniran.
+  Pozicije i veličine elemenata izražavaju se u pikselima počevši od gornjeg
+  levog ugla.
 </div>
-<br>
+<br />
 <h2>Translacija</h2>
-<br>
-Translacija je pomeranje elementa u odnosu na početnu poziciju. Razlikujemo sledeće metode:
+<br />
+Translacija je pomeranje elementa u odnosu na početnu poziciju. Razlikujemo
+sledeće metode:
 <ul>
-<li>translateX(n) - pomeranje elementa duž X-ose za n piksela</li>
-<li>translateY(n) - pomeranje elementa duž Y-ose za n piksela</li>
-<li>translate(n,m) - pomeranje elementa duž X-ose za n piksela i m piksela duž Y-ose</li>
+  <li>translateX(n) - pomeranje elementa duž X-ose za n piksela</li>
+  <li>translateY(n) - pomeranje elementa duž Y-ose za n piksela</li>
+  <li>
+    translate(n,m) - pomeranje elementa duž X-ose za n piksela i m piksela duž
+    Y-ose
+  </li>
 </ul>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<xmp class="primer_ta"
+>
 div {
     -ms-transform: translate(20px); /* IE 9 */
     -webkit-transform: translate(20px); /* Safari */
     transform: translate(20px);
 }
 </xmp>
-<br>
+<br />
 <h2>Rotacija</h2>
-<br>
-Rotacija podrazumeva okretanje (rotiranje) elementa za dati ugao. Koristimo metod:
-<br>rotate(angle) - pozitivne vrednosti parametra rotiraju u smeru kazaljke na satu,a negativne obrnuto.
-<br>
-<xmp class = "primer_ta" >
+<br />
+Rotacija podrazumeva okretanje (rotiranje) elementa za dati ugao. Koristimo
+metod:
+<br />rotate(angle) - pozitivne vrednosti parametra rotiraju u smeru kazaljke na
+satu,a negativne obrnuto.
+<br />
+<xmp class="primer_ta"
+>
 div {
     -ms-transform: rotate(20deg); /* IE 9 */
     -webkit-transform: rotate(20deg); /* Safari */
     transform: rotate(20deg);
 }
 </xmp>
-<br>
-<br>
-<div class = "zadatak">
-<b>Zadatak:</b> 
-<br>a) Izmeniti deo koda tako da se pravougaonik pomeri za 10px duž X-ose i 50px duž Y-ose.
-<br>b) Izmeniti deo koda tako da se pravougaonik rotira za 100 stepeni u smeru suprotnom kazaljke na satu.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b>
+  <br />a) Izmeniti deo koda tako da se pravougaonik pomeri za 10px duž X-ose i
+  50px duž Y-ose. <br />b) Izmeniti deo koda tako da se pravougaonik rotira za
+  100 stepeni u smeru suprotnom kazaljke na satu.
 </div>
-<br>
+<br />

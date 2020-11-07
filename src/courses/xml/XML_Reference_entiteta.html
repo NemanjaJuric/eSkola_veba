@@ -1,48 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Reference entiteta</title>
   </head>
   <body>
     <h1>Reference entiteta</h1>
-    Treba biti pažljiv prilikom korišćenja specijalnih karaktera jer neki karakteri imaju posebno značenje u XML standardu.
-    Recimo, ukoliko bi se unutar tekstualnog sadržaja elementa ili unutar vrednosti atributa naveo samo karakter „<“, došlo bi do greške jer ga XML parser prepoznaje kao oznaku za početak novog elementa.
-    Takođe, karakter „&amp;“ se ne sme navesti kao takav jer je on rezervisan za oznaku početka reference entiteta.
-    <br><br>
-    Greška opisana primerom 12 se može ispraviti na način koji prikazuje primer 13.
-    <br><br><b>Primer 12: </b>Neispravan zapis poređenja
-    <xmp class = "primer_ta">
+    Treba biti pažljiv prilikom korišćenja specijalnih karaktera jer neki
+    karakteri imaju posebno značenje u XML standardu. Recimo, ukoliko bi se
+    unutar tekstualnog sadržaja elementa ili unutar vrednosti atributa naveo
+    samo karakter „<“, došlo bi do greške jer ga XML parser prepoznaje kao
+    oznaku za početak novog elementa. Takođe, karakter „&amp;“ se ne sme navesti
+    kao takav jer je on rezervisan za oznaku početka reference entiteta.
+    <br /><br />
+    Greška opisana primerom 12 se može ispraviti na način koji prikazuje primer
+    13.
+    <br /><br /><b>Primer 12: </b>Neispravan zapis poređenja
+    <xmp class="primer_ta">
     <poredjenje> 700 < 1500  </poredjenje>
     </xmp>
     <b>Primer 13: </b>Ispravan zapis poređenja
-    <xmp class = "primer_ta">
+    <xmp class="primer_ta">
     <poredjenje> 700 &lt; 1500  </poredjenje>
     </xmp>
-U pravilno napisanom primeru 13 je korišćena referenca entiteta „&amp;lt;“ umesto specijalnog karaktera „<“. Reference entiteta imaju tri obavezna svoja dela,
- a to su ampersand (&amp;), naziv entiteta i znak „tačka-zarez“ (;). Predefinisane reference entiteta u XML-u su:
- <br>
- <br>
- <ul>
-   <li> &amp;lt; za znak "&lt;" (skraćeno od less than - manje od);</li>
-   <li> &amp;gt; za znak "&gt;" (skraćeno od greater than - više od);</li>
-   <li> &amp;amp; za znak "&amp;" (skraćeno od ampersand);</li>
-   <li> &amp;apos; za znak "&apos;" (skraćeno od apostrophe - apostrof);</li>
-   <li> &amp;quot; za znak "&quot;" (skraćeno od quotation mark - navodnici);</li>
- </ul>
- <br>
-Osim navedenih referenci mogu se koristiti i numeričke i heksadekadne numeričke reference entiteta. Recimo, znak „<“ osim što se može navesti pomoću reference „&amp;lt;“,
-može se navesti i kao „&amp;#60“ ili „&amp;#x3C“. Svaku od ovih referenci će parser prilikom čitanja zameniti znakom „<“ i neće ih protumačiti kao početak etikete.
-<br>
-<br>
-Samo karaktere „<“ i „&amp;“ je striktno zabranjeno koristiti prilikom pisanja tekstualnog sadržaja elemenata i vrednosti atributa XML dokumenata,
-ali je dobra praksa koristiti reference entiteta i za ostale.
-Karakteri kao što su apostrof i navodnici koriste se za zadavanje vrednosti atributa, o čemu će reči biti kasnije.
- <br>
- <br>
- Pomenute reference se smeju navoditi samo unutar tekstualnog sadržaja elemenata i vrednosti atributa. Ne smeju se pojaviti u imenima elemenata i atributa.
- Takođe, ukoliko se reference navedu u komentaru, njih parser neće zameniti odgovarajućim znakom,
- jer on prepoznaje reference samo unutar sadržaja elemenata ili vrednosti atributa.
-
+    U pravilno napisanom primeru 13 je korišćena referenca entiteta „&amp;lt;“
+    umesto specijalnog karaktera „<“. Reference entiteta imaju tri obavezna
+    svoja dela, a to su ampersand (&amp;), naziv entiteta i znak „tačka-zarez“
+    (;). Predefinisane reference entiteta u XML-u su:
+    <br />
+    <br />
+    <ul>
+      <li>&amp;lt; za znak "&lt;" (skraćeno od less than - manje od);</li>
+      <li>&amp;gt; za znak "&gt;" (skraćeno od greater than - više od);</li>
+      <li>&amp;amp; za znak "&amp;" (skraćeno od ampersand);</li>
+      <li>&amp;apos; za znak "&apos;" (skraćeno od apostrophe - apostrof);</li>
+      <li>
+        &amp;quot; za znak "&quot;" (skraćeno od quotation mark - navodnici);
+      </li>
+    </ul>
+    <br />
+    Osim navedenih referenci mogu se koristiti i numeričke i heksadekadne
+    numeričke reference entiteta. Recimo, znak „<“ osim što se može navesti
+    pomoću reference „&amp;lt;“, može se navesti i kao „&amp;#60“ ili
+    „&amp;#x3C“. Svaku od ovih referenci će parser prilikom čitanja zameniti
+    znakom „<“ i neće ih protumačiti kao početak etikete.
+    <br />
+    <br />
+    Samo karaktere „<“ i „&amp;“ je striktno zabranjeno koristiti prilikom
+    pisanja tekstualnog sadržaja elemenata i vrednosti atributa XML dokumenata,
+    ali je dobra praksa koristiti reference entiteta i za ostale. Karakteri kao
+    što su apostrof i navodnici koriste se za zadavanje vrednosti atributa, o
+    čemu će reči biti kasnije.
+    <br />
+    <br />
+    Pomenute reference se smeju navoditi samo unutar tekstualnog sadržaja
+    elemenata i vrednosti atributa. Ne smeju se pojaviti u imenima elemenata i
+    atributa. Takođe, ukoliko se reference navedu u komentaru, njih parser neće
+    zameniti odgovarajućim znakom, jer on prepoznaje reference samo unutar
+    sadržaja elemenata ili vrednosti atributa.
   </body>
 </html>

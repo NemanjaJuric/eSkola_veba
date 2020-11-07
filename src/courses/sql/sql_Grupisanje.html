@@ -1,47 +1,57 @@
 <h1><b>Grupisanje</b></h1>
-Često je potrebno izvršiti grupisanje podataka na osnovu nekih zajedničkih svojstava. Za to nam služi sledeća naredba:
+Često je potrebno izvršiti grupisanje podataka na osnovu nekih zajedničkih
+svojstava. Za to nam služi sledeća naredba:
 <h2>Naredba GROUP BY</h2>
-Ovom naredbom grupišemo više redova po nekom kriterijumu. Najčešće se ova naredba koristi u kombinaciji
-sa funkcijama COUNT(), AVG(), MIN() itd. Ovu naredbu je najlakše ilustrovati pomoću primera.
-<br>
+Ovom naredbom grupišemo više redova po nekom kriterijumu. Najčešće se ova
+naredba koristi u kombinaciji sa funkcijama COUNT(), AVG(), MIN() itd. Ovu
+naredbu je najlakše ilustrovati pomoću primera.
+<br />
 Analizirajmo naredni upit.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT polozaj, MIN(plata) FROM radnik GROUP BY polozaj;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Rezultat izvršavanja ovog upita je tabela sa dve kolone. U prvoj koloni je naziv položaja, a u drugoj minimalna
-plata radnika koji radi na tom položaju. Znači, svi radnici koji rade na istom položaju su grupisani u jednu grupu
-i nakon toga je izračunata najmanja plata za svaku grupu.
-<br><br>
-Narednim upitom prikazujemo prosečnu platu radnika na svakom položaju, sortiranu opadajuće.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Rezultat izvršavanja ovog upita je tabela sa dve kolone. U prvoj koloni je naziv
+položaja, a u drugoj minimalna plata radnika koji radi na tom položaju. Znači,
+svi radnici koji rade na istom položaju su grupisani u jednu grupu i nakon toga
+je izračunata najmanja plata za svaku grupu.
+<br /><br />
+Narednim upitom prikazujemo prosečnu platu radnika na svakom položaju, sortiranu
+opadajuće.
+<xmp class="primer_ta"
+>
 SELECT polozaj, AVG(plata) AS prosecna_plata FROM radnik GROUP BY polozaj ORDER BY prosecna_plata DESC;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <h2>Naredba HAVING</h2>
-Ova naredba je slična naredbi WHERE i služi za postavljanje uslova. Naredbu WHERE možemo koristiti u skoro svakom
-upitu, dok se naredba HAVING odnosi na uslove koje treba da zadovolji grupa određena pomoću GROUP BY.
-Da bismo bolje razumeli naredbu HAVING, izvršimo prvo naredni upit kojim se dobija broj radnika na svakom radnom
-mestu
-<xmp class = "primer_ta" >
+Ova naredba je slična naredbi WHERE i služi za postavljanje uslova. Naredbu
+WHERE možemo koristiti u skoro svakom upitu, dok se naredba HAVING odnosi na
+uslove koje treba da zadovolji grupa određena pomoću GROUP BY. Da bismo bolje
+razumeli naredbu HAVING, izvršimo prvo naredni upit kojim se dobija broj radnika
+na svakom radnom mestu
+<xmp class="primer_ta"
+>
 SELECT COUNT(*) AS broj_radnika, radno_mesto FROM radnik GROUP BY radno_mesto;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Dobili smo da u Beogradu imamo 10 radnika, a u Nišu i Novom Sadu po 6.
-<br>
-Šta ako želimo da prikažemo samo ona radna mesta na kojim imamo jednocifren broj radnika? Tu nam pomaže
-naredba HAVING. Pomoću nje postavljamo uslov celoj grupi da broj radnika u grupi mora da bude manji od 10.
-<xmp class = "primer_ta" >
+<br />
+Šta ako želimo da prikažemo samo ona radna mesta na kojim imamo jednocifren broj
+radnika? Tu nam pomaže naredba HAVING. Pomoću nje postavljamo uslov celoj grupi
+da broj radnika u grupi mora da bude manji od 10.
+<xmp class="primer_ta"
+>
 SELECT COUNT(*) AS broj_radnika, radno_mesto FROM radnik GROUP BY radno_mesto HAVING broj_radnika < 10;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Odrediti prosečne plate na svim radnim mestima i sortirati ih opadajuće.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">
+  Odrediti prosečne plate na svim radnim mestima i sortirati ih opadajuće.
 </div>
-<div class = "zadatak">
-	Odrediti sve položaje na kojima je prosečna plata veća od 50000.
+<div class="zadatak">
+  Odrediti sve položaje na kojima je prosečna plata veća od 50000.
 </div>

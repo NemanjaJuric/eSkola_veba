@@ -1,152 +1,164 @@
 <h1><b>Ugrađene funkcije</b></h1>
 Prilikom pretrage tabela možemo koristiti neke od ugrađenih funkcija.
 <h2>Funkcije MIN() i MAX()</h2>
-Ove funkcije vraćaju najmanju, odnosno najveću vrednost za izabranu kolonu. Ako je podatak u izabranoj koloni
-tekstualnog tipa, poređenje se vrši leksikografski.
-<br>
+Ove funkcije vraćaju najmanju, odnosno najveću vrednost za izabranu kolonu. Ako
+je podatak u izabranoj koloni tekstualnog tipa, poređenje se vrši
+leksikografski.
+<br />
 Narednim upitom pronalazimo najveću platu koju ima neko od radnika.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT MAX(plata) FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Sledeći upit vraća datum yaposlenja prvog radnika.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT MIN(datum_zaposlenja) FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <h2>Funkcije SUM(), AVG() i COUNT()</h2>
-Funkcija <b>SUM()</b> vraća zbir svih vrednosti izabrane kolone.
-Sledećim upitom dobijamo kolika su mesečna izdvajanja firme za plate svih radnika.
-<xmp class = "primer_ta" >
+Funkcija <b>SUM()</b> vraća zbir svih vrednosti izabrane kolone. Sledećim upitom
+dobijamo kolika su mesečna izdvajanja firme za plate svih radnika.
+<xmp class="primer_ta"
+>
 SELECT SUM(plata) FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Funkcija <b>AVG()</b> vraća prosečnu vrednost označene kolone.
-Narednim upitom dobijamo prosečnu platu u firmi.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Funkcija <b>AVG()</b> vraća prosečnu vrednost označene kolone. Narednim upitom
+dobijamo prosečnu platu u firmi.
+<xmp class="primer_ta"
+>
 SELECT AVG(plata) FROM radnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Funkcija <b>COUNT()</b> broji koliko podataka je upisano u izabranoj koloni.
 Narednim upitom dobijamo koliko imamo trgovaca u tabeli.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT COUNT(*) FROM radnik WHERE polozaj = 'trgovac';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Prvo pronaći najmanju i najveću platu šefa prodavnice. Zatim odrediti prosečnu platu vozača na dva načina.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">
+  Prvo pronaći najmanju i najveću platu šefa prodavnice. Zatim odrediti prosečnu
+  platu vozača na dva načina.
 </div>
 <h2>Funkcije za rad sa znakovnim vrednostima</h2>
 <ul>
   <li>
-    Funkcija <b>CONCAT(str1, str2, ...)</b>: Ovom funkcijom se nadovezuju stringovi koji su joj prosleđeni
-    kao argumenti.<br>
-    Ako hoćemo da imena i prezimena svih radnika ispišemo u jednoj koloni, to možemo postići sledećim upitom:
-    <xmp class = "primer_ta" >
+    Funkcija <b>CONCAT(str1, str2, ...)</b>: Ovom funkcijom se nadovezuju
+    stringovi koji su joj prosleđeni kao argumenti.<br />
+    Ako hoćemo da imena i prezimena svih radnika ispišemo u jednoj koloni, to
+    možemo postići sledećim upitom:
+    <xmp class="primer_ta"
+>
 SELECT CONCAT(ime, prezime) AS ime_i_prezime FROM radnik;
     </xmp>
-    <button class = "button_copy" >Vidi primer</button>
-    <br>
-    Primećujete da su ime i prezime slepljeni. Da bismo stavili razmak (belinu) između imena i prezimena radnika,
-    modifikujmo prehodni upit.
-    <xmp class = "primer_ta" >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+    Primećujete da su ime i prezime slepljeni. Da bismo stavili razmak (belinu)
+    između imena i prezimena radnika, modifikujmo prehodni upit.
+    <xmp class="primer_ta"
+>
 SELECT CONCAT(ime, ' ', prezime) AS ime_i_prezime FROM radnik;
     </xmp>
-    <button class = "button_copy" >Vidi primer</button>
-    <br>
+    <button class="button_copy">Vidi primer</button>
+    <br />
   </li>
   <li>
-    Funkcija <b>LENGTH(str)</b>: Ova funkcija vraća dužinu stringa.
-    Sledećim upitom dobijamo prosečnu dužinu imena radnika iz tabele.
-    <xmp class = "primer_ta" >
+    Funkcija <b>LENGTH(str)</b>: Ova funkcija vraća dužinu stringa. Sledećim
+    upitom dobijamo prosečnu dužinu imena radnika iz tabele.
+    <xmp class="primer_ta"
+>
 SELECT AVG(LENGTH(ime)) FROM radnik;
     </xmp>
-    <button class = "button_copy" >Vidi primer</button>
-    <br>
+    <button class="button_copy">Vidi primer</button>
+    <br />
   </li>
   <li>
-    Funkcija <b>LOCATE(str1, str2, poz)</b>: Vraća poziciju pojvaljivanja stringa str1 u stringu str2, pretraga
-    počinje od pozicije poz u stringu str2.
+    Funkcija <b>LOCATE(str1, str2, poz)</b>: Vraća poziciju pojvaljivanja
+    stringa str1 u stringu str2, pretraga počinje od pozicije poz u stringu
+    str2.
   </li>
   <li>
-    Funkcija <b>REPLACE(str1, str2, str3)</b>: Vraća string str1 u kome su sva pojavljivanja podstringa str2
-    zamenjena stringom str3.
+    Funkcija <b>REPLACE(str1, str2, str3)</b>: Vraća string str1 u kome su sva
+    pojavljivanja podstringa str2 zamenjena stringom str3.
   </li>
   <li>
-    Funkcija <b>LOWER(str)</b>: Sva velika slova iz string str pretvara u mala slova.
+    Funkcija <b>LOWER(str)</b>: Sva velika slova iz string str pretvara u mala
+    slova.
   </li>
   <li>
-    Funkcija <b>UPPER(str)</b>: Sva mala slova iz string str pretvara u velika slova.
+    Funkcija <b>UPPER(str)</b>: Sva mala slova iz string str pretvara u velika
+    slova.
   </li>
 </ul>
-<div class = "zadatak">
-	Ispisati prezimena i imena (prezime da bude ispisano velikim slovima) u jednoj kolini, položaj i platu svih
-  radnika. Ako je radnik šef prodavnice, onda neka reč "sef" bude zamenjena rečju "rukovodilac".
+<div class="zadatak">
+  Ispisati prezimena i imena (prezime da bude ispisano velikim slovima) u jednoj
+  kolini, položaj i platu svih radnika. Ako je radnik šef prodavnice, onda neka
+  reč "sef" bude zamenjena rečju "rukovodilac".
 </div>
 <h2>Funkcije za rad sa datumima</h2>
 <ul>
   <li>
-    Funkcija <b>NOW()</b>: Vraća trenutan datum i vreme u formatu YYYY-MM-DD HH:MM:SS
+    Funkcija <b>NOW()</b>: Vraća trenutan datum i vreme u formatu YYYY-MM-DD
+    HH:MM:SS
   </li>
   <li>
-    Funkcija <b>CURDATE()</b> ili <b>CURRENT_DATE()</b>: Vraća trenutni datum u formatu YYYY-MM-DD
+    Funkcija <b>CURDATE()</b> ili <b>CURRENT_DATE()</b>: Vraća trenutni datum u
+    formatu YYYY-MM-DD
   </li>
   <li>
-    Funkcija <b>CURTIME()</b> ili <b>CURRENT_TIME()</b>: Vraća trenutno vreme u formatu HH:MM:SS
+    Funkcija <b>CURTIME()</b> ili <b>CURRENT_TIME()</b>: Vraća trenutno vreme u
+    formatu HH:MM:SS
   </li>
   <li>
-    Funkcija <b>DAYNAME(datum)</b>: Vraća ime dana u nedelji (na engleskom jeziku) zadatog datuma u argumentu datum
+    Funkcija <b>DAYNAME(datum)</b>: Vraća ime dana u nedelji (na engleskom
+    jeziku) zadatog datuma u argumentu datum
   </li>
   <li>
-    Funkcija <b>EXTRACT(tip FROM datum)</b>: Vraća komponentu iz datuma koji je prosleđen argumentom datum. Komponenta
-    može biti godina, mesec, dan, sat, minut ili sekund. Komponenta se prosleđuje parametrom tip i to za godinu se
-    prosleđuje YEAR, za mesec MONTH, za dan DAY, za sat HOUR, za minut MINUTE i za sekunde SECOND.<br>
+    Funkcija <b>EXTRACT(tip FROM datum)</b>: Vraća komponentu iz datuma koji je
+    prosleđen argumentom datum. Komponenta može biti godina, mesec, dan, sat,
+    minut ili sekund. Komponenta se prosleđuje parametrom tip i to za godinu se
+    prosleđuje YEAR, za mesec MONTH, za dan DAY, za sat HOUR, za minut MINUTE i
+    za sekunde SECOND.<br />
     Odredimo sve radnike koji su se zaposlili 2017. godine.
-    <xmp class = "primer_ta" >
+    <xmp class="primer_ta"
+>
 SELECT * FROM radnik WHERE EXTRACT(YEAR FROM datum_zaposlenja) = 2017;
     </xmp>
-    <button class = "button_copy" >Vidi primer</button>
-    <br>
+    <button class="button_copy">Vidi primer</button>
+    <br />
   </li>
-<div class = "zadatak">
-	Odrediti imena i prezimena svih radnika koji su se zaposlili u mesecu koji odgovara mesecu u trenutku pretrage.
-</div>
+  <div class="zadatak">
+    Odrediti imena i prezimena svih radnika koji su se zaposlili u mesecu koji
+    odgovara mesecu u trenutku pretrage.
+  </div>
 </ul>
 <h2>Neke matematičke funkcije</h2>
 <ul>
-	<li>
-		<b>ABS(n)</b>: vraća apsolutnu vrednost broja n.
-	</li>
-	<li>
-		<b>POWER(n, m)</b>: vraća broj n pomnožen sam sa sobom m puta, odnosno vraća n na m.
-	</li>
-	<li>
-		<b>SQRT(n)</b>: vraća kvadratni koren broja n.
-	</li>
-	<li>
-		<b>DIV(n, m)</b>: vraća rezultat celobrojnog deljenja braja n brojem m.
-	</li>
-	<li>
-		<b>MOD(n, m)</b>: vraća ostatak pri deljenju broja n brojem m.
-	</li>
-	<li>
-		<b>RAND()</b>: vraća slučajan broj između nula i jedan.
-	</li>
-	<li>
-		<b>FLOOR(n)</b>: zaokružuju broj n na najbliži manji (ili jednak) ceo broj.
-	</li>
-	<li>
-		<b>CEILING(n)</b>: zaokružuje broj n na najbliži veći (ili jednak) ceo broj.
-	</li>
-	<li>
-		<b>ROUND(n)</b>: zaokružuje broj n na najbliži ceo broj.
-	</li>
-	<li>
-		<b>ROUND(n, d)</b>: zaokružuje broj n na najbliži broj sa d decimala.
-	</li>
+  <li><b>ABS(n)</b>: vraća apsolutnu vrednost broja n.</li>
+  <li>
+    <b>POWER(n, m)</b>: vraća broj n pomnožen sam sa sobom m puta, odnosno vraća
+    n na m.
+  </li>
+  <li><b>SQRT(n)</b>: vraća kvadratni koren broja n.</li>
+  <li>
+    <b>DIV(n, m)</b>: vraća rezultat celobrojnog deljenja braja n brojem m.
+  </li>
+  <li><b>MOD(n, m)</b>: vraća ostatak pri deljenju broja n brojem m.</li>
+  <li><b>RAND()</b>: vraća slučajan broj između nula i jedan.</li>
+  <li>
+    <b>FLOOR(n)</b>: zaokružuju broj n na najbliži manji (ili jednak) ceo broj.
+  </li>
+  <li>
+    <b>CEILING(n)</b>: zaokružuje broj n na najbliži veći (ili jednak) ceo broj.
+  </li>
+  <li><b>ROUND(n)</b>: zaokružuje broj n na najbliži ceo broj.</li>
+  <li><b>ROUND(n, d)</b>: zaokružuje broj n na najbliži broj sa d decimala.</li>
 </ul>

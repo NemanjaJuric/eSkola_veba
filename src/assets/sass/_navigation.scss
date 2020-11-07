@@ -1,42 +1,42 @@
-.navbar{
-    background-color: rgba($material-dark-gray, 0.7);
-    backdrop-filter: blur(10px);
-    height: 60px;
-    border-radius: 0;
-    padding: 20px;
-    font-size: 20px;
-    position: fixed;
-    z-index: 10;
+.navbar {
+  background-color: rgba($material-dark-gray, 0.7);
+  backdrop-filter: blur(10px);
+  height: 60px;
+  border-radius: 0;
+  padding: 20px;
+  font-size: 20px;
+  position: fixed;
+  z-index: 10;
 }
 
-.boxShadow{
-    box-shadow: 0 0 20px $material-dark-gray;
+.boxShadow {
+  box-shadow: 0 0 20px $material-dark-gray;
 }
 
-.boxNoShadow{
-    box-shadow: none;
+.boxNoShadow {
+  box-shadow: none;
 }
 
-.navigation-link{
-    color: rgba($light, 0.7) !important;
-    text-decoration: none;
+.navigation-link {
+  color: rgba($light, 0.7) !important;
+  text-decoration: none;
 }
 
-.navigation-link:hover{
+.navigation-link:hover {
+  color: $light !important;
+}
+
+.course-navigation-button {
+  @extend .navigation-link;
+  background: none;
+  border: none;
+  &:hover {
     color: $light !important;
+  }
 }
 
-.course-navigation-button{
-    @extend .navigation-link;
-    background: none;
-    border: none;
-    &:hover{
-        color: $light !important;
-    }
-}
-
-.course-dropdown{
-    width: 250px;
-    height: 500px;
-    overflow-y: auto;
+.course-dropdown {
+  width: 250px;
+  height: 500px;
+  overflow-y: auto;
 }

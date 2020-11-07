@@ -1,73 +1,16 @@
-﻿let x : number = 0b1000011;
-  let x1: number = 67;
-  let y : number = 0b11110;
-  let y1: number = 30;
-
-  //Operator bitovsko I & : x & y
-  
-  let p1  = x & y;
-   
-  let p2  = x1 & y1;
-  
-  //Operator bitovsko ILI |: x | y  
-  
-  let p3  = x | y;
-  
-  let p4  = x1 | y1;
-  
-  //Operator bitovska negacija ~: x ~ y
-  
-  let p5  = ~x;
-  
-  let p6  = ~x1;
-  
-  //Operator bitovsko ekskluzivno ILI  ^ : x ^ y
-  
-  let p7  = x ^ y;
-  
-  //Operator pomeranja bitova u levo  << : x << y
-  
-  let p8 = x << 2;
-  
-  let p9  = x1 << 2;
-  
-  //Operator pomeranja bitova u desno >> : x >> 2
-  
-  let p10  = x >> 2;  
-  
-  //Operator pomeranja bitova u desno >>> : x >>> 2
-  
-  let p11 = x >>> 2; 
-  
-  
-  // Za pozitivne vrednosti brojeva operatori >>> i >> daju iste vrednost ali za negativne , dobićemo potpuno različite rezultate!
-   
-  let p12 = -x >>> 2;
-  
-  let p13 = -x >> 2;
-  
-  // Funkcija koja ispisuje binarni zapis broja
-  
-  
-  function binarniZapis(x:number) { 
-    let str: string = "";
-    let maska: number = 1;
-    for (let i = 0; i < 32; i++){
-        if ((maska & x) != 0)
-            str = "1"+str;
-        else
-            str = "0"+str;
-        maska <<= 1;
-    }
-    return (str);
-}
-    
-  // Da bi ste proverili ostale rezultat umesto p1 zamenit sa p2 do p13
-  let R = p1;  
- 
- let button = document.createElement('button');
- button.textContent = "Rezultat";
- button.onclick = function () {
-    alert(R);
- };
- document.body.appendChild(button);
+﻿let x : number = 0b1000011; let x1: number = 67; let y : number = 0b11110; let
+y1: number = 30; //Operator bitovsko I & : x & y let p1 = x & y; let p2 = x1 &
+y1; //Operator bitovsko ILI |: x | y let p3 = x | y; let p4 = x1 | y1;
+//Operator bitovska negacija ~: x ~ y let p5 = ~x; let p6 = ~x1; //Operator
+bitovsko ekskluzivno ILI ^ : x ^ y let p7 = x ^ y; //Operator pomeranja bitova u
+levo << : x << y let p8 = x << 2; let p9 = x1 << 2; //Operator pomeranja bitova
+u desno >> : x >> 2 let p10 = x >> 2; //Operator pomeranja bitova u desno >>> :
+x >>> 2 let p11 = x >>> 2; // Za pozitivne vrednosti brojeva operatori >>> i >>
+daju iste vrednost ali za negativne , dobićemo potpuno različite rezultate! let
+p12 = -x >>> 2; let p13 = -x >> 2; // Funkcija koja ispisuje binarni zapis broja
+function binarniZapis(x:number) { let str: string = ""; let maska: number = 1;
+for (let i = 0; i < 32; i++){ if ((maska & x) != 0) str = "1"+str; else str =
+"0"+str; maska <<= 1; } return (str); } // Da bi ste proverili ostale rezultat
+umesto p1 zamenit sa p2 do p13 let R = p1; let button =
+document.createElement('button'); button.textContent = "Rezultat";
+button.onclick = function () { alert(R); }; document.body.appendChild(button);

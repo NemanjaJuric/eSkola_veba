@@ -1,65 +1,131 @@
 <h1>Rad sa tabelama</h1>
-<br>
-Klase za rad sa tabelama navodimo u etiketi <span class="primer_text">&lttable&gt</span> u okviru atributa <span class="primer_text">class</span>:
+<br />
+Klase za rad sa tabelama navodimo u etiketi
+<span class="primer_text">&lttable&gt</span> u okviru atributa
+<span class="primer_text">class</span>:
 <ul>
-  <li><span class="primer_text">.table</span> - ovo je klasa koja pravi osnovnu tabelu (tabelu sa horizontalnim linijama između vrsta),</li>
-  <li><span class="primer_text">.table-striped</span> - ovo je  klasa koja neparnim vrstama postavlja belu pozadinsku boju, a parnim sivu,</li>
-</ul>
-  <div class="napomena">
-    Ukoliko kombinujemo <span class="primer_text">.table</span> i
-    <span class="primer_text">.table-striped</span> dobićemo tabelu koja će biti formatirana
-    kao tabela sa klasom <span class="primer_text">.table</span>, a obojena kao tabela sa klasom
-    <span class="primer_text">.table-striped</span>. Da bismo to uradili navodimo klase na sledeći način
-    <span class="primer_text">class="table table-striped"</span>.
-  </div>
-<br>
-<ul>
-  <li>Klasa <span class="primer_text">.table-bordered</span> dodaje okvir tabeli i dodaje linije unutar tabele između vrsta i kolona.</li>
-  <li>Klasa <span class="primer_text">.table-hover</span> omogućava da ako pređemo kursorom preko jedne vrste pozadinska boja te vrste se promeni u sivu.</li>
-  <li>Klasa <span class="primer_text">.table-dark</span> postavlja boju pozadine tabele u crnu, a boju teksta u belu.</li>
+  <li>
+    <span class="primer_text">.table</span> - ovo je klasa koja pravi osnovnu
+    tabelu (tabelu sa horizontalnim linijama između vrsta),
+  </li>
+  <li>
+    <span class="primer_text">.table-striped</span> - ovo je klasa koja neparnim
+    vrstama postavlja belu pozadinsku boju, a parnim sivu,
+  </li>
 </ul>
 <div class="napomena">
-  Ukoliko kombinujemo <span class="primer_text">.table-dark</span> i <span class="primer_text">.table-striped</span>
-  dobićemo tabelu koja ima crnu pozadinsku boju na neparnim vrstama, a tamno sivu na parnim vrstama. Dok kombinacija
-  <span class="primer_text">.table-dark</span> i <span class="primer_text">.table-hover</span> rezultuje time da
-  ako pređemo kursorom preko jedne vrste njena pozadinska boja prelazi iz crne u tamno sivu.
-
+  Ukoliko kombinujemo <span class="primer_text">.table</span> i
+  <span class="primer_text">.table-striped</span> dobićemo tabelu koja će biti
+  formatirana kao tabela sa klasom <span class="primer_text">.table</span>, a
+  obojena kao tabela sa klasom <span class="primer_text">.table-striped</span>.
+  Da bismo to uradili navodimo klase na sledeći način
+  <span class="primer_text">class="table table-striped"</span>.
 </div>
-Sledeće klase mogu dodavati pozadinsku boju celoj tabeli, jednoj vrsti ili jednoj ćeliji, to zavisi od toga da li će se
-atribut <span class="primer_text">class</span> definisati u okviru etikete <span class="primer_text">&lttable&gt</span>, <span class="primer_text">&lttr&gt</span> ili <span class="primer_text">&lttd&gt</span>.
-<br>
+<br />
+<ul>
+  <li>
+    Klasa <span class="primer_text">.table-bordered</span> dodaje okvir tabeli i
+    dodaje linije unutar tabele između vrsta i kolona.
+  </li>
+  <li>
+    Klasa <span class="primer_text">.table-hover</span> omogućava da ako pređemo
+    kursorom preko jedne vrste pozadinska boja te vrste se promeni u sivu.
+  </li>
+  <li>
+    Klasa <span class="primer_text">.table-dark</span> postavlja boju pozadine
+    tabele u crnu, a boju teksta u belu.
+  </li>
+</ul>
+<div class="napomena">
+  Ukoliko kombinujemo <span class="primer_text">.table-dark</span> i
+  <span class="primer_text">.table-striped</span>
+  dobićemo tabelu koja ima crnu pozadinsku boju na neparnim vrstama, a tamno
+  sivu na parnim vrstama. Dok kombinacija
+  <span class="primer_text">.table-dark</span> i
+  <span class="primer_text">.table-hover</span> rezultuje time da ako pređemo
+  kursorom preko jedne vrste njena pozadinska boja prelazi iz crne u tamno sivu.
+</div>
+Sledeće klase mogu dodavati pozadinsku boju celoj tabeli, jednoj vrsti ili
+jednoj ćeliji, to zavisi od toga da li će se atribut
+<span class="primer_text">class</span> definisati u okviru etikete
+<span class="primer_text">&lttable&gt</span>,
+<span class="primer_text">&lttr&gt</span> ili
+<span class="primer_text">&lttd&gt</span>.
+<br />
 <ul>
   <li><span class="primer_text">.table-primary</span> - bitna akcija,</li>
-  <li><span class="primer_text">.table-success</span> - uspešno završena akcija,</li>
+  <li>
+    <span class="primer_text">.table-success</span> - uspešno završena akcija,
+  </li>
   <li><span class="primer_text">.table-danger</span> - opasna akcija,</li>
-  <li><span class="primer_text">.table-info</span> - označava neku informaciju,</li>
+  <li>
+    <span class="primer_text">.table-info</span> - označava neku informaciju,
+  </li>
   <li><span class="primer_text">.table-warning</span> - upozorenje,</li>
-  <li><span class="primer_text">.table-active</span> - dodaje boju vrsti ili ćeliji prilikom prelaženja kursorom preko iste,</li>
-  <li><span class="primer_text">.table-secondary</span> - označava ne tako bitnu informaciju,</li>
-  <li><span class="primer_text">.table-light</span> - boji pozadinu vrste ili ćelije u svetlo sivo,</li>
-  <li><span class="primer_text">.table-dark</span> - boji pozadinu vrste ili ćelije u svetlo sivo.</li>
+  <li>
+    <span class="primer_text">.table-active</span> - dodaje boju vrsti ili
+    ćeliji prilikom prelaženja kursorom preko iste,
+  </li>
+  <li>
+    <span class="primer_text">.table-secondary</span> - označava ne tako bitnu
+    informaciju,
+  </li>
+  <li>
+    <span class="primer_text">.table-light</span> - boji pozadinu vrste ili
+    ćelije u svetlo sivo,
+  </li>
+  <li>
+    <span class="primer_text">.table-dark</span> - boji pozadinu vrste ili
+    ćelije u svetlo sivo.
+  </li>
 </ul>
 <div class="napomena">
-  Klase <span class="primer_text">.thead-dark</span> i <span class="primer_text">.thead-light</span>, koje su vrednosti atributa <span class="primer_text">class</span> u okviru etikete
-  <span class="primer_text">&ltthead&gt</span>, postavljaju pozadinsku boju zaglavlja tabele u crnu odnosno u svetlo sivu.
+  Klase <span class="primer_text">.thead-dark</span> i
+  <span class="primer_text">.thead-light</span>, koje su vrednosti atributa
+  <span class="primer_text">class</span> u okviru etikete
+  <span class="primer_text">&ltthead&gt</span>, postavljaju pozadinsku boju
+  zaglavlja tabele u crnu odnosno u svetlo sivu.
 </div>
-<br>
+<br />
 <ul>
-  <li><span class="primer_text">.table-sm</span> - je klasa koja tabelu formatira tako da rastojanje od ivica i teksta bude upola manje od osnovne tabele, koja je zadatata klasom <span class="primer_text">.table</span>.</li>
+  <li>
+    <span class="primer_text">.table-sm</span> - je klasa koja tabelu formatira
+    tako da rastojanje od ivica i teksta bude upola manje od osnovne tabele,
+    koja je zadatata klasom <span class="primer_text">.table</span>.
+  </li>
 </ul>
-<br><br>
-Postoje klase, koje su atributi etikete <span class="primer_text">&ltdiv&gt</span> unutar koje se nalazi naša tabela,
-koje postavljaju horizontalni klizač ukoliko je tabela šira od neke zadate veličine ekrana. Takva jedna klasa je <span class="primer_text">.table-responsive</span>, ona kreira klizač za sve ekrana čija je širina manja od 992px (ukoliko je potrebno)
-<br>
-Ukoliko želimo da izaberemo za koje širine ekrana hoćemo da dodamo klizač koristićemo klase:
+<br /><br />
+Postoje klase, koje su atributi etikete
+<span class="primer_text">&ltdiv&gt</span> unutar koje se nalazi naša tabela,
+koje postavljaju horizontalni klizač ukoliko je tabela šira od neke zadate
+veličine ekrana. Takva jedna klasa je
+<span class="primer_text">.table-responsive</span>, ona kreira klizač za sve
+ekrana čija je širina manja od 992px (ukoliko je potrebno)
+<br />
+Ukoliko želimo da izaberemo za koje širine ekrana hoćemo da dodamo klizač
+koristićemo klase:
 <ul>
-  <li><span class="primer_text">.table-responsive-sm</span> - kreira klizač za širine ekrana manje od 576px (ukoliko je potrebno)</li>
-  <li><span class="primer_text">.table-responsive-md</span> - kreira klizač za širine ekrana manje od 768px (ukoliko je potrebno)</li>
-  <li><span class="primer_text">.table-responsive-lg</span> - kreira klizač za širine ekrana manje od 992px (ukoliko je potrebno)</li>
-  <li><span class="primer_text">.table-responsive-xl</span> - kreira klizač za širine ekrana manje od 1200px (ukoliko je potrebno)</li>
+  <li>
+    <span class="primer_text">.table-responsive-sm</span> - kreira klizač za
+    širine ekrana manje od 576px (ukoliko je potrebno)
+  </li>
+  <li>
+    <span class="primer_text">.table-responsive-md</span> - kreira klizač za
+    širine ekrana manje od 768px (ukoliko je potrebno)
+  </li>
+  <li>
+    <span class="primer_text">.table-responsive-lg</span> - kreira klizač za
+    širine ekrana manje od 992px (ukoliko je potrebno)
+  </li>
+  <li>
+    <span class="primer_text">.table-responsive-xl</span> - kreira klizač za
+    širine ekrana manje od 1200px (ukoliko je potrebno)
+  </li>
 </ul>
 <div class="zadatak">
-  <b>Zadatak:</b> Napraviti tabelu koja će po kolonama sadržati ime, prezime, e-mail adresu, broj telefona, adresu stanovanja i fakultet.
-  Zaglavlje tabele treba imati crnu pozadinsku boju, a boje vrsta koje sadrže vrednosti obojiti u različite boje.
-  Dodati da se za ekrane čija je širina manja od 1200px postavi klizač.
+  <b>Zadatak:</b> Napraviti tabelu koja će po kolonama sadržati ime, prezime,
+  e-mail adresu, broj telefona, adresu stanovanja i fakultet. Zaglavlje tabele
+  treba imati crnu pozadinsku boju, a boje vrsta koje sadrže vrednosti obojiti u
+  različite boje. Dodati da se za ekrane čija je širina manja od 1200px postavi
+  klizač.
 </div>

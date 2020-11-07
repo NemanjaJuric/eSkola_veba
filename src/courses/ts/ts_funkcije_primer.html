@@ -1,22 +1,6 @@
-﻿let unos1 = document.createElement("input");
-document.body.appendChild(unos1);
-
+﻿let unos1 = document.createElement("input"); document.body.appendChild(unos1);
 let dugme1 = document.createElement("button");
-document.body.appendChild(dugme1);
-dugme1.textContent = "Računaj";
-
-dugme1.onclick = function () {
-
-     let i: number=+unos1.value; 
-     alert(faktorijel(i));
-
-  } 
-
-
-
-function faktorijel(n: number): number
-  { 
-    if (n == 0 || n == 1)// bazični slučaj
-        return 1;
-    else return n*faktorijel(n - 1);
-  }
+document.body.appendChild(dugme1); dugme1.textContent = "Računaj";
+dugme1.onclick = function () { let i: number=+unos1.value; alert(faktorijel(i));
+} function faktorijel(n: number): number { if (n == 0 || n == 1)// bazični
+slučaj return 1; else return n*faktorijel(n - 1); }

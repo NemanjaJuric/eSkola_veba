@@ -1,46 +1,73 @@
 <h1>Angular filteri</h1>
-<iframe src="https://embed.plnkr.co/2uSmlLbaujkO75jlfVSo/" frameborder="0" width="100%" height="500px"></iframe>
-U prethodnoj lekciji je obrađeno kako sve mogu da se upotrebe direktive za prevođenje sadržaja, u zavisnosti od podataka kojima upravljaju klase komponente. 
-<br>
-Postoji još jedna moćna funkcija koja omogućava filtriranje izraza i transformaciju. Reč je o filterima radnog okvira Angular. Njihova sintaksa je prilično jednostavna.
-Sastoji se od izraza koji treba da se transformiše i funkcije transformacije koji su razdvojeni vertikalnom crticom
-<xmp class = "primer_ta">
+<iframe
+  src="https://embed.plnkr.co/2uSmlLbaujkO75jlfVSo/"
+  frameborder="0"
+  width="100%"
+  height="500px"
+></iframe>
+U prethodnoj lekciji je obrađeno kako sve mogu da se upotrebe direktive za
+prevođenje sadržaja, u zavisnosti od podataka kojima upravljaju klase
+komponente.
+<br />
+Postoji još jedna moćna funkcija koja omogućava filtriranje izraza i
+transformaciju. Reč je o filterima radnog okvira Angular. Njihova sintaksa je
+prilično jednostavna. Sastoji se od izraza koji treba da se transformiše i
+funkcije transformacije koji su razdvojeni vertikalnom crticom
+<xmp class="primer_ta"
+>
 {{ ime | uppercase }}
-</xmp> 
-U prethodnom primeru je prikazana sintaksa Angular filtera i ispisivanje izraza "ime" velikim slovima.<br>
-Angular ima mnogo ugrađenih filtera, koji mogu da se vezuju u lanac i primene na istom izrazu. Mogu se kreirati i sopstveni filteri, kada ugrađeni filteri nisu dovoljni.
-<br>
+</xmp>
+U prethodnom primeru je prikazana sintaksa Angular filtera i ispisivanje izraza
+"ime" velikim slovima.<br />
+Angular ima mnogo ugrađenih filtera, koji mogu da se vezuju u lanac i primene na
+istom izrazu. Mogu se kreirati i sopstveni filteri, kada ugrađeni filteri nisu
+dovoljni.
+<br />
 <h2>Parametrizacija filtera</h2>
-Filter može prihvatiti bilo koji broj parametara za fino podešavanje izlaza podataka. Da bi se dodao parametar filtera, između imena filtera i vrednosti parametra se stavlja dvotačka ( : ).
-Ako filter prihvata više parametara, njihove vrednosti se, takođe, razdvajaju dvotačkom.
+Filter može prihvatiti bilo koji broj parametara za fino podešavanje izlaza
+podataka. Da bi se dodao parametar filtera, između imena filtera i vrednosti
+parametra se stavlja dvotačka ( : ). Ako filter prihvata više parametara,
+njihove vrednosti se, takođe, razdvajaju dvotačkom.
 <h2>Filteri za malo i veliko slovo</h2>
-Sam naziv filtera govori šta je njegova funkcija. Ovaj filter podešava niz izlaznih podataka na velika ili mala slova, u zavisnosti koji filter se koristi. <br><br>
+Sam naziv filtera govori šta je njegova funkcija. Ovaj filter podešava niz
+izlaznih podataka na velika ili mala slova, u zavisnosti koji filter se koristi.
+<br /><br />
 Primer filtera za veliko slovo
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 	{{ 'zdravo svete!' | uppercase }}
-</xmp> 
+</xmp>
 Primer filtera za malo slovo
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 	{{ 'ZdravO SvetE!' | lowercase }}
-</xmp> 
+</xmp>
 
 <h2>Filteri za broj, procenat i valutu</h2>
-Postoje različiti numerički podaci i ovi filteri su posebno pogodni kada je potrebno malo bolje formirati izlazne podatke.
-<xmp class = "primer_ta">
+Postoje različiti numerički podaci i ovi filteri su posebno pogodni kada je
+potrebno malo bolje formirati izlazne podatke.
+<xmp class="primer_ta"
+>
 	{{ a: number = 25.268457 | number: '2.4-4' }}
-</xmp> 
-Filter procenta formatira brojeve kao procenat. 
-<xmp class = "primer_ta">
+</xmp>
+Filter procenta formatira brojeve kao procenat.
+<xmp class="primer_ta"
+>
 	{{ 0.879 | percent }}
-</xmp> 
-Filter valute formatira broj kao valutu, obezbeđujući podršku za biranje koda valute (na primer USD za američki dolar ili EUR za euro) i podešava prikaz informacija o valuti.
-<xmp class = "primer_ta">
+</xmp>
+Filter valute formatira broj kao valutu, obezbeđujući podršku za biranje koda
+valute (na primer USD za američki dolar ili EUR za euro) i podešava prikaz
+informacija o valuti.
+<xmp class="primer_ta"
+>
 	{{ 0.123 | currency:'EUR':true }}
-</xmp> 
-je primer u kom broj se formatira u valutu eura, koristeći simbol valute (ako se promeni u vrednost false ispred broja će biti kod valute, tj. u ovom slučaju EUR). 
-<br>
+</xmp>
+je primer u kom broj se formatira u valutu eura, koristeći simbol valute (ako se
+promeni u vrednost false ispred broja će biti kod valute, tj. u ovom slučaju
+EUR).
+<br />
 Filter isečka uzima deo niza karaktera ili brojeva.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 @Component({
 	selector: "app-isecak",
 	template: `
@@ -52,22 +79,23 @@ Filter isečka uzima deo niza karaktera ili brojeva.
 export class IsecakKomponenta{
 	daniUnedelji: string[] = ['Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'];
 }
-</xmp> 
+</xmp>
 Filter datuma formatira objekat datum u bilo kom formatu, kao što su:
 <ul>
-<li>'shortTime' ili 'jm': 10:12 PM</li>
-<li>'mediumTime' ili 'jms': 10:12:36 PM</li>
-<li>'shortDate' ili 'yMd': 4/13/2017 </li>
-<li>'mediumDate' ili 'yMMMd': Apr 13, 2017</li>
-<li>'longDate' ili 'yMMMMd': June 12, 2017</li>
-<li>'fullDate' ili 'yMMMMEEEEd': Monday, June 12, 2017</li>
-<li>'short' ili 'yMdjm': 4/13/2017 10:12 PM</li>
-<li>'medium' ili 'yMMMdjms': Apr 13, 2017 10:12:36 PM</li>
-</ul> 
-gde su <b>y</b> oznaka za godinu, <b>M</b> oznaka za mesec, <b>d</b> oznaka za dan, 
-<b>E</b> oznaka za dan u nedelji, <b>j</b> oznaka za sat (oznaka za dvanasetočasovni sat je h, a za dvadesetčetvoročasovni sat je H) 
-<b>m</b> oznaka za minute, <b>s</b> oznaka za sekunde. <br>
-<xmp class = "primer_ta">
+  <li>'shortTime' ili 'jm': 10:12 PM</li>
+  <li>'mediumTime' ili 'jms': 10:12:36 PM</li>
+  <li>'shortDate' ili 'yMd': 4/13/2017</li>
+  <li>'mediumDate' ili 'yMMMd': Apr 13, 2017</li>
+  <li>'longDate' ili 'yMMMMd': June 12, 2017</li>
+  <li>'fullDate' ili 'yMMMMEEEEd': Monday, June 12, 2017</li>
+  <li>'short' ili 'yMdjm': 4/13/2017 10:12 PM</li>
+  <li>'medium' ili 'yMMMdjms': Apr 13, 2017 10:12:36 PM</li>
+</ul>
+gde su <b>y</b> oznaka za godinu, <b>M</b> oznaka za mesec, <b>d</b> oznaka za
+dan, <b>E</b> oznaka za dan u nedelji, <b>j</b> oznaka za sat (oznaka za
+dvanasetočasovni sat je h, a za dvadesetčetvoročasovni sat je H) <b>m</b> oznaka
+za minute, <b>s</b> oznaka za sekunde. <br />
+<xmp class="primer_ta">
 @Component({
 	selector: "app-datum",
 	template: `
@@ -77,9 +105,11 @@ gde su <b>y</b> oznaka za godinu, <b>M</b> oznaka za mesec, <b>d</b> oznaka za d
 export class DatumKomponenta{
 	rodjenjeTesle = new Date(1856, 6, 11);
 }
-</xmp> 
-Filter JSON konvertuje podatke u JSON string. U sledećem primeru biće kreiran objekat i niz objekata, koji će biti prikazani u JSON formatu koristeći filter JSON.
-<xmp class = "primer_ta">
+</xmp>
+Filter JSON konvertuje podatke u JSON string. U sledećem primeru biće kreiran
+objekat i niz objekata, koji će biti prikazani u JSON formatu koristeći filter
+JSON.
+<xmp class="primer_ta">
 
 export class Osoba{
 	constructor(public ime: string, public prezime: string, public godina: number){}
@@ -92,13 +122,19 @@ export class Osoba{
 export class JsonKomponenta{
 	osoba: Osoba[] = [new Osoba('Petar', 'Petrović', 23), new Osoba('Dejan', 'Dejanović', 32)];
 }
-</xmp> 
+</xmp>
 <h2>Kreiranje prilagođenih filtera</h2>
-Do sada je obrađeno šta su Angular filteri i koja je njihova namena. Nekada je potrebno kreirati sopstveni filter. <br> 
-Pre svega, potrebno je uvesti dekorator <span class="primer_text">Pipe</span> iz osnovne biblioteke radnog okvira Angular i kreirati novu klasu za koju bi se upotrebio ovaj dekorator. 
-Nova klasa će biti imenovana pomoću selektora u konfiguraciji dekoratora i implementirana u interfejs PipeTransform.
-Klasa se sastoji od obaveznog metoda koji je potreban interfejsu <span class="primer_text">PipeTransform</span>, pod nazivom transform, a metod vraća bilo koji tip parametra.
-<xmp class = "primer_ta">
+Do sada je obrađeno šta su Angular filteri i koja je njihova namena. Nekada je
+potrebno kreirati sopstveni filter. <br />
+Pre svega, potrebno je uvesti dekorator <span class="primer_text">Pipe</span> iz
+osnovne biblioteke radnog okvira Angular i kreirati novu klasu za koju bi se
+upotrebio ovaj dekorator. Nova klasa će biti imenovana pomoću selektora u
+konfiguraciji dekoratora i implementirana u interfejs PipeTransform. Klasa se
+sastoji od obaveznog metoda koji je potreban interfejsu
+<span class="primer_text">PipeTransform</span>, pod nazivom transform, a metod
+vraća bilo koji tip parametra.
+<xmp class="primer_ta"
+>
 import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
 	name: 'mojFilterZaVreme'
@@ -111,10 +147,14 @@ export class MojFilterZaFormatiranjeVremena implements PipeTransform{
 		return sati + ':' + minuta + ':' + sekundi;
 	}
 }
-</xmp>  
-Naziv filtera je <span class="primer_text">moj-filter</span> i implementiraće ga klasa <span class="primer_text">MojFilterZaFormatiranjeVremena</span>, čiji metod za transformisanje uzima broj koji predstavlja ukupan broj sekundi i vraća niz hh:mm:ss.
-Treba ga još deklarisati u parametru filtera konfiguracije dekoratora svake komponente u kojoj će se upotrebiti i podesiti u HTML šablonu 
-<xmp class = "primer_ta">
+</xmp>
+Naziv filtera je <span class="primer_text">moj-filter</span> i implementiraće ga
+klasa <span class="primer_text">MojFilterZaFormatiranjeVremena</span>, čiji
+metod za transformisanje uzima broj koji predstavlja ukupan broj sekundi i vraća
+niz hh:mm:ss. Treba ga još deklarisati u parametru filtera konfiguracije
+dekoratora svake komponente u kojoj će se upotrebiti i podesiti u HTML šablonu
+<xmp class="primer_ta"
+>
 import { Component } from '@angular/core';
 
 @Component({
@@ -124,9 +164,15 @@ import { Component } from '@angular/core';
 export class MojaKomponenta {
 	vreme: number = 3700;
 }
-</xmp>  
-<div class="napomena"><b>Napomena:</b>Da bi aplikacija radila, potrebno je deklarisati filter u datoteci "app.module.ts".</div>
-<div class = "zadatak">
-<b>Zadatak:</b>U listi letova datum i vreme su nečitljivog formata. Pomoću ugrađenog filtera potrebno je malo bolje formirati izlazne podatke za vreme.
-Kreirati prilagođeni filter "veliko-slovo" i primeniti ga na polja za unos gradova tako da prilikom ispisa, imena gradova počinju velikim slovom u kakvom god formatu da se unesu. 
+</xmp>
+<div class="napomena">
+  <b>Napomena:</b>Da bi aplikacija radila, potrebno je deklarisati filter u
+  datoteci "app.module.ts".
+</div>
+<div class="zadatak">
+  <b>Zadatak:</b>U listi letova datum i vreme su nečitljivog formata. Pomoću
+  ugrađenog filtera potrebno je malo bolje formirati izlazne podatke za vreme.
+  Kreirati prilagođeni filter "veliko-slovo" i primeniti ga na polja za unos
+  gradova tako da prilikom ispisa, imena gradova počinju velikim slovom u kakvom
+  god formatu da se unesu.
 </div>

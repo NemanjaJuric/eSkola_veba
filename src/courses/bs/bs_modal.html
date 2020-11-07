@@ -1,167 +1,153 @@
 <h1>Modal</h1>
-Modal je plagin (eng. plugin) koji omogućava prikazivanje dijalog prozora na vrhu strane.
- Može se priključiti:
+Modal je plagin (eng. plugin) koji omogućava prikazivanje dijalog prozora na
+vrhu strane. Može se priključiti:
 <ul>
-<li>samostalno (upotrebom fajla "modal.js")</li>
-<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  <li>samostalno (upotrebom fajla "modal.js")</li>
+  <li>
+    ili u kompletu (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  </li>
 </ul>
-<br>
+
+<br />
 Korišćenje modal plagina se svodi na korišćenje klasa datih u tabeli.
-<br>
-<br>
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Klasa</th>
-<th>Opis</th>
-</thead>
-<tbody>
+  <thead>
+    <th>Klasa</th>
+    <th>Opis</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.modal</td>
+      <td>Kreira dijalog prozor.</td>
+    </tr>
 
-<tr>
-<td>
-.modal
-</td>
-<td>
-Kreira dijalog prozor.
-</td>
-</tr>
+    <tr>
+      <td>.modal-dialog</td>
+      <td>Zadaje podrazumevanu širinu i margine dijalog prozora.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-dialog
-</td>
-<td>
-Zadaje podrazumevanu širinu i margine dijalog prozora.
-</td>
-</tr>
+    <tr>
+      <td>.modal-content</td>
+      <td>
+        Stilizuje izgled dijalog prozora zadajući mu ivice i boju pozadine.
+      </td>
+    </tr>
 
-<tr>
-<td>
-.modal-content
-</td>
-<td>
-Stilizuje izgled dijalog prozora zadajući mu ivice i boju pozadine.
-</td>
-</tr>
+    <tr>
+      <td>.modal-header</td>
+      <td>Stilizuje zaglavlje dijalog prozora.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-header
-</td>
-<td>
-Stilizuje zaglavlje dijalog prozora.
-</td>
-</tr>
+    <tr>
+      <td>.modal-body</td>
+      <td>Stilizuje telo dijalog prozora.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-body
-</td>
-<td>
-Stilizuje telo dijalog prozora.
-</td>
-</tr>
+    <tr>
+      <td>.modal-footer</td>
+      <td>Stilizuje podnožje dijalog prozora.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-footer
-</td>
-<td>
-Stilizuje podnožje dijalog prozora.
-</td>
-</tr>
+    <tr>
+      <td>.modal-sm</td>
+      <td>Zadaje najmanju veličinu.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-sm
-</td>
-<td>
-Zadaje najmanju veličinu.
-</td>
-</tr>
+    <tr>
+      <td>.modal-lg</td>
+      <td>Zadaje najveću veličinu.</td>
+    </tr>
 
-<tr>
-<td>
-.modal-lg
-</td>
-<td>
-Zadaje najveću veličinu.
-</td>
-</tr>
-
-<tr>
-<td>
-.fade
-</td>
-<td>
-Zadaje efekat pri otvaranju i zatvaranju dijalog prozora.
-</td>
-</tr>
-</tbody>
+    <tr>
+      <td>.fade</td>
+      <td>Zadaje efekat pri otvaranju i zatvaranju dijalog prozora.</td>
+    </tr>
+  </tbody>
 </table>
-<br>
+<br />
 <h2>Kreiranje dijalog prozora</h2>
 
-Kreiranje dijalog prozora podrazumeva kreiranje njegovog sadržaja i dugmeta pomoću kog se otvara.
-Sadržaj dijalog prozora se sastoji iz tri <span class="primer_text">&ltdiv&gt</span> elementa
-poređana jedan unutar drugog.<br>
+Kreiranje dijalog prozora podrazumeva kreiranje njegovog sadržaja i dugmeta
+pomoću kog se otvara. Sadržaj dijalog prozora se sastoji iz tri
+<span class="primer_text">&ltdiv&gt</span> elementa poređana jedan unutar
+drugog.<br />
 <ul>
-<br>
+  <br />
 
-<li>Prvi je klase <span class="primer_text">.modal</span>, sa atributom <span class="primer_text">role="dialog"</span>.
-Klasa <span class="primer_text">.modal</span> daje fokus dijalog prozoru i obavezna je pri kreiranju dijalog prozora. 
-Na nivou ovog elementa moguće je zadati i klasu <span class="primer_text">.fade</span> koja daje 
-efekat pri ulasku i izlasku iz dijalog prozora, ali ona nije obavezna.
-<div class="napomena">
-Upotreba atributa <span class="primer_text">role="dialog"</span> takođe nije obavezna ali se preporučuje
-zbog čitača ekrana.
-</div>
-</li>
-<br>
+  <li>
+    Prvi je klase <span class="primer_text">.modal</span>, sa atributom
+    <span class="primer_text">role="dialog"</span>. Klasa
+    <span class="primer_text">.modal</span> daje fokus dijalog prozoru i
+    obavezna je pri kreiranju dijalog prozora. Na nivou ovog elementa moguće je
+    zadati i klasu <span class="primer_text">.fade</span> koja daje efekat pri
+    ulasku i izlasku iz dijalog prozora, ali ona nije obavezna.
+    <div class="napomena">
+      Upotreba atributa <span class="primer_text">role="dialog"</span> takođe
+      nije obavezna ali se preporučuje zbog čitača ekrana.
+    </div>
+  </li>
+  <br />
 
+  <li>
+    Drugi <span class="primer_text">&ltdiv&gt</span> element je klase
+    <span class="primer_text">.modal-dialog</span>. Ova klasa postavlja
+    podrazumevanu širinu i margine dijalog prozora.
+  </li>
+  <br />
 
-<li>Drugi  <span class="primer_text">&ltdiv&gt</span> element je klase <span class="primer_text">.modal-dialog</span>. Ova klasa
- postavlja podrazumevanu širinu i margine dijalog prozora.
-</li>
-<br>
-
-<li>Treći je klase <span class="primer_text">.modal-content</span>. Kao što piše u tabeli, ova klasa stilizuje izgled dijalog prozora.</li>
+  <li>
+    Treći je klase <span class="primer_text">.modal-content</span>. Kao što piše
+    u tabeli, ova klasa stilizuje izgled dijalog prozora.
+  </li>
 </ul>
-<br>
+<br />
 
- Sadržaj može biti podeljen na zaglavlje, telo i podnožje. Svaki od tih delova predstavljen je 
+Sadržaj može biti podeljen na zaglavlje, telo i podnožje. Svaki od tih delova
+predstavljen je
 <span class="primer_text">&ltdiv&gt</span> elementom odgovarajuće klase:
 <ul>
-<li>
-<span class="primer_text">.modal-header</span></li>
-<li> <span class="primer_text">.modal-body</span></li>
-<li> <span class="primer_text">.modal-footer</span> </li>
+  <li>
+    <span class="primer_text">.modal-header</span>
+  </li>
+  <li><span class="primer_text">.modal-body</span></li>
+  <li><span class="primer_text">.modal-footer</span></li>
 </ul>
 
-Da bi imao mogućnost zatvaranja, na nivou podnožja potrebno je staviti dugme na čiji klik se dijalog prozor zatvara.
-Obavezan atribut na nivou tog dugmeta je <span class="primer_text">data-dismiss="modal"</span>.
-<br>
-<br>
-Sve ovo predstavlja opšte uputstvo za kreiranje dijalog prozora, ali njegova funkcionalnost još nije obezbeđena.
-Funkcionalnost dijalog prozora se može zadati na dva načina:
+Da bi imao mogućnost zatvaranja, na nivou podnožja potrebno je staviti dugme na
+čiji klik se dijalog prozor zatvara. Obavezan atribut na nivou tog dugmeta je
+<span class="primer_text">data-dismiss="modal"</span>.
+<br />
+<br />
+Sve ovo predstavlja opšte uputstvo za kreiranje dijalog prozora, ali njegova
+funkcionalnost još nije obezbeđena. Funkcionalnost dijalog prozora se može
+zadati na dva načina:
 <ul>
-<li>upotrebom <span class="primer_text">data-* atributa </span></li>
-<li>ili upotrebom jQuery biblioteke.</li>
+  <li>upotrebom <span class="primer_text">data-* atributa </span></li>
+  <li>ili upotrebom jQuery biblioteke.</li>
 </ul>
-<br>
-<br>
+<br />
+<br />
 <h3>Upotreba <span class="primer_text">data-*</span> atributa</h3>
-Upotrebom <span class="primer_text">data-*</span> atributa, funkcionalnost se ostvaruje kada se, 
-na nivou dugmeta za otvaranje dijalog prozora, zadaju atributi: 
+Upotrebom <span class="primer_text">data-*</span> atributa, funkcionalnost se
+ostvaruje kada se, na nivou dugmeta za otvaranje dijalog prozora, zadaju
+atributi:
 <ul>
-<li><span class="primer_text">data-toggle="modal"</span></li>
-<li><span class="primer_text">data-target</span>. </li>
-<br>
- Atribut <span class="primer_text">data-target</span> povezuje
-dugme sa dijalog prozorom, pa se za vrednost ovog atributa navodi identifikator prvog <span class="primer_text">&ltdiv&gt</span> elementa 
-iz sadržaja dijalog prozora, sa oznakom <span class="primer_text">#</span> ispred.<br>
-Sledeći primer prikazuje dijalog prozor kreiran na ovaj način.
+  <li><span class="primer_text">data-toggle="modal"</span></li>
+  <li><span class="primer_text">data-target</span>.</li>
+  <br />
+  Atribut
+  <span class="primer_text">data-target</span>
+  povezuje dugme sa dijalog prozorom, pa se za vrednost ovog atributa navodi
+  identifikator prvog
+  <span class="primer_text">&ltdiv&gt</span>
+  elementa iz sadržaja dijalog prozora, sa oznakom
+  <span class="primer_text">#</span>
+  ispred.<br />
+  Sledeći primer prikazuje dijalog prozor kreiran na ovaj način.
 
-<textarea class="primer_ta" rows="25" disabled>
+  <textarea class="primer_ta" rows="25" disabled>
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#id1">
 Otvori dijalog prozor
 </button>
@@ -186,8 +172,9 @@ Otvori dijalog prozor
     </div>
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -227,16 +214,20 @@ Otvori dijalog prozor
  </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Upotreba jQuery biblioteke</h3>
-Funkcionalnost dijalog prozora upotrebom jQuery biblioteke se ostvaruje pozivom metoda 
-<span class="primer_text">.modal()</span> nad prvim <span class="primer_text">&ltdiv&gt</span> elementom iz sadržaja, kada se klikne na 
-dugme.<br>
-Sledeći primer prikazuje dijalog prozor dobijen na ovaj način.
-<textarea class="primer_ta" rows="28" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h3>Upotreba jQuery biblioteke</h3>
+  Funkcionalnost dijalog prozora upotrebom jQuery biblioteke se ostvaruje
+  pozivom metoda
+  <span class="primer_text">.modal()</span>
+  nad prvim
+  <span class="primer_text">&ltdiv&gt</span>
+  elementom iz sadržaja, kada se klikne na dugme.<br />
+  Sledeći primer prikazuje dijalog prozor dobijen na ovaj način.
+  <textarea class="primer_ta" rows="28" disabled>
 <button type="button" class="btn btn-primary" id="dugme">
 Otvori dijalog prozor
 </button>
@@ -264,8 +255,9 @@ $(document).ready(function(){
     });
 });
 </script>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -306,43 +298,44 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
 
-
-
-<h2>Opcije modal plagina </h2>
-U sledećoj tabeli su prikazane opcije modal plagina. Opcije je moguće zadati preko 
-<span class="primer_text">data-*</span> atributa, ili pomoću jQuery biblioteke.<br>
-<br>
-<div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Opcija</th>
- <th>Opis</th>
- <th colspan="2">Primer</th>
-</tr>
-</thead>
-<tbody>
-
-
-<tr>
- <td>backdrop</td>
- <td>
- Određuje da li će dijalog prozor imati osenčenu pozadinu ili ne. Dopuštene vrednosti atributa su:
- <ul>
- <li>true-za osenčenu pozadinu</li>
- <li>false-za neosenčenu</li>
- <li>"static"-za osenčenu.</li>
- Vrednosti false i static ne dopuštaju zatvaranje dijalog prozora kada se klikne van njega.
- </ul>
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+  <h2>Opcije modal plagina</h2>
+  U sledećoj tabeli su prikazane opcije modal plagina. Opcije je moguće zadati
+  preko
+  <span class="primer_text">data-*</span>
+  atributa, ili pomoću jQuery biblioteke.<br />
+  <br />
+  <div class="container-fluid">
+    <table class="table table-striped" style="font-size: 14px">
+      <thead>
+        <tr>
+          <th>Opcija</th>
+          <th>Opis</th>
+          <th colspan="2">Primer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>backdrop</td>
+          <td>
+            Određuje da li će dijalog prozor imati osenčenu pozadinu ili ne.
+            Dopuštene vrednosti atributa su:
+            <ul>
+              <li>true-za osenčenu pozadinu</li>
+              <li>false-za neosenčenu</li>
+              <li>"static"-za osenčenu.</li>
+              Vrednosti false i static ne dopuštaju zatvaranje dijalog prozora
+              kada se klikne van njega.
+            </ul>
+          </td>
+          <td>
+            Preko atributa
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -430,15 +423,16 @@ Otvori dijalog prozor
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+
+          <td>
+            jQuery
+            <br />
+            <br />
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -539,26 +533,25 @@ $(document).ready(function(){
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
 
-
-
-<tr>
- <td>keyboard</td>
- <td>
- Određuje da li se dijalog prozor može zatvoriti pritiskom dugmeta sa tastature (ESC). Dopuštene
- vrednosti su:
- <ul>
- <li>true (omogućeno zatvaranje pritiskom na ESC)</li>
- <li>false (nije omogućeno).</li>
- </ul>
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+        <tr>
+          <td>keyboard</td>
+          <td>
+            Određuje da li se dijalog prozor može zatvoriti pritiskom dugmeta sa
+            tastature (ESC). Dopuštene vrednosti su:
+            <ul>
+              <li>true (omogućeno zatvaranje pritiskom na ESC)</li>
+              <li>false (nije omogućeno).</li>
+            </ul>
+          </td>
+          <td>
+            Preko atributa
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -624,15 +617,16 @@ Otvori dijalog prozor
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+
+          <td>
+            jQuery
+            <br />
+            <br />
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -708,42 +702,40 @@ $(document).ready(function(){
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+  <br />
 
-</tbody>
-</table>
-</div>
-<br>
-<br>
+  <h2>Metodi modal plagina</h2>
+  U sledećoj tabeli su prikazani metodi modal plagina.
+  <br />
+  <br />
 
-<h2>Metodi modal plagina</h2>
-U sledećoj tabeli su prikazani metodi modal plagina.
-<br>
-<br>
+  <div class="container-fluid">
+    <table class="table table-striped" style="font-size: 14px">
+      <thead>
+        <tr>
+          <th>Metod</th>
+          <th>Opis</th>
+          <th>Primer</th>
+        </tr>
+      </thead>
 
-<div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Metod</th>
- <th>Opis</th>
- <th>Primer</th>
-</tr>
-</thead>
-
-
-<tbody>
-<tr>
- <td>.modal(opcije)</td>
- <td>
-Argumenti ovog metoda su opcije, opisane u prethodnoj sekciji.
- </td>
- <td>
- 
- <textarea class="primer_ta" style="display:none;">
+      <tbody>
+        <tr>
+          <td>.modal(opcije)</td>
+          <td>
+            Argumenti ovog metoda su opcije, opisane u prethodnoj sekciji.
+          </td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -790,21 +782,20 @@ $(document).ready(function(){
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- 
- <tr>
- <td>.modal("toggle")</td>
- <td>
-Otvara diajalog prozor ako je on zatvoren, i zatvara ga ako je otvoren.
- </td>
- <td>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
 
- <textarea class="primer_ta" style="display:none;">
+        <tr>
+          <td>.modal("toggle")</td>
+          <td>
+            Otvara diajalog prozor ako je on zatvoren, i zatvara ga ako je
+            otvoren.
+          </td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -862,20 +853,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
-<tr>
-<td>.modal("show")</td>
-<td>
-Prikazuje dijalog prozor.
- </td>
- <td>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
 
- <textarea class="primer_ta" style="display:none;">
+        <tr>
+          <td>.modal("show")</td>
+          <td>Prikazuje dijalog prozor.</td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -934,19 +922,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- <tr>
- <td>.modal("hide")</td>
- <td>
-Zatvara dijalog prozor.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>.modal("hide")</td>
+          <td>Zatvara dijalog prozor.</td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1006,39 +992,38 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- </tbody>
- </table>
- </div>
- <br>
- <br>
- <h2>Događaji modal plagina</h2>
- U sledećoj tabeli su prikazani događaji modal plagina.
- <br>
- <br>
- <div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Događaj</th>
- <th>Opis</th>
- <th>Primer</th>
-</tr>
-</thead>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+  <br />
+  <h2>Događaji modal plagina</h2>
+  U sledećoj tabeli su prikazani događaji modal plagina.
+  <br />
+  <br />
+  <div class="container-fluid">
+    <table class="table table-striped" style="font-size: 14px">
+      <thead>
+        <tr>
+          <th>Događaj</th>
+          <th>Opis</th>
+          <th>Primer</th>
+        </tr>
+      </thead>
 
-
-<tbody>
-
-<tr>
- <td>show.bs.modal</td>
- <td>
-Događa se neposredno pre nego što će dijalog prozor biti otvoren.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tbody>
+        <tr>
+          <td>show.bs.modal</td>
+          <td>
+            Događa se neposredno pre nego što će dijalog prozor biti otvoren.
+          </td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1088,20 +1073,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- 
- <tr>
- <td>shown.bs.modal</td>
- <td>
-Događa se nakon što je dijalog prozor otvoren.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>shown.bs.modal</td>
+          <td>Događa se nakon što je dijalog prozor otvoren.</td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1151,20 +1133,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- 
- <tr>
- <td>hide.bs.modal</td>
- <td>
-Događa se neposredno pre nego što će dijalog prozor biti zatvoren.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>hide.bs.modal</td>
+          <td>
+            Događa se neposredno pre nego što će dijalog prozor biti zatvoren.
+          </td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1214,20 +1195,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- 
-  <tr>
- <td>hidden.bs.modal</td>
- <td>
-Događa se nakon što je dijalog prozor zatvoren.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>hidden.bs.modal</td>
+          <td>Događa se nakon što je dijalog prozor zatvoren.</td>
+          <td>
+            <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1277,32 +1255,35 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- 
- </tbody>
- </table>
- </div>
+</textarea
+            >
+            <button class="button_copy">Vidi primer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<br>
-<br>
-<h2>Veličina dijalog prozora</h2>
-Veličina dijalog prozora se zadaje upotrebom sledećih klasa:
-<ul>
-<li><span class="primer_text">.modal-sm</span></li>
-<li><span class="primer_text">.modal-lg</span>. </li>
-</ul>
-Ukoliko se ne upotrebi nijedna od ove dve klase, veličina dijalog prozora će biti podrazumevana.
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.modal-sm</span> </h3>
-Ovom klasom se dobija prozor najmanje moguće veličine. Klasa se navodi na nivou drugog <span class="primer_text">&ltdiv&gt</span>
-elementa, klase <span class="primer_text">.modal-dialog</span>. Da biste videli efekat, otvorite primer u većem prozoru.
-<textarea class="primer_ta" rows="25" disabled>
+  <br />
+  <br />
+  <h2>Veličina dijalog prozora</h2>
+  Veličina dijalog prozora se zadaje upotrebom sledećih klasa:
+  <ul>
+    <li><span class="primer_text">.modal-sm</span></li>
+    <li><span class="primer_text">.modal-lg</span>.</li>
+  </ul>
+  Ukoliko se ne upotrebi nijedna od ove dve klase, veličina dijalog prozora će
+  biti podrazumevana.
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.modal-sm</span></h3>
+  Ovom klasom se dobija prozor najmanje moguće veličine. Klasa se navodi na
+  nivou drugog
+  <span class="primer_text">&ltdiv&gt</span>
+  elementa, klase
+  <span class="primer_text">.modal-dialog</span
+  >. Da biste videli efekat, otvorite primer u većem prozoru.
+  <textarea class="primer_ta" rows="25" disabled>
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#id2">
 Otvori dijalog prozor
 </button>
@@ -1327,8 +1308,9 @@ Otvori dijalog prozor
     </div>
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1368,14 +1350,19 @@ Otvori dijalog prozor
  </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<h3>Klasa <span class="primer_text">.modal-lg</span></h3>
-Ovom klasom se dobija prozor najveće moguće veličine. Klasa se navodi na nivou drugog <span class="primer_text">&ltdiv&gt</span>
-elementa, klase <span class="primer_text">.modal-dialog</span>.
-<textarea class="primer_ta" rows="25" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h3>Klasa <span class="primer_text">.modal-lg</span></h3>
+  Ovom klasom se dobija prozor najveće moguće veličine. Klasa se navodi na nivou
+  drugog
+  <span class="primer_text">&ltdiv&gt</span>
+  elementa, klase
+  <span class="primer_text">.modal-dialog</span
+  >.
+  <textarea class="primer_ta" rows="25" disabled>
 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#id3">
 Otvori dijalog prozor
 </button>
@@ -1400,8 +1387,9 @@ Otvori dijalog prozor
     </div>
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1441,16 +1429,19 @@ Otvori dijalog prozor
  </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<div class="napomena">
-Napomena: <br>
-1.Otvaranje više dijalog prozora istovremeno nije moguće, stoga je potrebno zatvoriti stari kako bi se otvorio novi dijalog prozor.<br>
-2.Kreiranje dijalog prozora se sprovodi uvek na početku HTML stranice.
-</div>
-<div class="zadatak">
-Napraviti dijalog prozor podrazumevane veličine, koji ne sadrži zaglavlje i podnožje. Obezbediti da se dugme za zatvaranje nalazi
-u telu prozora.
-</div>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <div class="napomena">
+    Napomena: <br />
+    1.Otvaranje više dijalog prozora istovremeno nije moguće, stoga je potrebno
+    zatvoriti stari kako bi se otvorio novi dijalog prozor.<br />
+    2.Kreiranje dijalog prozora se sprovodi uvek na početku HTML stranice.
+  </div>
+  <div class="zadatak">
+    Napraviti dijalog prozor podrazumevane veličine, koji ne sadrži zaglavlje i
+    podnožje. Obezbediti da se dugme za zatvaranje nalazi u telu prozora.
+  </div>
+</ul>

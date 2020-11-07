@@ -1,46 +1,82 @@
 <h1>Baferi i tokovi</h1>
 
-Razumevanje načina na koji se odvija komunikacija i prenos podataka između klijenta i servera je ključno za pravilan
-razvoj klijent-server aplikacija. Da bismo to postigli, neophodno je da razumemo šta predstavljaju <span class="font-weight-bold">baferi</span> (eng. buffer), a šta <span class="font-weight-bold">tokovi</span> (eng. stream).
+Razumevanje načina na koji se odvija komunikacija i prenos podataka između
+klijenta i servera je ključno za pravilan razvoj klijent-server aplikacija. Da
+bismo to postigli, neophodno je da razumemo šta predstavljaju
+<span class="font-weight-bold">baferi</span> (eng. buffer), a šta
+<span class="font-weight-bold">tokovi</span> (eng. stream).
 
 <h2>Baferi</h2>
 
-Najjednostavnije, <span class="font-weight-bold">bafer</span> možemo da posmatramo kao privremeno skladište podataka. 
-S obzirom da NodeJS omogućava primenu JavaScript-a na strani servera 
-i proširuje ga tako što mu dozvoljava da upravlja fajlovima, da koristi usluge operativnog sistema i sistema za upravljanje bazama podataka, korisnicima 
-je često potrebno da koriste sirove binarne podatke i fajlove. Takođe, komunikacija preko mreže se često odvija tako što podaci ne stižu u celosti na server,
-već iz delova koji se zovu <span class="font-weight-bold">paketi</span>. Jasno je da je podrška za sirovim podacima neophodna. 
-Da bi se to postiglo NodeJS uvodi koncept bafera uz pomoć klase Buffer. 
-Klasa Buffer je globalna i može joj se pristupiti bez uključivanja buffer modula.
+Najjednostavnije, <span class="font-weight-bold">bafer</span> možemo da
+posmatramo kao privremeno skladište podataka. S obzirom da NodeJS omogućava
+primenu JavaScript-a na strani servera i proširuje ga tako što mu dozvoljava da
+upravlja fajlovima, da koristi usluge operativnog sistema i sistema za
+upravljanje bazama podataka, korisnicima je često potrebno da koriste sirove
+binarne podatke i fajlove. Takođe, komunikacija preko mreže se često odvija tako
+što podaci ne stižu u celosti na server, već iz delova koji se zovu
+<span class="font-weight-bold">paketi</span>. Jasno je da je podrška za sirovim
+podacima neophodna. Da bi se to postiglo NodeJS uvodi koncept bafera uz pomoć
+klase Buffer. Klasa Buffer je globalna i može joj se pristupiti bez uključivanja
+buffer modula.
 
 <h2>Tokovi</h2>
 
-<span class="font-weight-bold">Tok</span> predstavlja objekat uz pomoć koga možemo da pročitamo podatke sa nekog izvora ili da ih pišemo na nekom odredištu. 
-Tokovi omogućavaju neprekidno
-čitanje i/ili pisanje podataka. Pod neprekidnim podrazumeva se da se sadržaj čita i/ili piše u blokovima unapred određene veličine, a ne karakter 
-po karakter. U okviru NodeJS radnog okvira postoje četiri tipa tokova: <br/><br/>
+<span class="font-weight-bold">Tok</span> predstavlja objekat uz pomoć koga
+možemo da pročitamo podatke sa nekog izvora ili da ih pišemo na nekom odredištu.
+Tokovi omogućavaju neprekidno čitanje i/ili pisanje podataka. Pod neprekidnim
+podrazumeva se da se sadržaj čita i/ili piše u blokovima unapred određene
+veličine, a ne karakter po karakter. U okviru NodeJS radnog okvira postoje
+četiri tipa tokova: <br /><br />
 
 <ul>
-   <li><span class="font-weight-bold">Readable</span> - tok koji se koristi za čitanje podataka.</li>
-   <li><span class="font-weight-bold">Writeable</span> - tok koji se koristi za pisanje podataka.</li>
-   <li><span class="font-weight-bold">Duplex</span> - tok koji se može koristiti i za čitanje i za pisanje podataka.</li>
-   <li><span class="font-weight-bold">Transform</span> - specijalni tip Duplex tokova kod kojih se izlazni podaci izračunavaju na osnovu ulaznih podataka.</li> 
+  <li>
+    <span class="font-weight-bold">Readable</span> - tok koji se koristi za
+    čitanje podataka.
+  </li>
+  <li>
+    <span class="font-weight-bold">Writeable</span> - tok koji se koristi za
+    pisanje podataka.
+  </li>
+  <li>
+    <span class="font-weight-bold">Duplex</span> - tok koji se može koristiti i
+    za čitanje i za pisanje podataka.
+  </li>
+  <li>
+    <span class="font-weight-bold">Transform</span> - specijalni tip Duplex
+    tokova kod kojih se izlazni podaci izračunavaju na osnovu ulaznih podataka.
+  </li>
 </ul>
-<br/>
+<br />
 
-Na ovom mestu važno je ponovo napomenuti da je u srži NodeJS radnog okvira asinhronizam i neblokirajući režim izvršavanja. 
-Sa tim u vezi, svaki od navedenih tipova tokova može da emituje ili ispaljuje različite događaje u različitim vremenskim intervalima. Na primer, ti događaji mogu biti:
+Na ovom mestu važno je ponovo napomenuti da je u srži NodeJS radnog okvira
+asinhronizam i neblokirajući režim izvršavanja. Sa tim u vezi, svaki od
+navedenih tipova tokova može da emituje ili ispaljuje različite događaje u
+različitim vremenskim intervalima. Na primer, ti događaji mogu biti:
 
-<br/><br/>
+<br /><br />
 
 <ul>
-   <li><span class="font-weight-bold">data</span> - događaj se emituje kada postoje spremni podaci za čitanje.</li>
-   <li><span class="font-weight-bold">end</span> - događaj se emituje kada nema više podataka koji se mogu čitati.</li>
-   <li><span class="font-weight-bold">error</span> - događaj se emituje kada se dogodi neka greška prilikom čitanja ili pisanja fajlova.</li>
-   <li><span class="font-weight-bold">finish</span> - događaj se ispaljuje kada su svi podaci prebačeni na operativnom sistemu na dalju obradu.</li> 
+  <li>
+    <span class="font-weight-bold">data</span> - događaj se emituje kada postoje
+    spremni podaci za čitanje.
+  </li>
+  <li>
+    <span class="font-weight-bold">end</span> - događaj se emituje kada nema
+    više podataka koji se mogu čitati.
+  </li>
+  <li>
+    <span class="font-weight-bold">error</span> - događaj se emituje kada se
+    dogodi neka greška prilikom čitanja ili pisanja fajlova.
+  </li>
+  <li>
+    <span class="font-weight-bold">finish</span> - događaj se ispaljuje kada su
+    svi podaci prebačeni na operativnom sistemu na dalju obradu.
+  </li>
 </ul>
-<br/>
+<br />
 
-Svaki od navedenih događaja može biti registrovan u okviru toka koji se koristi i može mu se pridružiti odgovarajući rukovalac događajima koji će obraditi rezultate izvršavanja.
-U narednim lekcijama detaljnije ćemo razmatrati upotrebu i ograničenja bafera i tokova. 
-
+Svaki od navedenih događaja može biti registrovan u okviru toka koji se koristi
+i može mu se pridružiti odgovarajući rukovalac događajima koji će obraditi
+rezultate izvršavanja. U narednim lekcijama detaljnije ćemo razmatrati upotrebu
+i ograničenja bafera i tokova.

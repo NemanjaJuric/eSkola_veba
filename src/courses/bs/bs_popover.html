@@ -1,40 +1,68 @@
 <h1>Popover</h1>
-Popover je plagin (eng. plugin) koji se koristi za prikazivanje popover komponenata nad elementima.
-On se može priključiti:
+Popover je plagin (eng. plugin) koji se koristi za prikazivanje popover
+komponenata nad elementima. On se može priključiti:
 <ul>
-<li>pojedinačno (upotrebom fajla "popover.js", ali u ovom slučaju je neophodno uključiti i plagin "tooltip.js")</li>
-<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  <li>
+    pojedinačno (upotrebom fajla "popover.js", ali u ovom slučaju je neophodno
+    uključiti i plagin "tooltip.js")
+  </li>
+  <li>
+    ili u kompletu (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  </li>
 </ul>
-<br>
-Popover komponenta nekog elementa se prikazuje u vidu prozora tekstualnog sadržaja kada se klikne na taj element.
-Razlika između popover i toltip komponente je u tome što u popover može stati veći sadržaj.
-<br>
-<br>
+
+<br />
+Popover komponenta nekog elementa se prikazuje u vidu prozora tekstualnog
+sadržaja kada se klikne na taj element. Razlika između popover i toltip
+komponente je u tome što u popover može stati veći sadržaj.
+<br />
+<br />
 <h2>Kreiranje popover komponente</h2>
 Popover komponenta se može kreirati na dva načina:
 <ul>
-<li>upotrebom <span class="primer_text">data-*</span> atributa</li>
-<li>ili upotrebom jQuery biblioteke</li>
+  <li>upotrebom <span class="primer_text">data-*</span> atributa</li>
+  <li>ili upotrebom jQuery biblioteke</li>
 </ul>
-<br>
-<h3>Upotreba <span class="primer_text">data-*</span> atributa za kreiranje popover komponente</h3>
-Kreiranje popover komponente na ovaj način se realizuje upotrebom sledećih atributa na nivou 
-elementa koji je sadrži:
+<br />
+<h3>
+  Upotreba <span class="primer_text">data-*</span> atributa za kreiranje popover
+  komponente
+</h3>
+Kreiranje popover komponente na ovaj način se realizuje upotrebom sledećih
+atributa na nivou elementa koji je sadrži:
 <ul>
-<li><span class="primer_text">data-toggle="popover"</span> (kreira popover komponentu)</li>
-<li><span class="primer_text">data-content</span> (vrednost ovog atributa predstavlja sadržaj popover komponente)</li>
-<li><span class="primer_text">title</span> (vrednost ovog atributa predstavlja zaglavlje popover komponente)</li>
+  <li>
+    <span class="primer_text">data-toggle="popover"</span> (kreira popover
+    komponentu)
+  </li>
+  <li>
+    <span class="primer_text">data-content</span> (vrednost ovog atributa
+    predstavlja sadržaj popover komponente)
+  </li>
+  <li>
+    <span class="primer_text">title</span> (vrednost ovog atributa predstavlja
+    zaglavlje popover komponente)
+  </li>
 </ul>
-<br>
+<br />
 Međutim, ovim funkcionalnost popover komponente još nije obezbeđena.
-Funkcionalnost konkretne popover komponente se ostvaruje pomoću jQuery biblioteke:
+Funkcionalnost konkretne popover komponente se ostvaruje pomoću jQuery
+biblioteke:
 <ul>
-<li>pozivom <span class="primer_text">popover()</span> metoda nad tom komponentom</li>
-<li>ili pozivom <span class="primer_text">popover()</span> metoda nad svim popover komponentama na strani.</li>
+  <li>
+    pozivom <span class="primer_text">popover()</span> metoda nad tom
+    komponentom
+  </li>
+  <li>
+    ili pozivom <span class="primer_text">popover()</span> metoda nad svim
+    popover komponentama na strani.
+  </li>
 </ul>
-Ukoliko se metod pozove nad svim, obezbeđena je funkcionalnost svih popover komponenata na strani.
-<br>
-U sledećem primeru je kreirana popover komponenta nad linkom i obezbeđena je funkcionalnost svih popover komponenata na strani.
+Ukoliko se metod pozove nad svim, obezbeđena je funkcionalnost svih popover
+komponenata na strani.
+<br />
+U sledećem primeru je kreirana popover komponenta nad linkom i obezbeđena je
+funkcionalnost svih popover komponenata na strani.
 <textarea class="primer_ta" rows="10" disabled>
 <a href="#" data-toggle="popover" title="Zaglavlje"
 data-content="Tekstualni sadržaj.">
@@ -46,7 +74,7 @@ $(document).ready(function(){
 });
 </script>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,19 +97,21 @@ $(document).ready(function(){
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button>  
-<br>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h3>Upotreba jQuery biblioteke za kreiranje popover komponente</h3>
-Kreiranje popover komponente upotrebom samo jQuery biblioteke se postiže upotrebom 
+Kreiranje popover komponente upotrebom samo jQuery biblioteke se postiže
+upotrebom
 <span class="primer_text">popover()</span> metoda sa obaveznim parametrima:
 <ul>
-<li>title (čija vrednost predstavlja zaglavlje popover komponente)</li>
-<li>content (čija vrednost predstavlja sadržaj popover komponente) .</li>
+  <li>title (čija vrednost predstavlja zaglavlje popover komponente)</li>
+  <li>content (čija vrednost predstavlja sadržaj popover komponente) .</li>
 </ul>
-<br>
-Metod se poziva nad konkretnim elementom, kome se pristupa preko identifikatora ili na neki drugi način.
-<br>
+<br />
+Metod se poziva nad konkretnim elementom, kome se pristupa preko identifikatora
+ili na neki drugi način.
+<br />
 U sledećem primeru je na ovaj način kreirana popover komponenta nad linkom.
 <textarea class="primer_ta" rows="10" disabled>
 <a href="#" id="link">
@@ -93,7 +123,7 @@ $(document).ready(function(){
 });
 </script>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,32 +146,31 @@ $(document).ready(function(){
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button>  
-<br>
-<br>
-<h2>Opcije popover plagina </h2>
-U sledećoj tabeli su prikazane neke opcije popover plagina. Opcije je moguće zadati preko 
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+<h2>Opcije popover plagina</h2>
+U sledećoj tabeli su prikazane neke opcije popover plagina. Opcije je moguće
+zadati preko
 <span class="primer_text">data-*</span> atributa, ili pomoću jQuery biblioteke.
-<br>
-<br>
+<br />
+<br />
 <div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Opcija</th>
- <th>Opis</th>
- <th colspan="2">Primer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
- <td>title</td>
- <td>
- Određuje zaglavlje popover komponente.
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Opcija</th>
+        <th>Opis</th>
+        <th colspan="2">Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td>Određuje zaglavlje popover komponente.</td>
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,16 +193,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,22 +225,18 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-
-<tr>
- <td>content</td>
- <td>
- Određuje sadržaj popover komponente.
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>content</td>
+        <td>Određuje sadržaj popover komponente.</td>
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,16 +259,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -266,24 +291,25 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-<tr>
- <td>animation</td>
- <td>
- Određuje da li će se pojaviti efekat pri otvaranju, odnosno zatvaranju popover komponente. Dopuštene vrednosti atributa su:
- <ul>
- <li>true (sa efektom)</li>
- <li>false (bez efekta)</li>
- </ul>
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>animation</td>
+        <td>
+          Određuje da li će se pojaviti efekat pri otvaranju, odnosno zatvaranju
+          popover komponente. Dopuštene vrednosti atributa su:
+          <ul>
+            <li>true (sa efektom)</li>
+            <li>false (bez efekta)</li>
+          </ul>
+        </td>
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -306,16 +332,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -338,21 +364,21 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>delay</td>
- <td>
- Određuje broj milisekundi potrebnih da se popover komponenta otvori, odnosno zatvori.
- </td>
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>delay</td>
+        <td>
+          Određuje broj milisekundi potrebnih da se popover komponenta otvori,
+          odnosno zatvori.
+        </td>
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -375,16 +401,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -407,26 +433,28 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
+      <tr>
+        <td>html</td>
+        <td>
+          Određuje da li popover komponenta može prihvatiti html element.
+          Dopuštene vrednosti su:
+          <ul>
+            <li>true (koja to omogućava)</li>
+            <li>false (koja to ne omogućava)</li>
+          </ul>
+          Napomena: html element mora biti ubačen kao vrednost
+          <span class="primer_text">title</span> atributa.
+        </td>
 
-<tr>
- <td>html</td>
- <td>
- Određuje da li popover komponenta može prihvatiti html element. Dopuštene vrednosti su:
- <ul>
- <li>true (koja to omogućava)</li>
- <li>false (koja to ne omogućava) </li>
- </ul>
- Napomena: html element mora biti ubačen kao vrednost <span class="primer_text">title</span> atributa.
- </td>
- 
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -449,16 +477,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -481,33 +509,34 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
+      <tr>
+        <td>placement</td>
 
+        <td>
+          Određuje poziciju popover komponente u odnosu na element uz koji se
+          prikazuje. Dopuštene vrednosti su:
+          <ul>
+            <li>"top" (iznad elementa)</li>
+            <li>"bottom" (ispod elementa)</li>
+            <li>"left" (sa leve strane elementa)</li>
+            <li>"right" (sa desne strane elementa)</li>
+            <li>"auto" (dopušta pregledaču da sam odredi poziciju).</li>
+          </ul>
 
+          Napomena: ako je vrednost jednaka
+          <span class="primer_text">auto left</span>, to znači da će se popover
+          komponenta pojaviti na levoj strani kad god je to moguće.
+        </td>
 
-<tr>
- <td>placement</td>
- 
- <td>
- Određuje poziciju popover komponente u odnosu na element uz koji se prikazuje. Dopuštene vrednosti su:
- <ul>
- <li>"top" (iznad elementa)</li>
- <li>"bottom" (ispod elementa)</li>
- <li>"left" (sa leve strane elementa)</li>
- <li>"right" (sa desne strane elementa)</li>
- <li>"auto" (dopušta pregledaču da sam odredi poziciju). 
- </ul>
- Napomena: ako je vrednost jednaka <span class="primer_text">auto left</span>, 
- to znači da će se popover komponenta pojaviti na levoj strani kad god je to moguće.
- </td>
- 
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -548,16 +577,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -601,30 +630,33 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
+      <tr>
+        <td>trigger</td>
 
+        <td>
+          Određuje na koji način se popover komponenta uključuje, odnosno
+          isključuje. Dopuštene vrednosti su:
+          <ul>
+            <li>"click" (isključuje se odnosno uključuje klikom na element)</li>
+            <li>"hover" (prelaskom kursora preko elementa)</li>
+            <li>
+              "focus" (uključuje se kada element dobije fokus, a isključuje
+              klikom van elementa)
+            </li>
+            <li>"manual" (ručno)</li>
+          </ul>
+          Napomena: moguće je navesti više vrednosti razdvojene space razmakom.
+        </td>
 
-<tr>
- <td>trigger</td>
- 
- <td>
- Određuje na koji način se popover komponenta uključuje, odnosno isključuje. Dopuštene vrednosti su:
- <ul>
- <li>"click" (isključuje se odnosno uključuje klikom na element)</li>
- <li>"hover" (prelaskom kursora preko elementa)</li>
- <li>"focus" (uključuje se kada element dobije fokus, a isključuje klikom van elementa)</li>
- <li>"manual" (ručno)</li>
- </ul>
- Napomena: moguće je navesti više vrednosti razdvojene space razmakom.
- </td>
- 
- <td>
- Preko atributa
- <textarea class="primer_ta" style="display:none;">
+        <td>
+          Preko atributa
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -662,16 +694,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- 
- 
- <td>
- jQuery
- <br>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+
+        <td>
+          jQuery
+          <br />
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -711,38 +743,37 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
-</tbody>
-</table>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<br>
-<br>
+<br />
+<br />
 <h2>Metodi popover plagina</h2>
 U sledećoj tabeli su prikazane neki metodi popover plagina.
-<br><br>
+<br /><br />
 <div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Metod</th>
- <th>Opis</th>
- <th colspan="2">Primer</th>
-</tr>
-</thead>
-<tbody>
-
-
-
-<tr>
- <td>.popover(opcije)</td>
- <td>
- Prikazuje popover komponentu koristeći opcije date u prethodnoj tabeli.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Metod</th>
+        <th>Opis</th>
+        <th colspan="2">Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.popover(opcije)</td>
+        <td>
+          Prikazuje popover komponentu koristeći opcije date u prethodnoj
+          tabeli.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -765,20 +796,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>.popover("show")</td>
- <td>
- Prikazuje popover komponentu.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>.popover("show")</td>
+        <td>Prikazuje popover komponentu.</td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -807,20 +835,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>.popover("hide")</td>
- <td>
- Sakriva popover komponentu.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>.popover("hide")</td>
+        <td>Sakriva popover komponentu.</td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -855,19 +880,20 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-<tr>
- <td>.popover("toggle")</td>
- <td>
- Prikazuje popover komponentu ukoliko je bila sakrivena, odnosno sakriva je ukoliko je bila prikazana.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>.popover("toggle")</td>
+        <td>
+          Prikazuje popover komponentu ukoliko je bila sakrivena, odnosno
+          sakriva je ukoliko je bila prikazana.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -907,20 +933,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>.popover("destroy")</td>
- <td>
- Sakriva popover komponentu i u potpunosti je uništava.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>.popover("destroy")</td>
+        <td>Sakriva popover komponentu i u potpunosti je uništava.</td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -966,40 +989,38 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
-
-</tbody>
-</table>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<br>
-<br>
+<br />
+<br />
 
 <h2>Događaji popover plagina</h2>
 U sledećoj tabeli su prikazani događaji popover plagina.
-<br><br>
+<br /><br />
 <div class="container-fluid">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Događaj</th>
- <th>Opis</th>
- <th colspan="2">Primer</th>
-</tr>
-</thead>
-<tbody>
-
-
-
-<tr>
- <td>show.bs.popover</td>
- <td>
- Događa se neposredno pre nego što će popover komponenta biti prikazana.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Događaj</th>
+        <th>Opis</th>
+        <th colspan="2">Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>show.bs.popover</td>
+        <td>
+          Događa se neposredno pre nego što će popover komponenta biti
+          prikazana.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1030,20 +1051,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>shown.bs.popover</td>
- <td>
- Događa se nakon što je popover komponenta prikazana.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>shown.bs.popover</td>
+        <td>Događa se nakon što je popover komponenta prikazana.</td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1074,20 +1092,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>hide.bs.popover</td>
- <td>
- Događa se neposredno pre nego što će se popover komponenta sakriti.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>hide.bs.popover</td>
+        <td>
+          Događa se neposredno pre nego što će se popover komponenta sakriti.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1118,19 +1135,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-<tr>
- <td>hidden.bs.popover</td>
- <td>
- Događa se nakon što je popover komponenta sakrivena.
- </td> 
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>hidden.bs.popover</td>
+        <td>Događa se nakon što je popover komponenta sakrivena.</td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1161,19 +1176,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
-
-</tbody>
-</table>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<br>
-<br>
+<br />
+<br />
 <div class="zadatak">
-Napraviti link sa popover komponentom proizvoljnog sadržaja. Obezbediti da se ona prikazuje na desnoj strani kad god je to moguće, inače 
- neka njena pozicija bude određena od strane pregledača.
+  Napraviti link sa popover komponentom proizvoljnog sadržaja. Obezbediti da se
+  ona prikazuje na desnoj strani kad god je to moguće, inače neka njena pozicija
+  bude određena od strane pregledača.
 </div>
-

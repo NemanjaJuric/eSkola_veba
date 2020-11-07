@@ -1,20 +1,28 @@
-<h1>Progress Bar </h1>
-Progress bar je traka koja se koristi da prikaže stepen uspešnosti nekog 
-procesa. Najčešće je korišćena sa procentualnim podacima koji opisuju taj proces.
- 
-<div class="napomena">Internet Explorer 9 i ranije verzije Internet Explorera ne podržavaju progress bar trake.</div>
+<h1>Progress Bar</h1>
+Progress bar je traka koja se koristi da prikaže stepen uspešnosti nekog
+procesa. Najčešće je korišćena sa procentualnim podacima koji opisuju taj
+proces.
 
-Prikazivanje trake progress bar se realizuje upotrebom <span class="primer_text">&ltdiv&gt</span> elementa  klase 
-<span class="primer_text">.progress</span> unutar kog se nalazi <span class="primer_text">&ltdiv&gt</span> element
-klase <span class="primer_text">.progress-bar</span> sa sledećim atributima:
+<div class="napomena">
+  Internet Explorer 9 i ranije verzije Internet Explorera ne podržavaju progress
+  bar trake.
+</div>
+
+Prikazivanje trake progress bar se realizuje upotrebom
+<span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.progress</span> unutar kog se nalazi
+<span class="primer_text">&ltdiv&gt</span> element klase
+<span class="primer_text">.progress-bar</span> sa sledećim atributima:
 <ul>
-<li>role</li>
-<li>aria-valuenow</li>
-<li>aria-valuemin</li>
-<li>aria-valuemax</li>
-<li>style .</li>
-</ul><br>
-U unutrašnjem <span class="primer_text">&ltdiv&gt</span> elementu moguće je navesti tekstualni sadržaj.<br>
+  <li>role</li>
+  <li>aria-valuenow</li>
+  <li>aria-valuemin</li>
+  <li>aria-valuemax</li>
+  <li>style .</li>
+</ul>
+<br />
+U unutrašnjem <span class="primer_text">&ltdiv&gt</span> elementu moguće je
+navesti tekstualni sadržaj.<br />
 Osnovni kod za formiranje trake progress bar izgleda ovako:
 <textarea class="primer_ta" rows="7" disabled>
 <div class="progress">
@@ -24,8 +32,9 @@ Osnovni kod za formiranje trake progress bar izgleda ovako:
   70% Complete
   </div>
 </div>
-</textarea><br>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+><br />
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,21 +54,30 @@ Osnovni kod za formiranje trake progress bar izgleda ovako:
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 <h2>Značenje atributa</h2>
 <ul>
-<li>role="progressbar" označava ulogu <span class="primer_text">&ltdiv&gt</span> elementa </li>
-<li>aria-valuenow="70" označava trenutnu vrednost obojene površine kod trake progress bar</li>
-<li>aria-valuemin="0" označava minimalnu moguću vrednost obojene površine </li>
-<li>aria-valuemax="100" označava maksimalnu moguću vrednost obojene površine </li>
-<li>style="width:70%" kreira obojenu traku u skladu sa zadatom širinom </li>
+  <li>
+    role="progressbar" označava ulogu
+    <span class="primer_text">&ltdiv&gt</span> elementa
+  </li>
+  <li>
+    aria-valuenow="70" označava trenutnu vrednost obojene površine kod trake
+    progress bar
+  </li>
+  <li>aria-valuemin="0" označava minimalnu moguću vrednost obojene površine</li>
+  <li>
+    aria-valuemax="100" označava maksimalnu moguću vrednost obojene površine
+  </li>
+  <li>style="width:70%" kreira obojenu traku u skladu sa zadatom širinom</li>
 
-<h2>Kontekstualne klase</h2>
-U zavisnosti od konteksta u kom se pojavljuje, progress bar traci je moguće zadati željenu boju.
-Dostupne su sledeće kontekstualne klase za zadavanje boje:
-<ul>
-<li><span class="primer_text">.progress-bar-success</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+  <h2>Kontekstualne klase</h2>
+  U zavisnosti od konteksta u kom se pojavljuje, progress bar traci je moguće
+  zadati željenu boju. Dostupne su sledeće kontekstualne klase za zadavanje
+  boje:
+  <ul>
+    <li><span class="primer_text">.progress-bar-success</span></li>
+    <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-success"
   role="progressbar" aria-valuenow="30"
@@ -68,8 +86,9 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   30%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+    >
+    <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,11 +107,12 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br><br>
-<li><span class="primer_text">.progress-bar-info</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br /><br />
+    <li><span class="primer_text">.progress-bar-info</span></li>
+    <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-info"
   role="progressbar" aria-valuenow="30"
@@ -101,8 +121,9 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   30%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+    >
+    <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,12 +142,13 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li><span class="primer_text">.progress-bar-warning</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+    <br />
+    <li><span class="primer_text">.progress-bar-warning</span></li>
+    <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-warning"
   role="progressbar" aria-valuenow="30"
@@ -135,8 +157,9 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   30%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+    >
+    <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,12 +178,13 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<br>
-<br>
-<li><span class="primer_text">.progress-bar-danger</span></li>
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+    <br />
+    <li><span class="primer_text">.progress-bar-danger</span></li>
+    <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-danger"
   role="progressbar" aria-valuenow="30"
@@ -169,8 +193,9 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   30%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+    >
+    <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,11 +214,13 @@ Dostupne su sledeće kontekstualne klase za zadavanje boje:
   </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</ul>
-Upotrebom kontekstualih klasa, traku progress bar je moguće napraviti iz različito obojenih delova:
-<textarea class="primer_ta" rows="20" disabled>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+  </ul>
+  Upotrebom kontekstualih klasa, traku progress bar je moguće napraviti iz
+  različito obojenih delova:
+  <textarea class="primer_ta" rows="20" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-success"
   role="progressbar" aria-valuenow="30"
@@ -214,8 +241,9 @@ Upotrebom kontekstualih klasa, traku progress bar je moguće napraviti iz razli�
   20%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -245,13 +273,14 @@ Upotrebom kontekstualih klasa, traku progress bar je moguće napraviti iz razli�
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>     
-<br>
-<br>
-<h2>Klasa .progress-bar-striped</h2>
-Upotrebom ove klase, dobija se prugasti prikaz trake progress bar.
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h2>Klasa .progress-bar-striped</h2>
+  Upotrebom ove klase, dobija se prugasti prikaz trake progress bar.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-success
   progress-bar-striped" role="progressbar"
@@ -260,8 +289,9 @@ Upotrebom ove klase, dobija se prugasti prikaz trake progress bar.
   90%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -281,13 +311,14 @@ Upotrebom ove klase, dobija se prugasti prikaz trake progress bar.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>    
- <br>
- <br>
-<h2>Progress bar klase .active </h2>
-Upotrebom ove klase, traka progress bar postaje aktivna.
-<textarea class="primer_ta" rows="8" disabled>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <h2>Progress bar klase .active</h2>
+  Upotrebom ove klase, traka progress bar postaje aktivna.
+  <textarea class="primer_ta" rows="8" disabled>
 <div class="progress">
   <div class="progress-bar progress-bar-striped
   active" role="progressbar" aria-valuenow="30"
@@ -296,8 +327,9 @@ Upotrebom ove klase, traka progress bar postaje aktivna.
   30%
   </div>
 </div>
-</textarea>
-<textarea class="primer_ta" disabled style="display:none;">
+</textarea
+  >
+  <textarea class="primer_ta" disabled style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -317,8 +349,12 @@ Upotrebom ove klase, traka progress bar postaje aktivna.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-<div class="zadatak">Zadatak:<br>
-napraviti traku progress bar sastavljenu iz crvenog dela širine 47% i zelenog dela širine 23%.
-</div>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <div class="zadatak">
+    Zadatak:<br />
+    napraviti traku progress bar sastavljenu iz crvenog dela širine 47% i
+    zelenog dela širine 23%.
+  </div>
+</ul>

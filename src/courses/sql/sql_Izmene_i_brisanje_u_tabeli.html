@@ -1,47 +1,52 @@
 <h1><b>Izmene i brisanje podataka u tabeli</b></h1>
-Do sada smo videli kako unosimo nove podatke u tabelu i kako pretražujemo tabele. Moguće je promeniti
-određene podatke u već unetom redu u tabeli.
+Do sada smo videli kako unosimo nove podatke u tabelu i kako pretražujemo
+tabele. Moguće je promeniti određene podatke u već unetom redu u tabeli.
 <h2>Naredba UPDATE</h2>
 Sintaksa naredbe UPDATE:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 UPDATE ime_tabele
 SET ime_kolone1 = nova_vrednost1, ime_kolone2 = nova_vrednost2, ... , ime_koloneN = nova_vrednostN
 WHERE uslov;
 </xmp>
-Vrednosti menjamo tako što koloni "dodeljujemo" novu vrednost. Iza ključne reči WHERE nam je potreban uslov
-da bismo promenili podatke tačno određenim redovima u tabeli, a ne da upišemo novu vrednost u svakom redu označene
-kolone.
-<br><br>
+Vrednosti menjamo tako što koloni "dodeljujemo" novu vrednost. Iza ključne reči
+WHERE nam je potreban uslov da bismo promenili podatke tačno određenim redovima
+u tabeli, a ne da upišemo novu vrednost u svakom redu označene kolone.
+<br /><br />
 Hajde da radnici Ivoni Jankovic povećamo platu na 41000.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 UPDATE radnik SET plata = 41000 WHERE ime = 'Ivona' AND prezime = 'Jankovic';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "napomena">
-	Da biste videli da li je upit uspešno izvršen, morate izlistati ceo sadržaj tabele pomoću upita:
-	  <span class = "primer_text" >SELECT * FROM radnik;</span>.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="napomena">
+  Da biste videli da li je upit uspešno izvršen, morate izlistati ceo sadržaj
+  tabele pomoću upita:
+  <span class="primer_text">SELECT * FROM radnik;</span>.
 </div>
-Sledećim upitom menjamo podatke u više redova. Potrebno je svim šefovima prodavnica promeniti položaj u
-rukovodilac prodavnice.
-<xmp class = "primer_ta" >
+Sledećim upitom menjamo podatke u više redova. Potrebno je svim šefovima
+prodavnica promeniti položaj u rukovodilac prodavnice.
+<xmp class="primer_ta"
+>
 UPDATE radnik SET polozaj = 'rukovodilac prodavnice' WHERE polozaj = 'sef prodavnice';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-<div class = "zadatak">
-	Svim vozačima postaviti istu platu od 65000.
-</div>
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="zadatak">Svim vozačima postaviti istu platu od 65000.</div>
 <h2>Naredba DELETE</h2>
-Ako je potrebno izbrisati jedan ili više redova iz tabele koristimo naredbu DELETE.
-<br>
+Ako je potrebno izbrisati jedan ili više redova iz tabele koristimo naredbu
+DELETE.
+<br />
 Sintaksa naredbe DELETE:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 DELETE FROM ime_tabele WHERE uslov;
 </xmp>
 Sledećim upitom brišemo sve radnike koji rade kao vozači.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 DELETE FROM radnik WHERE polozaj = 'vozac';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />

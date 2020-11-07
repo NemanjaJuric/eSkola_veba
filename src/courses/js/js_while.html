@@ -1,45 +1,57 @@
-<h1> <b> While </b> </h1>
-<br>
-<br>
-Petlje služe da bi se neka naredba izvršavala više puta. Jedna od petlji je i while petlja koja ima sledeću strukturu:
-<br>
-<br>
+<h1><b> While </b></h1>
+<br />
+<br />
+Petlje služe da bi se neka naredba izvršavala više puta. Jedna od petlji je i
+while petlja koja ima sledeću strukturu:
+<br />
+<br />
 <span class="primer_text">
-while (uslov) {  
-<br>
-naredba
-<br>
-}  
+  while (uslov) {
+  <br />
+  naredba
+  <br />
+  }
 </span>
-<br>
-<br>
-Ovo nam govori da dok god uslov u zagradi bude ispunjen izvršavaće se naredba napisana u vitičastoj zagradi.
-<br>
+<br />
+<br />
+Ovo nam govori da dok god uslov u zagradi bude ispunjen izvršavaće se naredba
+napisana u vitičastoj zagradi.
+<br />
 Primer:
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+<xmp class="primer_ta"
+>
  l=broj
  while (l<11) {
  document.write(l + “ x 3 = “ + (l * 3) + “<  br / > ” );  
  l++ 
  }
 </xmp>
-<br>
-<br>
-U ovom primeru ispisujemo tablicu množenja brojevima prve desetice počevši od zadatog broja sa 3.
-<br>Dok god je ispunjeno da je broj manji od 11 (tj. da pripada prvoj desetici) ispisujemo koliko je taj broj pomnožen sa 3.
-<br>U svakom novom prolasku kroz petlju broj se uvećava za 1 i približava broju 10. Kada broj postane 10 u sledećem prolasku kroz petlju on postaje 11 i tada se izlazi iz petlje jer uslov da je broj manji od 11 više nije ispunjen.
-<br>
-<br>
-<h3> <b> Do . . . while </b>  </h3>
-<br>
-<br>
-Ova petlja se razlikuje od klasične WHILE petlje po tome što se kod DO...WHILE naredba izvršava, pa se tek onda proverava ispunjenost uslova. Kod WHILE može da se desi da uslov nije ispunjen i da ni ne uđemo u petlju, tj. da se naredba uopšte ne izvrši. Kod DO...WHILE će se naredba sa sigurnošću izvršiti bar jednom pre provere ispunjenosti uslova.
-<br>Pokazaćemo kako radi DO...WHILE na istom primeru kao i WHILE:
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+U ovom primeru ispisujemo tablicu množenja brojevima prve desetice počevši od
+zadatog broja sa 3.
+<br />Dok god je ispunjeno da je broj manji od 11 (tj. da pripada prvoj
+desetici) ispisujemo koliko je taj broj pomnožen sa 3. <br />U svakom novom
+prolasku kroz petlju broj se uvećava za 1 i približava broju 10. Kada broj
+postane 10 u sledećem prolasku kroz petlju on postaje 11 i tada se izlazi iz
+petlje jer uslov da je broj manji od 11 više nije ispunjen.
+<br />
+<br />
+<h3><b> Do . . . while </b></h3>
+<br />
+<br />
+Ova petlja se razlikuje od klasične WHILE petlje po tome što se kod DO...WHILE
+naredba izvršava, pa se tek onda proverava ispunjenost uslova. Kod WHILE može da
+se desi da uslov nije ispunjen i da ni ne uđemo u petlju, tj. da se naredba
+uopšte ne izvrši. Kod DO...WHILE će se naredba sa sigurnošću izvršiti bar jednom
+pre provere ispunjenosti uslova.
+<br />Pokazaćemo kako radi DO...WHILE na istom primeru kao i WHILE:
+<br />
+<br />
+<xmp class="primer_ta"
+>
  l=12
  do {
  document.write(l + “ x 3 = “ + (l * 3) + “<  br / > ” );  
@@ -47,13 +59,16 @@ Ova petlja se razlikuje od klasične WHILE petlje po tome što se kod DO...WHILE
  }
  while (l<11)
 </xmp>
-<br>
-<br>
-U ovom primeru smo uzeli na početku da je broj 12 i za njega ispisali koliko je pomnožen sa 3, pa tek onda proverili uslov da li je broj manji od 11 i kako nije ispunjen izašli iz petlje. Ali vidimo da je naredba ipak jednom izvršena.
-<br>
-<br>
-<div class = "zadatak">
-<b>Zadatak:</b> U primeru se ispisuje tablica množenja sa 3 brojeva od zadatog do 10. Promeni program tako da ispisuje brojeve do 30 pomnožene sa 3.
+<br />
+<br />
+U ovom primeru smo uzeli na početku da je broj 12 i za njega ispisali koliko je
+pomnožen sa 3, pa tek onda proverili uslov da li je broj manji od 11 i kako nije
+ispunjen izašli iz petlje. Ali vidimo da je naredba ipak jednom izvršena.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> U primeru se ispisuje tablica množenja sa 3 brojeva od zadatog
+  do 10. Promeni program tako da ispisuje brojeve do 30 pomnožene sa 3.
 </div>
-<br>
-<br>
+<br />
+<br />

@@ -1,42 +1,45 @@
 <h1><b>Uvod u PHP</b></h1>
-<br>
-<br>
-<b>PHP</b> (PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog koda.
- Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa
- bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i
- tolerantan jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i
- JavaScript-a da bismo lakše naučili PHP.
-<br> <br>
+<br />
+<br />
+<b>PHP</b> (PHP: Hypertext Preprocessor) je popularan skriptni jezik otvorenog
+koda. Namenjen je za izradu dinamičkih stranica koje mogu da komuniciraju sa
+bazama podataka. Izvodi se na strani servera. Veoma je jednostavan i tolerantan
+jezik. Potrebno je osnovno znanje iz HTML-a, CSS-a i JavaScript-a da bismo lakše
+naučili PHP. <br />
+<br />
 PHP nije strogo tipiziran, što znači da ista promenljiva može menjati tip
-podatka koji sadrži (iako se to ne preporučuje). Promenljive je moguće
-napraviti kad god je to potrebno.
-<br> <br>
-Da bi se pokrenuo PHP potreban je <b>lokalni web server</b> i <b>tekst editor</b>. Postoji
- više besplatnih web servera kao što su EasyPHP, XAMPP i WampServer za
-  Windows i LampServer za Linux. Pogodni tekst editori su Notepad++ i Atom,
-  ali ima i drugih. PHP fajlovi imaju ekstenziju <b>.php</b> i
-  mogu da sadrže tekst, HTML, CSS, JavaScript i PHP kod.
-<br> <br>
-PHP kod se možemo nalaziti bili gde u dokumentu. Počinje sa <b>&lt?php</b> i završava se sa <b>?&gt</b>. Svaka linija koda između ove dve komande završava se sa (;).
-<br> <br>
-Za ispisivanje teksta i vrednosti promenljive koriste se naredbe <b>echo</b> i <b>print</b>. <b>Echo</b> nema povratnu vrednost, a <b>print</b> uvek vraća vrednost i zbog toga se može tretirati kao funkcija i koristiti u izrazima.
-<xmp class = "primer_ta">
+podatka koji sadrži (iako se to ne preporučuje). Promenljive je moguće napraviti
+kad god je to potrebno.
+<br />
+<br />
+Da bi se pokrenuo PHP potreban je <b>lokalni web server</b> i
+<b>tekst editor</b>. Postoji više besplatnih web servera kao što su EasyPHP,
+XAMPP i WampServer za Windows i LampServer za Linux. Pogodni tekst editori su
+Notepad++ i Atom, ali ima i drugih. PHP fajlovi imaju ekstenziju <b>.php</b> i
+mogu da sadrže tekst, HTML, CSS, JavaScript i PHP kod. <br />
+<br />
+PHP kod se možemo nalaziti bili gde u dokumentu. Počinje sa <b>&lt?php</b> i
+završava se sa <b>?&gt</b>. Svaka linija koda između ove dve komande završava se
+sa (;). <br />
+<br />
+Za ispisivanje teksta i vrednosti promenljive koriste se naredbe <b>echo</b> i
+<b>print</b>. <b>Echo</b> nema povratnu vrednost, a <b>print</b> uvek vraća
+vrednost i zbog toga se može tretirati kao funkcija i koristiti u izrazima.
+<xmp class="primer_ta">
 <?php
 echo "Zdravo, svete!";
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Funkcija <b>var_dump()</b> ispisuje vrednost i tip promenljive.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $a = 11;
 var_dump($a);
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Prethodna skripta ispisuje <b>int(11)</b>, jer je 11 ceo broj (int).
-<div class = "zadatak">
-Napisati program koji ispisuje tvoje ime i prezime.
-</div>
+<div class="zadatak">Napisati program koji ispisuje tvoje ime i prezime.</div>

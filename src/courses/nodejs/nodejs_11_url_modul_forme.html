@@ -1,27 +1,35 @@
-<h1> URL modul - obrada podataka sa forme</h1>
+<h1>URL modul - obrada podataka sa forme</h1>
 
-U prethodnom primeru sa obradom podataka sa forme tražili smo od korisnika da nam unese svoje korisničko ime
-i šifru nakon čega je trebalo da klikne na dugme Uloguj se. Nakon klika, aplikacija treba da mu prikaže pozdravnu
-poruku. Videli smo da to lako možemo da izvedemo kada se podaci sa forme šalju serveru uz pomoć GET metoda, tj. nadovezivanjem
-na adresu, ali kada smo koristili POST metod nismo uspeli da učinimo to. Kada šaljemo podatke serveru pomoću POST metoda
-oni se šalju kao ulazni tok podataka. Tačnije, potrebno je da objektu <span class="font-weight-bold">zahtev</span> koji je
-argument povratnog poziva servera pridružimo događaje <span class="font-weight-bold">data</span> i
-<span class="font-weight-bold">end</span>. <br/><br/>
+U prethodnom primeru sa obradom podataka sa forme tražili smo od korisnika da
+nam unese svoje korisničko ime i šifru nakon čega je trebalo da klikne na dugme
+Uloguj se. Nakon klika, aplikacija treba da mu prikaže pozdravnu poruku. Videli
+smo da to lako možemo da izvedemo kada se podaci sa forme šalju serveru uz pomoć
+GET metoda, tj. nadovezivanjem na adresu, ali kada smo koristili POST metod
+nismo uspeli da učinimo to. Kada šaljemo podatke serveru pomoću POST metoda oni
+se šalju kao ulazni tok podataka. Tačnije, potrebno je da objektu
+<span class="font-weight-bold">zahtev</span> koji je argument povratnog poziva
+servera pridružimo događaje <span class="font-weight-bold">data</span> i
+<span class="font-weight-bold">end</span>. <br /><br />
 
-Podaci na server pristižu u paketima. Čim pristigne
-novi paket emitovaće se događaj <span class="font-weight-bold">date</span> i u rukovaocu događaja ćemo nadovezivati te pakete
-na unapred definisani bafer. Nakon što pristignu svi paketi, emitovaće se događaj <span class="font-weight-bold">end</span>
-i u njegovom rukovaocu ćemo obraditi ceo paket, tj. saznaćemo koje korisničko ime i šifru je korisnik uneo. Da bismo
- ovo ilustrovali, izmenićemo kod servera iz uvodne lekcije o URL modulu i sačuvaćemo te izmene u fajlu
- <span class="font-weight-bold">url_forme.js</span>. Radi jednostavnosti, biće prikazan samo modifikovani deo,
- a celokupan kod će biti prikazan na kraju lekcije. 
- 
+Podaci na server pristižu u paketima. Čim pristigne novi paket emitovaće se
+događaj <span class="font-weight-bold">date</span> i u rukovaocu događaja ćemo
+nadovezivati te pakete na unapred definisani bafer. Nakon što pristignu svi
+paketi, emitovaće se događaj <span class="font-weight-bold">end</span>
+i u njegovom rukovaocu ćemo obraditi ceo paket, tj. saznaćemo koje korisničko
+ime i šifru je korisnik uneo. Da bismo ovo ilustrovali, izmenićemo kod servera
+iz uvodne lekcije o URL modulu i sačuvaćemo te izmene u fajlu
+<span class="font-weight-bold">url_forme.js</span>. Radi jednostavnosti, biće
+prikazan samo modifikovani deo, a celokupan kod će biti prikazan na kraju
+lekcije.
+
 <h2>Registrovanje događaja</h2>
 
-Pre bilo kakve obrade podataka potrebno je da registrujemo događaje <span class="font-weight-bold">data</span> i
-<span class="font-weight-bold">end</span> u objektu <span class="font-weight-bold">zahtev</span>. To postižemo na sledeći način:
+Pre bilo kakve obrade podataka potrebno je da registrujemo događaje
+<span class="font-weight-bold">data</span> i
+<span class="font-weight-bold">end</span> u objektu
+<span class="font-weight-bold">zahtev</span>. To postižemo na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"> 
 // Uključujemo modul http i definišemo promenljivu 
 // http u kojoj čuvamo instancu modula
 var http = require("http"); 
@@ -106,44 +114,79 @@ console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Sa ... su obeleženi delovi koda koji nisu izmenjeni.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Sa ... su obeleženi delovi koda koji nisu izmenjeni.
 </div>
 
 <h2>Obrada događaja</h2>
 
-U programu smo definisali dva događaja koja želimo da nadgledamo i potrebno je da pažljivo implementiramo njihove rukovaoce događaja.
-Da bismo to pravilno uradili potrebno je da uvek vodimo računa o tome da je podrazumevani način obrade ulazno-izlaznih operacija
-u radnom okviru NodeJS neblokirajući. U našem slučaju to znači sledeće:<br/><br/>
+U programu smo definisali dva događaja koja želimo da nadgledamo i potrebno je
+da pažljivo implementiramo njihove rukovaoce događaja. Da bismo to pravilno
+uradili potrebno je da uvek vodimo računa o tome da je podrazumevani način
+obrade ulazno-izlaznih operacija u radnom okviru NodeJS neblokirajući. U našem
+slučaju to znači sledeće:<br /><br />
 
 <ul>
-   <li>Program se izvršava u neblokirajućem režimu, što znači da nastavlja sa izvršavanjem instrukcija odmah nakon definicije događaja. Zato moramo pažljivo da vodimo računa gde i šta definišemo.</li>
-   <li>Događaj <span class="font-weight-bold">data</span> se emituje svaki put kada pristigne neki deo cele poruke, tj. paket.</li>
-   <li>Paketi pristižu redom. Sa svakim novim <span class="font-weight-bold">data</span> događajem potrebno je da pristigli paket upamtimo u nekom baferu, tj. privremenoj memoriji.</li>
-   <li>Nakon što pristignu svi paketi, tj. cela poruka, emituje se događaj <span class="font-weight-bold">end</span>.</li>
-   <li>Tek nakon emitovanja <span class="font-weight-bold">end</span> događaja možemo da obrađujemo pristiglu poruku u rukovaocu događajem.</li> 
-   <li>Pristigla poruka je uvek sirova, tj. predstavlja samo niz bajtova. Zato je neophodno da unapred znamo šta i kako šaljemo da bismo mogli
-       pravilno da izvršimo kastovanje i obradu podataka.
-   </li> 
+  <li>
+    Program se izvršava u neblokirajućem režimu, što znači da nastavlja sa
+    izvršavanjem instrukcija odmah nakon definicije događaja. Zato moramo
+    pažljivo da vodimo računa gde i šta definišemo.
+  </li>
+  <li>
+    Događaj <span class="font-weight-bold">data</span> se emituje svaki put kada
+    pristigne neki deo cele poruke, tj. paket.
+  </li>
+  <li>
+    Paketi pristižu redom. Sa svakim novim
+    <span class="font-weight-bold">data</span> događajem potrebno je da
+    pristigli paket upamtimo u nekom baferu, tj. privremenoj memoriji.
+  </li>
+  <li>
+    Nakon što pristignu svi paketi, tj. cela poruka, emituje se događaj
+    <span class="font-weight-bold">end</span>.
+  </li>
+  <li>
+    Tek nakon emitovanja <span class="font-weight-bold">end</span> događaja
+    možemo da obrađujemo pristiglu poruku u rukovaocu događajem.
+  </li>
+  <li>
+    Pristigla poruka je uvek sirova, tj. predstavlja samo niz bajtova. Zato je
+    neophodno da unapred znamo šta i kako šaljemo da bismo mogli pravilno da
+    izvršimo kastovanje i obradu podataka.
+  </li>
 </ul>
-<br/>
+<br />
 
-Imajući sve ovo u vidu, logika u programu bi bila sledeća:<br/><br/>
+Imajući sve ovo u vidu, logika u programu bi bila sledeća:<br /><br />
 
 <ul>
-   <li>Bafer definišemo izvan rukovaoca događajima da bi nam bio dostupan uvek.</li>
-   <li>U rukovaocu za <span class="font-weight-bold">data</span> događaj nadovezujemo pristigli paket na postojeći bafer. </li>
-   <li>U rukovaocu za <span class="font-weight-bold">end</span> događaj obrađujemo i transformišemo poruku i šaljemo odgovor korisniku.</li>
-   <li><span class="font-weight-bold">Izuzetno bitno: </span> U svakom trenutku moramo da vodimo računa o toku izvršavanja i da se osiguramo da nikada ne pozovemo end() metod na objektu odgovor pre poslednjeg upisa sadržaja. </li>
+  <li>
+    Bafer definišemo izvan rukovaoca događajima da bi nam bio dostupan uvek.
+  </li>
+  <li>
+    U rukovaocu za <span class="font-weight-bold">data</span> događaj
+    nadovezujemo pristigli paket na postojeći bafer.
+  </li>
+  <li>
+    U rukovaocu za <span class="font-weight-bold">end</span> događaj obrađujemo
+    i transformišemo poruku i šaljemo odgovor korisniku.
+  </li>
+  <li>
+    <span class="font-weight-bold">Izuzetno bitno: </span> U svakom trenutku
+    moramo da vodimo računa o toku izvršavanja i da se osiguramo da nikada ne
+    pozovemo end() metod na objektu odgovor pre poslednjeg upisa sadržaja.
+  </li>
 </ul>
-<br/>
+<br />
 
 <h3>Data događaj</h3>
 
-Da bismo implementirali rukovaoca za <span class="font-weight-bold">data</span> događaj potrebno je da definišemo prazan bafer i da na njega nadovezujemo sadržaj pristiglog paketa ili u kodu:
+Da bismo implementirali rukovaoca za
+<span class="font-weight-bold">data</span> događaj potrebno je da definišemo
+prazan bafer i da na njega nadovezujemo sadržaj pristiglog paketa ili u kodu:
 
-
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 if (metodPristupa === "POST") {
    
    // definisemo prazan bafer
@@ -159,19 +202,21 @@ if (metodPristupa === "POST") {
       bafer.push(paket);
    });
 }   
-</xmp> 
+</xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Izdvojeno je samo parče koda koje odgovara rukovaocu data događaja.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Izdvojeno je samo parče koda koje odgovara rukovaocu data događaja.
 </div>
 
 <h3>End događaj</h3>
 
-Kada je <span class="font-weight-bold">end</span> događaj u pitanju, prvo što treba da uradimo jeste da sirove podatke iz bafera
-prebacimo u korektan tip podataka, u našem slučaju radi se o stringu.
+Kada je <span class="font-weight-bold">end</span> događaj u pitanju, prvo što
+treba da uradimo jeste da sirove podatke iz bafera prebacimo u korektan tip
+podataka, u našem slučaju radi se o stringu.
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 zahtev.on('end', function () {
          
    // bafer je sirovi oblik podataka, tj. niz bajtova. Nama treba string, tj. niz karaktera, 
@@ -183,17 +228,22 @@ zahtev.on('end', function () {
 }   
 </xmp>
 
-U slučaju da korisnik u polja korisničko ime i šifra redom ukuca pera i peric, kao poruku u konzoli na strani servera dobićemo:
+U slučaju da korisnik u polja korisničko ime i šifra redom ukuca pera i peric,
+kao poruku u konzoli na strani servera dobićemo:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 username=pera&password=peric
 </xmp>
 
-Kada se vrednosti forme šalju POST metodom, uvek će biti u formatu <span class="font-weight-bold">ime_polja=vrednost</span>. U 
-slučaju da forma ima više polja, polja će biti razdvojena znakom &amp, što lako uočavamo u našem slučaju. Dakle, potrebno je da prvo
-razdvojimo polja, a onda da u okviru svakog polja razdvojimo ime i njemu pridruženu vrednost. Nakon obrade celokupne poruke, poslaćemo korisniku pozdravnu poruku. U kodu to bismo postigli na sledeći način:
+Kada se vrednosti forme šalju POST metodom, uvek će biti u formatu
+<span class="font-weight-bold">ime_polja=vrednost</span>. U slučaju da forma ima
+više polja, polja će biti razdvojena znakom &amp, što lako uočavamo u našem
+slučaju. Dakle, potrebno je da prvo razdvojimo polja, a onda da u okviru svakog
+polja razdvojimo ime i njemu pridruženu vrednost. Nakon obrade celokupne poruke,
+poslaćemo korisniku pozdravnu poruku. U kodu to bismo postigli na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"> 
    
 // zatim definišemo događaj end koji govori da su svi podaci pristigli i pridružujemo mu 
 // rukovalac događajem koji nema argumente
@@ -228,18 +278,21 @@ zahtev.on('end', function () {
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Izdvojeno je samo parče koda koje odgovara rukovaocu end događaja.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Izdvojeno je samo parče koda koje odgovara rukovaocu end događaja.
 </div>
 
 <h2>Kompletan kod servera</h2>
 
-Na kraju lekcije, prikazaćemo kompletan kod servera koji se nalazi u fajlu  <span class="font-weight-bold">url_forme.js</span>. 
-U slučaju da se sintaksa i sama logika programiranja u NodeJS radnom okviru čitaocu čini preteško i konfuzno,
-skrećemo mu pažnju da se sve ovo može znatno lakše isprogramirati korišćenjem radnog okvira ExpressJS. Međutim, da bi se na pravilan
-način razumela primena posrednika u komunikaciji, što ExpressJS jeste, neophodno je imati dobro razumevanja onoga što se dešava u pozadini. 
+Na kraju lekcije, prikazaćemo kompletan kod servera koji se nalazi u fajlu
+<span class="font-weight-bold">url_forme.js</span>. U slučaju da se sintaksa i
+sama logika programiranja u NodeJS radnom okviru čitaocu čini preteško i
+konfuzno, skrećemo mu pažnju da se sve ovo može znatno lakše isprogramirati
+korišćenjem radnog okvira ExpressJS. Međutim, da bi se na pravilan način
+razumela primena posrednika u komunikaciji, što ExpressJS jeste, neophodno je
+imati dobro razumevanja onoga što se dešava u pozadini.
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"> 
 // Uključujemo modul http i definišemo promenljivu 
 // http u kojoj čuvamo instancu modula
 var http = require("http"); 
@@ -386,6 +439,7 @@ console.log('Serveru se pristupa uz pomoć adrese http://127.0.0.1:8081/');
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 17.</span><br/>
-   Modifikovati rešesenje zadatka 15 tako da se sva polja forme šalju serveru preko POST metoda.
+  <span class="font-weight-bold">Zadatak 17.</span><br />
+  Modifikovati rešesenje zadatka 15 tako da se sva polja forme šalju serveru
+  preko POST metoda.
 </div>

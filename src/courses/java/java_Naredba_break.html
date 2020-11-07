@@ -1,21 +1,28 @@
 <h1>Naredba <b>break</b></h1>
 
-<p style="text-align: justify;">Java obezbeđuje tri naredbe za skokove: <b>break</b>, <b>continue</b> i <b>return</b>. Njihova uloga je da preusmere
-tok izvršavanje programa. Ove naredbe obezbeđuju da se izvršavanje programa ne nastavi od
-sledeće naredbe po redu, već se tok prekida i usmerava na drugo mesto u programu, koje je
-određeno naredbom koja je na datom mestu upotrebljena.</p>
+<p style="text-align: justify">
+  Java obezbeđuje tri naredbe za skokove: <b>break</b>, <b>continue</b> i
+  <b>return</b>. Njihova uloga je da preusmere tok izvršavanje programa. Ove
+  naredbe obezbeđuju da se izvršavanje programa ne nastavi od sledeće naredbe po
+  redu, već se tok prekida i usmerava na drugo mesto u programu, koje je
+  određeno naredbom koja je na datom mestu upotrebljena.
+</p>
 
-<p style="text-align: justify;">Naredba <b>break</b> u programskom jeziku Java ima dva mesta upotrebe: kada se koristi unutar petlje
-i za završavanje niza naredbi u naredbi <b>switch</b>.
-<br><br>
-Pomoću <b>break</b> naredbe moguće je prekinuti rad petlje i izaći iz nje u nekoj vanrednoj okolnosti
-kada za to ima potrebe, a uslov petlje je ispunjen. Kada program naiđe na naredbu break preskače
-se sve što sledi u okviru te petlje I program nastavlja sa izvršavanjem prve naredbe koja sledi van
-petlje.<br>
-Primer 14. ilustruje upotrebu break naredbe.</p>
+<p style="text-align: justify">
+  Naredba <b>break</b> u programskom jeziku Java ima dva mesta upotrebe: kada se
+  koristi unutar petlje i za završavanje niza naredbi u naredbi <b>switch</b>.
+  <br /><br />
+  Pomoću <b>break</b> naredbe moguće je prekinuti rad petlje i izaći iz nje u
+  nekoj vanrednoj okolnosti kada za to ima potrebe, a uslov petlje je ispunjen.
+  Kada program naiđe na naredbu break preskače se sve što sledi u okviru te
+  petlje I program nastavlja sa izvršavanjem prve naredbe koja sledi van
+  petlje.<br />
+  Primer 14. ilustruje upotrebu break naredbe.
+</p>
 
 <b>Primer 14.</b> – Upotreba <b>break</b> naredbe
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 public class Test {
   public static void main(String args[]) {
     int[] numbers = { 10, 20, 30, 40, 50 };
@@ -31,11 +38,14 @@ public class Test {
 }
 </xmp>
 Ovaj program će dati sledeći izlaz:
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title="">
 10 <br>
 20 <br>
  </xmp>
-<p style="text-align: justify;">Naredbom <b>break</b> prekinuto je ispisivanje brojeva iz datog niza, iako je naredbom <b>for</b> predviđeno
-da se ispišu svi brojevi datog niza.
-Ova naredba se može koristiti na više mesta u istoj petlji. Kada se <b>break</b> koristi unutar naredbe
-<b>switch</b>, ona utiče samo na nju , ne i na petlju koja je možda obuhvata.</p>
+<p style="text-align: justify">
+  Naredbom <b>break</b> prekinuto je ispisivanje brojeva iz datog niza, iako je
+  naredbom <b>for</b> predviđeno da se ispišu svi brojevi datog niza. Ova
+  naredba se može koristiti na više mesta u istoj petlji. Kada se
+  <b>break</b> koristi unutar naredbe <b>switch</b>, ona utiče samo na nju , ne
+  i na petlju koja je možda obuhvata.
+</p>

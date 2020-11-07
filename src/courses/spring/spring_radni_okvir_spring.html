@@ -1,52 +1,104 @@
 <h1>Radni okvir Spring</h1>
 <p>
-	Spring je najpopularniji radni okvir za pisanje Java EE aplikacija. Spring je softver otvorenog koda, potpuno je besplatan za korišćenje i poseduje veliku bazu korisnika koja ga kontinualno unapređuje. Izvorni kod je dostupan na <a href="https://github.com/spring-projects" target="_blank">GitHub</a>-u.
+  Spring je najpopularniji radni okvir za pisanje Java EE aplikacija. Spring je
+  softver otvorenog koda, potpuno je besplatan za korišćenje i poseduje veliku
+  bazu korisnika koja ga kontinualno unapređuje. Izvorni kod je dostupan na
+  <a href="https://github.com/spring-projects" target="_blank">GitHub</a>-u.
 </p>
 <p>
-	Na zvaničnom veb sajtu <a href="https://spring.io" target="_blank">spring.io</a> može se pronaći Spring dokumetacija, linkovi za preuzimanje Spring biblioteka, kao i razni tutoriajli i primeri aplikacija pisanih pomoću radnog okvira Spring.
+  Na zvaničnom veb sajtu
+  <a href="https://spring.io" target="_blank">spring.io</a> može se pronaći
+  Spring dokumetacija, linkovi za preuzimanje Spring biblioteka, kao i razni
+  tutoriajli i primeri aplikacija pisanih pomoću radnog okvira Spring.
 </p>
-<br>
-<img src="courses/spring/images/spring_sajt.png" class="img-fluid img-sm">
-<br>
+<br />
+<img src="courses/spring/images/spring_sajt.png" class="img-fluid img-sm" />
+<br />
 <h2>Spring projekti</h2>
 <p>
-	Spring se sastoji od nekoliko radnih okvira i biblioteka koje se oslanjaju na osnovni radni okvir Spring Framework. Više reči o radnom okviru Spring Framework biće u narednoj lekciji, a na ovom mestu je dat prikaz najvažnijih radnih okvira iz Spring familije.
+  Spring se sastoji od nekoliko radnih okvira i biblioteka koje se oslanjaju na
+  osnovni radni okvir Spring Framework. Više reči o radnom okviru Spring
+  Framework biće u narednoj lekciji, a na ovom mestu je dat prikaz najvažnijih
+  radnih okvira iz Spring familije.
 </p>
-<img src="courses/spring/images/projekti.png" class="img-fluid img-md">
-<h3> Spring Boot</h3>
+<img src="courses/spring/images/projekti.png" class="img-fluid img-md" />
+<h3>Spring Boot</h3>
 <p>
-	Kao što radni okvir Spring Framework ima cilj da olakša razvoj Java aplikacija, tako Spring Boot projekat ima cilj da olakša razvoj aplikacija pisanih pomoću radnog okvira Spring. Spring Boot omogućava kreiranje kompletne Spring aplikacije koju je moguće pokrenuti za svega par minuta. Spring Boot automatski konfiguriše kako Spring biblioteke, tako i sve drugih biblioteke koje je moguće integrisati sa radnim okvirom Spring. Spring Boot takođe pruža tzv "starter" Maven zavisnosti prilagođene potrebama aplikacije. Ovaj projekat dolazi sa ugrađenim servlet kontejnerom po želji (Tomcat, Jetty ili Undertow), tako da ručni "deploy" war datoteka nije potreban.
+  Kao što radni okvir Spring Framework ima cilj da olakša razvoj Java
+  aplikacija, tako Spring Boot projekat ima cilj da olakša razvoj aplikacija
+  pisanih pomoću radnog okvira Spring. Spring Boot omogućava kreiranje kompletne
+  Spring aplikacije koju je moguće pokrenuti za svega par minuta. Spring Boot
+  automatski konfiguriše kako Spring biblioteke, tako i sve drugih biblioteke
+  koje je moguće integrisati sa radnim okvirom Spring. Spring Boot takođe pruža
+  tzv "starter" Maven zavisnosti prilagođene potrebama aplikacije. Ovaj projekat
+  dolazi sa ugrađenim servlet kontejnerom po želji (Tomcat, Jetty ili Undertow),
+  tako da ručni "deploy" war datoteka nije potreban.
 </p>
 <p>
-	Drugim rečima Spring Boot sadrži uobičajene konfiguracije svega što je programeru Spring aplikacije potrebno, pružajući potpuno funkcionalnu aplikaciju, koju je samo potrebno nadograditi i prilagoditi svojim potrebama. 
+  Drugim rečima Spring Boot sadrži uobičajene konfiguracije svega što je
+  programeru Spring aplikacije potrebno, pružajući potpuno funkcionalnu
+  aplikaciju, koju je samo potrebno nadograditi i prilagoditi svojim potrebama.
 </p>
-<h3> Spring Data</h3>
+<h3>Spring Data</h3>
 <p>
-	Spring Data je radni okvir koji olakšava rad sa relacionim i nerelacionim bazama podataka, tehnologijama za pristup podacima, data servisima baziranim na oblaku itd. Ovaj projekat sadrži veliki broj podprojekata koji su namenjeni određenoj tehnologiji, implementaciji RDBMS i slično. Spring Data takođe pruža integraciju radnog okvira Spring sa drugim popularnim radnim okvirima za perzistenciju, od kojih je svakako najpopularniji Hibernate. Jedna od mnogih zanimljivih karakteristika projekta jeste i automatsko generisanje upita na osnovu imena metoda.
+  Spring Data je radni okvir koji olakšava rad sa relacionim i nerelacionim
+  bazama podataka, tehnologijama za pristup podacima, data servisima baziranim
+  na oblaku itd. Ovaj projekat sadrži veliki broj podprojekata koji su namenjeni
+  određenoj tehnologiji, implementaciji RDBMS i slično. Spring Data takođe pruža
+  integraciju radnog okvira Spring sa drugim popularnim radnim okvirima za
+  perzistenciju, od kojih je svakako najpopularniji Hibernate. Jedna od mnogih
+  zanimljivih karakteristika projekta jeste i automatsko generisanje upita na
+  osnovu imena metoda.
 </p>
 <h3>Spring Cloud</h3>
 <p>
-	Spring Cloud je projekat koji se nadogradjuje na Spring Boot i omogućava brz razvoj distribuiranih sistema. Spring pruža implementaciju ustaljenih obrazaca u distribuiranim sistemima kao što su upravljanje konfiguracijama, pametno rutiranje, "load balancing", "circuit breakers", "service discovery" itd, omogućujući korisnicima lak razvoj i podizanje servisa/aplikacija u distribuiranim sistemima.
+  Spring Cloud je projekat koji se nadogradjuje na Spring Boot i omogućava brz
+  razvoj distribuiranih sistema. Spring pruža implementaciju ustaljenih obrazaca
+  u distribuiranim sistemima kao što su upravljanje konfiguracijama, pametno
+  rutiranje, "load balancing", "circuit breakers", "service discovery" itd,
+  omogućujući korisnicima lak razvoj i podizanje servisa/aplikacija u
+  distribuiranim sistemima.
 </p>
 <h3>Spring Security</h3>
 <p>
-	Spring Security predstavlja radni okvir za autentikaciju i kontrolu pristupa, koji značajno olakšava implementaciju sigurnosnih aspekata Java aplikacija. Pored raznovrsne podrške za autentikaciju i autorizaciju, Spring Security pruža i podršku za zaštitu od uobičajenih načina za zlonameran hakerski napad (CSRF, ubrizgavanje sesije, "clickjacking"...), kao i implementaciju sigurnosnih protokola i standarda (Kerberos, OAuth, SAML...). Spring Security se bazira na principu aspektno orijentisanog programiranja koje je detaljno objašnjeno u ovom kursu.
+  Spring Security predstavlja radni okvir za autentikaciju i kontrolu pristupa,
+  koji značajno olakšava implementaciju sigurnosnih aspekata Java aplikacija.
+  Pored raznovrsne podrške za autentikaciju i autorizaciju, Spring Security
+  pruža i podršku za zaštitu od uobičajenih načina za zlonameran hakerski napad
+  (CSRF, ubrizgavanje sesije, "clickjacking"...), kao i implementaciju
+  sigurnosnih protokola i standarda (Kerberos, OAuth, SAML...). Spring Security
+  se bazira na principu aspektno orijentisanog programiranja koje je detaljno
+  objašnjeno u ovom kursu.
 </p>
-<h3> Spring Integration</h3>
+<h3>Spring Integration</h3>
 <p>
-	Spring Integration projekat ima za cilj olakšavanje integracije poslovnih aplikacija pružajući podršku za implementaciju ustaljenih obrazaca u ovom domenu. Ovaj radni okvir omogućava lagani sistem za razmenu poruka između Spring aplikacija, ali i integraciju sa spoljnim sistemima koristeći koncept deklarativnih adaptera.
+  Spring Integration projekat ima za cilj olakšavanje integracije poslovnih
+  aplikacija pružajući podršku za implementaciju ustaljenih obrazaca u ovom
+  domenu. Ovaj radni okvir omogućava lagani sistem za razmenu poruka između
+  Spring aplikacija, ali i integraciju sa spoljnim sistemima koristeći koncept
+  deklarativnih adaptera.
 </p>
 
 <h3>Spring Web Flow</h3>
 <p>
-	Spring Web Flow se nadograđuje na osnovni Spring MVC radni okvir (koji je deo radnog okvira Spring Framework) i pruža podršku za lak razvoj veb aplikacija koje imaju kontrolisan tok, odnosno sekvencu određenih koraka koje vode izvršenju nekog poslovnog zadatka. Primer ovih aplikacija mogu biti aplikacija za kupovinu na internetu ili čekiranje na let, a zajednička im je potreba za održavanjem stanja.
+  Spring Web Flow se nadograđuje na osnovni Spring MVC radni okvir (koji je deo
+  radnog okvira Spring Framework) i pruža podršku za lak razvoj veb aplikacija
+  koje imaju kontrolisan tok, odnosno sekvencu određenih koraka koje vode
+  izvršenju nekog poslovnog zadatka. Primer ovih aplikacija mogu biti aplikacija
+  za kupovinu na internetu ili čekiranje na let, a zajednička im je potreba za
+  održavanjem stanja.
 </p>
 
 <h3>Spring Mobile</h3>
 <p>
-	Spring Mobile je još jedan projekat koji se nadograđuje na Spring MVC, a omogućava lak razvoj mobilnih veb aplikacija. Osnovna karakteristika ovog radnog okvira je mogućnost prepoznavanja tipa uređaja koji šalje zahtev na osnovu čega se vraća prikaz prilagođen tom uređaju.
+  Spring Mobile je još jedan projekat koji se nadograđuje na Spring MVC, a
+  omogućava lak razvoj mobilnih veb aplikacija. Osnovna karakteristika ovog
+  radnog okvira je mogućnost prepoznavanja tipa uređaja koji šalje zahtev na
+  osnovu čega se vraća prikaz prilagođen tom uređaju.
 </p>
 <h3>Spring for Android</h3>
 <p>
-	Spring for Android je projekat koji daje podršku za razvoj native Android aplikacija. Glavne karakteristike koje pruža ovaj radni okvir su REST klijent za Android i podrška za autorizaciju i Secure API.
+  Spring for Android je projekat koji daje podršku za razvoj native Android
+  aplikacija. Glavne karakteristike koje pruža ovaj radni okvir su REST klijent
+  za Android i podrška za autorizaciju i Secure API.
 </p>

@@ -2,11 +2,19 @@
 
 <h2>Funkcije srednjeg sloja (Middleware functions)</h2>
 
-Funkcije srednjeg sloja imaju pristup objektima <b>req</b> i <b>res</b> kao i sledećoj funkciji u nizu <b>next</b>. Ove funkcije se koriste da izvrše izmene na req i res objektima, kao na primer parsiranje tela zahteva (request body), dodavanje zaglavlja odgovora (response headers), logovanje bitnih informacija itd.<br><br>
+Funkcije srednjeg sloja imaju pristup objektima <b>req</b> i <b>res</b> kao i
+sledećoj funkciji u nizu <b>next</b>. Ove funkcije se koriste da izvrše izmene
+na req i res objektima, kao na primer parsiranje tela zahteva (request body),
+dodavanje zaglavlja odgovora (response headers), logovanje bitnih informacija
+itd.<br /><br />
 
-Sledi primer proste funkcije srednjeg sloja koja se poziva za svaki zahtev sa rutom "/test" koji pristigne serveru i u konzoli ispisuje poruku "Pirstigao je novi zahtev", a zatim ako je u pitanju get zahtev, klijentu će biti poslat odgovor "Uspešno obrađen zahtev".
+Sledi primer proste funkcije srednjeg sloja koja se poziva za svaki zahtev sa
+rutom "/test" koji pristigne serveru i u konzoli ispisuje poruku "Pirstigao je
+novi zahtev", a zatim ako je u pitanju get zahtev, klijentu će biti poslat
+odgovor "Uspešno obrađen zahtev".
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('express');
 var app = express();
 
@@ -26,10 +34,12 @@ app.listen(2020);
 
 <h2>Redosled funkcija</h2>
 
-Redosled u kome su funkcije upisane u fajl je redosled po kome će iste biti izvršene, pa u vezi sa tim,  odgovarajuće rute moraju biti konzistentne.<br><br>
+Redosled u kome su funkcije upisane u fajl je redosled po kome će iste biti
+izvršene, pa u vezi sa tim, odgovarajuće rute moraju biti konzistentne.<br /><br />
 
 Primer:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('express');
 var app = express();
 
@@ -62,11 +72,12 @@ app.use('/', function(req, res){
 app.listen(2020);
 </xmp>
 
-<div class = "napomena">Osim funkcija srednjeg sloja,
- mogu se koristiti i vec postojeći moduli kao na primer:<br>
-body-parser <br>
-cookie-parser <br>
-express-session <br>
-multer <br>
-O nekima će biti više reči u nekoj od narednih lekcija.
+<div class="napomena">
+  Osim funkcija srednjeg sloja, mogu se koristiti i vec postojeći moduli kao na
+  primer:<br />
+  body-parser <br />
+  cookie-parser <br />
+  express-session <br />
+  multer <br />
+  O nekima će biti više reči u nekoj od narednih lekcija.
 </div>

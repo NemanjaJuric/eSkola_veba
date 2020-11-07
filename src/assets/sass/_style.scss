@@ -1,76 +1,77 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 *:focus {
-    outline: 0 !important;
+  outline: 0 !important;
 }
 
-.logo-lg{
-    width: 150px;
+.logo-lg {
+  width: 150px;
 }
 
-.logo-md{
-    width: 100px;
+.logo-md {
+  width: 100px;
 }
 
-.logo-sm{
-    width: 60px;
+.logo-sm {
+  width: 60px;
 }
 
-.card{
-    border: 1px solid $light-gray;
+.card {
+  border: 1px solid $light-gray;
 }
 
-.wrapper{
-    position: relative;
-    height: calc(100vh - 170px);
-    top: 60px;
+.wrapper {
+  position: relative;
+  height: calc(100vh - 170px);
+  top: 60px;
 }
 
-.container{
-    position: relative;
-    z-index: 1;
+.container {
+  position: relative;
+  z-index: 1;
 }
 
-.popover{
-    background-color: $material-dark-gray;
-    color: $light;
-    border: none;
-    border-radius: 0;
-    font-size: 20px;
-    box-shadow: 0 0 2px $gray;
+.popover {
+  background-color: $material-dark-gray;
+  color: $light;
+  border: none;
+  border-radius: 0;
+  font-size: 20px;
+  box-shadow: 0 0 2px $gray;
 }
 
-.form-input{
-    border: 1px solid $light-gray;
-    border-radius: 0;
-    height: 42px !important;
-    font-size: 20px !important;
-    text-align: center;
+.form-input {
+  border: 1px solid $light-gray;
+  border-radius: 0;
+  height: 42px !important;
+  font-size: 20px !important;
+  text-align: center;
 }
 
-.form-input:focus{
-    border: 1px solid $material-gray;
-    outline: 1px solid $material-gray; 
+.form-input:focus {
+  border: 1px solid $material-gray;
+  outline: 1px solid $material-gray;
 }
 
-.input-group input{
-    height: 100% !important;
+.input-group input {
+  height: 100% !important;
 }
 
-.input-group-addon{
-    border: 1px solid $light-gray;
-    border-radius: 0;
-    background-color: $light;
-    color: $dark-gray;
-    width: 60px;
-    font-size: 20px;
+.input-group-addon {
+  border: 1px solid $light-gray;
+  border-radius: 0;
+  background-color: $light;
+  color: $dark-gray;
+  width: 60px;
+  font-size: 20px;
 }
 
-.col-md-6, .col-md-12{
-    @media(max-width: 768px){
-        padding-left: 0;
-        padding-right: 0;
-    }
+.col-md-6,
+.col-md-12 {
+  @media (max-width: 768px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

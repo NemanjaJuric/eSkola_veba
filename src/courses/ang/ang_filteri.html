@@ -1,33 +1,58 @@
 <h1>AngularJS filteri</h1>
-<br/>
-<br/>
+<br />
+<br />
 U AngularJS-u mogu da se dodaju filteri da bi se podaci formatirali.
-<br/>
-<br/>
+<br />
+<br />
 <h2>AngularJS filteri</h2>
-<br/>
+<br />
 U AngularJS-u postoje sledeći filteri za transformaciju podataka:
 <ul>
-	<li><span class = "primer_text"> currency </span> - transformiše broj u valutu;</li>
-	<li><span class = "primer_text"> date </span> - transformiše datum u određeni format;</li>
-	<li><span class = "primer_text"> filter </span> - bira podniz iz niza podataka;</li>
-	<li><span class = "primer_text"> json </span> - transformiše objekat u JSON string;</li>
-	<li><span class = "primer_text"> limitTo </span> - ograničava niz/string na određeni broj elemenata/karaktera;</li>
-	<li><span class = "primer_text"> lowercase </span> - transformiše string da bude ispisan malim slovima;</li>
-	<li><span class = "primer_text"> number </span> - transformiše broj u string;</li>
-	<li><span class = "primer_text"> orderBy </span> - sortira niz po izrazu;</li>
-	<li><span class = "primer_text"> uppercase </span> - transformiše string da bude ispisan velikim slovima.</li>
+  <li>
+    <span class="primer_text"> currency </span> - transformiše broj u valutu;
+  </li>
+  <li>
+    <span class="primer_text"> date </span> - transformiše datum u određeni
+    format;
+  </li>
+  <li>
+    <span class="primer_text"> filter </span> - bira podniz iz niza podataka;
+  </li>
+  <li>
+    <span class="primer_text"> json </span> - transformiše objekat u JSON
+    string;
+  </li>
+  <li>
+    <span class="primer_text"> limitTo </span> - ograničava niz/string na
+    određeni broj elemenata/karaktera;
+  </li>
+  <li>
+    <span class="primer_text"> lowercase </span> - transformiše string da bude
+    ispisan malim slovima;
+  </li>
+  <li>
+    <span class="primer_text"> number </span> - transformiše broj u string;
+  </li>
+  <li><span class="primer_text"> orderBy </span> - sortira niz po izrazu;</li>
+  <li>
+    <span class="primer_text"> uppercase </span> - transformiše string da bude
+    ispisan velikim slovima.
+  </li>
 </ul>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Dodavanje filtera u izraze</h2>
-<br/>
-Filteri mogu da se dodaju izrazima koristeći karakter "|", iza koga sledi filter.
-<br/>
-<br/>
+<br />
+Filteri mogu da se dodaju izrazima koristeći karakter "|", iza koga sledi
+filter.
+<br />
+<br />
 <ul>
-<li>Filter <span class = "primer_text"> uppercase </span> transformiše string da bude ispisan velikim slovima:</li>
-<textarea class = "primer_ta" rows = "26" disabled >
+  <li>
+    Filter <span class="primer_text"> uppercase </span> transformiše string da
+    bude ispisan velikim slovima:
+  </li>
+  <textarea class="primer_ta" rows="26" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -48,12 +73,16 @@ angular.module('mojaAplikacija', []).controller('kontrolerOsoba', function($scop
 
 </body>
 </html>
-</textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-<li>Filter <span class = "primer_text"> lowercase </span> transformiše string da bude ispisan malim slovima:</li>
-<textarea class = "primer_ta" rows = "26" disabled >
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
+  <li>
+    Filter <span class="primer_text"> lowercase </span> transformiše string da
+    bude ispisan malim slovima:
+  </li>
+  <textarea class="primer_ta" rows="26" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -74,19 +103,22 @@ angular.module('mojaAplikacija', []).controller('kontrolerOsoba', function($scop
 
 </body>
 </html>
-</textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button>
+  <br />
+  <br />
 </ul>
 <h2>Dodavanje filtera u direktive</h2>
-<br/>
-Filteri se dodaju i direktivu, poput <span class = "primer_text"> ng-repeat </span>, koristeći karakter "|" iza koga sledi filter.
-<br/>
-<br/>
-Filter <span class = "primer_text"> orderBy </span> sortira niz:
-<br/>
-<textarea class = "primer_ta" rows = "41" disabled >
+<br />
+Filteri se dodaju i direktivu, poput
+<span class="primer_text"> ng-repeat </span>, koristeći karakter "|" iza koga
+sledi filter.
+<br />
+<br />
+Filter <span class="primer_text"> orderBy </span> sortira niz:
+<br />
+<textarea class="primer_ta" rows="41" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -122,14 +154,14 @@ angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scop
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-<h2>Filter <span class = "primer_text"> currency </span></h2>
-<br/>
-Filter <span class = "primer_text"> currency </span> transformiše broj u valutu.
-<br/>
-<textarea class = "primer_ta" rows = "28" disabled >
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+<h2>Filter <span class="primer_text"> currency </span></h2>
+<br />
+Filter <span class="primer_text"> currency </span> transformiše broj u valutu.
+<br />
+<textarea class="primer_ta" rows="28" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -153,12 +185,13 @@ app.controller('kontrolerCena', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-Podrazumevana valuta je lokalna valuta. Valuta može da se promeni dodavanjem simbola iza filtera na sledeći način:
-<br/>
-<textarea class = "primer_ta" rows = "28" disabled >
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+Podrazumevana valuta je lokalna valuta. Valuta može da se promeni dodavanjem
+simbola iza filtera na sledeći način:
+<br />
+<textarea class="primer_ta" rows="28" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -182,18 +215,19 @@ app.controller('kontrolerCena', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-<h2>Filter <span class = "primer_text"> filter </span></h2>
-<br/>
-Filter <span class = "primer_text"> filter </span> bira podniz od niza podataka.
-<br/>
-Filter <span class = "primer_text"> filter </span> može da se koristi samo za nizove, i vraća niz koji sadrži samo odgovarajuće elemente.
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+<h2>Filter <span class="primer_text"> filter </span></h2>
+<br />
+Filter <span class="primer_text"> filter </span> bira podniz od niza podataka.
+<br />
+Filter <span class="primer_text"> filter </span> može da se koristi samo za
+nizove, i vraća niz koji sadrži samo odgovarajuće elemente.
+<br />
 Sledeći primer će ispisati sva imena koja sadrže slovo "I":
-<br/>
-<textarea class = "primer_ta" rows = "42" disabled >
+<br />
+<textarea class="primer_ta" rows="42" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -230,57 +264,68 @@ angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scop
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Sintaksa:
-<br/>
-<span class = "primer_text"> {{ niz | filter : izraz : komparator }} </span>
-<br/>
-<br/>
+<br />
+<span class="primer_text"> {{ niz | filter : izraz : komparator }} </span>
+<br />
+<br />
 Vrednosti parametra mogu biti:
-<table class = "tabela">
-	<thead>
-		<tr>
-			<th>Vrednost</th>
-			<th>Opis</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>izraz</td>
-			<td>Izraz koji se koristi prilikom biranja elemenata iz niza. Izraz može da bude tipa:
-				<br/>
-				<br/>
-				String: Biće odabrani elementi niza koji se podudaraju sa stringom.
-				<br/>
-				<br/>
-				Objekat: Objekat je obrazac za pretragu niza. Na primer: {"ime" : "I", "grad": "Beograd"} će vratiti niz elemenata čije ime sadrži slovo "I", i gde grad sadrži reč "Beograd". Vidite primer ispod tabele.
-				<br/>
-				<br/>
-				Funkcija: Funkcija koja će se pozivati za svaki element niza, i vraća samo one elemente u kojima funkcija vraća "true".
-			</td>
-		</tr>
-		<tr>
-			<td>komparator</td>
-			<td>Ovo je opciono. Definiše koliko strogo poređenje treba da bude. Može imati sledeće vrednosti:
-				<br/>
-				<br/>
-				true: Vraća samo one elemente niza koji se tačno podudaraju sa onim sa čime vršimo poređenje.
-				<br/>
-				<br/>
-				false : Vraća one elemente niza koji sadrže izraz sa kojim se porede. Kod ovog poređenja nije bitno da li su mala ili velika slova. Ovo je podrazumevana vrednost.
-				<br/>
-				<br/>
-				funkcija: Funkcija u kojoj će biti definisano šta će se smatrati poklapanjem ili ne.
-			</td>
-		</tr>
-	</tbody>
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Vrednost</th>
+      <th>Opis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>izraz</td>
+      <td>
+        Izraz koji se koristi prilikom biranja elemenata iz niza. Izraz može da
+        bude tipa:
+        <br />
+        <br />
+        String: Biće odabrani elementi niza koji se podudaraju sa stringom.
+        <br />
+        <br />
+        Objekat: Objekat je obrazac za pretragu niza. Na primer: {"ime" : "I",
+        "grad": "Beograd"} će vratiti niz elemenata čije ime sadrži slovo "I", i
+        gde grad sadrži reč "Beograd". Vidite primer ispod tabele.
+        <br />
+        <br />
+        Funkcija: Funkcija koja će se pozivati za svaki element niza, i vraća
+        samo one elemente u kojima funkcija vraća "true".
+      </td>
+    </tr>
+    <tr>
+      <td>komparator</td>
+      <td>
+        Ovo je opciono. Definiše koliko strogo poređenje treba da bude. Može
+        imati sledeće vrednosti:
+        <br />
+        <br />
+        true: Vraća samo one elemente niza koji se tačno podudaraju sa onim sa
+        čime vršimo poređenje.
+        <br />
+        <br />
+        false : Vraća one elemente niza koji sadrže izraz sa kojim se porede.
+        Kod ovog poređenja nije bitno da li su mala ili velika slova. Ovo je
+        podrazumevana vrednost.
+        <br />
+        <br />
+        funkcija: Funkcija u kojoj će biti definisano šta će se smatrati
+        poklapanjem ili ne.
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br/>
-<span class = "primer_text">Primer:</span>
-<br/>
-<textarea class = "primer_ta" rows = "41" disabled >
+<br />
+<span class="primer_text">Primer:</span>
+<br />
+<textarea class="primer_ta" rows="41" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -316,16 +361,17 @@ app.controller('kontrolerImena', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Filtriranje niza na osnovu unosa korisnika</h2>
-<br/>
-Postavljanjem direktive ng-model na polje za unos podataka, može se koristiti vrednost polja "input" kao izraz za filter.
-<br/>
-<br/>
-<span class = "primer_text">Primer:</span>
-<textarea class = "primer_ta" rows = "47" disabled >
+<br />
+Postavljanjem direktive ng-model na polje za unos podataka, može se koristiti
+vrednost polja "input" kao izraz za filter.
+<br />
+<br />
+<span class="primer_text">Primer:</span>
+<textarea class="primer_ta" rows="47" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -367,16 +413,17 @@ angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scop
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Sortiranje niza na osnovu unosa korisnika</h2>
-<br/>
-Dodavanjem direktive ng-click na zaglavlje tabele, može da se pokrene funkcija koja menja redosled sortiranja niza.
-<br/>
-<br/>
-<span class = "primer_text">Primer:</span>
-<textarea class = "primer_ta" rows = "53" disabled >
+<br />
+Dodavanjem direktive ng-click na zaglavlje tabele, može da se pokrene funkcija
+koja menja redosled sortiranja niza.
+<br />
+<br />
+<span class="primer_text">Primer:</span>
+<textarea class="primer_ta" rows="53" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -421,16 +468,18 @@ angular.module('mojaAplikacija', []).controller('kontrolerImena', function($scop
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Napravljeni filteri</h2>
-<br/>
-Mogu da se naprave novi filteri tako što se napravi novi skup funkcija filtera sa svojim modulom.
-<br/>
-<br/>
-<span class = "primer_text">Primer:</span> napravljen je novi filter koji se zove "mojFormat"
-<textarea class = "primer_ta" rows = "52" disabled >
+<br />
+Mogu da se naprave novi filteri tako što se napravi novi skup funkcija filtera
+sa svojim modulom.
+<br />
+<br />
+<span class="primer_text">Primer:</span> napravljen je novi filter koji se zove
+"mojFormat"
+<textarea class="primer_ta" rows="52" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -477,6 +526,6 @@ app.controller('kontrolerImena', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />

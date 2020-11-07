@@ -1,7 +1,9 @@
 <h1>Vue i Objektni model dokumenta</h1>
 
-Vratimo se na prethodni primer.Napravili smo jednostavnu aplikaciju koja ispisuje tekst "Zdravo svete" na ekranu. Sada ćemo napraviti istu aplikaciju ali na drugi način, koristeći metode unutar Vue instance.
-<xmp class = "primer_ta">
+Vratimo se na prethodni primer.Napravili smo jednostavnu aplikaciju koja
+ispisuje tekst "Zdravo svete" na ekranu. Sada ćemo napraviti istu aplikaciju ali
+na drugi način, koristeći metode unutar Vue instance.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,12 +29,24 @@ Vratimo se na prethodni primer.Napravili smo jednostavnu aplikaciju koja ispisuj
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 
-Ono što primećujemo je ključna reč methods čija će vrednost da bude JavaScript objekat koji će da sadrži sve metode koje se mogu izvršavati u okviru Vue instance. Dakle, svojstvo data sadrži polja dok methods sadrži metode. U ovom konkretnom slučaju methods sadrži metodu kaziZdravo koja vraća string "Zdravo svete". Metodu smo pozvali tako što smo umesto {{title}} napisali {{kaziZdravo()}} čime smo izvršili poziv metode kaziZdravo.
-<div class = "napomena">Česta greška koja se pravi je da se umesto {{kaziZdravo()}} napiše {{kaziZdravo}} . Ovim bismo prosledili samo naziv metode ali ne i njen poziv. Tek kada pozovemo metodu možemo dobiti povratnu vrednost.</div>
-Kao vrednost polja title i kao povratnu vrednost metode kaziZdravo imali smo definisan string. Takodje, možemo da povežemo podatke i metode unutar Vue instance i da napišemo metodu koja će kao povratnu vrednost da vrati nešto iz data objekta.
-<xmp class = "primer_ta">
+Ono što primećujemo je ključna reč methods čija će vrednost da bude JavaScript
+objekat koji će da sadrži sve metode koje se mogu izvršavati u okviru Vue
+instance. Dakle, svojstvo data sadrži polja dok methods sadrži metode. U ovom
+konkretnom slučaju methods sadrži metodu kaziZdravo koja vraća string "Zdravo
+svete". Metodu smo pozvali tako što smo umesto {{title}} napisali
+{{kaziZdravo()}} čime smo izvršili poziv metode kaziZdravo.
+<div class="napomena">
+  Česta greška koja se pravi je da se umesto {{kaziZdravo()}} napiše
+  {{kaziZdravo}} . Ovim bismo prosledili samo naziv metode ali ne i njen poziv.
+  Tek kada pozovemo metodu možemo dobiti povratnu vrednost.
+</div>
+Kao vrednost polja title i kao povratnu vrednost metode kaziZdravo imali smo
+definisan string. Takodje, možemo da povežemo podatke i metode unutar Vue
+instance i da napišemo metodu koja će kao povratnu vrednost da vrati nešto iz
+data objekta.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,19 +72,35 @@ Kao vrednost polja title i kao povratnu vrednost metode kaziZdravo imali smo def
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 
-Unutar tela metode kaziZdravo primećujemo da metoda sada vraća this.title.Ključna reč this referiše na objekat unutar svojstva data. Ako bismo stavili unutar metode return title, metoda ne bi vraćala ništa jer ne bi znala na šta se ovo title odnosi tj. gde se nalazi. Na ovaj način uz pomoć ključne reči this, Vue u pozadini povezuje this.title sa title unutar data svojstva.
-<div class = "napomena">Koncept ključne reči this je jedan od apstraktnijih u objektno orijentisanom programiranju. Za sada treba shvatiti da će u našem konkretnom slučaju biti važno da pišemo this.title umesto title da bi Vue u pozadini znao da je title polje unutar data objekta.This će referisati baš na taj objekat. Kroz dalje primere će ovaj koncept biti jasniji.</div>
+Unutar tela metode kaziZdravo primećujemo da metoda sada vraća
+this.title.Ključna reč this referiše na objekat unutar svojstva data. Ako bismo
+stavili unutar metode return title, metoda ne bi vraćala ništa jer ne bi znala
+na šta se ovo title odnosi tj. gde se nalazi. Na ovaj način uz pomoć ključne
+reči this, Vue u pozadini povezuje this.title sa title unutar data svojstva.
+<div class="napomena">
+  Koncept ključne reči this je jedan od apstraktnijih u objektno orijentisanom
+  programiranju. Za sada treba shvatiti da će u našem konkretnom slučaju biti
+  važno da pišemo this.title umesto title da bi Vue u pozadini znao da je title
+  polje unutar data objekta.This će referisati baš na taj objekat. Kroz dalje
+  primere će ovaj koncept biti jasniji.
+</div>
 
-Vratimo se sada na {{title}}odnosno {{kaziZdravo()}}  konstrukciju. Ova konstrukcija se naziva string interpolacija. Do sada smo ovo koristili unutar paragrafa. Šta ako želimo da iskoristimo ovo svojstvo na nekom drugom mestu kao npr. u okviru atributa neki html etiketa? <br>
-Recimo da želimo da napravimo link ka sajtu Google.Sledeće rešenje nije ispravno:
-<span class="primer_text">
- &lta href="{{link}}"&gtGoogle&lt/a&gt</span>
-<br>
-gde link predstavlja string "http://google.com" i nalazi se u okviru data svojstva zajedno sa title. String interpolacija se može koristiti samo na mestima gde želimo da postoji nekakav tekst ali ne možemo da koristimo u okviru html elemenata.<br>
+Vratimo se sada na {{title}}odnosno {{kaziZdravo()}} konstrukciju. Ova
+konstrukcija se naziva string interpolacija. Do sada smo ovo koristili unutar
+paragrafa. Šta ako želimo da iskoristimo ovo svojstvo na nekom drugom mestu kao
+npr. u okviru atributa neki html etiketa? <br />
+Recimo da želimo da napravimo link ka sajtu Google.Sledeće rešenje nije
+ispravno:
+<span class="primer_text"> &lta href="{{link}}"&gtGoogle&lt/a&gt</span>
+<br />
+gde link predstavlja string "http://google.com" i nalazi se u okviru data
+svojstva zajedno sa title. String interpolacija se može koristiti samo na
+mestima gde želimo da postoji nekakav tekst ali ne možemo da koristimo u okviru
+html elemenata.<br />
 Sledeće rešenje je ispravno:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,16 +129,28 @@ Sledeće rešenje je ispravno:
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 
 Pre svega primetimo da smo dodali link kao novi podatak u okviru Vue instance.
 Novina je sledeća konstrukcija:
-<span class="primer_text">
- &lta v-bind:href="link"&gtGoogle&lt/a&gt</span>
-Klasičnom string interpolacijom nismo uspeli da rešimo problem. Uvodimo pojam Vue direktive.U našem konkretnom slučaju iskoristićemo ugradjenu v-bind direktivu.Direktivom v-bind radimo sledeću stvar- vezujemo vrednost href atributa za neki konkretan podatak iz Vue instance.U našem slučaju  v-bind:href="link" označava da ćemo za vrednost href atributa da vežemo vrednost podatka link iz Vue instance. Promenom vrednosti podatka link u okviru Vue instance menjaće se i vrednost atributa href. Dakle, v-bind direktivi smo prosledili href atribut sa konstrukcijom v-bind:href i onda smo za vrednst atributa href uzeli podatak iz Vue instance.Primetimo da se ovde ne koriste vitičaste zagrade. 
-<div class = "napomena">Direktiva predstavlja instrukciju koju možemo da postavimo u našem kodu. Vue ima nekoliko ugradjenih direktiva.Jedna od njih je v-bind.Moguće je pisati i svoje direktive.Kasnije ćemo se detaljnije baviti direktivama</div>
+<span class="primer_text"> &lta v-bind:href="link"&gtGoogle&lt/a&gt</span>
+Klasičnom string interpolacijom nismo uspeli da rešimo problem. Uvodimo pojam
+Vue direktive.U našem konkretnom slučaju iskoristićemo ugradjenu v-bind
+direktivu.Direktivom v-bind radimo sledeću stvar- vezujemo vrednost href
+atributa za neki konkretan podatak iz Vue instance.U našem slučaju
+v-bind:href="link" označava da ćemo za vrednost href atributa da vežemo vrednost
+podatka link iz Vue instance. Promenom vrednosti podatka link u okviru Vue
+instance menjaće se i vrednost atributa href. Dakle, v-bind direktivi smo
+prosledili href atribut sa konstrukcijom v-bind:href i onda smo za vrednst
+atributa href uzeli podatak iz Vue instance.Primetimo da se ovde ne koriste
+vitičaste zagrade.
+<div class="napomena">
+  Direktiva predstavlja instrukciju koju možemo da postavimo u našem kodu. Vue
+  ima nekoliko ugradjenih direktiva.Jedna od njih je v-bind.Moguće je pisati i
+  svoje direktive.Kasnije ćemo se detaljnije baviti direktivama
+</div>
 Razmotrimo sada jednu interesantnu situaciju:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,10 +181,16 @@ Razmotrimo sada jednu interesantnu situaciju:
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-U okviru kaziZdravo funkcije postavili smo da vrednost title polja bude "Zdravo".Formalno, pri učitavanju strane, vrednost {{title}} u okviru paragrafa će biti "Zdravo svete" ali pri pozivu metode kaziZdravo vrednost title polja će biti prepravljena u "Zdravo". Šta ako ne želimo da se to dogodi? Šta ako želimo da se pozivom metode ne menja i title na drugim mestima u html kodu?<br>
-Odgovor na to pitanje daje v-once direktiva koja nam omogućava da se html etiketa u okviru koje se ona nalazi učita samo jednom i da se posle toga ne prepravlja.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+U okviru kaziZdravo funkcije postavili smo da vrednost title polja bude
+"Zdravo".Formalno, pri učitavanju strane, vrednost {{title}} u okviru paragrafa
+će biti "Zdravo svete" ali pri pozivu metode kaziZdravo vrednost title polja će
+biti prepravljena u "Zdravo". Šta ako ne želimo da se to dogodi? Šta ako želimo
+da se pozivom metode ne menja i title na drugim mestima u html kodu?<br />
+Odgovor na to pitanje daje v-once direktiva koja nam omogućava da se html
+etiketa u okviru koje se ona nalazi učita samo jednom i da se posle toga ne
+prepravlja.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,10 +221,12 @@ Odgovor na to pitanje daje v-once direktiva koja nam omogućava da se html etike
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Na ovaj način inicijalna vrednost polja title iz prvog paragrafa neće biti promenjena mozivom metode koje se nalazi u okviru drugog paragrafa.<br><br>
-U okviru data objekta u Vue instanci možemo čuvati i segmente html koda.Dodaćemo novi podatak ceoLink, a zatim ćemo iskoristiti direktivu v-html.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Na ovaj način inicijalna vrednost polja title iz prvog paragrafa neće biti
+promenjena mozivom metode koje se nalazi u okviru drugog paragrafa.<br /><br />
+U okviru data objekta u Vue instanci možemo čuvati i segmente html koda.Dodaćemo
+novi podatak ceoLink, a zatim ćemo iskoristiti direktivu v-html.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,13 +259,22 @@ U okviru data objekta u Vue instanci možemo čuvati i segmente html koda.Dodać
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Primetimo da v-html direktiva funkcioniše na sledeći način:<br>
-<span class="primer_text">
- &ltp v-html="ceoLink"&gt&lt/p&gt</span>.
-Kao vrednost direktive prosledili smo ceoLink i time ga vezali za podatak ceoLink iz Vue instance. 
-<div class = "napomena">Da smo umesto <span class="primer_text">
- &ltp v-html="ceoLink"&gt&lt/p&gt</span>. napisali <span class="primer_text">
- &ltp&gt{{ceoLink}}&lt/p&gt na ekranu bi bio doslovce prikazan string ' &lta href="http://google.com"&gtGoogle&lt/a&gt'</span> </div>
-<div class = "zadatak">Napisati aplikaciju koja će na veb strani da sadrži link tvog imena i prezimena i klikom na taj link će se otvoriti sajt Fejsbuka.Tvoje ime ispisano na strani će vraćati metoda vratiIme koja će se nalaziti unutar methods  objekta u okviru Vue instance.</div>
-
+<button class="button_copy">Vidi primer</button><br />
+Primetimo da v-html direktiva funkcioniše na sledeći način:<br />
+<span class="primer_text"> &ltp v-html="ceoLink"&gt&lt/p&gt</span>. Kao vrednost
+direktive prosledili smo ceoLink i time ga vezali za podatak ceoLink iz Vue
+instance.
+<div class="napomena">
+  Da smo umesto
+  <span class="primer_text"> &ltp v-html="ceoLink"&gt&lt/p&gt</span>. napisali
+  <span class="primer_text">
+    &ltp&gt{{ceoLink}}&lt/p&gt na ekranu bi bio doslovce prikazan string ' &lta
+    href="http://google.com"&gtGoogle&lt/a&gt'</span
+  >
+</div>
+<div class="zadatak">
+  Napisati aplikaciju koja će na veb strani da sadrži link tvog imena i
+  prezimena i klikom na taj link će se otvoriti sajt Fejsbuka.Tvoje ime ispisano
+  na strani će vraćati metoda vratiIme koja će se nalaziti unutar methods
+  objekta u okviru Vue instance.
+</div>

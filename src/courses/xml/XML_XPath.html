@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>XPath</title>
   </head>
   <body>
     <h1>XPath</h1>
-    <br>
+    <br />
     <h2>Postavljanje upita nad XML dokumentom</h2>
-    Kako XML dokumenti služe sa čuvanje i razmenu podataka, često se javlja potreba da se pristupi pojedinačnim podacima ili određenim grupama podataka unutar XML dokumenta. Da bi se to postiglo, razvijene su  posebne sintakse za identifikovanje različitih delova XML dokumenta i izdvajanje željenih elemenata i atributa. Među njima su XPath i XQuery, preporučeni od strane W3C. Pomoću XPath izraza se može pristupiti različitim delovima XML dokumenta, dok XQuery izrazi služe za pronalaženje i izdvajanje podataka iz XML dokumenta.
-    <br>
-    <br>
+    Kako XML dokumenti služe sa čuvanje i razmenu podataka, često se javlja
+    potreba da se pristupi pojedinačnim podacima ili određenim grupama podataka
+    unutar XML dokumenta. Da bi se to postiglo, razvijene su posebne sintakse za
+    identifikovanje različitih delova XML dokumenta i izdvajanje željenih
+    elemenata i atributa. Među njima su XPath i XQuery, preporučeni od strane
+    W3C. Pomoću XPath izraza se može pristupiti različitim delovima XML
+    dokumenta, dok XQuery izrazi služe za pronalaženje i izdvajanje podataka iz
+    XML dokumenta.
+    <br />
+    <br />
     <h2>Čvorovi XML dokumenta</h2>
-    XPath omogućava pristup raznim delovima XML dokumenta tako što prepoznaje strukturu stabla XML dokumenta i njegove grane i čvorove. Xpath razlikuje sedam vrsti čvorova, i to su:
-    <br>
+    XPath omogućava pristup raznim delovima XML dokumenta tako što prepoznaje
+    strukturu stabla XML dokumenta i njegove grane i čvorove. Xpath razlikuje
+    sedam vrsti čvorova, i to su:
+    <br />
     <ul>
       <li>Korenski čvor;</li>
       <li>Čvorovi elemenata;</li>
       <li>Čvorovi atributa;</li>
       <li>Čvorovi teksta;</li>
       <li>Čvorovi komentara;</li>
-      <li>Čvorovi instrukcija za obradu; </li>
+      <li>Čvorovi instrukcija za obradu;</li>
       <li>Čvorovi prostora imena.</li>
     </ul>
-    Osim toga, XPath prepoznaje i veze među njima, odnosno međusobnu povezanost elemenata, ili elemenata i atributa i slično. Sadrži biblioteku od 27 standardizovanih funkcija, među kojima su funkcije za rad sa čvorovima, znakovnim nizovima, logičkim vrednostima, numeričke funkcije, funkcije za upoređivanje podataka tipa „date“ i „time“ i još mnogo njih. Ta biblioteka se može proširiti i funkcijama koje korisnik sam kreira. XPath je dizajniran da radi sa logičkim strukturama jednog XML dokumenta.
-    <br>
-    XPath ne može locirati XML deklaraciju, definiciju tipa dokumenata (DOCTYPE), niti delove DTD dokumenata.
-    <br><br>
-    Treba naglasiti da korenski čvor nije isto što i korenski element. On sadrži korenski element XML dokumenta i sve komentare i instrukcije za obradu koje se mogu naći ispred njegove početne ili iza njegove završne etikete. Ostale vrste čvorova se jednostavno mogu uočiti u XML dokumentu.
-    <br><br><b>Primer 58:</b> XML dokument "bioskop.xml"
-    <xmp class = "primer_ta">
+    Osim toga, XPath prepoznaje i veze među njima, odnosno međusobnu povezanost
+    elemenata, ili elemenata i atributa i slično. Sadrži biblioteku od 27
+    standardizovanih funkcija, među kojima su funkcije za rad sa čvorovima,
+    znakovnim nizovima, logičkim vrednostima, numeričke funkcije, funkcije za
+    upoređivanje podataka tipa „date“ i „time“ i još mnogo njih. Ta biblioteka
+    se može proširiti i funkcijama koje korisnik sam kreira. XPath je dizajniran
+    da radi sa logičkim strukturama jednog XML dokumenta.
+    <br />
+    XPath ne može locirati XML deklaraciju, definiciju tipa dokumenata
+    (DOCTYPE), niti delove DTD dokumenata.
+    <br /><br />
+    Treba naglasiti da korenski čvor nije isto što i korenski element. On sadrži
+    korenski element XML dokumenta i sve komentare i instrukcije za obradu koje
+    se mogu naći ispred njegove početne ili iza njegove završne etikete. Ostale
+    vrste čvorova se jednostavno mogu uočiti u XML dokumentu.
+    <br /><br /><b>Primer 58:</b> XML dokument "bioskop.xml"
+    <xmp class="primer_ta">
       <?xml version="1.0" encoding="UTF-8"?>
       <bioskop>
         <film zanr="horor">
@@ -52,379 +71,605 @@
         </film>
       </bioskop>
    </xmp>
-   U primeru 58, u kome je prikazan jednostavan XML dokument „bioskop.xml“ mogu se primetiti različite vrste čvorova.
-   Čvor bioskop predstavlja korenski čvor. U slučaju da je ovaj dokument sadržao komentare i instrukcije za obradu pre i posle korenskog elementa, i oni bi bili uključeni u korenski čvor.
-   Mogu se primetiti i čvorovi elemenata kao što su film, reditelj, trajanje, čvorovi teksta kao što su Andy Muschietti, 2h 49min i čvorovi atributa od kojih je jedan zanr="fantastika".
-   <br>
-   <div class = "napomena"> <b>Napomena:</b> Specifično je to što XPath atribute xmlns i xmlns:prefiks ne posmatra kao atributske čvorove. Pored toga, kao čvor prostora imena prepoznaje sve elemente i atribute koji pripadaju tom prostoru imena,  a ne samo deklaraciju prostora imena.
-    Prefiks predstavlja ime čvora prostora imena, a URI identifikator prostora imena predstavlja vrednost tog čvora. Čvorovi prostora imena se ne obrađuju eksplicitno tako često.</div>
+    U primeru 58, u kome je prikazan jednostavan XML dokument „bioskop.xml“ mogu
+    se primetiti različite vrste čvorova. Čvor bioskop predstavlja korenski
+    čvor. U slučaju da je ovaj dokument sadržao komentare i instrukcije za
+    obradu pre i posle korenskog elementa, i oni bi bili uključeni u korenski
+    čvor. Mogu se primetiti i čvorovi elemenata kao što su film, reditelj,
+    trajanje, čvorovi teksta kao što su Andy Muschietti, 2h 49min i čvorovi
+    atributa od kojih je jedan zanr="fantastika".
+    <br />
+    <div class="napomena">
+      <b>Napomena:</b> Specifično je to što XPath atribute xmlns i xmlns:prefiks
+      ne posmatra kao atributske čvorove. Pored toga, kao čvor prostora imena
+      prepoznaje sve elemente i atribute koji pripadaju tom prostoru imena, a ne
+      samo deklaraciju prostora imena. Prefiks predstavlja ime čvora prostora
+      imena, a URI identifikator prostora imena predstavlja vrednost tog čvora.
+      Čvorovi prostora imena se ne obrađuju eksplicitno tako često.
+    </div>
 
-    Veze između čvorova analogne su vezama između elemenata XML dokumenta. Zapravo, postoje čvorovi roditelji i čvorovi deca i svaki element i atribut ima jednog svog roditelja. Čvorovi elemenata mogu i ne moraju imati jedno ili više dece. Svi čvorovi koji imaju zajedničkog roditelja nazivaju se braćom i sestrama čvorovima. Čvorovi preci jednog čvora su njegov roditelj, roditelj roditelja i tako dalje, a čvorovi potomci jednog čvora su njegovo dete, dete deteta i tako dalje.
-   <br><br>
-   <h2>XPath operatori</h2>
-   Često XPath izrazi u sebi sadrže operatore. XPath podržava operatore osnovnih računskih operacija kao što su operator sabiranja (+), oduzimanja (-), množenja (*), celobrojnog deljenja (div) i određivanja ostatka pri deljenju (mod). Osim navedenih, XPath podržava i operatore poređenja: jednako (=), različito (!=), manje (<), manje ili jednako (<=), veće (>), veće ili jednako (>=), kao i logičke operatore „or“ i „and“. Specifičan operator koji se često koristi u XPath izrazima je operator „|“ kojim se istovremeno ispituju dva skupa čvorova različite vrste.
-   <br><br>
-   <h2>XPath izrazi</h2>
-   Glavni alat koji XPath pruža jesu XPath izrazi. Zapravo, XPath omogućava pisanje izraza koji upućuju na željene čvorove određenog XML dokumenta. Recimo, na atribut „zanr“ elementa „film“, ili na drugi element „film“ koji se javlja u datom XML dokumentu, ili pak na željenog potomka određenog elementa, skup određenih elemenata i slično. Mogu se koristiti u jezicima Java, C, C++, PHP, JavaScript, Python, XSLT i mnogim drugim. XPath izrazi kao rezultat vraćaju skup čvorova, znakovne nizove, brojeve ili logičke vrednosti. Prema tome, postoje različite vrste XPath izraza:
-   <ul>
-     <li>Lokacione putanje (ili putanje lokacija);</li>
-     <li>Logički izrazi;</li>
-     <li>Znakovni nizovi;</li>
-     <li>Brojevini izrazi.</li>
-   </ul>
-   <br>
-<b>Lokacione putanje</b> su XPath izrazi koji se najviše koriste i oni služe za pronalaženje nekog skupa čvorova u dokumentu. Taj skup (lista) čvorova može biti prazan ili sadržati jedan ili više čvorova. Elementi tog skupa mogu biti čvorovi iste vrste ili kombinacija različitih vrsta čvorova. Lokacione putanje mogu biti apsolutne ili relativne. U oba slučaja sadrže jedan ili više koraka (XPath izraza) razdvojenih znakom „/“. Ukoliko putanja počinje znakom „/“, ona je apsolutna, a ukoliko taj znak izostaje sa početka putanje, u pitanju je relativna lokaciona putanja. Tekući čvor (ili skup čvorova) u odnosu na koji se pronalaze ostali čvorovi naziva se <b>konteksni čvor (ili konteksni skup čvorova)</b>.
+    Veze između čvorova analogne su vezama između elemenata XML dokumenta.
+    Zapravo, postoje čvorovi roditelji i čvorovi deca i svaki element i atribut
+    ima jednog svog roditelja. Čvorovi elemenata mogu i ne moraju imati jedno
+    ili više dece. Svi čvorovi koji imaju zajedničkog roditelja nazivaju se
+    braćom i sestrama čvorovima. Čvorovi preci jednog čvora su njegov roditelj,
+    roditelj roditelja i tako dalje, a čvorovi potomci jednog čvora su njegovo
+    dete, dete deteta i tako dalje.
+    <br /><br />
+    <h2>XPath operatori</h2>
+    Često XPath izrazi u sebi sadrže operatore. XPath podržava operatore
+    osnovnih računskih operacija kao što su operator sabiranja (+), oduzimanja
+    (-), množenja (*), celobrojnog deljenja (div) i određivanja ostatka pri
+    deljenju (mod). Osim navedenih, XPath podržava i operatore poređenja:
+    jednako (=), različito (!=), manje (<), manje ili jednako (<=), veće (>),
+    veće ili jednako (>=), kao i logičke operatore „or“ i „and“. Specifičan
+    operator koji se često koristi u XPath izrazima je operator „|“ kojim se
+    istovremeno ispituju dva skupa čvorova različite vrste.
+    <br /><br />
+    <h2>XPath izrazi</h2>
+    Glavni alat koji XPath pruža jesu XPath izrazi. Zapravo, XPath omogućava
+    pisanje izraza koji upućuju na željene čvorove određenog XML dokumenta.
+    Recimo, na atribut „zanr“ elementa „film“, ili na drugi element „film“ koji
+    se javlja u datom XML dokumentu, ili pak na željenog potomka određenog
+    elementa, skup određenih elemenata i slično. Mogu se koristiti u jezicima
+    Java, C, C++, PHP, JavaScript, Python, XSLT i mnogim drugim. XPath izrazi
+    kao rezultat vraćaju skup čvorova, znakovne nizove, brojeve ili logičke
+    vrednosti. Prema tome, postoje različite vrste XPath izraza:
+    <ul>
+      <li>Lokacione putanje (ili putanje lokacija);</li>
+      <li>Logički izrazi;</li>
+      <li>Znakovni nizovi;</li>
+      <li>Brojevini izrazi.</li>
+    </ul>
+    <br />
+    <b>Lokacione putanje</b> su XPath izrazi koji se najviše koriste i oni služe
+    za pronalaženje nekog skupa čvorova u dokumentu. Taj skup (lista) čvorova
+    može biti prazan ili sadržati jedan ili više čvorova. Elementi tog skupa
+    mogu biti čvorovi iste vrste ili kombinacija različitih vrsta čvorova.
+    Lokacione putanje mogu biti apsolutne ili relativne. U oba slučaja sadrže
+    jedan ili više koraka (XPath izraza) razdvojenih znakom „/“. Ukoliko putanja
+    počinje znakom „/“, ona je apsolutna, a ukoliko taj znak izostaje sa početka
+    putanje, u pitanju je relativna lokaciona putanja. Tekući čvor (ili skup
+    čvorova) u odnosu na koji se pronalaze ostali čvorovi naziva se
+    <b>konteksni čvor (ili konteksni skup čvorova)</b>.
 
-  <br><br><b>Primer 59:</b> Apsolutna lokaciona putanja
-  <xmp class = "primer_ta">
+    <br /><br /><b>Primer 59:</b> Apsolutna lokaciona putanja
+    <xmp class="primer_ta"
+>
   /korak1/korak2/korak3/...
-  </xmp>
-  <b>Primer 60:</b> Relativna lokaciona putanja
-  <xmp class = "primer_ta">
+  </xmp
+    >
+    <b>Primer 60:</b> Relativna lokaciona putanja
+    <xmp class="primer_ta"
+>
   korak1/korak2/korak3/...
-  </xmp>
-  Korak lokacione putanje se sastoji od:
-  <ul>
-    <li>Ose;</li>
-    <li>Testa čvorova (node-test);</li>
-    <li>Predikta (može a ne mora postojati u koraku).</li>
-  </ul>
-  <br><b>XPath ose</b>
-  <br>Konteksni čvor je uvek u nekom odnosu sa ostalim čvorovima dokumenta. XPath ose razvrstavaju čvorove dokumenta u različite skupove u zavisnosti od toga u kakvom su odnosu sa konteksnim čvorom. Odnosno, preciznije određuju smer pretrage čvorova u odnosu na konteksni čvor. U tabeli 4 navedene su XPath ose.
-  <br><br><b>Tabela 4:</b> Ose
+  </xmp
+    >
+    Korak lokacione putanje se sastoji od:
+    <ul>
+      <li>Ose;</li>
+      <li>Testa čvorova (node-test);</li>
+      <li>Predikta (može a ne mora postojati u koraku).</li>
+    </ul>
+    <br /><b>XPath ose</b> <br />Konteksni čvor je uvek u nekom odnosu sa
+    ostalim čvorovima dokumenta. XPath ose razvrstavaju čvorove dokumenta u
+    različite skupove u zavisnosti od toga u kakvom su odnosu sa konteksnim
+    čvorom. Odnosno, preciznije određuju smer pretrage čvorova u odnosu na
+    konteksni čvor. U tabeli 4 navedene su XPath ose. <br /><br /><b
+      >Tabela 4:</b
+    >
+    Ose
 
-   <table class = "tabela">
-        <thead>
-         <tr>
-           <th><b>XPath osa</b></th>
-           <th><b>Značenje</b></th>
-         </tr>
-        </thead>
-        <tbody>
-	       <tr>
-         <td>parent</td>
-         <td>Roditelj konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>ancestor</td>
-         <td>Preci (roditelj, roditelj roditelja, itd.) konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>ancestor-or-self</td>
-         <td>Svi preci (roditelj, roditelj roditelja, itd.) konteksnog čvora i on sam.</td>
-         </tr>
-         <tr>
-         <td>attribute</td>
-         <td>Atributi konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>child</td>
-         <td>Deca konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>descendant</td>
-         <td>Potomci (deca, deca dece, itd.) konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>descendant-or-self</td>
-         <td>Svi potomci (decu, decu dece, itd.) konteksnog čvora i on sam.</td>
-         </tr>
-         <tr>
-         <td>following</td>
-         <td>Svi čvorovi koje dokument sadrži nakon završne etikete konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>following-sibling</td>
-         <td>Svi čvorovi elemenata koji su međusobno braća i sestre, nakon konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>namespace</td>
-         <td>Svi čvorovi koji pripadaju istom prostoru imena kao i konteksni čvor.</td>
-         </tr>
-         <tr>
-         <td>preceding</td>
-         <td>Svi čvorovi koji se u dokumentu nalaze ispred konteksnog čvora, osim čvorova predaka konteksnog čvora, čvorova atributa i čvorova prostora imena.</td>
-         </tr>
-         <tr>
-         <td>preceding-sibling</td>
-         <td>Svi čvorovi elemenata koji su međusobno braća i sestre i nalaze se ispred konteksnog čvora.</td>
-         </tr>
-         <tr>
-         <td>self</td>
-         <td>Konteksni čvor.</td>
-         </tr>
-         </tbody>
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th><b>XPath osa</b></th>
+          <th><b>Značenje</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>parent</td>
+          <td>Roditelj konteksnog čvora.</td>
+        </tr>
+        <tr>
+          <td>ancestor</td>
+          <td>Preci (roditelj, roditelj roditelja, itd.) konteksnog čvora.</td>
+        </tr>
+        <tr>
+          <td>ancestor-or-self</td>
+          <td>
+            Svi preci (roditelj, roditelj roditelja, itd.) konteksnog čvora i on
+            sam.
+          </td>
+        </tr>
+        <tr>
+          <td>attribute</td>
+          <td>Atributi konteksnog čvora.</td>
+        </tr>
+        <tr>
+          <td>child</td>
+          <td>Deca konteksnog čvora.</td>
+        </tr>
+        <tr>
+          <td>descendant</td>
+          <td>Potomci (deca, deca dece, itd.) konteksnog čvora.</td>
+        </tr>
+        <tr>
+          <td>descendant-or-self</td>
+          <td>
+            Svi potomci (decu, decu dece, itd.) konteksnog čvora i on sam.
+          </td>
+        </tr>
+        <tr>
+          <td>following</td>
+          <td>
+            Svi čvorovi koje dokument sadrži nakon završne etikete konteksnog
+            čvora.
+          </td>
+        </tr>
+        <tr>
+          <td>following-sibling</td>
+          <td>
+            Svi čvorovi elemenata koji su međusobno braća i sestre, nakon
+            konteksnog čvora.
+          </td>
+        </tr>
+        <tr>
+          <td>namespace</td>
+          <td>
+            Svi čvorovi koji pripadaju istom prostoru imena kao i konteksni
+            čvor.
+          </td>
+        </tr>
+        <tr>
+          <td>preceding</td>
+          <td>
+            Svi čvorovi koji se u dokumentu nalaze ispred konteksnog čvora, osim
+            čvorova predaka konteksnog čvora, čvorova atributa i čvorova
+            prostora imena.
+          </td>
+        </tr>
+        <tr>
+          <td>preceding-sibling</td>
+          <td>
+            Svi čvorovi elemenata koji su međusobno braća i sestre i nalaze se
+            ispred konteksnog čvora.
+          </td>
+        </tr>
+        <tr>
+          <td>self</td>
+          <td>Konteksni čvor.</td>
+        </tr>
+      </tbody>
     </table>
 
-    <br> <b>Test čvorova</b>
-    <br>Testovi čvorova su izrazi kojima se dalje sužava skup čvorova koji su odabrani zadatom osom. Postoji sedam vrsti testova čvorova i to su:
+    <br />
+    <b>Test čvorova</b> <br />Testovi čvorova su izrazi kojima se dalje sužava
+    skup čvorova koji su odabrani zadatom osom. Postoji sedam vrsti testova
+    čvorova i to su:
     <ul>
-      <li>ime_čvora - Na osi elemenata ovaj test „prolaze“ svi elementi koji su tako imenovani, na osi atributa – svi atributi koji su tako imenovani, na osi prostora imena – svi prostori imena sa tim prefiksom;</li>
-      <li>prefiks:* - Ovaj test „prolaze“ svi čvorovi elemenata i čvorovi atributa čiji su URI identifikatori prostora imena jednaki URI identifikatoru prostora imena koji je definisan za ovaj prefiks;</li>
+      <li>
+        ime_čvora - Na osi elemenata ovaj test „prolaze“ svi elementi koji su
+        tako imenovani, na osi atributa – svi atributi koji su tako imenovani,
+        na osi prostora imena – svi prostori imena sa tim prefiksom;
+      </li>
+      <li>
+        prefiks:* - Ovaj test „prolaze“ svi čvorovi elemenata i čvorovi atributa
+        čiji su URI identifikatori prostora imena jednaki URI identifikatoru
+        prostora imena koji je definisan za ovaj prefiks;
+      </li>
       <li>comment() – Odgovara čvorovima komentara;</li>
       <li>text() – Odgovara čvorovima teksta;</li>
-      <li>processing-instruction() – Odgovara čvorovima instrukcija za obradu;</li>
+      <li>
+        processing-instruction() – Odgovara čvorovima instrukcija za obradu;
+      </li>
       <li>node() – Odgovara svim vrstama čvorova.</li>
     </ul>
 
-    <br> <b>Predikti</b>
-    <br>
-    Pomoću predikata dalje se sužava skup čvorova koji su izabrani testom čvora. Njima se pronalaze specifični čvorovi sa specifičnim vrednostima. Navode se unutar uglastih zagrada odmah nakon testa čvorova. To su najčešće logički izrazi kojima se testiraju svi čvorovi iz tekuće liste čvorova u odgovarajućem koraku putanje. Ukoliko je rezultat testa logička vrednost true, testiran čvor se zadržava u listi, a ukoliko je rezultat false, testiran čvor se briše iz liste.
-    <br>Potpuna sintaksa lokacionih putanja je sledeća:
-    <br><br> <span class = "primer_text"> ime_ose::test_čvora[predikat]</span>
+    <br />
+    <b>Predikti</b>
+    <br />
+    Pomoću predikata dalje se sužava skup čvorova koji su izabrani testom čvora.
+    Njima se pronalaze specifični čvorovi sa specifičnim vrednostima. Navode se
+    unutar uglastih zagrada odmah nakon testa čvorova. To su najčešće logički
+    izrazi kojima se testiraju svi čvorovi iz tekuće liste čvorova u
+    odgovarajućem koraku putanje. Ukoliko je rezultat testa logička vrednost
+    true, testiran čvor se zadržava u listi, a ukoliko je rezultat false,
+    testiran čvor se briše iz liste.
+    <br />Potpuna sintaksa lokacionih putanja je sledeća: <br /><br />
+    <span class="primer_text"> ime_ose::test_čvora[predikat]</span>
 
-    <br><br><b>Tabela 5:</b> Lokacione putanje
+    <br /><br /><b>Tabela 5:</b> Lokacione putanje
 
-    <table class = "tabela">
-         <thead>
-          <tr>
-            <th><b>XPath izraz</b></th>
-            <th><b>Značenje</b></th>
-          </tr>
-         </thead>
-         <tbody>
-          <tr>
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th><b>XPath izraz</b></th>
+          <th><b>Značenje</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
           <td>child::ime_čvora</td>
-          <td>Pronalazi sve elemente zadatog imena koji su deca konteksnog čvora.</td>
-          </tr>
-          <tr>
+          <td>
+            Pronalazi sve elemente zadatog imena koji su deca konteksnog čvora.
+          </td>
+        </tr>
+        <tr>
           <td>parent:: node()</td>
           <td>Pronalazi roditelja konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>attribute::ime_atributa</td>
-          <td>Pronalazi sve atribute konteksnog čvora koji imaju zadato ime.</td>
-          </tr>
-          <tr>
+          <td>
+            Pronalazi sve atribute konteksnog čvora koji imaju zadato ime.
+          </td>
+        </tr>
+        <tr>
           <td>child::*</td>
           <td>Pronalazi sve elemente koji su deca konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>attribute::*</td>
           <td>Pronalazi sve atribute konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>child::text()</td>
           <td>Pronalazi sve čvorove teksta sve dece konteksnog čvora.</td>
-          </tr>
-          <tr>
-          <td>child::node() </td>
+        </tr>
+        <tr>
+          <td>child::node()</td>
           <td>Pronalazi sve čvorove koji su deca konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>descendant::ime_čvora</td>
           <td>Pronalazi sve potomke zadatog imena, konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>descendant-or-self::ime_čvora</td>
-          <td>Pronalazi sve potomke zadatog imena, konteksnog čvora i njega samog ukoliko i njegovo ime odgovara zadatom.</td>
-          </tr>
-          <tr>
+          <td>
+            Pronalazi sve potomke zadatog imena, konteksnog čvora i njega samog
+            ukoliko i njegovo ime odgovara zadatom.
+          </td>
+        </tr>
+        <tr>
           <td>ancestor::ime_čvora</td>
           <td>Pronalazi sve pretke zadatog imena, konteksnog čvora.</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td>ancestor-or-self:: ime_čvora</td>
-          <td>Pronalazi sve pretke zadatog imena, konteksnog čvora i njega samog ukoliko i njegovo ime odgovara zadatom.</td>
-          </tr>
-          </tbody>
-     </table>
-     <br>
-     Međutim, veća je upotreba skraćenih zapisa koraka lokacija. Prema tome, koraci lokacionih putanja koji se najčešće koriste su prikazani u tabeli 6.
+          <td>
+            Pronalazi sve pretke zadatog imena, konteksnog čvora i njega samog
+            ukoliko i njegovo ime odgovara zadatom.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    Međutim, veća je upotreba skraćenih zapisa koraka lokacija. Prema tome,
+    koraci lokacionih putanja koji se najčešće koriste su prikazani u tabeli 6.
 
+    <br /><br /><b>Tabela 6:</b> Kraći zapisi koraka lokacija
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th><b>XPath izraz</b></th>
+          <th><b>Značenje</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ime_čvora</td>
+          <td>
+            Pronalazi sve čvorove zadatog imena. Skraćeno od child::ime_čvora.
+          </td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td>Pronalazi korenski čvor dokumenta.</td>
+        </tr>
+        <tr>
+          <td>//</td>
+          <td>
+            Pronalazi potomke konteksnog čvora, uključujući i njega, bez obzira
+            na to gde se oni u XML dokumentu nalaze. Skraćeno od:
+            /descendant-or-self:: node()/.
+          </td>
+        </tr>
+        <tr>
+          <td>.</td>
+          <td>
+            Ukazuje na konteksni čvor. Najčešće se koristi ako je potrebno
+            izdvojiti vrednost tekućeg elementa. Skraćeno od: self::node().
+          </td>
+        </tr>
+        <tr>
+          <td>..</td>
+          <td>
+            Ukazuje na roditelja konteksnog čvora. Skraćeno od: parent:: node().
+          </td>
+        </tr>
+        <tr>
+          <td>@</td>
+          <td>Pronalazi atribut. Skraćeno od: attribute::ime_atributa.</td>
+        </tr>
+      </tbody>
+    </table>
 
-     <br><br><b>Tabela 6:</b> Kraći zapisi koraka lokacija
-     <table class = "tabela">
-          <thead>
-           <tr>
-             <th><b>XPath izraz</b></th>
-             <th><b>Značenje</b></th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr>
-           <td>ime_čvora</td>
-           <td>Pronalazi sve čvorove zadatog imena. Skraćeno od child::ime_čvora.</td>
-           </tr>
-           <tr>
-           <td>/</td>
-           <td>Pronalazi korenski čvor dokumenta.</td>
-           </tr>
-           <tr>
-           <td>//</td>
-           <td>Pronalazi potomke konteksnog čvora, uključujući i njega, bez obzira na to gde se oni u XML dokumentu nalaze. Skraćeno od: /descendant-or-self:: node()/.</td>
-           </tr>
-           <tr>
-           <td>.</td>
-           <td>Ukazuje na konteksni čvor. Najčešće se koristi ako je potrebno izdvojiti vrednost tekućeg elementa. Skraćeno od: self::node().</td>
-           </tr>
-           <tr>
-           <td>..</td>
-           <td>Ukazuje na roditelja konteksnog čvora. Skraćeno od: parent:: node().</td>
-           </tr>
-           <tr>
-           <td>@</td>
-           <td>Pronalazi atribut. Skraćeno od: attribute::ime_atributa.</td>
-           </tr>
-           </tbody>
-      </table>
-
-      <br><b>Primer 61:</b> Lokaciona putanja 1
-      <xmp class = "primer_ta">
+    <br /><b>Primer 61:</b> Lokaciona putanja 1
+    <xmp class="primer_ta"
+>
        /bioskop/film/naziv
-      </xmp>
-      Lokaciona putanja iz primera 61 pronalazi sve „naziv“ elemente korenskog elementa „bioskop“ u dokumentu „bioskop.xml“.
-      <br>Rezultat ove putanje je:
-      <xmp class = "primer_ta">
+      </xmp
+    >
+    Lokaciona putanja iz primera 61 pronalazi sve „naziv“ elemente korenskog
+    elementa „bioskop“ u dokumentu „bioskop.xml“.
+    <br />Rezultat ove putanje je:
+    <xmp class="primer_ta">
         <naziv> Ghostbusters </naziv>
         <naziv> It </naziv>
         <naziv> Interstellar </naziv>
       </xmp>
 
-      <b>Primer 62:</b> Lokaciona putanja 2
-      <xmp class = "primer_ta">
+    <b>Primer 62:</b> Lokaciona putanja 2
+    <xmp class="primer_ta"
+>
        /bioskop/film/naziv/text().
-      </xmp>
-      Lokaciona putanja iz primera 62  pronalazi samo tekstualni sadržaj elemenata iz primera 58.
-      <br>Rezultat ove putanje je:
-      <xmp class = "primer_ta">
+      </xmp
+    >
+    Lokaciona putanja iz primera 62 pronalazi samo tekstualni sadržaj elemenata
+    iz primera 58.
+    <br />Rezultat ove putanje je:
+    <xmp class="primer_ta"
+>
         Ghostbusters
         It
         Interstellar
-      </xmp>
+      </xmp
+    >
 
-      <br><b>Tabela 7:</b> Korišćenje predikata
-      <table class = "tabela">
-           <thead>
-            <tr>
-              <th><b>XPath upit</b></th>
-              <th><b>Značenje</b></th>
-            </tr>
-           </thead>
-           <tbody>
-   	       <tr>
-            <td>/bioskop/film[1]</td>
-            <td>Pronalazi se prvi film element koji je dete elementa bioskop.</td>
-            </tr>
-            <tr>
-            <td>/bioskop/film[last()]</td>
-            <td>Pronalazi se poslednji film element koji je dete elementa bioskop.</td>
-            </tr>
-            <tr>
-            <td>/bioskop/film[last()-1]</td>
-            <td>Pronalazi se pretposlednji film element koji je dete elementa bioskop.</td>
-            </tr>
-            <tr>
-            <td>/bioskop/film[position()< 3]</td>
-            <td>Pronalaze se prva dva film elementa koja su deca elementa bioskop.</td>
-            </tr>
-            <tr>
-            <td>//film[@zanr]</td>
-            <td>Pronalaze se svi film elementi koji imaju atribut zanr.</td>
-            </tr>
-            <tr>
-            <td>//film[@zanr='fantastika']</td>
-            <td>Pronalaze se svi film elementi čija je vrednost atributa zanr "fantastika".</td>
-            </tr>
-            <tr>
-            <td>//cena[.=400]</td>
-            <td>Pronalaze se svi cena elementi čija je vrednost 400. </td>
-            </tr>
-            <tr>
-            <td>/bioskop/film[cena>300]</td>
-            <td>Pronalaze se svi film elementi elementa bioskop koji imaju vrednost elementa cena veću od 300.</td>
-            </tr>
-            <tr>
-            <td>/bioskop/film[cena>300]/naziv</td>
-            <td>Pronalaze se svi naziv elementi elemenata film (deca elementa bioskop) koji imaju vrednost elementa cena veću od 300.</td>
-            </tr>
-            </tbody>
-       </table>
-       <br>
-       <b>Logički izrazi</b> se koriste prilikom poređenja podataka, najčešće brojeva. Kao rezultat logičkih izraza, dobijaju se logičke vrednost true (istinito) i false (neistinito). Za utvrđivanje jednakosti koriste se operatori = i !=, za poređenje vrednosti <, <=, >, >=, a koriste se i operatori and i or koji omogućavaju konjunkciju i disjunkciju logičkih izraza. Najčešće se javljaju u prediktima lokacionih putanja. U logičkim izrazima može se javiti i funkcija not() koja vraća suprotnu logičku vrednost od logičke vrednosti svog argumenta.
-       <br>Primer 63 prikazuje XPath izraz koji pronalazi sve „film“ elemente čija je cena 350 ili 400.
-       <br><br>
-       <b>Primer 63:</b> Logički izraz sa operatorom „or“
-       <xmp class = "primer_ta">
+    <br /><b>Tabela 7:</b> Korišćenje predikata
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th><b>XPath upit</b></th>
+          <th><b>Značenje</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/bioskop/film[1]</td>
+          <td>Pronalazi se prvi film element koji je dete elementa bioskop.</td>
+        </tr>
+        <tr>
+          <td>/bioskop/film[last()]</td>
+          <td>
+            Pronalazi se poslednji film element koji je dete elementa bioskop.
+          </td>
+        </tr>
+        <tr>
+          <td>/bioskop/film[last()-1]</td>
+          <td>
+            Pronalazi se pretposlednji film element koji je dete elementa
+            bioskop.
+          </td>
+        </tr>
+        <tr>
+          <td>/bioskop/film[position()< 3]</td>
+          <td>
+            Pronalaze se prva dva film elementa koja su deca elementa bioskop.
+          </td>
+        </tr>
+        <tr>
+          <td>//film[@zanr]</td>
+          <td>Pronalaze se svi film elementi koji imaju atribut zanr.</td>
+        </tr>
+        <tr>
+          <td>//film[@zanr='fantastika']</td>
+          <td>
+            Pronalaze se svi film elementi čija je vrednost atributa zanr
+            "fantastika".
+          </td>
+        </tr>
+        <tr>
+          <td>//cena[.=400]</td>
+          <td>Pronalaze se svi cena elementi čija je vrednost 400.</td>
+        </tr>
+        <tr>
+          <td>/bioskop/film[cena>300]</td>
+          <td>
+            Pronalaze se svi film elementi elementa bioskop koji imaju vrednost
+            elementa cena veću od 300.
+          </td>
+        </tr>
+        <tr>
+          <td>/bioskop/film[cena>300]/naziv</td>
+          <td>
+            Pronalaze se svi naziv elementi elemenata film (deca elementa
+            bioskop) koji imaju vrednost elementa cena veću od 300.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <b>Logički izrazi</b> se koriste prilikom poređenja podataka, najčešće
+    brojeva. Kao rezultat logičkih izraza, dobijaju se logičke vrednost true
+    (istinito) i false (neistinito). Za utvrđivanje jednakosti koriste se
+    operatori = i !=, za poređenje vrednosti <, <=, >, >=, a koriste se i
+    operatori and i or koji omogućavaju konjunkciju i disjunkciju logičkih
+    izraza. Najčešće se javljaju u prediktima lokacionih putanja. U logičkim
+    izrazima može se javiti i funkcija not() koja vraća suprotnu logičku
+    vrednost od logičke vrednosti svog argumenta. <br />Primer 63 prikazuje
+    XPath izraz koji pronalazi sve „film“ elemente čija je cena 350 ili 400.
+    <br /><br />
+    <b>Primer 63:</b> Logički izraz sa operatorom „or“
+    <xmp class="primer_ta"
+>
         //film[cena=350 or cena=400]
-       </xmp>
-      <b>Znakovni nizovi</b> su uređene niske Unicode znakova. Na primer, to su: „Andy Muschietti“, „λο ́γος“, „Perišić“ i slično. Vrednosti znakovnih nizova zadaju se pod dvostrukim ili jednostrukim navodnicima, u zavisnosti od samog njihovog sadržaja. Ukoliko znakovni nizovi u nekom delu svog sadržaja imaju dvostruke navodnike, navešće se u jednostrukim navodnicima i obrnuto. Vrednosti znakovnih nizova mogu sadržati beline kao što su razmaci, tabulatori, znakovi za prelazak u novi red i slično. U tom slučaju, treba voditi računa kada je XPath deo XML dokumenta i znakove koji su već rezervisani zameniti odgovarajućim referencama identiteta.
-      <br><br>
-      <b>Brojevni izrazi</b> služe za predstavljanje brojeva ili za računanje sa brojevima pronađenim u datom dokumentu. U XPath sintaksi, brojevi su dvostruke preciznosti, po standardu IEEE 754 (odgovara tipu double u Javi) koji zauzimaju osam bajtova memorije. Ovaj format brojeva sadrži i oznake za pozitivnu i negativnu beskonačnost kao i oznaku za vrednost koja nije broj (NaN). Brojevni izrazi koriste XPath aritmetičke operatore +,-,*,div i mod. S obzirom na to da se znak „/“ koristi za razdvajanje koraka lokacije, operator div se koristi kao operator deljenja.
-<br><br>
-      Postoje tri <b>džokerska znaka</b>, i to su: *, @* i node().
-      <br>
-      Znak „*“ odgovara svim čvorovima elemenata bez obzira na njihova imena i tipove. Ovaj znak ne odgovara atributima, instrujcijama za obradu, tekstu i komentarima. Može se koristiti sa prefiksom za neki prostor imena i tada odgovara svim elementima tog prostora imena. Znak „@*“ odgovara svim čvorovima atributa. Znak „node()“ odgovara svim vrstama čvorova.
+       </xmp
+    >
+    <b>Znakovni nizovi</b> su uređene niske Unicode znakova. Na primer, to su:
+    „Andy Muschietti“, „λο ́γος“, „Perišić“ i slično. Vrednosti znakovnih nizova
+    zadaju se pod dvostrukim ili jednostrukim navodnicima, u zavisnosti od samog
+    njihovog sadržaja. Ukoliko znakovni nizovi u nekom delu svog sadržaja imaju
+    dvostruke navodnike, navešće se u jednostrukim navodnicima i obrnuto.
+    Vrednosti znakovnih nizova mogu sadržati beline kao što su razmaci,
+    tabulatori, znakovi za prelazak u novi red i slično. U tom slučaju, treba
+    voditi računa kada je XPath deo XML dokumenta i znakove koji su već
+    rezervisani zameniti odgovarajućim referencama identiteta. <br /><br />
+    <b>Brojevni izrazi</b> služe za predstavljanje brojeva ili za računanje sa
+    brojevima pronađenim u datom dokumentu. U XPath sintaksi, brojevi su
+    dvostruke preciznosti, po standardu IEEE 754 (odgovara tipu double u Javi)
+    koji zauzimaju osam bajtova memorije. Ovaj format brojeva sadrži i oznake za
+    pozitivnu i negativnu beskonačnost kao i oznaku za vrednost koja nije broj
+    (NaN). Brojevni izrazi koriste XPath aritmetičke operatore +,-,*,div i mod.
+    S obzirom na to da se znak „/“ koristi za razdvajanje koraka lokacije,
+    operator div se koristi kao operator deljenja. <br /><br />
+    Postoje tri <b>džokerska znaka</b>, i to su: *, @* i node().
+    <br />
+    Znak „*“ odgovara svim čvorovima elemenata bez obzira na njihova imena i
+    tipove. Ovaj znak ne odgovara atributima, instrujcijama za obradu, tekstu i
+    komentarima. Može se koristiti sa prefiksom za neki prostor imena i tada
+    odgovara svim elementima tog prostora imena. Znak „@*“ odgovara svim
+    čvorovima atributa. Znak „node()“ odgovara svim vrstama čvorova.
 
-      <br><br><b>Tabela 8:</b> Primeri korišćenja džokerskih znakova
-      <table class = "tabela">
-           <thead>
-            <tr>
-              <th><b>XPath upit</b></th>
-              <th><b>Značenje</b></th>
-            </tr>
-           </thead>
-           <tbody>
-           <tr>
-            <td>/bioskop/*</td>
-            <td>Pronalazi svu decu čvorove čvora elementa bioskop.</td>
-            </tr>
-            <tr>
-            <td>//*</td>
-            <td>Pronalazi sve elemente u dokumentu.</td>
-            </tr>
-            <tr>
-            <td>//film[@*]</td>
-            <td>Pronalazi sve film elemente koji imaju barem jedan, bilo kakav atribut.</td>
-            </tr>
-            </tbody>
-       </table>
-       <br>
-       <h2>Pronalaženje više skupova čvorova različite vrste istovremeno</h2>
-      Korišćenjem operatora „|” unutar jednog XPath izraza, može se upotrebiti više lokacionih putanja kako bi se pronašlo više čvorova različite vrste istovremeno.
-       <br><br>
-       <b>Primer 64:</b> Korišćeje operatora „|“
-       <xmp class = "primer_ta">
+    <br /><br /><b>Tabela 8:</b> Primeri korišćenja džokerskih znakova
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th><b>XPath upit</b></th>
+          <th><b>Značenje</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>/bioskop/*</td>
+          <td>Pronalazi svu decu čvorove čvora elementa bioskop.</td>
+        </tr>
+        <tr>
+          <td>//*</td>
+          <td>Pronalazi sve elemente u dokumentu.</td>
+        </tr>
+        <tr>
+          <td>//film[@*]</td>
+          <td>
+            Pronalazi sve film elemente koji imaju barem jedan, bilo kakav
+            atribut.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <h2>Pronalaženje više skupova čvorova različite vrste istovremeno</h2>
+    Korišćenjem operatora „|” unutar jednog XPath izraza, može se upotrebiti
+    više lokacionih putanja kako bi se pronašlo više čvorova različite vrste
+    istovremeno.
+    <br /><br />
+    <b>Primer 64:</b> Korišćeje operatora „|“
+    <xmp class="primer_ta"
+>
         /bioskop/film[@zanr="fantastika"]/naziv | //cena
-       </xmp>
-       XPath izraz prikazan u primeru 64 pronalazi sve naziv elemente elementa film čiji atribut „zanr“ ima vrednost „fantastika“ i koji je podelement elementa bioskop,  i sve cene u dokumentu.
-       <br><br>
-       <b>Primer 65:</b> Korišćeje operatora „|“
-       <xmp class = "primer_ta">
+       </xmp
+    >
+    XPath izraz prikazan u primeru 64 pronalazi sve naziv elemente elementa film
+    čiji atribut „zanr“ ima vrednost „fantastika“ i koji je podelement elementa
+    bioskop, i sve cene u dokumentu.
+    <br /><br />
+    <b>Primer 65:</b> Korišćeje operatora „|“
+    <xmp class="primer_ta"
+>
         //* | //@*
-       </xmp>
-       XPath izraz prikazan u primeru 65 pronalazi sve elemente I sve atribute, bez obzira na to gde se oni nalaze u XML dokumentu.
+       </xmp
+    >
+    XPath izraz prikazan u primeru 65 pronalazi sve elemente I sve atribute, bez
+    obzira na to gde se oni nalaze u XML dokumentu.
 
-       <br><br>
-       <h2>XPath funkcije</h2>
-       Kao što je već rečeno, XPath ima svoju biblioteku od 27 funkcija. Ta biblioteka se može proširiti ili od strane korisnika ili od strane tehnologija koje koriste XPath, funkcijama koje su dodatno potrebne. Argumenti i vrednosti XPath funkcija mogu biti brojevi, znakovni nizovi, logičke vrednosti ili skup čvorova. Međutim, bez obzira na tip koji neka funkcija očekuje, moguće je zadati joj argument bilo kog tipa, jer će XPath taj tip prevesti u onaj koji funkcija zahteva. Recimo, ukoliko se funkciji koja očekuje znakovnu vrednost kao argument, zada logička vrednost, XPath procesor će tu logičku vrednost pretvoriti u znakovni niz „true“ ili „false“. Jedino što XPath ne može, jeste da promeni broj, znakovni niz ili logičku vrednost u skup čvorova. XPath funkcije mogu primati jedan ili više argumenata ili ne moraju primati argumente.
-       <br><br><b>Primer XPath funkcije starts-with():</b>
-       <br>Funkcija starts-with() prima dva znakovna niza kao argumente, a kao rezultat vraća logičku vrednost. Vrednost true se vraća ukoliko prvi znakovni niz počinje drugim znakovnim nizom, a u svim ostalim slučajevima vraća vrednost false. Važno je naglasiti da je ova funkcija osetljiva na veličinu slova. Prema tome, ukoliko se pozove sa starts-with(''Simbolična priča'', ''Simbol'') vratiće logičku vrednost true, dok pozvana sa starts-with(''Simbolična priča'', ''simbol'') vraća vrednost false.
-       <br><br>
-       Primer 66 prikazuje XPath izraz koji vraća sve nazive filmova iz dokumenta „bioskop.xml“ koji počinju slovom „I“.
-       <br><br><b>Primer 66:</b> Primena funkcije „starts-with()“
-       <xmp class = "primer_ta">
+    <br /><br />
+    <h2>XPath funkcije</h2>
+    Kao što je već rečeno, XPath ima svoju biblioteku od 27 funkcija. Ta
+    biblioteka se može proširiti ili od strane korisnika ili od strane
+    tehnologija koje koriste XPath, funkcijama koje su dodatno potrebne.
+    Argumenti i vrednosti XPath funkcija mogu biti brojevi, znakovni nizovi,
+    logičke vrednosti ili skup čvorova. Međutim, bez obzira na tip koji neka
+    funkcija očekuje, moguće je zadati joj argument bilo kog tipa, jer će XPath
+    taj tip prevesti u onaj koji funkcija zahteva. Recimo, ukoliko se funkciji
+    koja očekuje znakovnu vrednost kao argument, zada logička vrednost, XPath
+    procesor će tu logičku vrednost pretvoriti u znakovni niz „true“ ili
+    „false“. Jedino što XPath ne može, jeste da promeni broj, znakovni niz ili
+    logičku vrednost u skup čvorova. XPath funkcije mogu primati jedan ili više
+    argumenata ili ne moraju primati argumente.
+    <br /><br /><b>Primer XPath funkcije starts-with():</b> <br />Funkcija
+    starts-with() prima dva znakovna niza kao argumente, a kao rezultat vraća
+    logičku vrednost. Vrednost true se vraća ukoliko prvi znakovni niz počinje
+    drugim znakovnim nizom, a u svim ostalim slučajevima vraća vrednost false.
+    Važno je naglasiti da je ova funkcija osetljiva na veličinu slova. Prema
+    tome, ukoliko se pozove sa starts-with(''Simbolična priča'', ''Simbol'')
+    vratiće logičku vrednost true, dok pozvana sa starts-with(''Simbolična
+    priča'', ''simbol'') vraća vrednost false. <br /><br />
+    Primer 66 prikazuje XPath izraz koji vraća sve nazive filmova iz dokumenta
+    „bioskop.xml“ koji počinju slovom „I“.
+    <br /><br /><b>Primer 66:</b> Primena funkcije „starts-with()“
+    <xmp class="primer_ta"
+>
         //bioskop/film/naziv[starts-with(., ' I')]
-       </xmp>
-       Rezultat ovog XPath izraza je:
-       <xmp class = "primer_ta">
+       </xmp
+    >
+    Rezultat ovog XPath izraza je:
+    <xmp class="primer_ta">
          <naziv> It </naziv>
          <naziv> Interstellar </naziv>
       </xmp>
-      <div class = "napomena"><b>Napomena:</b> U primeru 66, bilo je potrebno uzeti u obzir da tekstualni sadržaj naziva filmova u posmatranom XML dokumentu počinje razmakom (belinom). Stoga je i drugi argument funkcije starts-with() počeo razmakom. U slučaju da razmak nije naveden, funkcija starts-with() bi vratila vrednost false, i dati XPath izraz ne bi pronašao odgovarajuće elemente.</div>
-       <br><b>Funkcije skupa čvorova</b>
-       <br>To su funkcije koje za argumente primaju skupove čvorova ili vraćaju informacije o čvorovima. Jedna od ovih funkcija je funkcija name() koja vraća ime prvog čvora u posmatranom skupu. Ovoj vrsti funkcija pripadaju i id(), count(), position(), last(), namespace-uri(), local-name().
+    <div class="napomena">
+      <b>Napomena:</b> U primeru 66, bilo je potrebno uzeti u obzir da
+      tekstualni sadržaj naziva filmova u posmatranom XML dokumentu počinje
+      razmakom (belinom). Stoga je i drugi argument funkcije starts-with() počeo
+      razmakom. U slučaju da razmak nije naveden, funkcija starts-with() bi
+      vratila vrednost false, i dati XPath izraz ne bi pronašao odgovarajuće
+      elemente.
+    </div>
+    <br /><b>Funkcije skupa čvorova</b> <br />To su funkcije koje za argumente
+    primaju skupove čvorova ili vraćaju informacije o čvorovima. Jedna od ovih
+    funkcija je funkcija name() koja vraća ime prvog čvora u posmatranom skupu.
+    Ovoj vrsti funkcija pripadaju i id(), count(), position(), last(),
+    namespace-uri(), local-name().
 
-       <br><br><b>Funkcije znakovnih nizova</b>
-       <br>To su funkcije koje služe najčešće za obradu tekstualnog sadržaja elemenata i atributa XML dokumenta. Ovoj vrsti pripadaju funkcije string(), starts-with(), contains(), substring(), substring-before(), substring-after(), string-lenght(), normalize-space(). Funkcija starts-with() je prethodno pomenuta i objašnjena u primeru 62.
+    <br /><br /><b>Funkcije znakovnih nizova</b> <br />To su funkcije koje služe
+    najčešće za obradu tekstualnog sadržaja elemenata i atributa XML dokumenta.
+    Ovoj vrsti pripadaju funkcije string(), starts-with(), contains(),
+    substring(), substring-before(), substring-after(), string-lenght(),
+    normalize-space(). Funkcija starts-with() je prethodno pomenuta i objašnjena
+    u primeru 62.
 
-       <br><br><b>Logičke funkcije</b>
-       <br>Logičke funkcije kao rezultat vraćaju logičke vrednosti, a za argument mogu primiti znakovni niz, broj, logičku vrednost ili skup čvorova. Jednostavne su za korišćenje i nema ih mnogo. Logičke konstante u XPath sintaksi ne postoje, ali kao zamene za njih koriste se funkcije true() i false(). Rezultat funkcije true() je uvek „true“, a rezultat funkcije false() je uvek „false“. Funkcija not() kao rezultat vraća suprotnu logičku vrednost od logičke vrednosti svog argumenta. Za pretvaranje vrednosti koje nisu logičkog tipa u logički tip koristi se funkcija boolean(). Ukoliko ova funkcija ne prima argument, ona se odnosi na konteksni čvor. Pomenutom funkcijom se broj konvertuje u vrednost „true“ ukoliko je različit od nule i nije NaN, u suprotnom, konvertuje se u vrednost „false“. Znakovni nizovi se konvertuju u vrednost „true“ ukoliko sadrže bar jedan znak (karakter). U slučaju da im je dužina jednaka nuli, konvertuju se u vrednost „false“. Skup čvorova se konvertuje u vrednost „false“ samo ako je prazan. Dovoljno je da taj skup sadrži jedan čvor da bi bio konvertovan u vrednost „true“.
+    <br /><br /><b>Logičke funkcije</b> <br />Logičke funkcije kao rezultat
+    vraćaju logičke vrednosti, a za argument mogu primiti znakovni niz, broj,
+    logičku vrednost ili skup čvorova. Jednostavne su za korišćenje i nema ih
+    mnogo. Logičke konstante u XPath sintaksi ne postoje, ali kao zamene za njih
+    koriste se funkcije true() i false(). Rezultat funkcije true() je uvek
+    „true“, a rezultat funkcije false() je uvek „false“. Funkcija not() kao
+    rezultat vraća suprotnu logičku vrednost od logičke vrednosti svog
+    argumenta. Za pretvaranje vrednosti koje nisu logičkog tipa u logički tip
+    koristi se funkcija boolean(). Ukoliko ova funkcija ne prima argument, ona
+    se odnosi na konteksni čvor. Pomenutom funkcijom se broj konvertuje u
+    vrednost „true“ ukoliko je različit od nule i nije NaN, u suprotnom,
+    konvertuje se u vrednost „false“. Znakovni nizovi se konvertuju u vrednost
+    „true“ ukoliko sadrže bar jedan znak (karakter). U slučaju da im je dužina
+    jednaka nuli, konvertuju se u vrednost „false“. Skup čvorova se konvertuje u
+    vrednost „false“ samo ako je prazan. Dovoljno je da taj skup sadrži jedan
+    čvor da bi bio konvertovan u vrednost „true“.
 
-       <br><br><b>Numeričke funkcije</b>
-       <br>Numeričkim funkcijama se mogu vršiti osnovne matematičke operacije nad brojevima, konvertovati vrednosti nekog drugog tipa u broj i zaokruživati brojevi. Za konvertovanje vrednosti koje nisu brojevi u brojeve, koristi se funkcija number(). Ovom funkcijom, logička vrednost „true“ se pretvara u broj 1, a „false“ u broj 0. Ukoliko su karakteri znakovnog niza cifre, ova funkcija će ih pretvoriti u broj sa odgovarajućim ciframa.
-       Za zaokruživanje brojeva koriste se funkcije round(), floor() i ceiling(), koje za argument primaju jedan broj. Rezultat funkcije round() je najbliži ceo broj na koji se može zaokružiti argument. Brojevi koji su podjednako udaljeni od dva cela broja zaokružuju se na veći ceo broj.
-       Funkcija sum() za argumente prima skup čvorova koje prvo konvertuje u odgovarajuće znakovne nizove, a zatim u brojeve koje sabira i kao rezultat vraća dobijeni zbir.
-       <br><br>
+    <br /><br /><b>Numeričke funkcije</b> <br />Numeričkim funkcijama se mogu
+    vršiti osnovne matematičke operacije nad brojevima, konvertovati vrednosti
+    nekog drugog tipa u broj i zaokruživati brojevi. Za konvertovanje vrednosti
+    koje nisu brojevi u brojeve, koristi se funkcija number(). Ovom funkcijom,
+    logička vrednost „true“ se pretvara u broj 1, a „false“ u broj 0. Ukoliko su
+    karakteri znakovnog niza cifre, ova funkcija će ih pretvoriti u broj sa
+    odgovarajućim ciframa. Za zaokruživanje brojeva koriste se funkcije round(),
+    floor() i ceiling(), koje za argument primaju jedan broj. Rezultat funkcije
+    round() je najbliži ceo broj na koji se može zaokružiti argument. Brojevi
+    koji su podjednako udaljeni od dva cela broja zaokružuju se na veći ceo
+    broj. Funkcija sum() za argumente prima skup čvorova koje prvo konvertuje u
+    odgovarajuće znakovne nizove, a zatim u brojeve koje sabira i kao rezultat
+    vraća dobijeni zbir. <br /><br />
   </body>
 </html>

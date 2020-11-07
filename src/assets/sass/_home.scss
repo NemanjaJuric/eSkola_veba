@@ -1,24 +1,48 @@
-.technologie-image{
-    width: 120px;
-    height: 120px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: auto;
+.technologie-image {
+  width: 120px;
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
 }
 
-.course-card{
-    cursor: pointer;
-    border: none;
-    color: $light-gray;
-    height: 220px;
+.course-card {
+  cursor: pointer;
+  border: none;
+  color: $light-gray;
+  height: 100px;
+  line-height: 100px;
+  text-align: left;
+  .course-icon {
+    text-align: center;
+    width: 100px;
+  }
+  .course-text {
+    position: relative;
+    top: -15px;
+    font-size: larger;
+  }
 }
 
-.course-card:hover{
-    animation: scale-small;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+.course-card:hover {
+  animation: scale-small;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-.home-card-lg{
-    cursor: pointer;
+.home-card-lg {
+  cursor: pointer;
+}
+
+.course-section-title {
+  cursor: pointer;
+  &:hover {
+    span::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f0c1";
+      margin-left: 10px;
+      font-size: 24px;
+    }
+  }
 }

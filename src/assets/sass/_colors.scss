@@ -1,9 +1,9 @@
-$home-primary: #37474F;
+$home-primary: #37474f;
 $html-primary: #d32f2f;
 $css-primary: #1673b6;
 $js-primary: #e6b130;
 $jq-primary: #0097a7;
-$php-primary: #3F51B5;
+$php-primary: #3f51b5;
 $lara-primary: #fb503b;
 $bs-primary: #5a4181;
 $bs4-primary: #5a4181;
@@ -11,25 +11,25 @@ $ang-primary: #c3002f;
 $ang4-primary: #c3002f;
 $vue-primary: #41b883;
 $veb-primary: #47789e;
-$dp-primary: #546E7A;
+$dp-primary: #546e7a;
 $ts-primary: #294e80;
 $sass-primary: #cf649a;
 $json-primary: #607d8b;
 $about-primary: #00a961;
-$java-primary: #BF360C;
+$java-primary: #bf360c;
 $spring-primary: #6db33f;
 $express-primary: #6db33f;
-$sql-primary: #7986CB;
-$web-center-primary: #37474F;
+$sql-primary: #7986cb;
+$web-center-primary: #37474f;
 $jupyter-primary: #ef6300;
 $react-primary: #282c34;
 
-$material-dark-gray: #37474F;
+$material-dark-gray: #37474f;
 $material-gray: #455a64;
 $material-light-gray: #607d8b;
 $dark-gray: #263238;
 $gray: #9e9e9e;
-$light-gray: #BDBDBD;
+$light-gray: #bdbdbd;
 $light: #f7f7f7;
 
 $facebook-official: #3b5998;
@@ -38,319 +38,318 @@ $google-plus-official: #dd4b39;
 $github-official: #4078c0;
 $android-official: #a2c53d;
 
-.material-dark-gray{
-    color: $material-dark-gray;
+.material-dark-gray {
+  color: $material-dark-gray;
 }
 
-.bkg-material-dark-gray{
-    background-color: $material-dark-gray;
+.bkg-material-dark-gray {
+  background-color: $material-dark-gray;
 }
 
-.material-gray{
-    color: $material-gray;
+.material-gray {
+  color: $material-gray;
 }
 
-.bkg-material-gray{
-    background-color: $material-gray;
+.bkg-material-gray {
+  background-color: $material-gray;
 }
 
-.material-light-gray{
-    color: $material-light-gray;
+.material-light-gray {
+  color: $material-light-gray;
 }
 
-.bkg-material-light-gray{
-    background-color: $material-light-gray;
+.bkg-material-light-gray {
+  background-color: $material-light-gray;
 }
 
-
-.dark-gray{
-    color: $dark-gray;
+.dark-gray {
+  color: $dark-gray;
 }
 
-.bkg-dark-gray{
-    background-color: $dark-gray;
+.bkg-dark-gray {
+  background-color: $dark-gray;
 }
 
-.gray{
-    color: $gray;
+.gray {
+  color: $gray;
 }
 
-.bkg-gray{
-    background-color: $gray;
+.bkg-gray {
+  background-color: $gray;
 }
 
-.light-gray{
-    color: $light-gray;
+.light-gray {
+  color: $light-gray;
 }
 
-.bkg-light-gray{
-    background-color: $light-gray;
+.bkg-light-gray {
+  background-color: $light-gray;
 }
 
-.light{
-    color: $light;
+.light {
+  color: $light;
 }
 
-.bkg-light{
-    background-color: $light;
+.bkg-light {
+  background-color: $light;
 }
 
-.bkg-home{
-    background-color: $material-dark-gray;
+.bkg-home {
+  background-color: $material-dark-gray;
 }
 
-.bkg-html{
-    background-color: $html-primary !important;
+.bkg-html {
+  background-color: $html-primary !important;
 }
 
-.bkg-css{
-    background-color: $css-primary !important;
+.bkg-css {
+  background-color: $css-primary !important;
 }
 
-.bkg-js{
-    background-color: $js-primary !important;
+.bkg-js {
+  background-color: $js-primary !important;
 }
 
-.bkg-jq{
-    background-color: $jq-primary !important;
+.bkg-jq {
+  background-color: $jq-primary !important;
 }
 
-.bkg-bs{
-    background-color: $bs-primary !important;
+.bkg-bs {
+  background-color: $bs-primary !important;
 }
 
-.bkg-bs4{
-    background-color: $bs4-primary !important;
+.bkg-bs4 {
+  background-color: $bs4-primary !important;
 }
 
-.bkg-ang{
-    background-color: $ang-primary !important;
+.bkg-ang {
+  background-color: $ang-primary !important;
 }
 
-.bkg-ang4{
-    background-color: $ang4-primary !important;
+.bkg-ang4 {
+  background-color: $ang4-primary !important;
 }
 
-.bkg-vue{
-    background-color: $vue-primary !important;
+.bkg-vue {
+  background-color: $vue-primary !important;
 }
 
-.bkg-php{
-    background-color: $php-primary !important;
+.bkg-php {
+  background-color: $php-primary !important;
 }
 
-.bkg-lara{
-    background-color: $lara-primary !important;
+.bkg-lara {
+  background-color: $lara-primary !important;
 }
 
-.bkg-veb{
-    background-color: $veb-primary !important;
+.bkg-veb {
+  background-color: $veb-primary !important;
 }
 
-.bkg-dp{
-    background-color: $dp-primary !important;
+.bkg-dp {
+  background-color: $dp-primary !important;
 }
 
-.bkg-java{
-    background-color: $java-primary !important;
+.bkg-java {
+  background-color: $java-primary !important;
 }
 
-.bkg-spring{
-    background-color: $spring-primary !important;
+.bkg-spring {
+  background-color: $spring-primary !important;
 }
 
-.bkg-nodejs{
-    background-color: $express-primary !important;
+.bkg-nodejs {
+  background-color: $express-primary !important;
 }
 
-.bkg-express{
-    background-color: $express-primary !important;
+.bkg-express {
+  background-color: $express-primary !important;
 }
 
-.bkg-sql{
-    background-color: $sql-primary !important;
+.bkg-sql {
+  background-color: $sql-primary !important;
 }
 
-.bkg-xml{
-    background-color: $spring-primary !important;
+.bkg-xml {
+  background-color: $spring-primary !important;
 }
 
-.bkg-ecma{
-    background-color: $js-primary !important;
+.bkg-ecma {
+  background-color: $js-primary !important;
 }
 
-.bkg-ts{
-    background-color: $ts-primary !important;
+.bkg-ts {
+  background-color: $ts-primary !important;
 }
 
-.bkg-sass{
-    background-color: $sass-primary !important;
+.bkg-sass {
+  background-color: $sass-primary !important;
 }
 
-.bkg-json{
-    background-color: $json-primary !important;
+.bkg-json {
+  background-color: $json-primary !important;
 }
 
-.bkg-canvas{
-    background-color: $html-primary !important;
+.bkg-canvas {
+  background-color: $html-primary !important;
 }
 
-.bkg-svg{
-    background-color: $spring-primary !important;
+.bkg-svg {
+  background-color: $spring-primary !important;
 }
 
-.bkg-jupyter{
-    background-color: $jupyter-primary !important;
+.bkg-jupyter {
+  background-color: $jupyter-primary !important;
 }
 
-.bkg-react{
-    background-color: $react-primary !important;
+.bkg-react {
+  background-color: $react-primary !important;
 }
 
-.bkg-about{
-    background-color: $about-primary !important;
+.bkg-about {
+  background-color: $about-primary !important;
 }
 
-.bkg-web-center{
-    background-color: $web-center-primary !important;
+.bkg-web-center {
+  background-color: $web-center-primary !important;
 }
 
-.hover-web-center:hover{
-    color: $web-center-primary;
+.hover-web-center:hover {
+  color: $web-center-primary;
 }
 
-.hover-material-dark-gray:hover{
-    color: $material-dark-gray;
+.hover-material-dark-gray:hover {
+  color: $material-dark-gray;
 }
 
-.hover-html:hover{
-    color: $html-primary;
+.hover-html:hover {
+  color: $html-primary;
 }
 
-.hover-css:hover{
-    color: $css-primary;
+.hover-css:hover {
+  color: $css-primary;
 }
 
-.hover-js:hover{
-    color: $js-primary;
+.hover-js:hover {
+  color: $js-primary;
 }
 
-.hover-jq:hover{
-    color: $jq-primary;
+.hover-jq:hover {
+  color: $jq-primary;
 }
 
-.hover-bs:hover{
-    color: $bs-primary;
+.hover-bs:hover {
+  color: $bs-primary;
 }
 
-.hover-bs4:hover{
-    color: $bs4-primary;
+.hover-bs4:hover {
+  color: $bs4-primary;
 }
 
-.hover-ang:hover{
-    color: $ang-primary;
+.hover-ang:hover {
+  color: $ang-primary;
 }
 
-.hover-ang4:hover{
-    color: $ang4-primary;
+.hover-ang4:hover {
+  color: $ang4-primary;
 }
 
-.hover-vue:hover{
-    color: $vue-primary;
+.hover-vue:hover {
+  color: $vue-primary;
 }
 
-.hover-php:hover{
-    color: $php-primary;
+.hover-php:hover {
+  color: $php-primary;
 }
 
-.hover-lara:hover{
-    color: $lara-primary;
+.hover-lara:hover {
+  color: $lara-primary;
 }
 
-.hover-ecma:hover{
-    color: $js-primary;
+.hover-ecma:hover {
+  color: $js-primary;
 }
 
-.hover-ts:hover{
-    color: $ts-primary;
+.hover-ts:hover {
+  color: $ts-primary;
 }
 
-.hover-sass:hover{
-    color: $sass-primary;
+.hover-sass:hover {
+  color: $sass-primary;
 }
 
-.hover-json:hover{
-    color: $json-primary;
+.hover-json:hover {
+  color: $json-primary;
 }
 
-.hover-veb:hover{
-    color: $veb-primary;
+.hover-veb:hover {
+  color: $veb-primary;
 }
 
-.hover-dp:hover{
-    color: $dp-primary;
+.hover-dp:hover {
+  color: $dp-primary;
 }
 
-.hover-java:hover{
-    color: $java-primary;
+.hover-java:hover {
+  color: $java-primary;
 }
 
-.hover-spring:hover{
-    color: $spring-primary;
+.hover-spring:hover {
+  color: $spring-primary;
 }
 
-.hover-nodejs:hover{
-    color: $express-primary;
+.hover-nodejs:hover {
+  color: $express-primary;
 }
 
-.hover-express:hover{
-    color: $express-primary;
+.hover-express:hover {
+  color: $express-primary;
 }
 
-.hover-sql:hover{
-    color: $sql-primary;
+.hover-sql:hover {
+  color: $sql-primary;
 }
 
-.hover-xml:hover{
-    color: $spring-primary;
+.hover-xml:hover {
+  color: $spring-primary;
 }
 
-.hover-canvas:hover{
-    color: $html-primary;
+.hover-canvas:hover {
+  color: $html-primary;
 }
 
-.hover-svg:hover{
-    color: $spring-primary;
+.hover-svg:hover {
+  color: $spring-primary;
 }
 
-.hover-jupyter:hover{
-    color: $jupyter-primary;
+.hover-jupyter:hover {
+  color: $jupyter-primary;
 }
 
-.hover-react:hover{
-    color: $react-primary;
+.hover-react:hover {
+  color: $react-primary;
 }
 
-.trans-md{
-    color: rgba($light, 0.5);
+.trans-md {
+  color: rgba($light, 0.5);
 }
 
-.bkg{
-    background-color: lightgray;
+.bkg {
+  background-color: lightgray;
 }
 
-.twitter:hover{
-    color: $twitter-official !important;
+.twitter:hover {
+  color: $twitter-official !important;
 }
 
-.google-plus:hover{
-    color: $google-plus-official !important;
+.google-plus:hover {
+  color: $google-plus-official !important;
 }
 
-.bkg-git{
-    background-color: $github-official;
+.bkg-git {
+  background-color: $github-official;
 }
 
-.android-official{
-    color: $android-official;
+.android-official {
+  color: $android-official;
 }

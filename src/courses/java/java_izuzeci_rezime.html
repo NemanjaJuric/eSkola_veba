@@ -1,21 +1,45 @@
 <h1>Rezime</h1>
-<br>
+<br />
 
-Program može pomoću izuzetaka nagovestiti da je došlo do greške. Da biste bacili/ispalili izuzetak, koristite <span class = "primer_text">throw</span> naredbu i obezbedite objekat izuzetka - potomak <span class = "primer_text">Throwable</span> klase - kako biste dosatvili informaciju o konkretnoj grešci koja se dogodila. Metoda koja baca/ispaljuje ne obrađeni, provereni izuzetak mora u svojoj deklaraciji sadržati <span class = "primer_text">throws</span> klauzulu.
-<br><br>
+Program može pomoću izuzetaka nagovestiti da je došlo do greške. Da biste
+bacili/ispalili izuzetak, koristite
+<span class="primer_text">throw</span> naredbu i obezbedite objekat izuzetka -
+potomak <span class="primer_text">Throwable</span> klase - kako biste dosatvili
+informaciju o konkretnoj grešci koja se dogodila. Metoda koja baca/ispaljuje ne
+obrađeni, provereni izuzetak mora u svojoj deklaraciji sadržati
+<span class="primer_text">throws</span> klauzulu. <br /><br />
 
-Program može uhvatiti izuzetke kombinujući <span class = "primer_text">try</span> blok sa <span class = "primer_text">catch</span> i <span class = "primer_text">finally</span> blokovima.
-<br><br>
+Program može uhvatiti izuzetke kombinujući
+<span class="primer_text">try</span> blok sa
+<span class="primer_text">catch</span> i
+<span class="primer_text">finally</span> blokovima. <br /><br />
 
 <ul>
-<li><span class = "primer_text">try</span> blok identifikuje blok koda u kojem može doći do izuzetka.</li>
-<li><span class = "primer_text">catch</span> blok identifikuje blok koda, poznat kao rukovalac izuzecima, koji može obraditi određeni tip izuzetka.</li>
-<li><span class = "primer_text">finally</span> blok identifikuje blok koda čije se izvršavanje garantuje nakon koda obuhvaćenog <span class = "primer_text">try</span> blokom i pravo je mesto za zatvaranje datoteke, oporavak resursa i sva ostala čišćenja.</li>
+  <li>
+    <span class="primer_text">try</span> blok identifikuje blok koda u kojem
+    može doći do izuzetka.
+  </li>
+  <li>
+    <span class="primer_text">catch</span> blok identifikuje blok koda, poznat
+    kao rukovalac izuzecima, koji može obraditi određeni tip izuzetka.
+  </li>
+  <li>
+    <span class="primer_text">finally</span> blok identifikuje blok koda čije se
+    izvršavanje garantuje nakon koda obuhvaćenog
+    <span class="primer_text">try</span> blokom i pravo je mesto za zatvaranje
+    datoteke, oporavak resursa i sva ostala čišćenja.
+  </li>
 </ul>
-<br>
+<br />
 
-<span class = "primer_text">try</span> naredba treba da sadrži najmanje jedan <span class = "primer_text">catch</span> ili <span class = "primer_text">finally</span> blok i može imati više <span class = "primer_text">catch</span> blokova.
-<br><br>
+<span class="primer_text">try</span> naredba treba da sadrži najmanje jedan
+<span class="primer_text">catch</span> ili
+<span class="primer_text">finally</span> blok i može imati više
+<span class="primer_text">catch</span> blokova. <br /><br />
 
-Klasa objekta izuzetka označava tip bačenog/ispaljenog izuzetka. Objekat izuzetka može sadržati dodatne informacije o grešci, uključujući poruku o grešci. Sa lančanim izuzecima, izuzetak može ukazivati na izuzetak koji ga je prouzrokovao, a taj može ukazivati na izuzetak koji je njega prouzrokovao i tako dalje.
-<br><br>
+Klasa objekta izuzetka označava tip bačenog/ispaljenog izuzetka. Objekat
+izuzetka može sadržati dodatne informacije o grešci, uključujući poruku o
+grešci. Sa lančanim izuzecima, izuzetak može ukazivati na izuzetak koji ga je
+prouzrokovao, a taj može ukazivati na izuzetak koji je njega prouzrokovao i tako
+dalje.
+<br /><br />

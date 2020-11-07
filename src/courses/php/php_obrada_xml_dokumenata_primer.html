@@ -2,12 +2,10 @@
 $XMLdokument =
 "<?xml version='1.0' encoding='UTF-8'?>
 <note>
-<to>Marko Markovic</to>
-<from>Janko Jankovic</from>
-<heading>Podsetnik</heading>
-<body>Nemoj zaboraviti da me zoves za vikend</body>
-</note>";
-
-$xml=simplexml_load_string($XMLdokument) or die("Greska");    
-print_r($xml);
-?> 
+  <to>Marko Markovic</to>
+  <from>Janko Jankovic</from>
+  <heading>Podsetnik</heading>
+  <body>
+    Nemoj zaboraviti da me zoves za vikend
+  </body> </note
+>"; $xml=simplexml_load_string($XMLdokument) or die("Greska"); print_r($xml); ?>

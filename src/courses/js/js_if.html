@@ -1,56 +1,69 @@
-<h1> <b> If </b> </h1>
-<br>
-<br>
-Uslovne naredbe u JavaScript-u se koriste da bi se izvršile različite akcije u zavisnosti od nekog uslova.
-<br>Tako na početku imamo naredbu If. Ona služi da proverimo da li je neki uslov ispunjen i u zavisnosti od ispunjenosti uslova izvršimo zadatu naredbu.
-<br>
+<h1><b> If </b></h1>
+<br />
+<br />
+Uslovne naredbe u JavaScript-u se koriste da bi se izvršile različite akcije u
+zavisnosti od nekog uslova.
+<br />Tako na početku imamo naredbu If. Ona služi da proverimo da li je neki
+uslov ispunjen i u zavisnosti od ispunjenosti uslova izvršimo zadatu naredbu.
+<br />
 Naredba if ima sledeću strukturu:
-<br>
-<br>
+<br />
+<br />
 <span class="primer_text">
-if ( uslov ) { 
- <br>
- naredba
- <br>
- }
- </span>
-<br>
-<br>
-Ovo nam govori da ukoliko uslov u zagradi bude tačan izvršice se naredba napisana u vitičastoj zagradi.
-<br>
+  if ( uslov ) {
+  <br />
+  naredba
+  <br />
+  }
+</span>
+<br />
+<br />
+Ovo nam govori da ukoliko uslov u zagradi bude tačan izvršice se naredba
+napisana u vitičastoj zagradi.
+<br />
 Primer:
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+<xmp class="primer_ta"
+>
  if (number.value==5) {
  alert (“Uneli ste broj 5!”)
  }
 </xmp>
-<br>
-<br>
-U ovom primeru proveravamo da li je vrednost broja koji korisnik unese 5, ako jeste izbacuje se poruka “Uneli ste broj 5!”.
-<br>
-<br>
-Kako mi postavljamo pitanje o ispunjenosti nekog uslova odgovor koji nam Javascript vraća može da bude TAČNO ili NETAČNO. U našem prvom primeru pitamo se da li je vrednost unetog broja 5 i odgovor koji želimo da dobijemo da bi se ispisala poruka je TAČNO. Međutim može se desiti da korisnik ne unese broj 5 i tada nam Javascript vraća odgovor NETAČNO. 
-<br>
-U našem prvom primeru nemamo alternativu za tako nešto, pa ćemo uvesti naredbu if else. Ona nam pruža mogućnost da proverimo da li je uslov ispunjen i ukoliko jeste da se izvrši jedna naredba, a ako nije da se izvrši alternativna naredba. 
-<br>
+<br />
+<br />
+U ovom primeru proveravamo da li je vrednost broja koji korisnik unese 5, ako
+jeste izbacuje se poruka “Uneli ste broj 5!”.
+<br />
+<br />
+Kako mi postavljamo pitanje o ispunjenosti nekog uslova odgovor koji nam
+Javascript vraća može da bude TAČNO ili NETAČNO. U našem prvom primeru pitamo se
+da li je vrednost unetog broja 5 i odgovor koji želimo da dobijemo da bi se
+ispisala poruka je TAČNO. Međutim može se desiti da korisnik ne unese broj 5 i
+tada nam Javascript vraća odgovor NETAČNO.
+<br />
+U našem prvom primeru nemamo alternativu za tako nešto, pa ćemo uvesti naredbu
+if else. Ona nam pruža mogućnost da proverimo da li je uslov ispunjen i ukoliko
+jeste da se izvrši jedna naredba, a ako nije da se izvrši alternativna naredba.
+<br />
 Naredba if else ima sledeću strukturu:
-<br>
-<br>
+<br />
+<br />
 <span class="primer_text">
-if (uslov)   {naredba}
-<br>
-     else    {naredba}
+  if (uslov) {naredba}
+  <br />
+  else {naredba}
 </span>
-<br>
-<br>
-Dakle ako je uslov iz zagrade ispunjen izvršava se naredba iz prve vitičaste zagrade, a ukoliko uslov nije ispunjen naredba iz druge vitičaste zagrade. 
-<br>
+<br />
+<br />
+Dakle ako je uslov iz zagrade ispunjen izvršava se naredba iz prve vitičaste
+zagrade, a ukoliko uslov nije ispunjen naredba iz druge vitičaste zagrade.
+<br />
 Sada naš primer sa brojem 5 možemo proširiti:
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+<xmp class="primer_ta"
+>
  if (number.value==5) {
  alert (“Uneli ste broj 5!”)
  }
@@ -58,13 +71,15 @@ Sada naš primer sa brojem 5 možemo proširiti:
  alert (“Uneli ste broj koji nije 5!”)
  } 
 </xmp>
-<br>
-<br>
-U ovom proširenom primeru smo dodali da ukoliko uslov iz zagrade nije ispunjen, tj ako nije unet broj 5, pojavljuje se poruka “Uneli ste broj koji nije 5!”.
-<br>
-<br>
-<div class = "zadatak">
-<b>Zadatak:</b> Promeni program tako da proverava da li je uneti broj 4 i ispisuje poruku o tome.
+<br />
+<br />
+U ovom proširenom primeru smo dodali da ukoliko uslov iz zagrade nije ispunjen,
+tj ako nije unet broj 5, pojavljuje se poruka “Uneli ste broj koji nije 5!”.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> Promeni program tako da proverava da li je uneti broj 4 i
+  ispisuje poruku o tome.
 </div>
-<br>
-<br>
+<br />
+<br />

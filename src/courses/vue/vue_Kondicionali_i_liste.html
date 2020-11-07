@@ -1,7 +1,8 @@
 <h1>Kondicionali i liste</h1>
 <h2>Kondicionali</h2>
-Kondicionali predstavljaju način pomoću kojeg možemo da odredimo da li će se neki html element prikazivati ili ne.Vezuje se za direktivu v-if.
-<xmp class = "primer_ta">
+Kondicionali predstavljaju način pomoću kojeg možemo da odredimo da li će se
+neki html element prikazivati ili ne.Vezuje se za direktivu v-if.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +26,22 @@ Kondicionali predstavljaju način pomoću kojeg možemo da odredimo da li će se
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Posmatrajmo prvi paragraf. Direktivom v-if odredjujemo da li će se html element(u ovom slučaju paragraf) prikazivati ili ne. Direktivi v-if se prosledjuje uslov koji za vrednost ima neku logičku promenljivu. U ovom slučaju prikazi za inicijalnu vrednost unutar Vue instance uzima true. Dodali smo i dugme pomoću kojeg menjamo vrednost prikazi logčke promenljive. Prema tome klikom na dugme prikazi uzima vrednost false i zatim se ta vrednost prosledjuje direktivi v-if. U tom slučaju paragraf nestaje. 
-<div class="napomena">Treba napomenuti da kada se v-if direktivi prosledi vrednost uslova koji je false ne dolazi do situacije u kojoj se samo vidljivost html elementa postavlja na false već se element doslovce briše iz html elemenata koji čine veb stranu.</div>
+<button class="button_copy">Vidi primer</button><br />
+Posmatrajmo prvi paragraf. Direktivom v-if odredjujemo da li će se html
+element(u ovom slučaju paragraf) prikazivati ili ne. Direktivi v-if se
+prosledjuje uslov koji za vrednost ima neku logičku promenljivu. U ovom slučaju
+prikazi za inicijalnu vrednost unutar Vue instance uzima true. Dodali smo i
+dugme pomoću kojeg menjamo vrednost prikazi logčke promenljive. Prema tome
+klikom na dugme prikazi uzima vrednost false i zatim se ta vrednost prosledjuje
+direktivi v-if. U tom slučaju paragraf nestaje.
+<div class="napomena">
+  Treba napomenuti da kada se v-if direktivi prosledi vrednost uslova koji je
+  false ne dolazi do situacije u kojoj se samo vidljivost html elementa
+  postavlja na false već se element doslovce briše iz html elemenata koji čine
+  veb stranu.
+</div>
 Postoji i direktiva v-else.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,11 +66,12 @@ Postoji i direktiva v-else.
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Direktiva v-else se vezuje za prvu v-if direktivu i prikazuje html element u slučaju kada je v-if direktivi prosledjena false vrednost.
-<br>
+<button class="button_copy">Vidi primer</button><br />
+Direktiva v-else se vezuje za prvu v-if direktivu i prikazuje html element u
+slučaju kada je v-if direktivi prosledjena false vrednost.
+<br />
 Takodje, v-if direktivom možemo i da obuhvatimo više html elemenata.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,13 +100,20 @@ Takodje, v-if direktivom možemo i da obuhvatimo više html elemenata.
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Potrebno je da odredjen broj html elemenata na koji želimo da utičemo obuhvatimo html etiketom template i da iskoristimo v-if direktivu kao pre.
-Direktivom v-if uklanjamo element iz objektnog modela dokumenta. A ko želimo da ga samo sakrijemo a ne i uklonimo koristimo direktivu v-show umesto v-if kojoj analogno prosledjujemo logički uslov.
+<button class="button_copy">Vidi primer</button><br />
+Potrebno je da odredjen broj html elemenata na koji želimo da utičemo obuhvatimo
+html etiketom template i da iskoristimo v-if direktivu kao pre. Direktivom v-if
+uklanjamo element iz objektnog modela dokumenta. A ko želimo da ga samo
+sakrijemo a ne i uklonimo koristimo direktivu v-show umesto v-if kojoj analogno
+prosledjujemo logički uslov.
 <h2>Liste</h2>
-Posmatrajmo sada liste elemenata i načine na koje te elemente možemo prikazati na veb strani. Formalno govoreći, nizovi su precizniji izraz od listi ali ćemo se zadržati na terminu listama zbog ul i ol html elemenata i njihovog korišćenja u daljem radu.<br>
-Ono što želimo je da uspostavimo vezu izmedju ul i li elemenata i niza u okviru data svojstva u Vue instanci.
-<xmp class = "primer_ta">
+Posmatrajmo sada liste elemenata i načine na koje te elemente možemo prikazati
+na veb strani. Formalno govoreći, nizovi su precizniji izraz od listi ali ćemo
+se zadržati na terminu listama zbog ul i ol html elemenata i njihovog korišćenja
+u daljem radu.<br />
+Ono što želimo je da uspostavimo vezu izmedju ul i li elemenata i niza u okviru
+data svojstva u Vue instanci.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,12 +148,21 @@ Ono što želimo je da uspostavimo vezu izmedju ul i li elemenata i niza u okvir
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Unutar ul elementa primećujemo li element. Koristili smo v-for direktivu.Pomoću te direktive možemo odrediti niz kroz koji ćemo da prodjemo i da pokupimo njegove elemente. U našem slučaju reč sastojak je proizvoljna reč i konstrukcijom v-for="sastojak in hrana" prolazimo kroz sve elemente niza hrana. Svaki element koristeći string interpolaciju ispisujemo unutar li elementa.<br>
-Ako želimo da izvučemo i indeks niza to radimo tako što umesto sastojak in hrana prosledimo izraz "(sastojak,i) in hrana" gde je i u ovom slučaju indeks niza hrana. Dalje string interpolacijom smoga ispisali u okviru li elementa.
-Ukoliko želimo da v-for direktivom obuhvatimo nešto što nije lista postupak je isti kao i kod v-if direktive. Potrebno je iskoristiti v-for direktivu u okviru template elementa na isti način kao i u okviru li elementa. <br><br>
-Ovo su bili primeri u kojima smo prolazili kroz nizove,mada to ne mora uvek da bude slučaj. Moguće je prolaziti i kroz objekte kao i kroz nizove objekata.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Unutar ul elementa primećujemo li element. Koristili smo v-for direktivu.Pomoću
+te direktive možemo odrediti niz kroz koji ćemo da prodjemo i da pokupimo
+njegove elemente. U našem slučaju reč sastojak je proizvoljna reč i
+konstrukcijom v-for="sastojak in hrana" prolazimo kroz sve elemente niza hrana.
+Svaki element koristeći string interpolaciju ispisujemo unutar li elementa.<br />
+Ako želimo da izvučemo i indeks niza to radimo tako što umesto sastojak in hrana
+prosledimo izraz "(sastojak,i) in hrana" gde je i u ovom slučaju indeks niza
+hrana. Dalje string interpolacijom smoga ispisali u okviru li elementa. Ukoliko
+želimo da v-for direktivom obuhvatimo nešto što nije lista postupak je isti kao
+i kod v-if direktive. Potrebno je iskoristiti v-for direktivu u okviru template
+elementa na isti način kao i u okviru li elementa. <br /><br />
+Ovo su bili primeri u kojima smo prolazili kroz nizove,mada to ne mora uvek da
+bude slučaj. Moguće je prolaziti i kroz objekte kao i kroz nizove objekata.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,8 +207,21 @@ Ovo su bili primeri u kojima smo prolazili kroz nizove,mada to ne mora uvek da b
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Komandom v-for="osoba in osobe" smo prošli kroz niz objekata osobe. Promenljiva osoba će uzimati vrednost svakog elementa niza. U ovom slučaju smo tu promenljivu nazvali osoba ali naziv je proizvoljan. U nastavku smo dodali na prethodnu postojeću direktivu v-for dodali novu v-for direktivu oblika  v-for="(vrednost,kljuc) in osoba". Ideja je da iz objekta osoba izvučemo njegov ključ i vrednost.
-<div class="napomena">Redosled kojim se pristupa ključu i vrednosti je jako bitan.Unutar komande (vrednost,kljuc) in osoba umesto naziva "kljuc" i "vrednost" može stajati bilo koji drugi naziv,ali je redosled unutar zagrada bitan gde se na prvom mestu nalazi uvek vrednost a na drugom ključ objekta koji se pretražuje.  </div>
-Na jednostavan način možemo prolaziti i kroz nizove brojeva.Ako želimo da ispišemo prvih 10 prirodnih brojeva ne moramo u okviru data svojstva u Vue instanci da definišemo odgovarajući niz. Dovoljno je da upotrnimo komandu 
-v-for="n in 10". Na ovaj način n će uzimati u svakoj iteraciji redom brojeve od 1 do 10 i dalje broj n možemo ispisati,koristiti u računanju itd. 
+<button class="button_copy">Vidi primer</button><br />
+Komandom v-for="osoba in osobe" smo prošli kroz niz objekata osobe. Promenljiva
+osoba će uzimati vrednost svakog elementa niza. U ovom slučaju smo tu
+promenljivu nazvali osoba ali naziv je proizvoljan. U nastavku smo dodali na
+prethodnu postojeću direktivu v-for dodali novu v-for direktivu oblika
+v-for="(vrednost,kljuc) in osoba". Ideja je da iz objekta osoba izvučemo njegov
+ključ i vrednost.
+<div class="napomena">
+  Redosled kojim se pristupa ključu i vrednosti je jako bitan.Unutar komande
+  (vrednost,kljuc) in osoba umesto naziva "kljuc" i "vrednost" može stajati bilo
+  koji drugi naziv,ali je redosled unutar zagrada bitan gde se na prvom mestu
+  nalazi uvek vrednost a na drugom ključ objekta koji se pretražuje.
+</div>
+Na jednostavan način možemo prolaziti i kroz nizove brojeva.Ako želimo da
+ispišemo prvih 10 prirodnih brojeva ne moramo u okviru data svojstva u Vue
+instanci da definišemo odgovarajući niz. Dovoljno je da upotrnimo komandu
+v-for="n in 10". Na ovaj način n će uzimati u svakoj iteraciji redom brojeve od
+1 do 10 i dalje broj n možemo ispisati,koristiti u računanju itd.

@@ -1,54 +1,66 @@
 <h1><b>Složeniji upiti</b></h1>
 U ovoj lekciji ćemo objediniti povezivanje više tabela i podupite.
-<br><br>
-Potrebno je izlistati imena kupaca pored imena radnika kod kojih su kupovali, ali prikazati
-i one kupce koji nisu nikada naručivali hranu za kućne ljubimce.
-<xmp class = "primer_ta" >
+<br /><br />
+Potrebno je izlistati imena kupaca pored imena radnika kod kojih su kupovali,
+ali prikazati i one kupce koji nisu nikada naručivali hranu za kućne ljubimce.
+<xmp class="primer_ta"
+>
 SELECT kupac.ime, kupac.prezime, radnik2.ime, radnik2.prezime FROM kupac LEFT JOIN (SELECT radnik.ime, radnik.prezime, narudzbina.kupac FROM radnik JOIN narudzbina ON radnik.id_radnika = narudzbina.prodavac) AS radnik2 ON radnik2.kupac = kupac.id_kupca;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Pomoću podupita smo dobili izvdenu tabelu kojoj smo dodelili alijas ime <b>radnik2</b>. Ta tabela ima tri kolone:
-ime radnika, prezime radnika i kolonu kupac (u njoj se čuva id_kupca koji je naručio nešto). Izvdenu tabelu smo dobili
-tako što smo povezali tabele <b>radnik</b> i <b>narudzbina</b> tako da se podatak u koloni id_radnika
-iz tabele <b>radnik</b> poklapa sa podatkom u koloni prodavac tabele <b>narudzbina</b>. Sada, pomoću levog
-spoljašnjeg povezivanja, povezujemo tabele <b>kupac</b> i <b>radnik2</b> po kriterijumu da je podatak
-u koloni id_kupca tabele <b>kupac</b> isti kao podatak u koloni kupac tabele <b>radnik2</b>.
-<br>
-<br>
-Uz minimalne korekcije prethodnog upita, isti rezultat možemo dobiti koristeći desno spoljašnje povezivanje.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Pomoću podupita smo dobili izvdenu tabelu kojoj smo dodelili alijas ime
+<b>radnik2</b>. Ta tabela ima tri kolone: ime radnika, prezime radnika i kolonu
+kupac (u njoj se čuva id_kupca koji je naručio nešto). Izvdenu tabelu smo dobili
+tako što smo povezali tabele <b>radnik</b> i <b>narudzbina</b> tako da se
+podatak u koloni id_radnika iz tabele <b>radnik</b> poklapa sa podatkom u koloni
+prodavac tabele <b>narudzbina</b>. Sada, pomoću levog spoljašnjeg povezivanja,
+povezujemo tabele <b>kupac</b> i <b>radnik2</b> po kriterijumu da je podatak u
+koloni id_kupca tabele <b>kupac</b> isti kao podatak u koloni kupac tabele
+<b>radnik2</b>.
+<br />
+<br />
+Uz minimalne korekcije prethodnog upita, isti rezultat možemo dobiti koristeći
+desno spoljašnje povezivanje.
+<xmp class="primer_ta"
+>
 SELECT CONCAT(kupac.ime, " ", kupac.prezime) AS ime_kupca, CONCAT(radnik2.ime, " ", radnik2.prezime) AS ime_prodavca FROM (SELECT radnik.ime, radnik.prezime, narudzbina.kupac FROM radnik JOIN narudzbina ON radnik.id_radnika = narudzbina.prodavac) AS radnik2 RIGHT JOIN kupac ON radnik2.kupac = kupac.id_kupca;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-U ovom upitu smo po dve rezultujuće kolone spojili u jednu i dodali im alijas imena, kako bi rezultat upita
-bio što pregledniji.
-<br>
-<br>
-Sledećim upitom ispisujemo imena prodavaca i novčanu vrednost robe koju su prodali.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+U ovom upitu smo po dve rezultujuće kolone spojili u jednu i dodali im alijas
+imena, kako bi rezultat upita bio što pregledniji.
+<br />
+<br />
+Sledećim upitom ispisujemo imena prodavaca i novčanu vrednost robe koju su
+prodali.
+<xmp class="primer_ta"
+>
 SELECT CONCAT(radnik.ime, ' ', radnik.prezime) AS Prodavac, SUM(narudzbina.cena) AS Ukupno FROM radnik JOIN narudzbina ON narudzbina.prodavac = radnik.id_radnika GROUP BY Prodavac ORDER BY Ukupno DESC;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br><br>
-Narednim upitom dobijamo kupce koji su naručivali hranu za pse i tačan broj koliku puta su je naručivali.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Narednim upitom dobijamo kupce koji su naručivali hranu za pse i tačan broj
+koliku puta su je naručivali.
+<xmp class="primer_ta"
+>
 SELECT CONCAT(kupac.ime, " ", kupac.prezime) AS Kupac, COUNT(kupac) AS n FROM kupac JOIN narudzbina ON narudzbina.kupac = kupac.id_kupca JOIN proizvod ON narudzbina.proizvod = proizvod.id_proizvoda WHERE proizvod.naziv = "Hrana za pse" GROUP BY Kupac ORDER BY n DESC;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <div class="zadatak">
   Koji kupac je potrošio najviše novca kupujući hranu za mačke?
 </div>
-<br>
-Odrediti najskuplju narudžbinu. Ko je kupac, ko je prodavac, šta je kupljeno i koliko je to koštalo?
-<xmp class = "primer_ta" >
+<br />
+Odrediti najskuplju narudžbinu. Ko je kupac, ko je prodavac, šta je kupljeno i
+koliko je to koštalo?
+<xmp class="primer_ta"
+>
 SELECT narudzbina.cena AS Cena, CONCAT(kupac.ime, " ", kupac.prezime) AS Kupac, CONCAT(radnik.ime, " ", radnik.prezime) AS Prodavac, proizvod.naziv AS Proizvod FROM radnik, kupac, narudzbina, proizvod WHERE narudzbina.kupac = kupac.id_kupca AND narudzbina.prodavac = radnik.id_radnika AND narudzbina.proizvod = proizvod.id_proizvoda AND narudzbina.cena = (SELECT MAX(narudzbina.cena) FROM narudzbina);
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Primećujete da smo ovde tabele povezivali Dekartovim proizvodom. Prva tri uslova iza ključne reči WHERE su
-kriterijumi za povezivanje tabele dok se u poslednjem uslovu, pomoću podupita, određuje koja
-narudžbina je najskuplja.
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br />
+Primećujete da smo ovde tabele povezivali Dekartovim proizvodom. Prva tri uslova
+iza ključne reči WHERE su kriterijumi za povezivanje tabele dok se u poslednjem
+uslovu, pomoću podupita, određuje koja narudžbina je najskuplja.
+<br /><br />

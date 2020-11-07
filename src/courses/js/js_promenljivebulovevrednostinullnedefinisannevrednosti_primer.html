@@ -1,32 +1,27 @@
 <html>
-<head>
-
-</head>
-<body>
-	<div>
-		<input type="number" name="prvibroj" id="prvibroj" min="1" max="100">
-		<input type="number" name="drugibroj" id="drugibroj" min="1" max="100">
-		<button onclick="ispitaj()">OK</button>
-	</div>
-	<div id="ispis">
-		
-	</div>
-	<script>
-		document.getElementById("prvibroj").defaultValue = "1";
-		document.getElementById("drugibroj").defaultValue = "1";
-		function ispitaj() {
-			var prvibroj = document.getElementById("prvibroj").value;
-			var drugibroj = document.getElementById("drugibroj").value;
-			var rezultat = prvibroj * drugibroj;
-			var ispis = '';
-			if ( rezultat < 100) { 
-				ispis = "Proizvod je: " + rezultat;	
-			}
-			else { 
-				ispis = 'Rezultat je ve&#263;i od 100!';
-			}
-		document.getElementById('ispis').innerHTML = ispis;
-		}
-	</script>
-</body>
+  <head> </head>
+  <body>
+    <div>
+      <input type="number" name="prvibroj" id="prvibroj" min="1" max="100" />
+      <input type="number" name="drugibroj" id="drugibroj" min="1" max="100" />
+      <button onclick="ispitaj()">OK</button>
+    </div>
+    <div id="ispis"></div>
+    <script>
+      document.getElementById("prvibroj").defaultValue = "1";
+      document.getElementById("drugibroj").defaultValue = "1";
+      function ispitaj() {
+        var prvibroj = document.getElementById("prvibroj").value;
+        var drugibroj = document.getElementById("drugibroj").value;
+        var rezultat = prvibroj * drugibroj;
+        var ispis = "";
+        if (rezultat < 100) {
+          ispis = "Proizvod je: " + rezultat;
+        } else {
+          ispis = "Rezultat je ve&#263;i od 100!";
+        }
+        document.getElementById("ispis").innerHTML = ispis;
+      }
+    </script>
+  </body>
 </html>

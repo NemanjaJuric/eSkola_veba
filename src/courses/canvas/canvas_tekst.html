@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Canvas tekst</title>
-</head>
-<body>
-	<h1>Crtanje teksta u Canvas-u</h1>
-	<p>Za crtanje teksta u Canvas-u najbitnija svojstva i metode su:</p>
-	<ul>
-		<li><i>font</i> - definiše font teksta</li>
-		<li><i>fillText(text,x,y)</i> - iscrtava 'popunjen' tekst u canvas elementu</li>
-		<li><i>strokeText(text,x,y)</i> - iscrtava tekst u canvas elementu</li>
-	</ul>
-<p>Primer koji demonstrira poziv metode fillText, postavlja font na 30px "Arial" i ispisuje "Hello world":</p>
-<xmp class = "primer_ta">
+  <head>
+    <title>Canvas tekst</title>
+  </head>
+  <body>
+    <h1>Crtanje teksta u Canvas-u</h1>
+    <p>Za crtanje teksta u Canvas-u najbitnija svojstva i metode su:</p>
+    <ul>
+      <li><i>font</i> - definiše font teksta</li>
+      <li>
+        <i>fillText(text,x,y)</i> - iscrtava 'popunjen' tekst u canvas elementu
+      </li>
+      <li><i>strokeText(text,x,y)</i> - iscrtava tekst u canvas elementu</li>
+    </ul>
+    <p>
+      Primer koji demonstrira poziv metode fillText, postavlja font na 30px
+      "Arial" i ispisuje "Hello world":
+    </p>
+    <xmp class="primer_ta">
 <canvas id="myCanvasfill" width="200" height="100"
 style="border:1px solid #d3d3d3;"></canvas>
 <script>
@@ -22,9 +27,12 @@ ctx.font = "30px Arial";
 ctx.fillText("Hello World", 10, 50);
 </script>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<p>Primer koji demonstrira poziv metode strokeText, postavlja font na 30px "Arial" i ispisuje "Hello world":</p>
-<xmp class = "primer_ta">
+    <button class="button_copy">Vidi primer</button>
+    <p>
+      Primer koji demonstrira poziv metode strokeText, postavlja font na 30px
+      "Arial" i ispisuje "Hello world":
+    </p>
+    <xmp class="primer_ta">
 <canvas id="myCanvasStroke" width="200" height="100"
 style="border:1px solid #d3d3d3;"></canvas>
 <script>
@@ -34,6 +42,6 @@ ctx.font = "30px Arial";
 ctx.strokeText("Hello World",10,50);
 </script>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</body>
+    <button class="button_copy">Vidi primer</button>
+  </body>
 </html>

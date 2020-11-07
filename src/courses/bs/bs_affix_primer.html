@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>  
-<title>Bootstrap</title> 
-<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="UTF-8">
-<style>
-.affix{
-top:0px;
-}
-</style>
- </head>
-<body data-spy="scroll" data-target="#id1" 
-data-offset="15" style="position:relative;">
-<mark><h2 style="text-align:center;">Fiksiranje vertikalnog menija pomoću affix i scrollspy plagina</h2></mark>
-<br>
+  <head>
+    <title>Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+    <style>
+      .affix {
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body
+    data-spy="scroll"
+    data-target="#id1"
+    data-offset="15"
+    style="position: relative"
+  >
+    <mark
+      ><h2 style="text-align: center">
+        Fiksiranje vertikalnog menija pomoću affix i scrollspy plagina
+      </h2></mark
+    >
+    <br />
 
-
-<div style="height:50px;" style="background-color:rgb(255,185,220);">
-  Otvorite ovaj primer u većem prozoru a potom
-  skrolujte stranu da biste uočili promene na
-  meniju, uzrokovane scrollspy mehanizmom.
-</div>
-
-<div class="container">
-  <div class="row">
-  
-    <div class="col-xs-3" id="id1">
-      <ul class="nav nav-pills nav-stacked"
-	 data-spy="affix" data-offset-top="190">
-       <li><a href="#sekcija1">Sekcija1</a></li>
-       <li><a href="#sekcija2">Sekcija2</a></li>
-       <li><a href="#sekcija3">Sekcija3</a></li>
-      </ul>
+    <div style="height: 50px" style="background-color: rgb(255, 185, 220)">
+      Otvorite ovaj primer u većem prozoru a potom skrolujte stranu da biste
+      uočili promene na meniju, uzrokovane scrollspy mehanizmom.
     </div>
-	
-    <div class="col-xs-9">
-      <div id="sekcija1" style="height:200px; background-color:rgb(193,255,255);">    
-        <h1>Sekcija1</h1>
-        <p>Skrolujte stranu.</p>
-      </div>
-      <div id="sekcija2" style="height:200px; background-color:rgb(120,200,150);"> 
-        <h1>Sekcija2</h1>
-        <p>Skrolujte stranu.</p>
-      </div>        
-      <div id="sekcija3" style="height:200px; background-color:rgb(50,200,100);">
-        <h1>Sekcija3</h1>
-        <p>Skrolujte stranu.</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3" id="id1">
+          <ul
+            class="nav nav-pills nav-stacked"
+            data-spy="affix"
+            data-offset-top="190"
+          >
+            <li><a href="#sekcija1">Sekcija1</a></li>
+            <li><a href="#sekcija2">Sekcija2</a></li>
+            <li><a href="#sekcija3">Sekcija3</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-9">
+          <div
+            id="sekcija1"
+            style="height: 200px; background-color: rgb(193, 255, 255)"
+          >
+            <h1>Sekcija1</h1>
+            <p>Skrolujte stranu.</p>
+          </div>
+          <div
+            id="sekcija2"
+            style="height: 200px; background-color: rgb(120, 200, 150)"
+          >
+            <h1>Sekcija2</h1>
+            <p>Skrolujte stranu.</p>
+          </div>
+          <div
+            id="sekcija3"
+            style="height: 200px; background-color: rgb(50, 200, 100)"
+          >
+            <h1>Sekcija3</h1>
+            <p>Skrolujte stranu.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>
-<br>
-<br>
+<br />
+<br />

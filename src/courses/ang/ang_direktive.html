@@ -1,32 +1,32 @@
 <h1>AngularJS Direktive</h1>
-<br/>
-<br/>
-AngularJS omogućava da proširite HTML sa novim atributima koji se 
-nazivaju <b>direktive</b>.
-<br/>
-<br/>
-AngularJS ima skup ugrađenih direktiva koje pružaju funkcionalnost 
-aplikaciji.
-<br/>
-<br/>
+<br />
+<br />
+AngularJS omogućava da proširite HTML sa novim atributima koji se nazivaju
+<b>direktive</b>.
+<br />
+<br />
+AngularJS ima skup ugrađenih direktiva koje pružaju funkcionalnost aplikaciji.
+<br />
+<br />
 Takođe, AngularJS dozvoljava da definišete sopstvene direktive.
-<br/>
-<br/>
+<br />
+<br />
 <h2>AngularJS Direktive</h2>
-<br/>
+<br />
 AngularJS direktive su prošireni HTML atributi sa prefiksom <b>ng-</b>.
-<br/>
-<br/>
-Direktiva <span class = "primer_text">ng-app</span> pokreće AngularJS aplikaciju.
-<br/>
-<br/>
-Direktiva <span class = "primer_text">ng-init</span> inicijalizuje podatke aplikacije.
-<br/>
-<br/>
-Direktiva ng-model povezuje vrednost HTML kontrola (input, select, 
-textarea) sa podacima aplikacije.
-<br/>
-<textarea class = "primer_ta" rows = "18" disabled >
+<br />
+<br />
+Direktiva <span class="primer_text">ng-app</span> pokreće AngularJS aplikaciju.
+<br />
+<br />
+Direktiva <span class="primer_text">ng-init</span> inicijalizuje podatke
+aplikacije.
+<br />
+<br />
+Direktiva ng-model povezuje vrednost HTML kontrola (input, select, textarea) sa
+podacima aplikacije.
+<br />
+<textarea class="primer_ta" rows="18" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -43,27 +43,27 @@ textarea) sa podacima aplikacije.
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-Direktiva ng-app takođe govori AngularJS-u da je < div > element 
-"vlasnik" AngularJS aplikacije.
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+Direktiva ng-app takođe govori AngularJS-u da je < div > element "vlasnik"
+AngularJS aplikacije.
+<br />
+<br />
 <h2>Povezivanje podataka</h2>
-<br/>
+<br />
 Izraz {{ ime }}, u gornjem primeru, je AngularJS izraz za povezivanje podataka.
-<br/>
-<br/>
-Povezivanje podataka u AngularJS-u znači povezivanje AngularJS izraza sa AngularJS podatkom.
-<br/>
-<br/>
+<br />
+<br />
+Povezivanje podataka u AngularJS-u znači povezivanje AngularJS izraza sa
+AngularJS podatkom.
+<br />
+<br />
 Izraz {{ ime }} je povezan sa ng-model="ime".
-<br/>
-<br/>
-U sledećem primeru dva tekstualna polja su povezana sa dve ng-model 
-direktive:
-<br/>
-<textarea class = "primer_ta" rows = "23" disabled >
+<br />
+<br />
+U sledećem primeru dva tekstualna polja su povezana sa dve ng-model direktive:
+<br />
+<textarea class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -82,19 +82,19 @@ Cena: <input type="number" ng-model="cena">
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<div class = "napomena" >
-Korišćenje ng-init nije baš uobičajeno. Naučićete kako da 
-inicijalizujete podatak u lekciji o kontrolerima.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="napomena">
+  Korišćenje ng-init nije baš uobičajeno. Naučićete kako da inicijalizujete
+  podatak u lekciji o kontrolerima.
 </div>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Ponavljanje HTML elemenata</h2>
-<br/>
-Direktiva <span class = "primer_text">ng-repeat</span> ponavlja HTML element:
-<br/>
-<textarea class = "primer_ta" rows = "20" disabled >
+<br />
+Direktiva <span class="primer_text">ng-repeat</span> ponavlja HTML element:
+<br />
+<textarea class="primer_ta" rows="20" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -112,15 +112,15 @@ Direktiva <span class = "primer_text">ng-repeat</span> ponavlja HTML element:
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-Ustvari, direktiva ng-repeat klonira HTML elemente jednom za 
-svaku stavku u kolekciji.
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+Ustvari, direktiva ng-repeat klonira HTML elemente jednom za svaku stavku u
+kolekciji.
+<br />
+<br />
 Direktiva ng-repeat se koristi i za niz objekata:
-<br/>
-<textarea class = "primer_ta" rows = "23" disabled >
+<br />
+<textarea class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -142,61 +142,70 @@ Direktiva ng-repeat se koristi i za niz objekata:
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<div class = "napomena" >
-AngularJS je odličan za korišćenje u aplikacijama koje rade sa bazom podataka.
-<br/>
-Dovoljno je zamisliti da su ovi objekti slogovi iz baze podataka.
+<button class="button_copy">Vidi primer</button>
+<br />
+<div class="napomena">
+  AngularJS je odličan za korišćenje u aplikacijama koje rade sa bazom podataka.
+  <br />
+  Dovoljno je zamisliti da su ovi objekti slogovi iz baze podataka.
 </div>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Direktiva ng-app</h2>
-<br/>
+<br />
 Direktiva ng-app definiše osnovni element AngularJS aplikacije.
-<br/>
-<br/>
+<br />
+<br />
 Direktiva ng-app će automatski pokrenuti aplikaciju kada se učita veb stranica.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Direktiva ng-init</h2>
-<br/>
+<br />
 Direktiva ng-init definiše početne vrednosti za AngularJS aplikaciju.
-<br/>
-<br/>
+<br />
+<br />
 Obično se ne koristi ng-init. Umesto toga se koristi kontroler ili modul.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Direktiva ng-model</h2>
-<br/>
-Direktiva ng-model povezuje vrednost HTML kontrola (input, select, textarea) sa podatkom aplikacije.
-<br/>
-<br/>
+<br />
+Direktiva ng-model povezuje vrednost HTML kontrola (input, select, textarea) sa
+podatkom aplikacije.
+<br />
+<br />
 Direktiva ng-model takođe:
 <ul>
-	<li>Obezbeđuje proveru tipa podatka (da li je broj, e-pošta, da li je obavezan).</li>
-	<li>Obezbeđuje status podatka (da li je neispravan, popunjen, početan, pogrešan).</li>
-	<li>Obezbeđuje CSS klase za HTML elemente.</li>
-	<li>Povezuje HTML elemente sa HTML formama.</li>
+  <li>
+    Obezbeđuje proveru tipa podatka (da li je broj, e-pošta, da li je obavezan).
+  </li>
+  <li>
+    Obezbeđuje status podatka (da li je neispravan, popunjen, početan,
+    pogrešan).
+  </li>
+  <li>Obezbeđuje CSS klase za HTML elemente.</li>
+  <li>Povezuje HTML elemente sa HTML formama.</li>
 </ul>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Pravljenje nove direktive</h2>
-<br/>
+<br />
 Pored svih ugrađenih AngularJS direktiva, mogu da se naprave nove direktive.
-<br/>
-<br/>
-Nove direktive se kreiraju koristeći funkciju <span class = "primer_text"> .directive </span>.
-<br/>
-<br/>
-Da bi se nova direktiva pozvala treba da se napravi HTML element čije će ime biti isto kao i ime nove direktive.
-<br/>
-<br/>
-Kod davanja imena direktivama, mora da se koristi kamila notacija (na primer: testDirektiva), 
-ali kada se poziva, mora da se koristi separator "-" (na primer: test-direktiva):
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "22" disabled >
+<br />
+<br />
+Nove direktive se kreiraju koristeći funkciju
+<span class="primer_text"> .directive </span>.
+<br />
+<br />
+Da bi se nova direktiva pozvala treba da se napravi HTML element čije će ime
+biti isto kao i ime nove direktive.
+<br />
+<br />
+Kod davanja imena direktivama, mora da se koristi kamila notacija (na primer:
+testDirektiva), ali kada se poziva, mora da se koristi separator "-" (na primer:
+test-direktiva):
+<br />
+<br />
+<textarea class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -216,25 +225,26 @@ app.directive("testDirektiva", function() {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Direktiva se može pozvati koristeći:
 <ul>
-	<li>Ime elementa</li>
-	<li>Atribut</li>
-	<li>Klasu</li>
-	<li>Komentar</li>
+  <li>Ime elementa</li>
+  <li>Atribut</li>
+  <li>Klasu</li>
+  <li>Komentar</li>
 </ul>
-<br/>
-<br/>
+<br />
+<br />
 Naredni primeri će imati isti rezultat:
-<br/>
-<br/>
+<br />
+<br />
 <ul>
-	<li>Ime elementa
-		<br/>
-<textarea class = "primer_ta" rows = "22" disabled >
+  <li>
+    Ime elementa
+    <br />
+    <textarea class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -253,13 +263,15 @@ app.directive("testDirektiva", function() {
 
 </body>
 </html>
-</textarea>
-		<button class = "button_copy" >Vidi primer</button >
-		<br/>
-	</li>
-	<li>Atribut
-		<br/>
-<textarea class = "primer_ta" rows = "22" disabled >
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+  </li>
+  <li>
+    Atribut
+    <br />
+    <textarea class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -278,13 +290,15 @@ app.directive("testDirektiva", function() {
 
 </body>
 </html>
-</textarea>
-		<button class = "button_copy" >Vidi primer</button >
-		<br/>
-	</li>
-	<li>Klasa
-		<br/>
-<textarea class = "primer_ta" rows = "27" disabled >
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+  </li>
+  <li>
+    Klasa
+    <br />
+    <textarea class="primer_ta" rows="27" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -306,13 +320,15 @@ app.directive("testDirektiva", function() {
 
 </body>
 </html>
-</textarea>
-		<button class = "button_copy" >Vidi primer</button >
-		<br/>
-	</li>
-	<li>Komentar
-		<br/>
-<textarea class = "primer_ta" rows = "33" disabled >
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+  </li>
+  <li>
+    Komentar
+    <br />
+    <textarea class="primer_ta" rows="33" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -337,22 +353,25 @@ app.directive("testDirektiva", function() {
 
 </body>
 </html>
-</textarea>
-		<button class = "button_copy" >Vidi primer</button >
-		<br/>
-	</li>
+</textarea
+    >
+    <button class="button_copy">Vidi primer</button>
+    <br />
+  </li>
 </ul>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Ograničenja</h2>
-<br/>
-Direktive mogu da se ograniče tako da mogu da budu pozvane samo preko nekih metoda.
-<br/>
-<br/>
-Dodavanjem polju "restrict" vrednost "A", direktiva može da bude pozvana samo preko atributa:
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "29" disabled >
+<br />
+Direktive mogu da se ograniče tako da mogu da budu pozvane samo preko nekih
+metoda.
+<br />
+<br />
+Dodavanjem polju "restrict" vrednost "A", direktiva može da bude pozvana samo
+preko atributa:
+<br />
+<br />
+<textarea class="primer_ta" rows="29" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -375,16 +394,17 @@ app.directive("testDirektiva", function() {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Vrednosti za polje "restrict" mogu biti:
 <ul>
-	<li>E za ime elementa</li>
-	<li>A za atribut</li>
-	<li>C za klasu</li>
-	<li>M za komentar</li>
+  <li>E za ime elementa</li>
+  <li>A za atribut</li>
+  <li>C za klasu</li>
+  <li>M za komentar</li>
 </ul>
-<br/>
-<br/>
-Podrazumevana vrednost je EA, što znači da i ime elementa i atribut mogu da pozovu direktivu.
+<br />
+<br />
+Podrazumevana vrednost je EA, što znači da i ime elementa i atribut mogu da
+pozovu direktivu.

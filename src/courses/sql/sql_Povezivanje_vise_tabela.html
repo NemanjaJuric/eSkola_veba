@@ -1,9 +1,12 @@
 <h1><b>Povezivanje više tabela</b></h1>
-U prethodnoj lekciji smo videli kako i na koje načine možemo povezati dve tabele. Nekada ni to nije dovoljno
-da bi se došlo do traženih podataka, pa je potrebno povezati 3, 4 ili više tabela. Kao što smo koristili tabele
-<b>radnik</b> i <b>sluzbeni_put</b>, za potrebe lekcija kreirane su još tri tabele.<br>
+U prethodnoj lekciji smo videli kako i na koje načine možemo povezati dve
+tabele. Nekada ni to nije dovoljno da bi se došlo do traženih podataka, pa je
+potrebno povezati 3, 4 ili više tabela. Kao što smo koristili tabele
+<b>radnik</b> i <b>sluzbeni_put</b>, za potrebe lekcija kreirane su još tri
+tabele.<br />
 Tabela <b>kupac</b>, kreirana upitom:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 CREATE TABLE kupac (
   id_kupca INT NOT NULL AUTO_INCREMENT,
   ime VARCHAR(20) NOT NULL,
@@ -15,7 +18,8 @@ CREATE TABLE kupac (
 );
 </xmp>
 Zatim tabela <b>proizvod</b>, kreirana upitom:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 CREATE TABLE proizvod (
   id_proizvoda INT NOT NULL AUTO_INCREMENT,
   naziv VARCHAR(40) NOT NULL,
@@ -24,7 +28,8 @@ CREATE TABLE proizvod (
 );
 </xmp>
 I na kraju, tabela <b>narudzbina</b>, kreirana upitom:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 CREATE TABLE narudzbina (
   id_narudzbine INT NOT NULL AUTO_INCREMENT,
   kupac INT NOT NULL,
@@ -36,66 +41,79 @@ CREATE TABLE narudzbina (
   PRIMARY KEY (`id_narudzbine`)
 );
 </xmp>
-Ove tri tabele, zajedno sa prethodno korišćenim tabelama čine jednu bazu podataka nekog preduzeća koje se bavi
-prodajom hrane za kućne ljubimce.
-<br>
+Ove tri tabele, zajedno sa prethodno korišćenim tabelama čine jednu bazu
+podataka nekog preduzeća koje se bavi prodajom hrane za kućne ljubimce.
+<br />
 Grafički prikaz povezivanja tabela je dat sledećom slikom.
-<br>
-<img src="courses/sql/images/SemaTabela.png" class="img-fluid velicina">
-<br>
-Prokomentarišimo bazu još malo. Bazu čini pet tabela. U tabeli <b>radnik</b> se nalaze podaci o svim zaposlenima u firmi.
-U tabeli <b>proizvod</b> se nalaze podaci o proizvodima koje firma prodaje. Jednostavnosti radi, na raspolaganju
-su samo hrana za pse i hrana za mačke. Sledeća je tabela <b>kupac</b>. U njoj se čuvaju podaci o kupcima koji kupuju
-hranu za svoje kućne ljubimce. U tabeli <b>sluzbeni_put</b> se čuvaju podaci vezani za službena putovanja
-radnika firme. Peta tabela je tabela <b>narudzbina</b>. Ona sadrži podatke o tome kada i kod koga je neko kupio
-određeni proizvod.
-<br><br>
+<br />
+<img src="courses/sql/images/SemaTabela.png" class="img-fluid velicina" />
+<br />
+Prokomentarišimo bazu još malo. Bazu čini pet tabela. U tabeli <b>radnik</b> se
+nalaze podaci o svim zaposlenima u firmi. U tabeli <b>proizvod</b> se nalaze
+podaci o proizvodima koje firma prodaje. Jednostavnosti radi, na raspolaganju su
+samo hrana za pse i hrana za mačke. Sledeća je tabela <b>kupac</b>. U njoj se
+čuvaju podaci o kupcima koji kupuju hranu za svoje kućne ljubimce. U tabeli
+<b>sluzbeni_put</b> se čuvaju podaci vezani za službena putovanja radnika firme.
+Peta tabela je tabela <b>narudzbina</b>. Ona sadrži podatke o tome kada i kod
+koga je neko kupio određeni proizvod. <br /><br />
 Sintaksa povezivanja više tabela:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT tabela1.ime_kolone, ... , tabela2.ime_kolone, ...
 FROM tabela1 JOIN tabela2 ON uslov1
 JOIN tabela3 ON uslov2;
 </xmp>
 Analizirajmo upit liniju po liniju.
-<br>
-<span class = "primer_text" >SELECT tabela1.ime_kolone, ... , tabela2.ime_kolone, ...</span>: Navode se imena
-kolona koje hoćemo da dobijemo.
-<br>
-<span class = "primer_text" >FROM tabela1 JOIN tabela2 ON uslov1 JOIN tabela3 ON uslov2;</span>:
-Iza ključne reči FROM se navode tabele koje se povezuju i kriterijumi za povezivanje. Broj kriterijuma
-za povezivanje je uvek za jedan manji od broja tabela koje se povezuju.
-<br><br>
-Da bismo dobili sve kupce koji su kupili hranu za pse,
-moramo povezati tri tabele, <b>kupac</b>, <b>narudzbina</b> i  <b>proizvod</b>. Zašto je to potrebno? Uslov pretrage
-je da je naziv proizvoda "Hrana za pse". U tabeli <b>narudzbina</b>, u koloni proizvod je upisan samo id_proizvoda a ne
-njegov naziv, pa da bismo pristupili nazivu proizvoda moramo povezati tabelu <b>narudzbina</b> sa tabelom
-<b>proizvod</b>. Analogno, u tabeli <b>narudzbina</b> nemamo upisnao ime i prezime kupca već samo njegov id.
-Da bismo dobili njegovo ime i prezime, moramo povezati tabelu <b>narudzbina</b> sa tabelom <b>kupac</b>. Nakon
-što smo odredili koje tabele treba povezati, sledeće je da ustanovimo po kom kriterijumu da ih povežemo. Da bismo
-korektno povezali tabelu <b>narudzbina</b> i tabelu <b>proizvod</b> potrebno je da podatak u koloni proizvod tabele
-<b>narudzbina</b> bude identičan podatku u koloni id_proizvoda tabele <b>proizvod</b>. Identično se vrši povezivanje
-tabela <b>narudzbina</b> i <b>kupac</b>. Podaci u koloni kupac tabele <b>narudzbina</b> i u koloni id_kupca tabele
-<b>kupac</b> treba da budu identični. Broj kriterijuma za povezivanje tabela je uvek za jedan manji od broja
-tabela koje se povezuju.
-<xmp class = "primer_ta" >
+<br />
+<span class="primer_text"
+  >SELECT tabela1.ime_kolone, ... , tabela2.ime_kolone, ...</span
+>: Navode se imena kolona koje hoćemo da dobijemo.
+<br />
+<span class="primer_text"
+  >FROM tabela1 JOIN tabela2 ON uslov1 JOIN tabela3 ON uslov2;</span
+>: Iza ključne reči FROM se navode tabele koje se povezuju i kriterijumi za
+povezivanje. Broj kriterijuma za povezivanje je uvek za jedan manji od broja
+tabela koje se povezuju. <br /><br />
+Da bismo dobili sve kupce koji su kupili hranu za pse, moramo povezati tri
+tabele, <b>kupac</b>, <b>narudzbina</b> i <b>proizvod</b>. Zašto je to potrebno?
+Uslov pretrage je da je naziv proizvoda "Hrana za pse". U tabeli
+<b>narudzbina</b>, u koloni proizvod je upisan samo id_proizvoda a ne njegov
+naziv, pa da bismo pristupili nazivu proizvoda moramo povezati tabelu
+<b>narudzbina</b> sa tabelom <b>proizvod</b>. Analogno, u tabeli
+<b>narudzbina</b> nemamo upisnao ime i prezime kupca već samo njegov id. Da
+bismo dobili njegovo ime i prezime, moramo povezati tabelu <b>narudzbina</b> sa
+tabelom <b>kupac</b>. Nakon što smo odredili koje tabele treba povezati, sledeće
+je da ustanovimo po kom kriterijumu da ih povežemo. Da bismo korektno povezali
+tabelu <b>narudzbina</b> i tabelu <b>proizvod</b> potrebno je da podatak u
+koloni proizvod tabele <b>narudzbina</b> bude identičan podatku u koloni
+id_proizvoda tabele <b>proizvod</b>. Identično se vrši povezivanje tabela
+<b>narudzbina</b> i <b>kupac</b>. Podaci u koloni kupac tabele
+<b>narudzbina</b> i u koloni id_kupca tabele <b>kupac</b> treba da budu
+identični. Broj kriterijuma za povezivanje tabela je uvek za jedan manji od
+broja tabela koje se povezuju.
+<xmp class="primer_ta"
+>
 SELECT DISTINCT kupac.ime, kupac.prezime FROM narudzbina JOIN kupac ON narudzbina.kupac = kupac.id_kupca JOIN proizvod ON proizvod.id_proizvoda = narudzbina.proizvod WHERE proizvod.naziv = 'Hrana za pse';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Upotrebili smo naredbu DISTINCT jer želimo da se kupac pojavi samo jednom na listi iako je više puta
-kupovao hranu za pse.
-<br><br>
-Više tabela se može povezati i pomoću Dekartovog proizvoda tabela (CROSS JOIN). U tom slučaju
-se kriterijumi za povezivanje pišu iza ključne reči WHERE. Prednost ovakvog povezivanja više tabele je
-u tome što se tabele koje se povezuju pišu odvojeno od kriterijuma za povezivanje, a mana je što se
+<button class="button_copy">Vidi primer</button>
+<br />
+Upotrebili smo naredbu DISTINCT jer želimo da se kupac pojavi samo jednom na
+listi iako je više puta kupovao hranu za pse.
+<br /><br />
+Više tabela se može povezati i pomoću Dekartovog proizvoda tabela (CROSS JOIN).
+U tom slučaju se kriterijumi za povezivanje pišu iza ključne reči WHERE.
+Prednost ovakvog povezivanja više tabele je u tome što se tabele koje se
+povezuju pišu odvojeno od kriterijuma za povezivanje, a mana je što se
 kriterijumi za povezivanje pišu zajedno sa ostalim uslovima pretrage.
-<br><br>
+<br /><br />
 Prethodni zadatak urađen bez unutrašnjeg povezivanja izgleda ovako:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT DISTINCT kupac.ime, kupac.prezime FROM narudzbina, kupac, proizvod WHERE narudzbina.kupac = kupac.id_kupca AND proizvod.id_proizvoda = narudzbina.proizvod AND proizvod.naziv = 'Hrana za pse';
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <div class="zadatak">
-  Odrediti imena svih prodavaca koji su prodali hranu za pse u junu mesecu 2018. godine.
+  Odrediti imena svih prodavaca koji su prodali hranu za pse u junu mesecu 2018.
+  godine.
 </div>

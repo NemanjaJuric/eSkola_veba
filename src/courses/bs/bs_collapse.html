@@ -1,30 +1,33 @@
 <h1>Collapse</h1>
 
- Collapse je plagin (eng. plugin) koji omogućava prikazivanje i sakrivanje elementa klikom na neko dugme ili link.<br>
- Može se priključiti:
+Collapse je plagin (eng. plugin) koji omogućava prikazivanje i sakrivanje
+elementa klikom na neko dugme ili link.<br />
+Može se priključiti:
 <ul>
-<li>samostalno (upotrebom fajla "collapse.js")</li>
-<li>ili u kompletu  (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  <li>samostalno (upotrebom fajla "collapse.js")</li>
+  <li>
+    ili u kompletu (upotrebom fajla "bootstrap.js" ili "bootstrap.min.js").
+  </li>
 </ul>
-<br>
+
+<br />
 Korišćenje collapse plagina se svodi na korišćenje klasa datih u tabeli.
-<br>
-<br>
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Klasa</th>
-<th>Opis</th>
-</thead>
-<tbody>
-<tr>
-<td>
-.collapse
-</td>
-<td>
-Inicijalno sakriva element i daje mu mogućnost prikazivanja i ponovnog sakrivanja.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Klasa</th>
+    <th>Opis</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.collapse</td>
+      <td>
+        Inicijalno sakriva element i daje mu mogućnost prikazivanja i ponovnog
+        sakrivanja.
+      </td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,21 +44,20 @@ Tekst koji prikazujemo.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-</tr>
-
-<tr>
-<td>
-.collapse in
-</td>
-<td>
-Inicijalno prikazuje element i daje mu mogućnost sakrivanja i ponovnog prikazivanja.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>.collapse in</td>
+      <td>
+        Inicijalno prikazuje element i daje mu mogućnost sakrivanja i ponovnog
+        prikazivanja.
+      </td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,21 +74,21 @@ Tekst koji prikazujemo.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-<tr>
-<td>
-.collapsing
-</td>
-<td>
-Klasa koju Bootstrap automatski dodeljuje elementima klase .collapse ili .collapse in.
-Opisuje ponašanje elementa u trenucima prikazivanja, odnosno sakrivanja.
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>.collapsing</td>
+      <td>
+        Klasa koju Bootstrap automatski dodeljuje elementima klase .collapse ili
+        .collapse in. Opisuje ponašanje elementa u trenucima prikazivanja,
+        odnosno sakrivanja.
+      </td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,61 +115,63 @@ Tekst koji prikazujemo.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 Korišćenje navedenih klasa se ostvaruje na dva načina:
 <ul>
-<li>upotrebom  <span class="primer_text">data-*</span> atributa </li>
-<li>upotrebom jQuery biblioteke .</li>
+  <li>upotrebom <span class="primer_text">data-*</span> atributa</li>
+  <li>upotrebom jQuery biblioteke .</li>
 </ul>
-<br>
+<br />
 
 <h2>Upotreba <span class="primer_text">data-*</span> atributa</h2>
 
-Upotrebu <span class="primer_text">data-*</span>  atributa ćemo ilustrovati na 
-sakrivenim, odnosno prikazanim <span class="primer_text">&ltdiv&gt</span> elementima i panelima.
-<br>
-<br>
+Upotrebu <span class="primer_text">data-*</span> atributa ćemo ilustrovati na
+sakrivenim, odnosno prikazanim
+<span class="primer_text">&ltdiv&gt</span> elementima i panelima.
+<br />
+<br />
 <h3>Sakriveni element</h3>
-Pod ovim podrazumevamo da je element inicijalno sakriven i da se tek klikom na neko dugme ili link on prikazuje.
-<br>
+Pod ovim podrazumevamo da je element inicijalno sakriven i da se tek klikom na
+neko dugme ili link on prikazuje.
+<br />
 Ovo se postiže upotrebom klase <span class="primer_text">.collapse</span>
-na nivou tog elementa. Da bi se omogućilo njegovo otkrivanje klikom na neko dugme ili link, neophodno je zadati mu identifikator.
-<br><br>
+na nivou tog elementa. Da bi se omogućilo njegovo otkrivanje klikom na neko
+dugme ili link, neophodno je zadati mu identifikator.
+<br /><br />
 Ukoliko se otkrivanje vrši klikom na dugme, neophodno je korišćenje atributa:
 <ul>
-<li>data-toggle="collapse" (zadaje funkciju dugmeta)</li>
-<li>data-target (povezuje dugme sa elementom koji je sakriven pa se za vrednost ovog atributa navodi identifikator tog elementa)</li>
+  <li>data-toggle="collapse" (zadaje funkciju dugmeta)</li>
+  <li>
+    data-target (povezuje dugme sa elementom koji je sakriven pa se za vrednost
+    ovog atributa navodi identifikator tog elementa)
+  </li>
 </ul>
-<br>
+<br />
 Ukoliko se otkrivanje vrši klikom na link, neophodno je korišćenje samo atributa
-data-toggle="collapse", koji zadaje funkciju linku, dok se povezivanje sa elementom vrši preko <span class="primer_text">href</span>
+data-toggle="collapse", koji zadaje funkciju linku, dok se povezivanje sa
+elementom vrši preko <span class="primer_text">href</span>
 atributa.
-<br>
-<br>
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Sakriveni element</th>
-<th>Otkriva se klikom na:</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td rowspan="2">
-&ltdiv&gt
-</td>
-<td>
-dugme
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Sakriveni element</th>
+    <th>Otkriva se klikom na:</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">&ltdiv&gt</td>
+      <td>dugme</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -184,17 +188,16 @@ Tekst koji prikazujemo.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-<tr>
-<td>
-link
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>link</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -211,19 +214,17 @@ Tekst koji prikazujemo.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>panel</td>
-<td>
-link iz zaglavlja
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>panel</td>
+      <td>link iz zaglavlja</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -247,47 +248,45 @@ link iz zaglavlja
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
+<br />
+<br />
 <h3>Prikazani element</h3>
-Pod ovim podrazumevamo da je element inicijalno prikazan i da se tek klikom na neko dugme ili link sakriva.
-<br>
-Prikazivanje elementa koji ima mogućnost sakrivanja se postiže upotrebom klase <span class="primer_text">.collapse in</span>.
- Da bi se omogućilo njegovo sakrivanje klikom na neko dugme ili link, neophodno je zadati mu identifikator.
-<br><br>
+Pod ovim podrazumevamo da je element inicijalno prikazan i da se tek klikom na
+neko dugme ili link sakriva.
+<br />
+Prikazivanje elementa koji ima mogućnost sakrivanja se postiže upotrebom klase
+<span class="primer_text">.collapse in</span>. Da bi se omogućilo njegovo
+sakrivanje klikom na neko dugme ili link, neophodno je zadati mu identifikator.
+<br /><br />
 U slučaju sakrivanja klikom na dugme, neophodno je korišćenje atributa:
 <ul>
-<li>data-toggle="collapse"</li>
-<li>data-target</li>
+  <li>data-toggle="collapse"</li>
+  <li>data-target</li>
 </ul>
 koji imaju isto značenja kao u prethodnoj sekciji.
-<br>
+<br />
 I u slučaju sakrivanja klikom na link važi sve iz u prethodne sekcije.
-<br>
-<br>
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Prikazani element</th>
-<th>Sakriva se klikom na:</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td rowspan="2">
-&ltdiv&gt
-</td>
-<td>
-dugme
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Prikazani element</th>
+    <th>Sakriva se klikom na:</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">&ltdiv&gt</td>
+      <td>dugme</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -305,17 +304,16 @@ Tekst koji treba sakriti.
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-<tr>
-<td>
-link
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>link</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -332,19 +330,17 @@ Tekst koji treba sakriti.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>panel</td>
-<td>
-link iz zaglavlja
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>panel</td>
+      <td>link iz zaglavlja</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -368,43 +364,41 @@ link iz zaglavlja
 </div> 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
+<br />
+<br />
 <h2>Upotreba jQuery biblioteke</h2>
-Upotrebu jQuery biblioteke ćemo isto ilustrovati na 
-sakrivenim, odnosno prikazanim <span class="primer_text">&ltdiv&gt</span> elementima i panelima.
-<br>
-<br>
-<h3>Sakriveni element</h3> 
-Pod ovim podrazumevamo da je element inicijalno sakriven i da se tek klikom na neko dugme ili link on otkriva.<br>
-Da bi inicijalno bio sakriven, sam element mora biti klase <span class="primer_text">.collapse</span>.
-Otkrivanje tog elementa klikom na dugme ili link se postiže pozivanjem metoda <span class="primer_text">.collapse()</span> nad njim,
-pomoću jQuery-ja.
-<br>
-<br>
+Upotrebu jQuery biblioteke ćemo isto ilustrovati na sakrivenim, odnosno
+prikazanim <span class="primer_text">&ltdiv&gt</span> elementima i panelima.
+<br />
+<br />
+<h3>Sakriveni element</h3>
+Pod ovim podrazumevamo da je element inicijalno sakriven i da se tek klikom na
+neko dugme ili link on otkriva.<br />
+Da bi inicijalno bio sakriven, sam element mora biti klase
+<span class="primer_text">.collapse</span>. Otkrivanje tog elementa klikom na
+dugme ili link se postiže pozivanjem metoda
+<span class="primer_text">.collapse()</span> nad njim, pomoću jQuery-ja.
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Sakriveni element</th>
-<th>Otkriva se klikom na:</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td rowspan="2">
-&ltdiv&gt
-</td>
-<td>
-dugme
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Sakriveni element</th>
+    <th>Otkriva se klikom na:</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">&ltdiv&gt</td>
+      <td>dugme</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -429,17 +423,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-<tr>
-<td>
-link
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>link</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -463,19 +456,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>panel</td>
-<td>
-link iz zaglavlja
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>panel</td>
+      <td>link iz zaglavlja</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -505,37 +496,37 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<br>
-<br>
-<h3>Prikazani element</h3> 
-Pod ovim podrazumevamo da je element inicijalno prikazan i da ima mogućnost sakrivanja klikom na dugme ili link.<br>
-Da bi inicijalno bio prikazan, takav element mora biti klase <br><span class="primer_text">.collapse in</span>.
-Sakrivanje elementa klikom na dugme ili link postiže se pozivanjem metoda <span class="primer_text">.collapse()</span> nad njim.
-<br>
-<br>
+<br />
+<br />
+<h3>Prikazani element</h3>
+Pod ovim podrazumevamo da je element inicijalno prikazan i da ima mogućnost
+sakrivanja klikom na dugme ili link.<br />
+Da bi inicijalno bio prikazan, takav element mora biti klase <br /><span
+  class="primer_text"
+  >.collapse in</span
+>. Sakrivanje elementa klikom na dugme ili link postiže se pozivanjem metoda
+<span class="primer_text">.collapse()</span> nad njim.
+<br />
+<br />
 <table class="table table-striped">
-<thead>
-<th>Prikazani element</th>
-<th>Sakriva se klikom na:</th>
-<th>Primer</th>
-</thead>
-<tbody>
-
-<tr>
-<td rowspan="2">
-&ltdiv&gt
-</td>
-<td>
-dugme
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+  <thead>
+    <th>Prikazani element</th>
+    <th>Sakriva se klikom na:</th>
+    <th>Primer</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">&ltdiv&gt</td>
+      <td>dugme</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -560,17 +551,16 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-<tr>
-<td>
-link
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>link</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -594,19 +584,17 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
 
-
-<tr>
-<td>panel</td>
-<td>
-link iz zaglavlja
-</td>
-<td>
-<textarea class="primer_ta" style="display:none;">
+    <tr>
+      <td>panel</td>
+      <td>link iz zaglavlja</td>
+      <td>
+        <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -636,52 +624,53 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
-</tr>
-</tbody>
+</textarea
+        >
+        <button class="button_copy">Vidi primer</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <div class="napomena">
-Primetimo da upotreba <span class="primer_text">data-*</span>
- atributa omogućava naizmenično sakrivanje, odnosno prikazivanje elementa klikom na dugme, ili link. 
-Sa druge strane, upotreba metoda <span class="primer_text">.collapse()</span>
- dozvoljava samo jednosmernu akciju, odnosno omogućava jedno sakrivanje ili jedno prikazivanje 
-elementa.
+  Primetimo da upotreba <span class="primer_text">data-*</span> atributa
+  omogućava naizmenično sakrivanje, odnosno prikazivanje elementa klikom na
+  dugme, ili link. Sa druge strane, upotreba metoda
+  <span class="primer_text">.collapse()</span>
+  dozvoljava samo jednosmernu akciju, odnosno omogućava jedno sakrivanje ili
+  jedno prikazivanje elementa.
 </div>
-<br>
-<br>
-<h2>Opcije </h2>
-Opcije mogu biti zadate preko <span class="primer_text">data-*</span> atributa, ali se mogu 
-upotrebiti i kao parametri metoda <span class="primer_text">collapse()</span>.
+<br />
+<br />
+<h2>Opcije</h2>
+Opcije mogu biti zadate preko <span class="primer_text">data-*</span> atributa,
+ali se mogu upotrebiti i kao parametri metoda
+<span class="primer_text">collapse()</span>.
 
 <div class="container">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Opcija</th>
- <th>Opis</th>
- 
- <th>Preko atributa:</th>
- <th>Preko jQuery-ja</th>
-</tr>
-</thead>
-<tbody>
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Opcija</th>
+        <th>Opis</th>
 
+        <th>Preko atributa:</th>
+        <th>Preko jQuery-ja</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>parent</td>
 
+        <td>
+          Koristi se kada postoji roditeljski element koji sadrži više
+          različitih elemenata koji imaju mogućnost sakrivanja. Ova opcija
+          dozvoljava prikazivanje samo jednog elementa,tj. prikazivanje jednog
+          automatski povlači sakrivanje ostalih.
+        </td>
 
-<tr>
- <td>parent</td>
- 
- <td>
- Koristi se kada postoji roditeljski element koji sadrži više različitih elemenata koji imaju mogućnost
- sakrivanja. Ova opcija dozvoljava prikazivanje samo jednog elementa,tj. prikazivanje jednog automatski 
- povlači sakrivanje ostalih.
- </td>
- 
- <td>
- data-parent
- <textarea class="primer_ta" style="display:none;">
+        <td>
+          data-parent
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -726,14 +715,13 @@ upotrebiti i kao parametri metoda <span class="primer_text">collapse()</span>.
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>  
- </td>
- 
- 
-<td>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
 
-<textarea class="primer_ta" style="display:none;">
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -783,46 +771,46 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
-</tbody>
-</table>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<br>
-<br>
+<br />
+<br />
 <h2>Metodi</h2>
 U sledećoj tabeli su prikazani svi metodi.
 <div class="container">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Metod</th>
- <th>Opis</th>
- <th>Primer</th>
-</tr>
-</thead>
-<tbody>
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Metod</th>
+        <th>Opis</th>
+        <th>Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>.collapse(opcije)</td>
 
-<tr>
- <td>.collapse(opcije)</td>
- 
- <td colspan="2">
- Parametar ovog metoda je opcija, opisana u prethodnoj tabeli.
- </td>
- </tr>
- 
- 
- <tr>
- <td>.collapse("toggle")</td>
- 
- <td>
- Metod sakriva element ukoliko je bio prikazan, odnosno prikazuje ukoliko je bio sakriven.
- </td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+        <td colspan="2">
+          Parametar ovog metoda je opcija, opisana u prethodnoj tabeli.
+        </td>
+      </tr>
+
+      <tr>
+        <td>.collapse("toggle")</td>
+
+        <td>
+          Metod sakriva element ukoliko je bio prikazan, odnosno prikazuje
+          ukoliko je bio sakriven.
+        </td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -851,21 +839,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
- <tr>
- <td>.collapse("show")</td>
- 
- <td>
- Metod prikazuje element.
- </td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>.collapse("show")</td>
+
+        <td>Metod prikazuje element.</td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -899,21 +885,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- 
-<tr>
-<td>.collapse("hide")</td>
- 
-<td>
- Metod sakriva element.
-</td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>.collapse("hide")</td>
+
+        <td>Metod sakriva element.</td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -950,39 +934,38 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- </tr>
- 
- </tbody>
- </table>
- </div>
-<br>
-<br>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<br />
 
 <h2>Događaji</h2>
 U sledećoj tabeli su prikazani svi događaji.
 <div class="container">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Događaj</th>
- <th>Opis</th>
- <th>Primer</th>
-</tr>
-</thead>
-<tbody>
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Događaj</th>
+        <th>Opis</th>
+        <th>Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>show.bs.collapse</td>
 
-<tr>
- <td>show.bs.collapse</td>
- 
- <td>
- Događa se neposredno pre nego što će sakriveni element biti prikazan.
- </td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+        <td>
+          Događa se neposredno pre nego što će sakriveni element biti prikazan.
+        </td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1013,22 +996,19 @@ $(document).ready(function(){
 
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
- </tr>
- 
- 
- 
- <tr>
- <td>shown.bs.collapse</td>
- 
- <td>
- Događa se nakon što je element prikazan.
- </td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>shown.bs.collapse</td>
+
+        <td>Događa se nakon što je element prikazan.</td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1058,21 +1038,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
- </tr>
- 
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-<tr>
-<td>hide.bs.collapse</td>
- 
- <td>
- Događa se neposredno pre nego što će element biti sakriven.
-</td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>hide.bs.collapse</td>
+
+        <td>Događa se neposredno pre nego što će element biti sakriven.</td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1102,21 +1080,19 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
- </tr>
- 
- 
- <tr>
-<td>hidden.bs.collapse</td>
- 
- <td>
- Događa nakon što je element sakriven.
-</td>
- 
-<td>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>hidden.bs.collapse</td>
+
+        <td>Događa nakon što je element sakriven.</td>
+
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1146,23 +1122,24 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
-</td>
- </tr>
- </tbody>
- </table>
- </div>
-<br>
-<br>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<br />
 <h2>Još primera</h2>
 
 <h3>Prikazivanje liste unutar panela</h3>
 
-Prikazivanje liste unutar panela podrazumeva kreiran panel u kom se nalazi zaglavlje i 
-lista stavki ispod zaglavlja. Stavke su inicijalno sakrivene.
-Do njihovog prikazivanja dolazi se klikom na zaglavlje.
-<br>
+Prikazivanje liste unutar panela podrazumeva kreiran panel u kom se nalazi
+zaglavlje i lista stavki ispod zaglavlja. Stavke su inicijalno sakrivene. Do
+njihovog prikazivanja dolazi se klikom na zaglavlje.
+<br />
 <textarea class="primer_ta" rows="17" disabled>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -1181,8 +1158,8 @@ Do njihovog prikazivanja dolazi se klikom na zaglavlje.
    </ul>
   </div>
 </div>
-</textarea>     
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1213,13 +1190,14 @@ Do njihovog prikazivanja dolazi se klikom na zaglavlje.
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button>   
-<br>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 
 <h3>Prikazivanje više listi unutar panela</h3>
-Prikazivanje više listi istovremeno se izvodi tako što se u okviru jednog panela kreira više
-različitih zaglavlja pa se klikom na svako zaglavlje otvara njegova lista stavki.
+Prikazivanje više listi istovremeno se izvodi tako što se u okviru jednog panela
+kreira više različitih zaglavlja pa se klikom na svako zaglavlje otvara njegova
+lista stavki.
 <textarea class="primer_ta" rows="23" disabled>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -1244,8 +1222,8 @@ različitih zaglavlja pa se klikom na svako zaglavlje otvara njegova lista stavk
     </ul>
   </div>
 </div>
-</textarea>     
-<textarea class="primer_ta" style="display:none;">
+</textarea>
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -1282,9 +1260,10 @@ različitih zaglavlja pa se klikom na svako zaglavlje otvara njegova lista stavk
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button>   
-<br>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <div class="zadatak">
-Napraviti dugme na čiji klik se određeni tekst sakriva, odnosno prikazuje. Tekst je inicijalno prikazan.
+  Napraviti dugme na čiji klik se određeni tekst sakriva, odnosno prikazuje.
+  Tekst je inicijalno prikazan.
 </div>

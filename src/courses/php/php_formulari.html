@@ -1,116 +1,156 @@
 <h1>Formulari</h1>
-<br>Na veb stranicama se često sreću raznei formulari koje korisnik može da popuni
-(registracija, kupovina i slično), a služe za prikupljanje podataka. Liče na
-formulare na pipiru, s tim što mogu da sadže i interaktivne elemente kao što
-su padajući meni.
-<br> <br>
+<br />Na veb stranicama se često sreću raznei formulari koje korisnik može da
+popuni (registracija, kupovina i slično), a služe za prikupljanje podataka. Liče
+na formulare na pipiru, s tim što mogu da sadže i interaktivne elemente kao što
+su padajući meni. <br />
+<br />
 Formular počinje etiketom <b>form</b>. Osnovni atributi formulara su
-<b>method</b> i <b>action</b>. Atribut <b>method</b> određuje na koji način
- će se podaci proslediti (GET ili POST), a <b>action</b> putanju ka stranici ili programu
- koji će obrađivati prosleđene podatke. Podrazumevana vrednost atributa <b>method</b> je GET. <br> <br>
- I GET i POST kreiraju ključ-vrednost niz. Ključevi su nazivi prosleđenih podataka u formularu,
- a vrednosti su podaci koje korisnik unosi.
-<br> <br>
+<b>method</b> i <b>action</b>. Atribut <b>method</b> određuje na koji način će
+se podaci proslediti (GET ili POST), a <b>action</b> putanju ka stranici ili
+programu koji će obrađivati prosleđene podatke. Podrazumevana vrednost atributa
+<b>method</b> je GET. <br />
+<br />
+I GET i POST kreiraju ključ-vrednost niz. Ključevi su nazivi prosleđenih
+podataka u formularu, a vrednosti su podaci koje korisnik unosi.
+<br />
+<br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <form method="POST" action="obrada.php"> <br>
 </form>
 </xmp>
-<br>
+<br />
 <h2>GET</h2>
-<br>
-Podaci prosleđeni GET metodom su vidljivi svima, jer se prosleđuju kao deo
-URL putanje u obliku naziv=vrednost. Moguće je proslediti najviše 2000 karaktera. Podacima prosleđenim na ovaj način na PHP stranu, pristupamo iz
-  PHP koda pomoću niza <b>$_GET[]</b> koji je indeksiran po nazivima prosleđenih podataka.
-<div class = "napomena">Metodom GET ne treba prosleđivati lozinke i druge osetljive informacije.</div> <br>
+<br />
+Podaci prosleđeni GET metodom su vidljivi svima, jer se prosleđuju kao deo URL
+putanje u obliku naziv=vrednost. Moguće je proslediti najviše 2000 karaktera.
+Podacima prosleđenim na ovaj način na PHP stranu, pristupamo iz PHP koda pomoću
+niza <b>$_GET[]</b> koji je indeksiran po nazivima prosleđenih podataka.
+<div class="napomena">
+  Metodom GET ne treba prosleđivati lozinke i druge osetljive informacije.
+</div>
+<br />
 <h2>POST</h2>
-<br>
-Podaci prosleđeni POST metodom nisu vidljivi svima i nema ograničenja na količinu podataka koji se šalju.
-Pristupa im se pomoću niza <b>$_POST[]</b>.
-<br>
-<div class = "napomena">Na istoj HTML starnici je moguće imati više formulara.</div>
-<br>
+<br />
+Podaci prosleđeni POST metodom nisu vidljivi svima i nema ograničenja na
+količinu podataka koji se šalju. Pristupa im se pomoću niza <b>$_POST[]</b>.
+<br />
+<div class="napomena">
+  Na istoj HTML starnici je moguće imati više formulara.
+</div>
+<br />
 <h2>Polja za unos podataka</h2>
-<br>
-Polja za unos podataka predstavljena su elementom sa etiketom <b>input</b>. Neki atributi ovog elementa su dati u sledećoj tabeli.
-<br> <br>
-<table class = "tabela">
-<thead>
-<tr>
-<th>Atribut</th>
-<th>Značenje</th>
-</tr>
-</thead>
-<tbody>
-	<tr>
-<td>type</td>
-<td>Tip unosa koji se očekuje</td>
-</tr>
-<tr>
-<td>value</td>
-<td>Vrednost input polja</td>
-</tr>
-<tr>
-  <td>placeholder</td>
-  <td>Dodatno objašnjenje u obliku teksta koji se prikazuje dok se ne unese vrednost polja</td>
-</tr>
-<tr>
-  <td>required</td>
-  <td>Polje je neophodno popuniti, inače se podaci neće proslediti</td>
-</tr>
-<tr>
-  <td>disabled</td>
-  <td>Onesposobljavanje unosa</td>
-</tr>
-</tbody>
+<br />
+Polja za unos podataka predstavljena su elementom sa etiketom <b>input</b>. Neki
+atributi ovog elementa su dati u sledećoj tabeli. <br />
+<br />
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Atribut</th>
+      <th>Značenje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Tip unosa koji se očekuje</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Vrednost input polja</td>
+    </tr>
+    <tr>
+      <td>placeholder</td>
+      <td>
+        Dodatno objašnjenje u obliku teksta koji se prikazuje dok se ne unese
+        vrednost polja
+      </td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>Polje je neophodno popuniti, inače se podaci neće proslediti</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>Onesposobljavanje unosa</td>
+    </tr>
+  </tbody>
 </table>
-<br>
+<br />
 Elementom sa etiketom <b>label</b> se označava naziv polja za unos. Vrednost
- njegovog atributa <b>for</b> je naziv idenifikatora <b>input</b> elementa na koji se labela odnosi.
-<br> <br>
-Grupa polja se obuhvatiti u jednu celinu elementom sa etiketom <b>fieldset</b> unutar kog se
-elementom sa etiketom <b>legend</b> zadaje naziv grupe elemenata.
-<br> <br>
+njegovog atributa <b>for</b> je naziv idenifikatora <b>input</b> elementa na
+koji se labela odnosi. <br />
+<br />
+Grupa polja se obuhvatiti u jednu celinu elementom sa etiketom
+<b>fieldset</b> unutar kog se elementom sa etiketom <b>legend</b> zadaje naziv
+grupe elemenata. <br />
+<br />
 Kada se unosi tekst, vrednost atributa <b>type</b> elementa <b>input</b> je
-<b>text</b>. Minimalni i maksimalni broj karaktera se zadaje atributima <b>minlength</b> i <b>maxlength</b>, a vizuelna širina polja sa <b>size</b>. <br>
-<xmp class = "primer_ta">
+<b>text</b>. Minimalni i maksimalni broj karaktera se zadaje atributima
+<b>minlength</b> i <b>maxlength</b>, a vizuelna širina polja sa <b>size</b>.
+<br />
+<xmp class="primer_ta">
 Ime: <input type="text" name="ime" maxlength="50" size="30">
-</xmp> <br>
-Za unos višelinijskog teksta se koristi element sa etiketom <b>textarea</b>. Visina i širina polja se zadaju pomoću atributa <em>rows</em> i <em>cols</em>, način prelamanja teksta na kraju linija pomoću <em>wrap</em> (moguće vrednosti su <em>hard</em> i <em>soft</em>), a maksimalni broj karaktera pomoću <em>maxlength</em>. <br>
-<xmp class = "primer_ta">
+</xmp>
+<br />
+Za unos višelinijskog teksta se koristi element sa etiketom <b>textarea</b>.
+Visina i širina polja se zadaju pomoću atributa <em>rows</em> i <em>cols</em>,
+način prelamanja teksta na kraju linija pomoću <em>wrap</em> (moguće vrednosti
+su <em>hard</em> i <em>soft</em>), a maksimalni broj karaktera pomoću
+<em>maxlength</em>. <br />
+<xmp class="primer_ta">
 <textarea name="adresa" cols="50" rows="6"> <br>
 </textarea>
-</xmp> <br>
-Kod polja za unos lozinke, vrednost atributa <b>type</b> je <b>password</b>. Može da ima atribute <b>maxlength</b> i <b>size</b>. <br>
-<xmp class = "primer_ta">
+</xmp>
+<br />
+Kod polja za unos lozinke, vrednost atributa <b>type</b> je <b>password</b>.
+Može da ima atribute <b>maxlength</b> i <b>size</b>. <br />
+<xmp class="primer_ta">
 Lozinka: <input type="password" name="lozinka" maxlength="50" size="30">
 </xmp>
-<br>
-Za unos numeričkih vrednosti koristi se tip <b>number</b>. Atributima <b>min</b> i <b>max</b> se zadaju minimalna i maksimalna dozvoljena vrednost, a atributom <b>step</b> korak kojim su dozvoljene vrednosti raspoređene. <br>
-<xmp class = "primer_ta">
+<br />
+Za unos numeričkih vrednosti koristi se tip <b>number</b>. Atributima
+<b>min</b> i <b>max</b> se zadaju minimalna i maksimalna dozvoljena vrednost, a
+atributom <b>step</b> korak kojim su dozvoljene vrednosti raspoređene. <br />
+<xmp class="primer_ta">
 <input type="number" name="broj" min="5" max="100" step="5">
 </xmp>
-<br>
-E-mail adresa se unosi u polje koje ima tip <b>email</b>. Izgleda kao polje za unos teksta, ali ima proveru ispravnosti adresu u sintaksnom smislu. Ako adresa nije u odgovarajućem obliku, podaci iz formulara neće biti prosleđeni na obradu. <br>
-<xmp class = "primer_ta">
+<br />
+E-mail adresa se unosi u polje koje ima tip <b>email</b>. Izgleda kao polje za
+unos teksta, ali ima proveru ispravnosti adresu u sintaksnom smislu. Ako adresa
+nije u odgovarajućem obliku, podaci iz formulara neće biti prosleđeni na obradu.
+<br />
+<xmp class="primer_ta">
 <input type="email" name="emailAdresa" autocomplete>
 </xmp>
-<br>
-Tip <b>checkbox</b> označava polja koja mogu biti uključena ili isključena (čekirana). Vrednost atributa <b>value</b> određuje vrednost koja će biti prosleđena ako je polje uključeno. Polje će biti podrazumevano uključeno kada se navede atribut <b>checked</b>. <br>
-<xmp class = "primer_ta">
+<br />
+Tip <b>checkbox</b> označava polja koja mogu biti uključena ili isključena
+(čekirana). Vrednost atributa <b>value</b> određuje vrednost koja će biti
+prosleđena ako je polje uključeno. Polje će biti podrazumevano uključeno kada se
+navede atribut <b>checked</b>. <br />
+<xmp class="primer_ta">
 <input type="checkbox" name="zapamti" value="da" checked>
 </xmp>
-<br>
-Dugme za odabir ima tip <b>radio</b>. Da bi se odabrala samo jedna od ponuđenih vrednosti, svi radio elementi treba imaju vrednost atributa name.
-<xmp class = "primer_ta">
+<br />
+Dugme za odabir ima tip <b>radio</b>. Da bi se odabrala samo jedna od ponuđenih
+vrednosti, svi radio elementi treba imaju vrednost atributa name.
+<xmp class="primer_ta">
 <input type="radio" name="boja" value="crvena" checked /> <br>
 <input type="radio" name="boja" value="plava" />
 </xmp>
-<br>
-Dugme će biti podrazumevano odabrano kada se navede atribut <b>checked</b>. Svako dugme treba da ima svoju vrednost atribura value da bi skripta koja prima podatke znala koje dugme je pritisnuto. <br> <br>
-Odabir jednog od ponuđenih elemenata se može ostvariti i pomoću elementa sa etiketom <b>select</b> (padajući meni). Unutar select elementa se navode ponuđene vrednosti kao <b>option</b> elementi. Vrednost se zadaje atributom <b>value</b>, a između option etikete se navodi tekst koji će biti prikazan.
-Elementom <b>optgroup</b> se option elementi grupišu u grupe. Naziv grupe se zadaje elementom <b>label</b>.
-<xmp class = "primer_ta">
+<br />
+Dugme će biti podrazumevano odabrano kada se navede atribut <b>checked</b>.
+Svako dugme treba da ima svoju vrednost atribura value da bi skripta koja prima
+podatke znala koje dugme je pritisnuto. <br />
+<br />
+Odabir jednog od ponuđenih elemenata se može ostvariti i pomoću elementa sa
+etiketom <b>select</b> (padajući meni). Unutar select elementa se navode
+ponuđene vrednosti kao <b>option</b> elementi. Vrednost se zadaje atributom
+<b>value</b>, a između option etikete se navodi tekst koji će biti prikazan.
+Elementom <b>optgroup</b> se option elementi grupišu u grupe. Naziv grupe se
+zadaje elementom <b>label</b>.
+<xmp class="primer_ta">
 <select name="gradovi">
   <optgroup label="severniGradovi">
     <option value="SU">Subotica</option>
@@ -123,20 +163,25 @@ Elementom <b>optgroup</b> se option elementi grupišu u grupe. Naziv grupe se za
   </optgroup>
 </select>
 </xmp>
-<br>
-Za slanje vrednosti formulara na dalju obradu, koristi se tip <b>submit</b>. Natpis unutar elementa se zadaje atributom <b>value</b>. <br>
-<xmp class = "primer_ta">
+<br />
+Za slanje vrednosti formulara na dalju obradu, koristi se tip <b>submit</b>.
+Natpis unutar elementa se zadaje atributom <b>value</b>. <br />
+<xmp class="primer_ta">
 <input type="submit" value="Pošalji" />
 </xmp>
-<br>
-Vrednosti se mogu proslediti i klikom na dugme <b>enter</b>. <br>
-Dugme tipa <b>reset</b> briše sve unete vrednosti i vraća formu na podrazumevan oblik. Natpis unutar elementa se zadaje atributom <b>value</b>. <br>
-<xmp class = "primer_ta">
+<br />
+Vrednosti se mogu proslediti i klikom na dugme <b>enter</b>. <br />
+Dugme tipa <b>reset</b> briše sve unete vrednosti i vraća formu na podrazumevan
+oblik. Natpis unutar elementa se zadaje atributom <b>value</b>. <br />
+<xmp class="primer_ta">
 <input type="reset" value="Poništi" />
 </xmp>
-<br>
-Dugme čiji je tip <b>button</b> nema predodređenu funkciju. Njegovo ponašanje treba posebno isprogramirati (povratak na prethodnu stranicu i slično). <br>
-Postoje i drugi tipovi input polja kao što su <b>file</b>, <b>image</b>, <b>date</b>, <b>time</b> i drugi.
-<div class = "zadatak">
-Napraviti formu koja sadrži polja za unos korisničkog imena i lozinke. Uneti podaci se šalju POST metodom na obrada.php.
+<br />
+Dugme čiji je tip <b>button</b> nema predodređenu funkciju. Njegovo ponašanje
+treba posebno isprogramirati (povratak na prethodnu stranicu i slično). <br />
+Postoje i drugi tipovi input polja kao što su <b>file</b>, <b>image</b>,
+<b>date</b>, <b>time</b> i drugi.
+<div class="zadatak">
+  Napraviti formu koja sadrži polja za unos korisničkog imena i lozinke. Uneti
+  podaci se šalju POST metodom na obrada.php.
 </div>

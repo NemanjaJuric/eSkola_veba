@@ -1,120 +1,141 @@
 <!DOCTYPE html>
 <html>
-<head>  
-<title>Bootstrap</title> 
-<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="UTF-8">
- </head>
-<body>
-<mark><h2 style="text-align:center;">Rezime</h2></mark>
-Moguće je grupisati unutar &ltdiv&gt i &ltul&gt elemenata.
-<h3>Grupisanje unutar &ltdiv&gt elementa</h3>
-Unutar <span class="primer_text">&ltdiv&gt</span> elementa je moguće grupisati linkove, pasuse i <span class="primer_text">&ltspan&gt</span> i 
-<span class="primer_text">&ltdiv&gt</span> elemente.<br><br>
-<ul>
-<li><b>Podrazumevano grupisanje različitih elemenata</b></li>
-<div class="list-group">
-<a href="#" class="list-group-item">Link</a>
-<p class="list-group-item">Pasus</p>
-<span class="list-group-item">span element</span>
-<div class="list-group-item">div element</div>
-<div class="list-group-item">
-<h2 class="list-group-item-heading">Naslov</h2>
-</div>
-<div class="list-group-item">
-<h2 class="list-group-item-heading">Naslov</h2>
-<p class="list-group-item-text">Pasus ispod naslova</p>
-</div>
-</div>
-<li><b>Podrazumevano grupisanje linkova</b></li>
-<div class="list-group">
-<a href="#" class="list-group-item">Link 1</a>
-<a href="#" class="list-group-item">Link 2</a>
-<a href="#" class="list-group-item">Link 3</a>
-</div>
-<li><b>Grupisanje neaktivnih linkova</b></li>
-<div class="list-group">
-<a href="#" class="list-group-item disabled">Link 1</a>
-<a href="#" class="list-group-item">Link 2</a>
-<a href="#" class="list-group-item">Link 3</a>
-</div>
-<li><b>Grupisanje sa oznakama</b></li>
-<div class="list-group">
-<p class="list-group-item">Pasus <span class="badge">Oznaka</span> </p>
-<div class="list-group-item">div element</div>
-<span class="list-group-item">span element <span class="badge">Oznaka</span></span>
-<a href="#" class="list-group-item">Link</a>
-</div>
-<li><b>Grupisanje sa obojenim elementima</b></li>
-<div class="list-group">
-<p class="list-group-item active">p element</p>
-<div class="list-group-item">div element</div>
-<span class="list-group-item">span element</span>
-<a href="#" class="list-group-item active">a element</a>
-</div>
-</ul>
-<br>
-<br>
-<h3>Grupisanje unutar neuređene liste</h3>
-Unutar neuređene liste moguće je grupisati isključivo stavke te liste pri čemu se
-u stavkama mogu pojaviti različiti elementi (linkovi, pasusi, <span class="primer_text">&ltspan&gt</span> elementi,
-<span class="primer_text">&ltdiv&gt</span> elementi i naslovi ).
-<br>
-<br>
-<ul>
-<li><b>Podrazumevano grupisanje različitih elemenata</b></li>
-<ul class="list-group">
-<li class="list-group-item">1.stavka</li>
-<li class="list-group-item"><a href="#"> Link</a></li>
-<li class="list-group-item"><p>Pasus</p></li>
-<li class="list-group-item"><span>Span element</span></li>
-<li class="list-group-item"><div>Div element</div></li>
-<li class="list-group-item"><h3>Naslov</h3></li>
-<li class="list-group-item"><h3>Naslov</h3> <p>Pasus ispod naslova</p></li>
-</ul>
-<li><b>Grupisanje sa oznakama</b></li>
-<ul class="list-group">
-<li class="list-group-item">1.stavka <span class="badge">Oznaka</span></li>
-<li class="list-group-item"><a href="#"> Link</a></li>
-<li class="list-group-item"><p>Pasus <span class="badge">Oznaka</span></p></li>
-</ul>
-<li><b>Grupisanje sa obojenim elementima</b></li>
-<ul class="list-group">
-<li class="list-group-item">1.stavka</li>
-<li class="list-group-item"><a href="#"> Link</a></li>
-<li class="list-group-item active"><p>Pasus</p></li>
-</ul>
-</ul>
-<br>
-<br>
-<h3>Kontekstualne klase</h3>
-Dostupne su sledeće kontekstualne klase:<br>
-<ul>
-<li><span class="primer_text">.list-group-item-success</span></li>
-<li> <span class="primer_text">.list-group-item-info</span> </li>
-<li> <span class="primer_text">.list-group-item-warning</span> </li>
-<li> <span class="primer_text">.list-group-item-danger</span> </li>
-</ul><br>
-<ul>
-<li>Njihova upotreba nad elementima grupisanim
-unutar <span class="primer_text">&ltdiv&gt</span> elementa:</li>
-<div class="list-group">
-<a href="#" class="list-group-item list-group-item-success">Link</a>
-<p class="list-group-item list-group-item-info">Pasus</p>
-<span class="list-group-item list-group-item-warning">Span element</span>
-<div class="list-group-item list-group-item-danger">Div element</div>
-</div>
-<li>Njihova upotreba nad elementima grupisanim
-unutar <span class="primer_text">&ltul&gt</span> elementa:</li>
-<ul class="list-group">
-  <li class="list-group-item list-group-item-success">1.stavka</li>
-  <li class="list-group-item list-group-item-info">2.stavka</li>
-  <li class="list-group-item list-group-item-warning">3.stavka</li>
-  <li class="list-group-item list-group-item-danger">4.stavka</li>
-</ul>
-</ul>
-</body>
+  <head>
+    <title>Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <mark><h2 style="text-align: center">Rezime</h2></mark>
+    Moguće je grupisati unutar &ltdiv&gt i &ltul&gt elemenata.
+    <h3>Grupisanje unutar &ltdiv&gt elementa</h3>
+    Unutar <span class="primer_text">&ltdiv&gt</span> elementa je moguće
+    grupisati linkove, pasuse i <span class="primer_text">&ltspan&gt</span> i
+    <span class="primer_text">&ltdiv&gt</span> elemente.<br /><br />
+    <ul>
+      <li><b>Podrazumevano grupisanje različitih elemenata</b></li>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Link</a>
+        <p class="list-group-item">Pasus</p>
+        <span class="list-group-item">span element</span>
+        <div class="list-group-item">div element</div>
+        <div class="list-group-item">
+          <h2 class="list-group-item-heading">Naslov</h2>
+        </div>
+        <div class="list-group-item">
+          <h2 class="list-group-item-heading">Naslov</h2>
+          <p class="list-group-item-text">Pasus ispod naslova</p>
+        </div>
+      </div>
+      <li><b>Podrazumevano grupisanje linkova</b></li>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Link 1</a>
+        <a href="#" class="list-group-item">Link 2</a>
+        <a href="#" class="list-group-item">Link 3</a>
+      </div>
+      <li><b>Grupisanje neaktivnih linkova</b></li>
+      <div class="list-group">
+        <a href="#" class="list-group-item disabled">Link 1</a>
+        <a href="#" class="list-group-item">Link 2</a>
+        <a href="#" class="list-group-item">Link 3</a>
+      </div>
+      <li><b>Grupisanje sa oznakama</b></li>
+      <div class="list-group">
+        <p class="list-group-item">Pasus <span class="badge">Oznaka</span></p>
+        <div class="list-group-item">div element</div>
+        <span class="list-group-item"
+          >span element <span class="badge">Oznaka</span></span
+        >
+        <a href="#" class="list-group-item">Link</a>
+      </div>
+      <li><b>Grupisanje sa obojenim elementima</b></li>
+      <div class="list-group">
+        <p class="list-group-item active">p element</p>
+        <div class="list-group-item">div element</div>
+        <span class="list-group-item">span element</span>
+        <a href="#" class="list-group-item active">a element</a>
+      </div>
+    </ul>
+    <br />
+    <br />
+    <h3>Grupisanje unutar neuređene liste</h3>
+    Unutar neuređene liste moguće je grupisati isključivo stavke te liste pri
+    čemu se u stavkama mogu pojaviti različiti elementi (linkovi, pasusi,
+    <span class="primer_text">&ltspan&gt</span> elementi,
+    <span class="primer_text">&ltdiv&gt</span> elementi i naslovi ).
+    <br />
+    <br />
+    <ul>
+      <li><b>Podrazumevano grupisanje različitih elemenata</b></li>
+      <ul class="list-group">
+        <li class="list-group-item">1.stavka</li>
+        <li class="list-group-item"><a href="#"> Link</a></li>
+        <li class="list-group-item"><p>Pasus</p></li>
+        <li class="list-group-item"><span>Span element</span></li>
+        <li class="list-group-item"><div>Div element</div></li>
+        <li class="list-group-item"><h3>Naslov</h3></li>
+        <li class="list-group-item">
+          <h3>Naslov</h3>
+          <p>Pasus ispod naslova</p>
+        </li>
+      </ul>
+      <li><b>Grupisanje sa oznakama</b></li>
+      <ul class="list-group">
+        <li class="list-group-item">
+          1.stavka <span class="badge">Oznaka</span>
+        </li>
+        <li class="list-group-item"><a href="#"> Link</a></li>
+        <li class="list-group-item">
+          <p>Pasus <span class="badge">Oznaka</span></p>
+        </li>
+      </ul>
+      <li><b>Grupisanje sa obojenim elementima</b></li>
+      <ul class="list-group">
+        <li class="list-group-item">1.stavka</li>
+        <li class="list-group-item"><a href="#"> Link</a></li>
+        <li class="list-group-item active"><p>Pasus</p></li>
+      </ul>
+    </ul>
+    <br />
+    <br />
+    <h3>Kontekstualne klase</h3>
+    Dostupne su sledeće kontekstualne klase:<br />
+    <ul>
+      <li><span class="primer_text">.list-group-item-success</span></li>
+      <li><span class="primer_text">.list-group-item-info</span></li>
+      <li><span class="primer_text">.list-group-item-warning</span></li>
+      <li><span class="primer_text">.list-group-item-danger</span></li>
+    </ul>
+    <br />
+    <ul>
+      <li>
+        Njihova upotreba nad elementima grupisanim unutar
+        <span class="primer_text">&ltdiv&gt</span> elementa:
+      </li>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-success">Link</a>
+        <p class="list-group-item list-group-item-info">Pasus</p>
+        <span class="list-group-item list-group-item-warning"
+          >Span element</span
+        >
+        <div class="list-group-item list-group-item-danger">Div element</div>
+      </div>
+      <li>
+        Njihova upotreba nad elementima grupisanim unutar
+        <span class="primer_text">&ltul&gt</span> elementa:
+      </li>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">1.stavka</li>
+        <li class="list-group-item list-group-item-info">2.stavka</li>
+        <li class="list-group-item list-group-item-warning">3.stavka</li>
+        <li class="list-group-item list-group-item-danger">4.stavka</li>
+      </ul>
+    </ul>
+  </body>
 </html>

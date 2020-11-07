@@ -1,9 +1,11 @@
 <h1>Injektovanje zavisnosti - XML konfiguracija</h1>
-Za ovaj način injektovanja zavisnosti potrebno je prvo kreirati XML datoteku u okviru src direktorijuma, koja sadrži potrebne informacije o zrnima kako bi ih kontejner kreirao i na ispravan način injektovao zavisnosti. 
-<br>
+Za ovaj način injektovanja zavisnosti potrebno je prvo kreirati XML datoteku u
+okviru src direktorijuma, koja sadrži potrebne informacije o zrnima kako bi ih
+kontejner kreirao i na ispravan način injektovao zavisnosti.
+<br />
 U ovom primeru biće korišćena datoteka beans.xml.
-<br>
-<xmp class = "primer_ta">
+<br />
+<xmp class="primer_ta">
 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -20,7 +22,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </beans>
 </xmp>
 Biće korišćena prethodno prikazana klasa Circle.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
 public class Circle {
 
@@ -47,8 +50,9 @@ public class Circle {
 </xmp>
 
 Klasa Point ima sledeći oblik:
-<br>
-<xmp class = "primer_ta">
+<br />
+<xmp class="primer_ta"
+>
 
 Public class Point {
 
@@ -67,14 +71,24 @@ Public class Point {
 }
 </xmp>
 <h2>Injektovanje zavisnosti preko konstruktora klase</h2>
-Kako je prethodno definisano, klasa Circle ima konstrukor koji prihvata objekat klase Point. Potrebno je u okviru XML datoteke deklarisati zrno klase Point i   injektovati ga u zrno klase Circle. To se postiže korišćenjem etikete &ltconstructor-arg> u okviru etikete &ltbean> koja deklariše zrno klase Circle. Etiketa &ltconstructor-arg>  ima atribut ref čija je vrednost id zrna klase Point.
-<br> 
-Kontejner može da prosleđuje konstruktoru i argumente primitivnog tipa. To se postiže korišćenjem atributa type i value u okviru etikete &ltconstructor-arg>. Međutim, ukoliko postoji više argumenata istog tipa, kako bi se izbegla dvosmislenost potrebno je koristiti atribut index čija vrednost predstavlja redni broj argumenta. 
-<br>
-Dakle, prilikom kreiranja zrna klase Circle kontejner koristi konstrukor klase Circle za injektovanje potrebnih zavisnosti.
-<br>
+Kako je prethodno definisano, klasa Circle ima konstrukor koji prihvata objekat
+klase Point. Potrebno je u okviru XML datoteke deklarisati zrno klase Point i
+injektovati ga u zrno klase Circle. To se postiže korišćenjem etikete
+&ltconstructor-arg> u okviru etikete &ltbean> koja deklariše zrno klase Circle.
+Etiketa &ltconstructor-arg> ima atribut ref čija je vrednost id zrna klase
+Point.
+<br />
+Kontejner može da prosleđuje konstruktoru i argumente primitivnog tipa. To se
+postiže korišćenjem atributa type i value u okviru etikete &ltconstructor-arg>.
+Međutim, ukoliko postoji više argumenata istog tipa, kako bi se izbegla
+dvosmislenost potrebno je koristiti atribut index čija vrednost predstavlja
+redni broj argumenta.
+<br />
+Dakle, prilikom kreiranja zrna klase Circle kontejner koristi konstrukor klase
+Circle za injektovanje potrebnih zavisnosti.
+<br />
 Za primer klasa Circle i Point datoteka beans.xml treba da ima sledeći oblik:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -99,7 +113,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </xmp>
 
 Main metoda može da ima sledeći oblik:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 
    public static void main(String[] args) {
       
@@ -112,9 +127,12 @@ Main metoda može da ima sledeći oblik:
 </xmp>
 Rezultat naredbe c.toString(); je: Center: (5,3), radius: 3.5.
 <h2>Injektovanje zavisnoti preko set metoda</h2>
-Injektovanje zavisnosti preko set metoda se ostvaruje tako što kontejner prilikom kreiranja zrna poziva set metode kako bi injektovao odgovarajuće zavisnosti. To se postiže korišćenjem etikete &ltproperty> u okviru etikete &ltbean>.
-U ovom slučaju, za primer klasa Circle i Point datoteka beans.xml treba da ima sledeći oblik:
-<xmp class = "primer_ta">
+Injektovanje zavisnosti preko set metoda se ostvaruje tako što kontejner
+prilikom kreiranja zrna poziva set metode kako bi injektovao odgovarajuće
+zavisnosti. To se postiže korišćenjem etikete &ltproperty> u okviru etikete
+&ltbean>. U ovom slučaju, za primer klasa Circle i Point datoteka beans.xml
+treba da ima sledeći oblik:
+<xmp class="primer_ta">
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

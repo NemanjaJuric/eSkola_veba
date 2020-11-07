@@ -1,4 +1,4 @@
-app.controller("mojKontroler", function($scope) {
-    $scope.ime = "Marko";
-    $scope.prezime= "Petrović";
+app.controller("mojKontroler", function ($scope) {
+  $scope.ime = "Marko";
+  $scope.prezime = "Petrović";
 });

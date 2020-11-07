@@ -1,40 +1,61 @@
 ﻿<h1>Sesije i kolačići</h1>
 
-Sesije i kolačići nisu direktno u vezi sa bazama podataka, ali korisniku mogu značajno da olakšavaju upotrebu aplikacije i 
-da podignu korisničko iskustvo na viši nivo. <span class="font-weight-bold">Kolačići</span> predstavljaju organizovani skup podataka koje veb aplikacija pamti na klijentskom
-računaru. <span class="font-weight-bold">Sesija</span> se može posmatrati kao skup informacija koje se pamte na serveru od momenta konektovanja, pa sve dok korisnik ima interakciju 
-sa veb sajtom ili veb aplikacijom. Najčešće, sesije i kolačići se koriste zajedno. Prilikom konektovanja ili logovanja u aplikaciji, 
-započinje se sesija i generiše se jedinstveni identifikator sesije koji će u okviru servera biti upamćen u bazi podataka, a u okviru klijenta
-u kolačiću. Čim korisnik želi da poseti novu stranicu u okviru veb aplikacije, klijent automatski kroz http zahtev šalje serveru kolačić sa 
-identifikatorom sesije pomoću koga server zna šta treba da prikaže korisniku. <br/><br/>
+Sesije i kolačići nisu direktno u vezi sa bazama podataka, ali korisniku mogu
+značajno da olakšavaju upotrebu aplikacije i da podignu korisničko iskustvo na
+viši nivo. <span class="font-weight-bold">Kolačići</span> predstavljaju
+organizovani skup podataka koje veb aplikacija pamti na klijentskom računaru.
+<span class="font-weight-bold">Sesija</span> se može posmatrati kao skup
+informacija koje se pamte na serveru od momenta konektovanja, pa sve dok
+korisnik ima interakciju sa veb sajtom ili veb aplikacijom. Najčešće, sesije i
+kolačići se koriste zajedno. Prilikom konektovanja ili logovanja u aplikaciji,
+započinje se sesija i generiše se jedinstveni identifikator sesije koji će u
+okviru servera biti upamćen u bazi podataka, a u okviru klijenta u kolačiću. Čim
+korisnik želi da poseti novu stranicu u okviru veb aplikacije, klijent
+automatski kroz http zahtev šalje serveru kolačić sa identifikatorom sesije
+pomoću koga server zna šta treba da prikaže korisniku. <br /><br />
 
-Da bismo mogli da kontrolišemo sesije na ovaj način, prvo treba da naučimo kako da postavimo i kako da obrišemo kolačić sa klijentkog računara. 
-U svakom trenutku treba da imamo na umu da se naša aplikacija izvršava na klijentu i da rezultate izvršavanja saopštavamo korisniku kroz objekat
-za odgovor. Na sličan način treba da saopštimo klijentskom računaru da kreira, tj. da postavi kolačić u svom pregledaču, kao i da ga obriše. Svaki
-kolačić definisan je svojim imenom, pridruženom vrednošću i rokom trajanja. Nakon isteka roka trajanja kolačić se automatski briše sa klijentskog računara.
-Postavljanje i brisanje kolačića sa klijentskog računara ćemo postići pomoću HTTP zaglavlja o kojem je bilo reči ranije. Da bismo kreirali kolačić na 
-klijentskom računaru potrebno je da dodamo sledeću <span class="font-weight-bold">Set-Cookie</span> liniju u definiciji zaglavlja. Iza Set-Cookie parametra treba navesti opis kolačića koji
-je u opštem slučaju sledeći:
+Da bismo mogli da kontrolišemo sesije na ovaj način, prvo treba da naučimo kako
+da postavimo i kako da obrišemo kolačić sa klijentkog računara. U svakom
+trenutku treba da imamo na umu da se naša aplikacija izvršava na klijentu i da
+rezultate izvršavanja saopštavamo korisniku kroz objekat za odgovor. Na sličan
+način treba da saopštimo klijentskom računaru da kreira, tj. da postavi kolačić
+u svom pregledaču, kao i da ga obriše. Svaki kolačić definisan je svojim imenom,
+pridruženom vrednošću i rokom trajanja. Nakon isteka roka trajanja kolačić se
+automatski briše sa klijentskog računara. Postavljanje i brisanje kolačića sa
+klijentskog računara ćemo postići pomoću HTTP zaglavlja o kojem je bilo reči
+ranije. Da bismo kreirali kolačić na klijentskom računaru potrebno je da dodamo
+sledeću <span class="font-weight-bold">Set-Cookie</span> liniju u definiciji
+zaglavlja. Iza Set-Cookie parametra treba navesti opis kolačića koji je u opštem
+slučaju sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 naziv_kolačića=vrednost;max_age=rok_trajanja_u_sekundama
 </xmp>
 
-Na primer, ukoliko želimo da na klijentskom računaru postavimo kolačić koji se zove <span class="font-weight-bold">session_id</span>, ima vrednost <span class="font-weight-bold">5</span> i rok trajanja od sat vremenam tj. <span class="font-weight-bold">3600s</span>, potrebno je da
-kreiramo http zaglavlje na sledeći način:
+Na primer, ukoliko želimo da na klijentskom računaru postavimo kolačić koji se
+zove <span class="font-weight-bold">session_id</span>, ima vrednost
+<span class="font-weight-bold">5</span> i rok trajanja od sat vremenam tj.
+<span class="font-weight-bold">3600s</span>, potrebno je da kreiramo http
+zaglavlje na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 var httpHeader = {
       "Content-Type" : "text/html; charset=utf-8",
       Set-Cookie" : "session_id=5;max-age=3600"
    };
 </xmp>
 
-Kada je uklanjanje kolačića u pitanju, postupak nije baš očigledan. Naime, kroz http zaglavlje je moguće samo postaviti kolačić, ali ne i ukloniti ga. Da bismo obrisali
-kolačić potrebno je da postavimo kolačić koji je istekao, tj. da mu kao parametar <span class="font-weight-bold">max_age</span> prosledimo <span class="font-weight-bold">nulu</span>. Na primeru našeg session_id kolačića, brisanje postižemo
-postavljanjem sledećeg zaglavlja:
+Kada je uklanjanje kolačića u pitanju, postupak nije baš očigledan. Naime, kroz
+http zaglavlje je moguće samo postaviti kolačić, ali ne i ukloniti ga. Da bismo
+obrisali kolačić potrebno je da postavimo kolačić koji je istekao, tj. da mu kao
+parametar <span class="font-weight-bold">max_age</span> prosledimo
+<span class="font-weight-bold">nulu</span>. Na primeru našeg session_id
+kolačića, brisanje postižemo postavljanjem sledećeg zaglavlja:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 var httpHeader = {
       "Content-Type" : "text/html; charset=utf-8",
       "Set-Cookie" : "session_id=5;max-age=0"
@@ -42,16 +63,21 @@ var httpHeader = {
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Da bismo na ovaj način obrisali kolačić potrebno je da svi ostali parametri kolačića budu identični kao i prilikom postavljanja. 
-   U suprotnom kolačić se neće obrisati već će biti postavljen novi.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Da bismo na ovaj način obrisali kolačić potrebno je da svi ostali parametri
+  kolačića budu identični kao i prilikom postavljanja. U suprotnom kolačić se
+  neće obrisati već će biti postavljen novi.
 </div>
 
-Na kraju lekcije, napisaćemo jednostavan primer koji upravlja kolačićima. Nakon što korisnik učita stranicu, program će proveriti da li je kolačić postavljen.
-Ako jeste, prikazaće njegov naziv i pridruženu vrednost, nakon čega će kolačić biti obrisan. Ako kolačić nije postavljen, program će postaviti kolačić na klijentskom
-računaru koji traje sat vremena. U kodu koji čuvamo u fajlu <span class="font-weight-bold">sesije.js</span>, ovo se postiže na sledeći način:
+Na kraju lekcije, napisaćemo jednostavan primer koji upravlja kolačićima. Nakon
+što korisnik učita stranicu, program će proveriti da li je kolačić postavljen.
+Ako jeste, prikazaće njegov naziv i pridruženu vrednost, nakon čega će kolačić
+biti obrisan. Ako kolačić nije postavljen, program će postaviti kolačić na
+klijentskom računaru koji traje sat vremena. U kodu koji čuvamo u fajlu
+<span class="font-weight-bold">sesije.js</span>, ovo se postiže na sledeći
+način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"> 
 var http = require("http");
 
 http.createServer(function(req, res){
@@ -88,17 +114,23 @@ http.createServer(function(req, res){
 console.log("Server started;");
 </xmp>
 
-Da bismo odredili šta predstavlja i koliko traje sesija u našem primeru, potrebno je da utvrdimo kada se postavlja i uklanja kolačić na klijentskom računaru. Sesija počinje
-onog trenutka kada se postavi kolačić na klijentskom računaru. Da bismo uradili nešto sa sesijom potrebno je da kolačić parsiramo da bismo saznali koja vrednost mu je pridružena. 
-Sesija se završava kada korisnik ponovo učita stranicu, tj. kada se ukloni kolačić ili kada istekne sat vremena od poslednjeg postavljanja kolačića kada će kolačić biti automatski 
-obrisan. 
+Da bismo odredili šta predstavlja i koliko traje sesija u našem primeru,
+potrebno je da utvrdimo kada se postavlja i uklanja kolačić na klijentskom
+računaru. Sesija počinje onog trenutka kada se postavi kolačić na klijentskom
+računaru. Da bismo uradili nešto sa sesijom potrebno je da kolačić parsiramo da
+bismo saznali koja vrednost mu je pridružena. Sesija se završava kada korisnik
+ponovo učita stranicu, tj. kada se ukloni kolačić ili kada istekne sat vremena
+od poslednjeg postavljanja kolačića kada će kolačić biti automatski obrisan.
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 33.</span><br/>
-   Modifikovati primer tako da korisnik klikom na dugme može da započne i završi sesiju.
+  <span class="font-weight-bold">Zadatak 33.</span><br />
+  Modifikovati primer tako da korisnik klikom na dugme može da započne i završi
+  sesiju.
 </div>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Upotreba količića i upravljanje sesijama mogu se značajno lakše postići upotrebom nekog modula poput ExpressJS, nego pomoću čistog NodeJS kao što je ovde učinjeno. 
+  <span class="font-weight-bold">Napomena:</span><br />
+  Upotreba količića i upravljanje sesijama mogu se značajno lakše postići
+  upotrebom nekog modula poput ExpressJS, nego pomoću čistog NodeJS kao što je
+  ovde učinjeno.
 </div>

@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <title>Primer</title>
 
-<head>
+    <script>
+      class Parent {
+        show() {
+          document.write("show() metod klase Perent <br>");
+        }
+      }
+      class Child extends Parent {
+        show() {
+          super.show();
+          document.write("i show() metod klase Child <br>");
+        }
+      }
+      var obj = new Child();
+      obj.show();
+    </script>
+  </head>
 
-	<title>Primer</title>
-
-<script>
-class Parent {   
-   show() {   
-      document.write("show() metod klase Perent <br>"); 
-   }  
-}  
-class Child extends Parent {   
-   show() {  
-      super.show();  
-      document.write("i show() metod klase Child <br>");  
-   }   
-}   
-var obj = new Child();   
-obj.show(); 
-</script>
-
-</head>
-
-<body>
-
-</body>
-
+  <body></body>
 </html>

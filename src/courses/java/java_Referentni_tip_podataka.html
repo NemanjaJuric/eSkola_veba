@@ -1,24 +1,42 @@
+<h1>Referentni tip podatka</h1>
+<p style="text-align: justify">
+  Promenljiva referentnog tipa (klasni tip) sadrže reference na podatke, odnosno
+  adresu na kojoj se mogu naći odgovarajući podaci. Podaci su smešteni u
+  objektima. Dok promenljiva primitivnog tipa sadrži binarnu reprezentaciju neke
+  vrednosti, promenljiva referentnog tipa sadrži binarnu reprezentaciju adrese
+  nekog objekta
+</p>
+<img src="courses/java/referentniTip.jpg" class="img-md" />
+<br />
+<p style="text-align: justify">
+  Promenljiva referentnog tipa se kreira pomoću definisanih konstruktora neke
+  klase. Te klase mogu biti definisane od strane programera ili se koriste neke
+  već postojeće klase iz biblioteke jezika Java (npr.String). Kreiranje objekata
+  vrši se pomoću ključne reči <b>new</b>.
+</p>
 
-<h1>Referentni tip podatka </h1>
-<p style="text-align: justify;">Promenljiva referentnog tipa (klasni tip) sadrže reference na podatke, odnosno adresu na kojoj se mogu naći odgovarajući podaci. Podaci su smešteni u objektima.
-  Dok promenljiva primitivnog tipa sadrži binarnu reprezentaciju neke vrednosti, promenljiva referentnog tipa sadrži binarnu reprezentaciju adrese nekog objekta</p>
-  <img src="courses/java/referentniTip.jpg" class="img-md">
-<br>
-  <p style="text-align: justify;">Promenljiva referentnog tipa se kreira pomoću definisanih konstruktora neke klase. Te klase mogu biti definisane od strane programera ili se koriste neke već postojeće klase iz biblioteke jezika Java
-(npr.String). Kreiranje objekata vrši se pomoću ključne reči <b>new</b>.</p>
-
-<span class = "primer_text">Dog pas = new Dog();  </span>
-<br><br>
-Ako bi se ovaj izraz raščlanio, zapravo se izvršavaju sledeće tri akcije:<br>
+<span class="primer_text">Dog pas = new Dog(); </span>
+<br /><br />
+Ako bi se ovaj izraz raščlanio, zapravo se izvršavaju sledeće tri akcije:<br />
 <ul>
-  <li><b>Dog pas</b> = new Dog(); - deklaracija promenljive, alocira se prostor u memoriji za referentnu promenljivu čije ime je pas koja je tipa Dog, ona je od tog trenutka pa zauvek tipa Dog;</li>
-  <li>Dog pas = <b>new Dog();</b> - kreiranje objekta, alocira se prostor za novi objekat tipa Dog;</li>
-  <li>Dog pas <b>=</b> new Dog(); - dodeljuje se novi objekat tipa Dog referentnoj promenljivoj pas, pa se od ovog trenutka objektu tipa Dog pristupa preko reference pas</li>
-
+  <li>
+    <b>Dog pas</b> = new Dog(); - deklaracija promenljive, alocira se prostor u
+    memoriji za referentnu promenljivu čije ime je pas koja je tipa Dog, ona je
+    od tog trenutka pa zauvek tipa Dog;
+  </li>
+  <li>
+    Dog pas = <b>new Dog();</b> - kreiranje objekta, alocira se prostor za novi
+    objekat tipa Dog;
+  </li>
+  <li>
+    Dog pas <b>=</b> new Dog(); - dodeljuje se novi objekat tipa Dog referentnoj
+    promenljivoj pas, pa se od ovog trenutka objektu tipa Dog pristupa preko
+    reference pas
+  </li>
 </ul>
 
-
-
-
-
-<p style="text-align: justify;">Tip objekta je određen klasom. U programskom jeziku Java, referenca na objekat ne mora da bude isto što i adresa objekta u memoriji. Referenca je jednostavno vrednost na osnovu koje Java virtualna mašina može da pristupi objektu.
+<p style="text-align: justify">
+  Tip objekta je određen klasom. U programskom jeziku Java, referenca na objekat
+  ne mora da bude isto što i adresa objekta u memoriji. Referenca je jednostavno
+  vrednost na osnovu koje Java virtualna mašina može da pristupi objektu.
+</p>

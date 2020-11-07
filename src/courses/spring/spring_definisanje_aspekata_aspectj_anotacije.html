@@ -1,8 +1,10 @@
 <h1>Definisanje aspekata - AspectJ anotacije</h1>
 
-U narednom primeru predstavljena je klasa Passengers. Anotacije @Aspect, @Before, @AfterReturning i @AfterThrowing jesu anotacije radnog okvira AspectJ.
+U narednom primeru predstavljena je klasa Passengers. Anotacije @Aspect,
+@Before, @AfterReturning i @AfterThrowing jesu anotacije radnog okvira AspectJ.
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 @Aspect
 public class Passengers {
 	
@@ -24,10 +26,15 @@ public class Passengers {
 	}
 }
 </xmp>
-<br>
-Ova klasa ima anotaciju @Aspect, što znači da ta klasa nije obična Java klasa, vec predstavlja jedan aspekt. Klasa ima tri metode sa anotacijama @Before, @AfterReturning i @AfterThrowing, koje označavaju kada će te metode biti pozvane. Svakoj od te tri anotacije dodeljen je jedan pointcut, u ovom slučaju izvršavanje metode fly() sledeće klase Airplane:
-<br>
-<xmp class = "primer_ta">
+<br />
+Ova klasa ima anotaciju @Aspect, što znači da ta klasa nije obična Java klasa,
+vec predstavlja jedan aspekt. Klasa ima tri metode sa anotacijama @Before,
+@AfterReturning i @AfterThrowing, koje označavaju kada će te metode biti
+pozvane. Svakoj od te tri anotacije dodeljen je jedan pointcut, u ovom slučaju
+izvršavanje metode fly() sledeće klase Airplane:
+<br />
+<xmp class="primer_ta"
+>
 
 public class Airplane {
 	
@@ -37,15 +44,17 @@ public class Airplane {
 }
 </xmp>
 
-<br>
+<br />
 Dva su načina za kreiranje zrna klasa Passengers i Airplane u Spring kontejneru.
 <ul>
-	<li>Java konfiguracija</li>
-	<li>XML konfiguracija</li>
+  <li>Java konfiguracija</li>
+  <li>XML konfiguracija</li>
 </ul>
 <h2>Java konfiguracija</h2>
-Zrna se deklarišu u klasi koja treba da ima anotacije @Configuration i @EnableAspectJAutoProxy.
-<xmp class = "primer_ta">
+Zrna se deklarišu u klasi koja treba da ima anotacije @Configuration i
+@EnableAspectJAutoProxy.
+<xmp class="primer_ta"
+>
 @Configuration
 @EnableAspectJAutoProxy
 public class ConfigClass {
@@ -61,9 +70,10 @@ public class ConfigClass {
 
 }
 </xmp>
-<br>
+<br />
 Main metoda:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 public static void main(String[] args) {
 
    	ApplicationContext context = new AnnotationConfigApplicationContext(ConfigClass.class);
@@ -73,20 +83,23 @@ public static void main(String[] args) {
 }
 </xmp>
 Rezultat naredbe airplane.fly(); je:
-<br>
-<br>
-			Dear passengers, take your seats! <br>
-			Airplane is flying! <br>
-			Airplane landed. Passengers: clap, clap, clap!!!
-<br>
-<br>
-Dakle, pre izvršavanja metode fly() poziva se metoda takeSeats(), a nakon izvršavanja metode fly() poziva se metoda clap().
-<br>
+<br />
+<br />
+Dear passengers, take your seats! <br />
+Airplane is flying! <br />
+Airplane landed. Passengers: clap, clap, clap!!!
+<br />
+<br />
+Dakle, pre izvršavanja metode fly() poziva se metoda takeSeats(), a nakon
+izvršavanja metode fly() poziva se metoda clap().
+<br />
 <h2>XML konfiguracija</h2>
-Ukoliko se koristi XML konfiguracija za kreiranje i povezivanje zrna u Springovom kontejneru potrebno je da odgovarajuća XML datoteka sadrzi etiketu &ltaop:aspectj-autoproxy>. 
-Za primer klasa Passengers i Aiplane XML datoteka treba da ima sledeći oblik:
-<br>
-<xmp class = "primer_ta">
+Ukoliko se koristi XML konfiguracija za kreiranje i povezivanje zrna u
+Springovom kontejneru potrebno je da odgovarajuća XML datoteka sadrzi etiketu
+&ltaop:aspectj-autoproxy>. Za primer klasa Passengers i Aiplane XML datoteka
+treba da ima sledeći oblik:
+<br />
+<xmp class="primer_ta">
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -105,7 +118,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </xmp>
 
 Main metoda:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 public static void main(String[] args) {
 
    	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
@@ -115,9 +129,9 @@ public static void main(String[] args) {
 }
 </xmp>
 Rezultat naredbe airplane.fly(); je:
-<br>
-<br>
-			Dear passengers, take your seats! <br>
-			Airplane is flying! <br>
-			Airplane landed. Passengers: clap, clap, clap!!!
-<br>
+<br />
+<br />
+Dear passengers, take your seats! <br />
+Airplane is flying! <br />
+Airplane landed. Passengers: clap, clap, clap!!!
+<br />

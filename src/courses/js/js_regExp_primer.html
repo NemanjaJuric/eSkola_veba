@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
+    <p>Pretražuje "sne" u rečenici:</p>
 
-<p>Pretražuje "sne" u rečenici:</p>
+    <p id="p01">sneg je opet Snežana!</p>
 
-<p id="p01">sneg je opet Snežana!</p>
+    <button onclick="myFunction()">Probaj i ti!</button>
 
-<button onclick="myFunction()">Probaj i ti!</button>
+    <p id="demo"></p>
 
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    text = document.getElementById("p01").innerHTML; 
-    document.getElementById("demo").innerHTML = /sne/.exec(text);
-}
-
-</script>
-
-</body>
+    <script>
+      function myFunction() {
+        text = document.getElementById("p01").innerHTML;
+        document.getElementById("demo").innerHTML = /sne/.exec(text);
+      }
+    </script>
+  </body>
 </html>

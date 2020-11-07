@@ -1,13 +1,15 @@
 <h1>Pravljenje kartica u okruženju Bootstrap 4</h1>
-Kartice u radnom okruženju Bootstrap 4 predstavljaju elemente koji su uokvireni, a
-mogu sadržati slike i tekst. Prilikom pravljenja ovih kartica postoje opcije za rad sa
-zaglavljem i podnožjem jedne strane, za rad sa bojama i sadržajem...
-<br>
-<img src="courses/bs4/kartica.JPG" class="img-fluid img-sm">
-<br>
-Osnovne kartice se prave tako što se etiketi <span class="primer_text">&ltdiv&gt</span> zada klasa
-<span class="primer_text">.card</span>, dok se sadržaj te kartice nalazi u okviru unutrašnjeg elementa
-<span class="primer_text">&ltdiv&gt</span> koji ima klasu <span class="primer_text">.card-body</span>.
+Kartice u radnom okruženju Bootstrap 4 predstavljaju elemente koji su uokvireni,
+a mogu sadržati slike i tekst. Prilikom pravljenja ovih kartica postoje opcije
+za rad sa zaglavljem i podnožjem jedne strane, za rad sa bojama i sadržajem...
+<br />
+<img src="courses/bs4/kartica.JPG" class="img-fluid img-sm" />
+<br />
+Osnovne kartice se prave tako što se etiketi
+<span class="primer_text">&ltdiv&gt</span> zada klasa
+<span class="primer_text">.card</span>, dok se sadržaj te kartice nalazi u
+okviru unutrašnjeg elementa <span class="primer_text">&ltdiv&gt</span> koji ima
+klasu <span class="primer_text">.card-body</span>.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -31,14 +33,16 @@ Osnovne kartice se prave tako što se etiketi <span class="primer_text">&ltdiv&g
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 Element <span class="primer_text">&ltdiv&gt</span> kome je zadata klasa
-<span class="primer_text">.card</span> može sadržati i atribut <span class="primer_text">style</span>
-kojim se može zadati, na primer, širina kartice. Ovo se može uraditi i u eksternoj datoteci css ili
-etiketom <span class="primer_text">&ltstyle&gt</span>.
-<br>
-Opcija za dodavanje zaglavlja je omogućena dodavanjem klase <span class="primer_text">.card-header</span>, dok se
-podnožje kartice dodaje klasom <span class="primer_text">.card-footer</span>.
+<span class="primer_text">.card</span> može sadržati i atribut
+<span class="primer_text">style</span> kojim se može zadati, na primer, širina
+kartice. Ovo se može uraditi i u eksternoj datoteci css ili etiketom
+<span class="primer_text">&ltstyle&gt</span>.
+<br />
+Opcija za dodavanje zaglavlja je omogućena dodavanjem klase
+<span class="primer_text">.card-header</span>, dok se podnožje kartice dodaje
+klasom <span class="primer_text">.card-footer</span>.
 <xmp class="primer_ta">
 <div class="card" style="width:400px">
   <div class="card-header">Zaglavlje kartice</div>
@@ -46,28 +50,58 @@ podnožje kartice dodaje klasom <span class="primer_text">.card-footer</span>.
   <div class="card-footer">Podnožje kartice</div>
 </div>
 </xmp>
-<br>
+<br />
 <h2>Kartice u bojama</h2>
-Ukoliko elementu <span class="primer_text">&ltdiv&gt</span> pored klase <span class="primer_text">.card</span>
+Ukoliko elementu <span class="primer_text">&ltdiv&gt</span> pored klase
+<span class="primer_text">.card</span>
 dodamo i klasu:
 <ul>
-  <li><span class="primer_text">.bg-primary</span> kartica će imati plavu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-success</span> kartica će imati zelenu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-warning</span> kartica će imati narandžastu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-danger</span> kartica će imati crvenu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-info</span> kartica će imati svetloplavu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-secondary</span> kartica će imati sivu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-light</span> kartica će imati svetlosivu pozadinsku boju,</li>
-  <li><span class="primer_text">.bg-dark</span> kartica će imati tamnosivu pozadinsku boju.</li>
+  <li>
+    <span class="primer_text">.bg-primary</span> kartica će imati plavu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-success</span> kartica će imati zelenu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-warning</span> kartica će imati narandžastu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-danger</span> kartica će imati crvenu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-info</span> kartica će imati svetloplavu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-secondary</span> kartica će imati sivu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-light</span> kartica će imati svetlosivu
+    pozadinsku boju,
+  </li>
+  <li>
+    <span class="primer_text">.bg-dark</span> kartica će imati tamnosivu
+    pozadinsku boju.
+  </li>
 </ul>
-<br>
-Boja teksta je početno definisana da bude siva, pa u slučaju da je potrebno promeniti je na belu
-to se može uraditi tako što se istom elementu doda klasa <span class="primer_text">.text-white</span>.
-Međutim, ukoliko želimo da podesimo da boja teksta bude neka od spomenutih treba dodati
-neke od klasa <span class="primer_text">.text-primary</span>, <span class="primer_text">.text-danger</span>,
-<span class="primer_text">.text-warning</span>, <span class="primer_text">.text-dark</span>,
-<span class="primer_text">.text-success</span>, <span class="primer_text">.text-secondary</span>,
-<span class="primer_text">.text-light</span> ili <span class="primer_text">.text-info</span>.
+<br />
+Boja teksta je početno definisana da bude siva, pa u slučaju da je potrebno
+promeniti je na belu to se može uraditi tako što se istom elementu doda klasa
+<span class="primer_text">.text-white</span>. Međutim, ukoliko želimo da
+podesimo da boja teksta bude neka od spomenutih treba dodati neke od klasa
+<span class="primer_text">.text-primary</span>,
+<span class="primer_text">.text-danger</span>,
+<span class="primer_text">.text-warning</span>,
+<span class="primer_text">.text-dark</span>,
+<span class="primer_text">.text-success</span>,
+<span class="primer_text">.text-secondary</span>,
+<span class="primer_text">.text-light</span> ili
+<span class="primer_text">.text-info</span>.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -95,21 +129,23 @@ neke od klasa <span class="primer_text">.text-primary</span>, <span class="prime
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Opcije za rad sa linkovima, naslovima i drugim tekstualnim elementima</h2>
-U okviru elementa sa klasom <span class="primer_text">.card-body</span>
-moguće je dodati naslove kartice elementima <span class="primer_text">h1</span>,
+U okviru elementa sa klasom <span class="primer_text">.card-body</span> moguće
+je dodati naslove kartice elementima <span class="primer_text">h1</span>,
 <span class="primer_text">h2</span>, <span class="primer_text">h3</span>,
 <span class="primer_text">h4</span>, <span class="primer_text">h5</span>,
 <span class="primer_text">h6</span>, pri čemu im treba dodati klasu
-<span class="primer_text">.card-title</span>. Takođe se u okviru kartice može naći i paragraf
-<span class="primer_text">p</span> kojem treba zadati klasu <span class="primer_text">.card-text</span>
-koja uklanja donju marginu paragrafa, ukoliko je spomenuti paragraf poslednji ili jedini potomak
-DOM elementa <span class="primer_text">&ltdiv class="card-body"&gt</span>.
-Pored tekstualnih elemenata u kartici je moguće dodati i linkove, odnosno elemente
-<span class="primer_text">&lta&gt</span> sa odgovarajućom vrednošću atributa <span class="primer_text">href</span>,
-kojima se zadaje klasa <span class="primer_text">.card-link</span> koja svim linkovima
-zadaje plavu boju i efekat promene boje linka prilikom prelaska kursorom.
+<span class="primer_text">.card-title</span>. Takođe se u okviru kartice može
+naći i paragraf <span class="primer_text">p</span> kojem treba zadati klasu
+<span class="primer_text">.card-text</span> koja uklanja donju marginu
+paragrafa, ukoliko je spomenuti paragraf poslednji ili jedini potomak DOM
+elementa <span class="primer_text">&ltdiv class="card-body"&gt</span>. Pored
+tekstualnih elemenata u kartici je moguće dodati i linkove, odnosno elemente
+<span class="primer_text">&lta&gt</span> sa odgovarajućom vrednošću atributa
+<span class="primer_text">href</span>, kojima se zadaje klasa
+<span class="primer_text">.card-link</span> koja svim linkovima zadaje plavu
+boju i efekat promene boje linka prilikom prelaska kursorom.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -139,12 +175,14 @@ zadaje plavu boju i efekat promene boje linka prilikom prelaska kursorom.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Kartice sa slikama</h2>
-Da bi se slika prostirala celom širinom kartice, element <span class="primer_text">&ltimg&gt</span>
-treba postaviti izvan elementa sa klasom <span class="primer_text">.card-body</span>. Klase
-<span class="primer_text">.card-img-top</span> i <span class="primer_text">.card-img-bottom</span>
-određuju da li će se sadržaj elementa sa klasom <span class="primer_text">.card-body</span>
+Da bi se slika prostirala celom širinom kartice, element
+<span class="primer_text">&ltimg&gt</span> treba postaviti izvan elementa sa
+klasom <span class="primer_text">.card-body</span>. Klase
+<span class="primer_text">.card-img-top</span> i
+<span class="primer_text">.card-img-bottom</span> određuju da li će se sadržaj
+elementa sa klasom <span class="primer_text">.card-body</span>
 naći ispod ili iznad slike, respektivno.
 <xmp class="primer_ta">
   <!DOCTYPE html>
@@ -188,11 +226,12 @@ naći ispod ili iznad slike, respektivno.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h3>Kartice sa pozadinskom slikom</h3>
-U radnom okruženju Bootstrap 4 moguće je napraviti kartice koje imaju pozadinsku sliku,
-pri čemu da bi se omogućilo da se sadržaj nalazi preko slike i da počinje od gornje ivice
-treba koristiti klasu <span class="primer_text">.card-img-overlay</span>.
+U radnom okruženju Bootstrap 4 moguće je napraviti kartice koje imaju pozadinsku
+sliku, pri čemu da bi se omogućilo da se sadržaj nalazi preko slike i da počinje
+od gornje ivice treba koristiti klasu
+<span class="primer_text">.card-img-overlay</span>.
 <xmp class="primer_ta">
   <!DOCTYPE html>
   <html>
@@ -218,22 +257,31 @@ treba koristiti klasu <span class="primer_text">.card-img-overlay</span>.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Kolone kartica</h2>
 <ul>
-  <li>Da bi se više kartica rasporedilo u kolone, pri čemu kartice ne moraju biti istih visina,
-    sve kartice treba grupisati u okviru jednog <span class="primer_text">&ltdiv&gt</span>
-    elementa kom je pridružena klasa <span class="primer_text">.card-columns</span>;</li>
-  <li>Da bi se više kartica rasporedilo u kolone, pri čemu bi kartice bile istih visina i širina,
-    sve kartice treba grupisati u okviru jednog <span class="primer_text">&ltdiv&gt</span>
-    elementa kom je pridružena klasa <span class="primer_text">.card-deck</span>;</li>
-  <li>Da bi se više kartica rasporedilo u kolone, pri čemu bi kartice bile istih visina i širina,
-    ali bez proreda među njima, sve kartice treba grupisati u okviru jednog
-    <span class="primer_text">&ltdiv&gt</span> elementa kome je pridružena klasa
-    <span class="primer_text">.card-group</span>.</li>
+  <li>
+    Da bi se više kartica rasporedilo u kolone, pri čemu kartice ne moraju biti
+    istih visina, sve kartice treba grupisati u okviru jednog
+    <span class="primer_text">&ltdiv&gt</span> elementa kom je pridružena klasa
+    <span class="primer_text">.card-columns</span>;
+  </li>
+  <li>
+    Da bi se više kartica rasporedilo u kolone, pri čemu bi kartice bile istih
+    visina i širina, sve kartice treba grupisati u okviru jednog
+    <span class="primer_text">&ltdiv&gt</span> elementa kom je pridružena klasa
+    <span class="primer_text">.card-deck</span>;
+  </li>
+  <li>
+    Da bi se više kartica rasporedilo u kolone, pri čemu bi kartice bile istih
+    visina i širina, ali bez proreda među njima, sve kartice treba grupisati u
+    okviru jednog <span class="primer_text">&ltdiv&gt</span> elementa kome je
+    pridružena klasa <span class="primer_text">.card-group</span>.
+  </li>
 </ul>
 <div class="napomena">
-  U ovim situacijama, kartice se vertikalno prostiru na ekranima maksimalne širine od 576px.
+  U ovim situacijama, kartice se vertikalno prostiru na ekranima maksimalne
+  širine od 576px.
 </div>
 <xmp class="primer_ta">
   <!DOCTYPE html>
@@ -278,7 +326,8 @@ treba koristiti klasu <span class="primer_text">.card-img-overlay</span>.
   </html>
 </xmp>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <div class="zadatak">
-  <b>Zadatak:</b> Napraviti kolonu od tri kartice koje su različitih visina i boja.
+  <b>Zadatak:</b> Napraviti kolonu od tri kartice koje su različitih visina i
+  boja.
 </div>

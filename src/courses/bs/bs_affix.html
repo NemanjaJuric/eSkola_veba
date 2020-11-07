@@ -1,50 +1,68 @@
 <h1>Affix</h1>
 
-Affix je plagin (eng.plugin) koji se koristi kada je potrebno fiksirati određeni element na veb strani.
- Fiksiranje se najčešće primenjuje nad menijem ili nad trakom za navigaciju i obezbeđuje im 
- konstantan prikaz na veb strani bez obzira na skrolovanje.
- <br>
- <br>
- Element se može fiksirati na dva načina:
- <ul>
- <li>upotrebom <span class="primer_text">data-spy="affix"</span> atributa</li>
- <li>upotrebom jQuery biblioteke .</li>
- </ul>
- <br>
- <br>
- <h2>Upotreba <span class="primer_text">data-spy="affix"</span> atributa</h2>
- Jedan od načina da se fiksira element je upotrebom <br><span class="primer_text">data-spy="affix"</span>
- atributa na nivou tog elementa. Pored toga, poželjno je navođenje opcionih atributi:
- <span class="primer_text">data-offset-top</span> i <br><span class="primer_text">data-offset-bottom</span>.
- <br>
- <br>
- Vrednost atributa <span class="primer_text">data-offset-top</span> predstavlja broj piksela koji je potrebno skrolovati od
- početka strane da bi se dati element fiksirao na određenoj poziciji.
- Slično, vrednost atibuta <br><span class="primer_text">data-offset-bottom</span> predstavlja broj piksela koji je potrebno skrolovati od
- kraja strane da bi se dati element fiksirao. 
- Pre nego što bude objašnjeno kako se zadaje pozicija na kojoj će se fiksirati, razmotrimo kako affix plagin funkcioniše u pozadini.
- <br>
- <br>
- U pozadini, affix plagin radi tako što smenjuje sledeće Bootstrap-ove klase:
- <ul>
- <li>.affix</li>
- <li>.affix-top i</li>
- <li>.affix-bottom .</li>
- </ul>
- Ove klase se automatski smenjuju nad fiksnim elementom, u zavisnosti od 
- njegove pozicije tokom skrolovanja.<br>
- Ako je naveden atribut <span class="primer_text">data-offset-top</span>, elementu se prvo pridružuje klasa 
- <span class="primer_text">.affix-top</span>, a kada skrolovanjem dostigne vrednost zadatu tim atributom, 
- pridružuje mu se klasa <span class="primer_text">.affix</span>.<br>
- Sa druge strane, ako je na nivou elementa zadat atribut <br><span class="primer_text">data-offset-bottom</span>, pridružuje mu se prvo klasa
- <span class="primer_text">.affix</span>. U trenutku kada dostigne vrednost zadatu atributom, pridružuje mu se 
- <span class="primer_text">.affix-bottom</span>.
- <br>
- <br>
- Klasu <span class="primer_text">.affix</span> odlikuje CSS svojstvo
- <span class="primer_text">position:fixed;</span> dok preostale dve nemaju te vrednosti. Kao i svaku drugu Bootstrapovu klasu,
- klasu <span class="primer_text">.affix</span> je moguće nadograditi drugim svojstvima. Ono što je obavezno je zadavanje CSS svojstva 
- <span class="primer_text">top</span>, kao u primeru:
+Affix je plagin (eng.plugin) koji se koristi kada je potrebno fiksirati određeni
+element na veb strani. Fiksiranje se najčešće primenjuje nad menijem ili nad
+trakom za navigaciju i obezbeđuje im konstantan prikaz na veb strani bez obzira
+na skrolovanje.
+<br />
+<br />
+Element se može fiksirati na dva načina:
+<ul>
+  <li>upotrebom <span class="primer_text">data-spy="affix"</span> atributa</li>
+  <li>upotrebom jQuery biblioteke .</li>
+</ul>
+<br />
+<br />
+<h2>Upotreba <span class="primer_text">data-spy="affix"</span> atributa</h2>
+Jedan od načina da se fiksira element je upotrebom <br /><span
+  class="primer_text"
+  >data-spy="affix"</span
+>
+atributa na nivou tog elementa. Pored toga, poželjno je navođenje opcionih
+atributi:
+<span class="primer_text">data-offset-top</span> i <br /><span
+  class="primer_text"
+  >data-offset-bottom</span
+>.
+<br />
+<br />
+Vrednost atributa <span class="primer_text">data-offset-top</span> predstavlja
+broj piksela koji je potrebno skrolovati od početka strane da bi se dati element
+fiksirao na određenoj poziciji. Slično, vrednost atibuta <br /><span
+  class="primer_text"
+  >data-offset-bottom</span
+>
+predstavlja broj piksela koji je potrebno skrolovati od kraja strane da bi se
+dati element fiksirao. Pre nego što bude objašnjeno kako se zadaje pozicija na
+kojoj će se fiksirati, razmotrimo kako affix plagin funkcioniše u pozadini.
+<br />
+<br />
+U pozadini, affix plagin radi tako što smenjuje sledeće Bootstrap-ove klase:
+<ul>
+  <li>.affix</li>
+  <li>.affix-top i</li>
+  <li>.affix-bottom .</li>
+</ul>
+Ove klase se automatski smenjuju nad fiksnim elementom, u zavisnosti od njegove
+pozicije tokom skrolovanja.<br />
+Ako je naveden atribut <span class="primer_text">data-offset-top</span>,
+elementu se prvo pridružuje klasa <span class="primer_text">.affix-top</span>, a
+kada skrolovanjem dostigne vrednost zadatu tim atributom, pridružuje mu se klasa
+<span class="primer_text">.affix</span>.<br />
+Sa druge strane, ako je na nivou elementa zadat atribut <br /><span
+  class="primer_text"
+  >data-offset-bottom</span
+>, pridružuje mu se prvo klasa <span class="primer_text">.affix</span>. U
+trenutku kada dostigne vrednost zadatu atributom, pridružuje mu se
+<span class="primer_text">.affix-bottom</span>.
+<br />
+<br />
+Klasu <span class="primer_text">.affix</span> odlikuje CSS svojstvo
+<span class="primer_text">position:fixed;</span> dok preostale dve nemaju te
+vrednosti. Kao i svaku drugu Bootstrapovu klasu, klasu
+<span class="primer_text">.affix</span> je moguće nadograditi drugim svojstvima.
+Ono što je obavezno je zadavanje CSS svojstva
+<span class="primer_text">top</span>, kao u primeru:
 <textarea class="primer_ta" rows="5" disabled>
 &ltstyle&gt
 .affix{
@@ -52,63 +70,74 @@ top:100px;
 }
 &lt/style&gt
 </textarea>
-Ovo svojstvo, kao i podrazumevano svojstvo <span class="primer_text">position:fixed</span>, 
-će se primeniti na elementu onog trenutka kada nastupi klasa <span class="primer_text">.affix</span> , odnosno 
-kada atributi <span class="primer_text">data-offset-top|bottom</span> dostignu zadate vrednosti.
-<br>
-<br>
-Sada smo u mogućnosti da odgovorimo na pitanje: "Kako se zadaje pozicija fiksnog elementa, nakon što
-atributi <span class="primer_text">data-offset-top|bottom</span> dostignu zadate vrednosti ?"<br>
-Odgovor je: CSS svojstvo <span class="primer_text">top</span>
- klase <span class="primer_text">.affix</span> određuje poziciju fiksnog elementa i predstavlja njegovu udaljenost od vrha strane.
- <br>
- <br>
- <h2>Upotreba jQuery biblioteke</h2>
+Ovo svojstvo, kao i podrazumevano svojstvo
+<span class="primer_text">position:fixed</span>, će se primeniti na elementu
+onog trenutka kada nastupi klasa <span class="primer_text">.affix</span> ,
+odnosno kada atributi
+<span class="primer_text">data-offset-top|bottom</span> dostignu zadate
+vrednosti.
+<br />
+<br />
+Sada smo u mogućnosti da odgovorimo na pitanje: "Kako se zadaje pozicija fiksnog
+elementa, nakon što atributi
+<span class="primer_text">data-offset-top|bottom</span> dostignu zadate
+vrednosti ?"<br />
+Odgovor je: CSS svojstvo <span class="primer_text">top</span> klase
+<span class="primer_text">.affix</span> određuje poziciju fiksnog elementa i
+predstavlja njegovu udaljenost od vrha strane.
+<br />
+<br />
+<h2>Upotreba jQuery biblioteke</h2>
 Drugi način da se element fiksira je da se korišćenjem jQuery biblioteke pozove
- metod <span class="primer_text">affix()</span> nad istim.<br>
- Pozicija na kojoj se element fiksira je isto određena CSS svojstvom
-<span class="primer_text">top</span> klase <span class="primer_text">.affix</span>.<br>
-Broj piksela koji je potrebno skrolovati od početka, odnosno od kraja strane, da bi se element fiksirao, zadaje se kao parametar metoda
-opcijom  <span class="primer_text">offset</span>.
- <br>
- <br>
- <h2>Opcija offset</h2>
- 
-U slučaju da je element fiksiran pomoću <span class="primer_text">data-spy="affix"</span>
-atributa, opcija <span class="primer_text">offset</span> se koristi preko 
-atributa <span class="primer_text">data-offset-top</span> i
+metod <span class="primer_text">affix()</span> nad istim.<br />
+Pozicija na kojoj se element fiksira je isto određena CSS svojstvom
+<span class="primer_text">top</span> klase
+<span class="primer_text">.affix</span>.<br />
+Broj piksela koji je potrebno skrolovati od početka, odnosno od kraja strane, da
+bi se element fiksirao, zadaje se kao parametar metoda opcijom
+<span class="primer_text">offset</span>.
+<br />
+<br />
+<h2>Opcija offset</h2>
+
+U slučaju da je element fiksiran pomoću
+<span class="primer_text">data-spy="affix"</span> atributa, opcija
+<span class="primer_text">offset</span> se koristi preko atributa
+<span class="primer_text">data-offset-top</span> i
 <span class="primer_text">data-offset-bottom</span>.
-<br>
-<br>
-Sa druge strane, u slučaju da se element fiksira pomoću jQuery biblioteke, ova opcija će 
-se koristiti kao parametar <span class="primer_text">affix()</span> metoda.
-Ekvivalent atributu <span class="primer_text">data-offset-top="100"</span>, ovde će biti naredba:<br>
+<br />
+<br />
+Sa druge strane, u slučaju da se element fiksira pomoću jQuery biblioteke, ova
+opcija će se koristiti kao parametar
+<span class="primer_text">affix()</span> metoda. Ekvivalent atributu
+<span class="primer_text">data-offset-top="100"</span>, ovde će biti naredba:<br />
 <span class="primer_text">.affix({offset: {top: 100} });</span>.
-<br>
-Slično, ekvivalent atributu <span class="primer_text">data-offset-bottom="100"</span> biće:<br>
+<br />
+Slično, ekvivalent atributu
+<span class="primer_text">data-offset-bottom="100"</span> biće:<br />
 <span class="primer_text">.affix({offset: {bottom: 100} });</span>.
-<br>
-U sledećoj tabeli su prikazani primeri za pojedinačne slučajeve.<br><br>
+<br />
+U sledećoj tabeli su prikazani primeri za pojedinačne slučajeve.<br /><br />
 <div class="container">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Opcija</th>
- <th>Opis</th>
- <th>Preko atributa:</th>
- <th>Preko metoda affix()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
- <td rowspan="2">offset</td>
- <td>Određuje  broj piksela
- koji je potrebno skrolovati od početka
- strane da bi se element fiksirao.
- </td>
- <td>
- data-offset-top 
- <textarea class="primer_ta" style="display:none;">
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Opcija</th>
+        <th>Opis</th>
+        <th>Preko atributa:</th>
+        <th>Preko metoda affix()</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2">offset</td>
+        <td>
+          Određuje broj piksela koji je potrebno skrolovati od početka strane da
+          bi se element fiksirao.
+        </td>
+        <td>
+          data-offset-top
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,12 +177,13 @@ U sledećoj tabeli su prikazani primeri za pojedinačne slučajeve.<br><br>
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- <td>
- <br>
- <textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+        <td>
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -199,22 +229,20 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-
-<tr>
- 
- <td>Određuje  broj piksela koji je potrebno skrolovati od kraja strane 
- da bi se element fiksirao.
- </td>
- <td>
- data-offset-bottom
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>
+          Određuje broj piksela koji je potrebno skrolovati od kraja strane da
+          bi se element fiksirao.
+        </td>
+        <td>
+          data-offset-bottom
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -254,12 +282,13 @@ $(document).ready(function(){
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
- <td>
- <br>
-<textarea class="primer_ta" style="display:none;">
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+        <td>
+          <br />
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -305,28 +334,29 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
-
-
-
-
-</tbody>
-</table>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
- <br>
- <br>
+<br />
+<br />
 <h2>Fiksiranje trake za navigaciju</h2>
-Kreiranje trake za navigaciju je detaljno objašnjeno u lekciji "Navbar". Prikažimo njeno fiksiranje 
-na oba načina.
-<br>
-<h3>Fiksiranje upotrebom <span class="primer_text">data-spy="affix"</span> atributa</h3>
-Ovo se postiže kada se na nivou <span class="primer_text">&ltnav&gt</span> elementa navede atribut
-<span class="primer_text">data-spy="affix"</span>.<br>
-Sledeći primer prikazuje traku za navigaciju koja postaje fiksna kada se postigne 
-vrednost od 100 piksela skrolovanih od vrha strane.
+Kreiranje trake za navigaciju je detaljno objašnjeno u lekciji "Navbar".
+Prikažimo njeno fiksiranje na oba načina.
+<br />
+<h3>
+  Fiksiranje upotrebom
+  <span class="primer_text">data-spy="affix"</span> atributa
+</h3>
+Ovo se postiže kada se na nivou
+<span class="primer_text">&ltnav&gt</span> elementa navede atribut
+<span class="primer_text">data-spy="affix"</span>.<br />
+Sledeći primer prikazuje traku za navigaciju koja postaje fiksna kada se
+postigne vrednost od 100 piksela skrolovanih od vrha strane.
 <textarea class="primer_ta" rows="8" disabled>
 <nav class="navbar navbar-inverse"
 data-spy="affix" data-offset-top="100">
@@ -337,7 +367,7 @@ data-spy="affix" data-offset-top="100">
   </ul>
 </nav>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -379,7 +409,7 @@ data-spy="affix" data-offset-top="100">
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 Imati u vidu da je u zaglavlju stranice dodato sledeće:
 <textarea class="primer_ta" rows="6" disabled>
 <style>
@@ -389,11 +419,11 @@ Imati u vidu da je u zaglavlju stranice dodato sledeće:
 	}
 </style>
 </textarea>
-<br>
-<br>
+<br />
+<br />
 <h3>Fiksiranje upotrebom jQuery biblioteke</h3>
-Sledeći primer prikazuje identičnu traku za navigaciju, samo što je fiksirana upotrebom
-jQuery-ja.
+Sledeći primer prikazuje identičnu traku za navigaciju, samo što je fiksirana
+upotrebom jQuery-ja.
 <textarea class="primer_ta" rows="12" disabled>
 <nav class="navbar navbar-inverse" id="id1">
   <ul class="nav navbar-nav">
@@ -408,7 +438,7 @@ $(document).ready(function(){
 });
 </script>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -456,9 +486,10 @@ $(document).ready(function(){
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-I u ovom primeru je obavezno zadato <span class="primer_text">top</span>
-svojstvo klase <span class="primer_text">.affix</span> na sledeći način:
+<br />
+I u ovom primeru je obavezno zadato
+<span class="primer_text">top</span> svojstvo klase
+<span class="primer_text">.affix</span> na sledeći način:
 <textarea class="primer_ta" rows="6" disabled>
 <style>
   .affix{
@@ -467,16 +498,17 @@ svojstvo klase <span class="primer_text">.affix</span> na sledeći način:
 	}
 </style>
 </textarea>
-<br>
-<br>
-
+<br />
+<br />
 
 <h2>Fiksiranje menija sa vertikalnim pill komponentama</h2>
-Kreiranje menija sa vertikalnim pill komponentama je detaljno objašnjeno u lekciji "Meni". 
-<br>
-Sledeći primer prikazuje meni sa vertikalnim pill komponentama koji je fiksiran upotrebom atributa 
-<span class="primer_text">data-spy="affix"</span>.
-Meni postaje fiksan kada se postigne vrednost od 200 piksela skrolovanih od vrha strane.
+Kreiranje menija sa vertikalnim pill komponentama je detaljno objašnjeno u
+lekciji "Meni".
+<br />
+Sledeći primer prikazuje meni sa vertikalnim pill komponentama koji je fiksiran
+upotrebom atributa
+<span class="primer_text">data-spy="affix"</span>. Meni postaje fiksan kada se
+postigne vrednost od 200 piksela skrolovanih od vrha strane.
 <textarea class="primer_ta" rows="26" disabled>
 <div class="container">
   <div class="row">
@@ -505,7 +537,7 @@ Meni postaje fiksan kada se postigne vrednost od 200 piksela skrolovanih od vrha
   </div>
 </div>
 </textarea>
-<textarea class="primer_ta" style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -551,39 +583,34 @@ Meni postaje fiksan kada se postigne vrednost od 200 piksela skrolovanih od vrha
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
-
-
-
-
+<br />
+<br />
 
 <h2>Affix događaji</h2>
-Sledeća tabela sa primerima ilustruje
-upotrebu svakog od affix događaja.
+Sledeća tabela sa primerima ilustruje upotrebu svakog od affix događaja.
 
 <div class="container">
-<table class="table table-striped" style="font-size:14px">
-<thead>
-<tr>
- <th>Događaj</th>
- <th>Opis</th>
- <th>Primer</th>
-</tr>
-</thead>
-<tbody>
+  <table class="table table-striped" style="font-size: 14px">
+    <thead>
+      <tr>
+        <th>Događaj</th>
+        <th>Opis</th>
+        <th>Primer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>affix.bs.affix</td>
 
+        <td>
+          Događaj nastupa neposredno pre nego što element postane fiksiran, tj.
+          neposredno pre nego što se klasa
+          <span class="primer_text">.affix-top</span> zameni klasom
+          <span class="primer_text">.affix</span>.
+        </td>
 
-<tr>
- <td>affix.bs.affix</td>
- 
- <td> Događaj nastupa neposredno pre nego što element postane fiksiran, tj. neposredno pre nego
- što se klasa <span class="primer_text">.affix-top</span> zameni klasom 
- <span class="primer_text">.affix</span>.
- </td>
- 
- <td>
- <textarea class="primer_ta" style="display:none;">
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -633,20 +660,21 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-<tr>
- <td>affixed.bs.affix</td> 
- <td> Događaj nastupa nakon što element postane fiksiran, tj. nakon što 
- što se klasa <span class="primer_text">.affix-top</span> zameni klasom 
- <span class="primer_text">.affix</span>.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>affixed.bs.affix</td>
+        <td>
+          Događaj nastupa nakon što element postane fiksiran, tj. nakon što što
+          se klasa <span class="primer_text">.affix-top</span> zameni klasom
+          <span class="primer_text">.affix</span>.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -696,21 +724,22 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-<tr>
- <td>affix-top.bs.affix</td> 
- <td> Događaj nastupa neposredno pre nego što se element vrati u svoju originalnu poziciju, tj.
- neposredno pre nego što se klasa <span class="primer_text">.affix</span> zameni klasom 
- <span class="primer_text">.affix-top </span>.
- 
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>affix-top.bs.affix</td>
+        <td>
+          Događaj nastupa neposredno pre nego što se element vrati u svoju
+          originalnu poziciju, tj. neposredno pre nego što se klasa
+          <span class="primer_text">.affix</span> zameni klasom
+          <span class="primer_text">.affix-top </span>.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -760,21 +789,22 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>affixed-top.bs.affix</td> 
- <td> Događaj nastupa nakon što se element vrati u svoju originalnu poziciju, tj.
- nakon što se klasa <span class="primer_text">.affix</span> zameni klasom 
- <span class="primer_text">.affix-top </span>.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>affixed-top.bs.affix</td>
+        <td>
+          Događaj nastupa nakon što se element vrati u svoju originalnu
+          poziciju, tj. nakon što se klasa
+          <span class="primer_text">.affix</span> zameni klasom
+          <span class="primer_text">.affix-top </span>.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -824,21 +854,22 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>affix-bottom.bs.affix</td> 
- <td> Događaj nastupa neposredno pre nego što se element vrati u svoju originalnu poziciju, tj.
- neposredno pre nego što se klasa <span class="primer_text">.affix</span> zameni klasom 
- <span class="primer_text">.affix-bottom </span>.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>affix-bottom.bs.affix</td>
+        <td>
+          Događaj nastupa neposredno pre nego što se element vrati u svoju
+          originalnu poziciju, tj. neposredno pre nego što se klasa
+          <span class="primer_text">.affix</span> zameni klasom
+          <span class="primer_text">.affix-bottom </span>.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -888,21 +919,22 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
 
-
-
-<tr>
- <td>affixed-bottom.bs.affix</td> 
- <td> Događaj nastupa nakon što se element vrati u svoju originalnu poziciju, tj.
- nakon što se klasa <span class="primer_text">.affix</span> zameni klasom 
- <span class="primer_text">.affix-bottom </span>.
- </td>
- <td>
- <textarea class="primer_ta" style="display:none;">
+      <tr>
+        <td>affixed-bottom.bs.affix</td>
+        <td>
+          Događaj nastupa nakon što se element vrati u svoju originalnu
+          poziciju, tj. nakon što se klasa
+          <span class="primer_text">.affix</span> zameni klasom
+          <span class="primer_text">.affix-bottom </span>.
+        </td>
+        <td>
+          <textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -952,25 +984,21 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button>
- </td>
-</tr>
+</textarea
+          >
+          <button class="button_copy">Vidi primer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
+  <br />
+  <br />
+  <h2>Upotreba affix i scrollspy plagina na vertikalnom meniju</h2>
+  Affix plagin je najčešće korišćen u kombinaciji sa scrollspy plaginom. Sledeći
+  primer ilustruje njihovu upotrebu.
 
-</tbody>
-</table>
-
-
-
-
-<br>
-<br>
-<h2>Upotreba affix i scrollspy plagina na vertikalnom meniju</h2>
-Affix plagin je najčešće korišćen u kombinaciji sa scrollspy plaginom. 
-Sledeći primer ilustruje njihovu upotrebu.
-
-<textarea class="primer_ta" rows="43" disabled>
+  <textarea class="primer_ta" rows="43" disabled>
 <body data-spy="scroll" data-target="#id1" 
 data-offset="15" style="position:relative;">
 
@@ -1007,9 +1035,9 @@ data-offset="15" style="position:relative;">
   </div>
 </div>
 </body>
-</textarea>
-<textarea class="primer_ta" style="display:none;"
-<!DOCTYPE html>
+</textarea
+  >
+  <textarea class="primer_ta" style="display: none" <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Bootstrap</title>
@@ -1056,14 +1084,17 @@ data-offset="15" style="position:relative;">
 </div>
 </body>
 </html>
-</textarea>
-<button class="button_copy">Vidi primer</button><br>
-I u ovom primeru je u zaglavlju zadata vrednost <span class="primer_text">top</span> svojstva na nivou 
-<span class="primer_text">.affix</span> klase.
-<br>
-<br>
+</textarea
+  >
+  <button class="button_copy">Vidi primer</button><br />
+  I u ovom primeru je u zaglavlju zadata vrednost
+  <span class="primer_text">top</span> svojstva na nivou
+  <span class="primer_text">.affix</span> klase.
+  <br />
+  <br />
 
-
-<div class="zadatak">
-Fiksirati standardnu traku za navigaciju na 10px od vrha strane u trenutku kada se dostigne 150px skrolovanog teksta.
+  <div class="zadatak">
+    Fiksirati standardnu traku za navigaciju na 10px od vrha strane u trenutku
+    kada se dostigne 150px skrolovanog teksta.
+  </div>
 </div>

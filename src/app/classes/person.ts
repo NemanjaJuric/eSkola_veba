@@ -1,6 +1,6 @@
 export class Person {
-    name: string;
-    course: string;
-    url: string;
-    mainPosition: boolean;
+  name: string;
+  course: string;
+  url: string;
+  mainPosition: boolean;
 }

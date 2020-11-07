@@ -2,14 +2,19 @@
 
 <h2>Priprema za korišćenje</h2>
 
-Veb stranice često u sebi sadrže delove u kojima možemo uneti podatke i poslati ih serveru.<br>
-To su formulari, za čije prosto korišćenje u Express dovoljno je instalirati <b>body-parser</b> modul srednjeg sloja za parsiranje tela zahteva (najčešće POST) u JavaScript objekat - JSON, kao i parsiranje "application/x-www-form-urlencoded" kodiranog zaglavlja zahteva.<br><br>
+Veb stranice često u sebi sadrže delove u kojima možemo uneti podatke i poslati
+ih serveru.<br />
+To su formulari, za čije prosto korišćenje u Express dovoljno je instalirati
+<b>body-parser</b> modul srednjeg sloja za parsiranje tela zahteva (najčešće
+POST) u JavaScript objekat - JSON, kao i parsiranje
+"application/x-www-form-urlencoded" kodiranog zaglavlja zahteva.<br /><br />
 
-Instalira se iz komandne linije sa:<br>
-<span class = "primer_text">> npm install --save body-parser</span><br><br>
+Instalira se iz komandne linije sa:<br />
+<span class="primer_text">> npm install --save body-parser</span><br /><br />
 
 Modul body-parser se uključuje na sledeći način:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var bodyParser = require('body-parser');
 
 // za parsiranje tela (req.body) zahteva tipa "application/json"
@@ -21,8 +26,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 <h2>Primer</h2>
 
-Za početak kreirati formular odnosno <b>formular_view.pug</b> koji će na početku biti prikazan klijentu, sa sadržajem:
-<xmp class = "primer_ta">
+Za početak kreirati formular odnosno <b>formular_view.pug</b> koji će na početku
+biti prikazan klijentu, sa sadržajem:
+<xmp class="primer_ta"
+>
 html
 html
     head
@@ -44,14 +51,17 @@ html
             button(type = "submit") Pošalji
 </xmp>
 
-Linija<br>
-<span class = "primer_text">button(type = "submit") Pošalji</span><br>
-predstavlja dugme čijim se klikom formular <br>
-<span class = "primer_text">form(action = "/prijava", method = "POST")</span><br>
-šalje POST zahtevom na server sa rutom "/prijava" i telom zahteva koji sadrži unete podatke o osobi koja podnosi prijavu.<br><br>
+Linija<br />
+<span class="primer_text">button(type = "submit") Pošalji</span><br />
+predstavlja dugme čijim se klikom formular <br />
+<span class="primer_text">form(action = "/prijava", method = "POST")</span
+><br />
+šalje POST zahtevom na server sa rutom "/prijava" i telom zahteva koji sadrži
+unete podatke o osobi koja podnosi prijavu.<br /><br />
 
 Testiranje se može uraditi na sledeći način:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -74,19 +84,28 @@ app.post('/prijava', function(req, res){
 app.listen(2020);
 </xmp>
 
-Pokretanjem servera i pozivom iz pretraživača:<br>
-<span class = "primer_text">http://localhost:2020/</span> <br><br>
+Pokretanjem servera i pozivom iz pretraživača:<br />
+<span class="primer_text">http://localhost:2020/</span> <br /><br />
 
-Prikazaće se formular kao na slici:<br>
-<br><img src="courses/express/formulari/formular.png" class="img-fluid img-md"><br><br>
+Prikazaće se formular kao na slici:<br />
+<br /><img
+  src="courses/express/formulari/formular.png"
+  class="img-fluid img-md"
+/><br /><br />
 
-Klikom na dugme <b>Pošalji</b> uneti podaci biće poslati na server. Klijentu će biti ispisana poruka "Vaša prijava je prihvaćena!" a u komandnoj liniji biće ispisan  <b>req.body</b> objekat sa podacima o osobi koja se prijavljuje.
+Klikom na dugme <b>Pošalji</b> uneti podaci biće poslati na server. Klijentu će
+biti ispisana poruka "Vaša prijava je prihvaćena!" a u komandnoj liniji biće
+ispisan <b>req.body</b> objekat sa podacima o osobi koja se prijavljuje.
 
 <h2>Validacija i status kodovi</h2>
 
-Odgovor servera (u zavisnosti od toga da li su paramteri poslati u ispravnom obliku, da li je predviđena operacija za taj zahtev uspešno izvršena itd.) može da ima različit status kod.<br>
-Ako bi <b>app.post</b> registraciju poziva za rutu "/prijava" iz prethodnog dela zamenili sa:
-<xmp class = "primer_ta">
+Odgovor servera (u zavisnosti od toga da li su paramteri poslati u ispravnom
+obliku, da li je predviđena operacija za taj zahtev uspešno izvršena itd.) može
+da ima različit status kod.<br />
+Ako bi <b>app.post</b> registraciju poziva za rutu "/prijava" iz prethodnog dela
+zamenili sa:
+<xmp class="primer_ta"
+>
 app.post('/prijava', function(req, res){
     var godine = parseInt(req.body.godine);
     if(isNaN(godine))
@@ -99,5 +118,7 @@ app.post('/prijava', function(req, res){
     }
 });
 </xmp>
-onda ako parametar <b>godine</b> jeste broj, klijentu će biti poslat odgovor sa status kodom 200 tj. OK i porukom "Vaša prijava je prihvaćena!".<br>
-Ako parametar <b>godine</b> nije broj, klijentu će biti poslat odgovor sa status kodom 400 tj. Bad request (Loš zahtev)  i porukom "Godine moraju biti broj!".<br>
+onda ako parametar <b>godine</b> jeste broj, klijentu će biti poslat odgovor sa
+status kodom 200 tj. OK i porukom "Vaša prijava je prihvaćena!".<br />
+Ako parametar <b>godine</b> nije broj, klijentu će biti poslat odgovor sa status
+kodom 400 tj. Bad request (Loš zahtev) i porukom "Godine moraju biti broj!".<br />

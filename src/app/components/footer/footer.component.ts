@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { SchoolService } from '../../services/school.service';
-import { RouteService } from '../../services/route.service';
+import { Component, OnInit } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
+import { SchoolService } from "../../services/school.service";
+import { RouteService } from "../../services/route.service";
 
 @Component({
-  selector: 'footer',
-  templateUrl: './footer.component.html'
+  selector: "footer",
+  templateUrl: "./footer.component.html",
 })
 export class FooterComponent implements OnInit {
-
-  constructor(private schoolService: SchoolService, private router: Router, private routeService: RouteService) { };
+  constructor(
+    private schoolService: SchoolService,
+    private router: Router,
+    private routeService: RouteService
+  ) {}
 
   ngOnInit() {
     this.initComponent();
@@ -32,5 +35,4 @@ export class FooterComponent implements OnInit {
   courseUrl: string;
   lessonUrl: string;
   year = new Date().getFullYear();
-
 }

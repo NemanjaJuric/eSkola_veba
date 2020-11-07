@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Slika u Canvas-u</title>
-</head>
-<body>
-<h1>Slika u Canvas-u</h1>
+  <head>
+    <title>Slika u Canvas-u</title>
+  </head>
+  <body>
+    <h1>Slika u Canvas-u</h1>
 
-<img id="scream" width="220" height="277"
-src="courses/canvas/scream.jpg" alt="The Scream">
+    <img
+      id="scream"
+      width="220"
+      height="277"
+      src="courses/canvas/scream.jpg"
+      alt="The Scream"
+    />
 
-<p>Canvas:</p>
+    <p>Canvas:</p>
 
-<canvas id="myCanvas" width="240" height="297"
-style="border:1px solid #d3d3d3;">
+    <canvas
+      id="myCanvas"
+      width="240"
+      height="297"
+      style="border: 1px solid #d3d3d3"
+    >
+    </canvas>
 
-</canvas>
-
-<script>
-window.onload = function() {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var img = document.getElementById("scream");
-   ctx.drawImage(img, 10, 10);
-};
-</script>
-
-</body>
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var img = document.getElementById("scream");
+        ctx.drawImage(img, 10, 10);
+      };
+    </script>
+  </body>
 </html>

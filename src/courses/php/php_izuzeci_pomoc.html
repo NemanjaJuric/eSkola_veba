@@ -1,13 +1,4 @@
-function kolicnik($deljenik,$delilac){
-	if($delilac==0){
-	throw new Exception("Nije dozvoljeno deljenje nulom");
-	}
-	return $deljenik/delilac;
-}
-try{
-	kolicnik = kolicnik(5,0);
-	echo "Ako vidis ovo, delilac je razlicit od nule";
-}
-catch(Exception $e){
-	echo "Poruka: ".$e->getMessage();
-}
+function kolicnik($deljenik,$delilac){ if($delilac==0){ throw new
+Exception("Nije dozvoljeno deljenje nulom"); } return $deljenik/delilac; } try{
+kolicnik = kolicnik(5,0); echo "Ako vidis ovo, delilac je razlicit od nule"; }
+catch(Exception $e){ echo "Poruka: ".$e->getMessage(); }

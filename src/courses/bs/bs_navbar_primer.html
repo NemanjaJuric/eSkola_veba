@@ -1,102 +1,108 @@
 <!DOCTYPE html>
 <html>
-<head>  
-<title>Bootstrap</title> 
-<link rel="stylesheet"href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="UTF-8">
- </head>
-<body>
-<mark><h2 style="text-align:center;">Rezime</h2></mark>
-<h3>Standardna traka za navigaciju</h3>
-<ul>
-<li>u sivoj boji </li>
-<nav class="navbar navbar-default">
-<div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="#">Zaglavlje</a>
-</div>
-<ul class="nav navbar-nav">
-  <li class="active"><a href="#">Početna</a>
-  </li>
-  <li><a href="#">Kontakt</a></li>
-</ul>
-</div>
-</nav>
-<br>
-<li>u crnoj boji</li>
-<nav class="navbar navbar-inverse">
-<div class="container">
-<div class="navbar-header">
-<a class="navbar-brand" href="#">Zaglavlje</a>
-</div>
-<ul class="nav navbar-nav">
-  <li class="active"><a href="#">Početna</a>
-  </li>
-  <li><a href="#">Kontakt</a></li>
-</ul>
-</div>
-</nav>
-</ul>
-<br>
-<br>
-<h3>Fiksna traka za navigaciju</h3>
-<ul>
-<li>na vrhu strane</li>
-<br>
-<li>na dnu strane</li>
-</ul>
-<br>
-<br>
-<h3>Traka za navigaciju sa padajućim menijem</h3>
-<nav class="navbar navbar-inverse">
-  <div class="navbar-header">
-  <a class="navbar-brand" href="#">Zaglavlje</a>
-  </div>
-  <ul class="nav navbar-nav">
-    <li class="active"><a href="#">Početna</a></li>
-    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Kontakt <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="#">telefon</a></li>
-        <li><a href="#">e-mail</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-<br>
-<br>
-<h3>Sakrivanje trake za navigaciju</h3>
-<nav class="navbar navbar-inverse">
-<div class="navbar-header">
-  <button type="button" class="navbar-toggle"
-  data-toggle="collapse" data-target="#traka">
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
-  </button>
-  <a class="navbar-brand" href="#">Zaglavlje</a>
-</div>
-	
-<div class="collapse navbar-collapse"id="traka">
- <ul class="nav navbar-nav">
-  <li class="active"><a href="#">Početna</a>
-  </li>
-  <li class="dropdown">
-    <a class="dropdown-toggle" 
-	data-toggle="dropdown" href="#">
-	Kontakt <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-     <li><a href="#">telefon</a></li>
-     <li><a href="#">e-mail</a></li>
+  <head>
+    <title>Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <mark><h2 style="text-align: center">Rezime</h2></mark>
+    <h3>Standardna traka za navigaciju</h3>
+    <ul>
+      <li>u sivoj boji</li>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Zaglavlje</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Početna</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+      </nav>
+      <br />
+      <li>u crnoj boji</li>
+      <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Zaglavlje</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Početna</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+      </nav>
     </ul>
-  </li>
- </ul>
-</div>
-</nav>
-<br>
-<br>
+    <br />
+    <br />
+    <h3>Fiksna traka za navigaciju</h3>
+    <ul>
+      <li>na vrhu strane</li>
+      <br />
+      <li>na dnu strane</li>
+    </ul>
+    <br />
+    <br />
+    <h3>Traka za navigaciju sa padajućim menijem</h3>
+    <nav class="navbar navbar-inverse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Zaglavlje</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Početna</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+            >Kontakt <span class="caret"></span
+          ></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">telefon</a></li>
+            <li><a href="#">e-mail</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <br />
+    <br />
+    <h3>Sakrivanje trake za navigaciju</h3>
+    <nav class="navbar navbar-inverse">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#traka"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Zaglavlje</a>
+      </div>
 
-</body>
+      <div class="collapse navbar-collapse" id="traka">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Početna</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Kontakt <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">telefon</a></li>
+              <li><a href="#">e-mail</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br />
+    <br />
+  </body>
 </html>

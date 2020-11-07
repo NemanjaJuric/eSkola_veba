@@ -1,15 +1,17 @@
 <h1>AngularJS povezivanje podataka</h1>
-<br/>
-<br/>
-Povezivanje podataka u AngularJS-u (eng. Data binding) je sinhronizacija između modela i HTML view-a.
-<br/>
-<br/>
+<br />
+<br />
+Povezivanje podataka u AngularJS-u (eng. Data binding) je sinhronizacija između
+modela i HTML view-a.
+<br />
+<br />
 <h2>Model podataka</h2>
-<br/>
-AngularJS aplikacija obično ima model podataka. Model podataka je skup podataka koji su dostupni aplikaciji.
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "9" disabled >
+<br />
+AngularJS aplikacija obično ima model podataka. Model podataka je skup podataka
+koji su dostupni aplikaciji.
+<br />
+<br />
+<textarea class="primer_ta" rows="9" disabled>
 Primer:
 
 var app = angular.module('mojaAplikacija', []);
@@ -18,19 +20,21 @@ app.controller('mojKontroler', function($scope) {
     $scope.prezime = "Petrović";
 });
 </textarea>
-<br/>
-<br/>
+<br />
+<br />
 <h2>HTML view</h2>
-<br/>
+<br />
 HTML kontejner gde je prikazana AngularJS aplikacija se naziva HTML view.
-<br/>
-<br/>
-View ima pristup modelu, i postoji nekoliko načina prikazivanja modela podataka u view-u.
-<br/>
-<br/>
-Može da se koristi ng-bind direktiva, koja će povezati HTML element sa odgovarajućim svojstvom modela:
-<br/>
-<textarea class = "primer_ta" rows = "24" disabled >
+<br />
+<br />
+View ima pristup modelu, i postoji nekoliko načina prikazivanja modela podataka
+u view-u.
+<br />
+<br />
+Može da se koristi ng-bind direktiva, koja će povezati HTML element sa
+odgovarajućim svojstvom modela:
+<br />
+<textarea class="primer_ta" rows="24" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -51,12 +55,12 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Takođe, mogu da se koriste duple zagrade {{ }} da se prikaže sadržaj modela:
-<br/>
-<textarea class = "primer_ta" rows = "27" disabled >
+<br />
+<textarea class="primer_ta" rows="27" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -79,18 +83,20 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-Ili, može da se koristi direktiva ng-model na HTML kontrole da poveže model i view.
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+Ili, može da se koristi direktiva ng-model na HTML kontrole da poveže model i
+view.
+<br />
+<br />
 <h2>Direktiva ng-model</h2>
-<br/>
-Direktiva ng-model se koristi da poveže podatke iz modela sa HTML kontrolama (input, select, textarea).
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "28" disabled >
+<br />
+Direktiva ng-model se koristi da poveže podatke iz modela sa HTML kontrolama
+(input, select, textarea).
+<br />
+<br />
+<textarea class="primer_ta" rows="28" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -113,22 +119,24 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Direktiva ng-model pruža dvosmernu vezu između modela i view-a.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Dvosmerno povezivanje</h2>
-<br/>
+<br />
 Povezivanje podataka u AngularJS-u je sinhronizacija između modela i view-a.
-<br/>
-<br/>
-Kada se podatak u <b>modelu</b> promeni, na <b>view-u</b> se odražava promena. Takođe, kada se podatak promeni na <b>view-u</b>,
-i <b>model</b> se ažurira. Ovo se događa momentalno i automatski, što osigurava da se model i view ažuriraju u svakom trenutku.
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "30" disabled >
+<br />
+<br />
+Kada se podatak u <b>modelu</b> promeni, na <b>view-u</b> se odražava promena.
+Takođe, kada se podatak promeni na <b>view-u</b>, i <b>model</b> se ažurira. Ovo
+se događa momentalno i automatski, što osigurava da se model i view ažuriraju u
+svakom trenutku.
+<br />
+<br />
+<textarea class="primer_ta" rows="30" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -152,20 +160,21 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>AngularJS kontroler</h2>
-<br/>
+<br />
 Aplikacije u AngularJS-u se kontrolišu preko kontrolera.
-<br/>
-<br/>
-Zbog neposredne sinhronizacije modela i view-a, kontroler može da bude potpuno odvojen od view-a, 
- i da se jednostavno koncentriše na model podataka. Zahvaljujući povezivanju podataka u AngularJS-u, view će 
- odražavati svaku promenu napravljenu u kontroleru.
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "32" disabled >
+<br />
+<br />
+Zbog neposredne sinhronizacije modela i view-a, kontroler može da bude potpuno
+odvojen od view-a, i da se jednostavno koncentriše na model podataka.
+Zahvaljujući povezivanju podataka u AngularJS-u, view će odražavati svaku
+promenu napravljenu u kontroleru.
+<br />
+<br />
+<textarea class="primer_ta" rows="32" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -192,10 +201,11 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
-<div class = "zadatak">
-<b>Zadatak:</b> U prethodnom primeru, kada se klikne na naslov, koji je u ovom slučaju "ime", onda se promeni to ime.
-Izmenite primer tako da kada se klikne na naslov, ime ostane isto, a pored njega se doda i prezime.
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> U prethodnom primeru, kada se klikne na naslov, koji je u ovom
+  slučaju "ime", onda se promeni to ime. Izmenite primer tako da kada se klikne
+  na naslov, ime ostane isto, a pored njega se doda i prezime.
 </div>

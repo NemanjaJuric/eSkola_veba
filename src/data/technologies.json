@@ -1,38 +1,38 @@
 [
-   {
-      "name":"HTML5",
-      "url":"assets/images/logos/html.png"
-   },
-   {
-      "name":"CSS3",
-      "url":"assets/images/logos/css.png"
-   },
-   {
-      "name":"JavaScript",
-      "url":"assets/images/logos/js.png"
-   },
-   {
-      "name":"jQuery",
-      "url":"assets/images/logos/jq.png"
-   },
-   {
-      "name":"Bootstrap",
-      "url":"assets/images/logos/bs.png"
-   },
-   {
-      "name":"Sass",
-      "url":"assets/images/logos/sass.png"
-   },
-   {
-      "name":"PHP",
-      "url":"assets/images/logos/php.png"
-   },
-   {
-      "name":"TypeScript",
-      "url":"assets/images/logos/ts.png"
-   },
-   {
-      "name":"Angular",
-      "url":"assets/images/logos/ang.png"
-   }
+  {
+    "name": "HTML5",
+    "url": "assets/images/logos/html.png"
+  },
+  {
+    "name": "CSS3",
+    "url": "assets/images/logos/css.png"
+  },
+  {
+    "name": "JavaScript",
+    "url": "assets/images/logos/js.png"
+  },
+  {
+    "name": "jQuery",
+    "url": "assets/images/logos/jq.png"
+  },
+  {
+    "name": "Bootstrap",
+    "url": "assets/images/logos/bs.png"
+  },
+  {
+    "name": "Sass",
+    "url": "assets/images/logos/sass.png"
+  },
+  {
+    "name": "PHP",
+    "url": "assets/images/logos/php.png"
+  },
+  {
+    "name": "TypeScript",
+    "url": "assets/images/logos/ts.png"
+  },
+  {
+    "name": "Angular",
+    "url": "assets/images/logos/ang.png"
+  }
 ]

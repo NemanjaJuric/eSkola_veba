@@ -1,26 +1,27 @@
 // uključujemo mysql modul
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 // kreiramo objekat kojim opisujemo konekciju
 var con = mysql.createConnection({
-  host: "localhost",    
+  host: "localhost",
   user: "root",
   password: "",
-  database: "knjige"
+  database: "knjige",
 });
 
 // asinhrono se povezujemo sa SUBP
-con.connect(function(err) {
+con.connect(function (err) {
   // proveravamo da li se desila greška
-  if (err) 
+  if (err)
     // štampamo poruku o grešci i prekidamo izvrđavanje
     return console.log(err);
-   
+
   // u slučaju uspešnog konektovanja štampamo poruku o uspehu
   console.log("Uspešno povezivanje!");
-  
+
   // kreiramo sql upit kojim kreiramo tabelu korisnik
-  var sql = 'CREATE Table knjige.korisnik (\
+  var sql =
+    "CREATE Table knjige.korisnik (\
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,\
     `kor_ime` VARCHAR(64) NOT NULL,\
     `sifra` VARCHAR(64) NOT NULL,\
@@ -31,20 +32,21 @@ con.connect(function(err) {
     PRIMARY KEY(`id`), \
     UNIQUE(`kor_ime`), \
     UNIQUE(`mejl`)\
-    )';
-  
+    )";
+
   // asinhrono šaljemo upit SUBP
-  con.query(sql, function(err, result) {
-      // proveravamo da li se desila greška
-      if (err) 
-         // štampamo poruku o grešci i prekidamo izvrđavanje
-         return console.log(err);
-      
-      // štampamo poruku o uspehu
-      console.log("Tabela korisnik uspesno kreirana!");
-      
-      // definišemo upit kojim se kreira tabela knjiga
-      sql = 'CREATE Table knjige.knjiga (\
+  con.query(sql, function (err, result) {
+    // proveravamo da li se desila greška
+    if (err)
+      // štampamo poruku o grešci i prekidamo izvrđavanje
+      return console.log(err);
+
+    // štampamo poruku o uspehu
+    console.log("Tabela korisnik uspesno kreirana!");
+
+    // definišemo upit kojim se kreira tabela knjiga
+    sql =
+      "CREATE Table knjige.knjiga (\
          `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, \
          `naslov` VARCHAR(128) NOT NULL,\
          `autor` VARCHAR(128) NOT NULL,\
@@ -54,17 +56,17 @@ con.connect(function(err) {
          `br_str` INT UNSIGNED NOT NULL, \
          `tiraz` INT UNSIGNED NOT NULL, \
          PRIMARY KEY(`id`)\
-         )';
-      
-      // asinhrono šaljemo upit SUBP
-      con.query(sql, function(err, result) {
-         // proveravamo da li se desila greška
-         if (err) 
-             // štampamo poruku o grešci i prekidamo izvrđavanje
-             return console.log(err);
-      
-         // štampamo poruku o uspehu
-         console.log("Tabela knjiga uspesno kreirana!");
-      });
+         )";
+
+    // asinhrono šaljemo upit SUBP
+    con.query(sql, function (err, result) {
+      // proveravamo da li se desila greška
+      if (err)
+        // štampamo poruku o grešci i prekidamo izvrđavanje
+        return console.log(err);
+
+      // štampamo poruku o uspehu
+      console.log("Tabela knjiga uspesno kreirana!");
+    });
   });
 });

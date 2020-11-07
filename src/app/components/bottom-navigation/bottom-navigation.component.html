@@ -1,69 +1,95 @@
 <div class="bottom-navigation">
-	<div *ngIf="page === 'course'">
-		<div *ngFor="let button of courseButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('course', button.func)" 
-				[attr.data-toggle]="button.dataToggle" 
-				[attr.data-target]="button.dataTarget"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
-	<div *ngIf="page === 'book'">
-		<div *ngFor="let button of bookButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('book', button.func)" 
-				[attr.data-toggle]="button.dataToggle" 
-				[attr.data-target]="button.dataTarget"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
-	<div *ngIf="page === 'web-center'">
-		<div *ngFor="let button of webCenterButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('web-center', button.func)" 
-				[ngClass]="{'bottom-navigation__button_hover':activeTool === button.func}"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
-	<div *ngIf="page === 'ts-compiler'">
-		<div *ngFor="let button of tsCompilerButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('ts-compiler', button.func)"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
-	<div *ngIf="page === 'sass-compiler'">
-		<div *ngFor="let button of sassCompilerButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('sass-compiler', button.func)"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
-	<div *ngIf="page === 'lessons-input'">
-		<div *ngFor="let button of lessonsInputButtons" class="bottom-navigation__button-wrapper">
-			<button 
-				class="bottom-navigation__button" 
-				(click)="click('course', button.func)" 
-				[attr.data-toggle]="button.dataToggle" 
-				[attr.data-target]="button.dataTarget"
-				title="{{button.name}}">
-					<i class="material-icons md-36">{{button.icon}}</i>
-			</button>
-		</div>
-	</div>
+  <div *ngIf="page === 'course'">
+    <div
+      *ngFor="let button of courseButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('course', button.func)"
+        [attr.data-toggle]="button.dataToggle"
+        [attr.data-target]="button.dataTarget"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="page === 'book'">
+    <div
+      *ngFor="let button of bookButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('book', button.func)"
+        [attr.data-toggle]="button.dataToggle"
+        [attr.data-target]="button.dataTarget"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="page === 'web-center'">
+    <div
+      *ngFor="let button of webCenterButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('web-center', button.func)"
+        [ngClass]="{
+          'bottom-navigation__button_hover': activeTool === button.func
+        }"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="page === 'ts-compiler'">
+    <div
+      *ngFor="let button of tsCompilerButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('ts-compiler', button.func)"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="page === 'sass-compiler'">
+    <div
+      *ngFor="let button of sassCompilerButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('sass-compiler', button.func)"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="page === 'lessons-input'">
+    <div
+      *ngFor="let button of lessonsInputButtons"
+      class="bottom-navigation__button-wrapper"
+    >
+      <button
+        class="bottom-navigation__button"
+        (click)="click('course', button.func)"
+        [attr.data-toggle]="button.dataToggle"
+        [attr.data-target]="button.dataTarget"
+        title="{{ button.name }}"
+      >
+        <i class="material-icons md-36">{{ button.icon }}</i>
+      </button>
+    </div>
+  </div>
 </div>

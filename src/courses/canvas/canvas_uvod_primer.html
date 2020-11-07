@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Canvas_Uvod_Primeri</title>
-	<meta charset="UTF-8">
-</head>
-<body>
-	<h1> Uvod u Canvas-primeri</h1>
-	<p>
-	Crtanje pomoću JavaScript-a:
-</p>
-<p>
-	Iscrtava pravougaonik crvene boje, širine 150, visine 75 piksela, debljine linije od 1px crne boje
-</p>
+  <head>
+    <title>Canvas_Uvod_Primeri</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Uvod u Canvas-primeri</h1>
+    <p>Crtanje pomoću JavaScript-a:</p>
+    <p>
+      Iscrtava pravougaonik crvene boje, širine 150, visine 75 piksela, debljine
+      linije od 1px crne boje
+    </p>
 
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="100"
+      style="border: 1px solid #c3c3c3"
+    ></canvas>
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.fillStyle = "#FF0000";
+      ctx.fillRect(0, 0, 150, 75);
+    </script>
 
- 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "#FF0000";
-ctx.fillRect(0,0,150,75);
-</script>
+    <p>Iscrtavanje kose linije sa početkom u (0,0) i krajem u (200, 100):</p>
 
-
-<p>
-	Iscrtavanje kose linije sa početkom u (0,0) i krajem u (200, 100):
-</p>
-
-<canvas id="myCanvasLinija" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
-<script>
-var c = document.getElementById("myCanvasLinija");
-var ctx = c.getContext("2d");
-ctx.moveTo(0,0);
-ctx.lineTo(200,100);
-ctx.stroke();
-</script>
-
-</body>
+    <canvas
+      id="myCanvasLinija"
+      width="200"
+      height="100"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      var c = document.getElementById("myCanvasLinija");
+      var ctx = c.getContext("2d");
+      ctx.moveTo(0, 0);
+      ctx.lineTo(200, 100);
+      ctx.stroke();
+    </script>
+  </body>
 </html>

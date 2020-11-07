@@ -1,8 +1,2 @@
-session_start();
-if(isset($_SESSION['brojac'])){
-	$_SESSION['brojac']+=1;
-}
-else{
-	$_SESSION['brojac']=1;
-}
-echo "Posetili ste ovu stranicu".$_SESSION['brojac'];
+session_start(); if(isset($_SESSION['brojac'])){ $_SESSION['brojac']+=1; } else{
+$_SESSION['brojac']=1; } echo "Posetili ste ovu stranicu".$_SESSION['brojac'];

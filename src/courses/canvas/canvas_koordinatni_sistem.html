@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Canvas koordinatni sistem</title>
-	<meta charset="UTF-8">
-</head>
-<h1>Canvas koordinatni sistem</h1>
-<body>
+  <head>
+    <title>Canvas koordinatni sistem</title>
+    <meta charset="UTF-8" />
+  </head>
+  <h1>Canvas koordinatni sistem</h1>
+  <body>
+    <p>
+      U 2D prostoru pozicije se određuju upotrebom x i y koordinata. x osa se
+      prostire horizontalno, a y vertikalno. Centar ima poziciju x = 0 i y = 0,
+      može biti i predstavljeno kao (0, 0). Ova metoda pozicioniranja objekata
+      se u matematici naziva Dekartov koordinantni sistem. Canvasov koordinatni
+      sistem međutim postavlja početnu tačku u gornjem levom uglu canvas-a sa x
+      koordinatom koja se prostire u desno i y koordinatom koja sa prostire
+      prema dole do dna canvas-a. Za razliku od standardnog Dekartovog
+      koordinatnog sistema, Canvas prostor nema vidljivih negativnih tačaka.
+    </p>
+    <div align="center">
+      <table>
+        <tr>
+          <td>
+            <img
+              src="courses/canvas/Koordinatensystem.png"
+              class="img-sm velicina"
+            />
+          </td>
+          <td>
+            &nbsp;&nbsp;<img
+              src="courses/canvas/Canvas_default_grid.png"
+              class="img-sm velicina"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Dekartov koordinatni sistem</td>
+          <td>&nbsp;&nbsp;&nbsp;Canvas koordinatni sistem</td>
+        </tr>
+      </table>
+    </div>
+    <h2>Crtanje u Canvas-u pomoću JavaScript jezika</h2>
+    <p>
+      Svaki vid crtanja u HTML canvas-u zahteva određeni skript jezik, najčešće
+      JavaScript.
+    </p>
 
-<p>
-U 2D prostoru pozicije se određuju upotrebom x i y koordinata. x osa se prostire horizontalno, a y vertikalno. Centar ima poziciju  x = 0 i y = 0, može biti i predstavljeno kao (0, 0). Ova metoda pozicioniranja objekata se u matematici naziva Dekartov koordinantni sistem.
+    <b>Korak 1:</b> Pre svega, treba pronaći &ltcanvas&gt element.<br />
+    To činimo koristeći HTML DOM metod getElementById():<br />
+    <span class="primer_text">
+      var canvas = document.getElementById("myCanvas"); </span
+    ><br />
+    <b>Korak 2:</b> Definisanje objekta za crtanje.<br />
+    To činimo koristeći HTML metod getContext():<br />
+    <span class="primer_text"> var ctx = canvas.getContext("2d"); </span><br />
+    <b>Korak 3:</b>Crtanje objekta<br />
+    Postavljamo property fillStyle na crvenu boju. Podrazumevana vrednost za
+    fillStyle je crna boja.<br />
+    <span class="primer_text"> ctx.fillStyle="#FF0000"; </span>
+    <br />
+    Metod fillRect(x,y,width,height) crta pravougaonik čija je unutrašnjost
+    crvene boje.<br />
+    <span class="primer_text"> ctx.fillRect(0, 0, 150, 75); </span>
 
-Canvasov koordinatni sistem međutim postavlja početnu tačku u gornjem levom uglu canvas-a sa x koordinatom koja se prostire u desno i y koordinatom koja sa prostire prema dole do dna canvas-a. Za razliku od standardnog Dekartovog koordinatnog sistema, Canvas prostor nema vidljivih negativnih tačaka.
-</p>
-<div align="center">
-	<table>
-		<tr>
-<td><img src="courses/canvas/Koordinatensystem.png" class="img-sm velicina"></td>
-<td>&nbsp;&nbsp;<img src="courses/canvas/Canvas_default_grid.png"  class="img-sm velicina"></td>
-</tr>
-<tr>
-	<td>Dekartov koordinatni sistem</td>
-	<td>&nbsp;&nbsp;&nbsp;Canvas koordinatni sistem</td>
-	</tr>
-
-</table>
-</div>
-<h2>Crtanje u Canvas-u pomoću JavaScript jezika</h2>
-<p> Svaki vid crtanja u HTML canvas-u zahteva određeni skript jezik, najčešće JavaScript.</p>
-
-<b>Korak 1:</b> Pre svega, treba pronaći &ltcanvas&gt element.<br>
-         To činimo koristeći HTML DOM metod getElementById():<br>
-         <span class = "primer_text"> var canvas = document.getElementById("myCanvas"); </span><br>
-<b>Korak 2:</b> Definisanje objekta za crtanje.<br>
-         To činimo koristeći HTML metod getContext():<br>
-         <span class = "primer_text"> var ctx = canvas.getContext("2d"); </span><br>
- <b>Korak 3:</b>Crtanje objekta<br>
-        Postavljamo property fillStyle na crvenu boju. Podrazumevana vrednost za fillStyle je crna boja.<br>
-         <span class = "primer_text"> ctx.fillStyle="#FF0000"; </span>
-        <br>
-        Metod fillRect(x,y,width,height) crta pravougaonik čija je unutrašnjost crvene boje.<br>
-         <span class = "primer_text"> ctx.fillRect(0, 0, 150, 75);
- </span>
-
-<xmp class = "primer_ta"> 
+    <xmp class="primer_ta"> 
 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
 <script>
 	var canvas = document.getElementById("myCanvas");
@@ -51,25 +70,36 @@ Canvasov koordinatni sistem međutim postavlja početnu tačku u gornjem levom u
     ctx.fillRect(0, 0, 150, 75);
 </script>
 </xmp>
- <button class = "button_copy">Vidi primer</button>
-<h3>Crtanje linije</h3>
-<p>Za iscrtavanje prave linije u Canvas-u, koristimo sledeće metode:
-	<ul>
-		<li><i>moveTo(x,y)</i> - definiše početnu tačku linije</li>
-		<li><i>lineTo(x,y)</i> - definiše kranju tačku linije </li>
-	</ul>
-<p>Da bi se ustvari povukla crta između definisane početne i krajnje tačke neophodan je poziv metode: <i>stroke()</i>.
-<br><br>
-<canvas id="linija" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
-	<script>
-var canvas = document.getElementById("linija");
-var ctx = canvas.getContext("2d");
-ctx.moveTo(0, 0);
-ctx.lineTo(200, 100);
-ctx.stroke();
-	</script>
-	<p>Definišemo početnu tačku na poziciji (0,0), i krajnju tačku na poziciji (200,100). Zatim pozovemo stroke() metod za iscrtavanje linije.</p>
-	<xmp class = "primer_ta">
+    <button class="button_copy">Vidi primer</button>
+    <h3>Crtanje linije</h3>
+    <p>Za iscrtavanje prave linije u Canvas-u, koristimo sledeće metode:</p>
+    <ul>
+      <li><i>moveTo(x,y)</i> - definiše početnu tačku linije</li>
+      <li><i>lineTo(x,y)</i> - definiše kranju tačku linije</li>
+    </ul>
+    <p>
+      Da bi se ustvari povukla crta između definisane početne i krajnje tačke
+      neophodan je poziv metode: <i>stroke()</i>. <br /><br />
+      <canvas
+        id="linija"
+        width="200"
+        height="100"
+        style="border: 1px solid #c3c3c3"
+      ></canvas>
+      <script>
+        var canvas = document.getElementById("linija");
+        var ctx = canvas.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+      </script>
+    </p>
+
+    <p>
+      Definišemo početnu tačku na poziciji (0,0), i krajnju tačku na poziciji
+      (200,100). Zatim pozovemo stroke() metod za iscrtavanje linije.
+    </p>
+    <xmp class="primer_ta">
 <canvas id="linija" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
 <script>
 var canvas = document.getElementById("linija");
@@ -79,16 +109,23 @@ ctx.lineTo(200, 100);
 ctx.stroke();
 </script>
 	 </xmp>
-	 <button class = "button_copy">Vidi primer</button>
-<h3>Crtanje kruga</h3>
-<p>Za crtanje kruga u HTML canvas-u je neophodno sledeće:</p>
-<ul>
-	<li>poziv metode <i>begintPath()</i> kojom se započinje crtanje linije. </li>
+    <button class="button_copy">Vidi primer</button>
+    <h3>Crtanje kruga</h3>
+    <p>Za crtanje kruga u HTML canvas-u je neophodno sledeće:</p>
+    <ul>
+      <li>
+        poziv metode <i>begintPath()</i> kojom se započinje crtanje linije.
+      </li>
 
-	<li>poziv metode <i>arc(x,y,r,startangle,endangle)</i> koja kreira luk ili krivu. Za kreiranje kruga je potrebno setovati početni ugao: 0 i krajnji ugao: 2*Math.PI. Parametri <i>x</i> i <i>y</i> definišu x- i y-koordinate centra. Parametar <i>r</i> definiše poluprečnik kruga.</li>
-    <li>poziv metode <i>stroke()</i> kojom se iscrtava definisani krug. </li>
-	</ul>
-	<xmp class="primer_ta">
+      <li>
+        poziv metode <i>arc(x,y,r,startangle,endangle)</i> koja kreira luk ili
+        krivu. Za kreiranje kruga je potrebno setovati početni ugao: 0 i krajnji
+        ugao: 2*Math.PI. Parametri <i>x</i> i <i>y</i> definišu x- i
+        y-koordinate centra. Parametar <i>r</i> definiše poluprečnik kruga.
+      </li>
+      <li>poziv metode <i>stroke()</i> kojom se iscrtava definisani krug.</li>
+    </ul>
+    <xmp class="primer_ta">
 <canvas id="krug" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
 <script>
 var canvas = document.getElementById("krug");
@@ -98,6 +135,6 @@ ctx.arc(95, 50, 40, 0, 2 * Math.PI);
 ctx.stroke();
 </script>
 	</xmp>
-	 <button class = "button_copy">Vidi primer</button>
-</body>
+    <button class="button_copy">Vidi primer</button>
+  </body>
 </html>

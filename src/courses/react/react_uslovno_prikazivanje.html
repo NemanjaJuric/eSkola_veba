@@ -1,16 +1,19 @@
 <h1>Uslovno prikazivanje</h1>
-<br>
+<br />
 
-U React-u možete kreirati jedinstvene komponente koje enkapsuliraju ponašanje koje želite. 
-Zatim, možete prikazati samo neke od njih, u zavisnosti od stanja vaše aplikacije.
-<br><br>
+U React-u možete kreirati jedinstvene komponente koje enkapsuliraju ponašanje
+koje želite. Zatim, možete prikazati samo neke od njih, u zavisnosti od stanja
+vaše aplikacije.
+<br /><br />
 
-Uslovno prikazivanje u React-u funkcioniše na isti način na koji rade i uslovi u JavaScript-u. 
-Koristite JavaScript operatore poput <span class = "primer_text">if</span> ili uslovnog operatora da biste kreirali elemente koji predstavljaju trenutno stanje, a prepustite React-u da ažurira KI u skladu sa tim.
-<br><br>
+Uslovno prikazivanje u React-u funkcioniše na isti način na koji rade i uslovi u
+JavaScript-u. Koristite JavaScript operatore poput
+<span class="primer_text">if</span> ili uslovnog operatora da biste kreirali
+elemente koji predstavljaju trenutno stanje, a prepustite React-u da ažurira KI
+u skladu sa tim. <br /><br />
 
 Razmotrimo ove dve komponente:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 function UserGreeting(props) {
   return <h1>Dobrodošli nazad!</h1>;
 }
@@ -20,8 +23,9 @@ function GuestGreeting(props) {
 }
 </xmp>
 
-Napravićemo komponentu <span class = "primer_text">Greeting</span> koja prikazuje bilo koju od ovih komponenti u zavisnosti od toga da li je korisnik prijavljen:
-<xmp class = "primer_ta">
+Napravićemo komponentu <span class="primer_text">Greeting</span> koja prikazuje
+bilo koju od ovih komponenti u zavisnosti od toga da li je korisnik prijavljen:
+<xmp class="primer_ta">
 function Greeting(props) {
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
@@ -37,16 +41,18 @@ ReactDOM.render(
 );
 </xmp>
 
-Ovaj primer prikazuje drugačiju pozdravnu poruku u zavisnosti od vrednosti <span class = "primer_text">isLoggedIn</span> atributa.
-<br><br>
+Ovaj primer prikazuje drugačiju pozdravnu poruku u zavisnosti od vrednosti
+<span class="primer_text">isLoggedIn</span> atributa. <br /><br />
 
 <h2>Element promenljive</h2>
 
-Možete koristiti promenljive za čuvanje elemenata. Ovo vam može pomoći da uslovno prikazujete deo komponente dok se ostatak rezultata komponente ne menja.
-<br><br>
+Možete koristiti promenljive za čuvanje elemenata. Ovo vam može pomoći da
+uslovno prikazujete deo komponente dok se ostatak rezultata komponente ne menja.
+<br /><br />
 
-Razmotrimo ove dve nove komponente koje predstavljaju dugme za odjavljivanje i prijavljivanje:
-<xmp class = "primer_ta">
+Razmotrimo ove dve nove komponente koje predstavljaju dugme za odjavljivanje i
+prijavljivanje:
+<xmp class="primer_ta">
 function LoginButton(props) {
   return (
     <button onClick={props.onClick}>
@@ -64,12 +70,15 @@ function LogoutButton(props) {
 }
 </xmp>
 
-U narednom primeru kreiraćemo komponentu <span class = "primer_text">LoginControl</span> koja sadrži lokalno stanje.
-<br><br>
+U narednom primeru kreiraćemo komponentu
+<span class="primer_text">LoginControl</span> koja sadrži lokalno stanje.
+<br /><br />
 
-Ona će prikazati ili <span class = "primer_text">&ltLoginButton /&gt</span> ili <span class = "primer_text">&ltLogoutButton /&gt</span>, u zavisnosti od trenutnog stanja. 
-Takođe će prikazati <span class = "primer_text">&ltGreeting /&gt</span> iz prethodnog primera:
-<xmp class = "primer_ta">
+Ona će prikazati ili <span class="primer_text">&ltLoginButton /&gt</span> ili
+<span class="primer_text">&ltLogoutButton /&gt</span>, u zavisnosti od trenutnog
+stanja. Takođe će prikazati <span class="primer_text">&ltGreeting /&gt</span> iz
+prethodnog primera:
+<xmp class="primer_ta">
 class LoginControl extends React.Component {
   constructor(props) {
     super(props);
@@ -110,14 +119,18 @@ ReactDOM.render(
 );
 </xmp>
 
-Iako je deklarisanje promenljive i korišćenje <span class = "primer_text">if</span> naredbe dobar način da uslovno prikažete komponentu, ponekad biste mogli poželeti da koristite i kraću sintaksu. 
-Postoji nekoliko načina da se uslovi u JSX pišu u jednoj liniji, objašnjenje u nastavku.
-<br><br>
+Iako je deklarisanje promenljive i korišćenje
+<span class="primer_text">if</span> naredbe dobar način da uslovno prikažete
+komponentu, ponekad biste mogli poželeti da koristite i kraću sintaksu. Postoji
+nekoliko načina da se uslovi u JSX pišu u jednoj liniji, objašnjenje u nastavku.
+<br /><br />
 
 <h2>If u jednom redu sa logičkim && operatorom</h2>
 
-Bilo koji izraz možete ugnjezditi u JSX tako što će te ih ograditi vitičastim zagradama. Ovo uključuje JavaScript logički && operator. Može biti zgodan za uslovno uključivanje elemenata:
-<xmp class = "primer_ta">
+Bilo koji izraz možete ugnjezditi u JSX tako što će te ih ograditi vitičastim
+zagradama. Ovo uključuje JavaScript logički && operator. Može biti zgodan za
+uslovno uključivanje elemenata:
+<xmp class="primer_ta">
 function Mailbox(props) {
   const unreadMessages = props.unreadMessages;
   return (
@@ -139,20 +152,21 @@ ReactDOM.render(
 );
 </xmp>
 
-Ovo funkcioniše zato što u JavaScript-u "tačno && izraz" uvek izračunava izraz, a "netačno && izraz" uvek daje netačno.
-<br><br>
+Ovo funkcioniše zato što u JavaScript-u "tačno && izraz" uvek izračunava izraz,
+a "netačno && izraz" uvek daje netačno.
+<br /><br />
 
-Stoga, ako je uslov tačan, elemnt nakon && pojaviće se u rezultatu. Ako je uslov netačan, React će ga ignorisati i preskočiti.
-<br><br>
+Stoga, ako je uslov tačan, elemnt nakon && pojaviće se u rezultatu. Ako je uslov
+netačan, React će ga ignorisati i preskočiti.
+<br /><br />
 
 <h2>If-Else u jednoj liniji sa uslovnim operatorom</h2>
 
-Druga metoda uslovnog prikazivanja elemenata je upotreba JavaScript uslovnog operatora <span class = "primer_text">uslov ? tačno : netačno</span>
-<br><br>
-
+Druga metoda uslovnog prikazivanja elemenata je upotreba JavaScript uslovnog
+operatora <span class="primer_text">uslov ? tačno : netačno</span> <br /><br />
 
 U donjem primeru, koristimo ga za uslovno prikazivanje malog tekstualnog bloka.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
@@ -164,7 +178,7 @@ render() {
 </xmp>
 
 Može se koristiti i za veće izraze iako je manje očigledno šta se dešava:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
@@ -178,17 +192,22 @@ render() {
 }
 </xmp>
 
-Kao i u JavaScript-u, na vama je da odaberete odgovarajući stil na osnovu onoga šta vi i vaš tim smatrate čitljivijim. 
-Takođe zapamtite da bi, kad god uslovi postanu previše složeni, možda bilo dobro vreme za izdvajanje nove komponente.
-<br><br>
+Kao i u JavaScript-u, na vama je da odaberete odgovarajući stil na osnovu onoga
+šta vi i vaš tim smatrate čitljivijim. Takođe zapamtite da bi, kad god uslovi
+postanu previše složeni, možda bilo dobro vreme za izdvajanje nove komponente.
+<br /><br />
 
 <h2>Sprečavanje prikazivanja komponente</h2>
 
-U retkim slučajevima će te možda želeti da sakrijete komponentu iako je ona dobijena kao rezultat predstavljanja neke druge komponente. Da biste uradili ovo vratite <span class = "primer_text">null</span> kao rezultat rada te komponente.
-<br><br>
+U retkim slučajevima će te možda želeti da sakrijete komponentu iako je ona
+dobijena kao rezultat predstavljanja neke druge komponente. Da biste uradili ovo
+vratite <span class="primer_text">null</span> kao rezultat rada te komponente.
+<br /><br />
 
-U narednom primeru, <span class = "primer_text">&ltWarningBanner /&gt</span> će se prikazati zavisno od vrednosti <span class = "primer_text">warn</span> atributa. Ako je vrednost atributa netačno, komponenta se ne prikazuje:
-<xmp class = "primer_ta">
+U narednom primeru, <span class="primer_text">&ltWarningBanner /&gt</span> će se
+prikazati zavisno od vrednosti <span class="primer_text">warn</span> atributa.
+Ako je vrednost atributa netačno, komponenta se ne prikazuje:
+<xmp class="primer_ta">
 function WarningBanner(props) {
   if (!props.warn) {
     return null;
@@ -232,8 +251,11 @@ ReactDOM.render(
 );
 </xmp>
 
-Vraćanje <span class = "primer_text">null</span> vrednosti kao rezultat rada <span class = "primer_text">render</span> metoda ne utiče na pokretanje metoda životnog ciklusa komponente. Na primer, <span class = "primer_text">componentDidUpdate</span> će se idalje pozivati.
+Vraćanje <span class="primer_text">null</span> vrednosti kao rezultat rada
+<span class="primer_text">render</span> metoda ne utiče na pokretanje metoda
+životnog ciklusa komponente. Na primer,
+<span class="primer_text">componentDidUpdate</span> će se idalje pozivati.
 
 <div class="zadatak">
-<b>Zadatak:</b> Isprobajte sve isečke kodova iz ove lekcije.
+  <b>Zadatak:</b> Isprobajte sve isečke kodova iz ove lekcije.
 </div>

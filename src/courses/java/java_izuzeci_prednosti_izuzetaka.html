@@ -1,14 +1,20 @@
 <h1>Prednosti izuzetaka</h1>
-<br>
+<br />
 
-Sada kada znate šta su izuzeci i kako da ih koristite, vreme je da naučite prednosti upotrebe izuzetaka u svojim programima.
-<br><br>
+Sada kada znate šta su izuzeci i kako da ih koristite, vreme je da naučite
+prednosti upotrebe izuzetaka u svojim programima.
+<br /><br />
 
 <h2>Prednost 1: Odvajanje koda za rukovanje greškama od "redovnog" koda</h2>
-<br>
+<br />
 
-Izuzeci obezbeđuju sredstva za odvajanje detalja o tome šta treba učiniti kada se nešto neobično dogodi od glavne logike programa. U tradicionalnom programiranju otkrivanje grešaka, prijavljivanje i rukovanje često dovodi do zbunjujućeg "špageti" koda. Na primer, razmotrimo ovu funkciju, napisanu u pseudo kodu, koja učitava čitavu datoteku u memoriju.
-<xmp class = "primer_ta">
+Izuzeci obezbeđuju sredstva za odvajanje detalja o tome šta treba učiniti kada
+se nešto neobično dogodi od glavne logike programa. U tradicionalnom
+programiranju otkrivanje grešaka, prijavljivanje i rukovanje često dovodi do
+zbunjujućeg "špageti" koda. Na primer, razmotrimo ovu funkciju, napisanu u
+pseudo kodu, koja učitava čitavu datoteku u memoriju.
+<xmp class="primer_ta"
+>
 readFile {
     open the file;
     determine its size;
@@ -18,19 +24,23 @@ readFile {
 }
 </xmp>
 
-Na prvi pogled ova metoda deluje jednostavno, ali ignoriše sve potencijalne greške.
-<br><br>
+Na prvi pogled ova metoda deluje jednostavno, ali ignoriše sve potencijalne
+greške.
+<br /><br />
 <ul>
-<li>Šta se događa ako se datoteka ne može otvoriti?</li>
-<li>Šta se događa ako se ne može utvrditi dužina datoteke?</li>
-<li>Šta se događa ako se nemože alocirati dovoljno memorije?</li>
-<li>Šta se događa ako čitanje ne uspe?</li>
-<li>Šta se događa ako se datoteka ne može zatvoriti?</li>
+  <li>Šta se događa ako se datoteka ne može otvoriti?</li>
+  <li>Šta se događa ako se ne može utvrditi dužina datoteke?</li>
+  <li>Šta se događa ako se nemože alocirati dovoljno memorije?</li>
+  <li>Šta se događa ako čitanje ne uspe?</li>
+  <li>Šta se događa ako se datoteka ne može zatvoriti?</li>
 </ul>
-<br>
+<br />
 
-Da bi se rukovalo takvim slučajevima, funkcija <span class = "primer_text">readFile</span> mora imati više koda za otkrivanje grešaka, izveštavanje i rukovanje. Evo primera kako bi funkcija mogla izgledati.
-<xmp class = "primer_ta">
+Da bi se rukovalo takvim slučajevima, funkcija
+<span class="primer_text">readFile</span> mora imati više koda za otkrivanje
+grešaka, izveštavanje i rukovanje. Evo primera kako bi funkcija mogla izgledati.
+<xmp class="primer_ta"
+>
 errorCodeType readFile {
     initialize errorCode = 0;
     
@@ -63,11 +73,22 @@ errorCodeType readFile {
 }
 </xmp>
 
-Ovde je toliko otrikvanja grešaka, prijavljivanja i slučajeva da su se originalnih sedam linija koda izgubile u neredu. Što je još gore, izgubljen je i logički tok koda, pa je teško zaključiti da li kod radi ispravnu stvar: Da li je datoteka zaista zatvorena ako funkcija ne uspe da alocira dovoljno memorije? Još je teže osigurati da kod i dalje radi ispravne stvari kada modifikujete metodu tri meseca nakon što ste je napisali. Mnogi programeri taj problem rešavaju jednostavno ignorisanjem - greške se prijavljuju kada se njihovi programi sruše (prestanu da rade).
-<br><br>
+Ovde je toliko otrikvanja grešaka, prijavljivanja i slučajeva da su se
+originalnih sedam linija koda izgubile u neredu. Što je još gore, izgubljen je i
+logički tok koda, pa je teško zaključiti da li kod radi ispravnu stvar: Da li je
+datoteka zaista zatvorena ako funkcija ne uspe da alocira dovoljno memorije? Još
+je teže osigurati da kod i dalje radi ispravne stvari kada modifikujete metodu
+tri meseca nakon što ste je napisali. Mnogi programeri taj problem rešavaju
+jednostavno ignorisanjem - greške se prijavljuju kada se njihovi programi sruše
+(prestanu da rade).
+<br /><br />
 
-Izuzeci vam omogućavaju da napišete glavni tok koda i da se izuzecima bavite na drugom mestu. Ako bi <span class = "primer_text">readFile</span> funkcija koristila izuzetke umesto tradicionalnih tehnika upravljanja greškama, to bi izgledalo ovako.
-<xmp class = "primer_ta">
+Izuzeci vam omogućavaju da napišete glavni tok koda i da se izuzecima bavite na
+drugom mestu. Ako bi <span class="primer_text">readFile</span> funkcija
+koristila izuzetke umesto tradicionalnih tehnika upravljanja greškama, to bi
+izgledalo ovako.
+<xmp class="primer_ta"
+>
 readFile {
     try {
         open the file;
@@ -89,14 +110,22 @@ readFile {
 }
 </xmp>
 
-Imajte na umu da izuzeci ne štede vaš trud u otkrivanju, prijavljivanju i rukovanju greškama, ali vam pomažu da efikasnije organizujete posao.
-<br><br>
+Imajte na umu da izuzeci ne štede vaš trud u otkrivanju, prijavljivanju i
+rukovanju greškama, ali vam pomažu da efikasnije organizujete posao.
+<br /><br />
 
 <h2>Prednost 2: Propagiranje grešaka kroz stek poziva</h2>
-<br>
+<br />
 
-Druga prednost izuzetaka je mogućnost propagiranja grešaka kroz stek poziva. Pretpostavimo da je <span class = "primer_text">readFile</span> metoda četvrta u nizu ugnježdenih poziva metoda koje upućuje glavni program: <span class = "primer_text">method1</span> poziva <span class = "primer_text">method2</span>, koji poziva <span class = "primer_text">method3</span>, a koji na kraju poziva <span class = "primer_text">readFile</span>.
-<xmp class = "primer_ta">
+Druga prednost izuzetaka je mogućnost propagiranja grešaka kroz stek poziva.
+Pretpostavimo da je <span class="primer_text">readFile</span> metoda četvrta u
+nizu ugnježdenih poziva metoda koje upućuje glavni program:
+<span class="primer_text">method1</span> poziva
+<span class="primer_text">method2</span>, koji poziva
+<span class="primer_text">method3</span>, a koji na kraju poziva
+<span class="primer_text">readFile</span>.
+<xmp class="primer_ta"
+>
 method1 {
     call method2;
 }
@@ -110,8 +139,17 @@ method3 {
 }
 </xmp>
 
-Takođe pretpostavimo da je <span class = "primer_text">method1</span> jedina metoda koja je zainteresovana za greške do kojih može doći u <span class = "primer_text">readFile</span>. Tradicionalne tehnike prijavljivanja grešaka primoravaju <span class = "primer_text">method2</span> i <span class = "primer_text">method3</span> metode da propagiraju šifre grešaka, koje je <span class = "primer_text">readFile</span> metoda vratila, kroz stek poziva sve dok kodovi grešaka konačno ne stignu do <span class = "primer_text">method1</span> metode - jedini metod koji je zainteresovan za njih.
-<xmp class = "primer_ta">
+Takođe pretpostavimo da je <span class="primer_text">method1</span> jedina
+metoda koja je zainteresovana za greške do kojih može doći u
+<span class="primer_text">readFile</span>. Tradicionalne tehnike prijavljivanja
+grešaka primoravaju <span class="primer_text">method2</span> i
+<span class="primer_text">method3</span> metode da propagiraju šifre grešaka,
+koje je <span class="primer_text">readFile</span> metoda vratila, kroz stek
+poziva sve dok kodovi grešaka konačno ne stignu do
+<span class="primer_text">method1</span> metode - jedini metod koji je
+zainteresovan za njih.
+<xmp class="primer_ta"
+>
 method1 {
     errorCodeType error;
     error = call method2;
@@ -140,8 +178,13 @@ errorCodeType method3 {
 }
 </xmp>
 
-Prisetite se da Java (runtime) okruženje pretražuje stek poziva unazad da bi pronašlo neke metode koje su zainteresovane za rukovanje određenim izuzetkom. Metoda može eskivirati bilo koje izuzetke bačene/ispaljenje unutar nje, omogućavajući tako nekom drugom metodu sa steka poziva da ih uhvati. Stoga se samo metode koje brinu o greškama moraju brinuti o otrikvanju grešaka.
-<xmp class = "primer_ta">
+Prisetite se da Java (runtime) okruženje pretražuje stek poziva unazad da bi
+pronašlo neke metode koje su zainteresovane za rukovanje određenim izuzetkom.
+Metoda može eskivirati bilo koje izuzetke bačene/ispaljenje unutar nje,
+omogućavajući tako nekom drugom metodu sa steka poziva da ih uhvati. Stoga se
+samo metode koje brinu o greškama moraju brinuti o otrikvanju grešaka.
+<xmp class="primer_ta"
+>
 method1 {
     try {
         call method2;
@@ -159,31 +202,56 @@ method3 throws exception {
 }
 </xmp>
 
-Međutim, kao što pokazuje pseudokod, izbegavanje izuzetaka zahteva malo rada od strane posredničkih metoda. Svi proverene izuzeci koji mogu biti bačeni unutar metode moraju biti navedeni u <span class = "primer_text">throws</span> klauzuli.
-<br><br>
+Međutim, kao što pokazuje pseudokod, izbegavanje izuzetaka zahteva malo rada od
+strane posredničkih metoda. Svi proverene izuzeci koji mogu biti bačeni unutar
+metode moraju biti navedeni u <span class="primer_text">throws</span> klauzuli.
+<br /><br />
 
 <h2>Prednost 3: Grupisanje i razdvajanje tipova grešaka</h2>
-<br>
+<br />
 
-Buduči da su svi bačeni/ispaljeni izuzeci unutar programa objekti,grupisanje ili kategorizacija izuzetaka prirodan je ishod hijerarhije klasa. Primer grupe povezanih klasa izuzetaka na Java platformi su one definisane u <span class = "primer_text">java.io - IOException</span> i njeni potomci. IOException je najuopštenija i predstavlja svaku vrstu greške koja se može dogoditi prilikom izvođenja I/O (ulazno/izlaznih operacija). Njeni potomci predstavljaju konkretnije greške. Na primer, <span class = "primer_text">FileNotFoundException</span> znači da datoteka nije pronađena na disku.
-<br><br>
+Buduči da su svi bačeni/ispaljeni izuzeci unutar programa objekti,grupisanje ili
+kategorizacija izuzetaka prirodan je ishod hijerarhije klasa. Primer grupe
+povezanih klasa izuzetaka na Java platformi su one definisane u
+<span class="primer_text">java.io - IOException</span> i njeni potomci.
+IOException je najuopštenija i predstavlja svaku vrstu greške koja se može
+dogoditi prilikom izvođenja I/O (ulazno/izlaznih operacija). Njeni potomci
+predstavljaju konkretnije greške. Na primer,
+<span class="primer_text">FileNotFoundException</span> znači da datoteka nije
+pronađena na disku. <br /><br />
 
-Metoda može imati konkretne rukovaoce izuzecima koji mogu rukovati/obraditi konkretne izuzetke. Klasa <span class = "primer_text">FileNotFoundException</span> nema potomaka, tako da sledeći rukovalac/obrađivač može da obrađuje samo jednu vrstu izuzetka.
-<xmp class = "primer_ta">
+Metoda može imati konkretne rukovaoce izuzecima koji mogu rukovati/obraditi
+konkretne izuzetke. Klasa
+<span class="primer_text">FileNotFoundException</span> nema potomaka, tako da
+sledeći rukovalac/obrađivač može da obrađuje samo jednu vrstu izuzetka.
+<xmp class="primer_ta"
+>
 catch (FileNotFoundException e) {
     ...
 }
 </xmp>
 
-Metoda može uhvatiti izuzetak na osnovu njegove grupe ili konkretnog tipa navođenjem bilo koje od nadklasa izuzetka u <span class = "primer_text">catch</span> naredbi. Na primer, za hvatanje svih I/O (ulazno/izlaznih) izuzetaka, bez obzira na njihov konkretan tip, rukovalac izuzecima može navesti argument tipa <span class = "primer_text">IOException</span>.
-<xmp class = "primer_ta">
+Metoda može uhvatiti izuzetak na osnovu njegove grupe ili konkretnog tipa
+navođenjem bilo koje od nadklasa izuzetka u
+<span class="primer_text">catch</span> naredbi. Na primer, za hvatanje svih I/O
+(ulazno/izlaznih) izuzetaka, bez obzira na njihov konkretan tip, rukovalac
+izuzecima može navesti argument tipa
+<span class="primer_text">IOException</span>.
+<xmp class="primer_ta"
+>
 catch (IOException e) {
     ...
 }
 </xmp>
 
-Ovaj rukovalac izuzecima će moći da uhvati sve I/O (ulazno/izlazne) izuzetke, uključujući <span class = "primer_text">FileNotFoundException</span>, <span class = "primer_text">EOFException</span> i tako dalje. Možete pronaći detalje o tome šta se desilo, odgovarajućim upitom nad argumentom koji je prosleđen rukovaocu/obrađivaču izuzetaka. Na primer, koristite sledeće da biste ispisali stek trag.
-<xmp class = "primer_ta">
+Ovaj rukovalac izuzecima će moći da uhvati sve I/O (ulazno/izlazne) izuzetke,
+uključujući <span class="primer_text">FileNotFoundException</span>,
+<span class="primer_text">EOFException</span> i tako dalje. Možete pronaći
+detalje o tome šta se desilo, odgovarajućim upitom nad argumentom koji je
+prosleđen rukovaocu/obrađivaču izuzetaka. Na primer, koristite sledeće da biste
+ispisali stek trag.
+<xmp class="primer_ta"
+>
 catch (IOException e) {
     // Ispis ide na standardni izlaz za greske (System.err).
     e.printStackTrace();
@@ -192,19 +260,33 @@ catch (IOException e) {
 }
 </xmp>
 
-Ovde ste mogli da postavite i rukovalac izuzecima (argument tipa <span class = "primer_text">Exception</span>) koji obrađuje bilo koji izuzetak.
-<xmp class = "primer_ta">
+Ovde ste mogli da postavite i rukovalac izuzecima (argument tipa
+<span class="primer_text">Exception</span>) koji obrađuje bilo koji izuzetak.
+<xmp class="primer_ta"
+>
 // Previse uopsten rukovalac izuzecima
 catch (Exception e) {
     ...
 }
 </xmp>
 
-Klasa <span class = "primer_text">Exception</span> blizu je vrha hijerarhije <span class = "primer_text">Throwable</span> klase. Stoga će ovaj rukovalac uhvatiti i mnoge druge izuzetke pored onih koje je rukovalac želeo uhvatiti. Želećete možda na ovaj način da obradite izuzetke ako je, na primer, sve što želite da vaš program uradi štampanje poruke o grešci za korisnika i nakon toga izlazak iz programa.
-<br><br>
+Klasa <span class="primer_text">Exception</span> blizu je vrha hijerarhije
+<span class="primer_text">Throwable</span> klase. Stoga će ovaj rukovalac
+uhvatiti i mnoge druge izuzetke pored onih koje je rukovalac želeo uhvatiti.
+Želećete možda na ovaj način da obradite izuzetke ako je, na primer, sve što
+želite da vaš program uradi štampanje poruke o grešci za korisnika i nakon toga
+izlazak iz programa. <br /><br />
 
-Međutim, u većini situacija  želite da rukovalac izuzecima bude što je moguće konkretniji. Razlog je taj što prvo što rukovalac mora učiniti je utvrditi koji se tip izuzetka dogodio pre nego što se odluči za najbolju strategiju oporavka. U stavri, ne hvatajući konkretne greške (nego uopštenije), rukovalac se mora prilagoditi bilo kojoj situaciji. Rukovaoci koji su previše opšti mogu učiniti kod sklonijim greškama, hvatanjem i rukovanjem izuzecima koje programer nije predvideo i za koje rukovalac nije bio namenjen.
-<br><br>
+Međutim, u većini situacija želite da rukovalac izuzecima bude što je moguće
+konkretniji. Razlog je taj što prvo što rukovalac mora učiniti je utvrditi koji
+se tip izuzetka dogodio pre nego što se odluči za najbolju strategiju oporavka.
+U stavri, ne hvatajući konkretne greške (nego uopštenije), rukovalac se mora
+prilagoditi bilo kojoj situaciji. Rukovaoci koji su previše opšti mogu učiniti
+kod sklonijim greškama, hvatanjem i rukovanjem izuzecima koje programer nije
+predvideo i za koje rukovalac nije bio namenjen.
+<br /><br />
 
-Kao što je napomenuto, možete kreirati grupe izuzetaka i obraditi izuzetke u opštem maniru ili možete da upotrebite konkretan tip izuzetka i obradite ga u specifičnom (konkretnom) maniru.
-<br><br>
+Kao što je napomenuto, možete kreirati grupe izuzetaka i obraditi izuzetke u
+opštem maniru ili možete da upotrebite konkretan tip izuzetka i obradite ga u
+specifičnom (konkretnom) maniru.
+<br /><br />

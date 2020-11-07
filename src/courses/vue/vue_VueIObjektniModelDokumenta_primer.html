@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
-</head>
-<body>
-<div id="app">
-   <p>{{kaziZdravo()}}</p>
- </div>
+  <head>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{kaziZdravo()}}</p>
+    </div>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                title: 'Zdravo svete'
-                       },
-                methods:{
-                         kaziZdravo:function(){
-                                              return 'Zdravo svete';
-                                                                 }       
-                                  }
-                        });
+      new Vue({
+        el: "#app",
+        data: {
+          title: "Zdravo svete",
+        },
+        methods: {
+          kaziZdravo: function () {
+            return "Zdravo svete";
+          },
+        },
+      });
     </script>
-</body>
+  </body>
 </html>

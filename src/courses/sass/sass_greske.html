@@ -1,13 +1,29 @@
 <h1>Greške</h1>
-Upozorenja i greške (<i>eng. errors</i>) se ponašaju prilično slično u programskom jeziku Sass, tako da je učenje o greškama ide lagano kada ste već dobro savladali upozorenja. Jedina razlika između greške i upozorenja je, kao što pretpostavljate, da greška stopira proces kompilacije. 
-Korišćenje greške može biti korisno prilikom provere parametara iz miksina i funkcija, na primer.
-Možete izbaciti grešku koristeći <b>@error</b> naredbu. Isto kao i za upozorenje, može proći bilo šta u ovoj naredbi – nije nužno niz, mada to ima više smisla da biste obezbedili jasan kontekst. 
-Argument će biti odštampan na standardnom izlazu. Proces kompilacije će se zaustaviti odmah.
-<xmp class = "primer_ta" >
+Upozorenja i greške (<i>eng. errors</i>) se ponašaju prilično slično u
+programskom jeziku Sass, tako da je učenje o greškama ide lagano kada ste već
+dobro savladali upozorenja. Jedina razlika između greške i upozorenja je, kao
+što pretpostavljate, da greška stopira proces kompilacije. Korišćenje greške
+može biti korisno prilikom provere parametara iz miksina i funkcija, na primer.
+Možete izbaciti grešku koristeći <b>@error</b> naredbu. Isto kao i za
+upozorenje, može proći bilo šta u ovoj naredbi – nije nužno niz, mada to ima
+više smisla da biste obezbedili jasan kontekst. Argument će biti odštampan na
+standardnom izlazu. Proces kompilacije će se zaustaviti odmah.
+<xmp class="primer_ta"
+>
 @error "You should not pass!";
 </xmp>
-Možda niste upoznati sa naredbom <b>@debug</b> koja štampa vrednost SassScript izraza na standardni izlaz na isti način @warn. Možda se pitate zasto postoje dve funkcije koje obavljaju isti zadatak i koja bi eventualno mogla biti razlika između njih dve. 
-<br>
-Postoje velike razlike između upozorenja o vrednostima i uklanjanja pogrešaka vrednosti. Prva je da se upozorenja mogu isključiti pomoću quite opcije. S druge strane, greške će uvek biti štampane tako da ne zaboravite da ih uklonite. 
-<br>
-Druga razlika je u tome što upozorenja dolaze sa stack trace-om, izveštajem o aktivnim okvirima u određenom trenutku tokom izvođenja programa. Kao rezultat toga, znate odakle ih emitutuju. Otklanjanje grešaka ispisuje samo vrednost, zajedno s linijom u kojoj su pozvani, ali ne nude dodatne informacije. Naredba @debug za ispravljanje pogrešaka zaista može biti korisna kada, na primer, želite znati šta se nalazi u promenljivoj. 
+Možda niste upoznati sa naredbom <b>@debug</b> koja štampa vrednost SassScript
+izraza na standardni izlaz na isti način @warn. Možda se pitate zasto postoje
+dve funkcije koje obavljaju isti zadatak i koja bi eventualno mogla biti razlika
+između njih dve.
+<br />
+Postoje velike razlike između upozorenja o vrednostima i uklanjanja pogrešaka
+vrednosti. Prva je da se upozorenja mogu isključiti pomoću quite opcije. S druge
+strane, greške će uvek biti štampane tako da ne zaboravite da ih uklonite.
+<br />
+Druga razlika je u tome što upozorenja dolaze sa stack trace-om, izveštajem o
+aktivnim okvirima u određenom trenutku tokom izvođenja programa. Kao rezultat
+toga, znate odakle ih emitutuju. Otklanjanje grešaka ispisuje samo vrednost,
+zajedno s linijom u kojoj su pozvani, ali ne nude dodatne informacije. Naredba
+@debug za ispravljanje pogrešaka zaista može biti korisna kada, na primer,
+želite znati šta se nalazi u promenljivoj.

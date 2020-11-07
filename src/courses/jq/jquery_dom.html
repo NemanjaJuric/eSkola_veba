@@ -1,20 +1,28 @@
 <h1>JQuery-DOM</h1>
-<br/>
- Jedna od najvećih prednosti Jquery biblioteke jeste manipulacija DOM drveta. DOM drvo se odnosi na objektni model dokumenta (eng. Document Object Model - DOM), koji predstavjla jezik sa nezavisnom konvencijom za rad sa objektima iz HTML, XML i XHMTL dokumenata. Uz pomoć JQuery biblioteke možemo da dodamo html element našem dokumentu, da uzmemo njegovu vrednost, da mu dodelimo vrednost ili atribut i još mnogo toga.
- Kroz ovaj kurs ćemo da pređemo sve najvaznije JQuery funkcije za manipulaciju DOM drveta, i te funkcije možemo da svrstamo u 4 grupe:
- <ul>
- <li>JQuery funkcije za postavljanje;</li>
- <li>JQuery funkcije za dohvatanje;</li>
- <li>JQuery funkcije za dodavanje;</li>
- <li>JQuery funkcije za uklanjanje.</li>
- </ul>
- 
- <br>
- <br>
-  <h2 style="color:orange">JQuery funkcije za postavljanje</h2>
-	<ul style="color:blue">
-	<li> .text() -<span style="color:gray">Postavlja dati testualni sadžaj izabranom elementu. </span>
-	<xmp class="primer_ta" rows=21 disabled>
+<br />
+Jedna od najvećih prednosti Jquery biblioteke jeste manipulacija DOM drveta. DOM
+drvo se odnosi na objektni model dokumenta (eng. Document Object Model - DOM),
+koji predstavjla jezik sa nezavisnom konvencijom za rad sa objektima iz HTML,
+XML i XHMTL dokumenata. Uz pomoć JQuery biblioteke možemo da dodamo html element
+našem dokumentu, da uzmemo njegovu vrednost, da mu dodelimo vrednost ili atribut
+i još mnogo toga. Kroz ovaj kurs ćemo da pređemo sve najvaznije JQuery funkcije
+za manipulaciju DOM drveta, i te funkcije možemo da svrstamo u 4 grupe:
+<ul>
+  <li>JQuery funkcije za postavljanje;</li>
+  <li>JQuery funkcije za dohvatanje;</li>
+  <li>JQuery funkcije za dodavanje;</li>
+  <li>JQuery funkcije za uklanjanje.</li>
+</ul>
+
+<br />
+<br />
+<h2 style="color: orange">JQuery funkcije za postavljanje</h2>
+<ul style="color: blue">
+  <li>
+    .text() -<span style="color: gray"
+      >Postavlja dati testualni sadžaj izabranom elementu.
+    </span>
+    <xmp class="primer_ta" rows="21" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,10 +47,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .html() -<span style="color:gray">Postavlja dati html zadatom elementu.</span>
-	<xmp class="primer_ta" rows=23 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .html() -<span style="color: gray"
+      >Postavlja dati html zadatom elementu.</span
+    >
+    <xmp class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,10 +80,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .val() -<span style="color:gray">Postavlja datu vrednost polju forme.</span>
-	<xmp class="primer_ta" rows=23 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .val() -<span style="color: gray"
+      >Postavlja datu vrednost polju forme.</span
+    >
+    <xmp class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,10 +112,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li>.attr()-<span style="color:gray">Postavlja dati atribut izabranom elementu.</span>
-	<xmp class="primer_ta" rows=23 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .attr()-<span style="color: gray"
+      >Postavlja dati atribut izabranom elementu.</span
+    >
+    <xmp class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,14 +145,15 @@ $(document).ready(function(){
 
 	
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	</ul>
-	<br>
-	<h2 style="color:orange">JQuery funkcije za uzimanje</h2>
-	<ul style="color:blue">
-	<li> .text() -<span style="color:gray">Vraca sadržaj izabranog elementa.</span>
-	<xmp class="primer_ta" rows=23 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+</ul>
+<br />
+<h2 style="color: orange">JQuery funkcije za uzimanje</h2>
+<ul style="color: blue">
+  <li>
+    .text() -<span style="color: gray">Vraca sadržaj izabranog elementa.</span>
+    <xmp class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,10 +176,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .html() -<span style="color:gray">Vraca sadržaj izabranog elementa ukljucujući html oznake.</span>
-	<xmp class="primer_ta" rows=23 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .html() -<span style="color: gray"
+      >Vraca sadržaj izabranog elementa ukljucujući html oznake.</span
+    >
+    <xmp class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -184,10 +205,11 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .val() -<span style="color:gray">Vraća vrednost izabranog polja. </span>
-	<xmp class="primer_ta" rows=22 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .val() -<span style="color: gray">Vraća vrednost izabranog polja. </span>
+    <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,10 +231,13 @@ $(document).ready(function(){
 </body>
 </html>
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .attr() -<span style="color:gray">Vraca vrednost navedenog atributa izabranog elementa.</span>
-	<xmp class="primer_ta" rows=24 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .attr() -<span style="color: gray"
+      >Vraca vrednost navedenog atributa izabranog elementa.</span
+    >
+    <xmp class="primer_ta" rows="24" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -238,14 +263,17 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	</ul>
-	<br>
-	<h2 style="color:orange">JQuery funkcije za dodavanje</h2>
-	<ul style="color:blue">
-	<li> .append() -<span style="color:gray">Ubacuje sadržaj na kraj izabranog elementa.</span>
-	<xmp class="primer_ta" rows=26 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+</ul>
+<br />
+<h2 style="color: orange">JQuery funkcije za dodavanje</h2>
+<ul style="color: blue">
+  <li>
+    .append() -<span style="color: gray"
+      >Ubacuje sadržaj na kraj izabranog elementa.</span
+    >
+    <xmp class="primer_ta" rows="26" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -275,10 +303,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .prepend() -<span style="color:gray">Ubacuje sadržaj na početak izabranog elementa.</span>
-	<xmp class="primer_ta" rows=26 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .prepend() -<span style="color: gray"
+      >Ubacuje sadržaj na početak izabranog elementa.</span
+    >
+    <xmp class="primer_ta" rows="26" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -308,10 +339,13 @@ $(document).ready(function(){
 </html>
 	
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .after()-<span style="color:gray">Ubacuje sadržaj posle izabranog elementa.</span>
-	<xmp class="primer_ta" rows=28 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .after()-<span style="color: gray"
+      >Ubacuje sadržaj posle izabranog elementa.</span
+    >
+    <xmp class="primer_ta" rows="28" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -341,11 +375,14 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	
-	<li> .before()-<span style="color:gray">Ubacuje sadržaj pre izabranog elementa.</span>
-	<xmp class="primer_ta" rows=27 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+
+  <li>
+    .before()-<span style="color: gray"
+      >Ubacuje sadržaj pre izabranog elementa.</span
+    >
+    <xmp class="primer_ta" rows="27" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -375,15 +412,17 @@ $(document).ready(function(){
 </html>
 	
 	</xmp>
-	<button class ="button_copy">Vidi primer</button>
-	</li>
-	
-	</ul>
-	<br>
-	<h2 style="color:orange">JQuery funkcije za uklanjanje</h2>
-	<ul style="color:blue">
-	<li> .remove() -<span style="color:gray">Uklanja izabrani element i njegovu decu.</span>
-	<xmp class="primer_ta" rows=32 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+</ul>
+<br />
+<h2 style="color: orange">JQuery funkcije za uklanjanje</h2>
+<ul style="color: blue">
+  <li>
+    .remove() -<span style="color: gray"
+      >Uklanja izabrani element i njegovu decu.</span
+    >
+    <xmp class="primer_ta" rows="32" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -417,10 +456,13 @@ $(document).ready(function(){
 </html>
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-	<li> .empty() -<span style="color:gray">Uklanja svu decu izabranog elementa</span>
-	<xmp class="primer_ta" rows=30 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .empty() -<span style="color: gray"
+      >Uklanja svu decu izabranog elementa</span
+    >
+    <xmp class="primer_ta" rows="30" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -456,8 +498,7 @@ $(document).ready(function(){
 
 
 	</xmp>
-	<button class = "button_copy">Vidi primer</button>
-	</li>
-
-	</ul>
-	<br>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+</ul>
+<br />

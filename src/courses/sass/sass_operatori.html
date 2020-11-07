@@ -1,27 +1,41 @@
 <h1>Operatori</h1>
 Upotreba matematičkih operatora u programskom jeziku <i>CSS</i> je jako korisna.
-<i>Sass</i> poseduje mnoštvo standardnih matematičkih operatora kao što su <span class = "primer_text"> +</span>, <span class = "primer_text"> -</span>,
-<span class = "primer_text"> *</span>, <span class = "primer_text"> /</span> i <span class = "primer_text"> %</span>.
-<br>
-U programskom jeziku <i>Sass</i> se čuvaju merne jedinice. To znači da ne možemo raditi sa nekompatibilnim jedinicama, kao i u realnom životu,
-a dva broja sa istim jedninicama pomnoženi daju kvadratne jedinice.
-<br>
-Relacioni operatori kao što su <span class = "primer_text"> <</span>, <span class = "primer_text"> <=</span>, <span class = "primer_text"> ></span>, 
-<span class = "primer_text"> >=</span> su podržani kao i jednakosni operatori <span class = "primer_text"> ==</span> i <span class = "primer_text">!=</span>.
-<br>
-<i>CSS</i> podržava <span class = "primer_text"> /</span> u svojstvu odvajanja brojeva. Obzirom da je <i>SassScriprt</i> proširenje <i>CSS</i> sintakse,
-isto mora omogućiti i <i>Sass</i>, kao i korišćenje znaka <span class = "primer_text"> /</span> za deljenje.
-<br>
-Postoje tri situacije u kojima se <span class = "primer_text"> /</span> tumači kao deljenje:
+<i>Sass</i> poseduje mnoštvo standardnih matematičkih operatora kao što su
+<span class="primer_text"> +</span>, <span class="primer_text"> -</span>,
+<span class="primer_text"> *</span>, <span class="primer_text"> /</span> i
+<span class="primer_text"> %</span>.
+<br />
+U programskom jeziku <i>Sass</i> se čuvaju merne jedinice. To znači da ne možemo
+raditi sa nekompatibilnim jedinicama, kao i u realnom životu, a dva broja sa
+istim jedninicama pomnoženi daju kvadratne jedinice.
+<br />
+Relacioni operatori kao što su <span class="primer_text"> <</span>,
+<span class="primer_text"> <=</span>, <span class="primer_text"> ></span>,
+<span class="primer_text"> >=</span> su podržani kao i jednakosni operatori
+<span class="primer_text"> ==</span> i <span class="primer_text">!=</span>.
+<br />
+<i>CSS</i> podržava <span class="primer_text"> /</span> u svojstvu odvajanja
+brojeva. Obzirom da je <i>SassScriprt</i> proširenje <i>CSS</i> sintakse, isto
+mora omogućiti i <i>Sass</i>, kao i korišćenje znaka
+<span class="primer_text"> /</span> za deljenje.
+<br />
+Postoje tri situacije u kojima se <span class="primer_text"> /</span> tumači kao
+deljenje:
 <ul>
-	<li>Ako je vrednost, ili bilo koji njen deo, sačuvana u promenljivoj ili vraćena funkcijom</li>
-	<li>Ako je vrednost okružena zagradama, osim ako su te zagrade van liste i vrednost u njima</li>
-	<li>Ako se vrednost koristi kao deo drugog aritmetičkog niza</li>
+  <li>
+    Ako je vrednost, ili bilo koji njen deo, sačuvana u promenljivoj ili vraćena
+    funkcijom
+  </li>
+  <li>
+    Ako je vrednost okružena zagradama, osim ako su te zagrade van liste i
+    vrednost u njima
+  </li>
+  <li>Ako se vrednost koristi kao deo drugog aritmetičkog niza</li>
 </ul>
-<br>
+<br />
 One pokrivaju ogromnu većinu slučajeva.
-<br>
-<br>
+<br />
+<br />
 <textarea class="primer_ta" rows="11" disabled>
 p {
   $width: 1000px;
@@ -34,4 +48,5 @@ p {
   height: (500px/2);  
   // zagrade, uloga deljenja
 }
- </textarea>
+ </textarea
+>

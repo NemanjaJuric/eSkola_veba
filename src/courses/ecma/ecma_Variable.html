@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-<h1>Promenljive</h1>
+  <head> </head>
+  <body>
+    <h1>Promenljive</h1>
 
-Promenljiva, po definiciji, je "imenovani prostor u memoriji" koji čuva vrednosti.
-Promenljiva se mora deklarisati pre nego što se upotrebi. 
-ES5 sintaksa koristila je ključnu reč var da bi postigla isto. 
-ES5 sintaksa za proglašavanje promenljive je sledeća:
-	
-	<br>
-	<xmp class="primer_ta">var  promenljiva_ime </xmp> 
-	<br>
-		
-	ES6 uvodi sledeću sintaksu deklaracije promenljivih:
-	<ul>
-		<li>
-			Koristeći let
-		</li>
-		<li>
-			Koristeći const
-		</li>
-	</ul>
-Da bismo razumeli koja je razlika, prvo se traba upoznati sa pojmom opsega promenljivih.
+    Promenljiva, po definiciji, je "imenovani prostor u memoriji" koji čuva
+    vrednosti. Promenljiva se mora deklarisati pre nego što se upotrebi. ES5
+    sintaksa koristila je ključnu reč var da bi postigla isto. ES5 sintaksa za
+    proglašavanje promenljive je sledeća:
 
+    <br />
+    <xmp class="primer_ta">var  promenljiva_ime </xmp>
+    <br />
 
-<h2>Opseg promenljivih</h2>
-	
-	Opseg promenljive je regija vašeg programa u kojoj je ona definisana. 
-	Tradicionalno, JavaScript definiše samo dva opsega - globalni i lokalni.
-<ul>
-	<li>
-	Globalni opseg - Promenljivom opsegu globalnog opsega može se pristupiti iz bilo kojeg dela JavaScript koda.
-	</li>
-	<li>
-	Lokalni opseg - promenljivoj sa lokalnim opsegom može se pristupiti iz funkcije u kojoj je deklarisana.
-	</li>
-</ul>
-	Primer: Globalna ili promenljiva lokalna
-	Sledeći primer deklariše dve promenljive po imenu num - jedna izvan funkcije (globalni opseg), 
-	a druga unutar funkcije (lokalni opseg).
-<xmp class="primer_ta">
+    ES6 uvodi sledeću sintaksu deklaracije promenljivih:
+    <ul>
+      <li>Koristeći let</li>
+      <li>Koristeći const</li>
+    </ul>
+    Da bismo razumeli koja je razlika, prvo se traba upoznati sa pojmom opsega
+    promenljivih.
+
+    <h2>Opseg promenljivih</h2>
+
+    Opseg promenljive je regija vašeg programa u kojoj je ona definisana.
+    Tradicionalno, JavaScript definiše samo dva opsega - globalni i lokalni.
+    <ul>
+      <li>
+        Globalni opseg - Promenljivom opsegu globalnog opsega može se pristupiti
+        iz bilo kojeg dela JavaScript koda.
+      </li>
+      <li>
+        Lokalni opseg - promenljivoj sa lokalnim opsegom može se pristupiti iz
+        funkcije u kojoj je deklarisana.
+      </li>
+    </ul>
+    Primer: Globalna ili promenljiva lokalna Sledeći primer deklariše dve
+    promenljive po imenu num - jedna izvan funkcije (globalni opseg), a druga
+    unutar funkcije (lokalni opseg).
+    <xmp class="primer_ta"
+>
 var num = 10
 test funkcije() 
 {
@@ -50,15 +48,20 @@ console.log ("vrednost num u testu ()" + broj)
 }
 console.log ("vrednost num izvan testa ()" + broj)
 test()
-</xmp>
-	
-	<h2>Let</h2>
-<br>	
-Promenljivoj koja je deklarisana pomoću <b>let</b> ili <b>const</b> dodeljuje se opseg bloka(block scope).
-Opseg bloka je oblast unutar if, switch naredba  ili for i while petlja. Uopšteno govoreći, svaki put kada vidite {vitičaste zagrade}, to je blok. Dakle promenljiva deklarisana unutar bloka neće biti vidljiva van njega.
-<br>
-	//Promenljiva se može inicijalizirati bilo u vreme njene deklaracije ili kasnije.
-<xmp class="primer_ta">
+</xmp
+    >
+
+    <h2>Let</h2>
+    <br />
+    Promenljivoj koja je deklarisana pomoću <b>let</b> ili
+    <b>const</b> dodeljuje se opseg bloka(block scope). Opseg bloka je oblast
+    unutar if, switch naredba ili for i while petlja. Uopšteno govoreći, svaki
+    put kada vidite {vitičaste zagrade}, to je blok. Dakle promenljiva
+    deklarisana unutar bloka neće biti vidljiva van njega.
+    <br />
+    //Promenljiva se može inicijalizirati bilo u vreme njene deklaracije ili
+    kasnije.
+    <xmp class="primer_ta">
 <!DOCTYPE html>
     <html>
     <body>
@@ -81,11 +84,11 @@ run();
     </body>
 </html>
 </xmp>
-<button class="button_copy">Vidi primer</button>
-<br>
-Promenljive deklarirane pomoću ključne reči <b>var</b> nemaju opseg bloka. 
-Ključna reč var daje promenljivoj opseg funkcije. 
-<xmp class="primer_ta">
+    <button class="button_copy">Vidi primer</button>
+    <br />
+    Promenljive deklarirane pomoću ključne reči <b>var</b> nemaju opseg bloka.
+    Ključna reč var daje promenljivoj opseg funkcije.
+    <xmp class="primer_ta">
 <!DOCTYPE html>
     <html>
     <body>
@@ -108,42 +111,43 @@ test();
     </body>
 </html>
 	</xmp>
-<button class="button_copy">Vidi primer</button>
-<br>
-<b>Let</b> omogućava skripti da ograniči pristup promenljivoj do najbližeg ograđenog bloka.	
-Skripta proglašava promenljivu num u okviru lokalnog opsega funkcije i ponovo je proglašava unutar bloka koristeći ključnu reč "let".Vrednost lokalno vidljive promenljive se štampa kada se promenljivoj pristupi izvan unutrašnjeg bloka, dok se u unutrašnjem bloku upućuje promenljiva opsega bloka.
-	
-	<h2>Konstanta</h2>
-Izjava const stvara referencu na vrednost samo za čitanje. 
-To ne znači da je vrednost koju drži nepromenljiva, 
-već samo što promenljivi identifikator ne može biti dodeljen.
-Konstante su obuhvaćene blokom, slično kao varijable koje su definisane pomoću izraza let. 
-Vrednost konstante ne može se promeniti ponovnim dodeljivanjem i ne može se ponovo deklarisati.
-	<br>
-		Sledeća pravila važe za promenljivu deklarisanu pomoću ključne reči const :
-<ul>
-<li>
-		Konstante ne može biti dodeljeno vrednosti
-</li>
-<li>
-		Konstanta se ne može ponovo deklarisati
-</li>
-<li>
-		Konstanta zahteva inicijalizator. To znači da se konstante moraju inicijalizirati tokom deklaracije
-</li>
-<li>
-		Vrijednost dodijeljena const varijabli je promjenjiva
-</li>
-</ul>
-		
-Primer:
-<xmp class="primer_ta">
+    <button class="button_copy">Vidi primer</button>
+    <br />
+    <b>Let</b> omogućava skripti da ograniči pristup promenljivoj do najbližeg
+    ograđenog bloka. Skripta proglašava promenljivu num u okviru lokalnog opsega
+    funkcije i ponovo je proglašava unutar bloka koristeći ključnu reč
+    "let".Vrednost lokalno vidljive promenljive se štampa kada se promenljivoj
+    pristupi izvan unutrašnjeg bloka, dok se u unutrašnjem bloku upućuje
+    promenljiva opsega bloka.
+
+    <h2>Konstanta</h2>
+    Izjava const stvara referencu na vrednost samo za čitanje. To ne znači da je
+    vrednost koju drži nepromenljiva, već samo što promenljivi identifikator ne
+    može biti dodeljen. Konstante su obuhvaćene blokom, slično kao varijable
+    koje su definisane pomoću izraza let. Vrednost konstante ne može se
+    promeniti ponovnim dodeljivanjem i ne može se ponovo deklarisati.
+    <br />
+    Sledeća pravila važe za promenljivu deklarisanu pomoću ključne reči const :
+    <ul>
+      <li>Konstante ne može biti dodeljeno vrednosti</li>
+      <li>Konstanta se ne može ponovo deklarisati</li>
+      <li>
+        Konstanta zahteva inicijalizator. To znači da se konstante moraju
+        inicijalizirati tokom deklaracije
+      </li>
+      <li>Vrijednost dodijeljena const varijabli je promjenjiva</li>
+    </ul>
+
+    Primer:
+    <xmp class="primer_ta"
+>
 const k = 10;
 k = 12; // rezultiraće greškom !!
-</xmp>
-		
-		Za razliku od promenljivih deklarisanih pomoću ključne reči let, konstante su nepromenljive. To znači da se njegova vrednost ne može menjati. 
-<br>
+</xmp
+    >
 
-</body>
+    Za razliku od promenljivih deklarisanih pomoću ključne reči let, konstante
+    su nepromenljive. To znači da se njegova vrednost ne može menjati.
+    <br />
+  </body>
 </html>

@@ -1,16 +1,22 @@
 <h1>JQuery-AJAX</h1>
-<br/>
-Osnovna funkcionalno AJAX  (Asynchronous JavaScript and XML) poziva jeste promena sadržaja strane asinhrono, što znači da korisnička veb strana ne mora da se učita potpuno ispočetka već se ažurira sadržaj strane na osnovu podataka koji su pristigli.
-Dva najčešća zahteva serveru jesu:
+<br />
+Osnovna funkcionalno AJAX (Asynchronous JavaScript and XML) poziva jeste promena
+sadržaja strane asinhrono, što znači da korisnička veb strana ne mora da se
+učita potpuno ispočetka već se ažurira sadržaj strane na osnovu podataka koji su
+pristigli. Dva najčešća zahteva serveru jesu:
 <ul>
-	<li>HTTP GET zahtev</li>
-	<li>HTTP POST zahtev</li>
- </ul>
- <br/>
+  <li>HTTP GET zahtev</li>
+  <li>HTTP POST zahtev</li>
+</ul>
+<br />
 <div>
-	<ul style= "color:blue">
-<li>.get() - <span style="color:gray"> Funkcija za dohvatanje podataka sa određenog izvora.</span>
-<xmp class="primer_ta" rows=22 disabled>
+  <ul style="color: blue">
+    <li>
+      .get() -
+      <span style="color: gray">
+        Funkcija za dohvatanje podataka sa određenog izvora.</span
+      >
+      <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +38,16 @@ $(document).ready(function(){
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
-		
-		
-<li>.post() - <span style="color:gray">Funkcija za slanje novih podataka serveru zarad kreiranja novog objekta ili ažuriranje postojećeg.</span> 
-<xmp class="primer_ta" rows=22 disabled>
+      <button class="button_copy">Vidi primer</button>
+    </li>
+
+    <li>
+      .post() -
+      <span style="color: gray"
+        >Funkcija za slanje novih podataka serveru zarad kreiranja novog objekta
+        ili ažuriranje postojećeg.</span
+      >
+      <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +73,7 @@ alert("Id: " + data.id + "\nTitle: "+ data.title + "\nUserID: " + data.userId + 
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
-</ul>
+      <button class="button_copy">Vidi primer</button>
+    </li>
+  </ul>
 </div>

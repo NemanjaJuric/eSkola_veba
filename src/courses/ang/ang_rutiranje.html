@@ -1,17 +1,19 @@
 <h1>AngularJS rutiranje</h1>
-<br><br>
-<font style="color: blue;">ngRoute</font> modul pomaže vašoj aplikaciji da postane jednostranična aplikacija.
-<br><br>
+<br /><br />
+<font style="color: blue">ngRoute</font> modul pomaže vašoj aplikaciji da
+postane jednostranična aplikacija. <br /><br />
 <h2>Šta je rutiranje u angularJS</h2>
-<br><br>
-Ako želite da se krećete na različitim stranama u vašoj aplikaciji, ali takođe želite da aplikacija bude SPA (jednostranična aplikacija), bez učitavanja stranice, možete koristiti <font style="color: blue;">ngRoute</font> modul.
-<br><br>
-<font style="color: blue;">ngRoute</font> modul vodi vašu aplikaciju u različite stranice bez ponovnog učitavanja cele aplikacije.
-<br><br>
+<br /><br />
+Ako želite da se krećete na različitim stranama u vašoj aplikaciji, ali takođe
+želite da aplikacija bude SPA (jednostranična aplikacija), bez učitavanja
+stranice, možete koristiti <font style="color: blue">ngRoute</font> modul.
+<br /><br />
+<font style="color: blue">ngRoute</font> modul vodi vašu aplikaciju u različite
+stranice bez ponovnog učitavanja cele aplikacije. <br /><br />
 Primer:
-<br>
+<br />
 Prebaciti na "red.htm", "green.htm" i "blue.htm".
-<br>
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -51,23 +53,29 @@ app.config(function($routeProvider) {
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 <h2>Šta vam je potrebno?</h2>
-<br><br>
-Da bi vase aplikacije bile spremne spremne za ruting, morate ukljuciti AngularJS Route modul:
-<br>
-<xmp class="primer_ta"><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script></xmp>
-<br>
-Onda morate dodati <font style="color: blue;">ngRoute</font> kao zavisnost u aplikaciji modula:
-<br>
+<br /><br />
+Da bi vase aplikacije bile spremne spremne za ruting, morate ukljuciti AngularJS
+Route modul:
+<br />
+<xmp
+  class="primer_ta"><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script></xmp>
+<br />
+Onda morate dodati <font style="color: blue">ngRoute</font> kao zavisnost u
+aplikaciji modula:
+<br />
 <xmp class="primer_ta">var app = angular.module("myApp", ["ngRoute"]);</xmp>
-<br>
-Sada vaša aplikacija ima pristup route modulu, koji obezbeđuje <font style="color: blue;">$routeProvider</font>.
-<br>
-Koristite <font style="color: blue;">$routeProvider</font> da podesite različite rute u svojoj aplikaciji:
-<br>
-<xmp class="primer_ta">
+<br />
+Sada vaša aplikacija ima pristup route modulu, koji obezbeđuje
+<font style="color: blue">$routeProvider</font>.
+<br />
+Koristite <font style="color: blue">$routeProvider</font> da podesite različite
+rute u svojoj aplikaciji:
+<br />
+<xmp class="primer_ta"
+>
 app.config(function($routeProvider) {
   $routeProvider
   .when("/", {
@@ -84,37 +92,40 @@ app.config(function($routeProvider) {
   });
 });
 </xmp>
-<br><br>
+<br /><br />
 <h2>Gde to ide?</h2>
-<br><br>
+<br /><br />
 Vaša aplikacija treba u kontejner da stavi sadržaj prosleđen preko rutinga.
-<br>
-Ovaj kontejner je <font style="color: blue;">ng-view</font> direktiva.
-<br>
-Postoje tri različita načina da se uključi <font style="color: blue;">ng-view</font> direktiva u vašu aplikaciju:
-<br>
+<br />
+Ovaj kontejner je <font style="color: blue">ng-view</font> direktiva.
+<br />
+Postoje tri različita načina da se uključi
+<font style="color: blue">ng-view</font> direktiva u vašu aplikaciju:
+<br />
 <b>Primer 1:</b>
-<br>
+<br />
 <xmp class="primer_ta"><div ng-view></div></xmp>
-<br>
+<br />
 <b>Primer 2:</b>
-<br>
+<br />
 <xmp class="primer_ta"><ng-view></ng-view></xmp>
-<br>
+<br />
 <b>Primer 3:</b>
-<br>
+<br />
 <xmp class="primer_ta"><<div class="ng-view"></div></xmp>
-<br>
-Aplikacije mogu imati samo jednu <font style="color: blue;">ng-view</font> direktivu i to će uvek biti čuvar za sve prikaze obezbđene putanjom.
-<br><br>
+<br />
+Aplikacije mogu imati samo jednu
+<font style="color: blue">ng-view</font> direktivu i to će uvek biti čuvar za
+sve prikaze obezbđene putanjom. <br /><br />
 <h2>$routeProvider</h2>
-<br><br>
-Sa <font style="color: blue;">$routeProvider</font> možete definisati šta strana da prikazuje kada korisnik klikne na link.
-<br>
+<br /><br />
+Sa <font style="color: blue">$routeProvider</font> možete definisati šta strana
+da prikazuje kada korisnik klikne na link.
+<br />
 <b>Primer:</b>
-<br>
-Definišite <font style="color: blue;">$routeProvider</font>:
-<br>
+<br />
+Definišite <font style="color: blue">$routeProvider</font>:
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -151,18 +162,20 @@ app.config(function($routeProvider) {
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Definišite <font style="color: blue;">$routeProvider</font> koristeći config metodu vase aplikacije. Rad registrovan u config metodi obaviće se kada se aplikacija bude učitavala.
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Definišite <font style="color: blue">$routeProvider</font> koristeći config
+metodu vase aplikacije. Rad registrovan u config metodi obaviće se kada se
+aplikacija bude učitavala. <br /><br />
 <h2>Kontroleri</h2>
-<br><br>
-Sa <font style="color: blue;">$routeProvider</font> možete takođe definisati kontrolera za svaki "pogled".
-<br>
+<br /><br />
+Sa <font style="color: blue">$routeProvider</font> možete takođe definisati
+kontrolera za svaki "pogled".
+<br />
 <b>Primer:</b>
-<br>
+<br />
 Dodaj kontrolere:
-<br>
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -210,38 +223,46 @@ app.controller("parisCtrl", function ($scope) {
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-"london.htm" i "paris.htm"  su normalne HTML datoteke, koje možete dodati AngularJS izrazu kao što bi sa bilo kojoj drugoj HTML sekciji vaše aplikacije AngularJS.
-<br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+"london.htm" i "paris.htm" su normalne HTML datoteke, koje možete dodati
+AngularJS izrazu kao što bi sa bilo kojoj drugoj HTML sekciji vaše aplikacije
+AngularJS.
+<br />
 london.htm
-<br>
+<br />
 <xmp class="primer_ta">
 <h1>London</h1>
 <h3>London je glavni grad Engleske.</h3>
 <p>To je najnaseljeniji grad u Velikoj Britaniji, sa gradskim područjem ima više od 13 miliona stanovnika.</p>
 <p>{{msg}}</p>
 </xmp>
-<br>
+<br />
 paris.htm
-<br>
+<br />
 <xmp class="primer_ta">
 <h1>Paris</h1>
 <h3>Paris je glavni grad Francuske.</h3>
 <p>Područje Pariz je jedano od najvećih centara u Evropi, sa više od 12 miliona stanovnika.</p>
 <p>{{msg}}</p>
 </xmp>
-<br><br>
+<br /><br />
 <h2>Šablon</h2>
-<br><br>
-U prethodnim primerima smo koristili <font style="color: blue;">templateUrl</font> imovinu u <font style="color: blue;">$routeProvider.when</font> metodi.
-<br>
-Takodje možete koristiti <font style="color: blue;">template</font> imovinu, koja vam omogucava da napišete HTML direktno u vrednost imovine i ne odnosi se na stranicu. 
-<br>
+<br /><br />
+U prethodnim primerima smo koristili
+<font style="color: blue">templateUrl</font> imovinu u <font style="color: blue"
+  >$routeProvider.when</font
+>
+metodi.
+<br />
+Takodje možete koristiti <font style="color: blue">template</font> imovinu, koja
+vam omogucava da napišete HTML direktno u vrednost imovine i ne odnosi se na
+stranicu.
+<br />
 <b>Primer:</b>
-<br>
+<br />
 Napišite šablone:
-<br>
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -280,18 +301,20 @@ app.config(function($routeProvider) {
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 <h2>Otherwise metod</h2>
-<br><br>
-U prethodnim primerima smo koristili <font style="color: blue;">when</font> metod od <font style="color: blue;">$routeProvider.</font>
-<br>
-Takođe možete da koristite <font style="color: blue;">otherwise</font> metod, koji je podrazumevana ruta kada niko drugi ne dobije meč.
-<br>
+<br /><br />
+U prethodnim primerima smo koristili <font style="color: blue">when</font> metod
+od <font style="color: blue">$routeProvider.</font>
+<br />
+Takođe možete da koristite <font style="color: blue">otherwise</font> metod,
+koji je podrazumevana ruta kada niko drugi ne dobije meč.
+<br />
 <b>Primer:</b>
-<br>
+<br />
 Ako "banana" kao ni "Paradajz" link nije kliknut, pokazati da se zna:
-<br>
+<br />
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -330,9 +353,12 @@ app.config(function($routeProvider) {
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Probajte sami:
-<br>
-<div class = "zadatak">Napisati program koji prilikom klika na neki od linkova gradova prikazuje opis tog grada,prilikom čega je boja pozadine teksta za svaki grad različita.</div>
-<br><br>
+<br />
+<div class="zadatak">
+  Napisati program koji prilikom klika na neki od linkova gradova prikazuje opis
+  tog grada,prilikom čega je boja pozadine teksta za svaki grad različita.
+</div>
+<br /><br />

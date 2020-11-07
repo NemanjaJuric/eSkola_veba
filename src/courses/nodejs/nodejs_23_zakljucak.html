@@ -1,9 +1,11 @@
 ﻿<h1>Elektronski kurs NodeJS - Virtuelna biblioteka</h1>
 
-Na kraju, ostaje nam samo da objedinimo sve module u kompletnu aplikaciju. Kod aplikacije čuvaćemo u fajlu <span class="font-weight-bold">app.js</span>. 
+Na kraju, ostaje nam samo da objedinimo sve module u kompletnu aplikaciju. Kod
+aplikacije čuvaćemo u fajlu <span class="font-weight-bold">app.js</span>.
 Sadržaj fajla <span class="font-weight-bold">app.js</span> je sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 var http = require("http");
 var rut = require("./rutiranje");
 
@@ -16,28 +18,40 @@ http.createServer(function(req, res) {
 console.log("Server started");
 </xmp>
 
-Da bismo testirali aplikaciju potrebno je da prvo startujemo MySQL server. Zatim da pokrenemo konzolu, da se pozicioniramo u direktorijum gde se nalazi
-fajl <span class="font-weight-bold">app.js</span> i startujemo aplikaciju tako što u konzoli otkucamo komandu:
+Da bismo testirali aplikaciju potrebno je da prvo startujemo MySQL server. Zatim
+da pokrenemo konzolu, da se pozicioniramo u direktorijum gde se nalazi fajl
+<span class="font-weight-bold">app.js</span> i startujemo aplikaciju tako što u
+konzoli otkucamo komandu:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 node app.js
 </xmp>
 
-Nakon toga, možemo da proverimo da li aplikacija radi tako što u pregledaču pristupimo adresi <span class="font-weight-bold">127.0.0.1:8081/index</span>.
+Nakon toga, možemo da proverimo da li aplikacija radi tako što u pregledaču
+pristupimo adresi <span class="font-weight-bold">127.0.0.1:8081/index</span>.
 Nakon učitavanja, dobićemo prikaz kao sa sledeće slike:
 
- <img src="courses/nodejs/20_virtuelna_biblioteka/slika1.jpg" class="img-fluid img-md center">
- 
- Na kraju kursa, kod celokupne aplikacije Virtuelna Biblioteka možete preuzeti na sledećem <a href="courser/nodejs/23_zakljucak/virtBib.zip">linku</a>.
- 
- <h2>Umesto zaključka</h2>
- 
- NodeJS je moderan, brz i fleksibilan radni okvir za razvijanje veb aplikacija koje se izvršavaju na strani servera. Elektronski kurs NodeJS pokriva 
- osnovne pojmove i veštine koje treba da imate ukoliko želite da koristite NodeJS za razvoj aplikacija. Međutim, treba da imate na umu da se NodeJS retko
- kada koristi kao samostalni okvir, već se koristi zajedno sa još mnogo različitih radnih okvira za JavaScript. Uz pomoć tih okvira se značajno 
- olakšava programiranje i razvoj aplikacija. Najpopularniji okviri koji se koriste uz NodeJS su ExpressJS, Socket.io, Koa, Sails.js i drugi. 
- Pored raznih radnih okvira NodeJS ima i široku podršku za sve popularnije nerelacione baze podataka, poput MongoDB. Zatim, najpopularniji obrasci dizajna, 
- poput MVC, su gotovo direktno podržani kroz NodeJS i razne radne okvire koji su na njemu bazirani. Imajući sve ovo u vidu, NodeJS je odličan prvi korak
- u razvijanju skupa veština neophodnih za profesionalno bavljenje razvojem veb aplikacija. 
- 
- 
+<img
+  src="courses/nodejs/20_virtuelna_biblioteka/slika1.jpg"
+  class="img-fluid img-md center"
+/>
+
+Na kraju kursa, kod celokupne aplikacije Virtuelna Biblioteka možete preuzeti na
+sledećem <a href="courser/nodejs/23_zakljucak/virtBib.zip">linku</a>.
+
+<h2>Umesto zaključka</h2>
+
+NodeJS je moderan, brz i fleksibilan radni okvir za razvijanje veb aplikacija
+koje se izvršavaju na strani servera. Elektronski kurs NodeJS pokriva osnovne
+pojmove i veštine koje treba da imate ukoliko želite da koristite NodeJS za
+razvoj aplikacija. Međutim, treba da imate na umu da se NodeJS retko kada
+koristi kao samostalni okvir, već se koristi zajedno sa još mnogo različitih
+radnih okvira za JavaScript. Uz pomoć tih okvira se značajno olakšava
+programiranje i razvoj aplikacija. Najpopularniji okviri koji se koriste uz
+NodeJS su ExpressJS, Socket.io, Koa, Sails.js i drugi. Pored raznih radnih
+okvira NodeJS ima i široku podršku za sve popularnije nerelacione baze podataka,
+poput MongoDB. Zatim, najpopularniji obrasci dizajna, poput MVC, su gotovo
+direktno podržani kroz NodeJS i razne radne okvire koji su na njemu bazirani.
+Imajući sve ovo u vidu, NodeJS je odličan prvi korak u razvijanju skupa veština
+neophodnih za profesionalno bavljenje razvojem veb aplikacija.

@@ -1,19 +1,24 @@
 <h1>Stilizovanje elemenata forme</h1>
 <h2>Element <span class="primer_text">input</span></h2>
-Radno okruženje Bootstrap 4 podržava sve vrednosti atributa <span class="primer_text">type</span>
-elementa <span class="primer_text">&ltinput&gt</span>, dakle podržava
-<span class="primer_text">text</span>, <span class="primer_text">password</span>,
-<span class="primer_text">datetime</span>, <span class="primer_text">datatime-local</span>,
+Radno okruženje Bootstrap 4 podržava sve vrednosti atributa
+<span class="primer_text">type</span> elementa
+<span class="primer_text">&ltinput&gt</span>, dakle podržava
+<span class="primer_text">text</span>,
+<span class="primer_text">password</span>,
+<span class="primer_text">datetime</span>,
+<span class="primer_text">datatime-local</span>,
 <span class="primer_text">date</span>, <span class="primer_text">month</span>,
 <span class="primer_text">time</span>, <span class="primer_text">week</span>,
 <span class="primer_text">number</span>, <span class="primer_text">email</span>,
 <span class="primer_text">url</span>, <span class="primer_text">search</span>,
 <span class="primer_text">tel</span> i <span class="primer_text">color</span>.
- Svaki od ovih tipova se stilizuje dodavanjem klase <span class="primer_text">form-control</span>.
+Svaki od ovih tipova se stilizuje dodavanjem klase
+<span class="primer_text">form-control</span>.
 <h2>Element <span class="primer_text">textarea</span></h2>
 
-Element <span class="primer_text">&lttextarea&gt</span> se u radnom okruženju Bootstrap 4
-stilizuje dodavanjem klase <span class="primer_text">.form-control</span> na sledeći način:
+Element <span class="primer_text">&lttextarea&gt</span> se u radnom okruženju
+Bootstrap 4 stilizuje dodavanjem klase
+<span class="primer_text">.form-control</span> na sledeći način:
 <xmp class="primer_ta">
 <div class="form-group">
   <label for="napomena">Unesite napomenu:</label>
@@ -21,17 +26,29 @@ stilizuje dodavanjem klase <span class="primer_text">.form-control</span> na sle
 </div>
 </xmp>
 <h2>Element tipa <span class="primer_text">checkbox</span></h2>
-Elementi tipa <span class="primer_text">checkbox</span> omogućavaju korisniku da izabere više ponuđenih mogućnosti.
-U radnom okruženju Bootstrap 4, ovi elementi se stilizuju dodavanjem klase <span class="primer_text">.check-form</span>
-elementu <span class="primer_text">&ltdiv&gt</span> koji okružuje po jedan element tipa <span class="primer_text">checkbox</span>, zatim se svakoj <span class="primer_text">labeli</span>
-dodaje klasa <span class="primer_text">.form-check-label</span> i na kraju se svakom polju <span class="primer_text">&ltinput&gt</span> čija je vrednost
-atributa <span class="primer_text">type</span> jednaka <span class="primer_text">checkbox</span> dodaje klasa <span class="primer_text">.form-check-input</span>.
-Klasa <span class="primer_text">.check-form</span> zadaje svim elementima koji se nalaze unutar elementa
-sa ovom klasom odgovarajuće margine. Dok klase <span class="primer_text">.form-check-input</span> i
-<span class="primer_text">.form-check-label</span> stilizuju elemente unutar spoljašnje sekcije.
-<br>
-Ukoliko umesto klase <span class="primer_text">.form-check</span> spoljašnjem elementu <span class="primer_text">&ltdiv&gt</span> zadamo klasu
-<span class="primer_text">.form-check-inline</span> svi elementi tipa <span class="primer_text">checkbox</span> sa ovom klasom će biti poređani u jednu vrstu.
+Elementi tipa <span class="primer_text">checkbox</span> omogućavaju korisniku da
+izabere više ponuđenih mogućnosti. U radnom okruženju Bootstrap 4, ovi elementi
+se stilizuju dodavanjem klase
+<span class="primer_text">.check-form</span> elementu
+<span class="primer_text">&ltdiv&gt</span> koji okružuje po jedan element tipa
+<span class="primer_text">checkbox</span>, zatim se svakoj
+<span class="primer_text">labeli</span> dodaje klasa
+<span class="primer_text">.form-check-label</span> i na kraju se svakom polju
+<span class="primer_text">&ltinput&gt</span> čija je vrednost atributa
+<span class="primer_text">type</span> jednaka
+<span class="primer_text">checkbox</span> dodaje klasa
+<span class="primer_text">.form-check-input</span>. Klasa
+<span class="primer_text">.check-form</span> zadaje svim elementima koji se
+nalaze unutar elementa sa ovom klasom odgovarajuće margine. Dok klase
+<span class="primer_text">.form-check-input</span> i
+<span class="primer_text">.form-check-label</span> stilizuju elemente unutar
+spoljašnje sekcije.
+<br />
+Ukoliko umesto klase <span class="primer_text">.form-check</span> spoljašnjem
+elementu <span class="primer_text">&ltdiv&gt</span> zadamo klasu
+<span class="primer_text">.form-check-inline</span> svi elementi tipa
+<span class="primer_text">checkbox</span> sa ovom klasom će biti poređani u
+jednu vrstu.
 
 <xmp class="primer_ta">
   <div class="form-check">
@@ -48,11 +65,15 @@ Ukoliko umesto klase <span class="primer_text">.form-check</span> spoljašnjem e
 <h2>Element tipa <span class="primer_text">radio button</span></h2>
 Elementi ovog tipa se koriste kada korisniku treba ograničiti da može izabrati
 samo jedan ponuđeni odgovor. Iz ovog razloga, svakom elementu čija je vrednost
-atributa <span class="primer_text">type </span> jednaka <span class="primer_text">radio </span>, treba zadati atribut <span class="primer_text">name</span> sa istom
-vrednošću. Na ovaj način su svi elementi tipa <span class="primer_text">radio button</span> u istoj grupi,
-pa korisnik može da izabere samo jedan od njih.<br>
-Elementi <span class="primer_text">&ltinput&gt</span> čija je vrednost atributa <span class="primer_text">type</span> jednaka <span class="primer_text">radio</span>
-se stilizuju istim klasama koje su navedene u delu o elementu <span class="primer_text">checkbox</span>.
+atributa <span class="primer_text">type </span> jednaka
+<span class="primer_text">radio </span>, treba zadati atribut
+<span class="primer_text">name</span> sa istom vrednošću. Na ovaj način su svi
+elementi tipa <span class="primer_text">radio button</span> u istoj grupi, pa
+korisnik može da izabere samo jedan od njih.<br />
+Elementi <span class="primer_text">&ltinput&gt</span> čija je vrednost atributa
+<span class="primer_text">type</span> jednaka
+<span class="primer_text">radio</span> se stilizuju istim klasama koje su
+navedene u delu o elementu <span class="primer_text">checkbox</span>.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -81,11 +102,14 @@ se stilizuju istim klasama koje su navedene u delu o elementu <span class="prime
 </xmp>
 <button class="button_copy">Vidi primer</button>
 <h2>Padajuća lista</h2>
-Padajuća lista se formira dodavanjem elementa <span class="primer_text">&ltselect&gt</span>. U radnom okruženju
-Bootstrap 4, padajuća lista se stilizuje dodavanjem klase <span class="primer_text">.form-group</span> elementu
-<span class="primer_text">&ltdiv&gt</span> u okviru kog se nalaze element <span class="primer_text">&ltselect&gt</span>
-i odgovarajuća labela. Potom se elementu <span class="primer_text">&ltselect&gt</span> zadaje
-klasa <span class="primer_text">.form-control</span>.
+Padajuća lista se formira dodavanjem elementa
+<span class="primer_text">&ltselect&gt</span>. U radnom okruženju Bootstrap 4,
+padajuća lista se stilizuje dodavanjem klase
+<span class="primer_text">.form-group</span> elementu
+<span class="primer_text">&ltdiv&gt</span> u okviru kog se nalaze element
+<span class="primer_text">&ltselect&gt</span> i odgovarajuća labela. Potom se
+elementu <span class="primer_text">&ltselect&gt</span> zadaje klasa
+<span class="primer_text">.form-control</span>.
 <xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
@@ -112,24 +136,28 @@ klasa <span class="primer_text">.form-control</span>.
 </xmp>
 <button class="button_copy">Vidi primer</button>
 <h2>Veličina elemenata forme</h2>
-Elementima sa klasom <span class="primer_text">.form-control</span> moguće je dodati klase
-<span class="primer_text">.form-control-sm</span> ili <span class="primer_text">.form-control-lg</span>
+Elementima sa klasom <span class="primer_text">.form-control</span> moguće je
+dodati klase <span class="primer_text">.form-control-sm</span> ili
+<span class="primer_text">.form-control-lg</span>
 da bi element kome su dodate klase bio manji ili veći od standardne veličine.
-<img src="courses/bs4/smlg.png" class="img-fluid img-md">
+<img src="courses/bs4/smlg.png" class="img-fluid img-md" />
 <h2>Polja za prikaz opsega i dodavanje datoteka</h2>
 U ovom poglavlju biće spomenuta još dva tipa elementa
-<span class="primer_text">&ltinput&gt</span>: element <span class="primer_text">&ltinput&gt</span>
-čija je vrednost atributa <span class="primer_text">type</span>
-jednaka <span class="primer_text">range</span>, odnosno polje za prikaz opsega i
-element <span class="primer_text">&ltinput&gt</span>
-čija je vrednost atributa <span class="primer_text">type</span> jednaka <span class="primer_text">file</span>
-odnosno element za dodavanje datoteka.
-Da bi širina ovih elemenata bila 100% u odnosu na sekciju u kojoj se nalaze
-treba im dodati klase radnog okruženja Bootstrap 4 kao što je prikazano u narednom primeru.
+<span class="primer_text">&ltinput&gt</span>: element
+<span class="primer_text">&ltinput&gt</span> čija je vrednost atributa
+<span class="primer_text">type</span> jednaka
+<span class="primer_text">range</span>, odnosno polje za prikaz opsega i element
+<span class="primer_text">&ltinput&gt</span> čija je vrednost atributa
+<span class="primer_text">type</span> jednaka
+<span class="primer_text">file</span>
+odnosno element za dodavanje datoteka. Da bi širina ovih elemenata bila 100% u
+odnosu na sekciju u kojoj se nalaze treba im dodati klase radnog okruženja
+Bootstrap 4 kao što je prikazano u narednom primeru.
 <xmp class="primer_ta">
 <input type="range" class="form-control-range">
 <input type="file" class="form-control-file border">
 </xmp>
 <div class="zadatak">
-  <b>Zadatak:</b> Napraviti polje za prikaz opsega koji je veći od standardne veličine.
+  <b>Zadatak:</b> Napraviti polje za prikaz opsega koji je veći od standardne
+  veličine.
 </div>

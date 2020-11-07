@@ -1,6 +1,6 @@
 <h1>Vue i Objektni model dokumenta- dogadjaji</h1>
 Posmatrajmo sada sledeću aplikaciju:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +22,15 @@ Posmatrajmo sada sledeću aplikaciju:
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Želimo da se klikom na dugme broj na veb strani uvećava za jedan. U okviru dugmeta koristićemo novu direktivu v-on kojoj prosledjujemo dogadjaj(eng-event) click i sintaksa je v-on:click. Dalje je potrebno da prosledimo metodu koja će da se izvrši kada se klikne na dugme.Izraz v-on:click="uvecaj" znači da klikom na dugme(u okviru kojeg se nalazi ovaj izraz) poziva se metoda povecaj.
-Metodu povecaj ćemo definisati u okviru methods svojstva u Vue instanci.Metoda će uvećavati brojac za 1.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Želimo da se klikom na dugme broj na veb strani uvećava za jedan. U okviru
+dugmeta koristićemo novu direktivu v-on kojoj prosledjujemo dogadjaj(eng-event)
+click i sintaksa je v-on:click. Dalje je potrebno da prosledimo metodu koja će
+da se izvrši kada se klikne na dugme.Izraz v-on:click="uvecaj" znači da klikom
+na dugme(u okviru kojeg se nalazi ovaj izraz) poziva se metoda povecaj. Metodu
+povecaj ćemo definisati u okviru methods svojstva u Vue instanci.Metoda će
+uvećavati brojac za 1.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,10 +57,12 @@ Metodu povecaj ćemo definisati u okviru methods svojstva u Vue instanci.Metoda 
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
+<button class="button_copy">Vidi primer</button><br />
 
-Vratimo se sada na dogadjaje. Važna stvar u vezi sa  njima je ugradjeni event objekat kreiran od strane jezika JavaScript koji čuva odredjene informacije kao što su npr. koordinate klika na veb strani.
-<xmp class = "primer_ta">
+Vratimo se sada na dogadjaje. Važna stvar u vezi sa njima je ugradjeni event
+objekat kreiran od strane jezika JavaScript koji čuva odredjene informacije kao
+što su npr. koordinate klika na veb strani.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,10 +98,19 @@ Vratimo se sada na dogadjaje. Važna stvar u vezi sa  njima je ugradjeni event o
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Iskoristili smo ugradjenu direktivu v-on i prosledili smo joj dogadjaj mousemove koji osluškuje pomeraj miša.U našem konkretnom slučaju, na pomeraj miša bilo gde u oblasti paragrafa pozivaće se metoda koordinateParagrafa.Na kraju te koordinate ispisujemo u tom paragrafu koristeći string interpolaciju.Koordinate x i y smo dodali u okviru data svojstva i postavili im inicijalnu vrednost na 0.<br>Metoda koordinateParagrafa kao argument uzima event objekat i za vrednost polja x postavlja trenutnu vrednost x koordinate kursora miša . Analogno važi i za y.   <br>
-Vratimo se na uvećavanje brijača klikom na dugme. Šta ako želimo brojač da uvećamo za neki drugi broj i da li je moguće u okviru html koda proslediti vrednost za koju se uvećava? Kod će u tom slučaju izgledati ovako:
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Iskoristili smo ugradjenu direktivu v-on i prosledili smo joj dogadjaj mousemove
+koji osluškuje pomeraj miša.U našem konkretnom slučaju, na pomeraj miša bilo gde
+u oblasti paragrafa pozivaće se metoda koordinateParagrafa.Na kraju te
+koordinate ispisujemo u tom paragrafu koristeći string interpolaciju.Koordinate
+x i y smo dodali u okviru data svojstva i postavili im inicijalnu vrednost na
+0.<br />Metoda koordinateParagrafa kao argument uzima event objekat i za
+vrednost polja x postavlja trenutnu vrednost x koordinate kursora miša .
+Analogno važi i za y. <br />
+Vratimo se na uvećavanje brijača klikom na dugme. Šta ako želimo brojač da
+uvećamo za neki drugi broj i da li je moguće u okviru html koda proslediti
+vrednost za koju se uvećava? Kod će u tom slučaju izgledati ovako:
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -130,10 +146,12 @@ Vratimo se na uvećavanje brijača klikom na dugme. Šta ako želimo brojač da 
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Primećujemo da metodi uvecaj prosledjujemo argument korak i da smo u okviru html koda odnosno paragrafa u pozivu metode prosledili broj 2.
-Dogadjaje sa kojima smo radili su  click i mousemove. Takodje, možemo da radimo i sa dogadjajima koji se dešavaju klikom na tastaturu.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Primećujemo da metodi uvecaj prosledjujemo argument korak i da smo u okviru html
+koda odnosno paragrafa u pozivu metode prosledili broj 2. Dogadjaje sa kojima
+smo radili su click i mousemove. Takodje, možemo da radimo i sa dogadjajima koji
+se dešavaju klikom na tastaturu.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,11 +191,23 @@ Dogadjaje sa kojima smo radili su  click i mousemove. Takodje, možemo da radimo
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Dodali smo novo input polje u koje možemo da unosimo tekst i kada pritisnemo enter prikazaće nam se alert poruka "Zdravo".Unutar input etikete dodali smo v-on direktivu i prosledili joj dogadjaj keyup.Keyup dogadjaj reaguje u trenutku kada pustimo dugme tastature koje smo pritisli.Ako želimo da se odredjena funkcija izvrši klikom na space dovoljno je da napišemo v-on:keyup.space.Klikom na space izvršava se funkcija kaziZdravo čiju definiciju imamo u okviru methods svojstva u Vue instanci.
-<div class = "zadatak">Isprobati šta će se dogoditi ako napišemo samo v-on:keyup bez da specifikujemo da se dogadjaj desi kada eksplicitno kliknemo na space .</div>
-Isprobajmo sada još neke mogućnosti u vezi sa početnim primerom uvećanja broja klikom na dugme.Do sada se u html kodu nalazio samo rezultat nekog izračunavanja dok se logika izračunavanja odvijala unutar Vue instance. Moguće je i da se logika izračunavanja dešava i unutar html koda.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button><br />
+Dodali smo novo input polje u koje možemo da unosimo tekst i kada pritisnemo
+enter prikazaće nam se alert poruka "Zdravo".Unutar input etikete dodali smo
+v-on direktivu i prosledili joj dogadjaj keyup.Keyup dogadjaj reaguje u trenutku
+kada pustimo dugme tastature koje smo pritisli.Ako želimo da se odredjena
+funkcija izvrši klikom na space dovoljno je da napišemo v-on:keyup.space.Klikom
+na space izvršava se funkcija kaziZdravo čiju definiciju imamo u okviru methods
+svojstva u Vue instanci.
+<div class="zadatak">
+  Isprobati šta će se dogoditi ako napišemo samo v-on:keyup bez da specifikujemo
+  da se dogadjaj desi kada eksplicitno kliknemo na space .
+</div>
+Isprobajmo sada još neke mogućnosti u vezi sa početnim primerom uvećanja broja
+klikom na dugme.Do sada se u html kodu nalazio samo rezultat nekog izračunavanja
+dok se logika izračunavanja odvijala unutar Vue instance. Moguće je i da se
+logika izračunavanja dešava i unutar html koda.
+<xmp class="primer_ta">
 <!DOCTYPE html>
 <html>
 <head>
@@ -220,8 +250,11 @@ Isprobajmo sada još neke mogućnosti u vezi sa početnim primerom uvećanja bro
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button><br>
-Logiku uvećanja brojača za 1,nakon klika na novo dugme, smo sada preneli u html kod.Moguće je izvršavati i odredjena izračunavanja i unutar string interpolacije.
-<div class = "zadatak">Isprobati šta će se dogoditi ako u okviru string interpolacije  {{brojac}} zamenimo sa {{brojac*3}}</div>
-
-
+<button class="button_copy">Vidi primer</button><br />
+Logiku uvećanja brojača za 1,nakon klika na novo dugme, smo sada preneli u html
+kod.Moguće je izvršavati i odredjena izračunavanja i unutar string
+interpolacije.
+<div class="zadatak">
+  Isprobati šta će se dogoditi ako u okviru string interpolacije {{brojac}}
+  zamenimo sa {{brojac*3}}
+</div>

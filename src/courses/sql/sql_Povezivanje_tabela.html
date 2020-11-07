@@ -1,93 +1,113 @@
 <h1><b>Povezivanje tabela</b></h1>
-Podaci u nekoj bazi se skoro nikada ne nalaze u samo jednoj tabeli. Bazu podataka čini skup više tabela.
-Pored tabele <b>radnik</b>, za potrebe ovih lekcija kreirana je i tabela <b>sluzbeni_put</b>. Strukturu te tabele
-možete videti pomoću upita kojim je ona kreirana.
-<xmp class = "primer_ta" >
+Podaci u nekoj bazi se skoro nikada ne nalaze u samo jednoj tabeli. Bazu
+podataka čini skup više tabela. Pored tabele <b>radnik</b>, za potrebe ovih
+lekcija kreirana je i tabela <b>sluzbeni_put</b>. Strukturu te tabele možete
+videti pomoću upita kojim je ona kreirana.
+<xmp class="primer_ta"
+>
 CREATE TABLE sluzbeni_put (
 	id_puta INT NOT NULL AUTO_INCREMENT,
 	putnik INT NOT NULL,
 	datum DATE NULL,
 	PRIMARY KEY (`id_puta`));
 </xmp>
-Da biste se još bolje upoznali sa tabelom <b>sluzbeni_put</b> izlistajte njen sadržaj.
-<xmp class = "primer_ta" >
+Da biste se još bolje upoznali sa tabelom <b>sluzbeni_put</b> izlistajte njen
+sadržaj.
+<xmp class="primer_ta"
+>
 SELECT * FROM sluzbeni_put;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Primećujete da u koloni putnik pišu brojevi a ne imena putnika kako ste možda očekivali. Svaki od tih brojeva
-predstavlja id_radnika iz tabele <b>radnik</b> koji je išao na službeni put. <br>
-<br>
-Da bismo mogli da dobijemo imena radnika koji su išli na službeni put moramo da povežemo tabele <b>radnik</b> i
-<b>sluzbeni_put</b>. Povezivanje tabela se vrši pomoću ključne reči JOIN. Da bismo dobili smislene podatke, tabele
-moramo da povežemo po nekom kriterijumu. U nešem sličaju, kriterijum za povezivanje tabela je taj da se podatak
-u koloni putnik tabele <b>sluzbeni_put</b> poklapa sa podatkom u koloni id_radnika tabele <b>radnik</b>.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Primećujete da u koloni putnik pišu brojevi a ne imena putnika kako ste možda
+očekivali. Svaki od tih brojeva predstavlja id_radnika iz tabele
+<b>radnik</b> koji je išao na službeni put. <br />
+<br />
+Da bismo mogli da dobijemo imena radnika koji su išli na službeni put moramo da
+povežemo tabele <b>radnik</b> i <b>sluzbeni_put</b>. Povezivanje tabela se vrši
+pomoću ključne reči JOIN. Da bismo dobili smislene podatke, tabele moramo da
+povežemo po nekom kriterijumu. U nešem sličaju, kriterijum za povezivanje tabela
+je taj da se podatak u koloni putnik tabele <b>sluzbeni_put</b> poklapa sa
+podatkom u koloni id_radnika tabele <b>radnik</b>.
+<xmp class="primer_ta"
+>
 SELECT radnik.ime, radnik.prezime, sluzbeni_put.datum FROM radnik JOIN sluzbeni_put ON radnik.id_radnika = sluzbeni_put.putnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Analizirajmo ovaj upit.
-<br>
-<span class = "primer_text" >SELECT radnik.ime, radnik.prezime, sluzbeni_put.datum</span>:
-Do sada smo iza ključne reči SELECT navodili imena kolona koje hoćemo da ispišemo, ali
-u ovom upitu je prvo navedeno ime tabele, pa tačka i onda ime kolone. To je zato što dve ili više tabela mogu
-imati kolonu istog naziva, pa da bismo znali iz koje tabele hoćemo da čitamo podatke, prvo navodimo ime tabele,
+<br />
+<span class="primer_text"
+  >SELECT radnik.ime, radnik.prezime, sluzbeni_put.datum</span
+>: Do sada smo iza ključne reči SELECT navodili imena kolona koje hoćemo da
+ispišemo, ali u ovom upitu je prvo navedeno ime tabele, pa tačka i onda ime
+kolone. To je zato što dve ili više tabela mogu imati kolonu istog naziva, pa da
+bismo znali iz koje tabele hoćemo da čitamo podatke, prvo navodimo ime tabele,
 tačku, pa onda ime kolone.
-<br>
-<span class = "primer_text" >FROM radnik JOIN sluzbeni_put</span>: Ovde navodimo imena tabela iz kojih čitamo
-podatke i koje povezujemo. Ključna reč JOIN se piše između naziva tabela.
-<br>
-<span class = "primer_text" >ON radnik.id_radnika = sluzbeni_put.putnik</span>: Iza naziva tabela piše se
-ključna reč ON i iza nje se navodi uslov po kojem se povezuju tabele. Uslov naveden u ovom upitu povezuje
-red iz tabele <b>radnik</b> sa redom iz tabele <b>sluzbeni_put</b>, ako je podatak u koloni id_radnika tabele
-<b>radnik</b> jednak podatku u koloni putnik tabele <b>sluzbeni_put</b>.
+<br />
+<span class="primer_text">FROM radnik JOIN sluzbeni_put</span>: Ovde navodimo
+imena tabela iz kojih čitamo podatke i koje povezujemo. Ključna reč JOIN se piše
+između naziva tabela.
+<br />
+<span class="primer_text">ON radnik.id_radnika = sluzbeni_put.putnik</span>: Iza
+naziva tabela piše se ključna reč ON i iza nje se navodi uslov po kojem se
+povezuju tabele. Uslov naveden u ovom upitu povezuje red iz tabele
+<b>radnik</b> sa redom iz tabele <b>sluzbeni_put</b>, ako je podatak u koloni
+id_radnika tabele <b>radnik</b> jednak podatku u koloni putnik tabele
+<b>sluzbeni_put</b>.
 <div class="napomena">
-	Prilikom pisanja prethodnog upita, nije bilo potrebe da pored imena kolone pišemo i naziv tabele, jer
-	tabele <b>radnik</b> i <b>sluzbeni_put</b> nemaju kolonu sa istim imenom. Ali, mi ćemo, zbog preglednosti i
-	uniformnosti u svim upitima koje budemo navodili pisati i ime tabele i ime kolone.
+  Prilikom pisanja prethodnog upita, nije bilo potrebe da pored imena kolone
+  pišemo i naziv tabele, jer tabele <b>radnik</b> i <b>sluzbeni_put</b> nemaju
+  kolonu sa istim imenom. Ali, mi ćemo, zbog preglednosti i uniformnosti u svim
+  upitima koje budemo navodili pisati i ime tabele i ime kolone.
 </div>
-Pre nego što počnemo sa pisanjem malo složenijih upita, spomenimo još jedan detalj. U nekoj od prethodnih
-lekcija, spomenuli smo naredbu AS. Kao što smo tada zadavali alijas imena kolonama, isto možemo zadati
-alijas ime nekoj tabeli. U sledećem primeru je dat isti upit kao iz prethodnog primera, samo što je sada
+Pre nego što počnemo sa pisanjem malo složenijih upita, spomenimo još jedan
+detalj. U nekoj od prethodnih lekcija, spomenuli smo naredbu AS. Kao što smo
+tada zadavali alijas imena kolonama, isto možemo zadati alijas ime nekoj tabeli.
+U sledećem primeru je dat isti upit kao iz prethodnog primera, samo što je sada
 upotrebljeno davanje alijasa tabelama.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT r.ime, r.prezime, s.datum FROM radnik AS r JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Zadavanje alijasa tabelama je korisno jer skraćuje zapis upita.
-<br><br>
+<br /><br />
 Izlistajmo sada sve podatke o putnicima koji su išli na službeni put.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT radnik.* FROM radnik JOIN sluzbeni_put ON radnik.id_radnika = sluzbeni_put.putnik;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
-Vidite da su na službeni put išli smao vozači i šefovi prodavnica. Hajde sada da pronađemo samo kada su vozači iz
-Beograda išli na službeni put i hronološki ih poređamo.
-<xmp class = "primer_ta" >
+<button class="button_copy">Vidi primer</button>
+<br />
+Vidite da su na službeni put išli smao vozači i šefovi prodavnica. Hajde sada da
+pronađemo samo kada su vozači iz Beograda išli na službeni put i hronološki ih
+poređamo.
+<xmp class="primer_ta"
+>
 SELECT r.ime, r.prezime, r.radno_mesto, r.polozaj, s.datum FROM radnik AS r JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik WHERE r.radno_mesto = 'Beograd' AND r.polozaj = 'vozac' ORDER BY s.datum;
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 Prokomentarišimo malo ovaj upit.
-<br>
-Potrebni su nam podaci iz kolona ime, prezime, radno_mesto i polozaj iz tabele <b>radnik</b> i podatak iz kolone datum
-iz tabele <b>sluzbeni_put</b>. Radi skraćenja zapisa upita, tabeli <b>radnik</b> smo dodelili alijas <b>r</b>,
-a tabeli <b>sluzbeni_put</b> alijas <b>s</b>. Kriterijum za povezivanje tabela je isti kao i u prethodnim
-primerima. Pošto je traženo da pronađemo samo vozače iz Beograde, te uslove smo u upit dodali pomoću WHERE. Na
-kraju smo pomoću ORDER BY obezbedili da se podaci sortiraju po koloni datum iz tabele <b>sluzbeni_put</b>.
-<br><br>
+<br />
+Potrebni su nam podaci iz kolona ime, prezime, radno_mesto i polozaj iz tabele
+<b>radnik</b> i podatak iz kolone datum iz tabele <b>sluzbeni_put</b>. Radi
+skraćenja zapisa upita, tabeli <b>radnik</b> smo dodelili alijas <b>r</b>, a
+tabeli <b>sluzbeni_put</b> alijas <b>s</b>. Kriterijum za povezivanje tabela je
+isti kao i u prethodnim primerima. Pošto je traženo da pronađemo samo vozače iz
+Beograde, te uslove smo u upit dodali pomoću WHERE. Na kraju smo pomoću ORDER BY
+obezbedili da se podaci sortiraju po koloni datum iz tabele <b>sluzbeni_put</b>.
+<br /><br />
 Narednim upitom dobijamo broj službenih putovanja radnika iz Niša i Novog Sada.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 SELECT COUNT(s.putnik) FROM radnik AS r JOIN sluzbeni_put AS s ON r.id_radnika = s.putnik WHERE r.radno_mesto IN ('Nis', 'Novi Sad');
 </xmp>
-<button class = "button_copy" >Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <div class="zadatak">
-	Jednim upitom odrediti koliko je bilo službenih putovanja iz svakog grada.
+  Jednim upitom odrediti koliko je bilo službenih putovanja iz svakog grada.
 </div>
-<div class="zadatak">
-	Odrediti sva službena putovanja u 2017. godini.
-</div>
+<div class="zadatak">Odrediti sva službena putovanja u 2017. godini.</div>

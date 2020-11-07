@@ -1,63 +1,92 @@
 <h1>Asinhroni servisi podataka u radnom okviru Angular 4</h1>
-<iframe src="https://embed.plnkr.co/Mh5KRJkteYaJ07tccXcR/" frameborder="0" width="100%" height="500px"></iframe>
+<iframe
+  src="https://embed.plnkr.co/Mh5KRJkteYaJ07tccXcR/"
+  frameborder="0"
+  width="100%"
+  height="500px"
+></iframe>
 
-Povezivanje na servise podataka ili API (eng. Application Programming Interface) 
-i rukovanje asinhronim informacijama je uobičajeni svakodnevi zadatak programera. <br><br>
-Angular obezbeđuje nenadmašan skup alata za korišćenje, obrađivanje i transformaciju podataka preuzetih iz servisa podataka.
-<br><br>
-Opšti pojam <b>API</b> (eng. Application Programming Interface ) u računarstvu se može definisati 
-kao opis metoda, funkcija ili rutina za interakciju sa nekom softverskom komponentom ili sistemom.
-U kontekstu veb programiranja API se najcešće definiše kao skup HTTP (engl. HyperText Transfer Protocol) zahteva, uz 
-definiciju strukture odgovora, koji su najcešće u XML (eng. Extensible Markup Language ) ili JSON (eng. JavaScript Object Notation ) formatu.
-<br><br>
-<b>HyperText Transfer Protokol (skr. HTTP)</b> je osnovni protokol za distribuciju sadržaja na Web-u. <br>
-Osnovna funkcionalnost ovog protokola je prenos zahteva za HTML dokumentima (od strane klijenta ka serveru) i 
-prenos sadržaja HTML dokumenata (od strane servera ka klijentu). <br>
-HTTP je protokol aplikativnog nivoa. Podrazumevani transportni protokol je TCP a port 80.
-<br><br>
-U ovoj lekciji biće obrađeno kako se pravi HTTP zahtev u angular aplikaciji. 
-<br><br>
-U uvodu u radni okvir Angular je spomenuto da kada se pravi aplikacija pomoću radnog okvira Angular, 
-da se u stvari pravi jednostrana aplikacija u kojoj se ne učitava stranica iznova na svaki zahtev.
-<br>
-Ne mora se dosezati do servera svaki trenutak za, na primer, skladištenje podataka u bazu.<br>
-Radni okvir Angular sam ne može pristupiti bazi, pa je potrebno konektovati se na neki server koji vraća podatke ako su potrebni.
-<br>
-Ako je, na primer, potrebna lista korisnika registrovanih u bazi ili 
-ako se rade neka izračunavanja koja ne mogu biti izvršena u Angular aplikaciji na stranici, već na serveru umesto toga.
-<br><br>
-Potrebno je poslati zahtev serveru, a odgovor se šalje istoj stranici Angular aplikacije bez restartovanja cele aplikacije. <br>
-Ovaj zahtev se salje pomocu Ajax-a. <br/>
-<b>AJAX</b> (eng. Asynchronous JavaScript+XML) je
-tehnika koja je usmerena na generisanje dodatnih HTTP zahteva u cilju hvatanja podataka
-bez eksplicitnog osvežavanja strane.
-<br>
-Http zahtev se šalje u pozadini, kroz <span class="primer_text">xmlHttpRequest</span> objekat koji pruža programski jezik JavaScript. <br>
-Zahvaljujući njemu,  nije potrebno pisati celu logiku za slanje zahteva. <br>
-Umesto toga, radni okvir Angular otpremljuje pogodan servis koji se može koristiti. <br>
-<br>
-Da bi bilo demonstrirano kako HTTP radi, kreirana je osnovna aplikacija koja će biti 
-korišćena za što bolje razumevanje asinhronih servisa podataka u radnom okviru Angular.
-<br>
-Aplikacija jednostavno prikazuje listu računa i ima mogućnost dodavanja novog računa u listu.
-<br><br>
-Generisana je lista računa. Klikom na dugme "Dodaj" dodaje se novi račun. Ponovnim učitavanjem aplikacije, dodat račun nestaje. 
-Ovo je ponašanje aplikacije koje nije poželjno. <br>
-Umesto toga, bilo bi lepo kad bi moglo skladištiti listu računa u pozadini aplikacije i preuzimati je odatle. <br>
-U ovoj lekciji biće korišćen "Firebase", servis kompanije "Google" kao pozadinski deo aplikacije.<br>
-Naravno, moguće je ispisati ceo pozadinski deo i konektovati se na identičan način kao na "firebase", tj.
-logika kako se konektovati na pozadinski deo aplikacije iz perspektive radnog okvira Angular će uvek biti ista. <br>
-<br>
-Firebase će biti korišćen jer nisu potrebne velike izmene u njemu. <br>
-Potrebno je registrovati se i kliknuti na dugme "Go to Console" gde će biti prikazani svi "firebase" projekti. <br>
-Sledeće što treba uraditi je kliknuti na dugme "Create new project". <br>
-<div class = "napomena">
-<b>Napomena:</b>Dajte ime projektu koje god želite, na primer "angular-http", a onda izabrati ime države, u našem slučaju "Serbia".
+Povezivanje na servise podataka ili API (eng. Application Programming Interface)
+i rukovanje asinhronim informacijama je uobičajeni svakodnevi zadatak
+programera. <br /><br />
+Angular obezbeđuje nenadmašan skup alata za korišćenje, obrađivanje i
+transformaciju podataka preuzetih iz servisa podataka.
+<br /><br />
+Opšti pojam <b>API</b> (eng. Application Programming Interface ) u računarstvu
+se može definisati kao opis metoda, funkcija ili rutina za interakciju sa nekom
+softverskom komponentom ili sistemom. U kontekstu veb programiranja API se
+najcešće definiše kao skup HTTP (engl. HyperText Transfer Protocol) zahteva, uz
+definiciju strukture odgovora, koji su najcešće u XML (eng. Extensible Markup
+Language ) ili JSON (eng. JavaScript Object Notation ) formatu. <br /><br />
+<b>HyperText Transfer Protokol (skr. HTTP)</b> je osnovni protokol za
+distribuciju sadržaja na Web-u. <br />
+Osnovna funkcionalnost ovog protokola je prenos zahteva za HTML dokumentima (od
+strane klijenta ka serveru) i prenos sadržaja HTML dokumenata (od strane servera
+ka klijentu). <br />
+HTTP je protokol aplikativnog nivoa. Podrazumevani transportni protokol je TCP a
+port 80.
+<br /><br />
+U ovoj lekciji biće obrađeno kako se pravi HTTP zahtev u angular aplikaciji.
+<br /><br />
+U uvodu u radni okvir Angular je spomenuto da kada se pravi aplikacija pomoću
+radnog okvira Angular, da se u stvari pravi jednostrana aplikacija u kojoj se ne
+učitava stranica iznova na svaki zahtev.
+<br />
+Ne mora se dosezati do servera svaki trenutak za, na primer, skladištenje
+podataka u bazu.<br />
+Radni okvir Angular sam ne može pristupiti bazi, pa je potrebno konektovati se
+na neki server koji vraća podatke ako su potrebni.
+<br />
+Ako je, na primer, potrebna lista korisnika registrovanih u bazi ili ako se rade
+neka izračunavanja koja ne mogu biti izvršena u Angular aplikaciji na stranici,
+već na serveru umesto toga.
+<br /><br />
+Potrebno je poslati zahtev serveru, a odgovor se šalje istoj stranici Angular
+aplikacije bez restartovanja cele aplikacije. <br />
+Ovaj zahtev se salje pomocu Ajax-a. <br />
+<b>AJAX</b> (eng. Asynchronous JavaScript+XML) je tehnika koja je usmerena na
+generisanje dodatnih HTTP zahteva u cilju hvatanja podataka bez eksplicitnog
+osvežavanja strane.
+<br />
+Http zahtev se šalje u pozadini, kroz
+<span class="primer_text">xmlHttpRequest</span> objekat koji pruža programski
+jezik JavaScript. <br />
+Zahvaljujući njemu, nije potrebno pisati celu logiku za slanje zahteva. <br />
+Umesto toga, radni okvir Angular otpremljuje pogodan servis koji se može
+koristiti. <br />
+<br />
+Da bi bilo demonstrirano kako HTTP radi, kreirana je osnovna aplikacija koja će
+biti korišćena za što bolje razumevanje asinhronih servisa podataka u radnom
+okviru Angular.
+<br />
+Aplikacija jednostavno prikazuje listu računa i ima mogućnost dodavanja novog
+računa u listu.
+<br /><br />
+Generisana je lista računa. Klikom na dugme "Dodaj" dodaje se novi račun.
+Ponovnim učitavanjem aplikacije, dodat račun nestaje. Ovo je ponašanje
+aplikacije koje nije poželjno. <br />
+Umesto toga, bilo bi lepo kad bi moglo skladištiti listu računa u pozadini
+aplikacije i preuzimati je odatle. <br />
+U ovoj lekciji biće korišćen "Firebase", servis kompanije "Google" kao
+pozadinski deo aplikacije.<br />
+Naravno, moguće je ispisati ceo pozadinski deo i konektovati se na identičan
+način kao na "firebase", tj. logika kako se konektovati na pozadinski deo
+aplikacije iz perspektive radnog okvira Angular će uvek biti ista. <br />
+<br />
+Firebase će biti korišćen jer nisu potrebne velike izmene u njemu. <br />
+Potrebno je registrovati se i kliknuti na dugme "Go to Console" gde će biti
+prikazani svi "firebase" projekti. <br />
+Sledeće što treba uraditi je kliknuti na dugme "Create new project". <br />
+<div class="napomena">
+  <b>Napomena:</b>Dajte ime projektu koje god želite, na primer "angular-http",
+  a onda izabrati ime države, u našem slučaju "Serbia".
 </div>
-Kliknuti na dugme "Create project" i tada će se generisati novi projekat. <br>
-Za potrebe ove lekcije treba kliknuti na "Database" koja je, u stvari, baza na koju je potrebno konektovati se pomoću radnog okvira Angular.<br>
-Treba otići na "Rules" karticu i promeniti podešavanje 
-<xmp class = "primer_ta">
+Kliknuti na dugme "Create project" i tada će se generisati novi projekat. <br />
+Za potrebe ove lekcije treba kliknuti na "Database" koja je, u stvari, baza na
+koju je potrebno konektovati se pomoću radnog okvira Angular.<br />
+Treba otići na "Rules" karticu i promeniti podešavanje
+<xmp class="primer_ta"
+>
 {
  "rules" : {
 	".read": "true",
@@ -65,23 +94,31 @@ Treba otići na "Rules" karticu i promeniti podešavanje
  }
 }
 </xmp>
-U svakom drugom slučaju bi pristup bio odbijen i ne bi bilo moguće čitati iz baze i upisivati nove podatke u bazu.<br>
-Sada je omogućeno slanje zahteva firebase servisu i automatski pristupiti bazi. Podaci će biti skladšteni ili preuzeti iz baze.<br>
-Poslednji korak je iskopirati URL adresu i vratiti se na Angular aplikaciju.<br>
-
-
+U svakom drugom slučaju bi pristup bio odbijen i ne bi bilo moguće čitati iz
+baze i upisivati nove podatke u bazu.<br />
+Sada je omogućeno slanje zahteva firebase servisu i automatski pristupiti bazi.
+Podaci će biti skladšteni ili preuzeti iz baze.<br />
+Poslednji korak je iskopirati URL adresu i vratiti se na Angular aplikaciju.<br />
 
 <h2>Slanje zahteva (primer: PUT zahtev)</h2>
-Za pristupanje pozadini aplikacije, treba napraviti skladište za metode <span class="primer_text">sacuvajPodatke()</span> i <span class="primer_text">preuzmiPodatke()</span> 
-koje će biti veza između aplikacije i baze. Potrebno je nekoliko dokumenata gde treba implementirati te metode.<br>
-Na primer, u <span class="primer_text">RacuniServis</span> dokumentu gde je već skladištena lista servera.
-Odatle treba poslati PUT zahtev ka firebase servisu. 
-<br>
-Prvo, u <span class="primer_text">RacuniServis</span> servisu treba injektirati http servis.<br>
-Klasa <span class="primer_text">Http</span> obezbeđuje moćan API koji apstrahuje sve operacije potrebne za rukovanje asinhronim konekcijama 
-kroz različite HTTP metode rukovanjem odgovorima na lak i odgovarajući način.<br>
-Uvesti <span class="primer_text">Injectable()</span> iz biblioteke <span class="primer_text">@angular/core</span> kako bi bilo moguće injektirati servis u servis.
-<xmp class = "primer_ta">
+Za pristupanje pozadini aplikacije, treba napraviti skladište za metode
+<span class="primer_text">sacuvajPodatke()</span> i
+<span class="primer_text">preuzmiPodatke()</span> koje će biti veza između
+aplikacije i baze. Potrebno je nekoliko dokumenata gde treba implementirati te
+metode.<br />
+Na primer, u <span class="primer_text">RacuniServis</span> dokumentu gde je već
+skladištena lista servera. Odatle treba poslati PUT zahtev ka firebase servisu.
+<br />
+Prvo, u <span class="primer_text">RacuniServis</span> servisu treba injektirati
+http servis.<br />
+Klasa <span class="primer_text">Http</span> obezbeđuje moćan API koji apstrahuje
+sve operacije potrebne za rukovanje asinhronim konekcijama kroz različite HTTP
+metode rukovanjem odgovorima na lak i odgovarajući način.<br />
+Uvesti <span class="primer_text">Injectable()</span> iz biblioteke
+<span class="primer_text">@angular/core</span> kako bi bilo moguće injektirati
+servis u servis.
+<xmp class="primer_ta"
+>
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
@@ -96,32 +133,44 @@ export class RacuniServis {
 	
 }
 </xmp>
-<div class = "napomena">
-<b>Napomena:</b>Treba biti siguran da je servis <span class="primer_text">RacuniServis</span> uveden u datoteci 'app.module.ts', kao i <span class="primer_text">HttpModule</span> iz biblioteke <span class="primer_text">@angular/http</span>.
+<div class="napomena">
+  <b>Napomena:</b>Treba biti siguran da je servis
+  <span class="primer_text">RacuniServis</span> uveden u datoteci
+  'app.module.ts', kao i <span class="primer_text">HttpModule</span> iz
+  biblioteke <span class="primer_text">@angular/http</span>.
 </div>
 Sada je moguće implementirati metodu sacuvajPodatke()
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 sacuvajPodatke(){
 	this.http.put('https://angular-http.firebaseio.com/racuni.json', racuni);
 }
 </xmp>
-PUT zahtev se koristi kada je potrebno pregaziti sve podatke u bazi. <br>
-Prvi argument je URL adresa koja je iskopirana iz firebase servisa. 
-Naravno, na kraju treba dodati ime dokumenta koji ima JSON ekstenziju (u svakom drugom slučaju bila bi greška). <br>
-Drugi argument je ono što je potrebno sačuvati u bazu pomoću PUT zahteva koji će automatski formatirati JSON dokument. <br>
-Sada treba otvoriti dokument komponente u kojoj treba da se pozove ova metoda i napraviti dugme takvo da klikom na njega se učitavaju podaci u bazu
-<xmp class = "primer_ta">
+PUT zahtev se koristi kada je potrebno pregaziti sve podatke u bazi. <br />
+Prvi argument je URL adresa koja je iskopirana iz firebase servisa. Naravno, na
+kraju treba dodati ime dokumenta koji ima JSON ekstenziju (u svakom drugom
+slučaju bila bi greška). <br />
+Drugi argument je ono što je potrebno sačuvati u bazu pomoću PUT zahteva koji će
+automatski formatirati JSON dokument. <br />
+Sada treba otvoriti dokument komponente u kojoj treba da se pozove ova metoda i
+napraviti dugme takvo da klikom na njega se učitavaju podaci u bazu
+<xmp class="primer_ta">
 <button type="button" (click)="sacuvaj()">Sačuvaj</button>
 </xmp>
-Sada treba implementirati u komponenti metodu koja će pozivati metodu iz servisa. <br>
-<div class = "napomena">
-<b>Napomena:</b>Potrebno je u datoteci "app.module.ts" dodati servis u niz providers ako niste već dodali kao i uvesti u dokument taj servis.
-<xmp class = "primer_ta">
+Sada treba implementirati u komponenti metodu koja će pozivati metodu iz
+servisa. <br />
+<div class="napomena">
+  <b>Napomena:</b>Potrebno je u datoteci "app.module.ts" dodati servis u niz
+  providers ako niste već dodali kao i uvesti u dokument taj servis.
+  <xmp class="primer_ta"
+>
 providers: [ RacuniServis ]
-</xmp>
+</xmp
+  >
 </div>
 U poslednjem koraku treba injektirati u komponentu napravljen servis
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 import { Component } from '@angular/core';
 import { RacuniServis } from 'putanja-do-datoteke/racuni.servis';
 
@@ -138,43 +187,59 @@ export class RacunKomponenta{
 	}
 }
 </xmp>
-Ovo neće dati, niti sačuvati podatke. Metoda koja je implementirana u servisu <span class="primer_text">RacuniServis</span> vraća objekat <span class="primer_text">Observable</span>.<br>
-<span class="primer_text">Observable</span> objekat je, u suštini, emiter asinhronih događaja, koji informiše drugi objekat, koji se zove <span class="primer_text">Observer</span>, da je došlo do promene stanja.
+Ovo neće dati, niti sačuvati podatke. Metoda koja je implementirana u servisu
+<span class="primer_text">RacuniServis</span> vraća objekat
+<span class="primer_text">Observable</span>.<br />
+<span class="primer_text">Observable</span> objekat je, u suštini, emiter
+asinhronih događaja, koji informiše drugi objekat, koji se zove
+<span class="primer_text">Observer</span>, da je došlo do promene stanja.
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 sacuvajPodatke(){
 	return this.http.put('https://angular-http.firebaseio.com/racuni.json', racuni);
 }
 </xmp>
-Sada kada je vraćen objekat, treba pomoću ugrađene funkcije <span class="primer_text">subscribe</span> u komponenti izvršiti vraćen objekat.
-<xmp class = "primer_ta">
+Sada kada je vraćen objekat, treba pomoću ugrađene funkcije
+<span class="primer_text">subscribe</span> u komponenti izvršiti vraćen objekat.
+<xmp class="primer_ta"
+>
 sacuvaj(){
 		this.racuniServis.sacuvajPodatke().subscribe( (odgovor: Response) => { console.log('Ucitani su podaci u bazu!') } );
 }
 </xmp>
-<div class = "napomena">
-<b>Napomena:</b>Objekat <span class="primer_text">Response</span> treba uvesti iz biblioteke <span class="primer_text">@angular/http</span>.
+<div class="napomena">
+  <b>Napomena:</b>Objekat <span class="primer_text">Response</span> treba uvesti
+  iz biblioteke <span class="primer_text">@angular/http</span>.
 </div>
-Klikom na dugme "Sačuvaj" trebalo bi se učitati podaci u bazu što je moguće proveriti u servisu "firebase".
+Klikom na dugme "Sačuvaj" trebalo bi se učitati podaci u bazu što je moguće
+proveriti u servisu "firebase".
 
-
-<h2>Slanje zahteva(primer: GET zahtev) </h2>
-U prethodnom delu lekcije obrađeno je kako se šalje zahtev za čuvanje podataka u bazu. 
-U ovom delu će biti obrađeno kako se šalje zahtev za preuzimanje podataka iz baze. <br>
-U <span class="primer_text">RacuniServis</span> servisu napraviti metodu <span class="primer_text">preuzmiPodatke()</span>.<br>
-Naravno, opet će biti korišćen http servis radnog okvira Angular i treba poslati GET zahtev pošto se očekuju podaci iz baze. 
-<xmp class = "primer_ta">
+<h2>Slanje zahteva(primer: GET zahtev)</h2>
+U prethodnom delu lekcije obrađeno je kako se šalje zahtev za čuvanje podataka u
+bazu. U ovom delu će biti obrađeno kako se šalje zahtev za preuzimanje podataka
+iz baze. <br />
+U <span class="primer_text">RacuniServis</span> servisu napraviti metodu
+<span class="primer_text">preuzmiPodatke()</span>.<br />
+Naravno, opet će biti korišćen http servis radnog okvira Angular i treba poslati
+GET zahtev pošto se očekuju podaci iz baze.
+<xmp class="primer_ta"
+>
 preuzmiPodatke(){
 	this.http.get('https://angular-http.firebaseio.com/racuni.json');
 }
 </xmp>
 
-URL adresa je ista kao i u PUT zahtevu, ukazujući na dokument na serveru i 
-to je jedini argument koji je potreban da bi bilo moguće dobiti podatke sa servera.
-Treba preuzeti iz baze listu racuna i zameniti ih sa postojećim u aplikaciji. <br>
-Kao i u PUT zahtevu pomoću ugrađene funkcije <span class="primer_text">subscribe</span> treba izvršiti vraćen objekat.
-Moguće je izvršiti vraćen objekat direktno u servisu <span class="primer_text">RacuniServis</span> na sledeći način
-<xmp class = "primer_ta">
+URL adresa je ista kao i u PUT zahtevu, ukazujući na dokument na serveru i to je
+jedini argument koji je potreban da bi bilo moguće dobiti podatke sa servera.
+Treba preuzeti iz baze listu racuna i zameniti ih sa postojećim u aplikaciji.
+<br />
+Kao i u PUT zahtevu pomoću ugrađene funkcije
+<span class="primer_text">subscribe</span> treba izvršiti vraćen objekat. Moguće
+je izvršiti vraćen objekat direktno u servisu
+<span class="primer_text">RacuniServis</span> na sledeći način
+<xmp class="primer_ta"
+>
 preuzmiPodatke(){
 	this.http.get('https://angular-http.firebaseio.com/racuni.json')
 			.subscribe( 
@@ -185,21 +250,29 @@ preuzmiPodatke(){
 }
 </xmp>
 Naravno treba od nekud pozvati tu metodu.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <button type="button" (click)="preuzmi()">Preuzmi</button>
 </xmp>
 U TypeScript dokumentu kreirati metod koji će pozivati metodu iz servisa.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 preuzmi(){
 	this.racuniServis.preuzmiPodatke();
 }
 </xmp>
-<div class = "napomena">
-<b>Napomena:</b>Ovde nije potrebno koristiti funkciju <span class="primer_text">subscribe</span>, pošto je već korišćena u servisu <span class="primer_text">RacuniServis</span>.
+<div class="napomena">
+  <b>Napomena:</b>Ovde nije potrebno koristiti funkciju
+  <span class="primer_text">subscribe</span>, pošto je već korišćena u servisu
+  <span class="primer_text">RacuniServis</span>.
 </div>
-Ako se izbriše neki od parametara u nekom od računa, kada je potrebno učitati podatke iz baze može se pojaviti potencijalna greska.<br>
-Za izbegavanje potencijalnih grešaka u aplikaciji treba koristiti <span class="primer_text">map</span> funkciju objekta <span class="primer_text">Observable</span>. Nju treba uvesti iz biblioteke <span class="primer_text">rxjs/Rx</span>.
-<xmp class = "primer_ta">
+Ako se izbriše neki od parametara u nekom od računa, kada je potrebno učitati
+podatke iz baze može se pojaviti potencijalna greska.<br />
+Za izbegavanje potencijalnih grešaka u aplikaciji treba koristiti
+<span class="primer_text">map</span> funkciju objekta
+<span class="primer_text">Observable</span>. Nju treba uvesti iz biblioteke
+<span class="primer_text">rxjs/Rx</span>.
+<xmp class="primer_ta"
+>
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
@@ -237,10 +310,13 @@ export class RacuniServis {
 }
 </xmp>
 
-<div class = "zadatak">
-<b>Zadatak:</b>Napraviti "firebase" projekat u kom će biti skladišteni podaci o letovima. 
-Takođe, napraviti servis u kom će biti implementirane metode sacuvajLetove() i ucitajLetove() za čuvanje letova u bazu i učitavanje podataka iz baze.<br>
-Dodati u komponenti UpravljanjeListomLetovaKomponenta dugme "Sačuvaj" takvo da klikom na njega se učitavaju podaci u bazu.<br>
-Učitati letove iz baze u listi letova u servisu LetoviServis.<br>
-Omogućiti pretragu letova u komponenti PretragaLetovaKomponenta.
+<div class="zadatak">
+  <b>Zadatak:</b>Napraviti "firebase" projekat u kom će biti skladišteni podaci
+  o letovima. Takođe, napraviti servis u kom će biti implementirane metode
+  sacuvajLetove() i ucitajLetove() za čuvanje letova u bazu i učitavanje
+  podataka iz baze.<br />
+  Dodati u komponenti UpravljanjeListomLetovaKomponenta dugme "Sačuvaj" takvo da
+  klikom na njega se učitavaju podaci u bazu.<br />
+  Učitati letove iz baze u listi letova u servisu LetoviServis.<br />
+  Omogućiti pretragu letova u komponenti PretragaLetovaKomponenta.
 </div>

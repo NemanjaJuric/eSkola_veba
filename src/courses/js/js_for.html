@@ -1,67 +1,79 @@
-<h1> <b> FOR </b> </h1>
-<br>
-<br>
-For petlja se koristi kada želimo da se blok naredbi ponovi određeni broj puta, a ne u zavisnosti od ispunjenosti uslova kao u WHILE petlji.
-<br>
+<h1><b> FOR </b></h1>
+<br />
+<br />
+For petlja se koristi kada želimo da se blok naredbi ponovi određeni broj puta,
+a ne u zavisnosti od ispunjenosti uslova kao u WHILE petlji.
+<br />
 Struktura FOR petlje ima sledeći izgled i uvek se sastoji od 3 argumenta:
-<br>
-<br>
+<br />
+<br />
 <span class="primer_text">
-for (a; b; c) { 
-<br>
-kod koji treba izvršiti
-<br>
-}  
+  for (a; b; c) {
+  <br />
+  kod koji treba izvršiti
+  <br />
+  }
 </span>
-<br>
-<br>
+<br />
+<br />
 Sada da vidimo šta a, b i c predstavljaju:
-<br>
-<br>
-<b> a </b> - je promenljiva koja se zadaje pre nego što blok naredbi krene, ona uzima vrednost samo jednom i služi na primer da brojač podesimo na 0 na početku. (i=0)
-<br>
-<br>
-<b> b </b> - je uslov koji se proverava da bi utvrdili da li će se petlja pokrenuti ponovo. Na primer tu možemo da proveravamo da li je brojač dostigao broj manji od 11.
-<br>
-    Ako se vrati vrednost TAČNO kao odgovor na pitanje iz ovog uslova, onda će se petlja pokrenuti još jednom.
-<br>
-<br>
-<b> c </b> - je naredba koja se pokreće kada smo već ušli u petlju i služi na primer da uvećamo ili umanjimo vrednost koju ima brojač.
-<br>
-    Može sadržati više naredbi odvojenih zarezom (i++, j++)
-<br>
-<br>
-Sada ćemo videti kako radi FOR na istom primeru kao i WHILE, tablica množenja brojeva prve desetice sa 3:
-<br>
-<br>
-<xmp class = "primer_ta" >
+<br />
+<br />
+<b> a </b> - je promenljiva koja se zadaje pre nego što blok naredbi krene, ona
+uzima vrednost samo jednom i služi na primer da brojač podesimo na 0 na početku.
+(i=0)
+<br />
+<br />
+<b> b </b> - je uslov koji se proverava da bi utvrdili da li će se petlja
+pokrenuti ponovo. Na primer tu možemo da proveravamo da li je brojač dostigao
+broj manji od 11.
+<br />
+Ako se vrati vrednost TAČNO kao odgovor na pitanje iz ovog uslova, onda će se
+petlja pokrenuti još jednom.
+<br />
+<br />
+<b> c </b> - je naredba koja se pokreće kada smo već ušli u petlju i služi na
+primer da uvećamo ili umanjimo vrednost koju ima brojač.
+<br />
+Može sadržati više naredbi odvojenih zarezom (i++, j++)
+<br />
+<br />
+Sada ćemo videti kako radi FOR na istom primeru kao i WHILE, tablica množenja
+brojeva prve desetice sa 3:
+<br />
+<br />
+<xmp class="primer_ta">
 for (i = broj; i < 11; i++) {
 ispis = ispis + '3 *' + i + ' = ' + i*3 + '<br>';
 }
 </xmp>
-<br>
-<br>
+<br />
+<br />
 U ovom primeru se dešava sledeće:
-<br>
-<br>
+<br />
+<br />
 i=0 - brojač se postavlja na zadatu vrednost
-<br>
-<br>
+<br />
+<br />
 i<11 - pitamo se da li je vrednost promenljive i manja od 11
-<br>
-<br>
+<br />
+<br />
 i++ - uvećavamo brojač za 1 prilikom svakog prolaska kroz petlju
-<br>
-<br>
-Vidimo da se  vrednost brojača, uslov i naredba za uvećavanje brojača svi nalaze u zagradi nakon ključne reči FOR.
-<br>
-Ono što je zanimljivo je da možemo zadati vrednost više promenljivih u istoj zagradi tako što ćemo ih razdvojiti zarezom (i=0, j=2). 
-<br>
-Takođe kao što smo u našem primeru uvećavali vrednost brojača u svakom prolasku kroz petlju, tako možemo i da smanjujemo njegovu vrednost sa naredbom i--.
-<br>
-<br>
-<div class = "zadatak">
-<b>Zadatak:</b> U primeru se ispisuje tablica množenja sa 3 brojeva od zadatog do 10. Promeni program tako da ispisuje brojeve do 20 pomnožene sa 3.
+<br />
+<br />
+Vidimo da se vrednost brojača, uslov i naredba za uvećavanje brojača svi nalaze
+u zagradi nakon ključne reči FOR.
+<br />
+Ono što je zanimljivo je da možemo zadati vrednost više promenljivih u istoj
+zagradi tako što ćemo ih razdvojiti zarezom (i=0, j=2).
+<br />
+Takođe kao što smo u našem primeru uvećavali vrednost brojača u svakom prolasku
+kroz petlju, tako možemo i da smanjujemo njegovu vrednost sa naredbom i--.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> U primeru se ispisuje tablica množenja sa 3 brojeva od zadatog
+  do 10. Promeni program tako da ispisuje brojeve do 20 pomnožene sa 3.
 </div>
-<br>
-<br>
+<br />
+<br />

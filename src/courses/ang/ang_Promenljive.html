@@ -1,40 +1,41 @@
-<h1> Promenljive</h1>
+<h1>Promenljive</h1>
 
-<br>
-<h2> Brojevi </h2>
-	<br>
-		Brojevi u AngularJS se defini�u isto kao i u JavaScriptu.
-	<br>
-		Primer:
-	<br>
-	<br>
-<xmp class = "primer_ta">
+<br />
+<h2>Brojevi</h2>
+<br />
+Brojevi u AngularJS se defini�u isto kao i u JavaScriptu.
+<br />
+Primer:
+<br />
+<br />
+<xmp class="primer_ta">
 <div ng-app="" ng-init="kolicina=1;cena=5">
 	<p>Ukupno novca: {{ kolicina * cena }}</p>
 </div>
 </xmp>
 
-	<br>
-	<br>
-		Isti primer možemo uraditi i sa ng-bind direktivom:
-		<br>
-		<xmp class = "primer_ta">
+<br />
+<br />
+Isti primer možemo uraditi i sa ng-bind direktivom:
+<br />
+<xmp class="primer_ta">
 			<div ng-app="" ng-init="kolicina=1;cena=5">
 
 				<p>Ukupno novca: <span ng-bind="kolicina * cena"></span></p>
 
 			</div>
 		 </xmp>
-	<br>
+<br />
 
-<h2> String </h2>
-	<br>
-		Promenljive tipa string se takodje u AngularJS se definišu isto kao i u JavaScriptu.
-	<br>
-	Primer:
-	<br>
-	<br>
-		<xmp class = "primer_ta">
+<h2>String</h2>
+<br />
+Promenljive tipa string se takodje u AngularJS se definišu isto kao i u
+JavaScriptu.
+<br />
+Primer:
+<br />
+<br />
+<xmp class="primer_ta">
 			<div ng-app="" ng-init="Ime='Marko';Prezime='Markovic'">
 
 				<p>Puno ime i prezime: {{ Ime + " " + Prezime }}</p>
@@ -42,12 +43,12 @@
 			</div>
 		
 		</xmp>
-		
-	<br>
-	<br>
-		Isti primer mo�emo uraditi i sa ng-bind direktivom:
-		<br>
-		<xmp class = "primer_ta">
+
+<br />
+<br />
+Isti primer mo�emo uraditi i sa ng-bind direktivom:
+<br />
+<xmp class="primer_ta">
 			<div ng-app="" ng-init="Ime='Marko';Prezime='Markovic'">
 
 				<p>Puno ime i prezime: <span ng-bind="Ime + ' ' + Prezime"></span></p>
@@ -55,19 +56,19 @@
 			</div>
 
 		</xmp>
-	<br>
-	<br>
+<br />
+<br />
 
-<h2> Nizovi </h2> 
+<h2>Nizovi</h2>
 
-	<br>
-	<br>
-		Nizovi se u AngularJS defini�u na isti na�in kao i u JavaScriptu.
-	<br>
-	Primer:
-	<br>
-	<br>
-		<xmp class = "primer_ta">
+<br />
+<br />
+Nizovi se u AngularJS defini�u na isti na�in kao i u JavaScriptu.
+<br />
+Primer:
+<br />
+<br />
+<xmp class="primer_ta">
 			<div ng-app="" ng-init="Ocene=[1,2,3,4,5]">
 
 				<p>Najvi�a ocena koju mo�emo dobiti u �koli je: {{ Ocene[4] }}</p>
@@ -75,11 +76,11 @@
 			</div>
 		
 		</xmp>
-	<br>
-	<br>
-		Isti primer mo�emo uraditi i sa ng-bind direktivom:
-		<br>
-		<xmp class = "primer_ta">
+<br />
+<br />
+Isti primer mo�emo uraditi i sa ng-bind direktivom:
+<br />
+<xmp class="primer_ta">
 			<div ng-app="" ng-init="Ocene=[1,2,3,4,5]">
 
 				<p>Najvi�a ocena koju mo�emo dobiti u �koli je: <span ng-bind="ocene[4]"></span></p>
@@ -88,6 +89,4 @@
 		
 		</xmp>
 
-	
-
-<br>
+<br />

@@ -1,61 +1,98 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style> 
-        /*U narednim primerima korišćena je samo standardna sintaksa */
-        div{
-            width: 100px;
-            height: 50px;
-            background-color:cornflowerblue;
-            position: relative;
-            text-align: center;
-            font-weight: bolder;
-            vertical-align: middle;
-            line-height: 50px;
-            animation-duration: 4s; /* vreme trajanja animacije i broj ponavljanja važe za sve primere */
-            animation-iteration-count: infinite;            
-            }
-        div#prvi_primer{    
-            animation-name: primer_1;
-            }
-        @keyframes primer_1 {
-            0%   { background-color:cornflowerblue; left:0px;   top:0px; }
-            100% { background-color:crimson;        left:200px; top:0px; }
-            }
-            
-        #drugi_primer{
-            animation-name: primer_2;
-            animation-direction: reverse;
-          /*animation-direction: alternate - U zavisnosti od broja iteracija, ali će se animacija izvršiti prvo unapred, pa unazad, zatim opet unapred. Ako je broj iteracija 2, izvršiće se unapred i unazad i stati.
-            */
-            }
-        @keyframes primer_2 {
-            0%   { background-color:cornflowerblue; left:0px;   top:0px; }
-            100% { background-color:crimson;        left:200px; top:0px; }
-            }
-            
-        #div1 {animation-name: primer_3; animation-timing-function: linear;}
-        #div2 {animation-name: primer_3; animation-timing-function: ease;}
-        #div3 {animation-name: primer_3; animation-timing-function: ease-in;}
-        #div4 {animation-name: primer_3; animation-timing-function: ease-out;}
-        #div5 {animation-name: primer_3; animation-timing-function: ease-in-out;}
-        
-        @keyframes primer_3 {
-        0% {left: 0px;}
-        100% {left: 300px;}
+  <head>
+    <style>
+      /*U narednim primerima korišćena je samo standardna sintaksa */
+      div {
+        width: 100px;
+        height: 50px;
+        background-color: cornflowerblue;
+        position: relative;
+        text-align: center;
+        font-weight: bolder;
+        vertical-align: middle;
+        line-height: 50px;
+        animation-duration: 4s; /* vreme trajanja animacije i broj ponavljanja važe za sve primere */
+        animation-iteration-count: infinite;
+      }
+      div#prvi_primer {
+        animation-name: primer_1;
+      }
+      @keyframes primer_1 {
+        0% {
+          background-color: cornflowerblue;
+          left: 0px;
+          top: 0px;
         }
-        </style>
-    </head>
-    <body>
-        <p><span style="font-weight: bold;">Napomena: </span> Ovaj primer neće raditi na Internet Explorer 9 ili ranijim verzijama.</p>
-        <div id="prvi_primer" title="prvi primer"> Normal</div>
-        <div id="drugi_primer" title="drugi primer"> Reverse</div>
-        <br>
-        <div id="div1">linear</div>
-        <div id="div2">ease</div>
-        <div id="div3">ease-in</div>
-        <div id="div4">ease-out</div>
-        <div id="div5">ease-in-out</div>
+        100% {
+          background-color: crimson;
+          left: 200px;
+          top: 0px;
+        }
+      }
 
-    </body>
+      #drugi_primer {
+        animation-name: primer_2;
+        animation-direction: reverse;
+        /*animation-direction: alternate - U zavisnosti od broja iteracija, ali će se animacija izvršiti prvo unapred, pa unazad, zatim opet unapred. Ako je broj iteracija 2, izvršiće se unapred i unazad i stati.
+            */
+      }
+      @keyframes primer_2 {
+        0% {
+          background-color: cornflowerblue;
+          left: 0px;
+          top: 0px;
+        }
+        100% {
+          background-color: crimson;
+          left: 200px;
+          top: 0px;
+        }
+      }
+
+      #div1 {
+        animation-name: primer_3;
+        animation-timing-function: linear;
+      }
+      #div2 {
+        animation-name: primer_3;
+        animation-timing-function: ease;
+      }
+      #div3 {
+        animation-name: primer_3;
+        animation-timing-function: ease-in;
+      }
+      #div4 {
+        animation-name: primer_3;
+        animation-timing-function: ease-out;
+      }
+      #div5 {
+        animation-name: primer_3;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes primer_3 {
+        0% {
+          left: 0px;
+        }
+        100% {
+          left: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <span style="font-weight: bold">Napomena: </span> Ovaj primer neće raditi
+      na Internet Explorer 9 ili ranijim verzijama.
+    </p>
+    <div id="prvi_primer" title="prvi primer">Normal</div>
+    <div id="drugi_primer" title="drugi primer">Reverse</div>
+    <br />
+    <div id="div1">linear</div>
+    <div id="div2">ease</div>
+    <div id="div3">ease-in</div>
+    <div id="div4">ease-out</div>
+    <div id="div5">ease-in-out</div>
+  </body>
 </html>

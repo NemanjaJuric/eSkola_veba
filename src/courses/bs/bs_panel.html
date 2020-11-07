@@ -1,15 +1,20 @@
 <h1>Panel</h1>
-Panel je klasa koja se dodeljuje <span class="primer_text">&ltdiv&gt</span> elementu kada je potrebno uokviriti sadržaj 
-unutar njega. U daljem tekstu, <span class="primer_text">&ltdiv&gt</span> klase <span class="primer_text">.panel</span> oslovljavaćemo
-samo sa <span class="primer_text">panel</span>.<br>
+Panel je klasa koja se dodeljuje
+<span class="primer_text">&ltdiv&gt</span> elementu kada je potrebno uokviriti
+sadržaj unutar njega. U daljem tekstu,
+<span class="primer_text">&ltdiv&gt</span> klase
+<span class="primer_text">.panel</span> oslovljavaćemo samo sa
+<span class="primer_text">panel</span>.<br />
 
-Panel se prikazuje kao uokvireno polje bele boje i zaobljenih ivica.
-Unutar njega je moguće staviti bilo koji validan HTML element tekstualnog sadržaja.
-<br>
+Panel se prikazuje kao uokvireno polje bele boje i zaobljenih ivica. Unutar
+njega je moguće staviti bilo koji validan HTML element tekstualnog sadržaja.
+<br />
 
 <h2>Podrazumevani izgled panela</h2>
-Podrazumevani izgled panela se realizuje upotrebom <span class="primer_text">&ltdiv&gt</span> elementa klase 
-<span class="primer_text">.panel</span> i klase <span class="primer_text">.panel-default</span>.<br>
+Podrazumevani izgled panela se realizuje upotrebom
+<span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.panel</span> i klase
+<span class="primer_text">.panel-default</span>.<br />
 <textarea class="primer_ta" rows="5">
 <div class="panel panel-default">
   <div>Ovo je div element.</div>
@@ -17,7 +22,7 @@ Podrazumevani izgled panela se realizuje upotrebom <span class="primer_text">&lt
   <span>Ovo je span element.<span>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +43,10 @@ Podrazumevani izgled panela se realizuje upotrebom <span class="primer_text">&lt
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
-<br>
+<br />
+<br />
 <h2>Panel unutar container-a</h2>
-Prethodni primer panela stavljenog u container:<br>
+Prethodni primer panela stavljenog u container:<br />
 <textarea class="primer_ta" rows="7">
 <div class="container">
   <div class="panel panel-default">
@@ -51,7 +56,7 @@ Prethodni primer panela stavljenog u container:<br>
   </div>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,14 +79,16 @@ Prethodni primer panela stavljenog u container:<br>
 </html>
 </textarea>
 <button class="button_copy">Vidi primer</button>
-<br>
+<br />
 <h2>Panel većih dimenzija</h2>
-Veličina panela svakako zavisi od veličine njegovog sadržaja. Međutim, na veličinu panela se može uticati
-još i upotrebom klase <span class="primer_text">.panel-body</span>. Ova klasa se navodi na nivou elementa
-koji se nalazi unutar panela. Njenom upotrebom se uvećava vrednost <span class="primer_text">padding</span> atributa
-tog elementa.
-<br>
-U sledećem primeru je svim elementima zadata klasa <span class="primer_text">.panel-body</span>.
+Veličina panela svakako zavisi od veličine njegovog sadržaja. Međutim, na
+veličinu panela se može uticati još i upotrebom klase
+<span class="primer_text">.panel-body</span>. Ova klasa se navodi na nivou
+elementa koji se nalazi unutar panela. Njenom upotrebom se uvećava vrednost
+<span class="primer_text">padding</span> atributa tog elementa.
+<br />
+U sledećem primeru je svim elementima zadata klasa
+<span class="primer_text">.panel-body</span>.
 <textarea class="primer_ta" rows="13" disabled>
 <div class="container">
   <div class="panel panel-default">
@@ -97,7 +104,7 @@ U sledećem primeru je svim elementima zadata klasa <span class="primer_text">.p
   </div>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,20 +126,22 @@ U sledećem primeru je svim elementima zadata klasa <span class="primer_text">.p
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br>     
-<br>
-<br>
+<button class="button_copy">Vidi primer</button><br />
+<br />
+<br />
 <h2>Zaglavlje i podnožje panela</h2>
 Tekstualni sadržaj panela je moguće rasporediti u 3 celine:
 <ul>
-<li>zaglavlje panela</li>
-<li>telo panela</li>
-<li>podnožje panela .</li>
+  <li>zaglavlje panela</li>
+  <li>telo panela</li>
+  <li>podnožje panela .</li>
 </ul>
-Da bi se određeni tekst pojavio u zaglavlju panela, potrebno je staviti ga unutar <span class="primer_text">&ltdiv&gt</span>
-elementa klase <span class="primer_text">.panel-heading</span>.<br>
-Slično, da bi se određeni tekst pojavio u podnožju panela, potrebno je staviti ga unutar <span class="primer_text">&ltdiv&gt</span>
-elementa klase <span class="primer_text">.panel-footer</span>.<br>
+Da bi se određeni tekst pojavio u zaglavlju panela, potrebno je staviti ga
+unutar <span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.panel-heading</span>.<br />
+Slično, da bi se određeni tekst pojavio u podnožju panela, potrebno je staviti
+ga unutar <span class="primer_text">&ltdiv&gt</span> elementa klase
+<span class="primer_text">.panel-footer</span>.<br />
 U narednom primeru, panel sadrži zaglavlje, telo i podnožje.
 <textarea class="primer_ta" rows="13" disabled>
 <div class="container">
@@ -149,7 +158,7 @@ U narednom primeru, panel sadrži zaglavlje, telo i podnožje.
   </div>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -171,13 +180,14 @@ U narednom primeru, panel sadrži zaglavlje, telo i podnožje.
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br>     
-<br>
-<br>
+<button class="button_copy">Vidi primer</button><br />
+<br />
+<br />
 <h2>Grupisanje panela</h2>
-Da bi se više panela grupisalo u jedan, potrebno je obuhvatiti ih jednim 
-<span class="primer_text">&ltdiv&gt</span> elementom klase <span class="primer_text">.panel-group</span>. 
-Sledeći primer prikazuje grupisanje panela.
+Da bi se više panela grupisalo u jedan, potrebno je obuhvatiti ih jednim
+<span class="primer_text">&ltdiv&gt</span> elementom klase
+<span class="primer_text">.panel-group</span>. Sledeći primer prikazuje
+grupisanje panela.
 <textarea class="primer_ta" rows="12" disabled>
 <div class="panel-group">
   <div class="panel panel-default">
@@ -192,7 +202,7 @@ Sledeći primer prikazuje grupisanje panela.
   </div>
 </div>
 </textarea>
-<textarea class="primer_ta"  style="display:none;">
+<textarea class="primer_ta" style="display: none">
 <!DOCTYPE html>
 <html>
 <head>
@@ -217,7 +227,7 @@ Sledeći primer prikazuje grupisanje panela.
 </body>
 </html>
 </textarea>
-<button class="button_copy">Vidi primer</button><br>     
+<button class="button_copy">Vidi primer</button><br />
 <div class="zadatak">
-Grupisati dva panela i obezbediti da jedan od njih ima zaglavlje i podnožje.
+  Grupisati dva panela i obezbediti da jedan od njih ima zaglavlje i podnožje.
 </div>

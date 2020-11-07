@@ -1,63 +1,114 @@
-﻿
-<h1>Uvod u TypeScript</h1>
+﻿<h1>Uvod u TypeScript</h1>
 
 <!-- <br> -->
 
-<p>TypeScript je besplatan programski jezik otvorenog koda razvijen od strane kompanije Microsoft koja je zadužena  za održavanje i njegov dalji razvoj. TypeScript predstavlja nadskup JavaScript-a tj. svaki JavaScipt kod je i 
-valjan TypeScript kod dok obratno ne mora da važi. U suštini svaki TypeScript kod se transkompilacijom prevodi u JavaScript kod. Iako na kraju  opet dobijamo JavaScript kod postoji više razloga za uvođenje TypeScript-a. </p>
-<br>
+<p>
+  TypeScript je besplatan programski jezik otvorenog koda razvijen od strane
+  kompanije Microsoft koja je zadužena za održavanje i njegov dalji razvoj.
+  TypeScript predstavlja nadskup JavaScript-a tj. svaki JavaScipt kod je i
+  valjan TypeScript kod dok obratno ne mora da važi. U suštini svaki TypeScript
+  kod se transkompilacijom prevodi u JavaScript kod. Iako na kraju opet dobijamo
+  JavaScript kod postoji više razloga za uvođenje TypeScript-a.
+</p>
+<br />
 <ul>
-	<li>TypeScript je potpuno objektno orijentisan za razliku od JavaScript-a. </li>
-	<li>Popularan framework Angular 2 je ispisan u TypeScript-u.</li>
-	<li>Aplikacije pisane u JavaScript-u kako postaju složenije tako JavaScript kod postaje mnogo teži za održavanje i ponovno korišćenje. 
-	Jedna od namera pri dizajniranju TypeScript-a bila je da se ovi problemi prevaziđu a pisanje koda u aplikacijama bude jednostavnije i jasnije.</li>
-	<li>TypeScript podržava druge JavaScript biblioteke i može biti iskorišćen u JavaScript kodu jer je u samoj suštini JavaScript kod.  </li>
-	<li>TypeScript je potpuno dizajniran da ispunjava  ECMAScript5 i ECMAScript6 standarde.</li>
-	<li>TypeScript je jako tipiziran u odnosu na JavaScript. Ovo pruža mogućnost dodeljivanja tipova promenljivama ,funkcijama i omogućava da se otkriju greške u kodu tokom kompilacije umesto 
-	tokom pokretanja aplikacije. U suštini ostavlja nam više prostora i mogućnosti za otkrivanje grešaka u kodu.</li>
+  <li>
+    TypeScript je potpuno objektno orijentisan za razliku od JavaScript-a.
+  </li>
+  <li>Popularan framework Angular 2 je ispisan u TypeScript-u.</li>
+  <li>
+    Aplikacije pisane u JavaScript-u kako postaju složenije tako JavaScript kod
+    postaje mnogo teži za održavanje i ponovno korišćenje. Jedna od namera pri
+    dizajniranju TypeScript-a bila je da se ovi problemi prevaziđu a pisanje
+    koda u aplikacijama bude jednostavnije i jasnije.
+  </li>
+  <li>
+    TypeScript podržava druge JavaScript biblioteke i može biti iskorišćen u
+    JavaScript kodu jer je u samoj suštini JavaScript kod.
+  </li>
+  <li>
+    TypeScript je potpuno dizajniran da ispunjava ECMAScript5 i ECMAScript6
+    standarde.
+  </li>
+  <li>
+    TypeScript je jako tipiziran u odnosu na JavaScript. Ovo pruža mogućnost
+    dodeljivanja tipova promenljivama ,funkcijama i omogućava da se otkriju
+    greške u kodu tokom kompilacije umesto tokom pokretanja aplikacije. U
+    suštini ostavlja nam više prostora i mogućnosti za otkrivanje grešaka u
+    kodu.
+  </li>
 </ul>
 
-<br>
+<br />
 
-U daljem izlaganju lekcije će biti osmišljene sa ciljem da pomognu u savladavanju TypeScript-a sa ili bez prethodnog poznavanja JavaScript-a. 
+U daljem izlaganju lekcije će biti osmišljene sa ciljem da pomognu u
+savladavanju TypeScript-a sa ili bez prethodnog poznavanja JavaScript-a.
 
-<br>
+<br />
 
 <h3>Podešavanje radnog okruženja</h3>
 
-<br>
-TypeScript može da se pokrene na većini veb pregledača i operativnih sistema. Za pisanje i testiranje koda, odnosno pokretanje aplikacije zasnovane na njemu, potrebni su sledeći alati:
-<br>
-<br>
+<br />
+TypeScript može da se pokrene na većini veb pregledača i operativnih sistema. Za
+pisanje i testiranje koda, odnosno pokretanje aplikacije zasnovane na njemu,
+potrebni su sledeći alati:
+<br />
+<br />
 
 <p>
-U okviru veb-sajt-a postoji mogućnost da tokom učenja lekcije na desnoj strani stranice  unesete vaš TypeScript kod i na dugme POKRENI KOD proverite ispravnost istog. Naravno u okviru
-sajt-a postoji i <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a> koji vam omogućava da vaš TypeScript kod prevedete u JavaScript kod. Za sve one koji žele da imaju potpuno radno okruženje na svom računaru kako bi mogli da kreiraju aplikacije napisane u TypeScript-u ,potrebni su sledeći alati:
+  U okviru veb-sajt-a postoji mogućnost da tokom učenja lekcije na desnoj strani
+  stranice unesete vaš TypeScript kod i na dugme POKRENI KOD proverite
+  ispravnost istog. Naravno u okviru sajt-a postoji i
+  <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler"
+    >TypeScript kompajler</a
+  >
+  koji vam omogućava da vaš TypeScript kod prevedete u JavaScript kod. Za sve
+  one koji žele da imaju potpuno radno okruženje na svom računaru kako bi mogli
+  da kreiraju aplikacije napisane u TypeScript-u ,potrebni su sledeći alati:
 </p>
 
-<br> 
+<br />
 <ul>
-	<li>Uređivač teksta. Izbor je na korisniku, jedna od preporuka je <a href="https://code.visualstudio.com/d?utm_expid=101350005-35.Eg8306GUR6SersZwpBjURQ.3&utm_referrer=https%3A%2F%2Fwww.google.com%2F">VSCode</a>. Fajl sa izvornim kodom trebalo bi da ima ekstenziju .ts </li>
-	<li>TypeScript kompajler je i sam .ts fajl kompajliran do .js fajla. On generiše JavaScript verziju .ts fajla. Proces prevođenja sa jednog izvornog koda na drugi  naziva se transkompilacija. Napomena, on isključivo prima .ts fajlove i svaki .js fajl će biti odbačen! 
-	Za više o kompajleru možete pronaći <a href="https://www.npmjs.com/package/typescript">OVDE</a>.</li>
-	<li> Node.js nam je potreban kako bismo bili u mogućnosti da pokrenemo aplikacije napisane u JavaScript-u bez upotrebe veb pregledača. Node.js se može preuzeti <a href="https://nodejs.org/en/download/">OVDE</a>. Nakon instalacije potrebno je pokrenuti CMD 
-	i u terminalu uneti sledeću komandu: npm install -g typescript kako bi smo instalirali TypeScript.</li>
-	Ili 
-	<li>Instalirati Microsoft Visual Studio 2015 i odmah krenuti sa radom. </li>
-	
+  <li>
+    Uređivač teksta. Izbor je na korisniku, jedna od preporuka je
+    <a
+      href="https://code.visualstudio.com/d?utm_expid=101350005-35.Eg8306GUR6SersZwpBjURQ.3&utm_referrer=https%3A%2F%2Fwww.google.com%2F"
+      >VSCode</a
+    >. Fajl sa izvornim kodom trebalo bi da ima ekstenziju .ts
+  </li>
+  <li>
+    TypeScript kompajler je i sam .ts fajl kompajliran do .js fajla. On generiše
+    JavaScript verziju .ts fajla. Proces prevođenja sa jednog izvornog koda na
+    drugi naziva se transkompilacija. Napomena, on isključivo prima .ts fajlove
+    i svaki .js fajl će biti odbačen! Za više o kompajleru možete pronaći
+    <a href="https://www.npmjs.com/package/typescript">OVDE</a>.
+  </li>
+  <li>
+    Node.js nam je potreban kako bismo bili u mogućnosti da pokrenemo aplikacije
+    napisane u JavaScript-u bez upotrebe veb pregledača. Node.js se može
+    preuzeti <a href="https://nodejs.org/en/download/">OVDE</a>. Nakon
+    instalacije potrebno je pokrenuti CMD i u terminalu uneti sledeću komandu:
+    npm install -g typescript kako bi smo instalirali TypeScript.
+  </li>
+  Ili
+  <li>Instalirati Microsoft Visual Studio 2015 i odmah krenuti sa radom.</li>
 </ul>
 
 <h3>Elementarna sintaksa u TypeScrpitu</h3>
-<br>
-Kao i u svakom jeziku, tako i programskom, postoje pravila kojih se treba pridržavati kako bi jezik bio jasan i gramatički ispravan. U narednom odeljku će biti izložena pravila vezana  za ključne reči, komentare, prazna prostor,
+<br />
+Kao i u svakom jeziku, tako i programskom, postoje pravila kojih se treba
+pridržavati kako bi jezik bio jasan i gramatički ispravan. U narednom odeljku će
+biti izložena pravila vezana za ključne reči, komentare, prazna prostor,
 osetljivost slova, imena promenljivih itd.
-<br>
-<br>
-Za početak videti primer TypeScript koda i šta se dešava kad se taj kod prevede u JavaScript kod.
-<br>
-<br>
+<br />
+<br />
+Za početak videti primer TypeScript koda i šta se dešava kad se taj kod prevede
+u JavaScript kod.
+<br />
+<br />
 
-<textarea class = "primer_ta" rows = "20" disabled> 
+<textarea class="primer_ta" rows="20" disabled>
+ 
 class ZdravoSvima {
     pozdrav: string;
     constructor(poruka: string) {
@@ -79,13 +130,14 @@ button.onclick = function() {
 document.body.appendChild(button); 
 </textarea>
 
-<button class = "button_copy">Vidi primer</button>
+<button class="button_copy">Vidi primer</button>
 
-<br>
+<br />
 Posle transkompilacije dobili smo JavaScript kod.
-<br>
+<br />
 
-<textarea class = "primer_ta" rows = "18" disabled> 
+<textarea class="primer_ta" rows="18" disabled>
+ 
 
 let ZdravoSvima = (function () {
     function ZdravoSvima(poruka) {
@@ -105,118 +157,247 @@ button.onclick = function () {
 document.body.appendChild(button);
 
 </textarea>
-<br>
+<br />
 
-Kodovi su skoro identični. Još jednom skrećem pažnju da na sajtu postoji <a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler">TypeScript kompajler</a>  pomoću koga možete vaš TypeScript kod da prevedete u JavaScript kod.
-<br>
+Kodovi su skoro identični. Još jednom skrećem pažnju da na sajtu postoji
+<a href="http://alas.matf.bg.ac.rs/~mr11032/eskola_veba/#/ts-compiler"
+  >TypeScript kompajler</a
+>
+pomoću koga možete vaš TypeScript kod da prevedete u JavaScript kod.
+<br />
 
-<br>
-<b>IDENTIFIKATORI</b> <!-- Pokazivači, Simboli-->
-<br>
+<br />
+<b>IDENTIFIKATORI</b>
+<!-- Pokazivači, Simboli-->
+<br />
 
- Predstavljaju  imena koje dajemo promenljivama, funkcijama itd. Pravila koja moraju da se ispoštuju su sledeća:
-<br>
-<br>
- <ul>
-	<li>Identifikatori mogu da sadrže slova ili brojeve ali ne smeju počinjati brojem.</li>
-	<li>Ne smeju sadržati specijalne simbole osim _ ili $.</li>
-	<li>Za identifikatore se ne mogu  koristiti ključne reči koje su već rezervisane za potrebe programskog jezika</li>
-	<li>Moraju biti jedinstveni tj. jedan isti identifikator ne sme biti upotrebljen da označi dva različita entiteta</li>
-	<li>IDENTIFIKATOR i identifikator  predstavljaju dva raličita identifikatora tj. TypeScript pravi razliku između malih i velikih slova.</li>
-	<li>Ne smeju sadržati prazan prostor. Identifikator 1 nije ispravno dok Identifikator_1 jeste.</li>
+Predstavljaju imena koje dajemo promenljivama, funkcijama itd. Pravila koja
+moraju da se ispoštuju su sledeća:
+<br />
+<br />
+<ul>
+  <li>
+    Identifikatori mogu da sadrže slova ili brojeve ali ne smeju počinjati
+    brojem.
+  </li>
+  <li>Ne smeju sadržati specijalne simbole osim _ ili $.</li>
+  <li>
+    Za identifikatore se ne mogu koristiti ključne reči koje su već rezervisane
+    za potrebe programskog jezika
+  </li>
+  <li>
+    Moraju biti jedinstveni tj. jedan isti identifikator ne sme biti upotrebljen
+    da označi dva različita entiteta
+  </li>
+  <li>
+    IDENTIFIKATOR i identifikator predstavljaju dva raličita identifikatora tj.
+    TypeScript pravi razliku između malih i velikih slova.
+  </li>
+  <li>
+    Ne smeju sadržati prazan prostor. Identifikator 1 nije ispravno dok
+    Identifikator_1 jeste.
+  </li>
 </ul>
-<br>
+<br />
 <b>KLJUČNE REČI</b>
-<br>
-<br>
-<table class = "tabela" border="2"  cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
-    <tr>
-      <td align="center" ><font size="3"  ><strong>as</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>function</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>number</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>typeof</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>any</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>false</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>public</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>try</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>break</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>get</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>package</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>throw</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>case</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>if</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>private</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>var</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>const</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>in</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>return</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>void</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>continue</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>implements</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>super</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>while</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>catch</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>instanceof</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>string</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>yield</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>extends</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>interface</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>static</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>for</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>enum</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>let</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>switch</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>do</strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>export</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>module</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>type</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong></strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>else</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>null</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>this</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong></strong></font></td>
-    </tr>
-	<tr>
-      <td align="center" ><font size="3"  ><strong>finally</strong></font></td>
-      <td align="center" ><font size="3"  ><strong>new</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong>true</strong></font></td>
-	  <td align="center" ><font size="3"  ><strong></strong></font></td>
-    </tr>
-<tr>
-
+<br />
+<br />
+<table
+  class="tabela"
+  border="2"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>as</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>function</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>number</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>typeof</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>any</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>false</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>public</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>try</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>break</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>get</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>package</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>throw</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>case</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>if</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>private</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>var</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>const</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>in</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>return</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>void</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>continue</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>implements</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>super</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>while</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>catch</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>instanceof</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>string</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>yield</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>extends</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>interface</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>static</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>for</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>enum</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>let</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>switch</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>do</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>export</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>module</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>type</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong></strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>else</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>null</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>this</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong></strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <font size="3"><strong>finally</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>new</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong>true</strong></font>
+    </td>
+    <td align="center">
+      <font size="3"><strong></strong></font>
+    </td>
+  </tr>
+  <tr></tr>
 </table>
-<br>
+
+<br />
 
 <b>PRAZAN PROSTOR, NOVI RED, KOMENTARI I ;</b>
-<br>
-<br>
+<br />
+<br />
 
-<p>TypeScript ignoriše prazan prostor i novi red u kodu, tako da pruža mogućnost uređivanja koda radi bolje  preglednosti. Za razliku od pojednih drugih programskih jezika , tačka-zarez je opcion ali samo u slučaju ako u jednoj liniji koda postoji jedan iskaz, ako u jednoj liniji koda postoji više iskaza onda se moraju razdvojiti tačka-zarezom. 
+<p>
+  TypeScript ignoriše prazan prostor i novi red u kodu, tako da pruža mogućnost
+  uređivanja koda radi bolje preglednosti. Za razliku od pojednih drugih
+  programskih jezika , tačka-zarez je opcion ali samo u slučaju ako u jednoj
+  liniji koda postoji jedan iskaz, ako u jednoj liniji koda postoji više iskaza
+  onda se moraju razdvojiti tačka-zarezom.
 </p>
 
-<br>
+<br />
 
-<textarea class = "primer_ta" rows = "26" disabled>
+<textarea class="primer_ta" rows="26" disabled>
 let x:number = 0 let y:number = 1
 
 //ili 
@@ -244,17 +425,27 @@ let x:number = 0; let y:number = 1;
 
 //Jeste
 </textarea>
-Što se tiče komentara oni su tu kako bi upotpunili čitljivost koda u vidu napomena koje je autor koda ostavio. Da li je to u pitanju opis pojedinih delova koda kako bi opisali njihovu namenu, da se skrene pažnja na moguće probleme u kodu ili čisto 
-ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i njegovo funkcionisanje. Tokom kompilacije komentari se ignorišu. Postoje dve vrste komentara:
-<br>
-<br>
+Što se tiče komentara oni su tu kako bi upotpunili čitljivost koda u vidu
+napomena koje je autor koda ostavio. Da li je to u pitanju opis pojedinih delova
+koda kako bi opisali njihovu namenu, da se skrene pažnja na moguće probleme u
+kodu ili čisto ako drugi neko bude čitao taj kod da stekne brži uvid u ceo kod i
+njegovo funkcionisanje. Tokom kompilacije komentari se ignorišu. Postoje dve
+vrste komentara:
+<br />
+<br />
 
-<ul >
-<li><b>Jednolinijski komentari ( // )</b> &minus; Bilo koji tekst između // i do kraja linije se tretira kao komentar</li>
-<li><b>Višelinijski komentari (/*   */)</b> &minus; Ovi komentari mogu da se prostiru više linija.</li>
+<ul>
+  <li>
+    <b>Jednolinijski komentari ( // )</b> &minus; Bilo koji tekst između // i do
+    kraja linije se tretira kao komentar
+  </li>
+  <li>
+    <b>Višelinijski komentari (/* */)</b> &minus; Ovi komentari mogu da se
+    prostiru više linija.
+  </li>
 </ul>
 
-<textarea class = "primer_ta" rows = "8" disabled>
+<textarea class="primer_ta" rows="8" disabled>
 // Ovo je naš jednolinijski komentar
 
 /*  
@@ -264,6 +455,10 @@ višelinijski
 komentar
  */
 </textarea>
-<br>
+<br />
 
-<div class = "zadatak"><b>Zadatak1:</b> Izmeniti kod u primeru ZdravoSvima tako da posle pritiska na dugme dobijate poruku Zdravo svima moje ime je IME PREZIME. Napomena misli se na ime i prezime korisnika! </div>
+<div class="zadatak">
+  <b>Zadatak1:</b> Izmeniti kod u primeru ZdravoSvima tako da posle pritiska na
+  dugme dobijate poruku Zdravo svima moje ime je IME PREZIME. Napomena misli se
+  na ime i prezime korisnika!
+</div>

@@ -1,51 +1,106 @@
 <h1>Povratni pozivi i asinhrono izvršavanje</h1>
-<span class="font-weight-bold">Povratni poziv</span> (eng. callback) je asinhroni ekvivalent klasičnoj funkciji. Povratni poziv se uvek poziva nakon što se izabrani zadatak ili posao izvrše. NodeJS ekstenzivno koristi povratne pozive i svi aplikativni korisnički interfejsi NodeJS radnog okvira podržavaju povratne pozive.
+<span class="font-weight-bold">Povratni poziv</span> (eng. callback) je
+asinhroni ekvivalent klasičnoj funkciji. Povratni poziv se uvek poziva nakon što
+se izabrani zadatak ili posao izvrše. NodeJS ekstenzivno koristi povratne pozive
+i svi aplikativni korisnički interfejsi NodeJS radnog okvira podržavaju povratne
+pozive.
 
 <h2>Sinhrono i asinhrono izvršavanje</h2>
-<span class="font-weight-bold">Sinhrono</span> ili <span class="font-weight-bold">sekvencijalno</span> izvršavanje predstavlja klasični model razvoja aplikacija koji pretpostavlja da se u svakom trenutku može izvršavati samo jedan zadatak ili posao. S obzirom da tokom kursa razmatramo klijent-server arhitekturu i čitav koncept baziramo na isporučivanju zahteva serveru od strane klijenta, njihovoj obradi od strane servera i vraćanju rezultata obrade klijenta, ilustrovaćemo primer sinhrone obrade zahteva:<br/><br/>
+<span class="font-weight-bold">Sinhrono</span> ili
+<span class="font-weight-bold">sekvencijalno</span> izvršavanje predstavlja
+klasični model razvoja aplikacija koji pretpostavlja da se u svakom trenutku
+može izvršavati samo jedan zadatak ili posao. S obzirom da tokom kursa
+razmatramo klijent-server arhitekturu i čitav koncept baziramo na isporučivanju
+zahteva serveru od strane klijenta, njihovoj obradi od strane servera i vraćanju
+rezultata obrade klijenta, ilustrovaćemo primer sinhrone obrade zahteva:<br /><br />
 
 <ul>
-   <li>Server čeka zahtev od klijenta.</li>
-   <li>Klijent šalje zahtev serveru da dobije sadržaj fajla ulaz.txt.</li>
-   <li>Server prihvata zahtev i traži od operativnog sistema da otvori i pročita fajl.</li>
-   <li>Server čeka da se izvrši otvaranje i čitanje fajla.</li>
-   <li>Nakon što operativni sistem izvrši otvaranje i čitanje fajla u slučaju uspešnog otvaranja, server vraća klijentu pročitani sadržaj fajla.</li>
-   <li>Server je spreman da prihvati novi zahtev od klijenta.</li>
+  <li>Server čeka zahtev od klijenta.</li>
+  <li>Klijent šalje zahtev serveru da dobije sadržaj fajla ulaz.txt.</li>
+  <li>
+    Server prihvata zahtev i traži od operativnog sistema da otvori i pročita
+    fajl.
+  </li>
+  <li>Server čeka da se izvrši otvaranje i čitanje fajla.</li>
+  <li>
+    Nakon što operativni sistem izvrši otvaranje i čitanje fajla u slučaju
+    uspešnog otvaranja, server vraća klijentu pročitani sadržaj fajla.
+  </li>
+  <li>Server je spreman da prihvati novi zahtev od klijenta.</li>
 </ul>
-<br/>
+<br />
 
-Sinhronizam u izvršavanju se krije iza čekanja servera da se izvrši otvaranje i čitanje fajla. Ovakav režim rada se često naziva i <span class="font-weight-bold">blokirajući</span> režim, jer je aplikacija blokirana za primanje novih zahteva sve dok se tekući ne izvrši. Jasno je da ovakav pristup u razvoju aplikacija smanjuje njihovu odzivnost i poprilično otežava njihovo proširivanje, tj. skalabilnost takvih aplikacija je niska.<br/><br/>
+Sinhronizam u izvršavanju se krije iza čekanja servera da se izvrši otvaranje i
+čitanje fajla. Ovakav režim rada se često naziva i
+<span class="font-weight-bold">blokirajući</span> režim, jer je aplikacija
+blokirana za primanje novih zahteva sve dok se tekući ne izvrši. Jasno je da
+ovakav pristup u razvoju aplikacija smanjuje njihovu odzivnost i poprilično
+otežava njihovo proširivanje, tj. skalabilnost takvih aplikacija je niska.<br /><br />
 
-
-<span class="font-weight-bold">Asinhrono</span> izvršavanje znači da se odmah nakon pozivanja asinhrone funkcije kontrola vraća pozivajućem programu nezavisno od toga da li se pozvana asinhrona funkcija završila ili ne. Svakoj asinhronoj funkciji potrebno je pridružiti povratni poziv koji će obraditi rezultate izvršavanja te asinhrone funkcije. Po završetku asinhrone funkcije izvršiće se njoj pridruženi povratni poziv nezavisno od trenutnog toka programa. Ovakav režim izvršavanja se često naziva <span class="font-weight-bold">neblokirajući</span>, jer pozivi funkcija ne blokiraju glavni tok programa. Ilustrovaćemo asinhrono izvršavanje na istom primeru kao i sinhrono:<br/><br/>
+<span class="font-weight-bold">Asinhrono</span> izvršavanje znači da se odmah
+nakon pozivanja asinhrone funkcije kontrola vraća pozivajućem programu nezavisno
+od toga da li se pozvana asinhrona funkcija završila ili ne. Svakoj asinhronoj
+funkciji potrebno je pridružiti povratni poziv koji će obraditi rezultate
+izvršavanja te asinhrone funkcije. Po završetku asinhrone funkcije izvršiće se
+njoj pridruženi povratni poziv nezavisno od trenutnog toka programa. Ovakav
+režim izvršavanja se često naziva
+<span class="font-weight-bold">neblokirajući</span>, jer pozivi funkcija ne
+blokiraju glavni tok programa. Ilustrovaćemo asinhrono izvršavanje na istom
+primeru kao i sinhrono:<br /><br />
 
 <ul>
-   <li>Server čeka zahtev od klijenta.</li>
-   <li>Klijent šalje zahtev serveru da dobije sadržaj fajla ulaz.txt.</li>
-   <li>Server prihvata zahtev i traži od operativnog sistema da otvori i pročita fajl.</li>
-   <li>Server je spreman da prihvati novi zahtev od klijenta.</li>
-   <li>Nakon što operativni sistem izvrši otvaranje i čitanje fajla, pozvaće se povratni poziv koji će obraditi rezultate čitanja i vratiti klijentu pročitani sadržaj fajla.</li>
+  <li>Server čeka zahtev od klijenta.</li>
+  <li>Klijent šalje zahtev serveru da dobije sadržaj fajla ulaz.txt.</li>
+  <li>
+    Server prihvata zahtev i traži od operativnog sistema da otvori i pročita
+    fajl.
+  </li>
+  <li>Server je spreman da prihvati novi zahtev od klijenta.</li>
+  <li>
+    Nakon što operativni sistem izvrši otvaranje i čitanje fajla, pozvaće se
+    povratni poziv koji će obraditi rezultate čitanja i vratiti klijentu
+    pročitani sadržaj fajla.
+  </li>
 </ul>
-<br/>
+<br />
 
-Na ovom mestu bitno je primetiti da je odmah nakon prihvatanja zahteva server spreman da prihvati novi zahtev, tj. uopšte ne čeka da se tražena operacija izvrši. Po završetku tražene operacije, izvršiće se povratni poziv koji će obraditi rezultate izvršavanja asinhrone funkcije. Očigledno je da ovakav pristup omogućava bolju odzivnost aplikacije i značajno lakše proširivanje, tj. skalabilnost ovakvih aplikacija je vrlo visoka.
+Na ovom mestu bitno je primetiti da je odmah nakon prihvatanja zahteva server
+spreman da prihvati novi zahtev, tj. uopšte ne čeka da se tražena operacija
+izvrši. Po završetku tražene operacije, izvršiće se povratni poziv koji će
+obraditi rezultate izvršavanja asinhrone funkcije. Očigledno je da ovakav
+pristup omogućava bolju odzivnost aplikacije i značajno lakše proširivanje, tj.
+skalabilnost ovakvih aplikacija je vrlo visoka.
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Asinhrono izvršavanje ne znači da su sve funkcije koje se pozivaju u programu asinhrone. Podrazumevani model izvršavanja u NodeJS je asinhroni, a ukoliko želimo da se neka funkcija izvršava sinhrono, to moramo da navedemo eksplicitno.
-</div> 
+  <span class="font-weight-bold">Napomena:</span><br />
+  Asinhrono izvršavanje ne znači da su sve funkcije koje se pozivaju u programu
+  asinhrone. Podrazumevani model izvršavanja u NodeJS je asinhroni, a ukoliko
+  želimo da se neka funkcija izvršava sinhrono, to moramo da navedemo
+  eksplicitno.
+</div>
 
-Da bismo bolje razumeli koncept sinhronog i asinhronog izvršavanja napisaćemo dve aplikacije koje to ilustruju. Nakon pokretanja, aplikacija će pročitati sadržaj fajla <span class="font-weight-bold">ulaz.txt</span> i prikazati ga u konzoli. U prvom slučaju to će učiniti sinhrono, a u drugom slučaju asinhrono. Sadržaj fajla <span class="font-weight-bold">ulaz.txt</span> je sledeći:
+Da bismo bolje razumeli koncept sinhronog i asinhronog izvršavanja napisaćemo
+dve aplikacije koje to ilustruju. Nakon pokretanja, aplikacija će pročitati
+sadržaj fajla <span class="font-weight-bold">ulaz.txt</span> i prikazati ga u
+konzoli. U prvom slučaju to će učiniti sinhrono, a u drugom slučaju asinhrono.
+Sadržaj fajla <span class="font-weight-bold">ulaz.txt</span> je sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 Ilustracija sinhronog i asinhronog izvršavanja.
-</xmp> 
+</xmp>
 
 <h2>Primer sinhrone aplikacije</h2>
 
-Da bismo mogli da koristimo IO operacije sa fajlovima u svom programu neophodno je da uključimo modul <span class="font-weight-bold">fs</span> . Kao i u slučaju http modula, modul fs ćemo uljučiti uz pomoć ključne reči <span class="font-weight-bold">require</span> . Nakon startovanja aplikacije, program će pročitati sadržaj fajla i prikazati ga. Aplikaciju ćemo sačuvati u fajlu <span class="font-weight-bold">sync.js</span>  čiji je sadržaj sledeći:
+Da bismo mogli da koristimo IO operacije sa fajlovima u svom programu neophodno
+je da uključimo modul <span class="font-weight-bold">fs</span> . Kao i u slučaju
+http modula, modul fs ćemo uljučiti uz pomoć ključne reči
+<span class="font-weight-bold">require</span> . Nakon startovanja aplikacije,
+program će pročitati sadržaj fajla i prikazati ga. Aplikaciju ćemo sačuvati u
+fajlu <span class="font-weight-bold">sync.js</span> čiji je sadržaj sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // učitavamo modul fs i čuvamo njegovu instancu u promenljivoj fs
 var fs = require("fs");
 
@@ -62,23 +117,34 @@ console.log("Sinhrono čitanje završeno. Sadržaj fajla ulaz.txt: \n");
 console.log(data.toString());
  
 console.log("Program se završio.");
-</xmp> 
+</xmp>
 
-Da bismo pokrenuli aplikaciju potrebno je da se u konzoli pozicioniramo na direktorijum koji sadrži fajl <span class="font-weight-bold">sync.js</span> i da otkucamo sledeću komandu:
+Da bismo pokrenuli aplikaciju potrebno je da se u konzoli pozicioniramo na
+direktorijum koji sadrži fajl <span class="font-weight-bold">sync.js</span> i da
+otkucamo sledeću komandu:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 node sync.js
-</xmp> 
+</xmp>
 
 Rezultat izvršavanja programa je prikazan na slici:
 
-<img src="courses/nodejs/3_povratni_pozivi/slika16.jpg" class="img-fluid img-md center">
+<img
+  src="courses/nodejs/3_povratni_pozivi/slika16.jpg"
+  class="img-fluid img-md center"
+/>
 
 <h2>Primer asinhrone aplikacije</h2>
 
-Asinhroni režim izvršavanja je podrazumevani režim u NodeJS radnom okviru. S obzirom da čitamo fajl asinhrono, potrebno je da definišemo povratni poziv koji će se pozvati nakon što se čitanje završi. Povratni poziv treba da obradi rezultate čitanja i da ih prikaže u konzoli. Aplikaciju ćemo sačuvati u fajlu <span class="font-weight-bold">async.js</span> čiji je sadržaj sledeći:
+Asinhroni režim izvršavanja je podrazumevani režim u NodeJS radnom okviru. S
+obzirom da čitamo fajl asinhrono, potrebno je da definišemo povratni poziv koji
+će se pozvati nakon što se čitanje završi. Povratni poziv treba da obradi
+rezultate čitanja i da ih prikaže u konzoli. Aplikaciju ćemo sačuvati u fajlu
+<span class="font-weight-bold">async.js</span> čiji je sadržaj sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // učitavamo modul fs i čuvamo njegovu instancu u promenljivoj fs
 var fs = require("fs");
 
@@ -106,34 +172,57 @@ fs.readFile('ulaz.txt', function (err, data) {
 
  
 console.log("Program se završio.");
-</xmp> 
+</xmp>
 
-Da bismo pokrenuli aplikaciju potrebno je da se u konzoli pozicioniramo na direktorijum koji sadrži fajl <span class="font-weight-bold">async.js</span> i da otkucamo sledeću komandu:
+Da bismo pokrenuli aplikaciju potrebno je da se u konzoli pozicioniramo na
+direktorijum koji sadrži fajl <span class="font-weight-bold">async.js</span> i
+da otkucamo sledeću komandu:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 node async.js
-</xmp> 
+</xmp>
 
 Rezultat izvršavanja programa je prikazan na slici:
 
-<img src="courses/nodejs/3_povratni_pozivi/slika17.jpg" class="img-fluid img-md center">
+<img
+  src="courses/nodejs/3_povratni_pozivi/slika17.jpg"
+  class="img-fluid img-md center"
+/>
 
-Na ovom mestu potrebno je primetiti da se kontrola odmah vratila pozivajućem programu, jer se odmah nakon asinhronog poziva ispisala poruka o kraju programa. Tek kada se završilo čitanje onda se ispisao sadržaj fajla <span class="font-weight-bold">ulaz.txt.</span>
+Na ovom mestu potrebno je primetiti da se kontrola odmah vratila pozivajućem
+programu, jer se odmah nakon asinhronog poziva ispisala poruka o kraju programa.
+Tek kada se završilo čitanje onda se ispisao sadržaj fajla
+<span class="font-weight-bold">ulaz.txt.</span>
 
 <h2>Zaključak</h2>
 
-Dva primera koja su prikazana ilustruju koncept blokirajućih i neblokirajućih poziva: <br/><br/>
+Dva primera koja su prikazana ilustruju koncept blokirajućih i neblokirajućih
+poziva: <br /><br />
 
 <ul>
-   <li>Prvi primer prikazuje da se program blokira sve dok ne pročita fajl i tek onda nastavlja sve do kraja.</li>
-   <li>Drugi primer prikazuje da program ne čeka da se izvrši operacija čitanja fajla, već odmah nastavlja do kraja i ispisuje poruku o kraju programa, tj. program se ne blokira već odmah nastavlja uporedo sa čitanjem fajla. Tek po završetku čitanja, program ispisuje sadržaj fajla.</li>
+  <li>
+    Prvi primer prikazuje da se program blokira sve dok ne pročita fajl i tek
+    onda nastavlja sve do kraja.
+  </li>
+  <li>
+    Drugi primer prikazuje da program ne čeka da se izvrši operacija čitanja
+    fajla, već odmah nastavlja do kraja i ispisuje poruku o kraju programa, tj.
+    program se ne blokira već odmah nastavlja uporedo sa čitanjem fajla. Tek po
+    završetku čitanja, program ispisuje sadržaj fajla.
+  </li>
 </ul>
-<br/>
+<br />
 
-Lako je zaključiti da se blokirajući program izvršava sekvencijalno, tj. u nizu izvršava naredbe. Sa programerske strane, mnogo je lakše implementirati takvu logiku, ali je često cena koja se plaća u performansama aplikacije prevelika, pa je neblokirajući režim čest izbor ako je potrebna maksimalna odzivnost aplikacije.  
+Lako je zaključiti da se blokirajući program izvršava sekvencijalno, tj. u nizu
+izvršava naredbe. Sa programerske strane, mnogo je lakše implementirati takvu
+logiku, ali je često cena koja se plaća u performansama aplikacije prevelika, pa
+je neblokirajući režim čest izbor ako je potrebna maksimalna odzivnost
+aplikacije.
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 7.</span><br/>
-   Modifikovati asinhroni primer iz lekcije tako da čita dva različita fajla asinhrono. Da li redosled čitanja fajlova može da se razlikuje ako program pokrenemo više puta?
-   Obrazložiti odgovor.
+  <span class="font-weight-bold">Zadatak 7.</span><br />
+  Modifikovati asinhroni primer iz lekcije tako da čita dva različita fajla
+  asinhrono. Da li redosled čitanja fajlova može da se razlikuje ako program
+  pokrenemo više puta? Obrazložiti odgovor.
 </div>

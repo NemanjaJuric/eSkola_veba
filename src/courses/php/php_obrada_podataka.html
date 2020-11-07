@@ -1,34 +1,37 @@
 <h1><b>Validacija podataka</b></h1>
-<br>
-PHP skripta koja obrađuje podatke (skripta iz action atributa) treba prvo da dohvati podatke koje je korisnik uneo u formular.
-U zavisnosti od metoda koji je korišten, podaci će biti dostupni u $_GET ili $_POST polju. Članu polja pristupamo preko vrednosti <b>name</b> atributa elementa obrasca.
-<br><br>
+<br />
+PHP skripta koja obrađuje podatke (skripta iz action atributa) treba prvo da
+dohvati podatke koje je korisnik uneo u formular. U zavisnosti od metoda koji je
+korišten, podaci će biti dostupni u $_GET ili $_POST polju. Članu polja
+pristupamo preko vrednosti <b>name</b> atributa elementa obrasca. <br /><br />
 Neka obrazac izgleda ovako:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <form method="POST" action="obrada.php" >
 <input type="text" name="ime" />
    ...
 </form>
 </xmp>
-Vrednosti upisanoj u polje za unos teksta će se pristupiti (u obrada.php) na sledeći način:
-<xmp class = "primer_ta">
+Vrednosti upisanoj u polje za unos teksta će se pristupiti (u obrada.php) na
+sledeći način:
+<xmp class="primer_ta">
 <?php
 $ime = $_POST['ime'];
 ?>
 </xmp>
-<br>
-Slično važi za GET metod. <br> <br>
+<br />
+Slično važi za GET metod. <br />
+<br />
 <b>Primer:</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <form method="POST" action="obradi.php">
 Ime: <input type="text" name="ime" size="20"> <br> <br>
 Prezime: <input type="text" name="prezime" size="20"> <br> <br>
 <input type="submit" value="Posalji" name="posalji">
 </form>
 </xmp>
-<br>
+<br />
 Skrpta obradi.php izgleda ovako:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $ime = $_POST['ime'];
 $prezime = $_POST['prezime'];
@@ -36,20 +39,24 @@ $prezime = $_POST['prezime'];
 echo "Vaše ime je $ime, a prezime $prezime.";
 ?>
 </xmp>
-<br>
-Metod kojim su podaci poslati se proverava pomoću <b>$_SERVER["REQUEST_METHOD"]</b>.
-<xmp class = "primer_ta">
+<br />
+Metod kojim su podaci poslati se proverava pomoću
+<b>$_SERVER["REQUEST_METHOD"]</b>.
+<xmp class="primer_ta">
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ...
 }
 ?>
-</xmp> <br><br>
-Pomoću funkcija <b>empty()</b> i <b>isset()</b> se proverava da li je neko polje popunjeno. Ako nije popunjeno, moguće je ispisati odgovarajuću poruku.
-<br><br>
-Treba proveriti da li je u sledećoj formi uneto ime i ispisati odgovarajuću poruku ako nije.
-<xmp class = "primer_ta">
+</xmp>
+<br /><br />
+Pomoću funkcija <b>empty()</b> i <b>isset()</b> se proverava da li je neko polje
+popunjeno. Ako nije popunjeno, moguće je ispisati odgovarajuću poruku.
+<br /><br />
+Treba proveriti da li je u sledećoj formi uneto ime i ispisati odgovarajuću
+poruku ako nije.
+<xmp class="primer_ta">
 <form method="POST" action="obradi.php">
 Ime: <input type="text" name="ime" size="20"> <br> <br>
 <span class="error">* <?php echo $imeGreska;?> </span>
@@ -58,9 +65,9 @@ Prezime: <input type="text" name="prezime" size="20"> <br> <br>
 <input type="submit" value="Posalji" name="posalji">
 </form>
 </xmp>
-<br>
+<br />
 Skripta obradi.php sadrži sledeći kod:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $imeGreska = "";
 $ime = "";
@@ -72,9 +79,10 @@ if(empty($_POST['ime'])) {  //ili if(!isset($_POST['ime'])
 }
 ?>
 </xmp>
-<br>
-Sledeći primer pokazuje kako se naručuju kolači. Formu ćemo sačuvati u naruci.html:
-<xmp class = "primer_ta">
+<br />
+Sledeći primer pokazuje kako se naručuju kolači. Formu ćemo sačuvati u
+naruci.html:
+<xmp class="primer_ta">
 <html>
 <body>
 <b>Carstvo kolaca</b> <br> <br>
@@ -90,9 +98,9 @@ Kolicina: <input name="kolicina" type="text" /> <br> <br>
 </body>
 </html>
 </xmp>
-<br>
+<br />
 Kod fajla obrada.php koji obrađuje podatke je sledeći:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $kolicina = $_POST['kolicina'];
 $vrsta = $_POST['vrsta'];
@@ -100,7 +108,9 @@ echo "Naručili ste ". $kolicina . " kolaca vrste " . $vrsta . ".<br />";
 echo "Dodite nam opet!";
 ?>
 </xmp>
-<br>
-<div class = "zadatak">
-Napraviti formu u kojoj korisnik unosi dva broja i klikom na dugme pomnoži se post metodom salju podaci na proizvod.php gde se računa i ispisuje proizvod unetih brojeva.
+<br />
+<div class="zadatak">
+  Napraviti formu u kojoj korisnik unosi dva broja i klikom na dugme pomnoži se
+  post metodom salju podaci na proizvod.php gde se računa i ispisuje proizvod
+  unetih brojeva.
 </div>

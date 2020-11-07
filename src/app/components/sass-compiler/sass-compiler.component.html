@@ -1,21 +1,29 @@
 <div class="container-fluid m-t-1 m-b-1 wrapper">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="text-xs-center m-b-2 gray">
-                <h1 class="h1">Sass</h1>
-            </div>
-            <div class="code-panel-editor-md">
-                <editor [(code)]="sassCode" [theme]="'sass'" [displayLang]="'Sass'"></editor>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="text-xs-center m-b-2 gray">
-                <h1 class="h1">CSS</h1>
-            </div>
-            <div class="code-panel-editor-md">
-                <editor [(code)]="cssCode" [theme]="'css'" [displayLang]="'CSS'"></editor>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-xs-center m-b-2 gray">
+        <h1 class="h1">Sass</h1>
+      </div>
+      <div class="code-panel-editor-md">
+        <editor
+          [(code)]="sassCode"
+          [theme]="'sass'"
+          [displayLang]="'Sass'"
+        ></editor>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="text-xs-center m-b-2 gray">
+        <h1 class="h1">CSS</h1>
+      </div>
+      <div class="code-panel-editor-md">
+        <editor
+          [(code)]="cssCode"
+          [theme]="'css'"
+          [displayLang]="'CSS'"
+        ></editor>
+      </div>
+    </div>
+  </div>
 </div>
 <bottom-navigation (clickEmit)="click($event)"></bottom-navigation>

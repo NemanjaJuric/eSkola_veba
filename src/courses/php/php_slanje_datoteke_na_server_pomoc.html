@@ -1,25 +1,17 @@
-
-	if((isset($_FILES['fileToUpload'])){
-	$file_name = $_FILES['fileToUpload']['name'];
-	$file_size = $_FILES['fileToUpload']['size'];
-	$file_tmp = $_FILES['fileToUpload']['tmp_name'];
-	$file_type = $_FILES['fileToUpload']['type'];
-
-	echo "Izabrani fajl: ".$file_name."<br>";
-	echo "Velicina fajla: ".file_size."<br>";
-	echo "Tip fajla: ".file_type.<br>;
-	}
-	
+if((isset($_FILES['fileToUpload'])){ $file_name =
+$_FILES['fileToUpload']['name']; $file_size = $_FILES['fileToUpload']['size'];
+$file_tmp = $_FILES['fileToUpload']['tmp_name']; $file_type =
+$_FILES['fileToUpload']['type']; echo "Izabrani fajl: ".$file_name."<br />";
+echo "Velicina fajla: ".file_size."<br />"; echo "Tip fajla: ".file_type.<br />;
+}
 
 <!DOCTYPE html>
 <html>
-<head>
-
-</head>
-<body>
-<form action="" method="POST" enctype="multipart/form-data">
-	<input type="file" name="fileToUpload">
-		<input type="submit" name="submit" value="Dodaj fajl">
-</form>
-</body>
+  <head> </head>
+  <body>
+    <form action="" method="POST" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" />
+      <input type="submit" name="submit" value="Dodaj fajl" />
+    </form>
+  </body>
 </html>

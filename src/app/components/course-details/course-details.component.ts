@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Course } from '../../classes/course';
-import { RouteService } from '../../services/route.service';
-import { SchoolService } from '../../services/school.service';
+import { Component, OnInit } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
+import { Course } from "../../classes/course";
+import { RouteService } from "../../services/route.service";
+import { SchoolService } from "../../services/school.service";
 
 @Component({
-  selector: 'course-details',
-  templateUrl: './course-details.component.html'
+  selector: "course-details",
+  templateUrl: "./course-details.component.html",
 })
 export class CourseDetailsComponent implements OnInit {
-
   constructor(
     private schoolService: SchoolService,
     private router: Router,
-    private routeService: RouteService) { };
+    private routeService: RouteService
+  ) {}
 
   ngOnInit() {
     this.initComponent();
@@ -24,7 +24,7 @@ export class CourseDetailsComponent implements OnInit {
     let url = this.router.url;
     let routes = url.split("/");
     this.courseUrl = routes[2] != undefined ? routes[2] : null;
-    this.schoolService.getCourse(this.courseUrl).subscribe(data => {
+    this.schoolService.getCourse(this.courseUrl).subscribe((data) => {
       this.course = data;
       this.detailsText = this.course.detailsText;
       this.numOfLessons = this.getNumberOfLessons(this.course);
@@ -49,7 +49,11 @@ export class CourseDetailsComponent implements OnInit {
   detailsText: string;
 
   startCourse() {
-    this.routeService.setRoute(this.course.type, this.courseUrl, this.course.lessons[0].url);
+    this.routeService.setRoute(
+      this.course.type,
+      this.courseUrl,
+      this.course.lessons[0].url
+    );
   }
 
   getNumberOfLessons(course: Course): number {
@@ -68,5 +72,4 @@ export class CourseDetailsComponent implements OnInit {
     }
     return number;
   }
-
 }

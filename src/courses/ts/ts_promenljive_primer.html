@@ -1,40 +1,13 @@
-﻿let GlobalnaPromenljiva: number = 100;
-  
-  function FUNKCIJA() : number {
-  
-  let LokalnaPromenljiva: number = 1;
-  
-  return (GlobalnaPromenljiva + LokalnaPromenljiva) ;
-  }
-
-  class KLASA {
-
-   static PromenljivaKlase: number = 1;
-   PromenljivaKlase2: number = 5;
-    
-  
-  }
-  
-  let Objekat = new KLASA();
-  
-  let Zbir : number = FUNKCIJA() + Objekat.PromenljivaKlase2;
-  
-  // 1. Ako izbrišemo deo koda (let Objekat = new KLASA();) i Objekat.PromenljivaKlase2 zamenimo sa PromenljivaKlase2
-  
-  let Zbir1: number = GlobalnaPromenljiva + KLASA.PromenljivaKlase;
-  
-  // 2. Umesto KLASE.PromenljivaKlase saberite sa LokalnaPromenljiva
-  
-  
-  let button1 = document.createElement('button');
-  let button2 = document.createElement('button');
- button1.textContent = "Dugme1";
- button1.onclick = function () {
-     alert(Zbir);
- };
- button2.textContent = "Dugme2";
- button2.onclick = function () {
-     alert(Zbir1);
- };
- document.body.appendChild(button1);
- document.body.appendChild(button2);
+﻿let GlobalnaPromenljiva: number = 100; function FUNKCIJA() : number { let
+LokalnaPromenljiva: number = 1; return (GlobalnaPromenljiva +
+LokalnaPromenljiva) ; } class KLASA { static PromenljivaKlase: number = 1;
+PromenljivaKlase2: number = 5; } let Objekat = new KLASA(); let Zbir : number =
+FUNKCIJA() + Objekat.PromenljivaKlase2; // 1. Ako izbrišemo deo koda (let
+Objekat = new KLASA();) i Objekat.PromenljivaKlase2 zamenimo sa
+PromenljivaKlase2 let Zbir1: number = GlobalnaPromenljiva +
+KLASA.PromenljivaKlase; // 2. Umesto KLASE.PromenljivaKlase saberite sa
+LokalnaPromenljiva let button1 = document.createElement('button'); let button2 =
+document.createElement('button'); button1.textContent = "Dugme1";
+button1.onclick = function () { alert(Zbir); }; button2.textContent = "Dugme2";
+button2.onclick = function () { alert(Zbir1); };
+document.body.appendChild(button1); document.body.appendChild(button2);

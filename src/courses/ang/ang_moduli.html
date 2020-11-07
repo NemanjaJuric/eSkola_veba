@@ -1,35 +1,38 @@
 <h1>AngularJS Moduli</h1>
-<br/>
-<br/>
+<br />
+<br />
 AngularJS modul definiše aplikaciju.
-<br/>
-Modul je kontejner za različite delove aplikacije. 
-<br/>
+<br />
+Modul je kontejner za različite delove aplikacije.
+<br />
 Modul je kontejner za kontrolere aplikacije.
-<br/>
+<br />
 Kontroleri uvek pripadaju modulu.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Kreiranje modula</h2>
-<br/>
-Modul se kreira korišćenjem AngularJS funkcije <span class = "primer_text"> angular.module </span>.
-<textarea class = "primer_ta" rows = "6" disabled >
+<br />
+Modul se kreira korišćenjem AngularJS funkcije
+<span class="primer_text"> angular.module </span>.
+<textarea class="primer_ta" rows="6" disabled>
 <div ng-app="mojaAplikacija">...</div>
 <script>
 	var app = angular.module("mojaAplikacija", []); 
 </script>
 </textarea>
-Parametar "mojaAplikacija" se odnosi na HTML element u kojem će se aplikacija pokrenuti.
-<br/>
-<br/>
-Sada mogu da se u AngularJS aplikaciju dodaju kontroleri, direktive, filteri, 
-i još mnogo drugih stvari.
-<br/>
-<br/>
+Parametar "mojaAplikacija" se odnosi na HTML element u kojem će se aplikacija
+pokrenuti.
+<br />
+<br />
+Sada mogu da se u AngularJS aplikaciju dodaju kontroleri, direktive, filteri, i
+još mnogo drugih stvari.
+<br />
+<br />
 <h2>Dodavanje kontrolera</h2>
-<br/>
-Dodavanje kontrolera u aplikaciju, i upućivanje na kontroler sa direktivom <span class = "primer_text"> ng-controller </span>:
-<textarea class = "primer_ta" rows = "21" disabled >
+<br />
+Dodavanje kontrolera u aplikaciju, i upućivanje na kontroler sa direktivom
+<span class="primer_text"> ng-controller </span>:
+<textarea class="primer_ta" rows="21" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -47,20 +50,20 @@ app.controller("mojKontroler", function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
 Više priče o kontrolerima biće u nekim od narednih lekcija.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Dodavanje direktiva</h2>
-<br/>
-AngularJS ima skup ugrađenih direktiva koje se mogu koristiti za 
-dodavanje funkcionalnosti aplikaciji.
-<br/>
-<br/>
+<br />
+AngularJS ima skup ugrađenih direktiva koje se mogu koristiti za dodavanje
+funkcionalnosti aplikaciji.
+<br />
+<br />
 Pored toga se može koristiti modul za dodavanje novih direktiva aplikaciji:
-<br/>
-<textarea class = "primer_ta" rows = "23" disabled >
+<br />
+<textarea class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -80,20 +83,20 @@ app.directive("testDirektiva", function() {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
 Više priče o direktivama biće u nekim od narednih lekcija.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Moduli i kontroleri u datotekama</h2>
-<br/>
+<br />
 Uobičajeno je u AngularJS-u staviti module i kontrolere u JavaScript datoteke.
-<br/>
-<br/>
-U sledećem primeru, datoteka "mojaAplikacija.js" sadrži definiciju modula aplikacije,
-dok datoteka "mojKontroler.js" sadrži kontroler:
-<br/>
-<textarea class = "primer_ta" rows = "22" disabled >
+<br />
+<br />
+U sledećem primeru, datoteka "mojaAplikacija.js" sadrži definiciju modula
+aplikacije, dok datoteka "mojKontroler.js" sadrži kontroler:
+<br />
+<textarea class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -109,23 +112,23 @@ dok datoteka "mojKontroler.js" sadrži kontroler:
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<textarea class = "primer_ta" rows = "4" disabled >
+<button class="button_copy">Vidi primer</button>
+<br />
+<textarea class="primer_ta" rows="4" disabled>
 Datoteka mojaAplikacija.js:
 
 var app = angular.module("mojaAplikacija", []);
 </textarea>
-<br/>
-<div class = "napomena" >
-Parametar [] u definiciji modula može da se koristi za definisanje 
-zavisnih modula.
-<br/>
-<br/>
-Bez [] parametra se ne pravi novi modul, već se preuzima već postojeći.
-</div >
-<br/>
-<textarea class = "primer_ta" rows = "8" disabled >
+<br />
+<div class="napomena">
+  Parametar [] u definiciji modula može da se koristi za definisanje zavisnih
+  modula.
+  <br />
+  <br />
+  Bez [] parametra se ne pravi novi modul, već se preuzima već postojeći.
+</div>
+<br />
+<textarea class="primer_ta" rows="8" disabled>
 Datoteka mojKontroler.js:
 
 app.controller("mojKontroler", function($scope) {
@@ -133,28 +136,28 @@ app.controller("mojKontroler", function($scope) {
     $scope.prezime= "Petrović";
 });
 </textarea>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Funkcije mogu da "zagade" globalni imenski prostor</h2>
-<br/>
-Globalne funkcije treba izbegavati u JavaScript-u. One mogu lako da budu 
+<br />
+Globalne funkcije treba izbegavati u JavaScript-u. One mogu lako da budu
 prebrisane ili uništene drugim skriptama.
-<br/>
-<br/>
+<br />
+<br />
 AngularJS moduli rešavaju ovaj problem tako što čuvaju sve funkcije lokalno.
-<br/>
-<br/>
+<br />
+<br />
 <h2>Kada učitati biblioteku</h2>
-<br/>
-Iako je kod HTML aplikacija uobičajeno da se skripte smeštaju na kraju 
-< body > elementa, preporučljivo je da se učita AngularJS biblioteka ili u 
-< head > elementu ili na početku < body > elementa.
-<br/>
-<br/>
-Ovo je neophodno jer funkcija <span class = "primer_text"> angular.module </span> 
+<br />
+Iako je kod HTML aplikacija uobičajeno da se skripte smeštaju na kraju < body >
+elementa, preporučljivo je da se učita AngularJS biblioteka ili u < head >
+elementu ili na početku < body > elementa.
+<br />
+<br />
+Ovo je neophodno jer funkcija <span class="primer_text"> angular.module </span>
 može da se kompajlira samo nakon što je biblioteka učitana.
-<br/>
-<textarea class = "primer_ta" rows = "29" disabled >
+<br />
+<textarea class="primer_ta" rows="29" disabled>
 <!DOCTYPE html>
 <html>
 <body>
@@ -179,5 +182,5 @@ Preporučljivo je da učitate AngularJS biblioteku ili u HEAD-u ili na početku 
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />

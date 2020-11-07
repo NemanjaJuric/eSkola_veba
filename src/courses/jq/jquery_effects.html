@@ -1,22 +1,45 @@
 <h1>Efekti biblioteke jQuery</h1>
-biblioteka sadrži i metode za animiranje veb stranica, to su uglavnom animacije koje se najčešće primenjuju na stranice.
-U ovom kursu ćemo da prođemo kroz većinu Jquery metoda za animiranje.
+biblioteka sadrži i metode za animiranje veb stranica, to su uglavnom animacije
+koje se najčešće primenjuju na stranice. U ovom kursu ćemo da prođemo kroz
+većinu Jquery metoda za animiranje.
 
-<br>
+<br />
 <div>
-<p>Pre nego prikažemo primere iz oblasti animaranje jQuery biblioteke, objasnimo tri najčešća parametra koja se mogu proslediti gotovo svim funkcijama za animaciju:</p>
-<ul>
-<li>trajanje – izražava se brojem koji se odnosi na broj milisekundi i predstavlja vreme za koje će se animacija izvršiti. Postoje i tri predefinisane string vrednosti: slow, normal i fast. Slow predstavlja vreme od 600 milisekuni, normal predstavlja vreme od 400 milisekundi i, konačno, fast predstavlja vreme od 200 milisekundi.</li>
-<li>stil animacije – izražava se sa dve string vrednosti i to linear i swing. Predstavlja vreme animacije u određenim momentima pa tako se swing odnosi na pomeranje koje je u startu i na kraju izvođenja animacije sporije nego na sredini, dok se linear odnosi na pomeranje koje je u svim trenucima isto.</li>
-<li>funkcija sa povratnim pozivom – predstavlja funkciju koja se izvršava nakon što je animacija završena.</li>
-</ul>
+  <p>
+    Pre nego prikažemo primere iz oblasti animaranje jQuery biblioteke,
+    objasnimo tri najčešća parametra koja se mogu proslediti gotovo svim
+    funkcijama za animaciju:
+  </p>
+  <ul>
+    <li>
+      trajanje – izražava se brojem koji se odnosi na broj milisekundi i
+      predstavlja vreme za koje će se animacija izvršiti. Postoje i tri
+      predefinisane string vrednosti: slow, normal i fast. Slow predstavlja
+      vreme od 600 milisekuni, normal predstavlja vreme od 400 milisekundi i,
+      konačno, fast predstavlja vreme od 200 milisekundi.
+    </li>
+    <li>
+      stil animacije – izražava se sa dve string vrednosti i to linear i swing.
+      Predstavlja vreme animacije u određenim momentima pa tako se swing odnosi
+      na pomeranje koje je u startu i na kraju izvođenja animacije sporije nego
+      na sredini, dok se linear odnosi na pomeranje koje je u svim trenucima
+      isto.
+    </li>
+    <li>
+      funkcija sa povratnim pozivom – predstavlja funkciju koja se izvršava
+      nakon što je animacija završena.
+    </li>
+  </ul>
 </div>
-<h2 style="color:orange"> Efekti</h2>
+<h2 style="color: orange">Efekti</h2>
 
-<ul style="color:blue"> 
-
-<li> .animate(svojstva, trajanje, stil animacije, funkcija sa povratnim pozivom) -<span style="color:gray"> Aktivira standarnu animaciju nad elementom sa prosleđenim svojstvima</span>
-<xmp class="primer_ta" rows=35 disabled>
+<ul style="color: blue">
+  <li>
+    .animate(svojstva, trajanje, stil animacije, funkcija sa povratnim pozivom)
+    -<span style="color: gray">
+      Aktivira standarnu animaciju nad elementom sa prosleđenim svojstvima</span
+    >
+    <xmp class="primer_ta" rows="35" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,11 +79,16 @@ U ovom kursu ćemo da prođemo kroz većinu Jquery metoda za animiranje.
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li> .delay()- <span style="color:gray">Delay metoda postavlja vreme kašnjenja za aktiviranje animacije odabranog elementa.</span>
-<xmp class="primer_ta" rows=33 disabled>
+  <li>
+    .delay()-
+    <span style="color: gray"
+      >Delay metoda postavlja vreme kašnjenja za aktiviranje animacije odabranog
+      elementa.</span
+    >
+    <xmp class="primer_ta" rows="33" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,11 +114,15 @@ $(document).ready(function(){
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li> .fadeOut(trajanje, stil animacije, funkcija sa povratnim pozivom)- <span style="color:gray">Aktivira animaciju u kojoj izabrani element postepeno nestane.</span>
-<xmp class="primer_ta" rows=22 disabled>
+  <li>
+    .fadeOut(trajanje, stil animacije, funkcija sa povratnim pozivom)-
+    <span style="color: gray"
+      >Aktivira animaciju u kojoj izabrani element postepeno nestane.</span
+    >
+    <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,11 +147,15 @@ $(document).ready(function(){
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li> .fadeIn(trajanje, stil animacije, funkcija sa povratnim pozivom)- <span style="color:gray"> Aktivira animaciju u kojoj se nestali element postepeno pojavi.</span>
-<xmp class="primer_ta" rows=22 disabled>
+  <li>
+    .fadeIn(trajanje, stil animacije, funkcija sa povratnim pozivom)-
+    <span style="color: gray">
+      Aktivira animaciju u kojoj se nestali element postepeno pojavi.</span
+    >
+    <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,11 +182,14 @@ $(document).ready(function(){
 
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li>.fadeTo()-<span style="color:gray">Aktivira animaciju promene providnosti elementa. </span>
-<xmp class="primer_ta" rows=26 disabled>
+  <li>
+    .fadeTo()-<span style="color: gray"
+      >Aktivira animaciju promene providnosti elementa.
+    </span>
+    <xmp class="primer_ta" rows="26" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -178,13 +217,15 @@ $(document).ready(function(){
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-
-
-<li>.fadeToggle(trajanje, stil animacije, funkcija sa povratnim pozivom) -<span style="color:gray">Aktivira i fadeIn i fadeOut metodu nad izabranim elementom. </span>
-<xmp class="primer_ta" rows=34 disabled>
+  <li>
+    .fadeToggle(trajanje, stil animacije, funkcija sa povratnim pozivom) -<span
+      style="color: gray"
+      >Aktivira i fadeIn i fadeOut metodu nad izabranim elementom.
+    </span>
+    <xmp class="primer_ta" rows="34" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -215,12 +256,15 @@ $(document).ready(function(){
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-
-<li> .hide(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animaciju u kojoj izabrani element naglo nestane.</span>
-<xmp class="primer_ta" rows=22 disabled>
+  <li>
+    .hide(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span
+      style="color: gray"
+      >Aktivira animaciju u kojoj izabrani element naglo nestane.</span
+    >
+    <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -245,10 +289,14 @@ $(document).ready(function(){
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
-<li>.show(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animaciju u kojoj se sakriveni element naglo pojavi.</span>
-<xmp class="primer_ta" rows=22 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .show(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span
+      style="color: gray"
+      >Aktivira animaciju u kojoj se sakriveni element naglo pojavi.</span
+    >
+    <xmp class="primer_ta" rows="22" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -273,11 +321,16 @@ $(document).ready(function(){
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li> .slideDown(trajanje, stil animacije, funkcija sa povratnim pozivom) i .slideUp(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray">Aktivira animacije gde se element sklizne ka dole odnosno gore.</span>
-<xmp class="primer_ta" rows=27 disabled>
+  <li>
+    .slideDown(trajanje, stil animacije, funkcija sa povratnim pozivom) i
+    .slideUp(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span
+      style="color: gray"
+      >Aktivira animacije gde se element sklizne ka dole odnosno gore.</span
+    >
+    <xmp class="primer_ta" rows="27" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -307,11 +360,16 @@ $(document).ready(function(){
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 
-<li> .slideToggle(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span style="color:gray"> Aktivira i slideUp i slideDown metodu nad izabranim elementom.</span>
-<xmp class="primer_ta" rows=34 disabled>
+  <li>
+    .slideToggle(trajanje, stil animacije, funkcija sa povratnim pozivom)-<span
+      style="color: gray"
+    >
+      Aktivira i slideUp i slideDown metodu nad izabranim elementom.</span
+    >
+    <xmp class="primer_ta" rows="34" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -341,10 +399,14 @@ $(document).ready(function(){
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
-<li> .stop()-<span style="color:gray">Zaustavlja animaciju koja se trenutno primenjuje nad izabranim elementom.</span>
-<xmp class="primer_ta" rows=28 disabled>
+    <button class="button_copy">Vidi primer</button>
+  </li>
+  <li>
+    .stop()-<span style="color: gray"
+      >Zaustavlja animaciju koja se trenutno primenjuje nad izabranim
+      elementom.</span
+    >
+    <xmp class="primer_ta" rows="28" disabled>
 <!DOCTYPE html>
 <html>
 <head>
@@ -376,6 +438,6 @@ $(document).ready(function(){
 </html>
 
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-</li>
+    <button class="button_copy">Vidi primer</button>
+  </li>
 </ul>

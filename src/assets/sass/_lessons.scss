@@ -1,176 +1,178 @@
-.lesson-text{
-    h1{
-        font-size: 32px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    h2{
-        font-size: 28px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    h3{
-        font-size: 24px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    h4{
-        font-size: 22px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    h5{
-        font-size: 20px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    h6{
-        font-size: 18px;
-        font-weight: bold;
-        color: $material-light-gray;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        line-height: 1.5em;
-    }
-    ul{
-        margin-top: 5px;
-        margin-bottom: 5px;
-        line-height: 1.5em;
-        li{
-            margin-top: 5px;
-            margin-bottom: 5px;
-            line-height: 1.5em;
-        }
-    }
-    b{
-        font-weight: bold;
-    }
-    img{
-        display: block;
-        margin: 0 auto;
-        width: 80%;
-    }
-    .img-lg{
-        width: 80%;
-    }
-    .img-md{
-        width: 60%;
-    }
-    .img-sm{
-        width: 40%;
-    }
-    .img-xs{
-        width: 20%;
-    }
-    @media(max-width: 768px){
-        img{
-            width: 100% !important;
-        }
-    }
-}
-
-.primer_text{
-    background-color: $light;
-    font-family: $editor-font;
-}
-
-.napomena{
-    background-color: $light;
-    padding: 20px;
-    border-left: 5px solid $js-primary;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    b{
-        font-weight: bold;
-    }
-}
-
-.zadatak{
-    background-color: $light;
-    padding: 20px;
-    border-left: 5px solid $about-primary;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    b{
-        font-weight: bold;
-    }
-}
-
-.primer_ta{
-    background-color: $material-dark-gray;
-    color: white;
-    font-family: $editor-font;
-    border: none;
-    border-left: 5px solid $material-light-gray;
-    padding: 20px;
-    padding-top: 5px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    resize: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.primer_slika{
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.button_copy{
-    border: 1px solid $gray;
-    border-left: 5px solid $material-light-gray;
-    line-height: 1.5em;
-    background-color: $light;
-    color: $dark-gray;
-    font-size: 16px;
-    padding: 10px;
+.lesson-text {
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: $material-light-gray;
     margin-top: 10px;
     margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: $material-light-gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: $material-light-gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: $material-light-gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  h5 {
+    font-size: 20px;
+    font-weight: bold;
+    color: $material-light-gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  h6 {
+    font-size: 18px;
+    font-weight: bold;
+    color: $material-light-gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+  }
+  ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 1.5em;
+    li {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: 1.5em;
+    }
+  }
+  b {
+    font-weight: bold;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+  }
+  .img-lg {
+    width: 80%;
+  }
+  .img-md {
+    width: 60%;
+  }
+  .img-sm {
+    width: 40%;
+  }
+  .img-xs {
+    width: 20%;
+  }
+  @media (max-width: 768px) {
+    img {
+      width: 100% !important;
+    }
+  }
 }
 
-.button_copy:hover{
-    background-color: white;
+.primer_text {
+  background-color: $light;
+  font-family: $editor-font;
 }
 
-.tabela{
-    border: 1px solid $material-light-gray;
-    width: 100%;
+.napomena {
+  background-color: $light;
+  padding: 20px;
+  border-left: 5px solid $js-primary;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  b {
+    font-weight: bold;
+  }
+}
+
+.zadatak {
+  background-color: $light;
+  padding: 20px;
+  border-left: 5px solid $about-primary;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  b {
+    font-weight: bold;
+  }
+}
+
+.primer_ta {
+  background-color: $material-dark-gray;
+  color: white;
+  font-family: $editor-font;
+  border: none;
+  border-left: 5px solid $material-light-gray;
+  padding: 20px;
+  padding-top: 5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  resize: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.primer_slika {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button_copy {
+  border: 1px solid $gray;
+  border-left: 5px solid $material-light-gray;
+  line-height: 1.5em;
+  background-color: $light;
+  color: $dark-gray;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button_copy:hover {
+  background-color: white;
+}
+
+.tabela {
+  border: 1px solid $material-light-gray;
+  width: 100%;
+  text-align: center;
+  th {
+    background-color: $material-light-gray;
+    color: $light;
     text-align: center;
-    th {
-        background-color: $material-light-gray;
-        color: $light;
-        text-align: center;
-        line-height: 2em;
-    }
-    td{
-        line-height: 2em;
-    }
-    tr:nth-child(even) {
-        background-color: $light;
-    }
+    line-height: 2em;
+  }
+  td {
+    line-height: 2em;
+  }
+  tr:nth-child(even) {
+    background-color: $light;
+  }
 }
 
-.tabela, th, td{
-    border: 1px solid $material-light-gray;     
+.tabela,
+th,
+td {
+  border: 1px solid $material-light-gray;
 }
 
-caption{
-    caption-side: top;
+caption {
+  caption-side: top;
 }

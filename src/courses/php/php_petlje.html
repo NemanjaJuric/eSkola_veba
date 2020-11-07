@@ -1,29 +1,31 @@
 <h1><b>Petlje</b></h1>
-<br>
-Petlje izvršavaju zadate naredbe određeni broj puta. Ponavljanje bloka
-naredbi se naziva iteracija. PHP podržava četiri petlje:
+<br />
+Petlje izvršavaju zadate naredbe određeni broj puta. Ponavljanje bloka naredbi
+se naziva iteracija. PHP podržava četiri petlje:
 <ul>
   <li><b>while</b></li>
   <li><b>do while</b></li>
   <li><b>for</b></li>
   <li><b>foreach</b></li>
 </ul>
-<br>
+<br />
 <h2>While petlja</h2>
-<br>
+<br />
 While petlja je najjednostavnija. Izvršava naredbe sve dok je zadati uslov
-ispunjen (true). Može se desiti da se naredbe ne izvrše uopšte, a može se
-desiti da je uslov uvek ispunjen i da se naredbe izvršavaju beskonačan broj puta (beskonačna petlja).
-<br>
-<xmp class = "primer_ta">
+ispunjen (true). Može se desiti da se naredbe ne izvrše uopšte, a može se desiti
+da je uslov uvek ispunjen i da se naredbe izvršavaju beskonačan broj puta
+(beskonačna petlja).
+<br />
+<xmp class="primer_ta"
+>
 while ( uslov ) {
  naredbe
  }
 </xmp>
-<br>
-Ako želimo da ispišemo cifre broja 1234, možemo to da uradimo pomoću
-while petlje.
-<xmp class = "primer_ta">
+<br />
+Ako želimo da ispišemo cifre broja 1234, možemo to da uradimo pomoću while
+petlje.
+<xmp class="primer_ta">
 <?php
   $broj = 1234;
 
@@ -35,26 +37,29 @@ while petlje.
   }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br> <br>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Sve dok je broj veći od jedan, cifru dobijamo tako što uzimamo ostatak pri
-deljenju broja sa 10 ($cifra = $broj % 10). Nju ćemo da ispišemo sa naredbom echo i da broj podelimo sa 10 ($broj /= 10).
-<br>
+deljenju broja sa 10 ($cifra = $broj % 10). Nju ćemo da ispišemo sa naredbom
+echo i da broj podelimo sa 10 ($broj /= 10).
+<br />
 <h2>Do while petlja</h2>
-<br>
-Ova petlje će uvek jednom izvršiti blok naredbi, zatim će ispitati uslov i
-opet izvršiti naredbe ako je uslov ispunjen.
-<br>
-<xmp class = "primer_ta">
+<br />
+Ova petlje će uvek jednom izvršiti blok naredbi, zatim će ispitati uslov i opet
+izvršiti naredbe ako je uslov ispunjen.
+<br />
+<xmp class="primer_ta"
+>
 do {
  naredbe
 } while (uslov);
 </xmp>
-<br>
+<br />
 Treba da ispišemo brojeve od 1 do 5. To ćemo lako uraditi pomoću ove petlje.
- Prvo ćemo ispisati broj 1, a zatim ga uvećati ($broj++). Uvećani broj
- ispisujemo sve dok je manji ili jednak od 5 (echo $broj).
-<xmp class = "primer_ta">
+Prvo ćemo ispisati broj 1, a zatim ga uvećati ($broj++). Uvećani broj ispisujemo
+sve dok je manji ili jednak od 5 (echo $broj).
+<xmp class="primer_ta">
   <?php
   $broj = 1;
 
@@ -65,27 +70,34 @@ Treba da ispišemo brojeve od 1 do 5. To ćemo lako uraditi pomoću ove petlje.
   } while ($broj <= 5);
   ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 <h2>For petlja</h2>
-<br>
+<br />
 For petlja ponavlja određene naredbe više puta (obično su vrednosti promenljivih
 menjaju u svakoj iteraciji) i koristimo je kada unapred znamo koliko puta će se
- izvršiti zadate naredbe. Unutar for naredbe zadaju se tri izraza.
+izvršiti zadate naredbe. Unutar for naredbe zadaju se tri izraza.
 <ul>
-  <li>Prvi izraz se izvršava samo jednom, pre početka petlje. Služi za inicijalizaciju brojača</li>
-  <li>Drugi izraz se izvršava pre svake iteracije. Proverava se brojač i ako je vrednost izraza true, petlja se nastavlja, a U suprotnom se prekida.</li>
+  <li>
+    Prvi izraz se izvršava samo jednom, pre početka petlje. Služi za
+    inicijalizaciju brojača
+  </li>
+  <li>
+    Drugi izraz se izvršava pre svake iteracije. Proverava se brojač i ako je
+    vrednost izraza true, petlja se nastavlja, a U suprotnom se prekida.
+  </li>
   <li>Treći izraz se izvršava posle svake iteracije i menja se brojač.</li>
 </ul>
-<br>
-<xmp class = "primer_ta">
+<br />
+<xmp class="primer_ta"
+>
 for (početni_izraz; uslov; izraz_posle_iteracije) {
   naredbe
   }
 </xmp>
-<br>
+<br />
 Brojeve od 1 do 5 možemo da ispišemo i pomoću for petlje:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
   <?php
   for ($i = 1; $i <= 5; $i++) {
     echo $i;
@@ -93,11 +105,11 @@ Brojeve od 1 do 5 možemo da ispišemo i pomoću for petlje:
   }
   ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Pomoću for petlje možemo da prođemo kroz numerisani niz i ispišemo njegove
 elemente:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $kursevi = array("HTML", "CSS", "PHP", "Laravel", "Spring");
 $duzina_niza = count($kursevi);
@@ -108,29 +120,31 @@ for ($i = 0; $i<$duzina_niza; $i++) {
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 <h2>Foeach petlja</h2>
-<br>
-Ova petlja služi samo za prolazak kroz asocijativne nizove jer imaju
-specifičnu ključ-vrednost strukturu. Možemo je koristiti u dva oblika. <br>
+<br />
+Ova petlja služi samo za prolazak kroz asocijativne nizove jer imaju specifičnu
+ključ-vrednost strukturu. Možemo je koristiti u dva oblika. <br />
 U prvom obliku promenljiva dobija vrednost jednog elementa.
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 foreach ($niz as $vrednost) {
   deo programa koji radi sa elementom koji ima vrednost $vrednost
   }
 </xmp>
-<br>
-Kada želimo da menjamo elemente niza ili da znamo pod kojim ključem se
-nalazi određena vrednost, koristimo sledeći oblik:
-<xmp class = "primer_ta">
+<br />
+Kada želimo da menjamo elemente niza ili da znamo pod kojim ključem se nalazi
+određena vrednost, koristimo sledeći oblik:
+<xmp class="primer_ta"
+>
 foreach ($niz as $kljuc => $vrednost) {
   naredbe
   }
 </xmp>
-<br>
+<br />
 Setimo se našeg niza košarkaša. Sada ćemo da ispišemo njegove elemente:
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $kosarkasi = array("Teodosić"=>"1", "Bogdanović"=>"2", "Jokić"=>"3");
 
@@ -140,8 +154,8 @@ foreach ($kosarkasi as $kljuc => $vrednost) {
 }
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-<div class = "zadatak">
-Napisati program koji ispisuje parne brojeve između 1 i 10 pomoću for petlje.
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+<div class="zadatak">
+  Napisati program koji ispisuje parne brojeve između 1 i 10 pomoću for petlje.
 </div>

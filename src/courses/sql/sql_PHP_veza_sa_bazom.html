@@ -1,77 +1,106 @@
 <h1><b>Komunikacija sa bazom pomoću jezika PHP</b></h1>
-<br>
-Programski jezik PHP ima skup funkcija koje nam omogućavaju da komuniciramo sa bazom podataka.
-<div class = "napomena" >Za razumevanje ove lekcije, potrebno je određeno poznavanje programskog jezika PHP.</div>
+<br />
+Programski jezik PHP ima skup funkcija koje nam omogućavaju da komuniciramo sa
+bazom podataka.
+<div class="napomena">
+  Za razumevanje ove lekcije, potrebno je određeno poznavanje programskog jezika
+  PHP.
+</div>
 <h2>Povezivanje sa serverom i bazom podataka</h2>
 Vezu sa serverom ostvarujemo pomoću funkcije <b>mysqli_connect()</b>
-<br>
-<span class = "primer_text" >$konekcija = mysqli_connect($arg1, $arg2, $arg3);</span>
-<br>
-Pomoću promenljive <span class = "primer_text" >$konekcija</span> ćemo komunicirati sa serverom.
-<br>
-Promenljiva <span class = "primer_text" >$arg1</span> sadrži putanju do servera. Ako se povezujemo na WAMP server,
-putanja je samo <span class = "primer_text" >'localhost'</span>.
-<br>
-Promenljiva <span class = "primer_text" >$arg2</span> sadrži korisničko ime koje koristite prilikom pristupa
-serveru. Ako se povezujemo na WAMP server, korisničko ime je <span class = "primer_text" >'root'</span>.
-<br>
-Promenljiva <span class = "primer_text" >$arg3</span> sadrži lozinku koje koristite prilikom pristupa
-serveru. Ako se povezujemo na WAMP server, lozinka je prazna niska, tj. <span class = "primer_text" >''</span>.
-<br><br>
-Ako na serveru već imamo neku bazu podataka, njoj možemo pristupiti na sledeći način:
-<br>
-<span class = "primer_text" >$konekcija = mysqli_connect($arg1, $arg2, $arg3, $arg4);</span>
-<br>
-Prve tri promenljive, odnosno prva tri argumenta funkcije sadrže iste vrednosti kao u prethodnom primeru, dok
-promenljiva <span class = "primer_text" >$arg4</span> čuva ime baze podataka.
-<br>
-Ako na WAMP serveru imamo bazu podataka koja se zove moja_baza, njoj pristupamo na sledeći način:
-<br>
-<span class = "primer_text" >$konekcija = mysqli_connect('localhost', 'root', '', 'moja_baza');</span>
-<br><br>
-Prilikom svakog povezivanja sa serverom ili bazom, treba izvršiti proveru uspešnosti konektovanja. Za to služi
-funkcija <b>mysqli_errno()</b>. Ona kao argument prima konekciju. Ako je konekcija uspešna, funkcija mysqli_errno() vraća
-vrednost nula, u suprotnom vraća vrednost različitu od nule. Provera konekcije se najčešće vrši na sledeći način:
-<xmp class = "primer_ta" >
+<br />
+<span class="primer_text"
+  >$konekcija = mysqli_connect($arg1, $arg2, $arg3);</span
+>
+<br />
+Pomoću promenljive <span class="primer_text">$konekcija</span> ćemo komunicirati
+sa serverom.
+<br />
+Promenljiva <span class="primer_text">$arg1</span> sadrži putanju do servera.
+Ako se povezujemo na WAMP server, putanja je samo
+<span class="primer_text">'localhost'</span>.
+<br />
+Promenljiva <span class="primer_text">$arg2</span> sadrži korisničko ime koje
+koristite prilikom pristupa serveru. Ako se povezujemo na WAMP server,
+korisničko ime je <span class="primer_text">'root'</span>.
+<br />
+Promenljiva <span class="primer_text">$arg3</span> sadrži lozinku koje koristite
+prilikom pristupa serveru. Ako se povezujemo na WAMP server, lozinka je prazna
+niska, tj. <span class="primer_text">''</span>. <br /><br />
+Ako na serveru već imamo neku bazu podataka, njoj možemo pristupiti na sledeći
+način:
+<br />
+<span class="primer_text"
+  >$konekcija = mysqli_connect($arg1, $arg2, $arg3, $arg4);</span
+>
+<br />
+Prve tri promenljive, odnosno prva tri argumenta funkcije sadrže iste vrednosti
+kao u prethodnom primeru, dok promenljiva
+<span class="primer_text">$arg4</span> čuva ime baze podataka.
+<br />
+Ako na WAMP serveru imamo bazu podataka koja se zove moja_baza, njoj pristupamo
+na sledeći način:
+<br />
+<span class="primer_text"
+  >$konekcija = mysqli_connect('localhost', 'root', '', 'moja_baza');</span
+>
+<br /><br />
+Prilikom svakog povezivanja sa serverom ili bazom, treba izvršiti proveru
+uspešnosti konektovanja. Za to služi funkcija <b>mysqli_errno()</b>. Ona kao
+argument prima konekciju. Ako je konekcija uspešna, funkcija mysqli_errno()
+vraća vrednost nula, u suprotnom vraća vrednost različitu od nule. Provera
+konekcije se najčešće vrši na sledeći način:
+<xmp class="primer_ta"
+>
 if(mysqli_errno($konekcija))
 	die('Neuspešna konekcija');
 </xmp>
-Kada vam prestane potreba za vezu sa bazom podataka potrebno je prekinuti konekciju na sledeći način:<br>
-<span class = "primer_text" >mysqli_close($konekcija);</span>
+Kada vam prestane potreba za vezu sa bazom podataka potrebno je prekinuti
+konekciju na sledeći način:<br />
+<span class="primer_text">mysqli_close($konekcija);</span>
 <h2>Komunikacija sa bazom</h2>
 Za prosleđivanje upita bazi koristimo funkciju <b>mysqli_query()</b>.
-<br>
-<span class = "primer_text" >mysqli_query($konekcija, $upit);</span>
-<br>
-Prvi argument je sama konekcija sa bazom koju smo dobili pomoću funkcije mysqli_connect. Drugi argument,
-odnosno promenljiva <span class = "primer_text" >$upit</span> je niska sa upitom koji hoćemo da izvršimo.
-Povratne vrednost ove funkcije je rezultat upita ili <b>FALSE</b> ako upit ne može da se izvrši.
-<br>
+<br />
+<span class="primer_text">mysqli_query($konekcija, $upit);</span>
+<br />
+Prvi argument je sama konekcija sa bazom koju smo dobili pomoću funkcije
+mysqli_connect. Drugi argument, odnosno promenljiva
+<span class="primer_text">$upit</span> je niska sa upitom koji hoćemo da
+izvršimo. Povratne vrednost ove funkcije je rezultat upita ili <b>FALSE</b> ako
+upit ne može da se izvrši.
+<br />
 Da li je upit uspešno izvršen, proveravamo na sledeći način:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 $rezultat = mysqli_query($konekcija, $upit);
 if(!$rezultat)
 	die('Neuspešno izvršen upit');
 </xmp>
 <h2>Obrada dohvaćenih podataka</h2>
-Ako je upit uspešno izvršen, potrebno je da vidimo rezultat tog izvršavanja. Broj dohvaćenih podataka
-nam daje funkcija <b>mysqli_num_rows()</b>. Ova funkcija ima jedan argument i to je rezultat izvršavanja upita, odnosno
-povratna vrednost funkcije mysqli_query().
-<br>
-Ako nemamo pronađen traženi podatak, a upit je uspešno izvršen, to ćemo saznati ovako:
-<xmp class = "primer_ta" >
+Ako je upit uspešno izvršen, potrebno je da vidimo rezultat tog izvršavanja.
+Broj dohvaćenih podataka nam daje funkcija <b>mysqli_num_rows()</b>. Ova
+funkcija ima jedan argument i to je rezultat izvršavanja upita, odnosno povratna
+vrednost funkcije mysqli_query().
+<br />
+Ako nemamo pronađen traženi podatak, a upit je uspešno izvršen, to ćemo saznati
+ovako:
+<xmp class="primer_ta"
+>
 $rezultat = mysqli_query($konekcija, $upit);
 if(mysqli_num_rows($rezultat))
 	die('Nije pronađen traženi podatak');
 </xmp>
-Ako je upit uspešno izvršen i dohvaćen je određeni broj traženih podataka, rezultat upita saznajemo pomoću
-funkcije <b>mysqli_fetch_assoc()</b>. Ova funkcije ima jedan argument i to je povratna vrednost funkcije mysqli_query(),
-tu vrednost smo dodelili promenljivoj $rezultat. Povratna vrednost funkcije mysqli_fetch_assoc() je jedan dohvaćen
-podatak predstavljen asocijativnim nizom indeksiranim imenima traženih kolona. Kada funkija mysqli_fetch_assoc(),
-ostane bez dohvaćenih podataka vraća vrednost <b>FALSE</b>.
-<br>
+Ako je upit uspešno izvršen i dohvaćen je određeni broj traženih podataka,
+rezultat upita saznajemo pomoću funkcije <b>mysqli_fetch_assoc()</b>. Ova
+funkcije ima jedan argument i to je povratna vrednost funkcije mysqli_query(),
+tu vrednost smo dodelili promenljivoj $rezultat. Povratna vrednost funkcije
+mysqli_fetch_assoc() je jedan dohvaćen podatak predstavljen asocijativnim nizom
+indeksiranim imenima traženih kolona. Kada funkija mysqli_fetch_assoc(), ostane
+bez dohvaćenih podataka vraća vrednost <b>FALSE</b>.
+<br />
 Ispis dohvaćenih podataka je prikazan sledećim kodom:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta"
+>
 while($podatak = mysqli_fetch_assoc($rezultat))
 {
 	echo $podatak['ime_kolone_1'];

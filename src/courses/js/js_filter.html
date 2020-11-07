@@ -1,15 +1,15 @@
 <html>
-<head> 
-</head>
-<body>
-<h1>Metoda filter()</h1>
-<p>Metodom <b>filter()</b> se kreira novi niz sa elemenitima
- niza koji zadovoljavaju odredjeni uslov zadat funkcijom.
- Uzima u obzir samo elemente niza čije su vrednosti definisane, 
- a ne uzima u obzir obrisane ili elemente čija vrednost 
- nije definisana. Elemeni niza koji ne prođu uslov filtera se 
- preskaču i ne uzimaju se kao elementi novog niza.</p>
- <xmp class = "primer_ta" disabled>
+  <head> </head>
+  <body>
+    <h1>Metoda filter()</h1>
+    <p>
+      Metodom <b>filter()</b> se kreira novi niz sa elemenitima niza koji
+      zadovoljavaju odredjeni uslov zadat funkcijom. Uzima u obzir samo elemente
+      niza čije su vrednosti definisane, a ne uzima u obzir obrisane ili
+      elemente čija vrednost nije definisana. Elemeni niza koji ne prođu uslov
+      filtera se preskaču i ne uzimaju se kao elementi novog niza.
+    </p>
+    <xmp class="primer_ta" disabled>
 <script type="text/javascript">
 function isBigEnough(value) {
   return value >= 10;
@@ -19,29 +19,37 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
 </script>
 </xmp>
-<br/> Filter() poziva callback funkciju za svaki element niza jednom i kreira novi niz svih vrednosti za koje je callback true.
-<br/>Callback se poziva na tri argumenta: 
-<ol>
-<li>1.vrednost elementa</li>
-<li>2.redni broj elementa</li>
-<li>3.niz </li>
-</ol>
-<p> filter() ne menja niz koji filrtira već kreira novi.</p>
-<h2>Sintaksa</h2>
- <xmp class = "primer_ta"  disabled>
+    <br />
+    Filter() poziva callback funkciju za svaki element niza jednom i kreira novi
+    niz svih vrednosti za koje je callback true. <br />Callback se poziva na tri
+    argumenta:
+    <ol>
+      <li>1.vrednost elementa</li>
+      <li>2.redni broj elementa</li>
+      <li>3.niz</li>
+    </ol>
+    <p>filter() ne menja niz koji filrtira već kreira novi.</p>
+    <h2>Sintaksa</h2>
+    <xmp class="primer_ta" disabled
+>
 var newArray = arr.filter(callback[, thisArg])
-</xmp>
-<h4>Parametri</h4>
-<p><b>Callback</b>-funkcija koja proverava da li trenutni član niza zadovoljava uslov, ako je vrednost true onda se član nalazi u novom nizu, ako je vrednost false onda ne.
-<br/> <b>Element</b>-član niza koji se trenutno obrađuje.
-<br/><b>Index</b>-redni broj elementa koji se trenutno obrađuje.
-<br/><b>Array</b>- niz koji se filtrira.
-<br/><b>thisArg</b>-Opciono. Vrednost koja se koristi pri izvršavanju naredbe.</p>
-<h4>Rezultat</h4>
-<p>Novi niz sa elementima koji su prošli filtriranje.</p>
-<h2>Primer:</h2>
-<p>Kreira novi niz čiji elementi imaju vrednost veću od 10:</p>
- <xmp class = "primer_ta"  disabled>
+</xmp
+    >
+    <h4>Parametri</h4>
+    <p>
+      <b>Callback</b>-funkcija koja proverava da li trenutni član niza
+      zadovoljava uslov, ako je vrednost true onda se član nalazi u novom nizu,
+      ako je vrednost false onda ne. <br />
+      <b>Element</b>-član niza koji se trenutno obrađuje. <br /><b>Index</b
+      >-redni broj elementa koji se trenutno obrađuje. <br /><b>Array</b>- niz
+      koji se filtrira. <br /><b>thisArg</b>-Opciono. Vrednost koja se koristi
+      pri izvršavanju naredbe.
+    </p>
+    <h4>Rezultat</h4>
+    <p>Novi niz sa elementima koji su prošli filtriranje.</p>
+    <h2>Primer:</h2>
+    <p>Kreira novi niz čiji elementi imaju vrednost veću od 10:</p>
+    <xmp class="primer_ta" disabled>
 <script type="text/javascript">
 function isBigEnough(value) {
   return value >= 10;
@@ -51,8 +59,8 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // novi niz je [12, 130, 44]
 </script>
 </xmp>
-<p>Sledeći primer izdvaja elemente sa definisanim vrednostima:</p>
- <xmp class = "primer_ta" rows = "37" disabled>
+    <p>Sledeći primer izdvaja elemente sa definisanim vrednostima:</p>
+    <xmp class="primer_ta" rows="37" disabled>
 <script type="text/javascript">
 var arr = [
   { id: 15 },
@@ -90,8 +98,9 @@ console.log('Broj nedefinisanih unosa je = ', invalidEntries);
 //broj nedefinisanih unosa je = 4
 </script>
 </xmp>
-Sledeći primer pokazuje kako možemo izdvojiti elemente niza pomoću search opcije na osnovu nekog kriterijuma:
- <xmp class = "primer_ta" rows = "20" disabled>
+    Sledeći primer pokazuje kako možemo izdvojiti elemente niza pomoću search
+    opcije na osnovu nekog kriterijuma:
+    <xmp class="primer_ta" rows="20" disabled>
 <script type="text/javascript">
 var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
 
@@ -108,5 +117,5 @@ console.log(filterItems('ap')); // ['apple', 'grapes']
 console.log(filterItems('an')); // ['banana', 'mango', 'orange']
 </script>
 </xmp>
-</body>
-</html> 
+  </body>
+</html>

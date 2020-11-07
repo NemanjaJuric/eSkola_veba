@@ -1,79 +1,89 @@
 <h1><b>Niske</b></h1>
-<br>
-<b>Niske (string)</b> su nizovi karaktera koje navodimo između jednostrukih ili dvostrukih navodnika. Sadržaj se ispisuje različito zavisno od vrste navodnika koju koristimo.
-Sadržaj promenljive će se ispisati kada koristimo duple navodnike, a ispisaće se naziv promenljive sa znakom $ kada koristimo jednostruke.
-<br> <br>
+<br />
+<b>Niske (string)</b> su nizovi karaktera koje navodimo između jednostrukih ili
+dvostrukih navodnika. Sadržaj se ispisuje različito zavisno od vrste navodnika
+koju koristimo. Sadržaj promenljive će se ispisati kada koristimo duple
+navodnike, a ispisaće se naziv promenljive sa znakom $ kada koristimo
+jednostruke. <br />
+<br />
 Sledeći kod spisuje <b>Moje ime je PHP.</b>
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 $ime="PHP";
 echo "Moje ime je $ime.";
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Sledeći kod spisuje <b>Moje ime je  $ime.</b>
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Sledeći kod spisuje <b>Moje ime je $ime.</b>
+<xmp class="primer_ta">
 <?php
 $ime="PHP";
 echo 'Moje ime je $ime.';
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Dvostruki navodnici nam omogućavaju da koristimo specijalne znakove koji se navode iza obrnute kose crte (\) i koriste se za preskakanje određenog znaka unutar niske. Pomoću . spajamo stringove.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Dvostruki navodnici nam omogućavaju da koristimo specijalne znakove koji se
+navode iza obrnute kose crte (\) i koriste se za preskakanje određenog znaka
+unutar niske. Pomoću . spajamo stringove.
+<xmp class="primer_ta">
 <?php
 $niska1 = "Ja";
 $niska2 = "učim";
 echo $niska1 . " " . $niska2 . " " . "veb programiranje.";
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 <h2>Funkcije nad niskama</h2>
-<br>
-PHP podržava više funkcija za rad sa niskama. Navešćemo par funkcija koje se često koriste. <br> <br>
+<br />
+PHP podržava više funkcija za rad sa niskama. Navešćemo par funkcija koje se
+često koriste. <br />
+<br />
 Funkcija <b>strlen()</b> vraća dužinu niske (stringa).
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 echo strlen("Zdravo, svete!");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Funkcija <b>str_word_count()</b> vraća broj reči koje niska sadrži.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 echo str_word_count("Ja volim veb programiranje.");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+<button class="button_copy">Vidi primer</button>
+<br /><br />
 Funkcija <b>strrev()</b> obrće nisku.
-<xmp class = "primer_ta">
+<xmp class="primer_ta">
 <?php
 echo strrev("Zdravo, svete!");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Funkcija <b>strpos()</b> traži zadati tekst u stringu i vraća poziciju prvog poklapanja. U suprotnom vraća false.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Funkcija <b>strpos()</b> traži zadati tekst u stringu i vraća poziciju prvog
+poklapanja. U suprotnom vraća false.
+<xmp class="primer_ta">
 <?php
 echo strpos("Zdravo, svete!", "svete");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-Funkcija <b>str_replace()</b> menja određene znakove niske sa drugim znakovima. Sledeći primer zamenjuje reč svete sa Marija.
-<xmp class = "primer_ta">
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+Funkcija <b>str_replace()</b> menja određene znakove niske sa drugim znakovima.
+Sledeći primer zamenjuje reč svete sa Marija.
+<xmp class="primer_ta">
 <?php
 echo str_replace("svete", "Marija", "Zdravo, svete!");
 ?>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
-<div class = "zadatak">
-Napisati program koji prvo ispisuje dužinu niske "Probaj sam!", a zatim zamenjuje reč Probaj sa Isprobaj i ispisuje novu rečenicu.
+<button class="button_copy">Vidi primer</button>
+<br /><br />
+<div class="zadatak">
+  Napisati program koji prvo ispisuje dužinu niske "Probaj sam!", a zatim
+  zamenjuje reč Probaj sa Isprobaj i ispisuje novu rečenicu.
 </div>

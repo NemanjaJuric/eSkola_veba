@@ -1,10 +1,12 @@
-<xmp>
+<xmp
+>
 SELECT ime, id_radnika AS ID_broj FROM radnik
 UNION
 SELECT ime, id_kupca FROM kupac;
 </xmp>
-<br><br><br>
-<xmp>
+<br /><br /><br />
+<xmp
+>
 SELECT ime, prezime FROM radnik WHERE polozaj = 'trgovac' AND radno_mesto = 'Nis'
 UNION
 SELECT ime, prezime FROM kupac WHERE grad = 'Nis';

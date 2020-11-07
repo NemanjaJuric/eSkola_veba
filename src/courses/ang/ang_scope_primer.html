@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+      <h1>{{imeauta}}</h1>
+    </div>
 
-<div ng-app="mojaAplikacija" ng-controller="mojKontroler">
+    <script>
+      var app = angular.module("mojaAplikacija", []);
+      app.controller("mojKontroler", function ($scope) {
+        $scope.imeauta = "Volvo";
+      });
+    </script>
 
-<h1>{{imeauta}}</h1>
-
-</div>
-
-<script>
-var app = angular.module('mojaAplikacija', []);
-app.controller('mojKontroler', function($scope) {
-    $scope.imeauta = "Volvo";
-});
-</script>
-
-<p>Svojstvo "imeauta" je napravljeno u kontroleru, i može da se prosledi pogledu koristeći {{ }} zagrade.</p>
-
-</body>
+    <p>
+      Svojstvo "imeauta" je napravljeno u kontroleru, i može da se prosledi
+      pogledu koristeći {{ }} zagrade.
+    </p>
+  </body>
 </html>

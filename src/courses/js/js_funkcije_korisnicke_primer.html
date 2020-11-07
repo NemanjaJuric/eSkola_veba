@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html>
-	<head>
-
-		<script>
-			function bezArgNepovratna(){
-				document.write("Funkcija bez argumenata i povratne vrednosti!");
-			}
-			function bezArgPovratna(){
-				return 5;
-			}
-			function kvadratBroja(x){
-				document.write(x*x);
-			}
-			function duplirajBroj(x){
-				return 2*x;
-			}
-			function zbirBrojeva(a,b){
-				document.write(a+b);
-			}
-			function zbirBrojeva2(a,b,c){
-				return a+b+c;
-			}
-			function zbirBrojeva3(a,b){
-				var zbir=a+b;
-				return zbir;
-			}
-			function zbirBrojeva4(a,b){
-				var zbir=a+b;
-				return zbir;
-				alert("Ovo se nikada nece izvrsiti");
-			}
-		</script>
-	</head>
-	<body>
-		<script>
-			bezArgNepovratna();
-			document.write("<br>");
-			document.write("Ovaj broj je vratila funkcija bez argumenata: "); var x=bezArgPovratna(); document.write(x);
-			document.write("<br>");
-			document.write("Kvradrat broja 2 je: "); kvadratBroja(2);
-			document.write("<br>");
-			document.write("Dupliran broj 3 je: "); var y=duplirajBroj(3); document.write(y);
-			document.write("<br>");
-			document.write("Zbir brojeva 2 i 3 je: "); zbirBrojeva(2,3);
-			document.write("<br>");
-			document.write("Zbir brojeva 2, 3 i 4 je: "); var z=zbirBrojeva2(2,3,4); document.write(z);
-			document.write("<br>");
-			document.write("Zbir brojeva 5 i 6 je: "); var m=zbirBrojeva3(5,6); document.write(m);
-			document.write("<br>");
-			document.write("Zbir brojeva 7 i 8 je: "); var n=zbirBrojeva4(7,8); document.write(n);
-		</script>
-	</body>
+  <head>
+    <script>
+      function bezArgNepovratna() {
+        document.write("Funkcija bez argumenata i povratne vrednosti!");
+      }
+      function bezArgPovratna() {
+        return 5;
+      }
+      function kvadratBroja(x) {
+        document.write(x * x);
+      }
+      function duplirajBroj(x) {
+        return 2 * x;
+      }
+      function zbirBrojeva(a, b) {
+        document.write(a + b);
+      }
+      function zbirBrojeva2(a, b, c) {
+        return a + b + c;
+      }
+      function zbirBrojeva3(a, b) {
+        var zbir = a + b;
+        return zbir;
+      }
+      function zbirBrojeva4(a, b) {
+        var zbir = a + b;
+        return zbir;
+        alert("Ovo se nikada nece izvrsiti");
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      bezArgNepovratna();
+      document.write("<br>");
+      document.write("Ovaj broj je vratila funkcija bez argumenata: ");
+      var x = bezArgPovratna();
+      document.write(x);
+      document.write("<br>");
+      document.write("Kvradrat broja 2 je: ");
+      kvadratBroja(2);
+      document.write("<br>");
+      document.write("Dupliran broj 3 je: ");
+      var y = duplirajBroj(3);
+      document.write(y);
+      document.write("<br>");
+      document.write("Zbir brojeva 2 i 3 je: ");
+      zbirBrojeva(2, 3);
+      document.write("<br>");
+      document.write("Zbir brojeva 2, 3 i 4 je: ");
+      var z = zbirBrojeva2(2, 3, 4);
+      document.write(z);
+      document.write("<br>");
+      document.write("Zbir brojeva 5 i 6 je: ");
+      var m = zbirBrojeva3(5, 6);
+      document.write(m);
+      document.write("<br>");
+      document.write("Zbir brojeva 7 i 8 je: ");
+      var n = zbirBrojeva4(7, 8);
+      document.write(n);
+    </script>
+  </body>
 </html>

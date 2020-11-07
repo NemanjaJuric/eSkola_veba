@@ -1,63 +1,95 @@
 ﻿<h1>CRUD operacije</h1>
 
-Nakon kreiranja baze podataka, svih potrebnih tabela i relacija izmedu njih, potrebno je definisati sve osnovne operacije nad 
-podacima. Jednim imenom, sve te operacije se nazivaju CRUD operacije. CRUD je zapravo akronim nastao od engleskog naziva četiri osnovne
-operacije sa podacima:<br/><br/>
+Nakon kreiranja baze podataka, svih potrebnih tabela i relacija izmedu njih,
+potrebno je definisati sve osnovne operacije nad podacima. Jednim imenom, sve te
+operacije se nazivaju CRUD operacije. CRUD je zapravo akronim nastao od
+engleskog naziva četiri osnovne operacije sa podacima:<br /><br />
 
 <ul>
-   <li><span class="font-weight-bold">Create (C)</span>  - Kreiranje podataka, tj. novih redova u tabeli.</li>
-   <li><span class="font-weight-bold">Read (R)</span>  - Čitanje, tj. pretraživanje podataka u bazi podataka.</li>
-   <li><span class="font-weight-bold">Update (U)</span>  - Ažuriranje podataka u tabeli.</li>
-   <li><span class="font-weight-bold">Delete (D)</span>  - Brisanje podataka iz baze podataka.</li>
+  <li>
+    <span class="font-weight-bold">Create (C)</span> - Kreiranje podataka, tj.
+    novih redova u tabeli.
+  </li>
+  <li>
+    <span class="font-weight-bold">Read (R)</span> - Čitanje, tj. pretraživanje
+    podataka u bazi podataka.
+  </li>
+  <li>
+    <span class="font-weight-bold">Update (U)</span> - Ažuriranje podataka u
+    tabeli.
+  </li>
+  <li>
+    <span class="font-weight-bold">Delete (D)</span> - Brisanje podataka iz baze
+    podataka.
+  </li>
 </ul>
-<br/>
+<br />
 
-U nastavku lekcije, svaka operacija biće detaljno opisana. Nakon opisa i definicija svih operacija, biće kreiran poseban modul koji ćemo koristi
-za kreiranje upita. Bitno je napomenuti da je neophodno da se prvo konektujemo na bazu podataka pre izvršavanja bilo koje od navedenih operacija. 
+U nastavku lekcije, svaka operacija biće detaljno opisana. Nakon opisa i
+definicija svih operacija, biće kreiran poseban modul koji ćemo koristi za
+kreiranje upita. Bitno je napomenuti da je neophodno da se prvo konektujemo na
+bazu podataka pre izvršavanja bilo koje od navedenih operacija.
 
 <h2>Kreiranje podataka</h2>
-Pod kreiranjem podataka podrazumeva se ubacivanje podataka u tabele. Da bismo ubacili podatke u tabele potrebno je da koristimo
-<span class="font-weight-bold">INSERT</span>  upit. Da bismo ubacili novog korisnika u tabelu korisnik potreban nam je upit sledećeg oblika:
+Pod kreiranjem podataka podrazumeva se ubacivanje podataka u tabele. Da bismo
+ubacili podatke u tabele potrebno je da koristimo
+<span class="font-weight-bold">INSERT</span> upit. Da bismo ubacili novog
+korisnika u tabelu korisnik potreban nam je upit sledećeg oblika:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 INSERT INTO korisnik (`kor_ime`, `sifra`, `mejl`,`ime`, `prezime`,`godiste`) 
 VALUES (`perap`, `pera12341`, `pera@peric.com`, `pera`, `peric`, 2002)
 </xmp>
 
-Da bismo ubacili novu knjigu u tabelu knjiga potreban nam je upit sledećeg oblika:
+Da bismo ubacili novu knjigu u tabelu knjiga potreban nam je upit sledećeg
+oblika:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 INSERT INTO knjiga (`kor_ime`, `sifra`, `mejl`,`ime`, `prezime`,`godiste`) 
 VALUES (`perap`, `pera12341`, `pera@peric.com`, `pera`, `peric`, 2002)
 </xmp>
 
-NodeJS kod kojim se izvršavaju ove operacije je gotovo identičan kao kod kojim smo kreirali tabele u prethodnoj lekicji. Jedino što se razlikuje je
-sam SQL upit. Iako ovo deluje jednostavno, nije baš tako. Prvo moramo da definišemo stranice, tj. putanje, u okviru naše aplikacije
-kojima će se korisniku prikazati polja za unos novog korisnika i unos nove knjige. To mogu biti putanje <span class="font-weight-bold">/registracija</span> i <span class="font-weight-bold">/nova_knjiga</span>.
-Zatim, nakon definisanja putanja i formi koje treba prikazati kada korisnik pristupi stranicama, potrebno je definisati i akcije koje se
-dešavaju nakon što korisnik serveru pošalje podatke koje treba ubaciti u bazu podataka. Najjednostavnije to se može razlikovati tako
-što se setimo da pristup stranici odgovara GET metodu, a da podatke sa forme možemo da šaljemo pomoću POST metoda. Na taj način,
-vrlo lako ćemo razlikovati da li treba da prikažemo formu za unos podataka ili nam pristižu novi podaci koje treba upamtiti u bazi podataka.
+NodeJS kod kojim se izvršavaju ove operacije je gotovo identičan kao kod kojim
+smo kreirali tabele u prethodnoj lekicji. Jedino što se razlikuje je sam SQL
+upit. Iako ovo deluje jednostavno, nije baš tako. Prvo moramo da definišemo
+stranice, tj. putanje, u okviru naše aplikacije kojima će se korisniku prikazati
+polja za unos novog korisnika i unos nove knjige. To mogu biti putanje
+<span class="font-weight-bold">/registracija</span> i
+<span class="font-weight-bold">/nova_knjiga</span>. Zatim, nakon definisanja
+putanja i formi koje treba prikazati kada korisnik pristupi stranicama, potrebno
+je definisati i akcije koje se dešavaju nakon što korisnik serveru pošalje
+podatke koje treba ubaciti u bazu podataka. Najjednostavnije to se može
+razlikovati tako što se setimo da pristup stranici odgovara GET metodu, a da
+podatke sa forme možemo da šaljemo pomoću POST metoda. Na taj način, vrlo lako
+ćemo razlikovati da li treba da prikažemo formu za unos podataka ili nam
+pristižu novi podaci koje treba upamtiti u bazi podataka.
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 25.</span><br/>
-   Pokušajte samostalno da implementirate rutiranje na stranici uz pomoć NodeJS.
-</div> 
-
-<br/><br/>
-Ako uzmemo u obzir da korisnik može i da pretražuje podatke, da ih ažurira i da ih briše, jasno je da rutiranje postaje izuzetno komplikovano. 
-Zbog toga ćemo kompletnu logiku rutiranja izvesti u poseban modul koji ćemo samo uključivati u našu aplikaciju. Takođe, generisanje SQL upita 
-će biti izdvojeno u poseban modul koji ćemo isto uključivati u našu aplikaciju. 
-
-<div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   NodeJS kod funkcija za rutiranje i generisanje sql upita biće prikazan na kraju lekcije. U nastavku biće definisani samo fragmenti koda koji
-   odgovaraju CRUD operacijama. 
+  <span class="font-weight-bold">Zadatak 25.</span><br />
+  Pokušajte samostalno da implementirate rutiranje na stranici uz pomoć NodeJS.
 </div>
 
-Da bismo upamtili novog korisnika u bazu podataka potrebno je da napišemo sledeći kod:
+<br /><br />
+Ako uzmemo u obzir da korisnik može i da pretražuje podatke, da ih ažurira i da
+ih briše, jasno je da rutiranje postaje izuzetno komplikovano. Zbog toga ćemo
+kompletnu logiku rutiranja izvesti u poseban modul koji ćemo samo uključivati u
+našu aplikaciju. Takođe, generisanje SQL upita će biti izdvojeno u poseban modul
+koji ćemo isto uključivati u našu aplikaciju.
 
-<xmp class = "primer_ta"> 
+<div class="napomena">
+  <span class="font-weight-bold">Napomena:</span><br />
+  NodeJS kod funkcija za rutiranje i generisanje sql upita biće prikazan na
+  kraju lekcije. U nastavku biće definisani samo fragmenti koda koji odgovaraju
+  CRUD operacijama.
+</div>
+
+Da bismo upamtili novog korisnika u bazu podataka potrebno je da napišemo
+sledeći kod:
+
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -98,36 +130,46 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 26.</span><br/>
-   Pokušajte samostalno da napišete kod kojim ćete ubaciti novu knjigu u bazu podataka. 
+  <span class="font-weight-bold">Zadatak 26.</span><br />
+  Pokušajte samostalno da napišete kod kojim ćete ubaciti novu knjigu u bazu
+  podataka.
 </div>
 
 <h2>Pretraživanje podataka</h2>
 
-Najčešća operacija sa podacima u bazi podataka jeste pristup podacima, tj. njihovo izlistavanje. Da bismo pročitali podatke iz
-baze potrebno je da koristimo <span class="font-weight-bold">SELECT</span> naredbu u SQL-u. Da bismo pročitali sve informacije o svim korisnicima u bazi podataka
-potreban nam je sledeći upit.
+Najčešća operacija sa podacima u bazi podataka jeste pristup podacima, tj.
+njihovo izlistavanje. Da bismo pročitali podatke iz baze potrebno je da
+koristimo <span class="font-weight-bold">SELECT</span> naredbu u SQL-u. Da bismo
+pročitali sve informacije o svim korisnicima u bazi podataka potreban nam je
+sledeći upit.
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 SELECT *
 FROM korisnik
 </xmp>
 
-Na ovaj način prikazaće nam se svi korisnici u tabeli, pri čemu svakom korisniku odgovara tačno jedan red te tabele. Atributi
-korisnika biće poređani po kolonama i to redom: id, korisničko ime, šifra, mejl, ime, prezime i godište. Iako ovo deluje korektno,
-ne bi trebalo da prikazujemo drugima šifre koje su korisnici izabrali za svoje naloge, jer je to bezbednosni rizik. Pored toga,
-van baze podataka vrednost atributa id nema nikakvu vrednost, pa bismo i to mogli da izbacimo iz prikaza. Da bismo to postigli
-u SELECT liniji ćemo navesti samo imena onih atributa koje želimo da prikažemo. To postižemo na sledeći način:
+Na ovaj način prikazaće nam se svi korisnici u tabeli, pri čemu svakom korisniku
+odgovara tačno jedan red te tabele. Atributi korisnika biće poređani po kolonama
+i to redom: id, korisničko ime, šifra, mejl, ime, prezime i godište. Iako ovo
+deluje korektno, ne bi trebalo da prikazujemo drugima šifre koje su korisnici
+izabrali za svoje naloge, jer je to bezbednosni rizik. Pored toga, van baze
+podataka vrednost atributa id nema nikakvu vrednost, pa bismo i to mogli da
+izbacimo iz prikaza. Da bismo to postigli u SELECT liniji ćemo navesti samo
+imena onih atributa koje želimo da prikažemo. To postižemo na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 SELECT kor_ime, mejl, ime, prezime, godiste
 FROM korisnik
 </xmp>
 
-Nakon što smo kreirali upit kojim izdvajamo sadržaj iz tabele korisnik, treba da napišemo NodeJS kod kojim ćemo obraditi odgovor 
-SUBP nakon što pošaljemo upit. Ako postoji neki rezultat upita, treba da ga prikažemo korisniku.
+Nakon što smo kreirali upit kojim izdvajamo sadržaj iz tabele korisnik, treba da
+napišemo NodeJS kod kojim ćemo obraditi odgovor SUBP nakon što pošaljemo upit.
+Ako postoji neki rezultat upita, treba da ga prikažemo korisniku.
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -169,11 +211,15 @@ con.connect(function(err) {
 });
 </xmp>
 
-Argument <span class="font-weight-bold">result</span> povratnog poziva je niz objekata, pri čemu svaki član niza odgovara tačno jednom korisniku u bazi podataka. Svakom
-od atributa iz baze podataka odgovara identično ime u objektu iz niza. Ako želimo možemo i pojedinačno da iteriramo kroz korisnike
-u tabeli korisnik i da na primer izdvojimo samo one koji su stariji od 18 godina. U kodu povratnog poziva to bismo postigli na sledeći način:
+Argument <span class="font-weight-bold">result</span> povratnog poziva je niz
+objekata, pri čemu svaki član niza odgovara tačno jednom korisniku u bazi
+podataka. Svakom od atributa iz baze podataka odgovara identično ime u objektu
+iz niza. Ako želimo možemo i pojedinačno da iteriramo kroz korisnike u tabeli
+korisnik i da na primer izdvojimo samo one koji su stariji od 18 godina. U kodu
+povratnog poziva to bismo postigli na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -222,24 +268,33 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 27.</span><br/>
-   Pokušajte samostalno da napišete kod kojim ćete izlistati sadržaj tabele knjiga. 
+  <span class="font-weight-bold">Zadatak 27.</span><br />
+  Pokušajte samostalno da napišete kod kojim ćete izlistati sadržaj tabele
+  knjiga.
 </div>
 
-Iako na prvi pogled ovaj pristup deluje sasvim u redu, zamislite situaciju u kojoj se radi o dečijoj biblioteci u kojoj su većina korisnka maloletni. U tom slučaju bismo
-odbacili veliki broj redova vraćenih u rezultatu i tako svaki put kada se ovaj upit izvrši. Neporedivo efikasnije bi bilo kada bi izdvajanje tog podskupa korisnika za nas
-uradio sistem za upravljanje bazom podataka. Da bismo sistemu za upravljanje bazom podataka saopštili kriterijum prema kojem se vrši izdvajanje podskupa, odnosno filtriranje
-korisnika potrebno je da u svoj upit dodamo <span class="font-weight-bold">WHERE</span> klauzu. Kao u prethodnom primeru ako želimo da izdvojimo samo punoletne korisnike, upit bi postao:
+Iako na prvi pogled ovaj pristup deluje sasvim u redu, zamislite situaciju u
+kojoj se radi o dečijoj biblioteci u kojoj su većina korisnka maloletni. U tom
+slučaju bismo odbacili veliki broj redova vraćenih u rezultatu i tako svaki put
+kada se ovaj upit izvrši. Neporedivo efikasnije bi bilo kada bi izdvajanje tog
+podskupa korisnika za nas uradio sistem za upravljanje bazom podataka. Da bismo
+sistemu za upravljanje bazom podataka saopštili kriterijum prema kojem se vrši
+izdvajanje podskupa, odnosno filtriranje korisnika potrebno je da u svoj upit
+dodamo <span class="font-weight-bold">WHERE</span> klauzu. Kao u prethodnom
+primeru ako želimo da izdvojimo samo punoletne korisnike, upit bi postao:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 SELECT *
 FROM korisnik
 WHERE godiste <= 2002
 </xmp>
 
-Ako pošaljemo SUBP ovakav upit, jasno je da nema potrebe da vršimo izdvajanje redova u svom programu, pa će kod biti sledeći:
+Ako pošaljemo SUBP ovakav upit, jasno je da nema potrebe da vršimo izdvajanje
+redova u svom programu, pa će kod biti sledeći:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -283,33 +338,48 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 28.</span><br/>
-   Pokušajte samostalno da napišete kod kojim ćete prikazati samo one knjige čiji je tiraž veči od 10000. 
+  <span class="font-weight-bold">Zadatak 28.</span><br />
+  Pokušajte samostalno da napišete kod kojim ćete prikazati samo one knjige čiji
+  je tiraž veči od 10000.
 </div>
 
-Pored filtriranja sadržaja tabele, često je potrebno prikazati taj sadržaj u sortiranom obliku. Na primer, prikazati korisnike sortirano po godištu. Jedan način kako se to može
-uraditi jeste programski. Pročitamo sve korisnike iz tabele, zatim u programu sortiramo sve korisnike prema godištu. Odmah je jasno da je ovaj pristup neefikasan i da nije nešto
-što želimo. Sortiranje redova može se postići kroz SQL upit koji se šalje SUBP. Dovoljno je na kraju upita dodati klauzu <span class="font-weight-bold">ORDER BY</span> praćenu kolonom po kojoj želimo da izvršimo sortiranje i ključne reči <span class="font-weight-bold">asc</span> ili <span class="font-weight-bold">desc</span> kojim definišemo način sortiranja, rastuće ili opadajuće respektivno. Na primer, ako želimo da sortiramo korisnike po prezimenu i imenu rastuće
-SQL upit bi bio:
+Pored filtriranja sadržaja tabele, često je potrebno prikazati taj sadržaj u
+sortiranom obliku. Na primer, prikazati korisnike sortirano po godištu. Jedan
+način kako se to može uraditi jeste programski. Pročitamo sve korisnike iz
+tabele, zatim u programu sortiramo sve korisnike prema godištu. Odmah je jasno
+da je ovaj pristup neefikasan i da nije nešto što želimo. Sortiranje redova može
+se postići kroz SQL upit koji se šalje SUBP. Dovoljno je na kraju upita dodati
+klauzu <span class="font-weight-bold">ORDER BY</span> praćenu kolonom po kojoj
+želimo da izvršimo sortiranje i ključne reči
+<span class="font-weight-bold">asc</span> ili
+<span class="font-weight-bold">desc</span> kojim definišemo način sortiranja,
+rastuće ili opadajuće respektivno. Na primer, ako želimo da sortiramo korisnike
+po prezimenu i imenu rastuće SQL upit bi bio:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 SELECT *
 FROM korisnik
 ORDER BY prezime asc, ime asc
 </xmp>
 
-Primetimo da je neophodno da navedemo obe kolone i redosled po kojem želimo da izvršimo sortiranje. Sortiranje će se prvo izvršiti po prezimenu, a u slučaju da je prezime isto
-onda se sortiranje vrši prema imenu. Kada bismo želeli da sortiramo korisnike i po godistu, izmenili bismo upit na sledeći način:
+Primetimo da je neophodno da navedemo obe kolone i redosled po kojem želimo da
+izvršimo sortiranje. Sortiranje će se prvo izvršiti po prezimenu, a u slučaju da
+je prezime isto onda se sortiranje vrši prema imenu. Kada bismo želeli da
+sortiramo korisnike i po godistu, izmenili bismo upit na sledeći način:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 SELECT *
 FROM korisnik
 ORDER BY prezime asc, ime asc, godiste desc
 </xmp>
 
-Da bismo prikazali rezultate izvršavanja ovog upita, napisaćemo jednostavan NodeJS kod:
+Da bismo prikazali rezultate izvršavanja ovog upita, napisaćemo jednostavan
+NodeJS kod:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -353,31 +423,38 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 29.</span><br/>
-   Pokušajte samostalno da napišete kod kojim ćete sortirati knjige po autorima i njihovim delima. Dela istog autora treba da budu sortirana hronološki. 
+  <span class="font-weight-bold">Zadatak 29.</span><br />
+  Pokušajte samostalno da napišete kod kojim ćete sortirati knjige po autorima i
+  njihovim delima. Dela istog autora treba da budu sortirana hronološki.
 </div>
 
 <h2>Ažuriranje podataka</h2>
 
-Neretko javlja se potreba za promenom nekog podatka u bazi podataka. Na primer, korisnik želi da promeni mejl adresu ili je potrebno izmeniti tiraž knjige. Da bi se izmenio
-sadržaj u tabeli potrebno je da koristimo <span class="font-weight-bold">UPDATE</span> naredbu u okviru SQL-a. Ako želimo da promenimo mejl adresu korisnika čiji je korisničko ime perap, potrebno je da izvršimo
-sledeći upit
+Neretko javlja se potreba za promenom nekog podatka u bazi podataka. Na primer,
+korisnik želi da promeni mejl adresu ili je potrebno izmeniti tiraž knjige. Da
+bi se izmenio sadržaj u tabeli potrebno je da koristimo
+<span class="font-weight-bold">UPDATE</span> naredbu u okviru SQL-a. Ako želimo
+da promenimo mejl adresu korisnika čiji je korisničko ime perap, potrebno je da
+izvršimo sledeći upit
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 UPDATE korisnik
 SET mejl = 'novaMejlAdresa@gmail.com'
 WHERE kor_ime = 'perap'
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Obratite pažnju na WHERE klauzu u okviru UPDATE upita kojom se određuje koji tačno red ili redove treba izmeniti. Izostavljanjem WHERE klauze iz
-   UPDATE upita biće izmenjeni svi redovi u tabeli.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Obratite pažnju na WHERE klauzu u okviru UPDATE upita kojom se određuje koji
+  tačno red ili redove treba izmeniti. Izostavljanjem WHERE klauze iz UPDATE
+  upita biće izmenjeni svi redovi u tabeli.
 </div>
 
 Da bismo izvršili upit potrebno je da napišemo jednostavan NodeJS kod:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -419,29 +496,36 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 30.</span><br/>
-   Pokušajte samostalno da napišete kod kojim se menja tiraž jedne knjige. 
+  <span class="font-weight-bold">Zadatak 30.</span><br />
+  Pokušajte samostalno da napišete kod kojim se menja tiraž jedne knjige.
 </div>
 
 <h2>Brisanje podataka</h2>
 
-Na kraju, poslednja operacija koja se može izvršiti nad podacima je njihovo uklanjanje iz baze podataka. Da bismo uklonili podatak iz baze podataka potrebno je da koristimo
-<span class="font-weight-bold">DELETE</span> naredbu u okviru SQL upita. Ako želimo da izbrišemo sve maloletne korisnike iz tabele korisnici potrebno je da izvršimo sledeći upit:
+Na kraju, poslednja operacija koja se može izvršiti nad podacima je njihovo
+uklanjanje iz baze podataka. Da bismo uklonili podatak iz baze podataka potrebno
+je da koristimo
+<span class="font-weight-bold">DELETE</span> naredbu u okviru SQL upita. Ako
+želimo da izbrišemo sve maloletne korisnike iz tabele korisnici potrebno je da
+izvršimo sledeći upit:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 DELETE FROM korisnik
 WHERE godiste > 2002
 </xmp>
 
 <div class="napomena">
-   <span class="font-weight-bold">Napomena:</span><br/>
-   Obratite pažnju na WHERE klauzu u okviru DELETE upita kojom se određuje koji tačno red ili redove treba izbrisati. Izostavljanjem WHERE klauze iz
-   DELETE upita biće obrisani svi redovi u tabeli.
+  <span class="font-weight-bold">Napomena:</span><br />
+  Obratite pažnju na WHERE klauzu u okviru DELETE upita kojom se određuje koji
+  tačno red ili redove treba izbrisati. Izostavljanjem WHERE klauze iz DELETE
+  upita biće obrisani svi redovi u tabeli.
 </div>
 
 Da bismo izvršili upit potrebno je da napišemo jednostavan NodeJS kod:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 // uključujemo mysql modul
 var mysql = require('mysql');
 
@@ -482,23 +566,28 @@ con.connect(function(err) {
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 31.</span><br/>
-   Pokušajte samostalno da napišete kod kojim se iz tabele knjiga brišu sve knjige jednog izdavača. 
+  <span class="font-weight-bold">Zadatak 31.</span><br />
+  Pokušajte samostalno da napišete kod kojim se iz tabele knjiga brišu sve
+  knjige jednog izdavača.
 </div>
 
-Pored brisanja pojedinačnih redova moguće je ukloniti i celokupnu tabelu odjednom, kao i celokupnu bazu podataka jednom SQL naredbom. Da bismo obrisali celokupnu tabelu korisnik iz baze podataka potrebno je da izvršimo sledeći upit:
+Pored brisanja pojedinačnih redova moguće je ukloniti i celokupnu tabelu
+odjednom, kao i celokupnu bazu podataka jednom SQL naredbom. Da bismo obrisali
+celokupnu tabelu korisnik iz baze podataka potrebno je da izvršimo sledeći upit:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 DROP TABLE korisnik
 </xmp>
 
 Da bismo obrisali celokupnu bazu knjige potrebno je da izvršimo sledeći upit:
 
-<xmp class = "primer_ta"> 
+<xmp class="primer_ta"
+> 
 DROP DATABASE korisnik
 </xmp>
 
 <div class="zadatak">
-   <span class="font-weight-bold">Zadatak 32.</span><br/>
-   Pokušajte samostalno da napišete kod kojim se testiraju ova dva upita. 
+  <span class="font-weight-bold">Zadatak 32.</span><br />
+  Pokušajte samostalno da napišete kod kojim se testiraju ova dva upita.
 </div>

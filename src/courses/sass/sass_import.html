@@ -1,44 +1,52 @@
 <h1>Import</h1>
-Za razliku od programskog jezika <i>CSS</i>, gde se prilikom uvoza datoteka svaki put šalje novi <i>HTTP</i> zahtev, 
-programski jezik <i>Sass</i> će preuzeti datoteku koju želite da uvezete
- i kombinovati sa datotekom u koju uvozite i služiti se tom jednom datotekom u veb pregledaču.
- <br>
- Pretpostavimo da su date klase <span class="primer_text">_variable.scss</span> i <span class="primer_text">main.scss</span>.
- Klasu <span class="primer_text">_variable.scss</span> želimo da uvezemo u klasu <span class="primer_text">main.scss</span>.
- <br>
- To činimo na sledeći način:
- <br>
- <textarea class="primer_ta" rows="5" disabled>
+Za razliku od programskog jezika <i>CSS</i>, gde se prilikom uvoza datoteka
+svaki put šalje novi <i>HTTP</i> zahtev, programski jezik <i>Sass</i> će
+preuzeti datoteku koju želite da uvezete i kombinovati sa datotekom u koju
+uvozite i služiti se tom jednom datotekom u veb pregledaču.
+<br />
+Pretpostavimo da su date klase <span class="primer_text">_variable.scss</span> i
+<span class="primer_text">main.scss</span>. Klasu
+<span class="primer_text">_variable.scss</span> želimo da uvezemo u klasu
+<span class="primer_text">main.scss</span>.
+<br />
+To činimo na sledeći način:
+<br />
+<textarea class="primer_ta" rows="5" disabled>
  .variables{
 		$margin-xs: 5px;
 		$padding-sm: 10px;
 		$background-color: purple;
  }
- </textarea>
- <br>
- <br>
-  <textarea class="primer_ta" rows="6" disabled>
+ </textarea
+>
+<br />
+<br />
+<textarea class="primer_ta" rows="6" disabled>
  .colors{
 		$success-color: #4CAF50;
 		$warning-color: #FBBA42;
 		$error-color: #E53935;
 		$shadow-color: rgba(#A0A0A0, 0.5);
  }
- </textarea>
- <br>
- <br>
- <div class="napomena">Napomena: Kada se uvozi datoteka nije neophodno navoditi ekstenziju datoteke. <i>Sass</i> je pametan i razumeće Vaš zahtev.</div>
- <br>
- <br>
- <textarea class="primer_ta" rows="3" disabled>
+ </textarea
+>
+<br />
+<br />
+<div class="napomena">
+  Napomena: Kada se uvozi datoteka nije neophodno navoditi ekstenziju datoteke.
+  <i>Sass</i> je pametan i razumeće Vaš zahtev.
+</div>
+<br />
+<br />
+<textarea class="primer_ta" rows="3" disabled>
  #main {
   @import "variables";
 }
 </textarea>
-<br>
-<br>
-Takođe, moguće je uvesti više datoteka u jedan <i>@import</i>. 
-<br>
+<br />
+<br />
+Takođe, moguće je uvesti više datoteka u jedan <i>@import</i>.
+<br />
 Na primer:
-<br>
+<br />
 <span class="primer_text">@import "colors", "variables"; </span>

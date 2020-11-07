@@ -2,9 +2,9 @@
 Direktiva ng-repeat je savršena za prikazivanje tabela.
 <h2>Prikazivanje podataka u tabeli</h2>
 Prikazivanje tabela u Angularu je veoma jednostavno:
-<br>
+<br />
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<xmp class = "primer_ta" >
+<xmp class="primer_ta">
 
 <div ng-app="mojaAplikacija" ng-controller="mojKontroler"> 
 
@@ -29,11 +29,11 @@ app.controller('mojKontroler', function($scope) {
     });
 </script>
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br>
+<button class="button_copy">Vidi primer</button>
+<br />
 <h2>Prikazivanje u CSS stilu</h2>
 Da bi ucinili tabelu lepsom dodacemo malo CSS-a:
-<xmp class = "primer_ta" >
+<xmp class="primer_ta">
 <style>
 table, th , td {
   border: 1px solid grey;
@@ -48,10 +48,10 @@ table tr:nth-child(even) {
 }
 </style>
 </xmp>
-<br>
+<br />
 <h2>Sortiranje tabele sa OrderBy filterom</h2>
 Da bi sortitali tabelu dodajemo OrderBy filter.
-<xmp class = "primer_ta" >
+<xmp class="primer_ta">
 <table>
   <tr ng-repeat="x in imena| orderBy : 'Country'">
     <td>{{ x.Ime}}</td>
@@ -61,7 +61,7 @@ Da bi sortitali tabelu dodajemo OrderBy filter.
 </xmp>
 <h2>Prikazivanje sa Uppercase filterom</h2>
 Da bi smo prikazali sa svim velikim slovima, koristimo Uppercase filter:
-<xmp class = "primer_ta" ><table>
+<xmp class="primer_ta"><table>
   <tr ng-repeat="x in imena">
     <td>{{ x.Ime }}</td>
     <td>{{ x.Zemlja| uppercase }}</td>
@@ -69,8 +69,10 @@ Da bi smo prikazali sa svim velikim slovima, koristimo Uppercase filter:
 </table>
 </xmp>
 <h2>Prikazivanje indeksa tabele</h2>
-Da bi prikazali indeks tabele, dodajemo <td> sa $index: 
-<xmp class = "primer_ta" >
+Da bi prikazali indeks tabele, dodajemo
+<td>
+  sa $index:
+  <xmp class="primer_ta">
 <table>
   <tr ng-repeat="x in imena">
     <td>{{ $index + 1 }}</td>
@@ -79,8 +81,8 @@ Da bi prikazali indeks tabele, dodajemo <td> sa $index:
   </tr>
 </table>
 </xmp>
-<h2>Korišcenje $even i $odd</h2>
-<xmp class = "primer_ta" >
+  <h2>Korišcenje $even i $odd</h2>
+  <xmp class="primer_ta">
 <table>
 <tr ng-repeat="x in imena">
 <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
@@ -90,4 +92,4 @@ Da bi prikazali indeks tabele, dodajemo <td> sa $index:
 </tr>
 </table>
 </xmp>
-
+</td>

@@ -2,15 +2,20 @@
 
 <h2>Podešavanje</h2>
 
-Statički fajlovi su fajlovi koje klijent preuzima sa servera, kako na primer slike, CSS fajlovi, JavaScript fajlovi itd. Pre svega potrebno je dozvoliti slanje statičkih fajlova pošto to Express ne podrazumeva: <br><br>
+Statički fajlovi su fajlovi koje klijent preuzima sa servera, kako na primer
+slike, CSS fajlovi, JavaScript fajlovi itd. Pre svega potrebno je dozvoliti
+slanje statičkih fajlova pošto to Express ne podrazumeva: <br /><br />
 
-<span class = "primer_text">express.static(root, [options])</span> <br><br>
+<span class="primer_text">express.static(root, [options])</span> <br /><br />
 
-<b>root</b> predstavlja direktorijum iz koga će se uzimati fajlovi za slanje klijentu<br>
-<b>options</b> objekat predstavlja moguće opcije pri postavljanju direktorijum.<br>
+<b>root</b> predstavlja direktorijum iz koga će se uzimati fajlovi za slanje
+klijentu<br />
+<b>options</b> objekat predstavlja moguće opcije pri postavljanju
+direktorijum.<br />
 Jedan primer korišćenja tog objekta:
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var options = {
   dotfiles: 'ignore',
   extensions: ['html', 'htm'],
@@ -21,29 +26,45 @@ var options = {
 }
 </xmp>
 
-<b>dotfiles</b> govori o tome kako će biti tretirani fajlovi koji počinju sa tačkom. Podrazumevana vrednost je "ignore" (ponašanje kao da takav fajl ne postoji), dok "deny" odbija takav zahtev, a "allow" ne označava nikakav poseban tretman.<br>
-<b>extensions</b> Ako fajl nije pronađen, traži fajlove sa zadatom ekstenzijom, u ovom slučaju 'html' i 'htm' i vraća prvi pronađen. Suprotno tome, zadaje se boolean vrednost false.<br>
-<b>index</b> predstavlja fajl koji se podrazumevano šalje za taj direktorijum. Podrazumevana vrednost je "index.html", a isključuje se postavljanjem boolean vrednosti false.<br>
-<b>setHeaders</b> - Funkcija koja postavlja HTTP zaglavlje u odgovoru klijentu pri dostavljanju fajla. res je odgovor, path je putanja fajla, a stat objekat sadrži još neke informacije o fajlu.<br><br>
+<b>dotfiles</b> govori o tome kako će biti tretirani fajlovi koji počinju sa
+tačkom. Podrazumevana vrednost je "ignore" (ponašanje kao da takav fajl ne
+postoji), dok "deny" odbija takav zahtev, a "allow" ne označava nikakav poseban
+tretman.<br />
+<b>extensions</b> Ako fajl nije pronađen, traži fajlove sa zadatom ekstenzijom,
+u ovom slučaju 'html' i 'htm' i vraća prvi pronađen. Suprotno tome, zadaje se
+boolean vrednost false.<br />
+<b>index</b> predstavlja fajl koji se podrazumevano šalje za taj direktorijum.
+Podrazumevana vrednost je "index.html", a isključuje se postavljanjem boolean
+vrednosti false.<br />
+<b>setHeaders</b> - Funkcija koja postavlja HTTP zaglavlje u odgovoru klijentu
+pri dostavljanju fajla. res je odgovor, path je putanja fajla, a stat objekat
+sadrži još neke informacije o fajlu.<br /><br />
 
-Konačno, postavljanje novog direktorijuma sa nazivom npr. <b>public</b> se vrši linijom:
+Konačno, postavljanje novog direktorijuma sa nazivom npr. <b>public</b> se vrši
+linijom:
 
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 app.use(express.static('public', options));
 </xmp>
 ili u slučaju da želimo da koristimo podrazumevane opcije samo:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 app.use(express.static('public'));
 </xmp>
 Važna napomena:
-<div class = "napomena">
-Ekpress traži fajlove u odnosu na statički direktorijum, tako da ime statičkog direktorijuma nije deo URL. 
+<div class="napomena">
+  Ekpress traži fajlove u odnosu na statički direktorijum, tako da ime statičkog
+  direktorijuma nije deo URL.
 </div>
 
 <h2>Slanje statičkih fajlova</h2>
 
-Dodati u direktorijum public sliku sa imenom npr. <b>eSkola-veba.png</b>. Kreirati novi .pug fajl u views folderu, neka se zove <b>static-file_view.pug</b> sa sadržajem:
-<xmp class = "primer_ta">
+Dodati u direktorijum public sliku sa imenom npr. <b>eSkola-veba.png</b>.
+Kreirati novi .pug fajl u views folderu, neka se zove
+<b>static-file_view.pug</b> sa sadržajem:
+<xmp class="primer_ta"
+>
 html
   head
   body
@@ -52,7 +73,8 @@ html
 </xmp>
 
 Odgovarajući kod bi bio:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 var express = require('express');
 var app = express();
 
@@ -68,16 +90,24 @@ app.get('/static-file_template', function(req, res){
 app.listen(2020);
 </xmp>
 
- Nakon poziva iz pretraživača prikaz bi bio:<br>
-<br><img src="courses/express/staticki_fajlovi/static_file_example1.png" class="img-fluid img-md"><br><br>
+Nakon poziva iz pretraživača prikaz bi bio:<br />
+<br /><img
+  src="courses/express/staticki_fajlovi/static_file_example1.png"
+  class="img-fluid img-md"
+/><br /><br />
 
 <h2>Virtuelni prefiks</h2>
 
-Za statički direktorijum moguće je postaviti virtuelnu putanju tako da svuda u kodu gde je potrebno pozvati taj fajl, mora se navesti postavljena putanja. U prethodnom primeru, virtuelna putanja npr. "/static" se za direktorijum public postavlja sa:
-<xmp class = "primer_ta">
+Za statički direktorijum moguće je postaviti virtuelnu putanju tako da svuda u
+kodu gde je potrebno pozvati taj fajl, mora se navesti postavljena putanja. U
+prethodnom primeru, virtuelna putanja npr. "/static" se za direktorijum public
+postavlja sa:
+<xmp class="primer_ta"
+>
 app.use("/static", express.static('public'));
 </xmp>
 pa se bi se u .pug fajlu slika eSkola-veba.png pronalazila sa:
-<xmp class = "primer_ta">
+<xmp class="primer_ta"
+>
 img(src="/static/eSkola-veba.png" alt="Testiranje prikaza slike")
 </xmp>

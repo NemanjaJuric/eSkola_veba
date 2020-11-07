@@ -1,9 +1,10 @@
 <h1><b>Callbacks funkcije</b></h1>
-<br>
-Nastavimo priču o javascript funkcijama i napravimo jednostavnu funkciju koja računa zbir dva broja.
-<br>
+<br />
+Nastavimo priču o javascript funkcijama i napravimo jednostavnu funkciju koja
+računa zbir dva broja.
+<br />
 
-<xmp class = "primer_ta" rows=17>
+<xmp class="primer_ta" rows="17">
 <!doctype html>
 <html>
 <head>
@@ -19,41 +20,53 @@ zbir(5,2);
 </body>
 </html>
 </xmp>
-<br>
-Znamo da su promenljive lokacije gde smeštamo izvesnu vrednost. I zbir je promenljiva pa bi onda mogli reći da smo funkciju smestili u promenljivu zbir. Promenljive su objekti pa ako je funkcija promenljiva i funkcija je objekat.
-<br>
-Kada pozivamo neku funkciju mi njoj prosleđujemo argumente, ti argumenti su neki objekti. Na primer, pozivamo funkciju zbir i proseđujemo dva argumenta:
-<br>
-<xmp class = "primer_ta" rows=1>
+<br />
+Znamo da su promenljive lokacije gde smeštamo izvesnu vrednost. I zbir je
+promenljiva pa bi onda mogli reći da smo funkciju smestili u promenljivu zbir.
+Promenljive su objekti pa ako je funkcija promenljiva i funkcija je objekat.
+<br />
+Kada pozivamo neku funkciju mi njoj prosleđujemo argumente, ti argumenti su neki
+objekti. Na primer, pozivamo funkciju zbir i proseđujemo dva argumenta:
+<br />
+<xmp class="primer_ta" rows="1"
+>
 zbir(5,2);
 </xmp>
-<br>
-Postavlja se sada pitanje, ako su argumenti koje prosleđujemo funkciji takođe objekti da li prilikom poziva jedne funkcije kao argument možemo proslediti funkciju, jer smo malo pre rekli da je i funkcija objekat.
-Dakle, ako možemo proslediti objekat bilo kojeg tipa zašto ne bismo mogli proslediti i funkciju kao argument. 
-<br>
+<br />
+Postavlja se sada pitanje, ako su argumenti koje prosleđujemo funkciji takođe
+objekti da li prilikom poziva jedne funkcije kao argument možemo proslediti
+funkciju, jer smo malo pre rekli da je i funkcija objekat. Dakle, ako možemo
+proslediti objekat bilo kojeg tipa zašto ne bismo mogli proslediti i funkciju
+kao argument.
+<br />
 Kreirajmo jos jednu funkciju:
-<br>
-<xmp class = "primer_ta" rows=3>
+<br />
+<xmp class="primer_ta" rows="3">
 var rezultat = function(parametar){
 document.write('Zbir je' + parametar +'<br/>');
 };
 </xmp>
-<br>
-Želimo da pozovemo funkciju <span> <i>zbir</i> </span> i kao treći argument da joj prosledimo funkciju <i>rezultat</i>. 
-<br>
-<xmp class = "primer_ta" rows=1>
+<br />
+Želimo da pozovemo funkciju <span> <i>zbir</i> </span> i kao treći argument da
+joj prosledimo funkciju <i>rezultat</i>.
+<br />
+<xmp class="primer_ta" rows="1"
+>
 zbir(5,2,rezultat);
 </xmp>
-<br>
-Sada našu početnu funkciju menjamo da ima jos parametar, neka to bude npr. <i> rez </i>. Dakle, parametar <i> rez </i> je takođe funkcija. Iskoristimo taj parametar i imamo poziv funkcije rez koja vraća rezultat zbira:
-<br>
-<xmp class = "primer_ta" rows=1>
+<br />
+Sada našu početnu funkciju menjamo da ima jos parametar, neka to bude npr.
+<i> rez </i>. Dakle, parametar <i> rez </i> je takođe funkcija. Iskoristimo taj
+parametar i imamo poziv funkcije rez koja vraća rezultat zbira:
+<br />
+<xmp class="primer_ta" rows="1"
+>
 rez(c);
 </xmp>
-<br>
+<br />
 Sada možemo kompletirati naš primer i pogledati šta se desava:
-<br>
-<xmp class = "primer_ta" rows=20>
+<br />
+<xmp class="primer_ta" rows="20">
 <!doctype html>
 <html>
 <head>
@@ -73,21 +86,21 @@ zbir(5,2,rezultat);
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Pogledaj</button>
-<br>
-Vidimo da smo uspešno kao argument prosledili funkciju. 
-<br>
+<button class="button_copy">Pogledaj</button>
+<br />
+Vidimo da smo uspešno kao argument prosledili funkciju.
+<br />
 Sada, zakomentarišimo našu promenljivu rezultat i napišimo:
-<br>
-<xmp class = "primer_ta" rows=2>
+<br />
+<xmp class="primer_ta" rows="2">
 zbir(5,2, function(parametar){
 document.write('Zbir je'+ parametar +'<br/>');
 });
 </xmp>
-<br>
+<br />
 Pogledajmo sada naš primer:
-<br>
-<xmp class = "primer_ta" rows=20>
+<br />
+<xmp class="primer_ta" rows="20">
 <!doctype html>
 <html>
 <head>
@@ -107,36 +120,52 @@ document.write('Zbir je'+parametar+'<br/>');
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Pogledaj</button>
-<br>
+<button class="button_copy">Pogledaj</button>
+<br />
 I vidimo da je rezultat isti.
-<br>
-Dakle, funkcija zbir ima prvi argument s1, drugi argument s2 i treći argument je funkcija.
-<br>
-Kada funkciju šaljemo kao argument prilikom poziva neke druge funkcije onda se ta funkcija naziva <i><b>callback funkcija</b></i>.
-<br>
-Callback funkcije se koriste i u JQuery, o kojem ćete više saznati u kartici JQuery, a mi ćemo sada samo navesti primer jedne callback funkcije u JQuery. 
-<br>
-<xmp class = "primer_ta" rows=3>
+<br />
+Dakle, funkcija zbir ima prvi argument s1, drugi argument s2 i treći argument je
+funkcija.
+<br />
+Kada funkciju šaljemo kao argument prilikom poziva neke druge funkcije onda se
+ta funkcija naziva <i><b>callback funkcija</b></i
+>.
+<br />
+Callback funkcije se koriste i u JQuery, o kojem ćete više saznati u kartici
+JQuery, a mi ćemo sada samo navesti primer jedne callback funkcije u JQuery.
+<br />
+<xmp class="primer_ta" rows="3"
+>
 $(p).click(function(){
       //može biti bilo šta ovde
 });
 </xmp>
-<br>
-Ova funkcija prilikom poziva funkcije click je callback funkcija. Callback funkcije se koriste svaki put kada želimo da vidimo dejstvo određene funkcije koja se poziva, prosleđuje se prilikom njenog poziva druga funkcija.
-<br>
-Dakle, pozivamo funkciju click, kao argument joj proseđujemo funckiju, koja može biti bilo šta.
-Kada funkcija click odradi svoj posao ona poziva ovu funkciju function u i njoj vidimo dejstvo funkcije click.
-<br>
-Znamo da JavaScript nije tipizirani jezik i kada pozivamo funkciju možemo joj prosledili kao argumente objekte bilo kojeg tipa.
-Ako ponovo pozovemo funkciju zbir sa sledećim parametrima <xmp class = "primer_ta" rows=2>
+<br />
+Ova funkcija prilikom poziva funkcije click je callback funkcija. Callback
+funkcije se koriste svaki put kada želimo da vidimo dejstvo određene funkcije
+koja se poziva, prosleđuje se prilikom njenog poziva druga funkcija.
+<br />
+Dakle, pozivamo funkciju click, kao argument joj proseđujemo funckiju, koja može
+biti bilo šta. Kada funkcija click odradi svoj posao ona poziva ovu funkciju
+function u i njoj vidimo dejstvo funkcije click.
+<br />
+Znamo da JavaScript nije tipizirani jezik i kada pozivamo funkciju možemo joj
+prosledili kao argumente objekte bilo kojeg tipa. Ako ponovo pozovemo funkciju
+zbir sa sledećim parametrima
+<xmp class="primer_ta" rows="2"
+>
 zbir(9, 5, 7);
-</xmp> program će nam prijaviti grešku sledeće sadržine: <i>number is not a function!</i>
-<br>
-Dakle, u ovom našem primeru pre nego što pozovemo callback funkciju, moramo dodati uslov <xmp class = "primer_ta" rows = 1>if(typeof(rez)=='function')</xmp> da nam se ovo ne bi desilo.
-<br> I ako konačno sagledamo naš primer imamo sledeće:
-<br>
-<xmp class = "primer_ta" rows=20>
+</xmp>
+program će nam prijaviti grešku sledeće sadržine:
+<i>number is not a function!</i>
+<br />
+Dakle, u ovom našem primeru pre nego što pozovemo callback funkciju, moramo
+dodati uslov
+<xmp class="primer_ta" rows="1">if(typeof(rez)=='function')</xmp>
+da nam se ovo ne bi desilo. <br />
+I ako konačno sagledamo naš primer imamo sledeće:
+<br />
+<xmp class="primer_ta" rows="20">
 <!doctype html>
 <html>
 <head>
@@ -157,13 +186,9 @@ document.write('Zbir je'+ parametar+'<br/>');
 </body>
 </html>
 </xmp>
-<button class = "button_copy">Pogledaj</button>
-<br>
+<button class="button_copy">Pogledaj</button>
+<br />
 <div class="zadatak">
-<b> Zadatak5: </b> U datom primeru dodati funkciju koja računa razliku dva broja na isti način uz pomoć callback funkcije.
+  <b> Zadatak5: </b> U datom primeru dodati funkciju koja računa razliku dva
+  broja na isti način uz pomoć callback funkcije.
 </div>
-
-
-
-
- 

@@ -1,23 +1,33 @@
-<course [lessonText]="lessonText" [code]="code" [lessonHelp]="lessonHelp"></course>
+<course
+  [lessonText]="lessonText"
+  [code]="code"
+  [lessonHelp]="lessonHelp"
+></course>
 <div class="container-fluid">
-    <div class="row lessons-input__wrapper">
-        <div class="text-xs-center m-b-2">
-            <h1 class="h1">Unos lekcija</h1>
-        </div>
-        <div class="col-md-6">
-            <div class="code-panel lesson-text">
-                <textarea [(ngModel)]="lessonText" [placeholder]="lessonTextPlaceholder"></textarea>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="code-panel lesson-text">
-                <textarea [(ngModel)]="code" [placeholder]="codePlaceholder"></textarea>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="code-panel lesson-preview">
-                <textarea [(ngModel)]="lessonHelp" [placeholder]="lessonHelpPlaceholder"></textarea>
-            </div>
-        </div>
+  <div class="row lessons-input__wrapper">
+    <div class="text-xs-center m-b-2">
+      <h1 class="h1">Unos lekcija</h1>
     </div>
+    <div class="col-md-6">
+      <div class="code-panel lesson-text">
+        <textarea
+          [(ngModel)]="lessonText"
+          [placeholder]="lessonTextPlaceholder"
+        ></textarea>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="code-panel lesson-text">
+        <textarea [(ngModel)]="code" [placeholder]="codePlaceholder"></textarea>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="code-panel lesson-preview">
+        <textarea
+          [(ngModel)]="lessonHelp"
+          [placeholder]="lessonHelpPlaceholder"
+        ></textarea>
+      </div>
+    </div>
+  </div>
 </div>

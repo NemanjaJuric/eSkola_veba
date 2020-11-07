@@ -1,22 +1,29 @@
 <h1>Enkapsulacija</h1>
 
-<p style="text-align: justify;"><b>Enkapsulacija</b> (eng. <i>encapsulation</i>) je još jedan od osnovnih principa objektno orijentisanog
-programiranja. Enkapsulacija podrazumeva skrivanje podataka od spoljnih pristupa. Primena
-enkapsulacije je izuzetno bitna, pogotovo kod velikih projekata. Poštovanjem pravila
-enkapsulacije obezbeđuje se da objekti imaju strogo kontrolisane ulaze i izlaze, a samim tim se
-smanjuje mogućnost greške, logičke nedoslednosti ili grešaka u programu.
-Skrivanje podataka se postiže upotrebom ključne reči private. Na taj način niko van te klase ne
-može neplanirano da promeni podatak. Svako pristupanje podacima vrši se isključivo preko javnih
-metoda kreiranih za te potrebe a to su metode - <b>getXXX()</b>  i <b>setXXX()</b>.
-Metoda <b>getXXX()</b> služi za dohvatanje podataka, tj. ona vraća vrednost neke promenljive, dok
-metoda <b>setXXX()</b> služi za postavljanje neke nove vrednosti promenljive. Metode "geteri" moraju
-vraćaju isti tip podatka koji je i promenljiva čiji su oni "geter". Metode koje setuju podatke,
-"seteri", moraju da primaju podatak istog tipa kao što je i podatak koji setuju. Koristeći "seter" ili
-"geter" metode, klasa može postati dostupna samo za čitanje (engl. <i>read-only</i>) ili samo za pisanje
-(engl. <i>write-only</i>). Na taj način se obezbeđuje kontrola nad podacima. Naredni primer prikazuje kako se upotrebljava enkapsulacija.</p>
+<p style="text-align: justify">
+  <b>Enkapsulacija</b> (eng. <i>encapsulation</i>) je još jedan od osnovnih
+  principa objektno orijentisanog programiranja. Enkapsulacija podrazumeva
+  skrivanje podataka od spoljnih pristupa. Primena enkapsulacije je izuzetno
+  bitna, pogotovo kod velikih projekata. Poštovanjem pravila enkapsulacije
+  obezbeđuje se da objekti imaju strogo kontrolisane ulaze i izlaze, a samim tim
+  se smanjuje mogućnost greške, logičke nedoslednosti ili grešaka u programu.
+  Skrivanje podataka se postiže upotrebom ključne reči private. Na taj način
+  niko van te klase ne može neplanirano da promeni podatak. Svako pristupanje
+  podacima vrši se isključivo preko javnih metoda kreiranih za te potrebe a to
+  su metode - <b>getXXX()</b> i <b>setXXX()</b>. Metoda <b>getXXX()</b> služi za
+  dohvatanje podataka, tj. ona vraća vrednost neke promenljive, dok metoda
+  <b>setXXX()</b> služi za postavljanje neke nove vrednosti promenljive. Metode
+  "geteri" moraju vraćaju isti tip podatka koji je i promenljiva čiji su oni
+  "geter". Metode koje setuju podatke, "seteri", moraju da primaju podatak istog
+  tipa kao što je i podatak koji setuju. Koristeći "seter" ili "geter" metode,
+  klasa može postati dostupna samo za čitanje (engl. <i>read-only</i>) ili samo
+  za pisanje (engl. <i>write-only</i>). Na taj način se obezbeđuje kontrola nad
+  podacima. Naredni primer prikazuje kako se upotrebljava enkapsulacija.
+</p>
 
 <b>Primer 30.</b> – Enkapsulacija
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 public class Student{
     private String ime;
     private String prezime;
@@ -47,6 +54,7 @@ public class Test{
   }
 </xmp>
 Nakon pokretanja ovog programa dobija se poruka:
-<xmp class = "primer_ta" title="">
+<xmp class="primer_ta" title=""
+>
 Petar Petrovic
 </xmp>

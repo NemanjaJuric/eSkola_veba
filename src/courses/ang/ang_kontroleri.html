@@ -1,24 +1,26 @@
 <h1>AngularJS kontroleri</h1>
-<br/>
-<br/>
+<br />
+<br />
 AngularJS kontroleri kontrolišu podatke u aplikaciji.
-<br/>
-<br/>
+<br />
+<br />
 AngularJS kontroleri su regularni JavaScript objekti.
-<br/>
-<br/>
+<br />
+<br />
 <h2>AngularJS kontroleri</h2>
-<br/>
+<br />
 AngularJS aplikacija se kontroliše uz pomoć kontrolera.
-<br/>
-<br/>
-Direktiva <span class = "primer_text">ng-controller</span> definiše kontroler aplikacije.
-<br/>
-<br/>
-Kontroler je JavaScript objekat koji je napravljen standardnim JavaScript konstruktorom.
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "24" disabled >
+<br />
+<br />
+Direktiva <span class="primer_text">ng-controller</span> definiše kontroler
+aplikacije.
+<br />
+<br />
+Kontroler je JavaScript objekat koji je napravljen standardnim JavaScript
+konstruktorom.
+<br />
+<br />
+<textarea class="primer_ta" rows="24" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -39,12 +41,12 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Takođe, mogu da se koriste duple zagrade {{ }} da se prikaže sadržaj modela:
-<br/>
-<textarea class = "primer_ta" rows = "30" disabled >
+<br />
+<textarea class="primer_ta" rows="30" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -70,32 +72,47 @@ app.controller('mojKontroler', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 Objašnjenje aplikacije:
-<br/>
-<br/>
+<br />
+<br />
 <ul>
-<li>AngularJS aplikacija je definisana sa ng-app="mojaAplikacija". Aplikacija se pokreće unutar < div > elementa.</li>
-<li>Atribut ng-controller="mojKontroler" je AngularJS direktiva. Ona definiše kontroler.</li>
-<li>Funkcija <b>mojKontroler</b> je JavaScript funkcija.</li>
-<li>AngularJS poziva kontroler sa <b>$scope</b> objektom.</li>
-<li>U AngularJS-u, $scope je objekat aplikacije (vlasnik promenljivih i funkcija aplikacije).</li>
-<li>Kontroler ima dva polja (dve promenljive) u opsegu (<b>ime</b> i <b>prezime</b>).</li>
-<li>Direktiva <b>ng-model</b> povezuje polje za unos podataka sa poljima kontrolera (ime i prezime).</li>
+  <li>
+    AngularJS aplikacija je definisana sa ng-app="mojaAplikacija". Aplikacija se
+    pokreće unutar < div > elementa.
+  </li>
+  <li>
+    Atribut ng-controller="mojKontroler" je AngularJS direktiva. Ona definiše
+    kontroler.
+  </li>
+  <li>Funkcija <b>mojKontroler</b> je JavaScript funkcija.</li>
+  <li>AngularJS poziva kontroler sa <b>$scope</b> objektom.</li>
+  <li>
+    U AngularJS-u, $scope je objekat aplikacije (vlasnik promenljivih i funkcija
+    aplikacije).
+  </li>
+  <li>
+    Kontroler ima dva polja (dve promenljive) u opsegu (<b>ime</b> i
+    <b>prezime</b>).
+  </li>
+  <li>
+    Direktiva <b>ng-model</b> povezuje polje za unos podataka sa poljima
+    kontrolera (ime i prezime).
+  </li>
 </ul>
-<br/>
-<br/>
+<br />
+<br />
 <h2>Metode kontrolera</h2>
-<br/>
+<br />
 Gore navedeni primer prikazuje kontroler objekat sa dva polja: ime i prezime.
-<br/>
-<br/>
+<br />
+<br />
 Kontroler može da ima i metode (promenljive kao funkcije):
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "34" disabled >
+<br />
+<br />
+<textarea class="primer_ta" rows="34" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -124,18 +141,20 @@ app.controller('kontrolerOsoba', function($scope) {
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Kontroleri u odvojenim datotekama</h2>
-<br/>
-U većim aplikacijama, uobičajeno je da se kontroleri čuvaju u odvojenim datotekama.
-<br/>
-<br/>
-Treba samo da se kopira kod iz &lt; script &gt; elementa u odvojenu datoteku koja se naziva kontrolerOsoba.js:
-<br/>
-<br/>
-<textarea class = "primer_ta" rows = "13" disabled >
+<br />
+U većim aplikacijama, uobičajeno je da se kontroleri čuvaju u odvojenim
+datotekama.
+<br />
+<br />
+Treba samo da se kopira kod iz &lt; script &gt; elementa u odvojenu datoteku
+koja se naziva kontrolerOsoba.js:
+<br />
+<br />
+<textarea class="primer_ta" rows="13" disabled>
 Datoteka kontrolerOsoba.js:
 
 var app = angular.module('mojaAplikacija', []);
@@ -147,11 +166,11 @@ app.controller('kontrolerOsoba', function($scope) {
     };
 });
 </textarea>
-<br/>
-<br/>
-<span class = "primer_text">Primer: </span>
-<br/>
-<textarea class = "primer_ta" rows = "23" disabled >
+<br />
+<br />
+<span class="primer_text">Primer: </span>
+<br />
+<textarea class="primer_ta" rows="23" disabled>
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -171,15 +190,15 @@ Ime i prezime: {{punoImeIPrezime()}}
 </body>
 </html>
 </textarea>
-<button class = "button_copy" >Vidi primer</button >
-<br/>
-<br/>
+<button class="button_copy">Vidi primer</button>
+<br />
+<br />
 <h2>Zadatak</h2>
-<br/>
-<div class = "zadatak">
-Napravite odvojenu datoteku za kontroler koja će imati sledeći sadržaj:
-<br/>
-<textarea class = "primer_ta" rows = "10" disabled >
+<br />
+<div class="zadatak">
+  Napravite odvojenu datoteku za kontroler koja će imati sledeći sadržaj:
+  <br />
+  <textarea class="primer_ta" rows="10" disabled>
 angular.module('mojaAplikacija', []).controller('imenaKontroler', function($scope) {
     $scope.imena = [
         {ime:'Marko',drzava:'Srbija'},
@@ -187,8 +206,9 @@ angular.module('mojaAplikacija', []).controller('imenaKontroler', function($scop
         {ime:'Gligor',drzava:'Makedonija'}
     ];
 });
-</textarea>
-<br/>
-Zatim napišite aplikaciju koja će pozivati prethodno napravljenu datoteku i ispisivati sva imena i države iz 
-kontrolera u obliku: Ime, Država.
+</textarea
+  >
+  <br />
+  Zatim napišite aplikaciju koja će pozivati prethodno napravljenu datoteku i
+  ispisivati sva imena i države iz kontrolera u obliku: Ime, Država.
 </div>

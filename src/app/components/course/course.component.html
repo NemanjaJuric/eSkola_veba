@@ -1,17 +1,23 @@
 <div class="container-fluid m-t-1 m-b-1 wrapper">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="code-panel lesson-text" (click)="lessonClick($event)" id="lessonView" [innerHTML]="(lessonText != undefined ? lessonText : '') | sanitizer">
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="code-panel lesson-code">
-				<editor [(code)]="code"></editor>
-			</div>
-			<div class="code-panel lesson-preview" [ngClass]="{'code-preview-full': fullScreen}">
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-6">
+      <div
+        class="code-panel lesson-text"
+        (click)="lessonClick($event)"
+        id="lessonView"
+        [innerHTML]="(lessonText != undefined ? lessonText : '') | sanitizer"
+      ></div>
+    </div>
+    <div class="col-md-6">
+      <div class="code-panel lesson-code">
+        <editor [(code)]="code"></editor>
+      </div>
+      <div
+        class="code-panel lesson-preview"
+        [ngClass]="{ 'code-preview-full': fullScreen }"
+      ></div>
+    </div>
+  </div>
 </div>
 <bottom-navigation (clickEmit)="click($event)"></bottom-navigation>
-<modal [lessonHelp]="lessonHelp"></modal>
+<modal *ngIf="lessonHelp" [lessonHelp]="lessonHelp"></modal>
