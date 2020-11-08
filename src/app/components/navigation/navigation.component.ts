@@ -2,16 +2,10 @@ import {
   Component,
   OnInit,
   HostListener,
-  trigger,
-  transition,
-  style,
-  animate,
-  state,
   ViewChild,
-  ElementRef,
   OnDestroy,
 } from "@angular/core";
-import { Router, NavigationEnd } from "@angular/router";
+import { Router, NavigationEnd, ActivatedRoute } from "@angular/router";
 import { SchoolService } from "../../services/school.service";
 import { Course } from "../../classes/course";
 import { MenuComponent } from "../menu/menu.component";
@@ -37,7 +31,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     private schoolService: SchoolService,
     private router: Router,
     private routeService: RouteService,
-    private elmRef: ElementRef
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -94,9 +88,23 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   @HostListener("window:scroll", ["$event"])
-  makeShadow(event) {
+  makeShadow() {
     document.body.scrollTop > 10
       ? (this.navigationShadow = true)
       : (this.navigationShadow = false);
+  }
+
+  scrollToSection(sectionName: string) {
+    const element = document.querySelector("#" + sectionName);
+    if (element) {
+      const t = setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+        clearTimeout(t);
+      });
+    }
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { fragment: sectionName },
+    });
   }
 }

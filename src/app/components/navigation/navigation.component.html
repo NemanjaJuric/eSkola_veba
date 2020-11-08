@@ -19,7 +19,12 @@
       >
     </li>
 
-    <div class="btn-group nav-item" *ngIf="courseUrl && course && this.url && this.url.indexOf('/test') === -1">
+    <div
+      class="btn-group nav-item"
+      *ngIf="
+        courseUrl && course && this.url && this.url.indexOf('/test') === -1
+      "
+    >
       <button
         class="nav-item hidden-sm-down dropdown-toggle course-navigation-button"
         data-toggle="dropdown"
@@ -65,6 +70,18 @@
         </ul>
       </div>
     </div>
+
+    <li class="nav-item hidden-sm-down" *ngIf="pageUrl === 'home'">
+      <a (click)="scrollToSection('svi_kursevi')" class="navigation-link">
+        Kursevi
+      </a>
+    </li>
+
+    <li class="nav-item hidden-sm-down" *ngIf="pageUrl === 'home'">
+      <a (click)="scrollToSection('tests')" class="navigation-link">
+        Testovi
+      </a>
+    </li>
 
     <li
       class="nav-item pull-xs-right hidden-md-down"

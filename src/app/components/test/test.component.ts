@@ -38,6 +38,7 @@ export class TestComponent implements OnInit, OnDestroy {
           return ts.find((t) => t.id === url);
         })
         .subscribe((t) => {
+          window.scroll({ top: 0, behavior: "smooth" });
           const test = t;
           if (!test) {
             return;
