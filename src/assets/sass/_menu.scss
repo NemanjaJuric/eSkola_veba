@@ -1,10 +1,10 @@
 .menu {
-  height: 100vh;
+  height: calc(100vh - 60px);
   width: 400px;
   position: fixed;
-  top: 0px;
-  left: -400px;
   z-index: 11;
+  top: 60px;
+  left: -400px;
   background-color: white;
   padding: 20px;
   overflow-y: auto;
