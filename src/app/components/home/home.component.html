@@ -35,11 +35,44 @@
 
       <ng-container *ngFor="let course of courses">
         <div
-          class="col-sm-6 col-md-4"
-          *ngIf="
-            course.sections.indexOf(section.name) > -1 ||
-            section.name === 'svi_kursevi'
-          "
+          class="col-md-6 col-lg-4"
+          *ngIf="course.sections.indexOf(section.name) > -1"
+          (click)="setRoute('course-details', course.id, null)"
+        >
+          <div
+            class="card course-card"
+            [ngClass]="'hover-' + course.id | lowercase"
+          >
+            <div class="card-block">
+              <div
+                class="course-icon display-4 font-weight-bold d-inline-block"
+                [innerHTML]="course.logo"
+              ></div>
+              <div class="course-text d-inline-block">{{ course.name }}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row m-y-3 text-xs-center m-a-3">
+    <div style="position: relative; top: -70px" id="svi_kursevi"></div>
+
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="scrollToSection('svi_kursevi')"
+      data-toggle="collapse"
+      data-target="#collapseAll"
+    >
+      Prikaži sve kurseve
+    </button>
+
+    <div class="collapse" id="collapseAll">
+      <ng-container *ngFor="let course of courses">
+        <div
+          class="col-md-6 col-lg-4"
           (click)="setRoute('course-details', course.id, null)"
         >
           <div
