@@ -8,7 +8,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": ["assets", "courses", "podaci", "data", "libs"],
+      "assets": ["assets", "courses", "data", "libs", "tests"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",

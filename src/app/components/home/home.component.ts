@@ -10,9 +10,10 @@ import { ActivatedRoute, Router } from "@angular/router";
   templateUrl: "./home.component.html",
 })
 export class HomeComponent implements OnInit {
-  courses: Array<Course>;
-  sections: Array<any>;
-  technologies: Array<Technologie>;
+  courses: Array<Course> = [];
+  sections: Array<any> = [];
+  technologies: Array<Technologie> = [];
+  tests: Array<any> = [];
 
   private fragment: string;
 
@@ -26,13 +27,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getCourses();
     this.getTechnologies();
+    this.getTests();
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       this.fragment = queryParams["fragment"];
     });
-    // const t = setTimeout(() => {
-    //   window.scrollTo(0, 0);
-    //   clearTimeout(t);
-    // });
   }
 
   getCourses(): void {
@@ -50,6 +48,12 @@ export class HomeComponent implements OnInit {
           }
         }
       });
+    });
+  }
+
+  getTests() {
+    this.schoolService.getTests().subscribe((t) => {
+      this.tests = t;
     });
   }
 

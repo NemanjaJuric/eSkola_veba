@@ -19,7 +19,7 @@
       >
     </li>
 
-    <div class="btn-group nav-item" *ngIf="courseUrl && course">
+    <div class="btn-group nav-item" *ngIf="courseUrl && course && this.url && this.url.indexOf('/test') === -1">
       <button
         class="nav-item hidden-sm-down dropdown-toggle course-navigation-button"
         data-toggle="dropdown"
@@ -66,19 +66,13 @@
       </div>
     </div>
 
-    <li class="nav-item hidden-sm-down" *ngIf="pageUrl != 'web-center'">
-      <a (click)="setRoute('web-center', null, null)" class="navigation-link"
-        >Veb centar</a
-      >
-    </li>
-
     <li
       class="nav-item pull-xs-right hidden-md-down"
       *ngIf="pageUrl === 'home'"
     >
-      <a (click)="setRoute('about', null, null)" class="navigation-link"
-        >O nama</a
-      >
+      <a (click)="setRoute('about', null, null)" class="navigation-link">
+        O nama
+      </a>
     </li>
     <li class="nav-item pull-xs-right hidden-md-down">
       <search class="hidden-sm-down"></search>

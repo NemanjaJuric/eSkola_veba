@@ -1,0 +1,60 @@
+<div class="container-fluid m-t-1 m-b-1">
+  <div class="row">
+    <div class="col-lg-1 d-none d-lg-block"></div>
+
+    <div class="col-lg-10">
+      <div class="text-center" *ngIf="checked">
+        <h3 class="h3">
+          Broj tačnih odgovora: {{ numberOfCorrectAnswers }} / 10
+        </h3>
+      </div>
+
+      <div
+        *ngFor="let question of questions; let questionIndex = index"
+        class="pitanje"
+      >
+        <h5 class="h5 m-b-2">
+          <b>Pitanje broj {{ questionIndex + 1 }}: </b>
+          <b class="check-true" *ngIf="checked && question.userCorrect"
+            >TAČNO</b
+          >
+          <b class="check-false" *ngIf="checked && !question.userCorrect"
+            >NETAČNO</b
+          >
+        </h5>
+
+        <div class="m-b-2" [innerHtml]="question.question"></div>
+
+        <h5 class="h5 m-b-2"><b>Ponuđeni odgovori:</b></h5>
+
+        <div *ngFor="let answer of question.answers; let answerIndex = index">
+          <div class="form-check form-check-inline m-b-1" *ngIf="answer">
+            <input
+              class="form-check-input"
+              [ngClass]="{ 'correct-answer': checked && answer.correct }"
+              type="radio"
+              name="{{ questionIndex }}"
+              value="{{ answerIndex }}"
+              [(ngModel)]="question.user"
+              [disabled]="checked"
+            />
+            <label
+              class="form-check-label"
+              for="inlineRadio1"
+              [innerHtml]="answer.text"
+            ></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center m-y-3">
+        <button type="button" class="btn btn-light" (click)="check()">
+          Proveri odgovore
+        </button>
+        <button type="button" class="btn btn-light" (click)="reload()">
+          Probaj ponovo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

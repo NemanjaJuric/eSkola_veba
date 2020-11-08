@@ -36,4 +36,9 @@ export class RouteService {
       ? null
       : this.course + "/" + this.lesson;
   }
+
+  getTestRoute(): any {
+    this.initRoutes();
+    return this.course;
+  }
 }

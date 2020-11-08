@@ -14,9 +14,12 @@ import { Person } from "../classes/person";
 import { Technologie } from "../classes/technologie";
 import { Button } from "../classes/button";
 import "rxjs/Rx";
+import { QueueScheduler } from "rxjs/scheduler/QueueScheduler";
+import { forkJoin } from "rxjs/observable/forkJoin";
 
 const assetsLocation = "assets/";
 const coursesLocation = "courses/";
+const testsLocation = "tests/";
 const dataStoreLocation = "data/";
 
 @Injectable()
@@ -53,6 +56,11 @@ export class SchoolService {
 
   getLessonHelp(url: string): Observable<string> {
     let getUrl = coursesLocation + url + "_pomoc.html";
+    return this.http.get(getUrl).map(this.extractData).catch(this.handleError);
+  }
+
+  getTestText(url: string): Observable<string> {
+    let getUrl = testsLocation + url + ".html";
     return this.http.get(getUrl).map(this.extractData).catch(this.handleError);
   }
 
@@ -215,5 +223,30 @@ export class SchoolService {
     return this.getCourses().map((courses) => {
       return courses.find((c) => c.id === courseUrl);
     });
+  }
+
+  getTests() {
+    let getUrl = dataStoreLocation + "tests.json";
+    return this.http
+      .get(getUrl)
+      .map((res) => JSON.parse(res.text()))
+      .catch(this.handleError);
+  }
+
+  getQuestions(
+    testUrl: string,
+    qustions: Array<number>
+  ): Observable<Array<string>> {
+    const batch = [];
+    let getUrl = testsLocation + testUrl + "/";
+    qustions.forEach((q) => {
+      batch.push(
+        this.http
+          .get(getUrl + q + ".html")
+          .map(this.extractData)
+          .catch(this.handleError)
+      );
+    });
+    return forkJoin(batch);
   }
 }

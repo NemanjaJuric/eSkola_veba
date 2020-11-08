@@ -111,6 +111,17 @@
   }
 }
 
+.pitanje{
+  background-color: $light;
+  padding: 20px;
+  border-left: 5px solid gray;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  b {
+    font-weight: bold;
+  }
+}
+
 .primer_ta {
   background-color: $material-dark-gray;
   color: white;

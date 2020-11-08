@@ -34,6 +34,7 @@ import { CodeRunnerService } from "./services/code-runner.service";
 import { GoogleAnalyticsService } from "./services/google-analytics.service";
 
 import { SanitizerPipe } from "./pipes/sanitizer.pipe";
+import { TestComponent } from "./components/test/test.component";
 
 const routes = [
   {
@@ -55,6 +56,10 @@ const routes = [
   {
     path: "book/:id/:url",
     component: BookComponent,
+  },
+  {
+    path: "test/:id",
+    component: TestComponent,
   },
   {
     path: "web-center",
@@ -105,6 +110,7 @@ const routes = [
     TsCompilerComponent,
     WebCenterComponent,
     SanitizerPipe,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

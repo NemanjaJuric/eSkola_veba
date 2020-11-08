@@ -92,6 +92,33 @@
     </div>
   </div>
 
+  <div class="row text-xs-center m-a-3">
+    <div style="position: relative; top: -70px" id="tests"></div>
+    <h2
+      class="h2 m-t-4 m-b-3 course-section-title"
+      (click)="scrollToSection('tests')"
+    >
+      <span>Testovi</span>
+    </h2>
+
+    <ng-container *ngFor="let test of tests">
+      <div class="col-md-6 col-lg-4" (click)="setRoute('test', test.id, null)">
+        <div
+          class="card course-card"
+          [ngClass]="'hover-' + test.id | lowercase"
+        >
+          <div class="card-block">
+            <div
+              class="course-icon display-4 font-weight-bold d-inline-block"
+              [innerHTML]="test.logo"
+            ></div>
+            <div class="course-text d-inline-block">{{ test.name }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
   <div class="text-xs-center m-a-3">
     <h2 class="h2">Alati</h2>
   </div>

@@ -25,6 +25,18 @@ declare var $: any;
   templateUrl: "./course.component.html",
 })
 export class CourseComponent implements OnInit, OnDestroy {
+  course: string;
+  lesson: Lesson;
+  previous: string;
+  next: string;
+  jsCode: string;
+  allowedExtensions: Array<string> = [];
+  routerSubscription: Subscription;
+
+  @Input() lessonText;
+  @Input() code: string;
+  @Input() lessonHelp: string;
+
   constructor(
     private schoolService: SchoolService,
     private routeService: RouteService,
@@ -57,18 +69,6 @@ export class CourseComponent implements OnInit, OnDestroy {
     this.getExtension(this.course);
     this.getLessonSiblings(this.routeService.lesson, this.routeService.course);
   }
-
-  course: string;
-  lesson: Lesson;
-  previous: string;
-  next: string;
-  jsCode: string;
-  allowedExtensions: Array<string> = [];
-  routerSubscription: Subscription;
-
-  @Input() lessonText;
-  @Input() code: string;
-  @Input() lessonHelp: string;
 
   getExtension(course) {
     switch (course) {

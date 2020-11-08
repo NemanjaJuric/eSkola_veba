@@ -43,3 +43,26 @@
   height: calc(100vh - 110px);
   z-index: 9;
 }
+
+.check-true {
+  color: $spring-primary;
+}
+
+.check-false {
+  color: $html-primary;
+}
+
+.correct-answer {
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f058";
+    font-size: 24px;
+    color: $spring-primary;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    top: -5px;
+    left: -5px;
+  }
+}
