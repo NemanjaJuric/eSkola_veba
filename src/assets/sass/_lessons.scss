@@ -187,3 +187,19 @@ td {
 caption {
   caption-side: top;
 }
+
+.half-panel{
+  width: calc(50% - 5px);
+  height: calc(100% - 8px);
+  float: left;
+  @media (max-width: 992px) {
+    float: none;
+    width: 100%;
+    height: unset;
+  }
+}
+
+.half-panel-scrollable{
+  @extend .half-panel;
+  overflow-y: auto;
+}
