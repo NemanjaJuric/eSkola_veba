@@ -1,5 +1,9 @@
 [
   {
+    "name": "programski_jezici",
+    "title": "Programski jezici"
+  },
+  {
     "name": "klijentsko_programiranje",
     "title": "Klijentsko programiranje"
   },
@@ -16,7 +20,7 @@
     "title": "Veb tehnologije"
   },
   {
-    "name": "programski_jezici",
-    "title": "Programski jezici"
+    "name": "srednja_skola",
+    "title": "Kursevi za srednjoškolce"
   }
 ]

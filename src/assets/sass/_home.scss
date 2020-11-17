@@ -37,6 +37,7 @@
 .course-section-title {
   cursor: pointer;
   &:hover {
+    color: $css-primary;
     span::after {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
@@ -44,5 +45,12 @@
       margin-left: 10px;
       font-size: 24px;
     }
+  }
+}
+
+.course-section-title-sm {
+  cursor: pointer;
+  &:hover {
+    color: $css-primary;
   }
 }

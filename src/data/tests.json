@@ -1,9 +1,0 @@
-[
-  {
-    "name": "Html",
-    "id": "html",
-    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
-    "type": "test",
-    "questions": 10
-  }
-]
