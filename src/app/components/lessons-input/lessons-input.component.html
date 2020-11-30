@@ -12,6 +12,7 @@
       <div class="code-panel lesson-text">
         <textarea
           [(ngModel)]="lessonText"
+          (change)="onTextChange()"
           [placeholder]="lessonTextPlaceholder"
         ></textarea>
       </div>

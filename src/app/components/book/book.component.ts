@@ -52,6 +52,7 @@ export class BookComponent implements OnInit {
   getLessonText(url: string): void {
     this.schoolService.getLessonText(url).subscribe((data) => {
       this.lessonText = data;
+      this.schoolService.activateMathjax();
     });
   }
 

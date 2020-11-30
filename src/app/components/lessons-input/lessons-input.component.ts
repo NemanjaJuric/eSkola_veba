@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
+import { SchoolService } from "app/services/school.service";
 
 @Component({
   selector: "lessons-input",
   templateUrl: "./lessons-input.component.html",
 })
 export class LessonsInputComponent {
-  constructor() {}
+  constructor(private schoolService: SchoolService) {}
 
   lessonText: string;
   lessonHelp: string;
@@ -16,4 +17,8 @@ export class LessonsInputComponent {
   codePlaceholder: string = `Ovde unosite kod primera.`;
 
   lessonHelpPlaceholder: string = `Ovde unosite kod pomoći. Dokument koji sadrži pomoć mora u prva dva reda sadrzati naziv sledece i prethodne lekcije. Ako ne znate nazive ovih lekcija, stavite samo #. Dalje kucate tekst pomoći. Ako želite da pređete u novi red možete koristiti ENTER. Ovde ne morate unositi prethodnu i sledeću lekciju.`;
+
+  onTextChange() {
+    this.schoolService.activateMathjax();
+  }
 }

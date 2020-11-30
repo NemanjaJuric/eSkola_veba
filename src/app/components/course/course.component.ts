@@ -97,6 +97,7 @@ export class CourseComponent implements OnInit, OnDestroy {
   getLessonText(url: string) {
     this.schoolService.getLessonText(url).subscribe((data) => {
       this.lessonText = data;
+      this.schoolService.activateMathjax();
     });
   }
 

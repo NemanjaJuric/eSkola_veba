@@ -16,6 +16,9 @@ import { Button } from "../classes/button";
 import "rxjs/Rx";
 import { QueueScheduler } from "rxjs/scheduler/QueueScheduler";
 import { forkJoin } from "rxjs/observable/forkJoin";
+import { BoundDirectivePropertyAst } from "@angular/compiler";
+
+declare const MathJax: any;
 
 const assetsLocation = "assets/";
 const coursesLocation = "courses/";
@@ -42,6 +45,13 @@ export class SchoolService {
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
+  }
+
+  activateMathjax() {
+    const t = setTimeout(() => {
+      MathJax.typeset();
+      clearTimeout(t);
+    });
   }
 
   getLessonText(url: string): Observable<string> {
