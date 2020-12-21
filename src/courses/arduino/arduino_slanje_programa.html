@@ -1,0 +1,52 @@
+<h1>Arduino IDE</h1>
+
+<h4>Kompiliranje i slanje programa</h4>
+<br>
+Kada je programski kod napisan, da bi ga mikrokontroler izvršio treba ga smestiti u njegovu memoriju. <br>
+<br>
+<img src="courses/arduino/images/ide_arrows.jpg" class="img-fluid" alt="Uspesno prevodjenje">
+<br>
+Prilikom slanja koda, Arduino IDE kompilira dati kod, tj. prevodi program na mašinski jezik. <br>
+Ukoliko postoji neki problem prilikom prevođenja, kompajler će da vrati grešku, kompiliranje će biti prekinuto, 
+a u donjem delu će biti ispisana poruka o toj grešci. U tom slučaju kod neće biti poslat, pa je neophodno 
+popraviti kod. <br>
+Sa druge strane, ako je sve proteklo kako treba Arduino IDE će ispisati poruku da je uspešno preveo, 
+kao što se može videti na sledećoj slici. <br>
+
+<br>
+<img src="courses/arduino/images/ide_done_compiling.jpg" class="img-fluid" alt="Uspesno prevodjenje">
+<br>
+
+Da bi se poslao kod, neophodno je izabrati:
+<ul>
+  <li>Ploču na koju se šalje</li>
+  <li>USB Ulaz na koji je povezana ta ploča</li>
+  <li>Programer koji će da vrši slanje</li>
+</ul>
+<br>
+Pošto mi radimo sa Arduino UNO, u delu pod nazivom <b>Board</b> treba odabrati Arduino UNO: <br>
+<br>
+<img src="courses/arduino/images/ide_board.jpg" class="img-fluid img-sm" alt="UNO Board">
+<br>
+USB Ulaz na koji je priključena ploča, razlikuje se od računara do računara, ali Arduino IDE može sam da prepozna kao na 
+sledećoj slici, pa je neophodno izabrati taj ulaz. Deo pod nazivom <b>Port</b>. <br>
+<br>
+<img src="courses/arduino/images/ide_port.jpg" class="img-fluid img-sm" alt="UNO Port">
+Što se tiče programera koji će da vrši slanje, na UNO ploči postoji već ugrađen programer. Nalazi se pod nazivom
+<b>AVRISP mkII</b> a njega biramo klikom na <b>Programmer</b> kao na narednoj slici: <br>
+<br>
+<img src="courses/arduino/images/ide_programmer.jpg" class="img-fluid img-sm" alt="UNO Programmer">
+Sada je sve spremno, pa možemo poslati kod klikom na <b>Upload skatch</b>. <br>
+Ako sve prođe kako treba, pojaviće nam se sledeća poruka: <br>
+
+<br>
+<img src="courses/arduino/images/ide_done_uploading.jpg" class="img-fluid" alt="Done uploading">
+<br>
+
+<div class="napomena">
+  Posle uspešnog slanja, Arduino odmah počinje da izvršava program
+</div>
+
+<div class="zadatak">
+  <span style="color: green;"> <b>Zadatak:</b></span> Pokrenuti Arduino IDE, otvoriti bilo koji primer iz <b>Files -&gt Examples -&gt Basics</b> i poslati kod na mikrokontroler
+</div>

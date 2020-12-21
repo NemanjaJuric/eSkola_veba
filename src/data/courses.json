@@ -3752,5 +3752,80 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "Arduino",
+    "id": "arduino",
+    "logo": "<i class='fas fa-infinity'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["srednja_skola"],
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod u Arduino",
+        "url": "arduino_uvod",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Arduino Uno",
+        "url": "arduino_uno",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Razvojno okruženje",
+        "url": "arduino_ide",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Slanje programa",
+        "url": "arduino_slanje_programa",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Prvi program",
+        "url": "arduino_program_prvi",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Program \"pozdrav svete\"",
+        "url": "arduino_pozdrav_svete",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Kontrola izlaza",
+        "url": "arduino_program_drugi",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Bootloader",
+        "url": "arduino_bootloader",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      },
+      {
+        "name": "Korisni linkovi",
+        "url": "arduino_linkovi",
+        "type": "lesson",
+        "parentCourse": "arduino",
+        "sublessons": null
+      }
+    ]
   }
 ]

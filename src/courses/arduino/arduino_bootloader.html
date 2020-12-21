@@ -1,0 +1,68 @@
+<h1>Bootloader</h1>
+<br>
+<h4>Šta je bootloader ?</h4>
+U sklopu lekcije slanja koda na mikrokontroler, rečeno je da UNO ploča ima svoj interni programer preko kojeg smo slali.
+Njega smo birali u opciji Programmer -&gt AVRISP mkII. <br>
+Takođe, kada mikrokontroler na UNO ploči izvršava kod, on "zna" sa koje memorijske lokacije počinje izvršavanje koda. <br>
+<br>
+Ukoliko želimo da isprogramiramo samo mikrokontroler ATMega 328P koji ćemo ugraditi u neku našu ploču (nezavisnu od UNO ploče) 
+stvari počinju da se menjaju. Naime, sam mikrokontroler "ne zna" odakle počinje kod u memoriji, a takođe nije moguće da mu pošaljemo kod 
+bez dodatnog proširenja (eng. firmware). To proširenje zovemo <b>Bootloader</b>. <br>
+Kada mikrokontroler poseduje bootloader na sebi, onda on može samostalno da izvršava kod. <br>
+
+<h6>Minimalne komponente</h6>
+Da bi ATMega 328P samostalno radio, potrebno je:
+<ul>
+  <li>Kristalni oscilator 16 MHz</li>
+  <li>2 keramička kondenzatora od 22 pF</li>
+  <li>Reset taster</li>
+  <li>Otpornik od 10 k&ohm; </li>
+</ul>
+Raspored pinova na mikrokontroleru su:
+<br>
+<img src="courses/arduino/images/atmega_pinout.png" class="img-fluid img-sm" alt="ATMega 328P pinout">
+Šema povezivanja je data na sledećoj slici:
+<br>
+<img src="courses/arduino/images/atmega_minimal.jpg" class="img-fluid img-xs" alt="Minimalne komponente šema">
+Na pinove 7 i 8 povezujemo napajanje na mikrokontroler, ali proizvođač je dao kao mogučnost da se napajanje poveže sa druge strane na pinove 20 i 22. <br>
+Na 9 i 10 dovodimo oscilator koji će mu obezbediti takt od 16 MHz. <br>
+Prvi pin povezujemo preko 10 K&ohm; otpornika na +5V (da bismo zaštitili čip), a preko tastera na masu (spajanjem na masu resetujemo čip, odnosno 
+počinjemo izvršavanje programa od početka).
+<br>
+<h4>Prebacivanje bootloade-a</h4>
+Za ovaj poduhvat, potrebna nam je Arduino UNO ploča na koju smo poslali <b>Files -&gt Examples -&gt ArduinoISP</b> kod, a potom povezujemo mikrokontroler  
+na sledeći način:
+<br>
+<img src="courses/arduino/images/uno_bootloader.jpg" class="img-fluid img-md" alt="Bootloeader šema">
+Zatim, treba podesiti ploču, procesor i programer:
+
+<br>
+<div style="display: inline-block; width: 45;">
+  <img src="courses/arduino/images/ide_bootloader_board.jpg" class="img-fluid img-lg" alt="Bootloeader ploča">
+</div>
+
+<div style="display: inline-block; width: 45;">
+  <img src="courses/arduino/images/ide_bootloader_cpu.jpg" class="img-fluid img-lg" alt="Bootloeader cpu">
+</div>
+<br>
+<div style="width: 45;">
+  <img src="courses/arduino/images/ide_bootloader_programmer.jpg" class="img-fluid img-sm" alt="Bootloeader programer">
+</div>
+
+<br>
+Kada je sve namešteno, <b>prebacivanje bootloader-a</b> se radi klikom na
+<br>
+<img src="courses/arduino/images/ide_bootloader_burn.jpg" class="img-fluid img-sm" alt="Prebacivanje bootloade-a">
+
+<h4>Prebacivanje koda na čip sa bootloaderom</h4>
+<br>
+Kada imamo bootloader na čipu, programski kod mu šaljemo sa istim podešavanjima ploče iz koje je potrebno izvaditi čip, klikom na <b>Upload code</b>.
+Slanje se vrši serijski preko <b>RX</b> i <b>TX</b> pinova.
+Šema je prikazana na sledećoj slici:
+
+<br>
+<img src="courses/arduino/images/uno_bootloader_upload.jpg" class="img-fluid img-md" alt="Prebacivanje koda na čip sa bootloaderom">
+
+<div class="zadatak">
+  Prebaciti bootloader na mikrokontroler, a zatim ga isprogramirati da ispisuje "Uspesno završen kurs iz Arduina" na ekran 
+</div>

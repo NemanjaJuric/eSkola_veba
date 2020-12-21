@@ -1,0 +1,69 @@
+<h1>Prvi program</h1>
+<br>
+
+<div class="napomena">
+    Ideja: Napraviti uređaj koji će naizmenično da pali 2 LED diode u intervalu od jedne sekunde
+</div>
+
+Šta je sve potrebno za ovaj mali uređaj:
+<ul>
+    <li>Arduino UNO</li>
+    <li>2 LED diode</li>
+    <li>2 otpornika od 1 K&ohm;</li>
+    <li>Žice za povezivanje</li>
+</ul>
+<br>
+Za početak, povežimo komponente kao na sledećoj slici:
+
+<br>
+<img src="courses/arduino/images/uno_blink.jpg" class="img-fluid img-md" alt="LED diode">
+<br>
+
+Arduino treba da na svaki sekund vremena da aktivira određeni izlaz na koji smo priključili naše LED diode.
+Otpornike vezujemo da bismo zaštitili LED diode od prevelike struje i prevelikog napona. Kao izlazne pinove 
+uzećemo smo 8 i 9. <br>
+Da bismo imali zatvoreno strujno kolo, neophodno je da drugi kraj dioda povežemo na masu. <br>
+<br>
+Kada smo to obavili, potrebno je da ovu ideju iskucamo i pošaljemo Arduinu.
+<br>
+Otvaramo editor i kucamo sledeći kod:
+
+<br>
+<img src="courses/arduino/images/ide_leddiode.jpg" class="img-fluid img-md" alt="LED diode kod">
+<br>
+
+Funkcija <span style="color: rgb(255, 123, 0);">pinMode</span>() postavlja određeni pin kao:
+<ul>
+    <li><span style="color: rgb(0, 174, 255);">INPUT</span> - ulazni</li>
+    <li><span style="color: rgb(0, 174, 255);">OUTPUT</span> - izlazni</li>
+</ul>
+Mi smo u našem programu izabrali da pinovi 8 i 9 budu izlazni. <br>
+<br>
+Funkcija <span style="color: rgb(255, 123, 0);">digitalWrite</span>() postavlja određenu vrednost na 
+digitalni pin i to:
+<ul>
+    <li><span style="color: rgb(0, 174, 255);">HIGH</span> - visok potencijal (spaja na +5V ili +3.3V)</li>
+    <li><span style="color: rgb(0, 174, 255);">LOW</span> - nizak potencijal (spaja na GND)</li>
+</ul>
+<br>
+Vrednost <span style="color: rgb(0, 174, 255);">HIGH</span> će zavisti od toga da li mikrokontroler radi na 5V 
+ili 3.3V, ali u našem primeru je 5V. <br>
+Pored ove funkcije postoji i <span style="color: rgb(255, 123, 0);">analogWrite</span>(), 
+<span style="color: rgb(255, 123, 0);">digitalRead</span>() i 
+<span style="color: rgb(255, 123, 0);">analogRead</span>(). <br>
+<br>
+Funkcija <span style="color: rgb(255, 123, 0);">delay</span>() pravi čekanje. Kao argument prihvata broj 
+u milisekundama, a za to vreme mikrokontroler ne radi ništa (1000 ms = 1 s).
+<div class="napomena">
+    Sve ove funkcije se nalaze u sklopu standardne Arduino biblioteke i nema potrebe da uključujemo dodatne
+</div>
+<br>
+Sada je sve spremno pa možemo priključiti UNO ploču na USB priključak i poslati program na mikrokontroler.
+<br>
+<div class="zadatak">
+    <span style="color: green;"> <b>Zadatak:</b></span> Po uzoru na ovaj uređaj, napraviti novi koji će da pali 4 LED diode u intervalu od 2 sekunde.
+    <br>
+    <u>Pomoć</u>: Koristiti neki od preostalih digitalnih pinova kao izlazne, potrebne komponente su date na 
+    sledećoj slici, samo ih treba ispravno povezati.
+    <img src="courses/arduino/images/uno_blink_zadatak.jpg" class="img-fluid img-md" alt="LED diode domaci">
+</div>

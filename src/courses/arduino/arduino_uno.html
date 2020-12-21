@@ -1,0 +1,130 @@
+<h1>Arduino UNO</h1>
+
+<br />
+Arduino UNO je najbolja ploča za početnike. Takođe, za ovu ploču ima najviše oficijalne dokumentacije koja je svima dostupna.
+<br>
+Ona je bazirana na mikrokontroleru <b>Atmel ATMega 328P</b>, sadrži <b>14 digitalnih</b> ulazno-izlaznih
+pinova (od kojih se 6 može koristiti za PWM - specijalni izlazi nalik na analogne), <b>6 analognih</b> ulaza, <b>6 naponskih</b> 
+pinova, 16MHz kristalnog oscilatora, ICSP konektora (za serijski programator) i reset tastera.
+
+<div class="napomena">
+  Sledeća slika prikazuje pozicije ulazno/izlaznih pinova
+</div>
+
+<span style="background-color: rgb(122, 252, 129); color: black;"> Zelenom bojom</span> su obeleženi digitalni pinovi. <br>
+<span style="background-color: yellow; color: black;"> Žutom bojom</span> su obeleženi analogni pinovi. <br>
+Naponski priključci za Senzore su:
+<ul>
+  <li><span style="background-color: rgb(255, 80, 80); color: white;"> crveni pinovi (+5V,+3.3V) </span> </li>
+  <li><span style="background-color: black; color: white;"> crni pinovi (masa,GND) </span></li>
+</ul>
+<img src="courses/arduino/images/arduino_uno_pinout.png" class="img-fluid img-sm" alt="Arduino UNO pinout">
+
+Takođe, ova ploča ima USB konektor kao i konektor za napajanje. Da bi mikroprocesor radio, neophodno je da bude priključen 
+na napajanje ili preko USB ili preko naponskog priključka.
+
+<br>
+
+USB priključak je ujedno i veza Arduina sa razvojnim alatom u kojem 
+se piše kod.
+
+<div class="napomena">
+  Arduino UNO je dobio ime po prvoj verziji tog alata <b>Arduino Software (IDE) 1.0</b>. "Uno" na italijanskom označava broj 1.
+  Taj alat se dosta razvijao, a trenutno najnovija verzija je 1.8.13
+</div>
+
+Uno ploča je prva u familiji Arduino ploča koje su imale mogućnost USB priključka, a takođe je i osnovni model Arduino platforme.
+Sve ostale su nastale proširivanjem, tj. dodavanjem novih mogućnosti kao i pojačavanjem performansi.
+
+<br><br>
+
+<h2>Mikroprocesori i mikrokontroleri</h2>
+U elektronici, <b>mikroprocesor</b> je integrisano kolo koje se sastoji od milion veoma malih komponenti poput tranzistora, otpornika, dioda, itd.<br>
+Tu elektronsku kompoenentu koristi računar u obavljanju svog posla. Kao što je svima već poznato, svaki današnji personalni računar (PC) ima Procesor,  
+odnosno <b>CPU</b> - glavnu procesnu jedinicu, koja izvšava sav deo posla. <br>
+Mikroprocesor svoj posao obično obavlja u tri koraka, od kojih je jedan kopiranje instrukcija i delova programa iz radne memorije. 
+Ta radna memorija je poznata i pod nazivom <b>RAM</b>. <br>
+<b>Mikrokontroler</b> je mali računar kao integrisano elektronsko kolo. Često ćete čuti da se zove <b>čip</b> ili <b>mikročip</b>. <br> 
+On sadrži jedan ili više procesora zajedno sa memorijom i programabilnim ulazima/izlazima. <br>
+Mikrokontrolere danas možemo naći u mnogim uređajima poput <u>liftova</u> , <u>štampača</u>, <u>konzola za video igrice</u>, itd. <br>
+<div class="napomena">
+  Pošto je Arduino jedan mikrokontrolerski sistem, preko Arduina možemo isporgramirati i napraviti uređaj koji će obavljati neku specifičnu radnju.
+</div>
+
+
+
+<h4>ATMega 328P</h4>
+
+<div style="display: inline-block;">
+  Atmel ATMega 328P, 8-bitni mikrokontroler koji koristi Arduino UNO kojeg odlikuju mala snaga a velike performanse. <br>
+  Sledećim tabelama su predstavljene neke nama bitne karakteristike ovog mikrokontrolera:
+</div>
+<div style="display: inline-block;">
+  <img class="img-fluid img-sm" src="/courses/arduino/images/atmega_328p.jpg" alt="Mikrokontroler ATMega 328P">
+</div>
+<div style="display: inline-block;">
+  <img class="img-fluid img-lg" src="/courses/arduino/images/atmega_328p_smd.jpeg" alt="Mikrokontroler ATMega 328P">
+</div>
+
+<br><br>
+
+<table class="tabela" style="display: inline-table; width: 49.5%;">
+  <thead>
+    <th colspan="2">RISC Arhitektura</th>
+  </thead>
+  <tr>
+    <td>Broj registara opste namene (velicina)</td>
+    <td>32 (8bit) </td>
+  </tr>
+  <tr>
+    <td>Takt</td>
+    <td>16 MHz</td>
+  </tr>
+</table>
+
+<table class="tabela" style="display: inline-table; width: 49.5%;">
+  <thead>
+    <th colspan="2">Memorija</th>
+  </thead>
+  <tr>
+    <td>Za programski kod</td>
+    <td>32 KB</td>
+  </tr>
+    <td>Radna (SRAM)</td>
+    <td>2 KB</td>
+  </tr>
+</table>
+
+<table class="tabela" style="display: inline-table; width: 49.5%;">
+  <thead>
+    <th colspan="2">Pinovi</th>
+  </thead>
+  <tr>
+    <td>Broj pinova</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>Ulazni/izlazni</td>
+    <td>23</td>
+  </tr>
+</table>
+
+<table class="tabela" style="display: inline-table; width: 49.5%;">
+  <thead>
+    <th colspan="2">Naponski nivo</th>
+  </thead>
+  <tr>
+    <td>Radni napaon</td>
+    <td>2.7V - 5.5V</td>
+  </tr>
+    <td>Logicka jedinica</td>
+    <td>3.5V - 5.5V</td>
+  </tr>
+</table>
+<div class="napomena">
+  ATMega <b>328</b>P je ime dobio po <b>32</b>KB memorije i <b>8</b>-bit mikrokontroleru 
+</div>
+
+<div class="napomena">
+  Kada ste razumeli kako funkcionise hardver, pređimo na temu pisanja i slanja koda na Arduino ploču
+</div>

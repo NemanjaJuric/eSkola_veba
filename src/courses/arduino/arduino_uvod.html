@@ -1,0 +1,68 @@
+<img src="courses/arduino/images/arduino_logo.png" class="img-fluid img-xs" alt="Arduino logo">
+
+<h1>Šta je Arduino?</h1>
+
+<br>
+
+<b> Arduino </b> je javno dostupna elektronska platforma bazirana na jednostavnom korišćenju hardvera i softvera.
+Arduino se može naći u više različitih realizacija, a svaka od tih realizacija ima svoje prednosti. Ono što im je
+zajedničko jeste sledeća funkcionalnost:
+<ul>
+  <li><b>čitanje ulaza</b> (pritisnuto dugme, pojava svetla na senzoru...)</li>
+  <li><b>obrada ulaza - akcija na izlazu</b> (reprodukcija zvuka, uključivanje LED svetla...)</li>
+</ul>
+<br>
+
+Neke od najpoznatijih Arduino ploča su:
+<ul>
+  <li><b>Arduino UNO</b>
+    <img src="courses/arduino/images/arduino_uno.jpg" class="img-fluid img-sm" alt="Arduino UNO"></li>
+  <li><b>Arduino LEONARDO</b>
+    <img src="courses/arduino/images/arduino_leonardo.jpg" class="img-fluid img-sm" alt="Arduino LEONARDO"></li>
+  <li><b>Arduino MEGA 2560</b>
+    <img src="courses/arduino/images/arduino_mega.jpg" class="img-fluid img-sm" alt="Arduino MEGA 2560"></li>
+  <li><b>Arduino DUE</b>
+    <img src="courses/arduino/images/arduino_due.jpg" class="img-fluid img-sm" alt="Arduino DUE"></li>
+  <li><b>Arduino NANO</b>
+  <img src="courses/arduino/images/arduino_nano.jpg" class="img-fluid img-xs" alt="Arduino NANO"></li>
+</ul>
+
+Mi ćemo na ovom kursu koristiti <b>Arduino Uno</b>.
+
+<br><br>
+
+<h2>Kako radi Arduino?</h2>
+
+<h6>Mikrokontroler</h6>
+
+Arduino ploča sadrži mikrokontroler, koji je zadužen da upravlja celim sklopom. Vi njega programirate tako što mu pošaljete određenu 
+grupu instrukcija, koje će on kasnije da izvršava. 
+To se vrlo jednostavno realizuje pomoću alata <b>Arduino IDE</b> u kome se piše program,  a programiranje se vrši u 
+<b>Arduino Programskom Jeziku</b>.
+
+<br>
+
+Kao što je već rečeno, osnovna funkcionalnost je čitanje ulaza (komunikacija sa spoljnim svetom) što uzrokuje određenu 
+akciju na izlazu. Da bi se to realizovalo, na ploči postoje određeni priključci koji se zovu <b>pinovi</b>. 
+Oni su podeljeni u više grupa, a nama su žnačajni <b>ulazni</b> ,<b>izlazni</b> i <b>naponski</b>. 
+
+<h6>Ulazni pin</h6>
+
+Da bi mikrokontroler komunicirao sa spoljnim svetom, potrebno je da mu priključimo na ulazni pin određeni senzor. Postoje 
+različiti senzori, a razlikuju se u onome što im je namena. 
+Kao na primer: senzor osvetljenja, senzor temperature, senzor pokreta...
+
+<h6>Izlazni pin</h6>
+
+Ovde priključujemo onaj uređaj na koji mikrokontroler izvršava određenu akciju, kao na primer ekran gde hoćemo da 
+ispišemo neku poruku. Ili, recimo, priključimo LED diodu koja treba da zasvetli.
+
+<h6>Naponski pinovi</h6>
+
+Dosta senzora za svoj rad zahteva napajanje u vidu jednosmerne struje. Arduino ploča ima naponske regulatore na 5V i 3.3V.
+
+<br>
+
+<div class="napomena">
+  Ulazni/izlazni pinovi mogu biti digitalni ili analogni, u zavisnosti od senzora/uređaja koji se priključuje na njega
+</div>

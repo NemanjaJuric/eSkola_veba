@@ -23,6 +23,7 @@ $sql-primary: #7986cb;
 $web-center-primary: #37474f;
 $jupyter-primary: #ef6300;
 $react-primary: #282c34;
+$arduino-primary: #0c857b;
 
 $material-dark-gray: #37474f;
 $material-gray: #455a64;
@@ -206,6 +207,10 @@ $android-official: #a2c53d;
   background-color: $react-primary !important;
 }
 
+.bkg-arduino {
+  background-color: $arduino-primary !important;
+}
+
 .bkg-about {
   background-color: $about-primary !important;
 }
@@ -328,6 +333,10 @@ $android-official: #a2c53d;
 
 .hover-react:hover {
   color: $react-primary;
+}
+
+.hover-arduino:hover {
+  color: $arduino-primary;
 }
 
 .trans-md {
