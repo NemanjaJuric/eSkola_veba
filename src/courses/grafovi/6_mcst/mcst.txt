@@ -1,0 +1,50 @@
+Minimalno povezujuće stablo
+
+
+Grafovima je moguće modelirati razne probleme iz stvarnog života, tako je npr. problem nalaženja minimalnog povezujućeg stabla nekog grafa čest problem sa kojim se susrećemo. 
+Primer: Novi internet operater se pojavio u gradu i hoće da sprovede svoje kablove tako da mu bude što jeftinije, a da pokrije ceo grad, tj. da signal može da stigne do svakog mesta.
+Naime, problem minimalnog povezujućeg stabla se definiše ovako:
+Dat je neusmeren težinski graf, potrebno je odrediti skup grana koji povezuje sve čvorove (odnosno da je moguće naći put od bilo kog čvora do bilo kog) , i da je zbir težina svih grana najmanji mogući.
+
+Jasno je da nećemo imati cikluse u tom novodobijenom grafu, jer ukoliko ih imamo možemo izbaciti bilo koju granu iz ciklusa i tako smanjiti ukupnu težinu. 
+Takođe, vidi se da, ukoliko imamo n čvorova, broj grana potrebnih da ih sve povežemo je n-1, grafove koji nemaju cikluse nazivamo stablom, otuda i sam naziv minimalno povezujuće stablo.
+Ukoliko u početnom grafu postoji ciklus u kom imamo bar dve grane iste težine rešenje problema nije jedinstveno određeno.
+
+Za rešavanje problema minimalnog povezujućeg stabla predložićemo dva algoritma Primov i Kruskalov algoritam.
+
+
+Primov algoritam
+
+Primov algoritam se zasniva na tome da ukoliko smo napravili neki deo minimalnog povezujućeg stabla sledeću granu koju dodajemo biramo tako da ima minimalnu težinu i da joj je jedan kraj medju čvorovima za koje smo već napravili minimalno stablo a drugi među onima koji jos uvek nisu u tom stablu.
+Algoritam počinjemo tako sto proizvoljno izaberemo jedan čvor kojim ćemo početi(npr onaj sa indeksom 0) i sastoji se iz sledećih koraka:
+-za svaki čvor se odredjuje minimalna grana kojom se povezuje za već izgradjeno stablo, tu informaciju ćemo čuvati u nizu minimalna_grana <italic>
+-posto nam nije dovoljna samo informacija kolika je tezina minimalne grane čuvaćemo i čvor sa kojim je ta grana u nizu roditelj<italic>
+-vrtećemo se u petlji dok ne pokrijemo sve čvorove, tj dok ne ubacimo n-1 granu
+-petlja se sastoji iz određivanja minimalne grane, ubacivanja te grane i ažuriranja vrednosti iz nizova minimalna_grana i roditelj  
+-na kraju petlje u nizu roditelj imamo grane koje su dodate, tj grana (roditelj[i],i) je u minimalnom povezujućem drvetu
+
+
+
+Implementacija Primovog algoritma:
+[Primalg.cpp]
+
+Primer izvršavanja algoritma može se videti na primeru:
+\\ primer iz prez
+
+
+
+Kruskalov algoritam
+
+
+Kruskalov algoritam je zasnovan na malo drugačijoj ideji:
+- Grane se odradjuju u neopadajućem redosledu po težini
+- Proverava se da li grana obrazuje ciklus sa vec izabranim granama, ukoliko obrazuje preskačemo tu granu, inače je dodajemo u minimalno povezujuće stablo
+- Vrtećemo se u petlji dok ne pokrijemo sve čvorove, tj dok ne ubacimo n-1 granu.
+
+Primetimo da to da li neka grana obrazuje ciklus možemo posmatrati na sledeći način: na početku možemo gledati da je svaka grana stablo sama za sebe, kada se doda neka grana ta dva stabla se spajaju u jedno, na prvi pogled ovo baš i nema neke veze sa ciklusima, međutim nije baš tako, neka grana će obrazovati ciklus samo ako povezuje čvorove iz istog stabla. Samim tim proveru da li grana obrazuje ciklus mozemo obaviti tako sto proverimo da li čvorovi koji pripadaju grani pripadaju istom stablu ili ne(ovaj algoritam se može poboljšati povoljno izabranom strukturom koja omogućava da brzo uniramo neke skupove čvorova i brzo odredimo kom skupu pripada određeni čvor kao, međutim to je malo napredniji koncept i ostavljamo za radoznale, ta struktura je fibonačijev hip - u literaturi se može pronaći i kao union find).
+
+Implementacija Kruskalovog algoritma:
+[Kruskal.cpp]
+
+Primer izvršavanja algoritma može se videti na primeru:
+\\ primer iz prez

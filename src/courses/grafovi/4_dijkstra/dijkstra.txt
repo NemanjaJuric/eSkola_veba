@@ -1,0 +1,51 @@
+  Najkraći putevi od jednog čvora do svih ostalih
+  
+  Jako često nam je potrebno da nađemo najkraće puteve od jednog fiksiranog čvora do svih ostalih. 
+  Primer jednog ovakvog problema ja npr. izračunati najkraće puteve (u smislu kolometraže) od Beograda do svih ostalih gradova u Srbiji, koristeći postojeće puteve.
+  Ovde možemo kao čvorove posmatrati gradove a grane grafa su postojeći putevi između gradova, dok im je težina sama kilometraža puta.
+  Efikasan algorima koji rešava ovaj problem je Dijskrin algoritam.
+  
+  Dijkstirn algoritam osobine:
+  
+  - Za svaki čvor v rastojanje od čvora s (fiksiran čvor od kog tražimo rastojanja) pamtimo u nizu rastojanja(italic), tj.
+    element rastojanje[v] označava rastojanje od s do v
+  - Rastojanje od s do s je uvek 0 tj. rastojanje[s]=0
+  - Ukoliko ne želimo samo vrednost najkraćeg puta već želimo i mogućnost rekonstruisanja puta, uvodimo i niz poslednji_pre(italic)
+    gde će element poslednji_pre[v] označavati poslednji čvor na putu od s do v, tj. čvor sa kog smo došli do v, tada je put od v do s
+    zapravo: v, poslednji_pre[v], poslednji_pre[poslednji_pre[v]]...s
+    Put od s do v onda možemo dobiti jednostavnim obrtanjem ili čitanjem od pozadi puta od v do s
+  - U svakom trenutku imamo dva disjunktna skupa čvorova u grafu - markirane i nemarkirane čvorove
+    markirani čvorovi su oni za koje smo našli najkraći put dok su nemarkirani oni za koje tek treba da ih nađemo
+    i za njig se u nizu rastojanje može naći procena trenutnog minimalnog puta za te čvorove, ali možda možemo bolje, dok se za markirane tu nalazi najkraći put
+    
+  Algoritam:
+
+  - Na početku su svi čvorovi nemarkirani, rastojanja za sve postavljamo na neki veliki broj (npr. int max kako bi se prilikom nalaženja prvog puta do njih dužine sigurno promenile),
+    dok elemente niza poslednji_pre možemo postaviti na -1 da naznačimo da još nemamo nijedan put - nakon toga, za element od kog krećemo (neka je to 0) kažemo da je rastojanje[0]=0
+  - U svakom koraku (itraciji) algoritma potrebno je da pronađemo nemarkirani čvor v sa minimalnom vrednošću rastojanje[v] - ovo je zapravo dužina puta do v preko markiranih čvorova
+    taj čvor markiramo i to rastojanje koje trenutno imamo upisano je minimalno rastojanje do čvora v (* diskusija na kraju kao fusnota ili tako nešto)
+  - Potrebno je korigovati rastojanja nemarkiranih čvorova granama koje idu iz čvora v ka njima jer smo možda našli neko bolje rešenje, za slučaj da jesmo, treba promeniti vrednost u nizu rastojanje kao i u nizu poslednji_pre
+    za čvor kom je kraći put preko čvora v
+  - Algoritam se završava kada markiramo sve čvorove
+  
+    * Ovaj algoritam je gramziv - to znači da u svakom trenutku bira ono što je naizgled najbolje rešenje. Treba da opravdamo da to i jeste zaista najbolje rešenje.
+    Kada uzimamo čvor iz nemarkiranih čvorova sa najmanjim rastojanjem od s da ga markiramo, da li smo sigurni da za njega ne postoji kraći put i zašto?
+    Jesmo, jer prema načinu biranja uvek će markirani čvorovi imati kraću dužinu puta od nemarkiranih, a s obzirom na činjenicu da se u nizu rastojanja čuva put do nekog čvora preko
+    markiranih čvorova (koji su bliži čvoru s) i da biramo čvor sa minimalnim rastojanjem kod nemarkiranih (neka je to čvor v), znamo da je za njega to rastojanje optimalno jer bi npr. da putuje preko nekog od nemarkiranih rastojanje puta 
+    bilo rastojanje do tog nemarkiranog čvora (neka je to čvor w) plus još neki put, a samo rastojanje do w je veće od rastojanja do v jer smo v birali tako da ima minimalno rastojanje pa put preko w nikako ne može da bude bolji.
+    Zbog toga je ovaj algoritam korektan, i znamo da sigurno nalazi minimalna rastojanja između s i svih ostalih čvorova grafa.
+
+    
+    
+  Implementacija1:
+  \\detaljno iskomentarisan kod -> Implementacija sa nizom - ovo moram da iskucam
+  
+  Implementacija2:
+    \\detaljno iskomentarisan kod -> Implementacija sa redom prioriteta - ovo imam
+  
+  
+  
+  Rad algoritma se takođe može videti i na datom primeru: 
+  \\primer na grafu (iz prezentacije)
+  
+

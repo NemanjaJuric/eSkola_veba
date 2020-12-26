@@ -3827,5 +3827,59 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "Grafovi",
+    "id": "grafovi",
+    "logo": "<i class='fas fa-project-diagram'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["srednja_skola"],
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "1_uvod",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      },
+      {
+        "name": "Obilasci grafa",
+        "url": "2_bfs_dfs",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      },
+      {
+        "name": "Topološko sortiranje",
+        "url": "3_topolosko",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      },
+      {
+        "name": "Dijkstirn algoritam",
+        "url": "4_dijkstra",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      },
+      {
+        "name": "Flojd-Varšalov algoritam",
+        "url": "5_flojd_varsal",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      },
+      {
+        "name": "Minimalno povezujuće stablo",
+        "url": "6_mcst",
+        "type": "lesson",
+        "parentCourse": "grafovi",
+        "sublessons": null
+      }
+    ]
   }
 ]

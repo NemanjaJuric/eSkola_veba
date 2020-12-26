@@ -1,0 +1,93 @@
+ 
+Obilasci grafa
+
+Obilazak grafa podrazumeva obilazak svih čvorova tako da se krećemo granama grafa i da svaki čvor obiđemo tačno jednom.
+Ovo nije lak zadatak jer graf nije jednostavna struktura podataka, kao što je npr. niz, u kojem postoji jasan redosled elemenata.
+
+Obilazimo jedan po jedan čvor po određenom pravilu. U zavisnosti od pravila razlikujemo oblizak tj. pretragu grafa po dubini (eng. depth first search ili skraćeno DFS) 
+kao i pretragu grafa po širini (eng. breadth first search ili skraćeno BFS).
+
+
+
+
+Pretraga grafa po dubini (DFS)
+
+Posmatrajmo graf prikazan na slici. Pretraga kreće od jednog čvora. Bez gubitka opštosti, možemo da uzmemo da je to npr. čvor sa indeksom 0.
+
+\\primer1.jpg
+
+U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0 i tako u krug. Potrebno je da svaki čvor obiđemo tačno jednom,
+zato uvodimo niz POSEĆEN [inace italic a ne caps lock] u kom će na odgovarajućem indeksu biti vrednost 1 ukoliko je čvor posećen i 0 u suprotnom.
+
+Algoritam radi na sledeći način:
+    1. krećemo od proizvoljnog čvora u i kažemo da je posećen tj. posecen[u]=1
+    2. biramo suseda od u koji još nije posećen, kažemo da je i on posećen i nastavljamo dalje od njega
+    3. nakon završetka obilaska od v, ukoliko u ima suseda koji nije posećen, ponavlja se postupak za tog suseda
+
+Implementacija 1: iterativno
+
+Čvorove koje smo posetili možemo čuvati u strukturi koja se zove stek (prvi sledeći koji uzimam je poslednji koji je upisan).
+U koraku 1. bismo upisali u na stek, u koraku 2. bismo polgedali vrh steka, videli da je tu u, našli neposećenog suseda od u, dodali njega na stek i nastavili pretragu,
+kada za element na vrhu steka nema više neposećenih suseda, njega možemo skinuti sa steka (operacija pop).
+
+\\kod detaljno iskomentarisan ovde
+
+Implementacija 2: rekurzivno
+
+DFS kao algoritam, nameće i prirodno rekurzivno rešenje (jer sama rekurzija u pozadini koristi stek za čuvanje poziva), tako da bi algoritam mogao biti implentiran na sledeći način:
+Krećemo od nekog čvora, na početku kažemo da je on posećen. Prolazimo po svim susedima tog čvora i pozovemo rekurzivno dfs pretragu od svakog suseda koji nije već posećen.
+Suštinski ova i prethodna implementacija rade istu stvar.
+
+\\kod detaljno iskomentarisan ovde
+
+
+Primer izvršavanja algoritma za gorenavedeni graf:
+
+\\ primer11.jpg
+
+<b>Složenost: </b> Vremenska složenost algoritma DFS je O(E+V) gde je E broj grana a V broj čvorova grafa.
+<br />
+
+
+
+Pretraga grafa po širini (BFS)
+
+Pretraga po širini koristi sledeće pravilo: polazeći od jednog čvora prvo obiđemo sve njegove direktne susede koje još nismo posetili, a nakon toga nastavljamo,
+od tih suseda, obilazak na isti način.
+
+Da bismo obezbedili da svaki čvor posetimo tačno jednom, možemo uvesti niz POSEĆEN [inace italic a ne caps lock] u kom će na odgovarajućem 
+indeksu biti vrednost 1 ukoliko je čvor posećen a 0 u suprotnom.
+
+Implementacija:
+Čvorove koje smo posetili čuvamo u strukturi koja se zove red (prvi sledeći koji uzimam je onaj koji je prvi stao u red tj. koji je najdavnije upisan).
+Iz reda uzimamo jedan po jedan čvor kako bismo od njih dalje nastavili obilazak po gorenavedenom pravilu.
+
+\\kod detaljno iskomentarisan ovde
+
+Primer izvršavanja algoritma za gore navedeni graf:
+
+\\ primer12.jpg
+
+<b>Složenost: </b> Vremenska složenost algoritma BFS je O(E+V) gde je E broj grana a V broj čvorova grafa.
+<br />
+
+Možemo primetiti da se redosledi obilazaka grafa ova dva algoritma razlikuju, to je prouzrokovano različitim pravilima pretrage.
+Takođe, ono što se razlikuje kod ova dva algoritma je stablo pretrage.
+Stablo pretrage nam prikazuje sa kog smo čvora došli do kog prilikom pretrage i ta dva čvora u stablu povezujem granom.
+Stabla pretrage za gorenavedeni graf prilikom ova dva algoritma su:
+
+\\stablo_dfs.jpg          \\stablo_bfs.jpg
+
+Vidimo da stablo pretrage kod algoritma DFS ide u dubinu dok stablo prterage kod algoritma BFS ide u širinu, odatle i nazivi samih algoritama.
+
+Primene:
+
+Neke od tipičnih primena ovih algoritama su:
+ispisivanje čvorova grafa (bfs i dfs), računanje rastojanja između čvorova u netežinskom grafu (bfs), 
+traženju artikulacionih tačaka i mostova grafa (čvorova i grana bez kojih bi graf ostao nepovezan tj. razdvojen na više delova - dfs)
+
+
+
+
+
+

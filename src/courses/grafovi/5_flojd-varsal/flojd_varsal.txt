@@ -1,0 +1,41 @@
+ 
+Najkraći putevi između svih parova čvorova
+
+
+Važan problem predstavlja nalaženje najkraćih puteva između svih parova čvorova. Ovo se uglavnom koristi u kontekstu efikasnog odgovaranja na upite npr. ako nam je potrebno da odgovarmo efikasno na 
+upite gde unosimo dva grada i treba da dobijemo odgovor na to koje je najkraće rastojanje između ova dva grada, voleli bi smo da što brže dobijemo odgovor.
+Najbrže rešenje bi bilo neko gde već imamo unapred sračunata sva najkraća rastojanja između svi parova ćvorova i da odgovor na upit dobijemo jednostavnim pristupom traženom podatku, bez pokretanja nekog algorimta
+koji računa traženi podatak svaki put iznova.
+
+Najpoznatiji algoritam koji rešava ovaj problem jeste Flojd-Varšalov algoritam (engl. Floyd-Warshall).
+Ovaj algoritam koristi logiku:
+Ako posmatramo put od čvora u do čvora v koji je najkraći, onda za neki čvor k na tom putu takođe važi da je put od u do k, kao i put od k do v, najkraći između tih čvorova.
+Služi se matricom rastojanja u kojoj se na poziciji ratojanje[u][v] nalazi najkraći put između čvorova u i v, pa jednostavnim pristupom elementu matrice imamo odgovor na upit, jednom kad sračunamo najkraće puteve.
+
+Kako dolazimo do tih najkraćih puteva?
+ - Polazimo od direktnih puteva između čvorova, zatim za svaki par čvorova posmatramo put na kom je uključen čvor 0. U sledećem koraku korigujemo puteve dodavajući i čvor 1, tako da posmatramo puteve u kojima su
+   uključeni čvorovi {0,1} i tako dalje, dok ne dodamo sve čvorove.
+   
+Algoritam:
+ - Označimo sa d_k[u][v] dužinu najkraćeg puta između čvorova u i v tako da su svi čvorovi osim krajnjih iz skupa {0,1,..k}, dok su direktne veze date matricom povezanosti koju ćemo označiti sa g.
+ - Matrice d_k određujemo redom za k=0,1..n-1
+ - Prilikom određivanja matrice d_k potrebno je proveriti da li je dodavanjem čvora k na putu između čvorova u i v dobijen bolji put (za sve parove u i v)
+   tj. imamo da je d_k[u][v] = min(d_k-1[u][v], d_k-1[u][k] + d_k-1[k][v])
+ - Možemo posmatrati ove matrice kao iteracije i za dodavanje čvora samo modifikovati prethodnu matricu, nepotrebno je kreiranje nove
+ 
+\\ implementacija
+
+Složenost: Vremenska složenost ovog algoritma je O(V^3) gde je V broj čvorova grafa.
+
+\\ primer
+
+Rekonstrukcija puta:
+ - Da bismo mogli da rekonsktruišemo put između čvorova u i v, neophodno je uvesti pomoćnu matricu poslednji_pre (kao niz kod Dijkstrinog algoritma, samo imamo od svakog čvora),
+   gde se na poziciji poslednji_pre[u][v] nalazi poslednji čvor pre v na putu od u do v. Rekonstrukcija iz ove matrice ide rekurzivno kao kod Dijsktrinog algoritma, tj. ispisemo put od u do poslednji_pre[u][v]
+   i onda ispišemo v kao poslednji.
+ - Ovu matricu na početku kod direktnih grana popunjavamo kao poslednji_pre[u][v]=u i poslednji_pre[v][u]=v dok na sva ostala mesta stavljamo -1.
+ - Kasnije, kad god dodajem čvor k važiće: ako je put između u i v ostao nepromenjen dodavanjem k, ostaće nepromenjen i element poslednji_pre[u][v], ali ako se promenio put tj. novi put je put od u do k pa od k do v,
+   važiće da je poslednji_pre[u][v] = poslednji_pre[k][v]
+   
+   
+\\ Možda kod ? Ne znam jel bi trebalo i to ovde

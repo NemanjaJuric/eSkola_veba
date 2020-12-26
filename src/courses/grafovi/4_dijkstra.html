@@ -1,0 +1,153 @@
+<h1><b>Najkraći putevi od jednog čvora do svih ostalih</b></h1>
+<br />
+<h3><b>Opis problema</b></h3>
+<br />
+ Jako često nam je potrebno da nađemo najkraće puteve od jednog fiksiranog čvora do svih ostalih. 
+  Primer jednog ovakvog problema ja npr. izračunati najkraće puteve (u smislu kolometraže) od Beograda do svih ostalih gradova u Srbiji, koristeći postojeće puteve.
+  Ovde možemo kao čvorove posmatrati gradove a grane grafa su postojeći putevi između gradova, dok im je težina sama kilometraža puta.
+  Efikasan algorima koji rešava ovaj problem je Dijskrin algoritam.
+<br />
+
+<h3><b>Dijkstirn algoritam svojstva</b></h3>
+<br />
+<ul>
+ <li> Za svaki čvor <i>v</i> rastojanje od čvora s (fiksiran čvor od kog tražimo rastojanja) pamtimo u nizu rastojanja, tj.
+    element <i>rastojanje[v]</i> označava rastojanje od <i>s</i> do <i>v</i> </li>
+  <li> Rastojanje od <i>s</i> do <i>s</i> je uvek 0 tj. <i>rastojanje[s]=0</i> </li>
+  <li> Ukoliko ne želimo samo vrednost najkraćeg puta već želimo i mogućnost rekonstruisanja puta, uvodimo i niz <i>poslednji_pre</i>
+    gde će element <i>poslednji_pre[v]</i> označavati poslednji čvor na putu od <i>s</i> do <i>v</i>, tj. čvor sa kog smo došli do <i>v</i>, tada je put od <i>v</i> do <i>s</i>
+    zapravo: <i>v, poslednji_pre[v], poslednji_pre[poslednji_pre[v]]...s</i></li>
+    Put od <i>s</i> do <i>v</i> onda možemo dobiti jednostavnim obrtanjem ili čitanjem od pozadi puta od <i>v</i> do <i>s</i>
+  <li> U svakom trenutku imamo dva disjunktna skupa čvorova u grafu - markirane i nemarkirane čvorove
+    markirani čvorovi su oni za koje smo našli najkraći put dok su nemarkirani oni za koje tek treba da ih nađemo
+    i za njih se u nizu rastojanje može naći procena trenutnog minimalnog puta za te čvorove, ali možda možemo bolje, dok se za markirane tu nalazi najkraći put</li>
+</ul>
+<br />
+
+<h3><b>Dijkstrin algoritam</b></h3>
+<br />
+<ul>
+ <li> Na početku su svi čvorovi nemarkirani, rastojanja za sve postavljamo na neki veliki broj (npr. int max kako bi se prilikom nalaženja prvog puta do njih dužine sigurno promenile),
+    dok elemente niza <i>poslednji_pre</i> možemo postaviti na -1 da naznačimo da još nemamo nijedan put - nakon toga, za element od kog krećemo (neka je to 0) kažemo da je <i>rastojanje[0] = 0</i></li>
+  <li> U svakom koraku (itraciji) algoritma potrebno je da pronađemo nemarkirani čvor v sa minimalnom vrednošću rastojanje[v] - ovo je zapravo dužina puta do v preko markiranih čvorova
+    taj čvor markiramo i to rastojanje koje trenutno imamo upisano je minimalno rastojanje do čvora <i>v</i> (*)</li>
+  <li> Potrebno je korigovati rastojanja nemarkiranih čvorova granama koje idu iz čvora <i>v</i> ka njima jer smo možda našli neko bolje rešenje, za slučaj da jesmo, treba promeniti vrednost u nizu rastojanje kao i u nizu <i>poslednji_pre</i>
+    za čvor kom je kraći put preko čvora <i>v</i></li>
+  <li> Algoritam se završava kada markiramo sve čvorove</li>
+  </ul>
+<br />
+   * Ovaj algoritam je gramziv - to znači da u svakom trenutku bira ono što je naizgled najbolje rešenje. Treba da opravdamo da to i jeste zaista najbolje rešenje.
+    Kada uzimamo čvor iz nemarkiranih čvorova sa najmanjim rastojanjem od <i>s</i> da ga markiramo, da li smo sigurni da za njega ne postoji kraći put i zašto?
+    Jesmo, jer prema načinu biranja uvek će markirani čvorovi imati kraću dužinu puta od nemarkiranih, a s obzirom na činjenicu da se u nizu rastojanja čuva put do nekog čvora preko
+    markiranih čvorova (koji su bliži čvoru <i>s</i>) i da biramo čvor sa minimalnim rastojanjem kod nemarkiranih (neka je to čvor <i>v</i>), znamo da je za njega to rastojanje optimalno jer bi npr. da putuje preko nekog od nemarkiranih rastojanje puta 
+    bilo rastojanje do tog nemarkiranog čvora (neka je to čvor <i>w</i>) plus još neki put, a samo rastojanje do <i>w</i> je veće od rastojanja do <i>v</i> jer smo <i>v</i> birali tako da ima minimalno rastojanje pa put preko <i>w</i> nikako ne može da bude bolji.
+    Zbog toga je ovaj algoritam korektan, i znamo da sigurno nalazi minimalna rastojanja između s i svih ostalih čvorova grafa.
+<br /><br />
+<b>Implementacija1 - niz (manje efikasno):</b>
+<br />
+<xmp class="primer_ta">
+void dijkstra1(int s)  // vremenska slozenost O(V^2) gde je v broj cvorova grafa
+{
+    memset(markiran, 0, sizeof(markiran));              // na pocetku nijedan nije markiran
+    memset(rastojanje, 63, sizeof(rastojanje));         // rastojanje stavljamo na nesto veliko da bi bilo promenjeno 
+    memset(poslednji_pre, -1, sizeof(poslednji_pre));   // poslednji_pre stavljamo na -1 jer jos nismo nasli nijednog pre
+    
+    rastojanje[s] = 0;                                  // rastojanje od s do s je 0
+    for(int i = 0; i < n; i++)                          // algoritam ima n iteracija  
+    {
+        int u = minIndeks();                            // nadjemo nemarkirani s najmanjim rastojanjem
+        markiran[u] = 1;                                // markiramo ga
+        for(int i = 0; i < g[u].size(); i++)            // idemo po njegovim susedima
+        {
+            int v = g[u][i].second, tezina = g[u][i].first;
+            if(!markiran[v])
+                if(rastojanje[u] + tezina < rastojanje[v])  // gledamo da li smo nasli bolji put do nekog nemarkiranog
+                {
+                    rastojanje[v] = rastojanje[u] + tezina; // ako jesmo, promenimo vrednost tog cvora na bolji put
+                    poslednji_pre[v] = u;                   // i kazemo da smo dosli sa cvora u
+                }
+        } 
+    }
+} 
+
+</xmp>
+<br />
+<b>Rekonstrukcija puta i minIndeks funkcija:</b>
+<br />
+<xmp class="primer_ta">
+int minIndeks ()      // trazimo cvor koji je nemarkiran tako da ima najmaje rastojanje
+{
+    int trenutni_najmanji = -1;
+    for(int u = 0; u < n; u++)
+    {
+        if(!markiran[u])
+            if(trenutni_najmanji == -1 || rastojanje[u] < rastojanje[trenutni_najmanji])
+                trenutni_najmanji = u;
+    }
+    return trenutni_najmanji;
+}
+
+void rekonstruisi_put(int s, int a)
+{
+    if(a == s)
+    {
+       cout << a << " ";
+       return;
+    }
+    rekonstruisi_put(s, poslednji_pre[a]);
+    cout << a << " ";
+}
+
+</xmp>
+<br />
+<b>Implementacija2 - red sa prioritetom (efikasno):</b>
+
+<br />
+<xmp class="primer_ta">
+void dijkstra2() // vremenska slozenost O(ElogV) gde je E broj grana a V broj cvorova grafa
+{
+    memset(rastojanje, 63, sizeof(rastojanje));           // inicijalizacija na veliki broj
+    priority_queue<pair<int,int>, vector<pair<int,int> >, greater<pair<int,int> > > pq;
+    rastojanje[0] = 0;
+    pq.push(make_pair(0, 0));                             // rastojanje od 0 je 0
+    while(!pq.empty())                                    // dok god ima nesto u redu sa prioritetom
+    {
+        int u = pq.top().second, d = pq.top().first;      // procitamo cvor i rastojanje do njega
+        pq.pop();
+        if(d > rastojanje[u]) continue;                   // ako vec imamo krace za taj cvor continue
+        for(int i = 0; i < g[u].size(); i++)              // inace idemo po susedima
+        {
+            int v = g[u][i].second, tezina = g[u][i].first; // procitamo suseda i tezinu grane do njega
+            if(rastojanje[u] + tezina < rastojanje[v])      // vidimo da li imamo bolje rastojanje do suseda
+            {
+                rastojanje[v] = rastojanje[u] + tezina;     // ako imamo pamtimo ga i dodamo u pq
+                pq.push(make_pair(rastojanje[v], v));
+            }
+        }
+    }
+} 
+</xmp>
+<br />
+
+
+<br />
+Rad algoritma se takođe može videti i na datom primeru:
+<br />
+<img src="courses/grafovi/4_dijkstra/primer.png" class="img-fluid velicina">
+
+<br />
+<br />
+<h3>Prateći video materijali: </h3>
+<br />
+<video width="320" height="240" controls>
+      <source src="courses/grafovi/4_dijkstra/dijkstra.mp4" type="video/mp4" />
+      Vaš pregledač ne podržava ovaj video format.
+</video>
+<br />
+<br />
+<h3>C++ kod implementacije: </h3>
+<a href="courses/grafovi/4_dijkstra/dijkstra.cpp" download="courses/grafovi/4_dijkstra/dijkstra.cpp"> Dijkstrin algoritam implementacija - kod
+</a>
+<br />
+<br />
+
