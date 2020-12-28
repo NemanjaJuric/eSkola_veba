@@ -2,35 +2,61 @@
 <br>
 
 <div class="napomena">
-    Ideja: Napraviti uređaj koji će naizmenično da pali 2 LED diode u intervalu od jedne sekunde
+    Zadatak: Napraviti uređaj koji će naizmenično uključivati 2 LED diode u intervalu od jedne sekunde
 </div>
 
-Šta je sve potrebno za ovaj mali uređaj:
+<br>
+<h4>Analiza zadatka</h4>
+LED diode su izlazna komponenta i trebamo ih povezati na izaz UNO ploče. Pošto su LED diode osetljiva komponenta, potrebno ih je zaštititi od 
+prevelike struje i prevelikog napona. <br>
+Kao zaštitu, između svake LED diode i Arduina stavljamo otpornike od 1 K&ohm; .<br>
+<br>
+Šta nam je sve potrebno?
 <ul>
     <li>Arduino UNO</li>
     <li>2 LED diode</li>
     <li>2 otpornika od 1 K&ohm;</li>
     <li>Žice za povezivanje</li>
 </ul>
+
 <br>
-Za početak, povežimo komponente kao na sledećoj slici:
+<h6>Šema povezivanja</h6>
+
+Za izlaz možemo proizvoljno odabrati neki pin izmađu 0 i 13. Biramo 8 i 9. <br>
+Jedan kraj dioda vezujemo preko otpornika na izlaz Arduina, a drugi kraj na masu jer treba da imamo zatvoreno strujno kolo. <br>
+<br>
+Sledeća slika ilustruje šemu po kojoj povezujemo komponente.
 
 <br>
 <img src="courses/arduino/images/uno_blink.jpg" class="img-fluid img-md" alt="LED diode">
 <br>
 
-Arduino treba da na svaki sekund vremena da aktivira određeni izlaz na koji smo priključili naše LED diode.
-Otpornike vezujemo da bismo zaštitili LED diode od prevelike struje i prevelikog napona. Kao izlazne pinove 
-uzećemo smo 8 i 9. <br>
-Da bismo imali zatvoreno strujno kolo, neophodno je da drugi kraj dioda povežemo na masu. <br>
-<br>
-Kada smo to obavili, potrebno je da ovu ideju iskucamo i pošaljemo Arduinu.
-<br>
-Otvaramo editor i kucamo sledeći kod:
+Kada smo to obavili, potrebno je da osmislimo algoritam i napišemo programski kod. <br>
 
 <br>
+
+<h4>Algoritam</h4>
+
+Arduino izvršava program u beskonačno mnogo ciklusa, naredbu po naredbu. Zbog toga algoritam mora biti <b>invarijantan</b>, odnosno simetričan 
+(ili identičan) u odnosu na svaki ciklus. <br>
+<div class="napomena">
+    <b>Potrebno je uočiti radnju koja se identično ponavlja beskonačno mnogo puta.</b>
+</div>
+
+U ovom zadatku, uljučivanje dioda se obavlja neprekidno u intervalima od jedne sekunde, pa nam je to invarijanta. <br>
+Dakle, uključuje se prva dioda na vremenski period od jedne sekunde,a zatim se uključuje druga dioda isto na vremenski period od jedne sekunde 
+i tako dalje beskonačno mnogo ciklusa. <br>
+
+<br>
+
+<h6>Pisanje programskog koda</h6>
+
+Programski kod je ilustrovan na sledećoj slici: <br>
+
 <img src="courses/arduino/images/ide_leddiode.jpg" class="img-fluid img-md" alt="LED diode kod">
 <br>
+
+<h6>Semantika programa</h6>
 
 Funkcija <span style="color: rgb(255, 123, 0);">pinMode</span>() postavlja određeni pin kao:
 <ul>
@@ -55,15 +81,20 @@ Pored ove funkcije postoji i <span style="color: rgb(255, 123, 0);">analogWrite<
 Funkcija <span style="color: rgb(255, 123, 0);">delay</span>() pravi čekanje. Kao argument prihvata broj 
 u milisekundama, a za to vreme mikrokontroler ne radi ništa (1000 ms = 1 s).
 <div class="napomena">
-    Sve ove funkcije se nalaze u sklopu standardne Arduino biblioteke i nema potrebe da uključujemo dodatne
+    Sve ove funkcije se nalaze u sklopu standardne Arduino biblioteke i nema potrebe da uključujemo dodatne biblioteke.
 </div>
+
 <br>
-Sada je sve spremno pa možemo priključiti UNO ploču na USB priključak i poslati program na mikrokontroler.
+
+<h6>Slanje i pokretanje programa</h6>
+
+Sada je sve spremno pa možemo priključiti UNO ploču na USB priključak i poslati program na mikrokontroler. <br>
+Kada se pošalje program, Arduino odma počinje da ga izvršava.
 <br>
 <div class="zadatak">
-    <span style="color: green;"> <b>Zadatak:</b></span> Po uzoru na ovaj uređaj, napraviti novi koji će da pali 4 LED diode u intervalu od 2 sekunde.
+    <span style="color: green;"> <b>Zadatak za samostali rad:</b></span> Po uzoru na ovaj uređaj, napraviti novi koji će da pali 4 LED diode u intervalu od 2 sekunde.
     <br>
-    <u>Pomoć</u>: Koristiti neki od preostalih digitalnih pinova kao izlazne, potrebne komponente su date na 
+    <b>Pomoć</b>: Koristiti neki od preostalih digitalnih pinova kao izlazne, potrebne komponente su date na 
     sledećoj slici, samo ih treba ispravno povezati.
     <img src="courses/arduino/images/uno_blink_zadatak.jpg" class="img-fluid img-md" alt="LED diode domaci">
 </div>

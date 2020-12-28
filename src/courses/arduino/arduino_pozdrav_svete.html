@@ -1,8 +1,14 @@
 <h1>Program "pozdrav svete"</h1>
 <br>
 <div class="napomena">
-    Ideja: Želimo da ispišemo poruku na ekran.
+    Zadatak: Ispisati poruku na ekran.
 </div>
+
+U ovom primeru ćemo se susresti sa nekim dodatnim mogućnostima koje pruža Arduino. <br>
+
+<br>
+
+<h4>Analiza zadatka</h4>
 
 Šta je sve potrebno za ovaj uređaj:
 <ul>
@@ -12,68 +18,93 @@
     <li>Žice za povezivanje</li>
 </ul>
 <br>
-U ovom primeru ćemo se susresti sa nekim dodatnim mogućnostima koje pruža Arduino. <br>
 Slanje informacija sa Arduina je moguće na više načina, odnosno na više protokola. U ovom primeru 
 najlakši za korišćenje je takozvani <b>I2C</b> protokol. <br>
+<br>
 I2C je serijski protokol i zahteva samo dve linije za slanje poruke u vidu podataka i to:
 <ul>
   <li><b>SCL</b> - takt - interval u kojem se šalju podaci</li>
   <li><b>SDA</b> - serijska magistrala za podatke  - "put" kojim šaljemo podatke</li>
 </ul>
+<br>
 SDA pin na UNO ploči je pin A4, a SCL pin A5. <br> 
 Da bismo tako poslali poruku na ekran, neophodno je da između ekrana i UNO ploče povežemo I2C modul.
 To je elektronska ploča koja serijski prima poruke i paralelno ih prosleđuje na ekran. Taj modul sa jedne strane ima
 konekciju za ekran, a sa druge konekciju za Arduino ploču. Vrlo se jednostavno povezuje i koristi. <br>
+
+<br>
+
 <h6>Šema povezivanja</h6>
-Šema po kojoj trebamo povezati navedene komponente je data na sledećoj slici: <br>
+Šema po kojoj trebamo povezati navedene komponente je ilustrovana na sledećoj slici: <br>
 
 <br>
 <img src="courses/arduino/images/uno_display_i2c.jpg" class="img-fluid img-md" alt="LED diode">
 <br>
 
 <span style="color: red;"> Crvena </span> i <span style="color: black;"> crna </span> žica su napajanje za I2C modul i ekran, 
-<span style="color: green;"> zelena </span> je SDA (A4) dok je <span style="color: blue;"> plava </span> SCL (A5).
+<span style="color: green;"> zelena </span> je SDA (A4) dok je <span style="color: blue;"> plava </span> SCL (A5). <br>
 
 <br>
+<h4>Algoritam</h4>
 
-<h6>Kucanje koda</h6>
+Pošto je u ovom zadatku potrebno samo ispisati poruku, to možemo odraditu u pripremnom bloku. U tom slučaju glavna petlja ne treba ništa da izvršava. <br>
 
-Kao prvo, trebamo mu reći da smo povezali ekran, koliko imam karaktera kao i gde je povezan (na kojoj ulaznoj lokaciji ili adresi), 
-a potom ispisati poruku koju želimo. <br>
-Pošto koristimo ekran koji moze da prikaze poruku od 16 slova u dva reda, još je potrebno i mu kažemo odakle 
-da počne ispisivanje. <br>
+<br>
+<h6>Pisanje programskog koda</h6>
+
+Prvo trebamo deklarisati ekran. U sklopu deklaracije navodi se koliko ekran ima karaktera kao i adresu gde je povezan (na kojoj ulaznoj lokaciji).
+<br> 
+Zatim trebamo namestiti poziciju odakle počinje poruka i ispisati određenu poruku. <br>
+<br>
 Programski kod je prikazan na sledećoj slici: <br>
 
 <br>
 <img src="courses/arduino/images/ide_pozdravsvete.jpg" class="img-fluid img-md" alt="Pozdrav svete">
 <br>
+
+<h6>Uključivanje biblioteka</h6>
+
 Da bismo koristili I2C protokol, potrebno je da uključimo biblioteku 
-<u><span style="color: rgb(255, 123, 0)">Wire</span>.h</u>,
+<span style="color: rgb(255, 123, 0)">Wire</span>.h,
 dok da bismo mogli da radimo sa ekranom treba da uključimo 
-<u><span style="color: rgb(255, 123, 0)">LiquidCrystal_I2C</span>.h</u>
+<span style="color: rgb(255, 123, 0)">LiquidCrystal_I2C</span>.h
 biblioteku. <br>
 
 <div class="napomena">
-  Prepurka: Koristiti najnovije verzije biblioteka 
+  Preporuka: Koristiti najnovije verzije biblioteka 
 </div>
+<br>
 
-Deklarisanje ekrana. <br> Sve globalne promenljive u Arduino programskom jeziku se deklarišu u delu programa pre pripremnog bloka.
-Globalna promenljiva je ona koja se "vidi", tj. ona koju možemo koristi u bilo kom bloku koda. 
+<h6>Deklarisanje promenljivih</h6>
+
+Sve <b>globalne promenljive</b> u Arduino programskom jeziku se deklarišu u delu programa pre pripremnog bloka. <br>
+Globalna promenljiva je ona koja se "vidi" u celom programu, odnosno ona koju možemo koristi u bilo kom programskom bloku.  <br>
+Ukoliko promenljiva ne treba da bude "vidljiva" u celom programu već samo u određenom bloku, onda je deklarišemo u tom bloku gde treba da bude 
+dostupna. Takve promenljive nazivamo <b>lokalnim</b>. <br>
+<br>
+U našem programu, <b>lcd</b> je globalna promenljiva. <br>
+
+<br>
+
+<h4>Semantika programa</h4>
+
 <span style="color: rgb(255, 123, 0)">LiquidCrystal_I2C</span> lcd (0x27,16,2) znači da smo deklarisali promenljivu "lcd" 
-koja je tipa LiquidCrystal_I2c odnosno naš ekran. 0x27 je adresa u heksadecimalnom zapisu, što je podrazumevano za ekran sa 
-I2C modulom, a 16 i 2 su broj vrsta i kolona koje ima ekran. <br>
+koja je tipa LiquidCrystal_I2C. <br> 
+0x27 je adresa ekrana u heksadecimalnom zapisu, što je podrazumevano za ekran sa I2C modulom, a 16 i 2 su brojevi koliko vrsta i kolona ima ekran. <br>
 
 <br>
 
 U pripremnom bloku sa lcd.<span style="color: rgb(255, 123, 0)">init</span>() inicijalizujemo ekran, odnosno programski povezujemo ekran 
-sa mikrokontrolerom, potom sa lcd.<span style="color: rgb(255, 123, 0)">setCursor</span>() nameštamo odakle ćemo da pišemo po ekranu, a zatim 
-sa lcd.<span style="color: rgb(255, 123, 0)">print</span>() ispisujemo poruku. <br>
-
+sa mikrokontrolerom, potom sa lcd.<span style="color: rgb(255, 123, 0)">setCursor</span>() nameštamo odakle ćemo da pišemo po ekranu. Prvi argument je 
+redni broj kolone a drugi redni broj vrste.
 <div class="napomena">
-  Kao što primećujete, glavna petlja ne treba ništa da radi
+  Redni brojevi počinju od 0.
 </div>
+Funkcijom lcd.<span style="color: rgb(255, 123, 0)">print</span>() ispisujemo poruku. <br>
 
-pored ovih funkcija postoji još mnogo drugih koje u biblioteci. Neke od njih su:
+<br>
+
+Pored ovih funkcija postoji još mnogo drugih koje se nalaze u biblioteci LiquidCrystal_I2C.h. Neke od njih su:
 <ul>
   <li>
     <span style="color: rgb(255, 123, 0)">clear</span>() - briše sve sa ekrana
@@ -88,10 +119,9 @@ pored ovih funkcija postoji još mnogo drugih koje u biblioteci. Neke od njih su
     <span style="color: rgb(255, 123, 0)">blink</span>() - uspravna crta koja blinka na mestu gde se nalazi kurosr
   </li>
 </ul>
-itd.
 
 <div class="zadatak">
-  <span style="color: green;"> <b>Zadatak:</b></span> Iskucati kod koji će da ispiše vaše ime i prezime tako da se ime nalazi u prvom redu a prezime u drugom, pri čemu 
+  <span style="color: green;"> <b>Zadatak za samostalni rad:</b></span> Iskucati kod koji će da ispiše vaše ime i prezime tako da se ime nalazi u prvom redu a prezime u drugom, pri čemu 
   tekst treba da bude centriran. <br>
-  <u>Pomoć</u>: Ako ime ima 5 slova, prilikom ispisa poruke o imenu pomeriti kursor na 6-ti karakter.
+  <b>Pomoć</b>: Ako ime ima 5 slova, prilikom ispisa poruke o imenu pomeriti kursor na 6-ti karakter.
 </div>

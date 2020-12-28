@@ -15,7 +15,9 @@
 <img src="courses/arduino/images/ide_blank.jpg" class="img-fluid img-lg" alt="Arduino IDE">
 <br>
 
-<div class="zadatak">Preuzeti i instalirati poslednju verziju programa Arduino IDE</div>
+<div class="zadatak">
+  Preuzeti i instalirati poslednju verziju programa Arduino IDE.
+</div>
 
 <br>
 
@@ -43,9 +45,12 @@ Struktura jednog programa ima minimum dva bloka:
 
 <br>
 
+<h6>Pripremni blok</h6>
+
 Pripremni blok je ovaj prvi na slici iznad, obeležen sa <span style="color: rgb(0, 174, 255);">void</span> 
-<span style="color: rgb(100, 117, 2);">setup</span> (). U tom bloku inicijalizujemo, odnosno "kažemo" mikrokontroleru šta 
-ćemo sve koristiti. Tačnije rečeno, postavljamo sve komponente koje koristimo na početne ili podrazumevane vrednosti. <br>
+<span style="color: rgb(100, 117, 2);">setup</span> (). <br>
+U tom bloku inicijalizujemo, odnosno "kažemo" mikrokontroleru šta ćemo sve koristiti. Tačnije rečeno, postavljamo sve komponente koje koristimo na početne 
+ili podrazumevane vrednosti. <br>
 Kao na primer: 
 <ul>
   <li>Uključujemo konzolu - serijski monitor koji se nalazi u sklopu razvojnog okruženja</li>
@@ -55,6 +60,8 @@ Kao na primer:
 Ovaj blok se izvršava samo jednom i to na početku programa. <br>
 
 <br>
+
+<h6>Izvršni blok</h6>
 
 Izvršni blok se još može nazvati i <b>glavna petlja</b>, a to je deo programa koji se neprekidno izvršava posle pripremnog bloka. 
 Na gornjoj slici, taj blok je obeležen sa <span style="color: rgb(0, 174, 255);">void</span> 
@@ -72,6 +79,10 @@ svakih pet minuta. <br>
 Pored ova dva bloka, programer može da napiše svoju funkciju koja će se pozivati u glavnoj petlji. Ta funkcija se piše u novom 
 bloku ispod Izvršnog. <br>
 
+<br>
+
+<h6>Uključivanje biblioteka</h6>
+
 Korišćenje raznih komponenti poput senzora ili "LCD ekrana" zahteva da uključimo određene biblioteke. <br>
 Uključivanje biblioteka se vrši pisanjem ključne reči <span style="color: rgb(100, 117, 2);">#include</span> na samom 
 početku pre pripremnog bloka, a odmah potom se unosi naziv biblioteke unutar znakova "&lt" i "&gt". <br>
@@ -80,5 +91,26 @@ Svaka biblioteka ima ekstenziju " .h"
 
 <div class="napomena">
   Arduino nam dostavlja biblioteke sa ugrađenim funkcijama za razne nameme, a proizvođači senzora uz senzor dostavljaju svoje 
-  biblioteke koje sadrže funkcije kojima upravljamo radom senzora
+  biblioteke koje sadrže funkcije kojima upravljamo radom senzora.
 </div>
+
+<br>
+
+<h4>Serijski monitor</h4>
+
+Serijski monitor je sastavni deo razvojnog okruženja i daje nam mogućnost da razmenjujemo poruke sa Arduino pločom preko USB priključka. <br>
+Inicijalizuje se u pripremnom bloku preko funkcije Serial.<span style="color: rgb(255, 123, 0)">begin</span>(), a kao argument mu prosleđujemo 
+brzinu prenosa podataka u obliku <b>broja bitova u sekundi</b>, tj. <b>baud</b>. <br>
+Za komunikaciju sa računarom se koriste neke od sledećih veličina: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, ili 115200. <br>
+
+<br>
+
+Za komunikaciju računara i Arduina su nam na raspolaganju funkcije Serial.<span style="color: rgb(255, 123, 0)">print</span>() i 
+Serial.<span style="color: rgb(255, 123, 0)">read</span>(). <br>
+
+<img src="courses/arduino/images/ide_serial_monitor.jpg" class="img-fluid img-md" alt="Arduino IDE Serial monitor">
+
+<div class="napomena">
+  Neophodno je izabrati adekvatnu brzinu prenosa da bismo koristili serijski monitor. Biramo onu koju smo inicijalizovali u programu.
+</div>
+

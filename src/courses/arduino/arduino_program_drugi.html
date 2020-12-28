@@ -2,9 +2,10 @@
 <br>
 
 <div class="napomena">
-    Ideja: napraviti uređaj koji će da uključuje zujalicu u promenljivom intervalu
+    Zadatak: Napraviti uređaj koji će da uključuje zujalicu u promenljivom intervalu.
 </div>
-
+<br>
+<h4>Analiza zadatka</h4>
 Šta je sve potrebno :
 <ul>
   <li>Arduino UNO</li>
@@ -13,28 +14,42 @@
   <li>Žice za povezivanje</li>
 </ul>
 <br>
-Zujalica je mali zvucnik koji radi na 5V i on nam je izlazna komponenta, dok je potenciometar ulazna komponenta.
+Zujalica je mali zvucnik koji radi na 5V i on nam je izlazna komponenta, dok je potenciometar ulazna komponenta. <br>
+
 <br>
+
 <h6>Šema povezivanja</h6>
 Šemu ćemo povezati kao na sledećoj slici: <br>
 
-<br>
 <img src="courses/arduino/images/uno_interval_beep.jpg" class="img-fluid img-md" alt="Zujalica">
 
 Vrednost sa analognih pinova je vrednost otpornosti prema +5V, tj. očitava vrednost napona. Ako je ulazni pin spojen na 
 +5V, onda ćemo imati očitanu maksimalnu vrednost. U suprotnom ćemo imati vrednost 0. Zbog toga, promenljivi izlaz sa 
 potenciometra povezujemo na analogni pin, a preostala dva kraja na napajanje. <br>
 Zujalicu povezujemo na neki od digitalnih izlaznih pinova, a drugi kraj spajamo na masu da bismo imali zatvoreno strujno 
-kolo.
-<h6>Kucanje koda</h6>
+kolo. <br>
+<br>
 
+<h4>Algoritam</h4>
+U svakom ciklusu treba pročitati vrednost otpornosti potenciometra. <br>
+U odnosu na tu veličinu promeniti vremenski interval u odnosu na koji uključujemo zujalicu. <br>
+
+<br>
+
+<h6>Pisanje programsog koda</h6>
+
+Programski kod je prikazan na sledćoj slici. <br>
 <br>
 <img src="courses/arduino/images/ide_interval_beep.jpg" class="img-fluid img-md" alt="Zujalica">
 
-<span style="color: rgb(0, 174, 255);">int</span> vreme je globalna promenljiva koju ćemo koristi za vremenski 
-interval.
+<h4>Semantika programa</h4>
+
 Funkcija <span style="color: rgb(255, 123, 0)">analogRead</span>() očitava analogni ulaz i vraća vrednost između 
 0 i 1023. <br>
+<br>
+<span style="color: rgb(0, 174, 255);">int</span> vreme je globalna promenljiva koju ćemo koristi za vremenski 
+interval. <br>
+
 Na samom početku rada može se desiti neuspelo očitavanje vrednosti ulaza (kao na primer prekid žice na potenciometru).
 Zbog toga, u pripremnom bloku postavljamo vrednost vremena na neku podrazumevanu, recimo 1023 ms što je maksimalna 
 vrednost ulaza. 
@@ -44,8 +59,8 @@ Pošto očitana vrednost može da bude 0, moramo dodati neku konstatnu jer nema 
 Glavna pelja će neprestano da očitava ulaznu vrednost i postavljati čekanje u unetom vremenskom intervalu.
 
 <div class="zadatak">
-  <span style="color: green;"> <b>Zadatak:</b></span> Na već postojeću šemu dodatno priključiti ekran i u svakoj iteraciji glavne petlje
+  <span style="color: green;"> <b>Zadatak za samostalni rad:</b></span> Na već postojeću šemu dodatno priključiti ekran i u svakoj iteraciji glavne petlje
   ispisati vrednost promenljive vreme. <br>
-  <u>Pomoć</u>:  Ekran priključiti kao u prethodnom zadatku. Treba koristiti funkcije <span style="color: rgb(255, 123, 0)">clear</span>()
+  <b>Pomoć</b>:  Ekran priključiti kao u prethodnom zadatku. Treba koristiti funkcije <span style="color: rgb(255, 123, 0)">clear</span>()
   i <span style="color: rgb(255, 123, 0)">print</span>().
 </div>
