@@ -1,3 +1,5 @@
+
+<div class="half-panel-scrollable">
 <h1><b>Obilasci grafa</b></h1>
 
 Obilazak grafa podrazumeva obilazak svih čvorova tako da se krećemo granama grafa i da svaki čvor obiđemo tačno jednom.
@@ -11,7 +13,7 @@ kao i pretragu grafa po širini (eng. breadth first search ili skraćeno BFS).
 <br />
 Posmatrajmo graf prikazan na slici. Pretraga kreće od jednog čvora. Bez gubitka opštosti, možemo da uzmemo da je to npr. čvor sa indeksom 0. 
 <br />
-<img src="courses/grafovi/2_bfs-dfs/primer1.jpg" class="img-fluid velicina"> 
+<img style="width:320px;max-width=75%" src="courses/grafovi/2_bfs-dfs/primer1.jpg" class="img-fluid velicina"> 
 <br />
 
 U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0 i tako u krug. Potrebno je da svaki čvor obiđemo tačno jednom,
@@ -92,7 +94,7 @@ void dfs_rekurzivni(int u)
 <br />
 Primer izvršavanja algoritma za gorenavedeni graf:
 <br />
-<img src="courses/grafovi/2_bfs-dfs/primer11.png" class="img-fluid velicina"> 
+<img style="width:1100px;max-width=98%" src="courses/grafovi/2_bfs-dfs/primer11.png" class="img-fluid velicina"> 
 <br />
 
 
@@ -141,7 +143,7 @@ void bfs()
 <br /> <br />
 Primer izvršavanja algoritma za gore navedeni graf:
 <br />
-<img src="courses/grafovi/2_bfs-dfs/primer12.png" class="img-fluid velicina"> 
+<img  style="width:1100px;max-width=98%"  src="courses/grafovi/2_bfs-dfs/primer12.png" class="img-fluid velicina"> 
 <br />
 
 
@@ -154,7 +156,7 @@ Stabla pretrage za gorenavedeni graf prilikom ova dva algoritma su:
 
 
 <br />
-<img src="courses/grafovi/2_bfs-dfs/stablo_dfs.png" class="img-fluid velicina"><img src="courses/grafovi/2_bfs-dfs/stablo_bfs.png" class="img-fluid velicina">
+<img style="width:470px; max-width=95%" src="courses/grafovi/2_bfs-dfs/stablo.png" class="img-fluid velicina">
 <br />
 
 Vidimo da stablo pretrage kod algoritma DFS ide u dubinu dok stablo prterage kod algoritma BFS ide u širinu, odatle i nazivi samih algoritama.
@@ -171,15 +173,25 @@ Neke od tipičnih primena ovih algoritama su: <br />
 
 <h3>Prateći video materijali: </h3>
 <br />
-<video width="320" height="240" controls>
+<video style ="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/2_bfs-dfs/bfs_dfs.mp4" type="video/mp4" />
       Vaš pregledač ne podržava ovaj video format.
 </video>
 <br />
 <br />
-<h3>C++ kod implementacije: </h3>
-<a href="courses/grafovi/2_bfs-dfs/bfs_dfs_kod.cpp" download="courses/grafovi/2_bfs-dfs/bfs_dfs_kod.cpp"> BFS i DFS implementacija - kod
-</a>
+<h3>C++ kod implementacije: </h3> 
+Kod implementacije algoritama BFS i DFS možete preuzeti
+<a href="courses/grafovi/2_bfs-dfs/bfs_dfs_kod.cpp" download="courses/grafovi/2_bfs-dfs/bfs_dfs_kod.cpp"> ovde</a>
+ili ga možete probati 
+<a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/DFS-BFS" >ovde
+</a>.
+<br />
+ </div>
+ <div class="half-panel">
+
+<iframe height="100%" width="100%" src="https://repl.it/@eskolaveba/DFS-BFS?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+ </div>
+<br />
 <br />
 <br />
 

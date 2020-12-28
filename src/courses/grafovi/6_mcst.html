@@ -1,3 +1,4 @@
+<div class="half-panel-scrollable">
 <h1><b>Minimalno povezujuće stablo</b></h1>
 <br />
 <br />
@@ -103,7 +104,7 @@ int PrimAlg(){  // slozenost O(V^2) gde je V broj cvorova
 <br> <b>Napomena:</b> Ova implementacija nije najefikasnija - vremenska složenost ove implementacije je O(V^2), implementacija koja radi u manjoj složenosti tj. O(ElogV)
 nalazi se na kraju lekcije i koristi red sa prioritetom. (V je broj čvorova a E broj grana grafa).<br><br>
 <b>Primer izvršavanja algoritma:</b><br>
-<img src="courses/grafovi/6_mcst/PrimSimulacija.png" class="img-fluid img-sm">
+<img style="width:600px;max-width:98%;" src="courses/grafovi/6_mcst/PrimSimulacija.png" class="img-fluid img-sm">
 <br>
 
 <br>
@@ -125,7 +126,7 @@ Kruskalov algoritam je zasnovan na malo drugačijoj ideji:
 <br>
 
 
-Primetimo da to da li neka grana obrazuje ciklus možemo posmatrati na sledeći način: na početku možemo gledati da je svaka grana stablo sama za sebe, kada se doda neka grana ta dva stabla se spajaju u jedno, na prvi pogled ovo baš i nema neke veze sa ciklusima, međutim nije baš tako, neka grana će obrazovati ciklus samo ako povezuje čvorove iz istog stabla. Samim tim proveru da li grana obrazuje ciklus mozemo obaviti tako sto proverimo da li čvorovi koji pripadaju grani pripadaju istom stablu ili ne(ovaj algoritam se može poboljšati povoljno izabranom strukturom koja omogućava da brzo uniramo neke skupove čvorova i brzo odredimo kom skupu pripada određeni čvor, međutim to je malo napredniji koncept i ostavljamo za radoznale, ta struktura je union find).
+Primetimo da to da li neka grana obrazuje ciklus možemo posmatrati na sledeći način: na početku možemo gledati da je svaka čvor stablo sam za sebe, kada se doda neka grana ta dva stabla, ono kojem pripada levi kraj grane i ono kojem pripada desni kraj grane, se spajaju u jedno. Na prvi pogled ovo baš i nema neke veze sa ciklusima, međutim nije baš tako, neka grana će obrazovati ciklus samo ako povezuje čvorove iz istog stabla. Samim tim proveru da li grana obrazuje ciklus mozemo obaviti tako sto proverimo da li čvorovi koji pripadaju grani pripadaju istom stablu ili ne(ovaj algoritam se može poboljšati povoljno izabranom strukturom koja omogućava da brzo uniramo neke skupove čvorova i brzo odredimo kom skupu pripada određeni čvor, međutim to je malo napredniji koncept i ostavljamo za radoznale, ta struktura je union find).
 <br><br>
 
 Implementacija Kruskalovog algoritma:
@@ -176,33 +177,39 @@ int Kruskal(){
 </xmp>
 <b>Primer izvršavanja algoritma:</b>
 <br>
-<img src="courses/grafovi/6_mcst/KruskalSimulacija.png" class="img-fluid img-sm">
+<img style="width:600px;max-width:98%;" src="courses/grafovi/6_mcst/KruskalSimulacija.png" class="img-fluid img-sm">
 <br>
 
 
 
 <h3>Prateći video materijali: </h3>
 <br />
-<video width="320" height="240" controls>
+<video style="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/6_mcst/Minimalno-stablo.mp4" type="video/mp4" />
       Vaš pregledač ne podržava ovaj video format.
 </video>
 <br />
 <br />
 <h3>C++ kod implementacije: </h3>
-<a href="courses/grafovi/6_mcst/Primalg.cpp" download="courses/grafovi/6_mcst/Primalg.cpp"> Primov algoritam - manje efikasno O(V^2)
-</a>
-
+Kod implementacije Primovog algoritma složenosti O(V^2) možete preuzeti
+<a href="courses/grafovi/6_mcst/Primalg.cpp" download="courses/grafovi/6_mcst/Primalg.cpp">ovde
+</a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/Prim-OV2" >ovde
+</a>.
 <br />
-<a href="courses/grafovi/6_mcst/prim2.cpp" download="courses/grafovi/6_mcst/prim2.cpp"> Primov algoritam - efikasno O(ElogV)
-</a>
+Kod implementacije Primovog algoritma složenosti O(ElogV) možete preuzeti
+<a href="courses/grafovi/6_mcst/prim2.cpp" download="courses/grafovi/6_mcst/prim2.cpp">ovde
+</a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/Prim-OElogV" >ovde
+</a>.
 <br>
-<a href="courses/grafovi/6_mcst/Kruskal.cpp" download="courses/grafovi/6_mcst/Kruskal.cpp"> Kruskalov algoritam
-</a>
-<br />
-
-
-
+Kod implementacije Kruskalovog algoritma možete preuzeti
+<a href="courses/grafovi/6_mcst/Kruskal.cpp" download="courses/grafovi/6_mcst/Kruskal.cpp">ovde
+</a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/Kruskal" >ovde
+</a>.
 <br />
 <br />
 <br />
+<br />
+ </div>
+ <div class="half-panel">
+<iframe height="100%" width="100%" src="https://repl.it/@eskolaveba/mcstsve?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+</div>

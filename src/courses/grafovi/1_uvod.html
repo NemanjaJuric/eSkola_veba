@@ -8,14 +8,14 @@ Iako je graf formalno sačinjen od dva skupa, lakse nam je da graf predstavljamo
 <br /><br /><br />
 
 Primer: graf G=(V,E), gde je V={a,b,c,d}, a E={(a,b),(a,d),(b,d),(c,d)} ćemo predstavljati ovako:<br>
-<img src="courses/grafovi/1_uvod/graf_primer1.png" class="img-fluid img-sm">
+<img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/graf_primer1.png" class="img-fluid img-sm">
 
 <br>
-Elementi skupa V se nazivaju <b>čvorovi</b> grafa, dok su elementi skupa E <b>grane</b> grafa. U zavisnosti od toga kako posmatramo grane grafa,grafovi mogu biti usmereni i neusmereni. Kod <b>usmerenih</b> grafova nam je bitno da svaku granu iz E posmetramo samo u jednom smeru, tj. bitno je koji je prvi čvor, a koji je drugi u grani, npr za (u,v) iz E kazemo da postoji grana iz čvora <i>u</i> ka čvoru <i>v</i>. Takođe, grafovi mogu biti i <b>neusmereni</b>, gde nam je bitno samo da postoji grana izmedju čvorova ne i od kog čvora ka kom čvoru.
+Elementi skupa V se nazivaju <b>čvorovi</b> grafa, dok su elementi skupa E <b>grane</b> grafa. U zavisnosti od toga kako posmatramo grane grafa,grafovi mogu biti usmereni i neusmereni. Kod <b>usmerenih</b> grafova nam je bitno da svaku granu iz E posmetramo samo u jednom smeru, tj. bitno je koji je prvi čvor, a koji je drugi u grani, npr za <i>(u,v)</i> iz E kazemo da postoji grana iz čvora <i>u</i> ka čvoru <i>v</i>. Takođe, grafovi mogu biti i <b>neusmereni</b>, gde nam je bitno samo da postoji grana izmedju čvorova ne i od kog čvora ka kom čvoru.
 <br><br>
 Prethodni primer je ilustrovao neusmeren graf, pri čemu primetimo da je neusmeren graf specijalan slučaj usmerenog, ukoliko smatramo da je svaka grana i iz čvora <i>a</i> ka čvoru <i>b</i> i iz <i>b</i> ka <i>a</i>, dobijemo usmeren graf. To znači da je svaki neusmeren graf zapravo usmeren, dok nije svaki usmeren graf neusmeren, sledeca slika ilustruje primer jednog grafa koji je usmeren a nije neusmeren.
 <br>
-<img src="courses/grafovi/1_uvod/usmerengraf.png" class="img-fluid img-sm">
+<img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/usmerengraf.png" class="img-fluid img-sm">
 <br>
 Skupovi V i E za ovaj graf su: V={a,b,c,d,e},E={(a,e),(b,a),(b,c),(c,b),(c,d),(d,e)}
 <br>Primetimo da kod ovog grafa postoji i grana (b,c) i (c,b), dok smo u prethodnom primeru imali samo po jednu od njih, možda bi pravilnije bilo da kod neusmerenih grafova pišemo da je jedna grana oblika {b,c}, tj da nam grane ne predstavljaju uređene parove, već skupove od dva elementa, ali kad je iz konteksta jasno o kojoj vrsti grafa se radi, koristićemo oznake sa uređenim dvojkama.
@@ -64,14 +64,14 @@ Ovim načinima možemo predstavljati i neusmerene grafove.
  
 Primer: Graf iz prethodnog primera,samo sa preimenovanim čvorovima 
 <br>
-<img src="courses/grafovi/1_uvod/usmerengraf1.png" class="img-fluid img-sm">
+<img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/usmerengraf1.png" class="img-fluid img-sm">
 <br>
 Samo je čvor 3 sused 0, pa će kolona matrice povezanosti za ovaj graf koja odgovara čvoru nula biti {0,0,0,1,0}, za čvor 1 će biti {1,0,1,0,0}, itd, posto imamo 5 čvorova matrica će biti 5x5 i imaće ovaj oblik: 
-<table class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td></tr> <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 2 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td></tr> <tr><td style="background-color:#B0E0E6"> 3 </td><td> 0 </td><td> 0 </td><td>  0</td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 4 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> </table>
+<table style="width:400px; max-width:98%" class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td></tr> <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 2 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td></tr> <tr><td style="background-color:#B0E0E6"> 3 </td><td> 0 </td><td> 0 </td><td>  0</td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 4 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> </table>
 
 <br><br>
 dok bi lista povezanosti za čvor 0 bila samo 3, za čvor 1 bi bila 0,2 itd, tj bila bi oblika {{3},{0,2},{1,4},{},{3}}, odnosno grafički:
-<table class = "tabela">
+<table style="width:400px; max-width:98%" class = "tabela">
  <tr><td style="background-color:#B0E0E6"> 0 </td><td> 3 </td></tr> 
  <tr><td style="background-color:#B0E0E6"> 1 </td><td> 0 </td><td> 2 </td></tr> 
  <tr><td style="background-color:#B0E0E6"> 2 </td><td> 1 </td><td> 4 </td></tr> 
@@ -91,12 +91,12 @@ Sto se tiče reprezentacije težinskih grafova matricom povezanosti  umesto broj
 
 Primer neusmerenog težinskog grafa vidimo na sledećoj slici:
 <br>
-<img src="courses/grafovi/1_uvod/neusmeren_tezinski.png" class="img-fluid img-sm">
+<img style="width:400px; max-width:98%" src="courses/grafovi/1_uvod/neusmeren_tezinski.png" class="img-fluid img-sm">
 <br>
 Matrica povezanosti ovog grafa izgleda ovako:
 <br>
 
-<table class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td><td> 5 </td></tr> 
+<table style="width:400px; max-width:98%" class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td><td> 5 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 60 </td><td> 200 </td><td> 0 </td><td> 30 </td><td> 150 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 1 </td><td> 60 </td><td> 0 </td><td> 110 </td><td> 0 </td><td> 0 </td><td> 0 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 2 </td><td> 200 </td><td> 110 </td><td> 0 </td><td> 50 </td><td> 0 </td><td> 0 </td></tr> 
@@ -107,7 +107,7 @@ Matrica povezanosti ovog grafa izgleda ovako:
 
 <br>
 Dok bi lista povezanosti izgledala ovako:
-<table class = "tabela"> 
+<table style="width:400px; max-width:98%" class = "tabela"> 
 <tr><td style="background-color:#B0E0E6"> 0 </td><td> (1,60) </td><td> (2,200) </td><td> (4,30) </td><td> (5,150) </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 1 </td><td> (0,60) </td><td> (2,110) </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 2 </td><td> (1,200) </td><td> (2,110) </td><td> (3,50) </td></tr> 
@@ -119,7 +119,7 @@ Dok bi lista povezanosti izgledala ovako:
 
 <h3>Prateći video materijali: </h3>
 <br />
-<video width="320" height="240" controls>
+<video style="width:600px; max-width:98%" controls>
       <source src="courses/grafovi/1_uvod/uvod.mp4" type="video/mp4" />
       Vaš pregledač ne podržava ovaj video format.
 </video>
