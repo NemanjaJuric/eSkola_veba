@@ -1,0 +1,143 @@
+<h1> Pristup polju i poziv metode </h1>
+</br>
+Pristup članu klase zavisi isključivo od kontrole pristupa tog člana.</br></br>
+Ukoliko je <span class = "primer_text">public</span> (javni), tada se članu može lako pristupiti pomoću operatora direktnog pristupa članu klase - <b>operator tačka (.)</b></br>
+Sledeći primer će nam pokazati kako da inicijalizujemo i koristimo članove javnih podataka pomoću operatora tačka(.) i odgovarajućeg objekta klase.
+</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Osoba {
+    public:
+        string imePrezime;
+        string pol;
+        double mesecnaZarada;
+        void predstaviSe() {
+            cout << ”Ja sam ” << imePrezime << ”, moja mesecna zarada iznosi: ” << mesecnaZarada << ”.” << endl;
+        } 
+};
+
+int main() {
+
+    Osoba muskarac;
+    Osoba zena;
+
+    //postavljanje vrednosti za objekat muskarac
+    muskarac.imePrezime = "Milan Ivanovic";
+    muskarac.mesecnaZarada = 64982.12;
+
+    //postavljanje vrednosti za objekat  zena
+    zena.imePrezime = "Katarina Bercek";
+    zena.mesecnaZarada = 84110.37;
+
+    //poziv metoda
+    muskarac.predstaviSe();
+    zena.predstaviSe();
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Ja sam Milan Ivanovic, moja mesecna zarada iznosi: 64982.12.
+Ja sam Katarina Bercek, moja mesecna zarada iznosi: 84110.37.
+</xmp>
+</br>
+Ako je objekat instanciran u dinamičkoj memoriji pomoću operatora <span class = "primer_text">new</span>, koristimo <b>operator pokazivača (->)</b> za pristup atributima i metodama, članovima klase.
+</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+Osoba* covek = new Osoba();
+covek->imePrezime = "Milan Ivanovic";
+covek->mesecnaZarada = 64982.12;
+covek->predstaviSe();
+</xmp>
+</br>
+Ukoliko imamo pokazivač ka objektu, takođe koristimo operator pokazivača (->) za pristup atributima i metodama, ali možemo upotrebiti i <b>operator dereferenciranja (*)</b> za referenciranje objekta, koje je praćeno operatorom tačka.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+Osoba* covek = new Osoba(); 
+(*covek).predstaviSe();
+</xmp>
+</br>
+Ukoliko je član klase definisan kao privatni ili zaštićeni, tada ne možemo direktno pristupiti podacima. U tom slučaju smo primorani da kreiramo posebne funkcije javnih članova za pristup, upotrebu ili inicijalizaciju privatnih ili zaštićenih članova podataka. Ove funkcije članova nazivaju se i metode pristupa ili <b>funkcije getter-a i setter-a</b>.
+</br></br>
+Pretpostavimo da se instanca klase <span class = "primer_text">Osoba</span> zove <span class = "primer_text">covek</span>:
+<xmp class="primer_ta">
+Osoba covek;
+</xmp>
+Kada korisnik ove instance pokuša da pristupi članu <span class = "primer_text">mesecnaZarada</span>, na primer:
+<xmp class="primer_ta">
+cout << covek.mesecnaZarada << endl;
+</xmp>
+biće prikazana greška kompajlera <span class = "primer_text">Error: Osoba::mesecnaZarada cannot access private member declared in class Osoba</span>. </br>
+Jedini dozvoljeni način da saznamo vrednost atributa <span class = "primer_text">mesecnaZarada</span> je da zatražimo istu pomoću javnog metoda <span class = "primer_text">GetMesecnaZarada()</span> iz klase <span class = "primer_text">Osoba</span>, koji je implementiran na način za koji je programer klase procenio da je odgovarajući za prikaz podatka <span class = "primer_text">mesecnaZarada</span>:
+<xmp class="primer_ta">
+cout << covek.GetMesecnaZarada() << endl;
+</xmp>
+Ako ne postoji javni metod <span class = "primer_text">GetMesecnaZarada()</span> implementiran u klasi <span class = "primer_text">Osoba</span>, klasa će obezbediti da korisnik uopšte ne može da šalje upit za podatak <span class = "primer_text">mesecnaZarada</span>. </br></br>
+Slično prethodnom, član <span class = "primer_text">mesecnaZarada</span> ne može biti direktno dodeljen, na primer:
+<xmp class="primer_ta">
+covek.mesecnaZarada = 31098.36;
+</xmp>
+Jedini mogući način za dodeljivanje vrednosti je korišćenjem metoda <span class = "primer_text">SetMesecnaZarada(double zarada)</span>:
+<xmp class="primer_ta">
+covek.SetMesecnaZarada(31098.36);
+</xmp>
+</br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Osoba {
+    private:
+        string imePrezime;
+        string pol;
+        double mesecnaZarada;
+        void predstaviSe();
+        
+    public:
+        double GetMesecnaZarada(){
+            return mesecnaZarada;
+        }
+        void SetMesecnaZarada(double plata){
+            mesecnaZarada = plata;
+        }
+};
+
+int main() {
+
+    Osoba muskarac;
+    covek.setMesecnaZarada(89239.91);
+
+    Osoba zena;
+    zena.setMesecnaZarada(65270.28);
+    
+    cout << ”Mesecna zarada muskarca je: ” << muskarac.GetMesecnaZarada() << ”.” << endl;
+    cout << ”Mesecna zarada zene je: ” << zena.GetMesecnaZarada() << ”.” << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Mesecna zarada muskarca je:  89239.91.
+Mesecna zarada zene je: 65270.28.
+</xmp></br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Koji pristupi poljima postoje? Objasniti kako funkcioniše svaki od njih.</br>
+  Pitanje 2: Navesti nekoliko primera upotrebe različitih pristupa poljima.</br>
+  Pitanje 3: Koji je bolji način za pristup poljima? Objasniti detaljno.</br>
+  Pitanje 4: Šta predstavljaju funkcije getter-a, a šta funkcije setter-a?</br>
+  Pitanje 5: Deklarisati klasu Pravougaonik koja od atributa sadrži dužu i kraću stranicu pravougaonika i metode za računanje površine i obima. Implementirati funkciju getter-a koja omogućava pristup polju.</br>
+  Pitanje 6: U prethodno definisanoj klasi Pravougaonik implementirati funkciju setter-a koja omogućava postavljanje vrednosti određenom polju.
+</div>
+</br>

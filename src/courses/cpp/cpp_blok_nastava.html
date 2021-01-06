@@ -1,0 +1,2747 @@
+<h1>Blok nastava</h1>
+<h2>Konstrukcija i destrukcija objekata </h2>
+<div class="zadatak">
+<b>1.</b> Kreirati klasu Registracija, koja predstavlja registraciju automobila u Srbiji. Klasa treba da sadrži tri atributa:
+<ul>
+<li>string reg1 - za predstavljanje grada</li>
+<li>int reg2 - za predstavljanje broja</li>
+<li>string reg3 - za predstavljanje trećeg dela registarske tablice</li></ul>
+Na primer: ako je reg1="NS", reg2=173, reg3 = "TR", onda je registracija “NS173TR”. Klasa treba imati podrazumevani konstruktor koji i reg1 i reg3 postavlja na vrednost "AA", dok reg2 postavlja na 100. Takođe klasa treba imati i konstruktor sa tri argumenta koji atribute klase postavlja na prosleđene vrednosti.
+U glavnom programu demonstrirati rad klase (upotrebiti oba konstruktora).
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <string>
+#include <exception>
+using namespace std;
+
+class Registracija {
+    public:
+        string reg1;
+        int reg2;
+        string reg3;
+        Registracija();
+        Registracija(string r1,int r2,string r3);
+};
+
+//definisanje konstruktora klase
+//podrazumevani konstruktor
+Registracija::Registracija(){
+    reg1 = "AA";
+    reg2 = 100;
+    reg3 = "AA";
+}
+//parametarski konstruktor
+Registracija::Registracija(string r1,int r2,string r3){
+    reg1 = r1;
+    reg2 = r2;
+    reg3 = r3;
+}
+
+int main() {
+
+    //stvaranje objekta klase registracije
+    Registracija r1;
+    Registracija r2("PP",665,"YH");
+    
+    // javne promenljive klase se postavljaju na određene vrednosti
+    r1.reg1 = "VA";
+    r1.reg2 = 326;
+    r1.reg3 = "RE";
+        
+    // ispis prve registracije
+    cout << r1.reg1 << r1.reg2 << r1.reg3 << endl;
+    // ispis druge registracije
+    cout << r2.reg1 << r2.reg2 << r2.reg3 << endl;
+    
+    return 0;
+}
+
+</xmp>
+<div class="zadatak">
+<b>2.</b> Izmeniti klasu Registracija tako da reg1, reg2 i reg3 budu privatne promenljive. Implementirati sledeće metode:
+<ul><li>metode postavi1(string s), postavi2(int n), postavi3(string s) koje postavljaju prosleđene vrednosti atributima. Metoda postavi2(int n) postavlja vrednost ukoliko je n pozitivan trocifren broj. U suprotnom se ništa ne menja.</li>
+<li>metode vrednost1(), vrednost2(), vrednost3() koje pristupaju promenljivama reg1, reg2 i reg3.</li>
+<li>metodu ispisi() koja ispisuje datu registarsku tablicu u formatu reg1-reg2-reg3. </ul>
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <string>
+#include <exception>
+using namespace std;
+
+class Registracija {
+    private:
+        string reg1;
+        int reg2;
+        string reg3;
+    public:
+        Registracija();
+        Registracija(string r1,int r2,string r3);
+        void postavi1(string s);
+        void postavi2(int n);
+        void postavi3(string s);
+        string vrednost1();
+        int vrednost2();
+        string vrednost3();
+        void ispisi();
+};
+
+//definisanje konstruktora klase
+//podrazumevani konstruktor
+Registracija::Registracija(){
+    reg1 = "AA";
+    reg2 = 100;
+    reg3 = "AA";
+}
+//parametarski konstruktor
+Registracija::Registracija(string r1,int r2,string r3){
+    reg1 = r1;
+    reg2 = r2;
+    reg3 = r3;
+}
+void Registracija::postavi1(string s){
+    reg1 = s;
+}
+void Registracija::postavi2(int n){
+    if(n > 99 && n < 1000)
+        reg2 = n;
+}
+void Registracija::postavi3(string s){
+    reg3 = s;
+}
+string Registracija::vrednost1(){
+    return reg1;
+}
+int Registracija::vrednost2(){
+    return reg2;
+}
+string Registracija::vrednost3(){
+    return reg3;
+}
+void Registracija::ispisi(){
+    cout << reg1 << "-" << reg2 << "-" << reg3 << endl;
+}
+int main() {
+
+    //stvaranje objekta klase registracije
+    Registracija r("BG",754,"YH");
+    // ispis registracije (prvi nacin)
+    r.ispisi();
+    
+    r.postavi1("NP");
+    r.postavi2(21);
+    r.postavi3("HA");
+    
+    // ispis registracije (drugi nacin)
+    cout << r.vrednost1() << "-" << r.vrednost2() << "-" << r.vrednost3() << endl;
+    
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>3.</b> Kreirati klasu BankovniRacun, koja od atributa sadrži: 
+  <ul>
+  <li>string brojRacuna</li>
+  <li>double stanjeNaRacunu</li>
+  <li>double kamatnaStopa</li></ul> 
+  Implementirati odgovarajući konstruktor i metodu izracunajKamatu() koja računa kamatu po formuli: stanjeNaRacunu * kamatnaStopa. 
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankovniRacun {
+    private:
+        string brojRacuna;
+        double stanjeNaRacunu;
+        double kamatnaStopa;
+    public:
+        BankovniRacun(string brRac, double st, double kamSt) {
+            brojRacuna = brRac;
+            stanjeNaRacunu = st;
+            kamatnaStopa = kamSt;
+        }
+        double izracunajKamatu() {
+            return stanjeNaRacunu * kamatnaStopa;
+        }
+        
+};
+
+int main() {
+
+    // promenljive za smestanje unetih podataka
+    string racun;
+    double na_racunu;
+    double stopa;
+    
+    // podaci o racunu koje unosi korisnik
+    cout << "\nUnesite broj racuna: ";
+    cin >> racun;
+    cout << "\nUnesite stanje na racunu: ";
+    cin >> na_racunu;
+    cout << "\nUnesite kamatnu stopu: ";
+    cin >> stopa;
+    
+    // inicijalizacija objekta
+    BankovniRacun bankRacun(racun, na_racunu, stopa);
+
+    cout << endl;
+    cout << "Kamata na novac koji se nalazi na racunu je: "
+    << bankRacun.izracunajKamatu() << endl;
+    
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>4.</b> Napisati program koji koristi dopunjenu verziju prethodne klase, tj. dodati još nekoliko metoda:
+  <ul>
+  <li>proslediBrojRacuna() kojom se pristupa atributu brojRacuna</li>
+  <li>proslediStanje() kojom se pristupa atributu stanjeNaRacunu</li>
+  <li>uplata(double iznos) kojom se povećava suma novca na računu</li> 
+  <li>isplata(double iznos) koja ukoliko ima dovoljno novca, vrši smanjenje istog za određeni iznos koji je prosleđen kao argument</br>
+  Ukoliko nema dovoljno novca, izbaciti izuzetak.</li></ul>
+  Implementirati konstruktore sa različitim brojem argumenata (ne zaboraviti podrazumevani konstruktor).
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankovniRacun {
+    private:
+        string brojRacuna;
+        double stanjeNaRacunu;
+        double kamatnaStopa;
+    public:
+        BankovniRacun(){
+            brojRacuna = 111111;
+            stanjeNaRacunu = 0.0;
+            kamatnaStopa = 0.05;
+        }
+        BankovniRacun(string brRac, double st){
+            brojRacuna = brRac;
+            stanjeNaRacunu = st;
+            kamatnaStopa = 0.07;
+        }
+        BankovniRacun(string brRac, double st, double kamSt) {
+            brojRacuna = brRac;
+            stanjeNaRacunu = st;
+            kamatnaStopa = kamSt;
+        }
+        double izracunajKamatu() {
+            double kamatniIznos;
+            kamatniIznos = stanjeNaRacunu * kamatnaStopa;
+            stanjeNaRacunu += kamatniIznos;
+            return kamatniIznos;
+        }
+        double proslediStanje() {
+            return stanjeNaRacunu;
+        }
+        string proslediBrojRacuna() {
+            return brojRacuna;
+        }
+        void uplata(double iznos)   {      
+            stanjeNaRacunu += iznos;    
+        }
+        void isplata(double iznos) {
+            if (iznos > stanjeNaRacunu) {
+                throw "Nemate dovoljno sredstava.";
+            }
+            stanjeNaRacunu -= iznos;
+        }
+};
+
+int main() {
+
+    // promenljive za smestanje unetih podataka
+    string racun;
+    double na_racunu;
+    
+    // podaci o racunu koje unosi korisnik
+    cout << "\nUnesite broj racuna: ";
+    cin >> racun;
+    cout << "\nUnesite stanje na racunu: ";
+    cin >> na_racunu;
+    
+    // inicijalizacija objekta
+    BankovniRacun bankRacun(racun, na_racunu);
+
+    cout << endl;
+    cout << "Kamata na novac koji se nalazi na racunu je: "
+    << bankRacun.izracunajKamatu() << endl;
+    
+    cout << "Broj racuna je " << bankRacun.proslediBrojRacuna() << endl;
+    cout << "Trenutno stanje na racunu je " << bankRacun.proslediStanje() << endl; 
+    
+    double iznos;
+    cout << "Unesite iznos koji ulazete : ";
+    cin >> iznos;
+    bankRacun.uplata(iznos);
+    cout << endl;
+    
+    cout << "Uplata od " << iznos << " je izvrsena." << endl;
+    cout << "Novo stanje na racunu je " << bankRacun.proslediStanje();
+    bankRacun.izracunajKamatu();
+    cout << endl;
+    
+    cout << "Primenjuje se kamatna stopa na iznos na racunu." << endl;
+    cout << "Novo stanje na racunu je " << bankRacun.proslediStanje();
+    cout << endl;
+    
+    cout << "Unesite iznos koji zelite da podignete : ";
+    cin >> iznos;
+    try {
+        bankRacun.isplata(iznos);
+        cout << "Podizanje iznos od " << iznos << " je izvrseno." << endl;
+        cout << "Novo stanje na racunu je " << bankRacun.proslediStanje() << endl;
+
+    } catch (const char* poruka){
+        cout << "Izuzetak: " << poruka << endl;
+        cout << "Program se zavrsava." << endl;
+    }
+
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>5.</b> Kreirati klasu Razlomak. Klasa od atributa treba da sadrži:
+<ul><li>int brojilac</li>
+<li>int imenilac </li></ul>.
+Implementirati metode koje obezbeđuju:
+<ul>
+<li>učitavanje razlomka</li>
+<li>ispis razlomka</li>
+<li>sabiranje razlomaka</li>
+<li>oduzimanje razlomaka</li>
+<li>množenje razlomaka</li>
+<li>deljenje razlomaka</li></ul>
+Ukoliko korisnik imeniocu dodeli vrednost 0, izbaciti izuzetak i prekinuti program. Klasa treba da sadrži podrazumevani konstruktor koji brojilac postavlja na nulu, a imenilac na jedan i parametarski konstruktor koji sadrži dva argumenta. Takođe implementirati getter-e i setter-e.
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+using namespace std;
+class Razlomak {
+    private:
+        int brojilac;
+        int imenilac;
+    public:
+        //podrazumevani konstruktor
+        Razlomak()
+            :brojilac(0), imenilac(1) {
+        }
+        Razlomak(int br, int im) {
+            if(im == 0)
+                throw "Imenilac ne sme biti nula!";        
+            brojilac = br;
+            imenilac = im; 
+        }
+        // getter-i
+        int brojilacVr() const {
+            return brojilac;
+        }
+        int imenilacVr() const { 
+            return imenilac; 
+        }
+        //setter-i
+        void postaviBrojilac(int br) {
+            brojilac = br;
+        }
+        void postaviImenilac(int im) {
+            imenilac = im; 
+        }
+        // ovu funkciju ćemo koristiti za skraćivanje razlomaka
+        int skrati(int a, int b) {
+            int t;  
+            while (b != 0) {
+                t = b;
+                b = a % b;
+                a = t;
+            }
+
+            return a;
+        }
+        Razlomak operator + (const Razlomak& r) {
+            int a = brojilac;
+            int b = imenilac;
+            int c = r.brojilacVr();
+            int d = r.imenilacVr();
+            int im = b*d;
+            int br = d*a + b*c;
+            // skrati razlomak
+            int pom = skrati(br, im);
+            return Razlomak(br/pom, im/pom);
+        }
+        Razlomak operator - (const Razlomak& r){
+            int a = brojilac;
+            int b = imenilac;
+            int c = r.brojilacVr();
+            int d = r.imenilacVr();
+            int im = b*d;
+            int br = d*a - b*c;
+            // skrati razlomak
+            int pom = skrati(br, im);
+            return Razlomak(br/pom, im/pom);
+        }
+        Razlomak operator * (const Razlomak& r){
+            int a = brojilac;
+            int b = imenilac;
+            int c = r.brojilacVr();
+            int d = r.imenilacVr();
+            int im = b*d;
+            int br = c*a;
+            // skrati razlomak
+            int pom = skrati(br, im);
+            return Razlomak(br/pom, im/pom);
+        }
+        Razlomak operator / (const Razlomak& r){
+            int a = brojilac;
+            int b = imenilac;
+            int c = r.brojilacVr();
+            int d = r.imenilacVr();
+            int im = b*c;
+            int br = d*a;
+            // skrati razlomak
+            int pom = skrati(br, im);
+            return Razlomak(br/pom, im/pom);
+        }
+    
+};
+//ispis razlomka
+ostream& operator << (ostream& out, const Razlomak& s) {
+    out << s.brojilacVr() << "/" << s.imenilacVr();
+    return out;
+}
+//ucitavanje razlomka
+istream& operator >> (istream& in, Razlomak& r) {
+    int a, b;
+    char ch;
+    in >> a >> ch >> b;
+    r.postaviBrojilac(a);
+    r.postaviImenilac(b);
+    
+    return in;
+}
+
+
+int main() {
+   
+    Razlomak zbir, razlika, proizvod, kolicnik;
+    //ucitavamo razlomke i proveravamo da li je neki od imenilaca = 0
+    try {
+        Razlomak r1,r2;
+        cout << "Unesite prvi razlomak (u obliku a/b): ";
+        cin >> r1;
+        cout << "Unesite drugi razlomak (u obliku a/b): ";
+        cin >> r2;
+        
+        zbir = r1 + r2;
+        razlika = r1 - r2;
+        proizvod = r1 * r2;
+        kolicnik = r1 / r2;
+        
+        cout << "Zbir je: " << zbir << endl;
+        cout << "Razlika je: " << razlika << endl;
+        cout << "Proizvod je: " << proizvod << endl;
+        cout << "Kolicnik je: " << kolicnik << endl;
+    }
+    catch (const char* poruka){
+        cout << "Izuzetak: " << poruka << endl;
+        cout << "Program se zavrsava." << endl;
+    }
+    
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>6.</b>Kreirati klasu KompleksanBroj. Atributi koje klasa treba da sadrži:
+  <ul>
+  <li>double real - realni deo kompleksnog broja</li>
+  <li>double imag - imaginarni deo kompleksnog broja</li> 
+  </ul>
+  Implementirati metode koje obezbeđuju:
+  <ul>
+  <li>učitavanje kompleksnog broja</li>
+  <li>ispis kompleksnog broja</li>
+  <li>računanje modula kompleksnog broja</li>
+  <li>računanje argumenta kompleksnog broja</li></ul>
+  Implementirati odgovarajuće konstruktore, konstruktor kopije, operator dodele i destruktor.
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+
+#include <iostream>
+using namespace std;
+#include <math.h>
+
+class KompleksanBroj{
+    public:
+        double real;
+        double imag;
+        //podrazumevani konstruktor
+        KompleksanBroj() 
+            :real(0), imag(0) {
+        }
+        //parametarski konstruktor
+        KompleksanBroj(double r,double i) {
+            real = r;
+            imag = i;
+        }    
+        //konstruktor kopije
+        KompleksanBroj(const KompleksanBroj& temp){
+            real = temp.real;
+            imag = temp.imag;
+        }
+        //operator dodele
+        KompleksanBroj& operator = (const KompleksanBroj& temp) {
+            real = temp.real;
+            imag = temp.imag;
+            return *this;
+        }
+        //destruktor
+        ~KompleksanBroj(){
+            cout << "Pozvan je destruktor." << endl;
+        }
+        //const u deklaraciji funkcije znači da funkcija ne menja vrednost promenljivama
+        //funkcija za izracunavanje modula kompleksnog broja
+        double modul() const {
+            return sqrt( imag*imag + real*real );
+        }
+        //funkcija za izracunavanje argumenta kompleksnog broja
+        double argument() const {
+            return atan(imag/real);
+        }
+        //setter-i
+        void postaviR(double r){
+            real = r;
+        }
+        void postaviI(double i){
+            imag = i;
+        }
+};
+
+//ispis kompleksnog broja
+ostream& operator << (ostream& out, const KompleksanBroj& temp) {
+    out << temp.real;
+    if( temp.imag >= 0.0 ) {
+        out << "+i ";
+    } else {
+        out << "-i ";
+    }
+    cout << abs(temp.imag);
+    return out;
+}
+//ucitavanje kompleksnog broja
+istream& operator >> (istream& in, KompleksanBroj& r) {
+    int a, b;
+    in >> a >> b;
+    r.postaviR(a);
+    r.postaviI(b);
+    
+    return in;
+}
+
+int main(){
+
+    KompleksanBroj k;
+    cout << "Unesite realni i imaginarni deo kompleksnog broja: ";
+    cin >> k;
+    
+    cout << "Uneli ste: ";
+    cout << k << endl;
+    
+    cout << "Modul kompleksnog broja: " << k.modul() << endl;
+    cout << "Argument kompleksnog broja: " << k.argument() << endl;
+    
+    KompleksanBroj k2(3.42,5.12);
+    cout << "Uneli ste: ";
+    cout << k2 << endl;
+
+    //simulacija rada konstruktora kopije
+    k2 = k;
+    cout << "Nova vrednost: ";
+    cout << k2 << endl;
+        
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>7.</b> Kreirati klasu Loto na način da se niz brojeva alocira dinamički. Alokaciju izvršiti u
+konstruktoru. Definisati i destruktor klase, u kojem se oslobađa alocirana
+memorija.
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+using namespace std;
+class Loto {
+    private:
+        int* m_br; // za dinamicku alokaciju polja brojeva
+        int m_rezervni_broj;
+    public:
+        //konstruktor
+        Loto() {
+            m_br = new int[6]; // alokacija polja brojeva
+            postaviBrojeve();
+        }
+        //destruktor
+        ~Loto() {
+            delete [] m_br; // dealokacija polja brojeva
+            cout << "\nPozvan je destruktor." << endl;
+        }
+        //funkcija koja vrsi nasumicno postavljanje brojeva
+        void postaviBrojeve() { 
+            for(int i=0 ; i<6 ; i++) 
+            m_br[i] = rand()%42;
+            m_rezervni_broj = rand()%42;
+        }
+        //funkcija koja vraca pokazivac na niz
+        int *nizBrojeva() const {
+            return m_br;
+        }
+        //funkcija koja vraca rezervni broj
+        int rezBroj() const {
+            return m_rezervni_broj;
+        }
+};
+
+//ispis brojeva u obliku: 22, 37, 2, 3, 6, 12 (4), pri cemu je 4 rezervni broj
+ostream& operator << (ostream& s, const Loto& L) {
+    int* A; // pokazivač pomoću kojeg ćemo pristupati polju
+    A = L.nizBrojeva();
+    for( int i = 0 ; i<6 ; i++ ) {
+        s << A[i] << ", ";
+    }
+    s << " (" << L.rezBroj() << ")";
+    return s;
+}
+
+int main(){
+    
+    Loto loto;
+    cout << loto;
+
+    return 0;
+}
+</xmp>
+<h2> Generičke klase </h2>
+<div class="zadatak">
+<b>8.</b> Kreirati generički oblik klase Krug (tako da tip radijusa može biti bilo koji numerički tip). Implementirati metodu koja inkrementira radijus kruga. Testirati program sa podacima različitog tipa.
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include<fstream>
+using namespace std;
+
+template <class T>
+class Krug{
+    public:
+        //podrazumevani konstruktor
+        Krug() 
+            : m_radius(0){
+        };
+        //parametarski konstruktor
+        Krug(const T& c) 
+            :m_radius(c){
+        }
+        void postaviradius(const T& r){
+            m_radius = r; 
+        }
+        T radiusVrednost() const{ 
+            return m_radius; 
+        }
+        //operator koji inkrementira radijus
+        Krug& operator++(){
+            ++m_radius;
+            return *this;
+        }
+    protected:
+        T m_radius;
+};
+
+//standardni izlaz
+template <typename T>
+std::ostream& operator << (std::ostream& izlaz, const Krug<T>& k){
+    izlaz << k.radiusVrednost();
+    return izlaz;
+}
+
+//standardni ulaz
+template <typename T>
+std::istream& operator >> (std::istream& ulaz, Krug<T>& k){
+    T r;
+    ulaz >> r;
+    k.postaviradius(r);
+    return ulaz;
+}
+
+int main() {
+    Krug<double> c(3.14);
+    Krug <int> d(5);
+    cout << "Unesite radijus prvog kruga(double):" << endl;
+    cin >> c;
+    cout << "Unesite radijus drugog kruga(int):" << endl;
+    cin >> d;
+    cout << "Radijus prvog kruga" << " " << c << endl;
+    cout << "Radijus drugog kruga " << " " << d << endl;
+    ++c;
+    ++d;
+    cout << "Radijus prvog kruga" << " " << c << endl;
+    cout << "Radijus drugog kruga " << " " << d << endl;
+    return 0;
+}
+</xmp>
+
+<div class="zadatak">
+<b>9.</b> Kreirati generičku klasu Pair koja od atributa sadrži:
+<ul><li>first - prvi argument para</li>
+<li>second - drugi argument para</li>
+</ul>
+Implementirati getter-e, setter-e, parametarski konstruktor, operator dodele, metodu za poređenje dva para, metodu za ispis para. Testirati program sa različitim tipovima ulaznih podataka.
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+using namespace std;
+template<class T1, class T2>
+    class Pair {
+        private:
+            T1 first;
+            T2 second;
+        public:
+            Pair(const T1&, const T2&);
+            T1 getFirst() const;
+            T2 getSecond() const;
+            void setFirst(const T1&);
+            void setSecond(const T2&);
+            bool operator==(const Pair<T1,T2>&);
+            Pair<T1,T2>& operator=(const Pair<T1,T2>&);
+            void printPair() const;
+};
+template<class T1, class T2> Pair<T1,T2>::Pair(const T1 &f, const T2 &s) 
+    : first(f), second(s) {
+}
+template<class T1, class T2> T1 Pair<T1,T2>::getFirst() const { 
+    return first; 
+}
+template<class T1, class T2> T2 Pair<T1,T2>::getSecond() const {
+    return second; 
+}
+template<class T1, class T2> void Pair<T1,T2>::setFirst(const T1 &f) {   
+    first=f; 
+}
+template<class T1, class T2> void Pair<T1,T2>::setSecond(const T2 &s) {
+    second=s; 
+}
+template<class T1, class T2> bool Pair<T1,T2>::operator==(const Pair<T1,T2> &p) {
+    if((first==p.first) && (second==p.second))
+        return true;
+    else
+        return false;
+}
+template<class T1, class T2> Pair<T1,T2>& Pair<T1,T2>::operator=(const Pair<T1,T2> &p) {
+    first=p.first;
+    second=p.second;
+    return *this;
+}
+template<class T1, class T2> void Pair<T1,T2>::printPair() const {
+    cout<<"( "<<first<<", "<<second<<" )"<<endl;
+}
+
+typedef Pair<int,int> IIPair;
+typedef Pair<int,double> IDPair;
+typedef Pair<double,double> DDPair;
+
+int main() {
+    Pair<int,int> x1(1,2);
+    IDPair x2(1,2.3), x3(5.4,7.8);
+    x1.printPair();
+    x2.printPair();
+    x3.printPair();
+    x3=x2;
+    x2.printPair();
+    x3.printPair();
+    if(x2==x3)
+    cout<<"x2 i x3 su jednaki"<<endl;
+    else
+    cout<<"x2 i x3 nisu jednaki"<<endl;
+    return 0;
+}
+
+</xmp>
+
+<div class="zadatak">
+<b>10.</b> Standardna klasa vector<T> služi za čuvanje objekata tipa T. 
+<ul><li>Kreirati funkciju sledećeg prototipa:
+template <class T> int PronadjiElement(const vector<T> V, T x)
+kojom se u vektoru V traži element x. Funkcija treba da vrati indeks na kojem je
+pronađen element x, ili -1 ako nije pronađen.</li>
+<li>Kreirati funkciju sledećeg prototipa:
+template <class T> vector<T> SortirajVektor (const vector<T> V)
+koja vraća sortirani vektor od vektora V, koji je argument funkcije.</li></ul>
+</div>
+</br>
+<b>Rešenje</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <vector>
+using namespace std;
+
+//funkcija za pronalazenje elementa
+template <class T> int PronadjiElement(const vector<T> V, T x) {
+    for( int i = 0 ; i < V.size() ; i++ ) {
+        if( V[i] == x )
+    return i;
+    }
+    return -1;
+}
+
+//funkcija koja sortira dati vektor
+template <class T> vector<T> SortirajVektor (const vector<T> V){
+    
+    vector<T> vecTemp(V);
+    // sortiranje selection sortom
+    T temp, s1, s2;
+    int i, j;
+    int imin;
+    for (i = 0 ; i < (vecTemp.size() - 1) ; i++) {
+        imin = i;
+        for (j = i+1 ; j < vecTemp.size() ; j++) {
+            s1 = vecTemp[j];
+            s2 = vecTemp[imin];
+            if ( s1 < s2 )
+            imin = j;
+        }
+        temp = vecTemp[i];
+        vecTemp[i] = vecTemp[imin];
+        vecTemp[imin] = temp;
+    }
+    return vecTemp;
+}
+
+int main(){
+
+    vector<int> v;
+    int broj, n, i=0;
+    cout << "Unesite dimenziju vektora: " << endl;
+    cin >> n;
+    cout << "Unesite elemente vektora: " << endl;
+    
+    while(i < n){
+        cin >> broj;
+        v.push_back(broj);
+        i++;
+    }   
+    
+    cout << "Unesite trazeni broj: " << endl;
+    cin >> broj;
+    int ind = PronadjiElement(v,broj);
+    cout << "Indeks na kom se nalazi trazeni element: " << ind << endl;
+    
+    cout << "Elementi pre sortiranja: " << endl;
+    for(i=0; i<v.size(); i++)
+        cout << v[i] << " ";
+    cout << endl;
+    
+    vector<int> s = SortirajVektor(v);
+    cout << "Elementi nakon sortiranja: " << endl;
+    for(i=0; i<s.size(); i++)
+        cout << s[i] << " ";
+    cout << endl;
+    
+    return 0;
+}
+</xmp>
+<h2> Nasleđivanje i virtualne klase </h2>
+<div class="zadatak">
+  <b>11. </b>Napisati program koji kreira klasu Biljka sa sledećim atributima: 
+  <ul>
+  <li>double rastNaDnevnomNivou</li>
+  <li>double potrebaZaVodom</li>
+  <li>int nivoBoje(u rasponu od 0-100)</ul>
+  Klasa takođe sadrži metodu void opis().
+  Klasa Ruza nasleđuje zaštićeno klasu Biljka i dodatno ima atribute:
+  <ul>
+    <li>int brojLatica</li>
+    <li>string boja</li>
+  </ul>
+  Klasa Ruza sadrži metodu double kvalitet(), koja se definiše kao: brojLatica*nivoBoje/1000. </br></br>
+ Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+class Biljka {
+    public:
+        Biljka(double rastNaDnevnomNivou, double potrebaZaVodom, int nivoBoje) {
+            _rastNaDnevnomNivou=rastNaDnevnomNivou;
+            _potrebaZaVodom=potrebaZaVodom;
+            _nivoBoje=nivoBoje;
+        }
+        
+        void opis() {
+            cout<<"Biljka raste na dan: "<< _rastNaDnevnomNivou<<"cm, ima potrebu za vodom: "<< _potrebaZaVodom<<"l i njen nivo boje je: "<< _nivoBoje<< endl;
+        }
+        
+    protected:
+        //kako koristimo protected nema potrebe za getere i setere u potklasi 
+        double _rastNaDnevnomNivou;
+        double _potrebaZaVodom;
+        int _nivoBoje;
+        
+};
+class Ruza: public Biljka {
+    public:
+        Ruza(double rastNaDnevnomNivou, double potrebaZaVodom, int nivoBoje, int brojLatica, string boja) : Biljka(rastNaDnevnomNivou, potrebaZaVodom, nivoBoje){
+            _brojLatica=brojLatica;
+            _boja=boja;
+        }
+        
+        //metoda opis() biva predefinisana u klasi Ruza
+        void opis() {
+            cout<< _boja<<" ruza sa brojem latica "<< _brojLatica<< " raste na dan: "<< _rastNaDnevnomNivou<<"cm, ima potrebu za vodom: "<< _potrebaZaVodom<<"l i njen nivo boje je: "<< _nivoBoje<< endl;
+        }
+
+        double kvalitet() {
+            return _brojLatica*_nivoBoje/1000;
+        }
+    private: 
+        int _brojLatica;
+        string _boja;
+        
+};
+int main(){
+
+    Biljka b(1, 1, 50);
+    Ruza r(2, 2, 80, 22, "crvena");
+    
+    b.opis();
+    r.opis();
+    cout<<"Kvalitet ruze je "<< r.kvalitet()<< endl;
+
+    return 0;
+}
+ </xmp>
+
+
+<div class="zadatak">
+  <b>12. </b>Napisati program koji kreira klasu Vozilo sa sledećim atributima: 
+  <ul>
+  <li>int predjeniPut(metri)</li>
+  <li>int vreme(sekunde)</li></ul>
+ Takođe sadrži metodu int brzina() (izraženo u km/h).
+  </br></br>
+ Klasa Auto nasleđuje zaštićeno klasu Vozilo i dodatno ima atribute:
+  <ul>
+    <li>int brojVrata</li>
+    <li>int velicinaRezervoara(l)</li>
+  </ul>
+  Metoda double stepenZagadjenja() koju sadrži klasa Auto se realizuje: velicinaRezervoara*brzina/10000(g/km). </br> </br>
+
+Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+class Vozilo {
+    public:
+        Vozilo(int predjeniPut, int vreme) {
+            _predjeniPut=predjeniPut;
+            _vreme=vreme;
+        }
+        
+        int brzina(){
+            return _predjeniPut/_vreme;
+        }
+        
+    private: 
+        int _predjeniPut;
+        int _vreme;
+        
+};
+class Auto: public Vozilo {
+    public:
+        Auto(int predjeniPut, int vreme, int brojVrata, int velicinaRezervoara) : Vozilo(predjeniPut, vreme) {
+            _brojVrata=brojVrata;
+            _velicinaRezervoara=velicinaRezervoara;
+        }
+        
+        double stepenZagadjenja() {
+            return _velicinaRezervoara*brzina()/10000;
+        }
+    protected: 
+        int _brojVrata;
+        int _velicinaRezervoara;
+        
+};
+int main(){
+
+    Auto audi(100000, 500, 5, 100);
+    Auto bmw(500520, 650, 3, 120);
+    
+    cout<<"Stepen zagadjenja prvog auta je "<< audi.stepenZagadjenja()<<", a stepen zagadjenja drugog auta je "<< bmw.stepenZagadjenja()<< endl;
+
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>13. </b>Napisati program koji kreira klasu Dezert sa metodom void toString() koja ispisuje informacije o objektu i ima atribute: 
+  <ul>
+  <li>double tezina</li>
+  <li>double kolicinaSecera</li></ul>
+  Klasa MlecnaCokolada nasleđuje javno klasu Dezert i dodatno ima atribute:
+  <ul>
+  <li>double udeoCokolade</li>
+  <li>double udeoMleka</li></ul>
+  Predefinisati metod toString().
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+class Dezert {
+    public:
+        Dezert(double tezina, double kolicinaSecera) {
+            _tezina=tezina;
+            _kolicinaSecera=kolicinaSecera;
+        }
+        
+        void toString(){
+            cout<< "Dezert je tezak: "<< _tezina<<" i sadrzi "<< _kolicinaSecera<<" secera."<< endl;
+        }
+        double getTezina() {
+            return _tezina;
+        }
+        double getKolicinaSecera() {
+            return _kolicinaSecera;
+        }
+        //stavljamo gettere da bi u potklasi mogli da iskoristimo atribute natklase
+    private: 
+        double _tezina;
+        double _kolicinaSecera;
+            
+};
+class MlecnaCokolada: public Dezert {
+    public:
+        MlecnaCokolada(double tezina, double kolicinaSecera, double udeoCokolada, double udeoMleka) : Dezert(tezina, kolicinaSecera) {
+            _udeoCokolada=udeoCokolada;
+            _udeoMleka=udeoMleka;
+        }
+        
+        //predefinisana metoda iz natklase
+        void toString(){
+            cout<< "Mlecna cokolada je teska: "<< getTezina()<<", sadrzi "<< getKolicinaSecera()<<" secera, "<< _udeoCokolada<< "% udeo cokolade i "<< _udeoMleka<< "% udeo mleka."<< endl;
+        }
+    private: 
+        double _udeoCokolada;
+        double _udeoMleka;
+
+};
+int main(){
+
+    Dezert* c[4];
+
+    c[0]= new Dezert(2, 1);
+    c[1]= new MlecnaCokolada(0.3, 0.1, 70, 10);
+    c[2]= new Dezert(3, 1);
+    c[3]= new MlecnaCokolada(0.5, 0.2, 60, 11);
+    
+    for(int i=0; i<4; i++) {
+        c[i]->toString();
+    }
+    for(int i=0; i<4; i++) {
+        delete(c[i]);
+    }
+
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>14. </b>Napisati program koji kreira klasu Hrana sa metodom toString() koja ispisuje informacije o objektu. Klasa treba da sadrži sledeće atribute: 
+  <ul>
+  <li>double tezina</li>
+  <li>int brojTanjira</li></ul>
+  Klasa Supa nasleđuje javno klasu Hrana i dodatno ima atribute:
+  <ul>
+  <li>double kolicinaRezanaca </li>
+  <li>double temperatura</li></ul>
+  Predefinisati metod toString().
+  Klasa Meso nasleđuje javno klasu Hrana i dodatno ima atribute:
+  <ul>
+  <li>string poreklo</li>
+  <li>string boja</li></ul>
+  Predefinisati metod toString().
+  Klasa Pasulj nasleđuje javno klasu Hrana i dodatno ima atribute:
+  <ul>
+  <li>int brojZrna </li>
+  <li>Meso meso</li></ul>
+  Predefinisati metod toString().
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+   
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+class Hrana {
+    public:
+        Hrana(string ime, double tezina, int brojTanjira) {
+            _ime=ime;
+            _tezina=tezina;
+            _brojTanjira=brojTanjira;
+        }
+        
+        void toString() {
+            cout<< _ime<<" je teska "<< _tezina<< " i zauzima "<< _brojTanjira<<" tanjira"<< endl;
+        }
+        double getTezina() {
+            return _tezina;
+        }
+    protected: 
+        string _ime;
+        int _brojTanjira;
+        double _tezina;
+
+};
+class Supa : public Hrana {
+    public:
+        Supa(string ime, double tezina, int brojTanjira, double kolicinaRezanaca, double temperatura) : Hrana(ime, tezina, brojTanjira) {
+            _kolicinaRezanaca=kolicinaRezanaca;
+            _temperatura=temperatura;
+        }
+        //predefinisana metoda iz natklase
+        void toString() {
+            cout<<"Supa "<< _ime<<" je teska "<< _tezina<< "i zauzima "<< _brojTanjira<<" tanjira. Sadrzi "<< _kolicinaRezanaca<< " i supa je temperature "<< _temperatura<<"."<< endl;
+        }
+    private:
+        double _kolicinaRezanaca;
+        double _temperatura;
+};
+class Meso : public Hrana {
+    public:
+        Meso(string ime, double tezina, int brojTanjira, string poreklo, string boja) : Hrana(ime, tezina, brojTanjira) {
+            _poreklo=poreklo;
+            _boja=boja;
+        }
+        //predefinisana metoda iz natklase
+        void toString() {
+            cout<<"Meso "<< _ime<<" od "<< _poreklo<<" boje "<< _boja<<", je tesko "<< _tezina<< "i zauzima "<< _brojTanjira<<" tanjira."<< endl;
+        }
+        string getPoreklo() {
+            return _poreklo;
+        }
+        string getBoja() {
+            return _boja;
+        }
+        //geteri su potrebni da bi u potklasi mogli da koristimo atribude natklase
+    private:
+        string _poreklo;
+        string _boja;
+};
+class Pasulj: public Hrana {
+    public:
+        Pasulj(string ime, double tezina, int brojTanjira, int brojZrna, Meso *meso) : Hrana(ime, tezina, brojTanjira) {
+            _brojZrna=brojZrna;
+            _meso=meso;
+        }
+        //predefinisana metoda iz natklase
+        void toString() {
+            cout<<"Pasulj "<< _ime<<"sadrzi meso "<<" od "<< _meso->getPoreklo()<<" boje "<< _meso->getBoja()<<", je tezak "<< _tezina<< ", zauzima "<< _brojTanjira<<" tanjira."<< endl;
+        }
+    private:
+        int _brojZrna;
+        Meso *_meso;
+};
+int main(){
+
+    Hrana* c[4];
+    c[0]= new Hrana("jabuka", 0.4, 1);
+    c[1]= new Supa("pileca", 0.7, 3, 50, 30);
+    c[2]= new Meso("domace", 1.5, 3, "junece", "svetlo crvena");
+    c[3]= new Pasulj("vojnicki", 3, 20, 60, new Meso("piletina_klasik", 2, 2, "piletina", "svetlo roze"));
+    
+    for(int i=0; i< 4; i++) {
+        c[i]->toString();
+    }
+    for(int i=0; i< 4; i++) {
+        delete(c[i]);
+    }
+    
+    return 0;
+}
+ </xmp>
+
+
+<div class="zadatak">
+  <b>15. </b>Napisati program koji kreira klasu Oblik sa virtualnim metodama: 
+  <ul>
+  <li>double povrsina() </li>
+  <li>double obim()</li></ul>
+  Klasa Trougao nasleđuje javno klasu Oblik, implementira sve virtualne metode i dodatno ima atribute:
+  <ul>
+  <li>double a </li>
+  <li>double b</li>
+  <li>double c</li>
+  <li>string vrstaTrougla</li></ul>
+  Klasa Pravougaonik nasleđuje javno klasu Oblik, implementira sve virtualne metode i dodatno ima atribute:
+  <ul>
+  <li>double a </li>
+  <li>double b</li></ul>
+  Kao i metodu double duzinaDijagonale().</br></br>
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+#include <math.h>
+
+using namespace std;
+class Oblik {
+    public:
+        virtual double povrsina() = 0;
+        virtual double obim() = 0;
+};
+class Trougao : public Oblik {
+    public:
+        Trougao(double a, double b, double c, string vrstaTrougla) {
+            _a=a;
+            _b=b;
+            _c=c;
+            _vrstaTrougla=vrstaTrougla;
+        }
+        double povrsina() {
+            return (_a*_b*sin(_c))/2;
+        }
+        double obim() {
+            return _a+_b+_c;
+        }
+    private:
+        double _a;
+        double _b;
+        double _c;
+        string _vrstaTrougla;
+};
+class Pravougaonik : public Oblik {
+    public:
+        Pravougaonik(double a, double b) {
+            _a=a;
+            _b=b;
+    }
+    double povrsina() {
+        return _a*_b;
+    }
+    double obim() {
+        return 2*(_a+_b);
+    }
+    double duzinaDijagonale() {
+        return sqrt(_a*_a+_b*_b);
+    } 
+    private:
+        double _a;
+        double _b;
+};
+
+int main(){
+
+    Oblik* c[4];
+    c[0]= new Trougao(1,1,2, "jednakokraki");
+    c[1]= new Trougao(5,5,5, "jednakostranicni");
+    c[2]= new Pravougaonik(5,6);
+    c[3]= new Pravougaonik(7,8);
+    
+    for(int i=0; i< 4; i++) {
+        cout<< i+1<< ". Obim: "<< c[i]->obim()<<" povrsina: "<< c[i]->obim()<< endl;
+    }
+    for(int i=0; i< 4; i++) {
+        delete(c[i]);
+    }
+    return 0;
+}
+</xmp>
+
+
+
+<div class="zadatak">
+  <b>16. </b>Napisati program koji kreira klasu Zivotinja sa atributom string ime i virtualnom metodom string oglasitiSe(). </br>
+  Klasa Buva nasleđuje javno klasu Zivotinja, implementira virtualnu metodu i dodatno ima atribute:
+  <ul>
+  <li>string omiljeniDomacin</li>
+  <li>double kolicinaHrane</li></ul>
+  Klasa Pas nasleđuje javno klasu Zivotinja, implementira virtualnu metodu i dodatno ima atribute:
+  <ul>
+  <li>string rasa</li>
+  <li>Buva buva</li>
+  <li>double tezina</li></ul>
+  Klasa Pas sadrži i metodu int brojSisanja() koji se računa koliko godišnje treba da se šiša i računa se sa tezina/3.</br></br>
+  Klasa Prase nasleđuje javno klasu Zivotinja, implementira virtualnu metodu i dodatno ima atribute:
+  <ul>
+  <li>int brojMeseci </li>
+  <li>double tezina</li></ul>
+  Klasa Prase sadrži i metodu bool spremanZaProdaju() koji vraća True ako objekat ima više od 6 meseci i više od 30kg.</br></br>
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Zivotinja {
+    public:
+        Zivotinja(string ime) {
+            _ime=ime;
+        }
+        virtual string oglasitiSe() = 0;
+        string getIme() {
+            return _ime;
+        } 
+    private:
+        string _ime;
+};
+class Buva: public Zivotinja {
+    public:
+        Buva(string ime, string omiljeniDomacin, double kolicinaHrane) : Zivotinja(ime){
+            _omiljeniDomacin=omiljeniDomacin;
+            _kolicinaHrane=kolicinaHrane;
+        }
+        string oglasitiSe() {
+            return "Food around the corner!";
+        }
+    private:
+        string _omiljeniDomacin;
+        double _kolicinaHrane;
+};
+class Pas : public Zivotinja {
+    public:
+        Pas(string ime, string rasa, Buva *buva, double tezina) : Zivotinja(ime){
+            _rasa=rasa;
+            _buva=buva;
+            _tezina=tezina;
+        }
+        string oglasitiSe() {
+            return "Av av!";
+        }
+        int brojSisanja() {
+            return _tezina/3;
+        } 
+    private:
+        string _rasa;
+        Buva *_buva;
+        double _tezina; 
+};
+class Prase : public Zivotinja {
+    public:
+        Prase(string ime, int brojMeseci, double tezina) : Zivotinja(ime) {
+            _brojMeseci=brojMeseci;
+            _tezina=tezina;
+        }
+        string oglasitiSe() {
+            return "Grok grok!";
+        }
+        bool spremanZaProdaju() {
+            return _brojMeseci>=6 && _tezina>=30;
+        } 
+    private:
+        int _brojMeseci;
+        double _tezina;
+};
+int main(){
+
+    Zivotinja* c[4];
+    c[0]= new Buva("Buvica", "macka", 10);
+    c[1]= new Pas("Star", "Haski", new Buva("Cvetic", "pas", 11), 35);
+    c[2]= new Prase("Pigi", 5, 45);
+    c[3]= new Prase("Crni", 7, 50);
+    
+    for(int i=0; i< 4; i++) {
+        cout<< c[i]->getIme()<<" "<< c[i]->oglasitiSe()<< endl;
+    }
+    for(int i=0; i< 4; i++) {
+        delete(c[i]);
+    }
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>17. </b>Napisati program koji kreira klasu Tacka sa sledećim atributima:
+  <ul>
+    <li>int x </li>
+    <li>int y</li></ul>
+  Klasa Krug nasleđuje javno klasu Tacka i dodatno ima atribut:
+  <ul>
+    <li>double r </li></ul>
+  Takođe ima metodu double obim() i void pomeriCentar(int, int). </br></br>
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+class Tacka{
+    public:
+        Tacka(int x, int y) {
+            _x=x;
+            _y=y;
+        }
+        int getX() {
+            return _x;
+        }
+        void setX(int x1) {
+            _x=x1;
+        }
+        int getY() {
+            return _y;
+        }
+        void setY(int y1) {
+            _y=y1;
+        }
+
+    private:
+        int _x;
+        int _y;
+};
+class Krug: public Tacka {
+    public:
+        Krug(int x, int y, double r) : Tacka(x,y) {
+            _r=r;
+        }
+        Krug(Tacka tacka, double r) : {
+            _tacka=tacka;
+            _r=r;
+        }
+        void pomeriCentar(int x1,int y1) {
+            setX(x1);
+            setY(y1);
+        }
+        double obim() {
+            return 2*_r*M_PI;
+        }
+    private:
+        Tacka _tacka;
+        double _r;
+};
+
+int main(){
+
+    Tacka t(1,2);
+    Krug k1(1,5,8);
+    Krug k2(t,5);
+    
+    cout<< "Centar k1 pre pomeranja: ("<< k1.getX()<<","<< k1.getY()<< "). "<< endl;
+    k1.setX(4);
+    k1.setY(10);
+    cout<< "Centar k1 posle pomeranja: ("<< k1.getX()<<","<< k1.getY()<< "). "<< endl;  
+    
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>18. </b>Napisati program koji kreira klasu Macka sa sledećim atributima: 
+  <ul>
+  <li>string mjauk</li>
+  <li>string ime</li>
+  <li>string boja</li></ul>
+  Klasa Macka takođe sadrži metodu string opis().</br></br>
+  Klasa Persijska nasleđuje javno klasu Macka i dodatno ima atribut:
+  <ul>
+  <li>string omiljenaIgracka</li></ul>
+  Metoda opis() treba da bude u obliku: "Macka <ime> je persijska macka <boja> boje koja voli da se igra sa <omiljenaIgracka>".</br>  </br> 
+  Klasa Tigar nasleđuje javno klasu Macka i dodatno ima atribute:
+  <ul>
+  <li>string podvrsta</li>
+  <li>bool ugrozenaVrsta</li></ul>
+  Metod opis() treba da bude u obliku: "Velika macka <ime> je <podvrsta> tigar <boja> boje koja je <ugrozena vrsta>".</br></br>
+  Klasa Sfinks nasleđuje javno klasu Macka i dodatno ima atribut:
+  <ul>
+  <li>string bojaOciju</li>
+  <li>string omiljenoMesto</li></ul>
+  Metod opis() treba da bude u obliku: "Macka <ime> je bezdlaka macka <boje> boje koja voli da svoje vreme provodi <omiljenoMesto>".</br></br>
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Macka {
+    public:
+        Macka(string ime, string mjauk, string boja) {
+            _ime=ime;
+            _mjauk=mjauk;
+            _boja=boja;
+        }
+        void opis() {}
+        //metoda ce biti tacnije definisana u potklasama
+        string getIme() {
+            return _ime;
+        }
+        string getMjauk() {
+            return _mjauk;
+        }
+        string getBoja() {
+            return _boja;
+        }
+    private:
+        string _ime;
+        string _mjauk;
+        string _boja;
+};
+class Persijska: public Macka {
+    public:
+        Persijska(string ime, string mjauk, string boja, string omiljenaIgracka) : Macka(ime, mjauk, boja){
+            _omiljenaIgracka=omiljenaIgracka;
+        }
+    
+        void opis(){
+            cout<< getIme()<<"je persijska macka"<< getBoja()<< " boje koja voli da se igra sa "<< _omiljenaIgracka<< endl;
+        }
+    private:
+        string _omiljenaIgracka;
+};
+class Tigar : public Macka {
+    public:
+        Tigar(string ime, string mjauk, string boja, string podvrsta, bool ugrozenaVrsta) : Macka(ime, mjauk, boja){
+            _podvrsta=podvrsta;
+            _ugrozenaVrsta=ugrozenaVrsta;
+        }
+        void opis(){
+            if(_ugrozenaVrsta)
+                cout<<"Velika macka"<< getIme()<<"je podvrsta "<< _podvrsta<< " tigra "<< getBoja()<< " boje koja je ugrozena vrsta."<< endl;
+            else 
+cout<<"Velika macka"<< getIme()<<"je podvrsta "<< _podvrsta<< " tigra "<< getBoja()<< " boje koja nije ugrozena vrsta."<< endl;
+        } 
+    private:
+        string _podvrsta;
+        bool _ugrozenaVrsta;
+};
+
+class Sfinks: public Macka {
+    public:
+        Sfinks(string ime, string mjauk, string boja, string bojaOciju, string omiljenoMesto) : Macka(ime, mjauk, boja){
+            _bojaOciju=bojaOciju;
+            _omiljenoMesto=omiljenoMesto;
+        }
+        
+        void opis(){
+            cout<< getIme()<<"je bezdlaka macka"<< getBoja()<< " boje koja voli da svoje vreme provodi "<< _omiljenoMesto<< endl;
+        }
+    private:
+        string _bojaOciju;
+        string _omiljenoMesto;
+};
+int main(){
+
+    Macka* c[3];
+    c[0]= new Persijska("Mici", "mjauuu", "bele", "klupko");
+    c[1]= new Tigar("Sir Kan", "grrr", "narandzasti", "Bengalski", 1);
+    c[2]= new Sfinks("Sofi", "mmmm", "Siva", "plava", "fotelja");
+        
+
+    for(int i=0; i< 3; i++) {
+        c[i]->opis();
+    }
+    for(int i=0; i< 3; i++) {
+        delete(c[i]);
+    }
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>19. </b>Napisati program koji kreira klasu Posiljka sa sledećim atributima: 
+  <ul>
+  <li>int id</li>
+  <li>string primalac</li>
+  <li>int brojPoste</li>
+  <li>bool status</li></ul>
+  Dodatno sadrži metodu string opis() koja ispisuje vrstu pošiljke i informacije o njoj.</br></br>
+  Klasa Pismo nasleđuje javno klasu Posiljka i dodatno ima atribute:
+  <ul>
+  <li>bool preporuceno</li>
+  <li>string posiljalac</li></ul>
+  Klasa Paket nasleđuje javno klasu Posiljka i dodatno ima atribute:
+  <ul>
+  <li>double tezina</li>
+  <li>string sadrzaj</li></ul>
+  Dodati metodu double cena() koja se računa po formuli tezina(u kilogramima)*250.</br></br>
+  Klasa EkspresUsluga javno nasleđuje klasu Posiljka, dodatno ima atribut int oznaka i metodu string vrsta() koja zavisno od oznake vraća vrstu isporuke:
+  <ul>
+  <li>0 - odmah</li>
+  <li>1 - danas</li>
+  <li>2 - sutra_12</li>
+  <li>3 - sutra_17</li></ul>
+  
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Posiljka {
+    public:
+        Posiljka(int id, string primalac, int brojPoste, bool status) {
+            _id=id;
+            _primalac=primalac;
+            _brojPoste=brojPoste;
+            _status=status;
+        }
+        // gettere implementiramo da bismo imali dostupne atribute natklase u potklasama
+        int getId() {
+            return _id;
+        }
+        string getPrimalac() {
+            return _primalac;
+        }
+        int getBrojPoste() {
+            return _brojPoste;
+        }
+        bool getStatus() {
+            return _status;
+        }
+    private:
+        int _id;
+        string _primalac;
+        int _brojPoste;
+        bool _status;
+};
+class Pismo: public Posiljka {
+    public:
+        Pismo(int id, string primalac, int brojPoste, bool status, bool preporuceno, string posiljalac) : Posiljka(id, primalac, brojPoste, status){
+            _preporuceno=preporuceno;
+            _posiljalac=posiljalac;
+        }
+
+        bool getPreporuceno(){
+            return _preporuceno;
+        }
+        string getPosiljalac(){
+            return _posiljalac;
+        }
+    private:
+        bool _preporuceno;
+        string _posiljalac;
+};
+class Paket : public Posiljka {
+    public:
+        Paket(int id, string primalac, int brojPoste, bool status, double tezina, string sadrzaj) : Posiljka(id, primalac, brojPoste, status){
+            _tezina=tezina;
+            _sadrzaj=sadrzaj;
+        }
+        double cena(){
+            return _tezina*250;
+        }
+        double getTezina(){
+            return _tezina;
+        }
+        string getSadrzaj(){
+            return _sadrzaj;
+        } 
+    private:
+        double _tezina;
+        string _sadrzaj;
+};
+
+class EkspresUsluga : public Posiljka {
+    public:
+        EkspresUsluga(int id, string primalac, int brojPoste, bool status, int oznaka) : Posiljka(id, primalac, brojPoste, status){
+            _oznaka=oznaka;
+        }
+        string vrsta(){
+            if(_oznaka==0)
+                return "odmah";
+            else if(_oznaka==1)
+                return "danas";
+            else if(_oznaka==2)
+                return "sutra_12";
+            else if(_oznaka==3)
+                return "sutra_17";
+        } 
+    private:
+        int _oznaka;
+};
+
+int main(){
+
+    Posiljka p(123, "Marko Markovic", 15352, 0);
+    Pismo pi(111, "Mina Ancic", 11000, 1, true, "Sandra Pajcic");
+    Paket pa(252, "Relja Tipsan", 11000, 0, 1.2, "kolaci");
+    EkspresUsluga eu(474, "Sanja Tosis", 13526, 3, 2);
+    
+    cout<<"Posiljka id: "<< p.getId()<<", ime: "<< p.getPrimalac()<<", broj poste: "<< p.getBrojPoste()<<", status: "<< p.getStatus()<< endl;
+    
+    cout<<"Pismo id: "<< pi.getId()<<", ime: "<< pi.getPrimalac()<<", broj poste: "<< pi.getBrojPoste()<<", status: "<< pi.getStatus()<<", preporuceno: "<< pi.getPreporuceno()<<", posiljalac: "<< pi.getPosiljalac()<< endl;
+    
+    cout<<"Paket id: "<< pa.getId()<<", ime: "<< pa.getPrimalac()<<", broj poste: "<< pa.getBrojPoste()<<", status: "<< pa.getStatus()<<", tezina: "<< pa.getTezina()<<", sadrzaj: "<< pa.getSadrzaj()<< endl;
+    
+    cout<<"Ekspres usluga id: "<< eu.getId()<<", ime: "<< eu.getPrimalac()<<", broj poste: "<< eu.getBrojPoste()<<", status: "<< eu.getStatus()<<", vrsta: "<< eu.vrsta()<< endl;
+    
+    return 0;
+}
+</xmp>
+
+
+<div class="zadatak">
+  <b>20. </b>Napisati program koji kreira klasu Predmet sa atributima: 
+  <ul>
+  <li>int sifra</li>
+  <li>string naziv</li>
+  <li>int ESPB</li>
+  <li>int godina</li>
+  <li>int brojStudenata</li>
+  <li>int brojSemestara(broj semestara u kojima se sluša)</li></ul>
+  Klasa dodatno sadrži metode: metodu double procenatProlaznosti(int) koja kao argument prima broj studenata koji su položili taj predmet i virtualnu metodu string opisPredmeta() koja ispisuje informacije o predmetu.</br></br>
+  Klasa ObavezanPredmet nasleđuje javno klasu Predmet, realizuje virtualnu metodu i dodatno ima atribut:
+  <ul>
+  <li>string uslovni</li>
+  </ul>
+  Klasa IzborniPredmet nasleđuje javno klasu Predmet, realizuje virtualnu metodu i dodatno ima atribut char blok koji predstavlja oznaku izbornih predmeta sa mogućim vrednostima R i M.</br></br>
+ 
+  Implementirati odgovarajuće konstruktore, destruktore, getter-e (ukoliko su potrebni), setter-e (ukoliko su potrebni).
+</div>
+
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+
+using namespace std;
+class Predmet {
+    public:
+        Predmet(int sifra, string naziv, int ESPB, int brojStudenata, int brojSemestara) {
+            _sifra=sifra;
+            _naziv=naziv;
+            _ESPB=ESPB;
+            _brojStudenata=brojStudenata;
+            _brojSemestara=brojSemestara;
+        }
+        int getSifra() {
+            return _sifra;
+        }
+        string getNaziv() {
+            return _naziv;
+        }
+        int getESPB() {
+            return _ESPB;
+        }
+        int getBrojStudenata() {
+            return _brojStudenata;
+        }
+        int getBrojSemestara() {
+            return _brojSemestara;
+        }
+        double procenatProlaznosti(int p) {
+            return 100.0*p/getBrojStudenata();
+        }
+        virtual void opisPredmeta() = 0;
+    private:
+        int _sifra;
+        string _naziv;
+        int _ESPB;
+        int _godina;
+        int _brojStudenata;
+        int _brojSemestara;
+};
+class ObavezanPredmet: public Predmet {
+    public:
+        ObavezanPredmet(int sifra, string naziv, int ESPB, int brojStudenata, int brojSemestara, string uslovni) : Predmet(sifra, naziv, ESPB, brojStudenata, brojSemestara){
+            _uslovni=uslovni;
+        }
+        
+        void opisPredmeta() {
+            cout<<"Predmet "<< getNaziv()<<" sa sifrom "<< getSifra()<<", ESPB "<< getESPB()<<", uslovni predmet je "<< _uslovni<< endl;
+        }
+    private:
+        string _uslovni;
+};
+class IzborniPredmet: public Predmet {
+    public:
+        IzborniPredmet(int sifra, string naziv, int ESPB, int brojStudenata, int brojSemestara, char blok) : Predmet(sifra, naziv, ESPB, brojStudenata, brojSemestara) {
+            _blok=blok;
+        }
+        void opisPredmeta() {
+            cout<<"Izborni predmet "<< getNaziv()<<" sa sifrom "<< getSifra()<<", ESPB "<< getESPB()<<", pripada bloku "<< _blok<< endl;
+        }
+    private:
+        char _blok;
+};
+
+int main(){
+
+    Predmet* c[3];
+    c[0]= new ObavezanPredmet(5865, "Analiza 2", 18, 85, 2, "Analiza 1");
+    c[1]= new IzborniPredmet(8658, "Diskretna matematika", 5, 56, 1, 'R');
+    c[2]= new ObavezanPredmet(5865, "Geometrija 2", 5, 120, 1, "Geometrija 1");
+    
+    for(int i=0; i< 3; i++) {
+        c[i]->opisPredmeta();
+    }
+    for(int i=0; i< 3; i++) {
+        delete(c[i]);
+    }
+    
+    return 0;
+}
+</xmp>
+</br>
+<h2> Rad sa datotekama </h2>
+<div class = "zadatak">
+<b>21.</b> Kreirati tekstualnu datoteku brojevi.txt u koju se upisuju redom brojevi od 1 do 10.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(int argc, char** argv){
+    int i;
+    
+    ofstream izlaz;
+    izlaz.open("brojevi.txt");
+    
+    for (i=1;i<=10;i++)
+        izlaz<<i<<endl;
+        
+    izlaz.close();
+
+    return 0;
+}
+</xmp>
+
+
+<div class = "zadatak">
+<b>22.</b> Napisati program koji u datoteku kub.txt upisuje kubove brojeva od 1 do 10.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(int argc, char** argv){
+    
+    int i;
+    
+    ofstream izlaz;
+    izlaz.open("kub.txt");
+    
+    for (i=1;i<=10;i++)
+        izlaz<<i*i*i<<endl;
+    
+    izlaz.close();
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>23.</b> Datoteka ulaz.txt sadrži cele brojeve. Napisati program koji izračunava njihov zbir i upisuje
+ga u datoteku zbir.txt.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(){
+    
+    ifstream ulaz;
+    ofstream izlaz;
+
+    ulaz.open("ulaz.txt") ;
+    izlaz.open("zbir.txt") ;
+    
+    int x;
+    int suma=0;
+    
+    while(ulaz>>x){
+        suma+=x;
+    }
+    
+    izlaz<<suma<<endl;
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>24.</b>
+Napisati program kojim se analizira sadržaj datoteke text.txt. Program izveštava:<br>
+<ul><li> koliko je znakova,</li>
+<li> koliko je reči,</li>
+<li> koliko je linija teksta zapisano u toj datoteci.</li></ul>
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+
+    ifstream ulaz;
+    ulaz.open("text.txt") ;
+    
+    int znak= 0;
+    int rec = 0;
+    int linija = 0;
+    unsigned char recZapocela = 0;
+    char c;
+    
+    while (ulaz.get(c)) {
+        if ( c != '\n' && c != '\t' )    //sve razlicito od novog reda i taba je znak
+            znak++;
+        if ( c == ' ' || c == '\n' || c == '\t') {
+            // broje se samo linije teksta!
+            if ( c == '\n' && recZapocela )
+             linija++;
+            
+            if ( recZapocela == 1 ) {
+                recZapocela = 0;
+                rec++;
+            }
+        } 
+        else {
+            recZapocela = 1;
+        }
+    }
+    //zatvori datoteku
+    ulaz.close();
+    cout << "Znakovi: " << znak<< endl;
+    cout << "Reci: " << (recZapocela ? rec+1 : rec) << endl;
+    cout << "Linija: " << (recZapocela ? linija+1 : linija) << endl;
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>25.</b> Napisati program koji sadržaj datoteke ulaz.txt kopira u drugu datoteku izlaz.txt, ali tako da ispred svake linije druge datoteke stoji redni broj linije.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main( int argc, char* argv[] ) {
+    
+    ifstream ulaz;
+    ofstream izlaz;
+
+    ulaz.open("ulaz.txt") ;
+    izlaz.open("izlaz.txt") ;
+    
+    int brojLinije = 1;  //brojLinije broji linije
+    bool novaLinija = 1;   //govori nam da li je u pitanju nova linija, odnosno pocetak reda
+    char c ;
+     
+    while (ulaz.get(c)) {
+        if (novaLinija) {
+            izlaz << brojLinije << ": ";
+            novaLinija = 0;
+        }
+        izlaz.put(c);
+        if (c == '\n') {
+            brojLinije++;
+            novaLinija = 1;
+        }
+    }
+    
+    ulaz.close();
+    izlaz.close();
+
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>26.</b> Sa standardnog ulaza se najpre unosi broj učenika u odeljenju. Zatim se unosi ime, prezime i ocena koju je učenik dobio na pismenom iz matematike. Napisati program koji te podatke smešta u datoteku ocene.txt.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(int argc, char** argv){
+
+    int i, n;
+    string ime;
+    string prezime;
+    int ocena;
+
+    ofstream izlaz;
+    izlaz.open("ocene.txt");
+    
+    cout<<" Unesi broj ucenika u odeljenju"<<endl;
+    cin>>n;
+
+    for (i=1;i<=n;i++){
+        cout<<"ime:"<<endl;
+        cin>> ime;
+        cout<<"prezime:"<<endl;
+        cin>> prezime;
+        cout<<"ocena:"<<endl;
+        cin>> ocena;
+        izlaz<<ime<<" "<<prezime<<" "<<ocena<<endl;
+    }
+
+    izlaz.close();
+    
+    return 0;
+}
+
+</xmp>
+
+
+<div class = "zadatak">
+<b>27.</b> U datoteci ocene.txt nalazi se spisak imena, prezimena i zaključnih ocena iz matematike. Napisati program koji ispisuje na standardni izlaz imena, prezimena i ocene učenika i pored toga računa prosečnu ocenu na nivou odeljenja.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(int argc, char** argv){
+    
+    ifstream cita;
+    cita.open("ocene.txt");
+    
+    string ime, prezime;
+    float ocena, prosecna;
+    int br=0;
+    
+    while(cita>>ime>>prezime>>ocena){
+        br++;
+        prosecna+=ocena;
+        cout<<ime<<" "<<prezime<<" "<<ocena<<endl;
+    }
+
+    cita.close();
+    
+    prosecna=prosecna/br;
+    cout<<"Prosecna ocena je:" <<prosecna<<endl;
+
+    return 0;
+}
+</xmp>
+
+<b>Zadaci za samostalan rad</b>
+<div class = "zadatak">
+<b>1.</b> Napisati program koji ispisuje na standardni izlaz spojeni sadržaj nekoliko datoteka. Broj datoteka sa najpre učitava sa standardnog ulaza, a zatim se i njihovi nazivi učitavaju sa standardnog ulaza.<br>
+<b>2.</b> Napisati program koji utvrđuje koliko se puta data reč pojavljuje u datoj tekstualnoj datoteci. Naziv
+datoteke kao i reč se unose preko standardnog ulaza. <br>
+<b>3.</b> Napisati program koji u datoteku duzine.txt upisuje dužine redova datoteke čiji se naziv unosi sa standardnog ulaza.<br>
+<b>4.</b> Napisati program koji upoređuje dve tekstualne datoteke i ispisuje prvi red u kome je detektovana razlika. Program treba da ispiše redni broj tog reda, kao i sam red.
+</div>
+</br>
+<div class = "zadatak">
+<h2> Primena gotovih klasa i rad sa strukturama podataka</h2>
+
+<b>28.</b> Sa standardnog ulaza unose se celi pozitivni brojevi sve dok ne unese 0 (0 je oznaka za kraj ulaza, ne
+čuva se u kolekciji). Napisati program koji dodaje te brojeve u kolekciju u redosledu u kom stižu. Nakon učitavanja ispisati na standardni izlaz svaki treći broj počev od najnovijeg ka najstarijem.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta"> 
+#include <iostream>
+#include <vector>
+using namespace std;	
+
+int main(){
+    
+    /* Kreiramo prazan vektor int-ova */
+    vector<int> v; 
+
+    int n;
+    cin >> n;
+    while(n!=0){
+        v.push_back(n); // dodaje element na kraj vektora, pri cemu se vektor produzava za jedan
+        cin >> n;
+    }
+    
+    if(v.size()!=0){
+        /* Pomocu iteratora ispisujemo ucitane elemente, s obzirom da ne modifikujemo vektor
+        koristimo const_iterator */
+
+        vector<int>::const_iterator it;
+        cout << "Uneli ste brojeve:" << endl;
+        
+        for(it = v.begin(); it != v.end(); it++){
+            cout << *it << " ";
+        }
+        
+        cout << endl;
+        
+        /* Koristimo reverse iterator za ispis svakog treceg elementa pocev od poslednjeg */
+        
+        vector<int>::const_reverse_iterator rit;
+        std::cout << "Svaki treci element pocev od poslednjeg:" << endl;
+        
+        for(rit = v.rbegin(); rit < v.rend(); rit+=3)
+            cout << *rit << " ";
+        
+        cout << endl;
+    }
+    else
+        cout << "Niste uneli nijedan broj." <<endl;
+        
+    return 0;
+}
+
+</xmp>
+
+
+<div class = "zadatak">
+<b>29.</b>Napisati program koji proverava da li među učitanih n brojeva ima duplikata.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta"> 
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+
+    int n;
+    cin >> n;  
+    set<int> vidjeni;    //skup u kome cemo cuvati elemente
+    bool duplikati = false;   //na pocetku se nije pojavio ni jedan duplikat
+    
+    for (int i = 0; i < n; i++){
+        int x;                    
+        cin >> x;   //ucitavamo elemente
+        
+        if (vidjeni.find(x) != vidjeni.end()) {   //proveravamo da li element x postoji u vidjeni
+            duplikati = true;                    //ako postoji, dodeljujemo vrednost true promenljivoj duplikati
+            break;
+        }
+        
+        vidjeni.insert(x);   //dodajemo element u kolekciju
+    }
+    
+    cout << (duplikati ? "da" : "ne") << endl;  //ispisujemo rezultat
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>30.</b> Učitavaju se šifre proizvoda koji se nalaze u dva magacina. Napisati program koji ispisuje na standardni izlaz šifre onih proizvoda koji se nalaze u oba magacina.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <set>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    
+    int n1;   //broj proizvoda u prvom magacinu
+    cin >> n1;
+    set<int> proizvodi1;  //za cuvanje sifara proizoda prvog magacina
+    
+    for (int i = 0; i < n1; i++) {
+        int x;
+        cin >> x;    //ucitavamo sifre proizvoda prvog magacina i smestamo u proizvodi1
+        proizvodi1.insert(x);
+    }
+    
+    int n2;   //broj proizvoda u drugom magacinu
+    cin >> n2;
+    set<int> proizvodi2;    //za cuvanje sifara proizoda drugog magacina
+    
+    for (int i = 0; i < n2; i++) {
+        int x;
+        cin >> x;    //ucitavamo sifre proizvoda drugog magacina i smestamo u proizvodi2
+        proizvodi2.insert(x);
+    }
+
+    for (int x : proizvodi1)    //za svaki element iz proizvodi1 proveravamo da li se nalazi u proizvodi2
+        if (proizvodi2.find(x) != proizvodi2.end()) 
+            cout << x << endl;    //ispisujemo onaj koji se nalazi i u proizvodi2
+            
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>31.</b> Korisnik unosi cene artikala sve dok ne unese 0 (0 je oznaka za kraj ulaza, ne
+čuva se u kolekciji). Napisati program koji eliminiše duplikate cena iz unetog niza, a zatim ispisuje cene prvo u rastućem, a zatim i u opadajućem poretku.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta"> 
+#include<iostream>
+#include<set>
+using namespace std;
+
+int main(){
+
+    set<int> s; // prazan skup
+    int n;
+    cin >> n;
+    
+    while(n!=0){
+        s.insert(n);  //insert dodaje element u skup ukoliko on ne postoji, inace vraca iterator na taj element
+        cin >> n;
+    }
+    
+    if(s.size()!=0){
+        /* Pomocu iteratora ispisujemo ucitane elemente, posto je u pitanju skup
+            elementi ce biti ispisani u rastucem poretku */
+        
+        cout<< "Elementi niza u rastucem poretku: " <<endl;
+        set<int>::const_iterator it;
+        
+        for(it = s.begin(); it != s.end(); it++){
+            cout << *it  << " ";
+        }
+        
+        cout << endl;
+        
+        /* Da bismo ispisali elemente u opadajucem poretku koristicemo reverse_iterator */
+        
+        cout << "Elementi niza u opadajucem poretku: " <<endl;
+        set<int>::const_reverse_iterator rit;
+        
+        for(rit = s.rbegin(); rit != s.rend(); rit++){
+            cout << *rit <<" ";
+        }
+        
+        cout << endl;
+    }
+    else
+        cout<<"Niste uneli nijedan broj."<<endl;
+            
+    return 0;
+
+}
+</xmp> 
+
+
+<div class = "zadatak">
+<b>32.</b> Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj n, a zatim
+podatke o n učenika u obliku ime učenika i prosek. Nakon toga, korisnik unosi
+ime učenika čiji prosek želi da mu se prikaže. Ukoliko takav student ne postoji u bazi,
+omogućiti korisniku da doda podatke o tom učeniku, a ukoliko postoji, ispisati trenutni prosek
+na standardni izlaz i omogućiti korisniku da promeni trenutni prosek za tog učenika. 
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include<iostream>
+#include<map>
+#include<string>
+using namespace std;
+
+int main(){
+    
+    int n; 
+    cout<<"Unesite koliko ucenika ima baza: "<<endl;
+    cin>>n;
+    
+    /* Mapa ucenici kao kljuc ima imena ucenika, a kao
+    vrednost ima prosecnu ocenu. */
+    
+    map<string, double> ucenici; // prazna mapa
+    cout<<"Unesite podatke o ucenicima:"<<endl;
+    
+    for(int i=0; i<n; i++){
+        string korisnik;
+        double prosek;
+        cin >> korisnik >> prosek;
+        ucenici[ korisnik] = prosek;
+    }
+    
+    string s;
+    cout << "Unesite ime ucenika ciji prosek zelite: ";
+    cin >> s;
+    
+    map<string, double>::iterator it = ucenici.find(s);  // dodeljujemo mu kljuc
+    
+    /* find vraca iterator koji pokazuje na par (string, double) koji za kljuc ima 
+    vrednost s, ili vraca ucenici.end() kao indikator da ne postoji par sa tim kljucem */
+    
+    if(it != ucenici.end()){
+        /* it->first je kljuc, it->second vrednost pridruzena kljucu */
+        cout << "Ucenik " << it->first << " ima prosek: " << it->second << endl;
+        cout << "Unesite njegov novi prosek ili 0 ako ne zelite da menjate: "<<endl;
+    
+        double prosek;
+        cin >> prosek;
+        
+        if(prosek!=0){
+            it->second = prosek;  // moglo je i odmah cin >> it->second;
+            cout << "Novi prosek ucenika " << it->first << " je: " << it->second << endl;
+        }
+    }
+    else{
+        cout << "Ucenik ne postoji u bazi." << endl;
+        cout << "Ako zelite da dodate ucenika " << s << " u bazu unesite njegov prosek ili 0 ako ne zelite da    menjate sadrzaj baze."<<endl;
+        
+        double prosek;
+        cin >> prosek;
+        
+        if(prosek!=0){
+            ucenici[s] = prosek;  
+            // kada nema elementa prosledjenim kljucem, automatski ga ubacuje, uz podrazumevanu 
+            // vrednost (0 za double), a u ovom slucaju ga doda u mapu i postavi vrednost na prosek
+            cout << "Ucenik " << s << " sa prosekom " << ucenici[s] << " je uspesno dodat u bazu." << endl;
+        }
+    }
+    
+    return 0;
+    
+}
+</xmp>
+<div class = "zadatak">
+<b>33.</b> Sa standardnog ulaza se učitava broj N, a zatim i N celih brojeva. Napisati program koji ispisuje N učitanih brojeva tako što prvo ispisuje sve parne rastućim redoslednom, a zatim sve neparne brojeve rastućim redosledom.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    
+    vector<int> par;
+    vector<int> nepar;
+    
+    for(int i=0; i<n; i++) {
+        int k;
+        cin >> k;
+        
+        if(k % 2 == 0)
+            par.push_back(k);
+        else
+            nepar.push_back(k);
+    }
+    
+    sort(par.begin(), par.end());
+    sort(nepar.begin(), nepar.end());
+    
+    for(int k: par)
+        cout << k << endl;
+    for(int k: nepar)
+        cout << k << endl;
+
+    
+    return 0;
+}
+
+</xmp>
+
+<div class = "zadatak">
+<b>34.</b> Korisnik sa standardnog ulaza unosi reči sve dok ne unese reč "kraj". Napisati program koji obrnutim redom ispisuje unete reči (bez da se ispisuje reč "kraj").
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    
+    vector <string> v; // definisemo vektor tipa string
+    string s; // u s unosimo reci 
+   
+    do {
+        cin >> s;
+        v.push_back(s); // ubacujemo ucitanu rec u vektor
+    } while (s != "kraj");
+    
+    v.pop_back(); // izbacujemo string "kraj"
+
+    for (int i = v.size() - 1; i >= 0; i--)
+        cout << i << " " << v[i] << endl;
+        
+    return 0;
+}
+
+</xmp>
+
+<div class = "zadatak">
+<b>35.</b> Korisnik unosi cene artikala sve dok ne unese 0 (0 je oznaka za kraj ulaza, ne
+čuva se u kolekciji). Napisati program koji dodaje cene artikala u kolekciju u obrnutom redosledu od onog u kom stižu.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include<list>
+using namespace std;
+
+int main(){
+
+    list<int> l; // prazna lista (slicni konstruktori kao i kod vektora)
+    int n;
+    cin >> n;
+    
+    while(n!=0){
+        l.push_front(n); // dodaje element na pocetak liste
+        cin >> n;
+    }
+    
+    /* Pomocu iteratora ispisujemo ucitane elemente, s obzirom da ne modifikujemo listu
+        koristimo const_iterator */
+        
+    list<int>::const_iterator it;
+    
+    if(l.size()!=0){
+        cout << "Uneli ste brojeve:" << endl;
+        
+        for(it = l.begin(); it != l.end(); it++){
+            cout << *it  << " ";
+        }
+        
+        cout << endl;
+    }
+    else
+        cout << "Niste uneli nijedan broj." << endl;
+        
+    return 0;
+}
+
+</xmp>
+
+<div class = "zadatak">
+<b>36.</b> Napisati program koji za listu znakova proverava da li su u njoj elementi sortirani.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    
+    list <char> L;
+    L.push_back('A');
+    L.push_back('B');
+    L.push_back('D');
+    L.push_back('C');
+    bool sortirana=true;
+
+    list<char>::const_iterator pos;
+    int n = L.size();
+    char* A = new char[n];
+    int i = 0;
+    
+    for (pos = L.begin(); pos != L.end(); ++pos) {
+        A[i] = *pos;
+        i++;
+    }
+    
+    int j;
+    
+    for (i = 0; i<(n - 1); i++) {
+        for (j = i + 1; j<n; j++) {
+            if (A[i]>A[j])
+                sortirana=false;
+        }
+    }
+    
+    if(sortirana)
+        cout<<"Sortirana"<<endl;
+    else
+        cout<<"Nesortirana"<<endl;
+   
+    return 0;
+}
+</xmp>
+
+
+<div class = "zadatak">
+<b>37.</b> Sa standardnog ulaza se unosi niz brojeva sve dok se ne unese 0. Brojeve treba unositi u listu tako da se pozitivni brojevi ubacuju na početak liste, a negativni na kraj liste. Ispisati sumu pozitivnih i sumu negativnih brojeva.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <list>
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    double x; // broj koji se unosi
+    list<double> l; // lista u kojoj pamtimo unesene brojeve
+    double sumapozitivnih = 0, sumanegativnih = 0;
+    
+    while ( cin >> x ) {
+        
+        if ( x == 0 )
+            break;
+            
+        if ( x > 0 ) {
+            l.push_front(x);
+            sumapozitivnih += x;
+        } 
+        
+        else {
+            l.push_back(x);
+            sumanegativnih += x;
+        }
+    }
+    
+    cout << "Suma pozitivnih brojeva: " << sumapozitivnih << endl;
+    cout << "Suma negativnih brojeva: " << sumanegativnih << endl;
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>38.</b> Napisati program koji omogućava određivanje k najmanjih od n učitanih brojeva unetih sa ulaza.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    
+    int k;
+    cin >> k;
+    priority_queue<int> Q;
+    int n;
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        
+        int x;
+        cin >> x;
+        
+        if (Q.size() < k)
+            Q.push(x);
+        else if (Q.size() == k && x < Q.top()) {
+            Q.pop();
+            Q.push(x);
+        }
+    }
+    
+    while (!Q.empty()) {
+        cout << Q.top() << endl;
+        Q.pop();
+    }
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>39.</b> Sa standardnog ulaza se unosi broj n, a zatim i n prirodnih brojeva. Na standardni izlaz ispisati učitane brojeve u sortiranom redosledu.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <queue>
+#include <functional>  //zaglavlje koje se ukljucuje zbog greater
+using namespace std;
+
+int main() {
+
+    // ovo je nacin da se u C++-u definise red sa prioritetom u kome su
+    // elementi poredjani u opadajucem redosledu prioriteta (ovde, vrednosti)
+    priority_queue<int, vector<int>, greater<int>> Q;
+  
+    // ucitavamo sve elemente niza i ubacujemo ih u red
+    int n;
+    cin >> n;
+    
+    for (int i = 0; i < n; i++) {
+        int ai;
+        cin >> ai;
+        Q.push(ai);
+    }
+    
+    // izvlacimo jedan po jedan element iz reda i ispisujemo ga
+    while (!Q.empty()) {
+        cout << Q.top() << endl;
+        Q.pop();
+    }
+    
+    return 0;
+}
+
+</xmp>
+
+
+<div class = "zadatak">
+<b>40.</b> Sadržaj ulazne datoteke (stdin) je aritmetički izraz koji može sadržati zagrade {, [ i (.
+Napisati program koji učitava sadržaj ulazne datoteke i korišćenjem steka (engl. stack)
+utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
+odgovarajuću poruku na standardni izlaz.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main(){
+
+    char c;
+    stack<char> s;
+
+    while(cin.get(c)){
+     
+        /* Ako je ucitana otvorena zagrada, stavlja se na stek */
+        if (c=='(' || c=='{' || c=='[')
+            s.push(c);
+            
+        /* Ako je ucitana zatvorena zagrada, proverava se da li je stek prazan i ako nije, da li se na vrhu steka nalazi odgovarajuca otvorena zagrada */
+        else {
+            if (c==')' || c=='}' || c==']'){
+                if (!s.empty() && ((s.top()=='(' && c==')') || (s.top()=='{' && c =='}')|| (s.top()=='[' && c==']'))) {
+                    /* Sa vrha steka se uklanja otvorena zagrada */
+                    s.pop();
+                } 
+                else {
+                    /* Dakle, zagrade u izrazu nisu ispravno uparene */
+                    break;
+                }
+            }
+        }
+    }
+    
+    /* Ako je stek prazan i procitana je cela datoteka, zagrade su ispravno uparene. */
+    if (s.empty() && cin.fail())
+        cout << "Zagrade su ispravno uparene.\n";
+    else
+        /* U suprotnom se zakljucuje da zagrade nisu ispravno uparene. */
+        cout <<"Zagrade nisu ispravno uparene.\n";
+    
+    return 0;
+}
+</xmp>
+
+<div class = "zadatak">
+<b>41.</b>Pregledač veba pamti istoriju posećenih sajtova i korisnik ima
+mogućnost da se vraća unatrag na sajtove koje je ranije posetio. Napisati
+program koji simulira istoriju pregledača tako što se učitavaju adrese posećenih
+sajtova (svaka u posebnom redu), a kada se učita red u kome piše back pregledač
+se vraća na poslednju posećenu stranicu.
+</div>
+<br>
+<b>Rešenje</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <string>
+#include <stack>
+using namespace std;
+
+int main() {
+    
+    stack<string> istorija;
+    string linija;
+    
+    while (getline(cin, linija)) {
+        if (linija == "back")
+            if (!istorija.empty()) {
+                cout << istorija.top() << endl;
+                istorija.pop();
+            } 
+            else {
+                cout << "-" << endl;
+            }
+        else
+            istorija.push(linija);
+    }
+    
+    return 0;
+}
+</xmp>
+
+<b>Zadaci za samostalan rad</b>
+<div class = "zadatak">
+<b>1.</b> Napisati program koji će učitati prirodan broj N < 100, a potom i listu celih brojeva sa N elemenata. U
+listi brojeva odrediti najveći broj strogo manji od maksimalne vrednosti i ispisati taj broj. Ako nema
+takve vrednosti ispisati -1.<br>
+
+<b>2.</b> Napisati funkciju koja sažima listu tako što izbacuje svaki element koji se više puta pojavljuje
+u listi.<br>
+
+<b>3.</b> Elementi liste su celi brojevi i učitavaju se sve dok se ne
+unese 0. Iz date liste izbaciti sve elemente čija vrednost je neparan broj. Dobijenu listu ispisati na standardni izlaz.
+<br>
+<b>4.</b> Napisati program koji iz liste1 izbacuje sve elemente koji se pojavljuju u listi2. Sa standardnog ulaza se učitavaju
+elementi prve liste sve dok se ne unese 0. Potom se učitavaju elementi druge liste sve dok se ne unese 0.
+Elemente liste dodavati na kraj. Novodobijenu listu ispisati na standardni izlaz.
+<br>
+<b>5.</b> Dat je niz otvorenih i zatvorenih zagrada. Potrebno je utvrditi da li su zagrade dobro
+raspoređene. Primer dobro raspoređenih zagrada je '(())()', dok u primeru '())(' zagrade nisu dobro raspoređene.
+<br>
+</div>
+<br>
+

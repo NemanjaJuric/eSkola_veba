@@ -1,0 +1,274 @@
+<h1> Mehanizam kreiranja i obrade izuzetka </h1>
+</br>
+Najpre se podsetimo šta su izuzeci i koje ključne reči su važne za obradu istih.</br>
+Izuzetak je problem koji se javlja tokom izvršavanja programa. Izuzeci pružaju način za prenos kontrole iz jednog dela programa u drugi.</br>
+Izuzetak u programskom jeziku C++ je odgovor na izuzetnu oklonost koja nastaje dok je program pokrenut, kao što je na primer pokušaj deljenja nulom. </br>
+Prilikom izvršavanja C++ koda mogu se pojaviti različite greške: greške u kodiranju koje je napravio programer, greške zbog pogrešnog unosa ili druge nepredvidive stvari. Kada se dogodi greška, program će se obično zaustaviti i generisati poruku o grešci. Tehnički izraz za ovo je: C++ će izbaciti izuzetak (izbaciti grešku).</br></br>
+<h2>Obrada izuzetka</h2>
+Obrada izuzetka u C++ se temelji na tri ključne reči: <span class = "primer_text">try</span>, <span class = "primer_text">catch</span>, <span class = "primer_text">throw</span>.
+<ul>
+<li><span class = "primer_text">try</span>: blok <span class = "primer_text">try</span> identifikuje blok koda za koji će se aktivirati određeni izuzeci, tj. blok koda koji će se testirati na greške dok se izvršava. Nakon toga sledi jedan ili više <span class = "primer_text">catch</span> blokova.</li>
+<li><span class = "primer_text">catch</span>: omogućava nam da definišemo blok koda koji će se izvršiti ako se u bloku <span class = "primer_text">try</span> dogodi greška.</li>
+<li><span class = "primer_text">throw</span>: ključna reč <span class = "primer_text">throw</span> izbacuje izuzetak kada se otkrije problem, što nam omogućava da napravimo prilagođenu grešku.</li>
+</ul>
+<b>Sintaksa</b></br></br>
+<span class = "primer_text">
+try { </br>
+    //kod za try blok </br>
+    throw izuzetak; //izbacivanje nastalog izuzetka </br>
+}</br>
+catch() {</br>
+    //kod za catch blok</br>
+}
+</span></br></br>
+Možemo odrediti koju vrstu (tip) izuzetka želimo uhvatiti, a to se utvrđuje deklaracijom izuzetka koja se pojavljuje u zagradama nakon ključne reči <span class = "primer_text">catch</span>:
+</br></br>
+<span class = "primer_text">
+catch(tipIzuzetka e) {</br>
+//kod catch bloka</br>
+}
+</span>
+</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+try {
+    int godine = 15;
+    if (godine > 18) {
+        cout << ”Prisustvo dozvoljeno, imate vise od 18 godina.” << endl;
+    } else {
+        throw(godine);
+    }
+}
+catch (int mojBroj) {
+    cout << ”Pristup odbijen, morate imati najmanje 18 godina.” << endl;
+    cout << ”Vas broj godina je: ” << mojBroj << endl;
+}
+</xmp>
+</br>
+Koristimo <span class = "primer_text">try</span> blok za testiranje nekog koda: Ako je promenljiva <span class = "primer_text">godine</span> manja od 18, izbacićemo izuzetak i obraditi ga u našem bloku <span class = "primer_text">catch</span>. U bloku <span class = "primer_text">catch</span> uhvatimo grešku i preduzmemo neke mere. Izraz <span class = "primer_text">catch</span> uzima parametar: u našem primeru koristimo promenljivu <span class = "primer_text">int</span> (jer bacamo izuzetak tipa <span class = "primer_text">int</span> u bloku <span class = "primer_text">try</span>), da bismo izbacili vrednost <span class = "primer_text">godine</span>.</br>
+Ukoliko se greška ne dogodi (npr. ako je starost 20, što znači da će biti veća od 18), blok <span class = "primer_text">catch</span> se preskače.
+</br></br>
+Ukoliko želimo da navedeni <span class = "primer_text">catch</span> blok obrađuje bilo koji tip izuzetka koji se izbacuje iz bloka <span class = "primer_text">try</span>, moramo staviti <span class = "primer_text">...</span> između zagrada koje uključuju deklaraciju izuzetka.
+</br></br>
+<span class = "primer_text">
+catch(...) {</br>
+    //kod catch bloka</br>
+}
+</span>
+</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    cout << ”Unesite koliko brojeva zelite da sacuvate: ”;
+    try {
+        int ulaz = 0;
+        cin >> ulaz;
+        int* nizBrojeva = new int[ulaz];
+        delete [] nizBrojeva;
+    } catch (…) {
+        cout << ”Izuzetak je pronadjen. Program se zavrsava.” << endl;
+    }
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Unesite koliko brojeva zelite da sacuvate: -1
+Izuzetak je pronadjen. Program se zavrsava.
+</xmp>
+</br>
+U ovom primeru smo upotrebili -1 kao broj brojeva koje želimo da sačuvamo. </br>
+Međutim, voleli bismo da specifično izolujemo izuzetke tipa <span class = "primer_text">std::bad_alloc</span>, jer se oni izbacuju kada je operator <span class = "primer_text">new</span> neuspešan. Obrada specifičnog tipa će nam pomoći da rukujemo konkretnim tipom problema, tj. program će nam prikazati poruku koja tačno opisuje šta je ”krenulo loše”. S tim u vezi, razmotrićemo C++ standardne izuzetke.</br></br>
+<h2>C++ standardni izuzeci</h2>
+C++ pruža listu standardnih izuzetaka definisanih u <span class = "primer_text">std::exception</span> standardnoj klasi (koja je deklarisana u zaglavlju <span class = "primer_text">exception</span>), koje možemo koristiti u našim programima. Oni su raspoređeni u hijerarhiji klase roditelja i deteta.</br></br>
+<img src="courses/cpp/images/exceptions.jpg" class="img-fluid img-lg"> 
+</br></br>
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Izuzetak</th>
+      <th>Objašnjenje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class = "primer_text">std::exception</span></td>
+      <td>izuzetak i roditeljska klasa svih standardnih izuzetaka u C++</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::bad_alloc</span></td>
+      <td>izuzetak koji može biti izbačen usled korišćenja operatora <span class = "primer_text">new</span>, kada je zahtev za upotrebu memorije neuspešan</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::bad_cast</span></td>
+      <td>izuzetak koji može biti izbačen usled korišćenja operatora <span class = "primer_text">dynamic_cast</span>, kada pokušamo da izvršimo eksplicitnu konverziju pogrešnog tipa</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">ios_base::failure</span></td>
+      <td>izuzetak koji izbacuju funkcije i metode u biblioteci <span class = "primer_text">iostream</span></td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::bad_exception</span></td>
+      <td>namenjeno za rukovanje neočekivanim izuzecima u jeziku C++</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::bad_typeid</span></td>
+      <td>izuzetak koji može biti izbačen od strane <span class = "primer_text">typeid</span></td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::logic_error</span></td>
+      <td>izuzetak koji se teoretski može otkriti čitanjem koda</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::domain_error</span></td>
+      <td>izuzetak kada se koristi matematički neispravan domen</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::invalid_argument</span></td>
+      <td>izuzetak koji se izbacuje zbog neispravnih argumenata</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::length_error</span></td>
+      <td>izuzetak koji se izbacuje kada se kreira previše dugačak string</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::out_of_range</span></td>
+      <td>izuzetak koji se izbacuje kada se prekorači određeni opseg koji je unapred definisan</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::runtime_error</span></td>
+      <td>izuzetak koji se teoretski ne može otkriti čitanjem koda</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::overflow_error</span></td>
+      <td>izuzetak koji se izbacuje ukoliko dođe do matematičkog prelivanja</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::range_error</span></td>
+      <td>izuzetak koji nastaje kada pokušamo da sačuvamo vrednost koja je van opsega</td>
+    </tr>
+    <tr>
+      <td><span class = "primer_text">std::underflow_error</span></td>
+      <td>izuzetak koji se izbacuje ukoliko dođe do aritmetičkih grešaka kada je rezultat izračunavanja subnormalna vrednost u pokretnom zarezu</td>
+    </tr>
+  </tbody>
+</table>
+
+</br>
+Klasa <span class = "primer_text">std::exception</span>, koja je osnovna klasa, podržava veoma koristan i važan virtualni metod <span class = "primer_text">wait()</span>, koji pruža opis prirode problema koji je izazvao izuzetak. 
+</br></br>
+<b>Primer korišćenja standardnih izuzetaka</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <exception>
+using namespace std;
+
+int main() {
+
+    cout << ”Unesite koliko brojeva zelite da sacuvate: ”;
+    try {
+        int ulaz = 0;
+        cin >> ulaz;
+        int* nizBrojeva = new int[ulaz];
+        delete [] nizBrojeva;
+    }  catch (std::bad_alloc& e) {
+        //za izuzetke tipa std::bad_alloc
+            cout << ”Izuzetak je pronadjen: ” << e.what() << endl;
+            cout << ”Program se zavrsava.” << endl;
+    }  catch (...) {
+            //za ostale izuzetke
+            cout << ”Izuzetak je pronadjen. Program se zavrsava.” << endl;
+    }
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Unesite koliko brojeva zelite da sacuvate: -1
+Izuzetak je pronadjen: bad array new length
+Program se zavrsava.
+</xmp>
+Metod <span class = "primer_text">what()</span> nam omogućava konkretniji opis izbačenog izuzetka.</br></br>
+<h2>Kreiranje izuzetka</h2>
+Možemo kreirati (definisati) sopstvene izuzetke. Potrebna nam je ključna reč <span class = "primer_text">throw</span>.</br>
+Podsetimo se primera sa prethodnog časa:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+double deljenje (int a, int b) {
+    if(b == 0) {
+        throw ”Deljenje nulom nije dozvoljeno!”;
+    }
+    return a/b;
+}
+
+int main() {
+
+    double x = 0;
+    double y = 0;
+    cout << ”Deljenik: ” << endl;
+    cin >> x;
+    cout << ”Delilac: ” << endl;
+    cin >> y;
+
+    try {   
+        cout << ”Rezultat je: ” << deljenje(x, y) << endl;
+    } catch (const char* poruka) {
+        cout << ”Izuzetak: ” << poruka << endl;
+        cout << ”Program se zavrsava.”<< endl;
+    }
+    
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Deljenik: 2020
+Delilac: 0
+Deljenje nulom nije dozvoljeno!
+Program se zavrsava.
+</xmp>
+</br>
+<h2>Kako funkcioniše rukovanje izuzecima?</h2>
+Na mestu gde smo izbacili izuzetak pomoću ključne reči <span class = "primer_text">throw</span> kompajler počinje dinamičku pretragu za kompatibilnom funkcijom <span class = "primer_text">catch(Tip)</span> koja rukuje konkretnim izuzetkom. Logika rukovanja izuzecima prvo proverava da li se linija koja izbacuje izuzetak nalazi unutar bloka <span class = "primer_text">try</span>. Ako se linija nalazi unutar bloka, traži funkciju <span class = "primer_text">catch(Tip)</span>, koja može da rukuje izuzetkom ovog tipa.</br></br> Ako se iskaz <span class = "primer_text">throw</span> ne nalazi unutar bloka <span class = "primer_text">try</span> ili ako ne postoji kompatibilna funkcija <span class = "primer_text">catch()</span> za konkretan tip izuzetka, logika rukovanja izuzecima traži istu funkciju u funkciji poziva. Dakle, logika rukovanja izuzecima se ”penje” na stek i poziva jednu po jednu funkciju, tražeći odgovarajuću funkciju <span class = "primer_text">catch(Tip)</span> koja može da rukuje izuzetkom. Pri svakom koraku procesa odmotavanja steka promenljive lokalne za konkretnu funkciju se uništavaju u obrnutoj sekvevnci od njihove konstrukcije.</br></br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Zašto je važno obrađivati izuzetke?</br>
+  Pitanje 2: Zašto izbaciti izuzetak, umesto da bude vraćena greška?</br>
+  Pitanje 3: Koji su C++ standardni izuzeci i gde su definisani?</br>
+  Pitanje 4: Detaljno objaniti svaki od C++ standardnih izuzetaka.</br>
+  Pitanje 5: Na koji način možemo kreirati sopstvene izuzetke? Zašto nam je to korisno?</br>
+  Pitanje 6: Ukoliko imamo funkciju koja izbacuje izuzetak, da li on treba da bude obrađen u istoj toj funkciji?</br>
+  Pitanje 7: Može li konstruktor da izbaci izuzetak?</br>
+  Pitanje 8: Može li destruktor da izbaci izuzetak?</br>
+  Pitanje 9: Šta nije u redu u sledećem kodu?
+<xmp class="primer_ta">
+int main(){
+    int *milionBrojeva = new int[1000000];
+    //postupak obrade ovih brojeva
+    delete [] milionBrojeva;
+    return 0;
+}
+</xmp>
+  Pitanje 10: Šta nije u redu u sledećem kodu?
+<xmp class="primer_ta">
+class primerKlase {
+    bool identifikatorZaFalse;
+public:
+    ~primerKlase(){
+        if(identifikatorZaFalse)
+            throw "Identifikovan je problem.";
+    }
+};
+</xmp>
+</div>
+</br>

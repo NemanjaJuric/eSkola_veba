@@ -1,0 +1,64 @@
+<h1>Instanciranje klase </h1>
+</br>
+Instanciranje klase je stvaranje primerka (instance) objekta na jeziku objektno orijentisanog programiranja. Instanciranom objektu se dodeljuje ime i prostor u memoriji ili na disku koristeći strukturu opisanu u deklaraciji klase.
+</br></br>
+U programskom jeziku C++ instanciranje klase znači stvaranje objekta, dok u programskom jeziku Java instanciranje klase stvara određenu klasu. Rezultati u oba jezika su isti (izvršne datoteke), tako da nema suštinske razlike u upotrebi, već samo u terminologiji.</br></br>
+<h2>Operator <span class = "primer_text">new</span></h2>
+Instanciranje se vrši pomoću ključne reči <span class = "primer_text">new</span>.</br>
+Operator new je operator koji označava zahtev za dodelu memorije na hipu. Ako je na raspolaganju dovoljno memorije, operator new inicijalizuje memoriju i vraća adresu novo-dodeljene i inicijalizovane memorije na promenljivu pokazivača.
+</br></br>
+Operator <span class = "primer_text">new</span> instancira klasu dodeljivanjem memorije za novi objekat tog tipa i zahteva jedan argument, a to je poziv konstruktora.</br>
+Konstruktor predstavlja posebnu metodu odgovornu za inicijalizaciju novih objekata određenog tipa. Operator <span class = "primer_text">new</span> kreira objekat, dok ga konstruktor inicijalizuje. Više o konstruktoru će biti u nastavku.
+</br></br>
+Operator <span class = "primer_text">new</span> vraća referencu na novostvoreni objekat. Ova referenca se može dodeliti promenljivoj odgovarajućeg tipa.
+</br></br>
+<b>Primer instanciranja klase u programskom jeziku C++</b>
+<xmp class="primer_ta">
+Osoba* osoba1 = new Osoba("Milica Jovanovic", "z", "23.08.1998.", "Kraljevo");
+</xmp>
+</br>
+<b>Primer instanciranja klase u programskom jeziku Java</b>
+<xmp class="primer_ta">
+Osoba osoba1 = new Osoba("Milica Jovanovic", "z", "23.08.1998.", "Kraljevo");
+</xmp>
+</br>
+<h2>Razlika između objekta i instance</h2>
+U objektno orijentisanim jezicima se objekat i instanca često smatraju istim stvarima, ali to ponekad može zbuniti početnike koji se prvi put susreću sa ovim pojmovima.</br>
+Da li su objekat i instanca iste stvari ili se razlikuju? Zašto ponekad koristimo objekat, a ponekad instancu?
+</br></br>
+Jedan od razloga korišćenja termina instanca može biti zato što su instance zapravo predstavljanje klase u određenom trenutku.</br></br>
+Dakle, objekat predstavlja tip koji definiše klasu koja sadrži podatke i metode za manipulaciju tim podacima. Instanca objekta je zapravo realizacija tipa kog objekat predstavlja. Program može imati nula, jednu ili više instanci objekata koje definiše.</br></br>
+Ukoliko posmatramo iz drugog ugla, objekat predstavlja neprekidni blok memorije koji sadrži stvarne podatke, koji ovaj objekat razlikuju od drugih objekata, dok instanca predstavlja memorijski blok koji sadrži referencu na objekat. Drugim rečima, instance će sadržati adresu početnog bloka memorije u kojem se objekat nalazi.</br></br>
+Zapravo se ime instance može koristiti za pristup početku delu memorije gde je smešten objekat.</br> Životni vek objekta i instance nisu povezani. Jednom kada se unište sve instance koje pokazuju na objekat, on će biti uništen.
+</br></br>
+<b>Primer u programskom jeziku C++</b>
+<xmp class = "primer_ta">
+Osoba osoba2;
+</xmp>
+značenje: kreiran je objekat tipa Osoba i možemo mu pristupiti preko instance čiji je naziv osoba2.
+<xmp class = "primer_ta">
+Osoba* osoba3 = new Osoba("Petar Krstic", "m", "03.10.1993.", "Ruma");
+</xmp>
+značenje: dinamički je kreirana instanca objekta klase Osoba pod nazivom osoba3, preko koje mu možemo pristupiti.</br></br>
+
+<img src="courses/cpp/images/klasa2.png" class="img-fluid img-md">
+</br></br>
+<h2>Operator <span class = "primer_text">delete</span></h2>
+Kod dinamičkog kreiranja instance objekta klase, potrebno je izvršiti i <b>dealokaciju (oslobađanje memorije)</b>, koja se vrši pomoću ključne reči <span class = "primer_text">delete</span>.</br>
+Operator <span class = "primer_text">delete</span> se može definisati na osnovu klase: ukoliko ne postoji definicija operatora za datu klasu, poziva se globalni operator <span class = "primer_text">delete</span>, a ukoliko se <span class = "primer_text">delete</span> poziva za oslobađanje objekta klase koja ima destruktor, oslobađanje se vrši putem destruktora, o kome će u nastavku biti više reči.</br></br>
+<b>Primer primene operatora <span class = "primer_text">delete</span></b>
+<xmp class="primer_ta">
+Osoba* osoba3 = new Osoba("Petar Krstic", "m", "03.10.1993.", "Ruma");
+...
+delete osoba3;
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavlja instanciranje objekata?</br>
+  Pitanje 2: U čemu je razlika između instance klase i objekta konkretne klase?</br>
+  Pitanje 3: Objasniti koja je uloga operatora new i delete.</br>
+  Pitanje 4: Navesti nekoliko primera instanciranja objekta u programskom jeziku C++.</br>
+  Pitanje 5: Za prethodne primere upotrebiti operator delete.</br>
+</div>
+</br>

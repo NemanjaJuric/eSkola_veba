@@ -1,0 +1,67 @@
+<h1>Klasa i objekat </h1>
+<h2>Klasa</h2>
+<b>Klasa</b> predstavlja strukturirani korisnički definisan tip podataka koji obuhvata podatke i metode namenjene definisanju operacija nad podacima klase.</br>
+Podaci koji su deo klase nazivaju se podaci članovi klase (engl. data members), polja ili atributi.</br>
+Metode koje su deo klase nazivaju se metode članice klase (engl. member methods).
+</br></br>
+<h2>Primer iz svakodnevnog života</h2>
+Zamislimo da pišemo program koji modeluje ljudsko biće. Ovo ljudsko biće treba da ima identitet: ime, datum rođenja, mesto rođenja i pol - informacije koje ga čine jedinstvenim.</br>
+Pored toga, ono može da izvrši određene metode, kao što su razgovor i predstavljanje sebe drugima.</br></br>
+Za modelovanje ljudskog bića u programu potrebna je struktura koja omogućava da unutar nje grupišemo atribute koji definišu ljudsko biće (podaci) i aktivnosti koje to biće može da izvrši (metode), koristeći dostupne atribute.</br></br>
+<b>Primer:</b> Osoba
+</br></br>
+<img src="courses/cpp/images/klasa11.png" class="img-fluid img-sm">
+</br>
+<h2>Deklarisanje klase u programskom jeziku C++</h2>
+Klasa se deklariše pomoću ključne reči <span class = "primer_text">class</span>, praćenu nazivom klase i blokom iskaza koji obuhvata niz atributa, metoda, ali i specifikatora pristupa unutar velikih zagrada. Na kraju se nalazi znak tačka-zarez.</br></br>
+<span class = "primer_text">
+class imeKlase { </br>
+    //atributi i metode </br> 
+};
+</span>
+</br></br>
+<b>Klasa koja modeluje osobu</b>
+<xmp class="primer_ta">
+class Osoba {
+    string imePrezime;
+    string pol;
+    string datumRodjenja;
+    string mestoRodjenja;
+
+    void predstaviSe();
+    void razgovor(string tekst);
+    ...
+};
+</xmp>
+Ključnom rečju <span class = "primer_text">class</spab> obezbeđujemo mogućnost kreiranja sopstvenog tipa podataka, koji dalje omogućava kapsuliranje atributa i metoda koje koriste te atribute.</br>
+Kapsuliranje predstavlja logičko grupisanje podataka i funkcija koje ih koriste. Ono je važno svojstvo objektno orijentisanog programiranja.
+</br></br>
+<h2>Objekat</h2>
+Da bismo koristili metode klase, potrebno je kreirati primerak (instancu, pojavu) konkretne klase.</br>
+Jedan primerak (instanca, pojava) klase naziva se <b>objektom</b> te klase.</br> 
+Kada se definiše klasa, memorija se ne dodeljuje, dok kod kreiranja objekta dolazi do dodeljivanja određene količine memorije.
+</br></br>
+<h2>Kreiranje objekta u programskom jeziku C++</h2>
+<span class = "primer_text">
+imeKlase imeObjekta;
+</span></br></br>
+Objekte klase Osoba možemo kreirati na sledeći način:
+<xmp class = "primer_ta">
+Osoba covek;
+</xmp>
+Alternativno, možemo dinamički kreirati instancu određene klase, koristeći ključnu reč <span class = "primer_text">new</span>
+<xmp class = "primer_ta">
+Osoba* covek = new Osoba();
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavljaju klase?</br>
+  Pitanje 2: Šta predstavljaju objekti?</br>
+  Pitanje 3: Kako klase pomažu da je objedine podaci pomoću metoda koje ih koriste?</br>
+  Pitanje 4: Navesti nekoliko primera iz svakodnevnog života koji se mogu opisati pomoću klase.</br>
+  Pitanje 5: Deklarisati klasu Pravougaonik koja od atributa sadrži dužu i kraću stranicu pravougaonika.</br>
+  Pitanje 6: U prethodnoj klasi definisati i metode koji računaju obim i površinu pravougaonika.</br>
+  Pitanje 7: Kreirati tri različita objekta prethodno definisane klase.
+</div>
+</br>

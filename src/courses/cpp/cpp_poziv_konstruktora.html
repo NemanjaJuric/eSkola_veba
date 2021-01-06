@@ -1,0 +1,146 @@
+<h1> Poziv konstruktora </h1>
+<h2>Kada i kako upotrebiti konstruktore?</h2>
+Konstruktor se uvek poziva u toku kreiranja objekta, kada je izgrađena instanca klase. To ga čini savršenim mestom na kome možemo pokrenuti promenljive članove klase, kao što su celi brojevi, pokazivači itd. vrednostima koje mi odaberemo.</br></br>
+Konstruktor se uvek poziva u sledećim situacijama:
+<ul>
+<li>kada se izvršava definicija statičkog objekta,</li>
+<li>kada se izvršava definicija automatskog objekta,</li>
+<li>kada se stvara dinamički objekat primenom operatora <span class = "primer_text">new</span>,</li>
+<li>kada se stvarni argument klasnog tipa prenosi u formalni (parametar se inicijalizuje stvarnim argumentom),</li>
+<li>kada se kreira privremeni objekat, pri povratku iz funkcije.</li>
+</ul>
+Programski jezik C++ dozvoljava definisanje više konstruktora u jednoj klasi. Ovo pojava se naziva <b>preklapanje konstruktora</b>.</br>
+Preklapanje dozvoljava da koristimo konstruktore u različitim okolnostima. 
+</br></br>
+Kad god definišemo jedan ili više ne-podrazumevanih konstruktora (sa parametrima) za klasu, podrazumevani konstruktor (bez parametara) takođe treba biti eksplicitno definisan, jer kompajler u ovom slučaju neće generisati podrazumevani konstruktor.</br>
+To naravno nije neophodno, ali smatra se najboljom praksom uvek definisati podrazumevani konstruktor.
+</br></br>
+Na primer, pored parametarskog konstruktora u klasi Trougao kome prosleđujemo vrednosti za sve tri stranice, možemo definisati konstruktor koji dozvoljava da kreiramo trougao prosleđujući vrednost samo jedne stranice, dok druge dve postavljamo na podrazumevane (default) vrednosti od 5 i 11.
+</br></br>
+<b>Primer poziva više konstruktora koji su međusobno različiti</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+class Trougao {
+    public:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+        
+        //podrazumevani konstruktor
+        Trougao() {
+            stranicaA = 10;
+            stranicaB = 13;
+            stranicaC = 8;
+        }
+        //parametarski konstruktor sa jednim argumentom
+        Trougao(int strA) {
+            stranicaA = strA;
+            stranicaB = 10;
+            stranicaC = 8;
+        }   
+        //parametarski konstruktor sa sva tri argumenta
+        Trougao(int strA, int strB, int strC) {
+            stranicaA = strA;
+            stranicaB = strB;
+            stranicaC = strC;
+        }
+};
+
+int main() {
+
+    //poziv podrazumevanog konstruktora
+    Trougao t1;
+
+    //poziv konstruktora sa jednim argumentom
+    Trougao t2(9);
+
+    //poziv konstruktora sa sva tri argumenta;
+    Trougao t3(7,16,12);
+
+    cout << ”Trougao t1: a = ” << t1.stranicaA << ”, b = ” << t1.stranicaB << ”, c = ” << t1.stranicaC;
+    
+    cout << ”Trougao t2: a = ” << t2.stranicaA << ”, b = ” << t2.stranicaB << ”, c = ” << t2.stranicaC;
+
+    cout << ”Trougao t3: a = ” << t3.stranicaA << ”, b = ” << t3.stranicaB << ”, c = ” << t3.stranicaC;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Trougao t1: a = 10, b = 13, c = 8
+Trougao t2: a = 9, b = 13, c = 8
+Trougao t2: a = 7, b = 16, c = 12
+</xmp>
+
+Konstruktori se mogu pozivati <b>eksplicitno</b> i <b>implicitno</b>.</br></br>
+
+<b>Primer</b>
+<xmp class="primer_ta">
+Trougao t = Trougao(7,16,12); //eksplicitni poziv konstruktora
+Trougao t(7,16,12); //implicitni poziv konstruktora
+</xmp>
+</br>
+Do sada smo u primerima uglavnom koristili implicitni poziv, pa se postavlja pitanje šta je glavni razlog za korišćenje eksplicitnog poziva konstruktora. Kakva prednost ili nedostatak se dobija pozivom implicitnog, a kakva pozivom eksplicitnog konstruktora?</br></br>
+Eksplicitni poziv konstruktora kreira privremeni objekat klase pozivom odgovarajućeg konstruktora sa navedenim argumentima. Prethodni primer eksplicitnog poziva konstruktora je zapravo eksplicitni poziv konstruktoru sa tri argumenta praćen implicitnim pozivom na konstruktor kopije.</br>
+Sve što se može uraditi eksplicitnim konstruktorom ne može se uraditi implicitnim, što je definitivno prednost.
+</br></br>
+Operator <span class = "primer_text">new</span> je operator koji označava zahtev za dodelu memorije na hipu. Ako je na raspolaganju dovoljno memorije, operator <span class = "primer_text">new</span> inicijalizuje memoriju i vraća adresu novo-dodeljene i inicijalizovane memorije na promenljivu pokazivača.</br>
+Cilj proučavanja <span class = "primer_text">new</span> operatora u ovom delu je mogućnost inicijalizacije objekta uz pomoć operatora <span class = "primer_text">new</span>. Inicijalizacija objekata se vrši pomoću korisnički definisanih konstruktora. 
+</br></br>
+<b>Primer poziva konstruktora sa <span class = "primer_text">new</span> operatorom</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+include <iostream>
+using namespace std;
+
+class Krug {
+    private:
+        double poluprecnik; 
+    public:
+        Krug() {
+            poluprecnik = 5.3;
+        }
+        Krug(double polupr) {
+            poluprecnik = polupr;
+        }
+};
+
+int main() {
+
+    Krug *k1 = new Krug();
+    Krug *k2 = new Krug(4.29);
+    …
+    
+    //posto smo koristili operator new, moramo izvrsiti oslobadjanje (dealokaciju memorije) pomocu operatora delete
+
+    delete k1;
+    delete k2;
+
+    return 0;
+}
+</xmp>
+</br>
+U ovom primeru, objekat k1 dodeljuje se pomoću <span class = "primer_text">new</span> operatora, ali nije navedena zadana inicijalizacija. Stoga se poziva podrazumevani konstruktor za klasu, Krug().</br>
+Objekat k2 je eksplicitno inicijalizovan na 4.29 i budući da je 4.29 tipa double, konstruktor koji uzima argument tog tipa poziva se da izvrši inicijalizaciju.
+</br></br>
+Ako je objekat tipa klase i ta klasa ima konstruktore (kao u prethodnom primeru), <span class = "primer_text">new</span> operator može inicijalizovati objekat samo ako je ispunjen jedan od sledećih uslova:
+<ul>
+<li>argumenti navedeni u inicijalizatoru slažu se sa argumentima konstruktora,</li>
+<li>klasa ima podrazumevani konstruktor (konstruktor koji se može pozvati bez argumenata).</li>
+</ul>
+
+Konstruktor se u ovom slučaju poziva nakon dodeljivanja memorije.
+Ako dodeljivanje memorije ne uspe (operator <span class = "primer_text">new</span> vrati vrednost 0), ne izvršava se inicijalizacija. Ovo štiti od pokušaja inicijalizacije podataka koji ne postoje.</br></br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: U kojim situacijama se poziva konstruktor?</br>
+  Pitanje 2: Da li u svakom slučaju treba definisati podrazumevani konstruktor?</br>
+  Pitanje 3: Objasniti razliku između eksplicitnog i implicitnog poziva konstruktora.</br>
+  Pitanje 4: U kojim situacijama se pri pozivu konstruktora koristi new?</br>
+  Zadatak 1: U prethodno definisanoj klasi Pravougaonik obezbediti podrazumevani konstruktor, zatim konstruktor koji ima jedan argument (duža stranica), dok se kraća stranica postavlja na podrazumevanu vrednost i konstruktor sa dva argumenta koji predstavljaju dužu i kraću stranicu pravougaonika. Testirati program. 
+</div>
+</br>

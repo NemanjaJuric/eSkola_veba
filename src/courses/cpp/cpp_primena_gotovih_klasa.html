@@ -1,0 +1,840 @@
+<h1> Primena gotovih klasa </h1>
+<h2>Biblioteka gotovih klasa</h2>
+<b>Biblioteka gotovih klasa</b> ili samo <b>biblioteka klasa</b> je kolekcija 
+unapred kodiranih šablona u objektno orijentisanom programiranju, odnosno to je skup gotovih softverskih
+ definicija klasa za pisanje objektno orijentisanih programa.<br>
+I mrežne i desktop aplikacije koriste biblioteke klasa. <br>
+One mogu sadržati elemente za grafički korisnički interfejs GUI (engl. graphical user interface)
+ kao što su dugmad (engl. buttons), ikonice (engl. icons), trake za pomeranje (eng. scroll bars),
+ prozore, kao i druge komponente koje nisu GUI.<br>
+ <br>
+ Svi objektno orijentisani programski jezici imaju biblioteke klasa.
+ Na primer, Java programski jezik koristi Java klasnu biblioteku JCL (engl. Java Class Library).
+<br>
+Klasne biblioteke poboljšavaju ponovnu upotrebu koda. 
+Pisanje programa od nule može biti izuzetno detaljan i skup posao.
+ Klasne biblioteke uključuju sve osnovne klase u prethodno napisanom kodiranom formatu, 
+ što ne samo da pojednostavljuje programiranje već i povećava kvalitet koda.
+ Prilagođavanje šablona klase se primenjuje u skladu sa određenim programskim zahtevima.
+ <br><br>
+ Standardna C++ objektno orijentisana biblioteka definiše veliki skup klasa
+ koje pružaju podršku za niz uobičajenih aktivnosti,
+ uključujući ulaz/izlaz, niske i numeričke procese.
+ <br>
+<b>Klase koje definiše C++ biblioteka:</b> 
+<ul>
+ <li> standardne ulazno/izlazne C++ klase (engl. the standard C++ I/O classes), </li>
+ <li> klasa niski (engl. the string class), </li>
+ <li> numeričke klase (engl. the numeric classes), </li>
+ <li> STL klasa kontejnera (engl. the STL container classes), </li>
+ <li> STL algoritmi (engl. the STL algorithms), </li>
+ <li> STL funkcijski objekti (engl. the STL function objects),</li>
+ <li> STL iteratori (engl. the STL iterators), </li>
+ <li> STL alokatori (engl. the STL allocators), </li>
+ <li> biblioteka lokalizacija (engl. the localization library), </li>
+ <li> podrška za upravljanje izuzecima (engl. exception handling classes), </li>
+ <li> razne biblioteke za podršku (engl. miscellaneous support library).</li>
+ </ul>
+ 
+ Nadalje ćemo obraditi neke klase i osnovne funkcije koje im pripadaju.
+ </br>
+ <h2>Standardne ulazno/izlazne C++ klase </h2>
+ U C++ postoji veliki broj stream klasa za definisanje različitih tokova za rad sa fajlovima i za obavljanje ulazno/izlaznih operacija.
+ Sve ove klase definisane su u zaglavlju <span class = "primer_text">iostream.h</span>.
+ Neke od njih su:<br>
+ <ul><li> <span class = "primer_text">ios</span> klasa - osnovna klasa za <span class = "primer_text">istream</span>, <span class = "primer_text">ostream</span> i <span class = "primer_text">streambuf</span> klasu</li>
+ <li><span class = "primer_text">istream</span> i <span class = "primer_text">ostream</span> - bazne klase za <span class = "primer_text">iostream</span> klasu.</li></ul>
+ Klasa <span class = "primer_text">istream</span> se koristi za ulazni tok podataka, dok se klasa <span class = "primer_text">ostream</span> koristi za izlazni tok podataka.<br><br>
+
+ <img src="courses/cpp/images/ui.jpg" class="img-fluid img-md">
+ </br>
+ </br>
+<b>Istream klasa</b> - klasa koja je odgovorna za rukovanje ulaznim tokom.
+ Pruža brojne funkcije za rukovanje karakterima, niskama i objektima kao što su <span class = "primer_text">get()</span>, <span class = "primer_text">getline()</span>, <span class = "primer_text">read()</span>, <span class = "primer_text">ignore()</span> itd.
+<br><br>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+using namespace std;
+ 
+int main(){
+
+    char x;
+    cin.get(x); //ucitava jedan karakter
+    cout << x;
+    
+    return 0;
+}
+</xmp>
+<b>Ulaz:</b>
+<xmp class = "primer_ta">
+ g
+ </xmp>
+<b>Izlaz:</b>
+ <xmp class = "primer_ta">
+ g
+ </xmp>
+ 
+<b>Ostream klasa</b> - klasa odgovorna za rukovanje izlaznim tokom. Pruža brojne funkcije za rukovanje karakterima, niskama i objektima kao što su <span class = "primer_text">write()</span>, <span class = "primer_text">put()</span> itd.
+<br><br>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+using namespace std;
+ 
+int main(){
+    char x;
+    cin.get(x); //ucitava jedan karakter
+    cout.put(x); //ispisuje jedan karakter
+    
+    return 0;
+}
+ 
+ </xmp>
+<b>Iostream klasa</b> - odgovorna za rukovanje i ulaznim i izlaznim tokovima. Nasleđuju je klase istream i ostream. Ova klasa nam pruža funkcije i iz istream i iz ostream klase.
+<br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+using namespace std;
+ 
+int main(){
+
+    cout.write("mandarina", 5); //funkcija ispisuje n karaktera niske, tj. u ovom slucaju 5
+    
+    return 0;
+}
+</xmp>
+</br>
+<h2>Klasa niski i operacije sa niskama </h2>
+Programski jezik C++ ima definisan način za predstavljanje niza znakova kao objekat klase koji se zove <span class = "primer_text">std::string</span>. Klasa niski skladišti znakove kao niz bajtova i dozvoljava pristup svakom bajtu karaktera.<br>
+</br>
+<b>Ulazne funkcije</b>: 
+<ul>
+ <li><span class = "primer_text">getline()</span> - funkcija koja se koristi za čuvanje niza karaktera koje je korisnik uneo u memoriju objekta,</li>
+ <li><span class = "primer_text">push_back()</span> - koristi se za dodavanje karaktera na kraj niske,</li>
+ <li><span class = "primer_text">pop_back()</span> - funkcija koja postoji od verzije C++11. Koristi se za brisanje poslednjeg karaktera niske.</li>
+ </ul>
+ 
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <iostream> 
+#include <string>    //zaglavlje zaduženo za klasu niski
+using namespace std; 
+int main(){ 
+
+    string str; 
+    getline(cin,str);   
+  
+    cout << "Inicijalna niska: "; 
+    cout << str << endl; 
+   
+    str.push_back('s');  
+   
+    cout << "Niska nakon operacije push_back: "; 
+    cout << str << endl; 
+   
+    str.pop_back(); 
+  
+    cout << "Niska nakon pop_back operacije: "; 
+    cout << str << endl; 
+  
+    return 0; 
+} 
+</xmp>
+<b>Ulaz:</b>
+<xmp class = "primer_ta">
+Marko
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Inicijalna niska: Marko
+Niska nakon operacije push_back: Markos
+Niska nakon pop_back operacije: Marko
+</xmp>
+
+<br>
+<b>Funkcije kapaciteta</b>:
+<ul>
+<li><span class = "primer_text">capacity()</span> - ova funkcija vraća kapacitet dodeljen niski. On može biti jednak ili veći od veličine niza. Dodeljuje dodatni prostor, tako da kada se novi znak doda u nisku, operacije se mogu izvesti efikasno.</li>
+<li><span class = "primer_text">resize()</span> - funkcija menja veličinu niske. Veličina se može povećati ili smanjiti.</li>
+<li><span class = "primer_text">length()</span> - vraća dužinu niske</li>
+<li><span class = "primer_text">shrink_to_fit()</span> - smanjuje kapacitet niske i čini ga jednakim minimumu njenog kapaciteta.</li>
+</ul>
+<br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include<iostream> 
+#include<string> 
+using namespace std; 
+int main() { 
+    
+    string str = "abcdefghijkl mn opr stuvwxyz"; 
+  
+    cout << "Inicijalna niska: "; 
+    cout << str << endl; 
+  
+    str.resize(13); 
+  
+    cout << "Niska nakon operacije resize: "; 
+    cout << str << endl; 
+  
+    cout << "Kapacitet niske: "; 
+    cout << str.capacity() << endl; 
+  
+     
+    cout << "Duzina niske:" << str.length() << endl; 
+  
+    str.shrink_to_fit(); 
+    cout << "Novi kapacitet: "; 
+    cout << str.capacity() << endl; 
+  
+    return 0; 
+  
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Inicijalna niska: abcdefghijkl mn opr stuvwxyz
+Niska nakon operacije resize:  abcdefghijkl
+Kapacitet niske: 28
+Duzina niske: 13
+Novi kapacitet: 13
+</xmp>
+<br>
+<b>Iterator funkcije:</b>
+<ul>
+<li><span class = "primer_text">begin()</span> - vraća iterator na početak niske,</li>   
+<li><span class = "primer_text">end()</span> - vraća iterator na kraj niske,</li>
+<li><span class = "primer_text">rbegin()</span> - vraća obrnuti iterator koji pokazuje na kraj niske,</li>
+<li><span class = "primer_text">rend()</span> - vraća obrnuti iterator koji pokazuje na početak niske.</li>
+</ul>
+ <br>
+<b>Primer</b>
+<xmp class = "primer_ta"> 
+#include<iostream> 
+#include<string> 
+using namespace std; 
+int main() { 
+    
+    string str = "acgt"; 
+    std::string::iterator it; 
+    std::string::reverse_iterator it1; 
+  
+    cout << "Niska koristeci iterator za iteraciju unapred: "; 
+    for (it=str.begin(); it!=str.end(); it++) 
+        cout << *it; 
+    cout << endl; 
+  
+    cout << "Obrnuta niska koristeci iterator za iteraciju unazad: "; 
+    for (it1=str.rbegin(); it1!=str.rend(); it1++) 
+        cout << *it1; 
+    cout << endl; 
+  
+    return 0; 
+  
+} 
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta"> 
+Niska koristeci iterator za iteraciju unapred: acgt
+Obrnuta niska koristeci iterator za iteraciju unazad: tgca
+</xmp>
+
+<br>
+<b>Funkcije za manipulaciju:</b>
+<ul>
+<li><span class = "primer_text">copy("niz karaktera", len, pos)</span> - kopira podniz u ciljni niz karaktera. Potrebna su 3 argumenta: ciljni niz karaktera, dužina koja se kopira i početna pozicija u niski,</li>
+<li><span class = "primer_text">swap()</span> -  funkcija vrši zamenu vrednosti dve niske.</li>
+</ul>
+<br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include<iostream> 
+#include<string> 
+using namespace std; 
+int main() { 
+
+    string str1 = "Aleksandra"; 
+    string str2 = "Teodora"; 
+    char ch[80]; 
+  
+    str1.copy(ch,5,0); 
+  
+    cout << "Novi kopirani niz karaktera je: "; 
+    cout << ch << endl; 
+  
+    cout << "Prva niska pre zamene je: "; 
+    cout << str1 << endl; 
+    cout << "Druga niska pre zamene je: "; 
+    cout << str2 << endl; 
+  
+    str1.swap(str2); 
+  
+    cout << "Prva niska nakon zamene je: "; 
+    cout << str1 << endl; 
+    cout << "Druga niska nakon zamene je: "; 
+    cout << str2 << endl; 
+  
+    return 0; 
+} 
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Novi kopirani niz karaktera je: Aleks
+Prva niska pre zamene je:  Aleksandra
+Druga niska pre zamene je:  Teodora
+Prva niska nakon zamene je:  Teodora
+Druga niska nakon zamene je:  Aleksandra
+</xmp>
+ 
+ <br>
+
+<h2>STL klasa kontejnera</h2>
+Kontejner je držač objekat koji čuva kolekciju drugih objekata. Kontejneri se implementiraju kao klasa šablona, što omogućava veću fleksibilnost pri podržavanju različitih tipova elemenata.
+ <br><br>
+ Sekvencijalni kontejneri implementiraju strukture podataka kojima se može pristupiti sekvencijalno. U njih se ubrajaju:
+ <ul>
+<li><span class = "primer_text">array</span> - statički susedni niz,</li>
+<li><span class = "primer_text"> vector </span> - dinamički susedni niz,</li>
+<li><span class = "primer_text"> queue</span> - red sa dvostrukim krajem, </li>
+<li><span class = "primer_text">forward_list</span> - jednostruko povezana lista,</li>
+<li><span class = "primer_text">list</span> - dvostruko povezana lista.</li>
+</ul>
+ 
+ Asocijativni kontejneri implementiraju sortirane strukture podataka koje se mogu brzo pretražiti. U ovoj grupi se nalaze:
+ <ul>
+<li><span class = "primer_text">set</span> - kolekcija jedinstvenih ključeva. Sortirana je po tim ključevima,</li>
+<li><span class = "primer_text"> map </span>- kolekcija parova ključ-vrednost. Sortirana je po ključevima koji su jedinstveni,</li>
+<li><span class = "primer_text"> multiset</span> - kolekcija ključeva koja je sortirana po tim ključevima, </li>
+<li><span class = "primer_text">multimap</span> - kolekcija parova ključ-vrednost koja je sortirana po tim ključevima.</li>
+</ul>
+ 
+ Neuređeni asocijativni kontejneri implementiraju nesortirane strukture podataka koje se mogu brzo pretraživati. U ovu grupu se ubrajaju:
+ <ul>
+ <li><span class = "primer_text">unordered_set</span> - kolekcija jedinstvenih ključeva heširanih po ključevima,</li>
+ <li><span class = "primer_text">unordered_map</span> - kolekcija parova ključ-vrednost heširanih po ključevima. Ključevi su jedinstveni,</li>
+ <li><span class = "primer_text">unordered_multiset</span> - kolekcija ključeva heširanih po ključevima,</li>
+ <li><span class = "primer_text">unordered_multimap</span> - kolekcija parova ključ-vrednost heširanih po ključevima.</li>
+ </ul>
+ 
+ Adapteri za kontejnere pružaju drugačiji interfejs za sekvencijalne kontejnere. Njih ćemo detaljnije obraditi u sledećoj lekciji. U ovu grupu se ubrajaju:
+ <ul>
+ <li><span class = "primer_text">stack,</span></li>
+ <li><span class = "primer_text">queue,</span></li> 
+ <li><span class = "primer_text">priority_queue.</span></li>
+ </ul>
+ </br>
+<h2>Array </h2>
+Za jednostavan rad sa konstantnim nizovima može nam pomoći kontejner <span class = "primer_text">array</span>.
+Da bismo koristili mogućnosti ovog kontejnera, potrebno je da uključimo zaglavlje:
+<span class = "primer_text">
+#include < array > 
+</span>
+ 
+ </br>
+ <br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <algorithm> 
+#include <array> 
+#include <iostream> 
+#include <iterator> 
+#include <string> 
+using namespace std; 
+  
+int main() { 
+  
+    array<int, 5> ar1{{3, 4, 5, 1, 2}}; 
+    array<int, 5> ar2 = {1, 2, 3, 4, 5}; 
+    array<string, 2> ar3 = {{string("a"), "b"}}; 
+    
+    cout << "Velicine nizova su:" << endl; 
+    cout << ar1.size() << endl; 
+    cout << ar2.size() << endl; 
+    cout << ar3.size() << endl; 
+        
+    cout << "\nar1 : "; 
+    for (auto i : ar1) 
+        cout << i << ' '; 
+    
+    sort(ar1.begin(), ar1.end()); 
+    
+    cout << "\nsortirani ar1 : "; 
+        for (auto i : ar1) 
+            cout << i << ' '; 
+    
+    // ar2 punimo desetkama 
+    ar2.fill(10); 
+  
+    cout << "\nPopunjen ar2 : "; 
+    for (auto i : ar2) 
+        cout << i << ' '; 
+  
+    cout << "\nar3 : "; 
+    for (auto &s : ar3) 
+        cout << s << ' '; 
+  
+    return 0; 
+} 
+ 
+ 
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Velicine nizova su:
+5
+5
+2
+
+ar1 : 3 4 5 1 2 
+sortirani ar1 : 1 2 3 4 5 
+Popunjen ar2 : 10 10 10 10 10 
+ar3 : a b
+</xmp>
+</br>
+<h2>Vector</h2>
+
+Vector je osnovni kontejner iz STL-a i zamenjuje običan niz. Kada mu je potreban dodatni prostor u
+memoriji, vector se sam povećava, tako što se ceo vector prekopira na dvostruko veći prostor. Dakle, ne moramo se uopšte brinuti o veličini vectora, jer se STL
+sam o tome brine.
+ Vector je vrlo jednostavan kontejner (klasa koja služi za čuvanje podataka). Nalazi se u biblioteci
+(zaglavlju) <span class = "primer_text">vector</span>.
+ 
+Kontejner <span class = "primer_text">vector</span> služi za predstavljanje nizova koji mogu da menjaju svoju veličinu.
+Neke bitnije funkcije koje ovaj kontejner sadrži su:
+
+ <ul>
+ <li><span class = "primer_text">begin()</span> - vraća iterator koji pokazuje na prvi element u vektoru, </li>
+ <li><span class = "primer_text">end()</span> - vraća iterator koji pokazuje na prvo mesto posle poslednjeg elementa, </li>
+ <li><span class = "primer_text">rbegin()</span> - vraća obrnuti iterator koji pokazuje na poslednji element u vektoru. Pomera se od poslednjeg ka prvom elementu,</li>
+ <li><span class = "primer_text">rend()</span> - vraća obrnuti iterator koji pokazuje ka mestu koje prethodi prvom elementu, tj. na obrnuti kraj, </li>
+ <li><span class = "primer_text">size() </span> - vraća broj elemenata u vektoru, </li>
+ <li><span class = "primer_text">empty()</span> - proverava da li je kontejner prazan,</li>
+ <li><span class = "primer_text">front()</span> - vraća referencu na prvi element u vektoru, </li>
+ <li><span class = "primer_text">back()</span> - vraća referencu na poslednji element u vektoru,</li>
+ <li><span class = "primer_text">push_back()</span> - dodaje element na kraj vektora, </li>
+ <li><span class = "primer_text">pop_back()</span> - uklanja element s kraja vektora, </li>
+ <li><span class = "primer_text">insert()</span> - ubacuje novi element pre elementa na navedenom položaju,</li>
+ <li><span class = "primer_text">erase()</span> - uklanja elemente sa navedene pozicije ili opsega, </li>
+ <li><span class = "primer_text">swap()</span> - menja sadržaj dva vektora istog tipa, </li>
+ <li><span class = "primer_text">clear()</span> - uklanja sve elemente. </li>
+ </ul>
+ 
+ 
+<br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <iostream> 
+#include <vector> 
+  
+using namespace std; 
+  
+int main() { 
+    vector<int> v; 
+  
+    for (int i = 1; i <= 5; i++) 
+        v.push_back(i); 
+  
+    cout << "Vektor: "; 
+    for (auto i = v.begin(); i != v.end(); ++i) 
+        cout << *i << " "; 
+  
+    cout << "\nVektor obrnuto: "; 
+    for (auto ir = v.rbegin(); ir != v.rend(); ++ir) 
+        cout << *ir << " "; 
+    
+    cout << "\nVelicina : " << v.size();
+
+    if (v.empty() == false) 
+        cout << "\nVektor nije prazan"; 
+    else
+        cout << "\nVektor je prazan"; 
+        
+    cout << "\nfront():" << v.front();
+    cout << "\nback():" << v.back();
+
+    v.insert(v.begin(), 5);
+    cout << "\nPrvi element je: " << v[0];
+    v.erase(v.begin());
+    
+    vector<int> v1, v2;
+    
+    v1.push_back(1); 
+    v1.push_back(2); 
+    v2.push_back(3); 
+    v2.push_back(4); 
+  
+    cout << "\n\nVektor1: "; 
+    for (int i = 0; i < v1.size(); i++) 
+        cout << v1[i] << " "; 
+  
+    cout << "\nVektor2: "; 
+    for (int i = 0; i < v2.size(); i++) 
+        cout << v2[i] << " "; 
+  
+
+    v1.swap(v2); 
+  
+    cout << "\nNakon zamene \nVektor1: "; 
+    for (int i = 0; i < v1.size(); i++) 
+        cout << v1[i] << " "; 
+  
+    cout << "\nVektor2: "; 
+    for (int i = 0; i < v2.size(); i++) 
+        cout << v2[i] << " "; 
+        
+    return 0; 
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Vektor: 1 2 3 4 5
+Vektor obrnuto: 5 4 3 2 1
+Velicina: 5
+Vektor nije prazan
+front(): 1
+back(): 5 
+Prvi element je: 5
+
+Vektor1: 1 2
+Vektor2: 3 4
+Nakon zamene
+Vektor1: 3 4
+Vektor2: 1 2
+</xmp>
+
+</br>
+<h2>Set </h2>
+
+Klasa <span class = "primer_text">set</span> definisana je u biblioteci <span class = "primer_text">set</span>.
+<span class = "primer_text">Set</span> je kontejner koji implementira veoma korisnu strukturu podataka, koja u sebi
+održava elemente poređane po veličini (ili po nekom našem poretku).
+<span class = "primer_text">Set</span> je sličan matematičkom pojmu skup. Svaki element je jedinstven. 
+ <br>
+ Neke osnovne funkcije za rad su:
+ <ul>
+ <li><span class = "primer_text">begin()</span> - vraća iterator na prvi element u kolekciji,</li>
+ <li><span class = "primer_text">end()</span> - vraća iterator koji pokazuje na prvo mesto posle poslednjeg elementa,</li>
+ <li><span class = "primer_text">rbegin()</span> - vraća obrnuti iterator koji pokazuje na poslednji element u vektoru. Pomera se od poslednjeg ka prvom elementu,</li>
+ <li><span class = "primer_text">rend()</span> - vraća obrnuti iterator koji pokazuje ka mestu koje prethodi prvom elementu, tj. na obrnuti kraj,</li>
+ <li><span class = "primer_text">size()</span> - vraća broj elemenata,</li>
+ <li><span class = "primer_text">empty()</span> - proverava da li je kolekcija prazna,</li>
+ <li><span class = "primer_text">insert(const g)</span> - dodaje novi element g,</li>
+ <li><span class = "primer_text">erase(const g)</span> - uklanja vrednost g,</li>
+ <li><span class = "primer_text">clear()</span> - uklanja sve elemente,</li>
+ <li><span class = "primer_text">find(const g)<spanb> - vraća iterator na element g ako postoji, u suprotnom vraća iterator na kraj.</li>
+</ul>
+ 
+ <br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <iterator>
+#include <set>
+ 
+using namespace std;
+ 
+int main() {
+    
+    set<int> s1;
+ 
+    s1.insert(40);
+    s1.insert(30);
+    s1.insert(60);
+    s1.insert(20);
+    s1.insert(50);
+     
+    
+    s1.insert(50); 
+    s1.insert(10);
+ 
+    
+    set<int>::iterator itr;
+    cout << "\ns1: \n";
+    for (itr = s1.begin();itr != s1.end(); ++itr) {
+        cout << *itr << " ";
+    }
+    cout << endl;
+ 
+    // dodela elemenata iz s1 u s2
+    set<int> s2(s1.begin(), s1.end());
+ 
+    
+    cout << "\ns2: \n";
+    for (itr = s2.begin();itr != s2.end(); ++itr){
+        cout << *itr << " ";
+    }
+    cout << endl;
+ 
+    // uklanjanje elemenata do broja 30
+    cout << "\ns2 nakon uklanjanja elemenata manjih od  30 :\n";
+    s2.erase(s2.begin(), s2.find(30));
+    for (itr = s2.begin(); itr != s2.end(); ++itr) {
+        cout << *itr << " ";
+    }
+ 
+    // uklanjanje elementa koji ima vrednost 50
+    s2.erase(50);
+    cout << "\ns2 nakon uklanjanja 50: "<< endl;
+    for (itr = s2.begin(); itr != s2.end(); ++itr) {
+        cout <<  *itr << " ";
+    }
+ 
+    return 0;
+}
+ </xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+ s1:
+ 10 20 30 40 50 60
+ s2:
+ 10 20 30 40 50 60
+ 
+ s2 nakon uklanjanja elemenata manjih od 30:
+ 30 40 50 60
+ s2 nakon uklanjanja 50:
+ 30 40 60
+ 
+</xmp>
+ </br>
+ <h2>Pair </h2>
+Pre nego što prođemo kroz klasu <span class = "primer_text">map</span>, pomenućemo jednu drugu klasu - klasu <span class = "primer_text">pair</span>.
+Klasa <span class = "primer_text">pair</span> (tj. par) nalazi se u biblioteci <span class = "primer_text">utility</span>, ali je često ne moramo uključivati (include-ovati), jer je uključuju
+razne druge biblioteke. Klasa pair je veoma jednostavna i koristi se kada želimo da čuvamo dva različita tipa
+podataka pod istim nazivom.
+Par ne podržava iteriranje, te nije kontejner. Često se dešava da funkcije koje moraju vratiti dve vrednosti,
+vrate par vrednosti.
+<br><br>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <utility>
+using namespace std;
+int main(){ 
+    pair<int,double> a;     //kreira se par celog i realnog broja
+    pair<int,int> b(3,4);  //kreira se par kome je pridruzena vrednost
+    pair<int,int> c(6,2);
+    a=make_pair(2,3.14);   // pridruzujemo vrednosti paru a
+    cout << a.first << ' ' << a.second << endl;   //pristup paru
+    
+    cout << (b<c) << ' ' << (b==c) << endl;   //parovi se porede tako sto se najpre porede prvi elementi iz para, a ako su oni jednaki, porede se drugi
+    b=c;
+    cout << (b==c) << endl;
+    
+    pair<pair<int,int>,int> trojka;
+    trojka=make_pair(make_pair(1,2),3);
+    
+    cout << trojka.first.first << ' ';
+    cout << trojka.first.second << ' ';
+    cout << trojka.second << endl;
+    return 0;
+}
+</xmp> 
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+1 0
+1
+1 2 3
+</xmp>
+ </br>
+ <h2>Map</h2>
+Klasa <span class = "primer_text">map</span> je struktura <span class = "primer_text"> set< pair< kljuc, vrednost > > </span>.
+Strukturu <span class = "primer_text">map</span> pretražujemo pomoću ključa kojim pristupamo polju <span class = "primer_text">vrednost</span>. Za svaki ključ postoji
+jedinstvena vrednost. Mapa ima operator [] pomoću kojeg preko ključa pristupamo polju
+vrednost. Mapa se nalazi u biblioteci <span class = "primer_text">map</span>.</br> </br> 
+Neke osnovne funkcije za rad su:
+
+ <ul>
+ <li><span class = "primer_text">begin()</span> - vraća iterator na prvi element u kolekciji,</li>
+ <li><span class = "primer_text">end()</span> - vraća iterator koji pokazuje na prvo mesto posle poslednjeg elementa,</li>
+ <li><span class = "primer_text">size()</span> - vraća broj elemenata u mapi,</li>
+ <li><span class = "primer_text">empty()</span> - proverava da li je mapa prazna,</li>
+ <li><span class = "primer_text">pair insert(keyvalue, mapvalue)</span> - dodaje novi element u mapu,</li>
+ <li><span class = "primer_text">erase(iterator position)</span> - uklanja element sa pozicije na koju pokazuje iterator,</li>
+ <li><span class = "primer_text">erase(const g)</span> - briše ključ čija je vrednost g,</li>
+ <li><span class = "primer_text">clear()</span> - uklanja sve elemente iz mape.</li>
+ </ul></br>
+ 
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+int main(){
+
+    map<string,int> m;
+    
+    m["dvadeset"]=20;
+    m[string("pet")]=5;
+    
+    m.insert(pair<string,int>("dva",2));
+    m.insert(make_pair(string("sto"),100));
+    m.insert(make_pair("pedeset",50));
+    
+    map<string,int>::iterator it;
+    
+    for(it=m.begin(); it!=m.end();it++)
+        cout << it->first << ' ' << it->second << endl;
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+dva 2
+dvadeset 20
+pedeset 50
+pet 5
+sto 100
+</xmp>
+ </br>
+ <h2>STL algoritmi</h2>
+ Mnoštvo funkcija biblioteke <span class = "primer_text"> < algorithm > </span> su veoma korisne. Navešćemo samo neke od njih:
+
+<ul>
+<li><span class = "primer_text">sort(prvi_iterator, poslednji_iterator)</span> - sortira dati vektor,</li>
+<li><span class = "primer_text">reverse(prvi_iterator, posldenji_iterator) </span> - obrće vektor,</li>
+<li><span class = "primer_text">*max_element (prvi_iterator, poslednji_iterator)</span> - maksimalni element vektora,</li>
+<li><span class = "primer_text">*min_element (prvi_iterator, poslednji_iterator)</span> - minimalni element vektora,</li>
+<li><span class = "primer_text">accumulate(prvi_iterator, poslednji_iterator, pocetna_vresnost_sume)</span> - sumira elemente vektora,</li>
+<li><span class = "primer_text">count(prvi_iterator, poslednji_iterator,x)</span> - vraća broj pojavljivanja x u vektoru,</li>
+<li><span class = "primer_text">find(prvi_iterator, poslednji_iterator,x)</span> - vraća pokazivač na poslednju adresu vektora (ime_vektora.end()) ako element x nije u vektoru,</li>
+<li><span class = "primer_text">binary_search(prvi_iterator, poslednji_iterator,x)</span> - proverava da li je x u sortiranom vektoru ili ne,</li>
+<li><span class = "primer_text">lower_bound(prvi_iterator, poslednji_iterator,x)</span> - vraća pokazivač na prvi element u intervalu [prvi,poslednji) koji ima vrednost ne manju od x,</li>
+<li><span class = "primer_text">upper_bound(prvi_iterator, poslednji_iterator,x)</span> - vraća pokazivač na prvi element u intervalu [prvi,poslednji) koji ima vrednost veću od x.</li>
+</ul>
+ <br><br>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <numeric> //zaglavlje za funkciju accumulate()
+using namespace std;
+ 
+int main() {
+    
+    int niz[] = {10, 20, 5, 23 ,42 , 15};
+    int n = sizeof(niz)/sizeof(niz[0]);
+    vector<int> vektor(niz, niz+n);
+ 
+    cout << "Vektor: ";
+    for (int i=0; i<n; i++)
+        cout << vektor[i] << " ";
+ 
+
+    sort(vektor.begin(), vektor.end());
+ 
+    cout << "\nVektor nakon sortiranja: ";
+    for (int i=0; i<n; i++)
+       cout << vektor[i] << " ";
+ 
+    reverse(vektor.begin(), vektor.end());
+ 
+    cout << "\nVektor nakon obrtanja: ";
+    for (int i=0; i<6; i++)
+        cout << vektor[i] << " ";
+ 
+    cout << "\nMaksimalni element vektora: ";
+    cout << *max_element(vektor.begin(), vektor.end());
+ 
+    cout << "\nMinimalni element vektora je: ";
+    cout << *min_element(vektor.begin(), vektor.end());
+ 
+    // Suma krece od 0
+    cout << "\nVrednost sumiranih elemenata vektora je: ";
+    cout << accumulate(vektor.begin(), vektor.end(), 0);
+ 
+    return 0;
+}
+</xmp>
+ 
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Vektor: 10 20 5 23 42 15 
+Vektor nakon sortiranja: 5 10 15 20 23 42 
+Vektor nakon obrtanja: 42 23 20 15 10 5 
+Maksimalni element vektora: 42
+Minimalni element vektora je: 5
+Vrednost sumiranih elemenata vektora je: 115
+</xmp> 
+<br></br>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+ 
+int main() {
+    
+    int niz[] = {10, 20, 5, 23 ,42, 20, 15};
+    int n = sizeof(niz)/sizeof(niz[0]);
+    vector<int> vektor(niz, niz+n);
+ 
+    cout << "Broj pojava broja 20 u vektoru : ";
+ 
+    cout << count(vektor.begin(), vektor.end(), 20);
+ 
+    find(vektor.begin(), vektor.end(),5) != vektor.end()?  // find() vraca iterator na poslednju adresu vektora ako element ne postoji u njemu
+        cout << "\nElement je pronadjen":
+    cout << "\nElement nije pronadjen";
+ 
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Broj pojava broja 20 u vektoru : 2
+Element je pronadjen
+</xmp>
+<b> Primer</b>
+<xmp class = "primer_ta">
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+ 
+int main() {
+    
+    int niz[] = {5, 10, 15, 20, 20, 23, 42, 45};
+    int n = sizeof(niz)/sizeof(niz[0]);
+    vector<int> vektor(niz, niz+n);
+ 
+    sort(vektor.begin(), vektor.end());
+ 
+    auto q = lower_bound(vektor.begin(), vektor.end(), 20);
+ 
+    auto p = upper_bound(vektor.begin(), vektor.end(), 20);
+ 
+    cout << "Donja granica je na poziciji: ";
+    cout << q-vektor.begin() << endl;
+ 
+    cout << "Gornja granica je na poziciji: ";
+    cout << p-vektor.begin() << endl;
+ 
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Donja granica je na poziciji: 3
+Gornja granica je na poziciji: 5
+</xmp>
+</br>
+
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta su biblioteke klasa? Čemu služe? Koje su prednosti klasnih biblioteka?</br>
+  Pitanje 2: Navesti klase koje definiše standardna C++ objektno orijentisana biblioteka.</br>
+  Pitanje 3: Navesiti najbitnije funckije za rad sa ulaznim i izlaznim tokom.</br>
+  Pitanje 4: Navesti najbitnije funkcije za rad sa niskama. Koje zaglavlje je potrebno uključiti za rad sa njima?</br>
+  Pitanje 5: Navesti sekvencijlne i asocijativne kontejnere.</br>
+  Pitanje 6: Koje kontejnere koristimo za rad sa nizovima? Navesti razlike između kontejnera array i vector.</br>
+  Pitanje 7: Navesti bitne funkcije za kontejner vector.</br>
+  Pitanje 8: Navesti glavnu karakteristiku klase set.</br>
+  Pitanje 9: Osnovne karakteristike klase pair.</br>
+  Pitanje 10: Šta predstavlja klasa map? Navesti primere gde bi se ona mogla efikasno primenjivati.</br>
+</div>
+</br>

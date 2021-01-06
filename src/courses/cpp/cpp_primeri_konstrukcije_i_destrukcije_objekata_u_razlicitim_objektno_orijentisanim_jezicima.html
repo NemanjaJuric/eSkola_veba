@@ -1,0 +1,71 @@
+<h1>Primeri konstrukcije i destrukcije objekata u različitim objektno orijentisanim programskim jezicima</h1>
+</br>
+Između objektno orijentisanih programskih jezika postoji dosta sličnosti.
+<br>
+Daćemo primer između Jave i C++-a. Oba su objektno orijentisana, podržavaju apstrakciju, klase, objekte i slično. 
+I Java i C++ podržavaju konstruktore, međutim način na koji se oni pozivaju su drugačiji.<br><br> 
+
+Na primer, u Javi se konstruktor mora pozvati pomoću operatora <span class = "primer_text">new()</span>. Ne postoji drugi način da se eksplicitno pozove konstruktor tokom kreiranja objekta, dok se u C++-u to može učiniti bez operatora <span class = "primer_text">new</span>.
+<br>
+Kao što je već rečeno u prethodnoj lekciji, C++ ima i konstruktor i destruktuor, dok Java nema destruktor, već samo konstruktor.
+<br>
+<br>
+Neke razike ćemo sada navesti:
+<br>
+<br>
+<b>Deklaracija klase:</b><br><br>
+C++: <span class = "primer_text"> class mojaKlasa{};</span><br>
+Java: <span class = "primer_text"> class mojaKlasa{}</span>
+<br><br>
+<b>Deklaracija metoda:</b><br><br>
+Ista, osim što u Javi uvek moraju biti deo klase i mogu imati prefiks  <span class = "primer_text">public</span>, <span class = "primer_text">protected</span>, <span class = "primer_text">private</span>.
+<br><br>
+<b>Konstruktor i destruktor:</b><br><br>
+Konstruktor i u Javi i u C++-u ima isto ime kao i klasa. Java nema destruktor.
+<br><br>
+<b>Zajednički članovi klase:</b><br><br>
+Isto kao u deklaraciji metoda, osim što Java pruža statičke inicijalizovane blokove za inicijalizaciju statičkih promenljivih.<br>
+Java: <br>
+<span class = "primer_text">
+class mojaKlasa { <br>
+    static private int x; <br>
+    { x = 5; } // staticki inicijalizovani blok<br>
+}
+</span>
+<br><br>
+<b>Deklaracija objekta:</b><br><br>
+C++:<br>
+<span class = "primer_text">
+mojaKlasa x; //objekat alociran na steku<br>
+mojaKlasa *x = new mojaKlasa; //objekat alociran na hipu
+</span><br>
+Java:<br>
+<span class = "primer_text">
+mojaKlasa x = new mojaKlasa(); //objekat je uvek alociran na hipu<br>
+</span>
+<br><br>
+<b>Pristup objektu:</b><br><br>
+C++: <br>
+<span class = "primer_text">
+//ako je objekat alociran na steku, metodu pristupamo pomocu tacke<br>
+mojaKlasa x; <br>
+x.moj_metod;<br> 
+</span><br>
+<span class = "primer_text">
+//-> za pristup poljima klase kada radimo sa pokazivacima <br>
+mojaKlasa *x = new mojaKlasa();<br>
+x->moj_metod; <br>
+</span><br>
+Java:<br>
+<span class = "primer_text">
+//uvek se radi sa pokazivacima<br>
+mojaKlasa x = new mojaKlasa();<br>
+x.moj_metod;<br>
+</span>
+<br>
+
+<div class="zadatak">
+  Pitanje 1: Navesti glavne razlike između deklaracije klasa u Javi i C++.</br>
+  Pitanje 2: Razlike između kreiranja objekata klase u Javi i C++? <br>
+  Pitanje 3: Kako se pristupa objektima klasa u C++, a kako u Javi?<br>
+</div>

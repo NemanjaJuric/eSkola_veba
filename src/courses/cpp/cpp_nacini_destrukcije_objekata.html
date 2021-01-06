@@ -1,0 +1,291 @@
+<h1>Načini destrukcije objekata (destruktor ili Garbage Collector) </h1>
+</br>
+Destrukcija objekta predstavlja dealokaciju (oslobađanje) memorijskog prostora koji objekat zauzima.</br><br>
+Objekat se može uništiti eksplicitno.<br>
+U programskom jeziku C, koristimo funkciju <span class = "primer_text">free()</span>, dok u programskom jeziku C++ funkciju <span class = "primer_text">delete()</span>. 
+U C/C++, korisnik je odgovoran za kreiranje i uništavanje objekata.</br></br>
+U praksi, korisnici uglavnom zanemaruju uništavanje beskorisnih objekata.
+Zbog ovog nemara, za kreiranje novih objekata u nekom trenutku, možda neće biti dovoljno memorije i ceo program će se prekinuti abnormalno izazivajući grešku  <span class = "primer_text">OutOfMemoryErrors</span>.<br><br>
+<h2>Garbage Collector</h2>
+Osim eksplicitno, možemo dozvoliti da ga specijalni sistem <b>sakupljač smeća (SS) (engl. garbage collector)</b> automatski uništi. To je funkcija automatskog upravljanja memorijom u mnogim modernim programskim jezicima. 
+Sakupljač smeća će uništiti objekat onog trenutka kada je uništena poslednja referenca na taj objekat. 
+
+<br><br>
+Kada program nema više referenci na taj objekat, memorija objekta postaje nedostupna, ali se ne oslobađa odmah.
+Sakupljač smeća proverava da li u hipu postoji objekat koji se više  ne koristi.
+<br>
+U Javi se to izvodi automatski, stoga nam Java pruža bolje upravljanje memorijom. Sakupljač smeća je deo JVM (Java virtuelne mašine) i o tome ne moramo da vodimo računa. 
+<br><br>
+
+<b>Prednosti korišćenja garbage collector-a:</b>
+<ul>
+  <li>naša memorija postaje efikasnija postupkom uklanjanja onoga što se više ne koristi,</li>
+  <li>nema potrebe za dodatnom aplikacijom za čišćenje memorije.</li>
+  
+</ul>
+Njegov glavni cilj je da oslobodi hip memoriju uništavanjem nedostupnih objekata.
+<br>
+Kad god JVM pokrene SS, tada će se objekat uništiti. Ali kada će JVM pokrenuti SS, to ne možemo znati.
+<br><br>
+
+Možemo eksplicitno da zatražimo od JVM da pokrene SS. Postoje dva načina za to:
+<ul>
+  <li>korišćenjem metode <span class = "primer_text">System.gc()</span> : Sistemska klasa sadrži statički model <span class = "primer_text">gc()</span> za zahtevanje JVM da pokrene SS,</li>
+  <li>korišćenjem <span class = "primer_text">Runtime.getRuntime().gc()</span> metode: <span class = "primer_text">Runtime</span> klasa omogućava aplikacijama da se povežu sa JVM dok je aplikacija pokrenuta. Stoga, koristeći <span class = "primer_text">gc()</span> metodu, zahtevamo da JVM pokrene SS.</li>
+  
+</ul>
+
+<b>Primer</b>  
+<xmp class="primer_ta">
+//Java program demonstrira zahtev JVM za pokretanje SS.
+public class Test { 
+    public static void  main(String[] args) throws InterruptedException { 
+        Test t1 = new Test(); 
+        Test t2 = new Test(); 
+          
+        // postavljanje reference promenljive na null
+        t1 = null; 
+          
+        // zahtev JVM da pokrene SS
+        System.gc(); 
+          
+        // postavljanje reference promenljive na null
+        t2 = null; 
+          
+        // zahtev JVM da pokrene SS
+        Runtime.getRuntime().gc(); 
+      
+    } 
+      
+    @Override
+    // finalize metod pozivamo na objekat jednom pre nego sto sakupljac smeca pokupi
+    protected void finalize() throws Throwable{ 
+        System.out.println("SS je pozvan"); 
+        System.out.println("SS je pokupio objekat: " + this); 
+    } 
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+SS je pozvan
+SS je pokupio objekat: Test@46d08f12
+SS je pozvan
+SS je pokupio objekat: Test@481779b8
+
+</xmp>
+<div class = "napomena">
+Ne  postoji garancija da će bilo koji od gore navedena 2 metoda definitivno pokrenuti SS. 
+Poziv <span class = "primer_text">System.gc()</span> je efektivno ekvivalentan pozivu <span class = "primer_text">Runtine.getRuntime().gc()</span>.
+</div>
+<br>
+<h2>Finalizacija </h2>
+
+
+Neposredno pre uništenja objekta, SS poziva metod <span class = "primer_text">finalize()</span> na objektu za obavljanje aktivnosti čišćenja.<br>
+Kada se metod <span class = "primer_text">finalize()</span> završi, SS uništava taj objekat.<br>
+Metod <span class = "primer_text">finalize()</span> pristupa klasi objekta na sledeći način: <span class = "primer_text">
+ protected void finalize() throws Throwable
+ </span>.
+Na osnovu naših zahteva, možemo unaprediti metod <span class = "primer_text">finalize()</span> za obavljanje naših aktivnosti čišćenja.<br> <br>
+<div class = "napomena">
+Metod finalize() poziva SS, a ne JVM. 
+</div>
+</br>
+<h2> Primer iz svakodnevnog života </h2>
+Pretpostavimo da smo dobili praksu u nekoj kompaniji i rečeno nam je da napišemo program kako bismo prebrojali broj zaposlenih u kompaniji (bez pripravnika).
+Da bismo napisali ovaj program, moramo koristiti koncept SS. <br>
+Zadatak bi izgledao ovako:<br>
+Napiši program za kreiranje klase Zaposleni koja ima sledeće članove podataka:<br>
+<ul>
+  <li>ID, za čuvanje jedinstvenog ID-a dodeljenog svakom zaposlenom,</li>
+  <li>ime zaposlenog,</li>
+  <li>godine zaposlenog.</li>
+</ul>
+Takođe treba obezbediti sledeće metode:<br>
+<ul>
+<li>parametarski konstruktor za inicijalizaciju ID-a, imena i godina,</li>
+<li>metodu <span class = "primer_text">prikazi()</span> za prikaz ID-a, imena i godina.</li>
+<li>metodu <span class = "primer_text">prikaziSledeciId()</span> za prikaz ID-a sledećeg zaposlenog.</li>
+
+
+</ul>
+
+
+Svaki početnik koji nema znanje o SS bi kodirao na sledeći način:
+
+<xmp class="primer_ta">
+//Program koji prikazuje broj zaposlenih u programskom jeziku Java
+class Zaposleni { 
+    private int ID; 
+    private String ime; 
+    private int godine; 
+    private static int sledeciId=1; //ovaj podatak je staticki zato sto je zajednicki za sve (svi objekti ga dele)
+
+ 
+    public Zaposleni(String ime,int godine) { 
+        this.ime = ime; 
+        this.godine = godine; 
+        this.ID = sledeciId++; 
+    } 
+    public void prikazi() { 
+        System.out.println("Id="+ID+"\nIme="+ime+"\nGodine="+godine); 
+    } 
+    public void prikaziSledeciId() { 
+        System.out.println("Id sledeceg zaposlenog ce biti="+sledeciId); 
+    } 
+} 
+class koristiZaposleni { 
+    public static void main(String []args) { 
+        Zaposleni E=new Zaposleni("Ana",56); 
+        Zaposleni F=new Zaposleni("Bane",45);  
+        Zaposleni G=new Zaposleni ("Cajko",25); 
+        E.prikazi(); 
+        F.prikazi(); 
+        G.prikazi(); 
+        E.prikaziSledeciId(); 
+        F.prikaziSledeciId();  
+        G.prikaziSledeciId();  
+              
+            { //Podblok za cuvanje pripravnika
+            Zaposleni X=new Zaposleni("Danko",23);      
+            Zaposleni Y=new Zaposleni("Goran",21); 
+            X.prikazi(); 
+            Y.prikazi(); 
+            X.prikaziSledeciId(); 
+            Y.prikaziSledeciId();  
+        } 
+        //Posle kontiranja, X i Y ce biti uklonjeni. Stoga se treba prikazati sledeciId kao 4. 
+        E.prikaziSledeciId();// Izlaz iz ovog reda bi trebalo da da broj 4, ali ce dati broj 6. 
+    } 
+} 
+
+
+</xmp>
+
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Id=1
+Ime=Ana
+Godine=56
+Id=2
+Ime=Bane
+Godine=45
+Id=3
+Ime=Cajko
+Godine=25
+Id sledeceg zaposlenog ce biti=4
+Id sledeceg zaposlenog ce biti=4
+Id sledeceg zaposlenog ce biti=4
+Id=4
+Ime=Danko
+Godine=23
+Id=5
+Ime=Goran
+Godine=21
+Id sledeceg zaposlenog ce biti=6
+Id sledeceg zaposlenog ce biti=6
+Id sledeceg zaposlenog ce biti=6
+
+</xmp>
+
+
+ Kako da dobijemo tačan izlaz? 
+ Da bismo dekrementirali <span class = "primer_text">sledeciId</span>, SS će pozvati metodu <span class = "primer_text">finalize()</span> samo kada ga mi predefinišemo u našoj klasi. Kao što je prethodno pomenuto,
+ moramo da zatražimo SS i za to ćemo morati da napišemo sledeća tri koraka pre zatvaranja zagrada podbloka:
+ <ul>
+  <li>da postavimo reference na null (tj X=Y=null),</li>
+  <li>da pozovemo <span class = "primer_text">System.gc()</span>,</li>
+  <li>da pozovemo <span class = "primer_text">System.runFinalization()</span>.</li>
+</ul>
+ Prikaz tačno napisanog koda:
+ 
+<xmp class="primer_ta">
+//Program koji prikazuje broj zaposlenih u programskom jeziku Java
+class Zaposleni { 
+    private int ID; 
+    private String ime; 
+    private int godine; 
+    private static int sledeciId=1; //ovaj podatak je staticki zato sto je zajednicki za sve (svi objekti ga dele)
+
+ 
+    public Zaposleni(String ime,int godine) { 
+        this.ime = ime; 
+        this.godine = godine; 
+        this.ID = sledeciId++; 
+    } 
+    public void prikazi() { 
+        System.out.println("Id="+ID+"\nIme="+ime+"\nGodine="+godine); 
+    } 
+    public void prikaziSledeciId() { 
+        System.out.println("Id sledeceg zaposlenog ce biti="+sledeciId); 
+    } 
+    protected void finalize() { 
+        --sledeciId; //SS ce pozvati finalize() 2 puta za 2 objekta. 
+    } 
+class koristiZaposleni { 
+    public static void main(String []args) { 
+        Zaposleni E=new Zaposleni("Ana",56); 
+        Zaposleni F=new Zaposleni("Bane",45);  
+        Zaposleni G=new Zaposleni ("Cajko",25); 
+        E.prikazi(); 
+        F.prikazi(); 
+        G.prikazi(); 
+        E.prikaziSledeciId(); 
+        F.prikaziSledeciId();  
+        G.prikaziSledeciId();  
+              
+            { //Podblok za cuvanje pripravnika
+
+            Zaposleni X=new Zaposleni("Danko",23);      
+            Zaposleni Y=new Zaposleni("Goran",21); 
+            X.prikazi(); 
+            Y.prikazi(); 
+            X.prikaziSledeciId(); 
+            Y.prikaziSledeciId(); 
+            X = Y = null; 
+            System.gc();  
+            System.runFinalization(); 
+ 
+        } 
+         
+        E.prikaziSledeciId();
+    } 
+} 
+
+</xmp> 
+
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Id=1
+Ime=Ana
+Godine=56
+Id=2
+Ime=Bane
+Godine=45
+Id=3
+Ime=Cajko
+Godine=25
+Id sledeceg zaposlenog ce biti=4
+Id sledeceg zaposlenog ce biti=4
+Id sledeceg zaposlenog ce biti=4
+Id=4
+Ime=Danko
+Godine=23
+Id=5
+Ime=Goran
+Godine=21
+Id sledeceg zaposlenog ce biti=6
+Id sledeceg zaposlenog ce biti=6
+Id sledeceg zaposlenog ce biti=4
+</xmp>
+</br>
+
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Na koje sve načine možemo uništiti objekat?</br>
+  Pitanje 2: Pomoću kojih funkcija se objekat može uništiti u programskim jezicima C, odnosno C++? Šta se dešava u programskom jeziku Java?</br>
+  Pitanje 3: Šta predstavlja sakupljač smeća i kako on funkcioniše?</br>
+  Pitanje 4: Kako od JVM eksplicitno zahtevamo da pozove SS?</br>
+  Pitanje 5: Šta je finalizacija? Navesti primer gde nam je ona potrebna.</br>
+</div>
+</br>

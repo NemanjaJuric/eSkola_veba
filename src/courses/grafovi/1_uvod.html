@@ -1,76 +1,109 @@
 <h1><b>Grafovi</b></h1>
-<br />
-<br />
+
 <h2><b>Uvod</b></h2>
-<br />
-<b>Graf</b> G je uređena dvojka G=(V,E), gde V predstavlja skup čvorova, dok je E podskup dekartovog proizvoda VxV i označava skup grana.<br />
-Iako je graf formalno sačinjen od dva skupa, lakse nam je da graf predstavljamo vizuelno.
-<br /><br /><br />
+
+Mnoge situacije iz realnog života možemo predstaviti grafovima. Graf je apstraktna struktura podataka koja se sastoji od čvorova i grana(ivica) koje ih povezuju. Čvorovi, na primer, mogu da predstavljaju gradove, a grane puteve koji povezuju te gradove.<br> 
+<b>Graf</b> G je uređen par G=(V,E), gde V predstavlja skup čvorova, dok je E podskup dekartovog proizvoda \( V \times V\) i označava skup grana.<br>
+Primer jednog grafa je graf G=(V,E), gde je V={a,b,c,d}, a E={(a,b),(a,d),(b,d),(c,d)}.
+<br>
+Iako je graf formalno sačinjen od dva skupa, grafove možemo predstavljati i vizuelno.
+<br /><br />
 
 Primer: graf G=(V,E), gde je V={a,b,c,d}, a E={(a,b),(a,d),(b,d),(c,d)} ćemo predstavljati ovako:<br>
 <img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/graf_primer1.png" class="img-fluid img-sm">
 
 <br>
-Elementi skupa V se nazivaju <b>čvorovi</b> grafa, dok su elementi skupa E <b>grane</b> grafa. U zavisnosti od toga kako posmatramo grane grafa,grafovi mogu biti usmereni i neusmereni. Kod <b>usmerenih</b> grafova nam je bitno da svaku granu iz E posmetramo samo u jednom smeru, tj. bitno je koji je prvi čvor, a koji je drugi u grani, npr za <i>(u,v)</i> iz E kazemo da postoji grana iz čvora <i>u</i> ka čvoru <i>v</i>. Takođe, grafovi mogu biti i <b>neusmereni</b>, gde nam je bitno samo da postoji grana izmedju čvorova ne i od kog čvora ka kom čvoru.
+Elementi skupa V se nazivaju <b>čvorovi</b> grafa, dok su elementi skupa E <b>grane</b> grafa. U zavisnosti od toga kako posmatramo grane grafa, grafovi mogu biti usmereni i neusmereni. Grane <b>usmerenih</b> grafova su date kao uređeni parovi čvorova, tj. bitno je koji je prvi čvor, a koji je drugi u grani, ako \((u,v)\) pripada skupu E to znači da postoji grana iz čvora \(u\) ka čvoru \(v\),dok to ne povlači nužno da postoji grana iz čvora \(v\) ka čvoru \(u\). 
+Kod <b>neusmerenih</b> grafova grane su predstavljene neuređenim parovima čvorova, dakle jedino je bitno da li postoji grana izmedju para čvorova, a ne i od kog čvora ka kom čvoru.
 <br><br>
-Prethodni primer je ilustrovao neusmeren graf, pri čemu primetimo da je neusmeren graf specijalan slučaj usmerenog, ukoliko smatramo da je svaka grana i iz čvora <i>a</i> ka čvoru <i>b</i> i iz <i>b</i> ka <i>a</i>, dobijemo usmeren graf. To znači da je svaki neusmeren graf zapravo usmeren, dok nije svaki usmeren graf neusmeren, sledeca slika ilustruje primer jednog grafa koji je usmeren a nije neusmeren.
+
+Prethodni primer je ilustrovao neusmeren graf. Primetimo da
+je neusmeren graf specijalan slučaj usmerenog, ukoliko smatramo da
+grana \((a,b)\) predstavlja i granu iz čvora \(a\) ka čvoru \(b\) i granu iz čvora
+\(b\) ka čvoru \(a\).
+Dakle, svaki neusmeren graf se može razmotriti i kao usmeren, dok obrnuto ne važi. Na narednoj slici
+prikazan je primer grafa koji je usmeren a nije neusmeren.
 <br>
 <img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/usmerengraf.png" class="img-fluid img-sm">
 <br>
 Skupovi V i E za ovaj graf su: V={a,b,c,d,e},E={(a,e),(b,a),(b,c),(c,b),(c,d),(d,e)}
-<br>Primetimo da kod ovog grafa postoji i grana (b,c) i (c,b), dok smo u prethodnom primeru imali samo po jednu od njih, možda bi pravilnije bilo da kod neusmerenih grafova pišemo da je jedna grana oblika {b,c}, tj da nam grane ne predstavljaju uređene parove, već skupove od dva elementa, ali kad je iz konteksta jasno o kojoj vrsti grafa se radi, koristićemo oznake sa uređenim dvojkama.
+<br>
+Primetimo da u skupu grana E ovog grafa postoje i grana (b,c) i grana (c,b), dok smo u slučaju neusmerenog grafa mogli da imamo najviše jednu od njih. Pravilnije bi bilo da kod neusmerenih grafova grane zapisujemo u obliku {b,c}, tj.
+da nam grane ne predstavljaju uređene parove, već skupove od dva elementa. Međutim, kad je iz konteksta jasno o kojoj vrsti grafa se radi, koristićemo oznake sa uređenim parovima.
+
+
 <br><br>
 
-Čvor <i>v</i> zovemo <b>susedom</b> čvora <i>u</i> ukoliko postoji grana iz čvora <i>u </i>ka čvoru <i>v</i>.(Za neusmerene grafove bi bilo čvor <i>v</i> je sused od <i>u</i> ukoliko postoji grana izmedju njih). U prethodnom primeru susedi čvora <i>b</i> su čvorovi <i>a</i> i <i>c</i>.
+
+Čvor \(v\) zovemo <b>susedom</b> čvora \(u\) ukoliko postoji grana iz čvora \(u \)ka čvoru \(v\).Za neusmerene grafove važi da je čvor \(v\) je sused čvora \(u\) ukoliko postoji grana izmedju njih. U prethodnom primeru susedi čvora \(b\) su čvorovi \(a\) i \(c\).
 <br>
 <br>
 
-Kod usmerenih grafova postoje ulazne i izlazne grane, tj. za (u,v) iz E kazemo da je <b>ulazna</b> grana za čvor v, a <b>izlazna</b> za čvor u, kod neusmerenih grafova svaka grana bi bila i ulazna i izlazna. Ulazne i izlazne grane vidimo strelicama, tj. ulazna grana za neki čvor je ona grana koja strelicom "ulazi" u taj čvor dok izlazne predstavljaju one čija strelica "izlazi" iz tog čvora. Čvor e prethodnog grafa nema izlaznih grana, ali ima dve ulazne grane.
+Kod usmerenih grafova postoje ulazne i izlazne grane, tj. za (u,v) iz E kazemo da je <b>ulazna</b> grana za čvor v, a <b>izlazna</b> za čvor u. S obzirom na to da kod neusmerenih grafova nemamo usmerenja grana, granu \( (u,v) \) bismo razmatrali i kao ulaznu i kao izlaznu za oba čvora \(u\) i \(v\). Ulazne i izlazne grane označavamo strelicama, tj. ulazna grana za neki čvor je ona grana koja strelicom "ulazi" u taj čvor dok izlazne predstavljaju one čija strelica "izlazi" iz tog čvora. Čvor e prethodnog grafa nema izlaznih grana, ali ima dve ulazne grane.
 <br>
 <br>
 
 
-Za svaki čvor grafa definišemo broj koji nazivamo <b>stepen čvora</b>, i kažemo da je stepen čvora <i>u</i> iz V u oznaci <i>deg(u)</i> jednak broju ulaznih grana za čvor <i>u</i>. Stepen svakog čvora moze biti 0,1,2,... Svi čvorovi iz prethodnog primera imaju stepen 1.
+Za svaki čvor grafa \(u\in V\) definišemo njegov
+<b>stepen</b>, u oznaci \(deg(u)\), koji je jednak broju ulaznih grana za čvor \(u\).
+
+Svi čvorovi iz prethodnog primera imaju stepen 1.
+
+
+
 <br><br>
-<b>Put</b> je niz čvorova <i>a1,a2,...,an</i> tako da važi da su svi čvorovi medjusobno različiti i da postoji grana <i>(ai,ai+1)</i> za svako <i>i</i> od 1 do n-1. Primer jednog puta je niz <i>b,a,e</i>.
-<br><br>
-<b>Ciklusom</b> ćemo zvati niz čvorova <i>a1,a2,...,an,a1</i> tako da važi da su svi čvorovi medjusobno različiti osim prvog i poslednjeg koji su isti čvor, i da postoji grana <i>(ai,ai+1)</i> za svako i od 1 do n-1, i postoji grana <i>(an,a1)</i>. Jedini ciklus u prethodnom grafu je <i>b,c,b</i> ili <i>c,b,c</i> sto predstavlja isti ciklus.
 
+
+<b>Put</b> u grafu G je niz čvorova \(a_1,a_2,...,a_n\) tako da važi da su svi čvorovi medjusobno različiti i da postoji grana \((a_i,a_{i+1})\) za svako \(i\) od 1 do n-1. Primer jednog puta je niz \(b,a,e\).
+<br><br>
+
+
+<b>Ciklusom</b> u grafu ćemo zvati niz čvorova \(a_1,a_2,...,a_n,a_1\) tako da važi da su svi čvorovi medjusobno različiti osim prvog i poslednjeg koji predstavljaju isti čvor, i da postoji grana \((a_i,a_{i+1})\) za svako i od 1 do n-1, i postoji grana \((a_n,a_1)\). Jedini ciklus u prethodnom grafu je \(b,c,b\) ili \(c,b,c\) čime je predstavljen isti ciklus.
+
+
+<br>
 <h2> Reprezentacija grafa</h2>
+
+
+
+Do sada smo čvorove označavali slovima a,b,c... međutim zbog praktičnosti čvorove ćemo na dalje označavati brojevima 0,1,2... Dakle, nadalje ćemo smatrati da je skup čvorova oblika \(V={0,1,...,n-1}\), gde je n broj čvorova u grafu.
+
 <br><br>
-Do sada smo čvorove označavali slovima a,b,c... međutim zbog praktičnosti čvorove ćemo na dalje označavati brojevima 0,1,2... Ovim nismo promenili nista jer uvek mozemo da preimenujemo čvorove tako da neki od čvorova dobije ime 0 isto i za ostale čvorove,od sada ćemo uvek pretpostavljati da je skup svih čvorova oblika V={0,1,...,n-1}, gde je n broj svih čvorova.
-<br><br>
-Usmerene grafove možemo predstaviti na različite načine, kako je skup grana podskup VxV, jedan od prirodnih načina predstavljanja grafa je matricom povezanosti:
+Grafove možemo predstaviti na različite načine. Kako je skup grana podskup skupa \(V\times V\), jedan od prirodnih načina predstavljanja grafa je matricom povezanosti:
 
  <ul>
-  <li>čvorove označimo numerički od 0 do n-1 gde je n broj svih čvorova iz grafa</li>
-  <li>matrica povezanosti je matrica n x n gde se u ćeliji [i,j] nalazi 1 ukoliko postoji grana od čvora i do čvora j, a 0 ukoliko takva grana ne postoji</li>
+  <li>čvorove označimo brojevima od 0 do n-1 gde je n broj čvorova iz grafa</li>
+  <li>matrica povezanosti je matrica dimenzije n x n gde se u ćeliji [i,j] nalazi 1 ukoliko postoji grana od čvora i do čvora j, a 0 ukoliko takva grana ne postoji</li>
   
 </ul> 
+<br>
+Kako je kod neusmerenih grafova grana \((u,v)\) grana između ovih čvorova matrica povezanosti ce imati 1 i na poziciji [u,v] i na poziciji [v,u], odnosno matrica će biti simetrična.
 
 
 <br><br>
-Još jedan prirodan nacin je reprezentacija listama povezanosti:
+Drugi način predstavljanja grafa jeste listama povezanosti:
 <ul>
-	<li>čvorove označimo numerički od 0-n gde je n+1 broj svih čvorova iz grafa</li>
+	<li>čvorove označimo brojevima od 0 do n-1 gde je n broj svih čvorova iz grafa</li>
 	<li>za svaki čvor čuvamo povezanu listu njegovih suseda</li>
 
 
 </ul>
 
-<br>
-Ovim načinima možemo predstavljati i neusmerene grafove.
+
 <br><br>
  
 Primer: Graf iz prethodnog primera,samo sa preimenovanim čvorovima 
 <br>
 <img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/usmerengraf1.png" class="img-fluid img-sm">
 <br>
-Samo je čvor 3 sused 0, pa će kolona matrice povezanosti za ovaj graf koja odgovara čvoru nula biti {0,0,0,1,0}, za čvor 1 će biti {1,0,1,0,0}, itd, posto imamo 5 čvorova matrica će biti 5x5 i imaće ovaj oblik: 
+Samo je čvor 3 sused 0, pa će vrsta matrice povezanosti za ovaj graf koja odgovara čvoru nula biti {0,0,0,1,0}, za čvor 1 će biti {1,0,1,0,0}, itd, posto imamo 5 čvorova matrica će biti 5x5 i imaće ovaj oblik: 
 <table style="width:400px; max-width:98%" class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td></tr> <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 2 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td></tr> <tr><td style="background-color:#B0E0E6"> 3 </td><td> 0 </td><td> 0 </td><td>  0</td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 4 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> </table>
 
 <br><br>
-dok bi lista povezanosti za čvor 0 bila samo 3, za čvor 1 bi bila 0,2 itd, tj bila bi oblika {{3},{0,2},{1,4},{},{3}}, odnosno grafički:
+Prethodnu matricu možemo predstaviti i listom povezanosti.
+Kako iz čvora 0 postoji grana samo ka čvoru 3, lista za čvor 0 će biti {3}, dok iz čvora 1 postoje grane ka čvorovima 0 i 2 pa je lista koja odgovara čvoru 1  {0,2}. Lista povezanosti celog grafa je oblika {{3},{0,2},{1,4},{},{3}}.
+<br>
+Liste povezanosti možemo i grafički predstaviti na sledeći način:
 <table style="width:400px; max-width:98%" class = "tabela">
  <tr><td style="background-color:#B0E0E6"> 0 </td><td> 3 </td></tr> 
  <tr><td style="background-color:#B0E0E6"> 1 </td><td> 0 </td><td> 2 </td></tr> 
@@ -81,13 +114,16 @@ dok bi lista povezanosti za čvor 0 bila samo 3, za čvor 1 bi bila 0,2 itd, tj 
 
 
 <br>
-Matricu povezanosti ćemo čuvati kao niz nizova, dok ćemo listu povezanosti čuvati kao niz listi, sa sledećim znacenjem. Npr: matrica_povezanosti[0][3] nam čuva podatak da li postoji grana od čvora nula prema trojci, dok element sa tim indeksom u listi povezanosti uopste ni ne mora da postoji, lista[0] će biti lista suseda čvora 0, kako on može imati proizvoljan broj čvorova ne znamo kolika je duzina liste. Samim tim posto cuvamo manje podataka u listi povezanosti mozemo smatrati da je ona memoriski efikasnija u odnosu na matricu. Medjutim ima i matrica povezanosti prednosti u odnosu na listu, npr u konstantnom vremenu možemo proveriti da li grana (1,3) postoji u grafu, dok u listi moramo preći sve elemente iz liste povezanosti za čvor jedan, u praksi medjutim dosta zavisi od nasih potreba i koje operacije koristimo koliko često...
+Matricu povezanosti ćemo čuvati kao niz nizova, dok ćemo listu povezanosti čuvati kao niz listi, sa sledećim znacenjem. \(matrica_povezanosti[0][3]\) nam čuva podatak da li postoji grana od čvora 0 prema čvoru 3, dok element sa tim indeksom u listi povezanosti uopste ni ne mora da postoji.<br> \(lista[0]\) će biti lista suseda čvora 0, kako on može imati proizvoljan broj čvorova ne znamo kolika je duzina liste. 
+
+Samim tim pošto liste povezanosti u proseku sadrže manje informacija ova reprezentacija je memorijski efikasnija u odnosu na reprezentaciju matricom povezanosti.
+ Medjutim, neke operacije je efikasnije izvršiti kada je graf predstavljen matricom povezanosti, npr. u konstantnom vremenu možemo proveriti da li grana (1,3) postoji u grafu, dok u listi moramo u najgorem slučaju proći kroz sve elemente liste povezanosti za čvor 1. Dakle, izbor pogodne reprezentacije grafa zavisi od problema koji se rešava.
 <br><br>
 
-Grafovima možemo modelirati razne stvari, na primer čvorovi grafova mogu biti gradovi, a putevi između grane grafa, međutim u tim slučajevima ukoliko postoji grana izmedju grada Beograda ka npr Novom Sadu, i ka Nišu nama je nedovoljno informacija samo da znamo da postoji put ka tim gradovima, zato se uvode težinski grafovi koji omogucavaju da svakoj grani dodamo neku težinu, tj da npr naglasimo da od Beograda do Novog Sada ima 60km, a do Niša 240km tako što grani ka Novom sadu damo težinu 60, a grani ka Nišu damo težinu 240.
+Grafovima možemo modelirati razne stvari, na primer čvorovi grafova mogu biti gradovi, a putevi između grane grafa. Međutim u tim slučajevima ukoliko postoji grana izmedju grada Beograda ka npr Novom Sadu, i ka Nišu nama je nedovoljno informacija samo da znamo da postoji put ka tim gradovima. Zato se uvode težinski grafovi koji omogucavaju da svakoj grani dodamo neku težinu, tj. da naglasimo da od Beograda do Novog Sada ima 90km, a do Niša 240km tako što grani ka Novom sadu damo težinu 90, a grani ka Nišu damo težinu 240.
 <br><br>
 
-Sto se tiče reprezentacije težinskih grafova matricom povezanosti  umesto broja 1 možemo pisati težinu grane, a umesto nule neki broj koji se ne pojavljuje kao težina nijedne druge grane,najčesće se uzima ili 0 ili -1, pošto ćemo u narednim primerima razmatrati samo grafove sa strogo pozitivnim težinama. Dok listom povezanosti umesto da čuvamo samo suseda, čuvaćemo uredjeni par (a,b) gde je a sused do kog ide ta grana, dok b predstavlja težinu grane. 
+Težinske grafove možemo predstaviti matricom povezanosti tako što ako postoji grana između dva čvora umesto broja 1 pišemo težinu te grane, a ukoliko grana ne postoji pišemo neki broj koji se ne može javiti kao težina nijedne grane. Najčesće se u te svrhe bira vrednost 0 ili -1, pošto ćemo u narednim primerima razmatrati samo grafove sa strogo pozitivnim težinama grana. Težinske grafove možemo predstaviti i listama povezanosti, gde umesto da čuvamo samo oznaku suseda ka kome postoji grana iz datog čvora, čuvamo uredjeni par \((a,b)\) gde je \(a\) sused do kog ide ta grana, dok vrednost \(b\) predstavlja težinu grane.
 
 Primer neusmerenog težinskog grafa vidimo na sledećoj slici:
 <br>
@@ -98,7 +134,7 @@ Matrica povezanosti ovog grafa izgleda ovako:
 
 <table style="width:400px; max-width:98%" class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td><td> 5 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 60 </td><td> 200 </td><td> 0 </td><td> 30 </td><td> 150 </td></tr> 
-<tr><td style="background-color:#B0E0E6"> 1 </td><td> 60 </td><td> 0 </td><td> 110 </td><td> 0 </td><td> 0 </td><td> 0 </td></tr> 
+<tr><td style="background-color:#B0E0E6"> 1 </td><td> 60 </td><td> 0 </td><td> 110 </td><td> 400 </td><td> 0 </td><td> 0 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 2 </td><td> 200 </td><td> 110 </td><td> 0 </td><td> 50 </td><td> 0 </td><td> 0 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 3 </td><td> 0 </td><td> 400 </td><td> 50 </td><td>0 </td><td> 0 </td><td> 0 </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 4 </td><td> 30 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 40 </td></tr> 
@@ -109,7 +145,7 @@ Matrica povezanosti ovog grafa izgleda ovako:
 Dok bi lista povezanosti izgledala ovako:
 <table style="width:400px; max-width:98%" class = "tabela"> 
 <tr><td style="background-color:#B0E0E6"> 0 </td><td> (1,60) </td><td> (2,200) </td><td> (4,30) </td><td> (5,150) </td></tr> 
-<tr><td style="background-color:#B0E0E6"> 1 </td><td> (0,60) </td><td> (2,110) </td></tr> 
+<tr><td style="background-color:#B0E0E6"> 1 </td><td> (0,60) </td><td> (2,110) </td><td> (3,400) </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 2 </td><td> (1,200) </td><td> (2,110) </td><td> (3,50) </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 3 </td><td> (1,400) </td><td> (2,50) </td></tr> 
 <tr><td style="background-color:#B0E0E6"> 4 </td><td> (0,30) </td><td> (5,40) </td></tr> 

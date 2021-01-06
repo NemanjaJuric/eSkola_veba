@@ -1,0 +1,64 @@
+<h1> Nasleđivanje </h1>
+</br>
+
+  Nasleđivanje je jedna od najvažnijih osobina objektno orijentisanog programiranja. Ono omogućava kreiranje vrlo složenih klasa krećući se od osnovnih klasa, što olakšava kreiranje i održavanje aplikacije. Ovo takođe obezbeđuje mogućnost ponovnog korišćenja napisanog koda što ubrzava samo pisanje aplikacije.
+ </br>
+
+ Nasleđivanje je kreiranje novih klasa (<b>izvedenih klasa</b>) od postojećih klasa (<b>osnovnih </b> ili <b> baznih klasa</b>). Kreiranje novih klasa omogućava postojanje hijerarhije klasa koje simuliraju koncept klasa i potklasa iz stvarnog sveta. </br>
+ </br>
+Ako je klasa B <b> potklasa </b> (klasa potomak, izvedena klasa) klase A onda su svi potomci klase B istovremeno i potomci klase A.</br>
+Za klasu A kažemo da je <b> natklasa </b> (roditeljska klasa) klase B.
+</br>
+
+
+Prilikom nasleđivanja potklasa će naslediti sve iz bazne klase, eventualno promeniti nešto, i dodati svoje atribute i metode. Nasleđivanje je poznato i kod generalizacija. Natklasa predstavlja generalizaciju potklase, tj. potklasa je konkretizacija natklase. </br>
+</br>
+<b> Instance potklase su i instance natklase.</b> </br>
+</br>
+<h2> Primer </h2>
+
+Uzmimo za primer klasu Osoba koja u sebi ima atribute ime, prezime, matični broj i metod govori.
+  Klasa Osoba će nam biti bazna klasa, a iz nje ćemo izvesti klase Učenik, Student i Zaposleni. </br>
+  Klasa Učenik će da sadrži atribute ime, prezime, matični broj (nasleđeni atributi) i ime škole u koju ide,a od metoda će imati govori (nasleđena metoda) i uči. Klasi Student pored nasleđenih podataka ćemo dodati atribut ime fakulteta i metod uči, a klasi Zaposleni ime posla i metod ići na posao. Zatim iz klase Zaposleni možemo da izvedemo klasu Nastavnik za koju ćemo dodati atribut predmet.</br>
+  Instancu klase Nastavnik nazvaćemo A i ona će imati atribute ime, prezime, matični broj, ime posla, predmet i metode govori i ići na posao. Kako je A instanca klase Nastavnik on njoj pripada, ali kako ima ime, prezime, matični broj, ime posla, kao i metode govori i ići na posao on pripada klasi Zaposleni. Takođe vidimo da ima sve elemente klase Osoba, tj. ima ime, prezime, matični broj i metod govori pa pripada i njoj.</br>
+  
+  </br>
+<img src="courses/cpp/images/5.jpg" class="img-fluid img-sm"></br>
+  </br>
+
+  
+<h2> Proširivanje i specijalizacija </h2>
+  Nasleđivanje je korisno za proširivanje i specijalizaciju klasa.</br>
+ <b> Proširivanje </b> koristi nasleđivanje da se razviju klase od postojećih dodavanjem novih osobina, tj. dodavanjem polja i metoda. </br>
+  Na primer, imamo klasu Osoba koju proširimo u klasu Učenik sa atributom ime skole i metodom uči.</br>
+ <b> Specijalizacija </b> koristi nasleđivanje da se preciznije definiše ponašanje bazne klase. Potklase obezbeđuju specijalizovano ponašanje na osnovu zajedničkih elemenata koje obezbeđuje bazna klasa. </br>
+ Na primer, bazna klasa može da bude Student, a potklase koje obezbeduju specijalizovano ponašanje su klase StudentOsnovnihStudija, StudentMasterStudija i StudentDoktorskihStudija.</br>
+</br>
+
+
+Korišćenjem nasleđivanja pravimo hijerarhiju klasa. Ideja je da bazne klase sadrže najopštije podatke o svojim potklasama, a idući naniže u hijerarhiji dolazi do dodavanja dodatnih atributa i metoda i tako pravimo drvenoliku strukturu.</br>
+</br>
+
+<h2> Jednostruko i višestruko nasleđivanje </h2>
+
+  Postoji dve vrste nasleđivanja: jednostruko i višestruko.</br>
+  <b> Jednostruko nasleđivanje </b> znači da klasa može imati samo jednu natklasu. Tako je realizovan naš primer.</br>
+  <b>Višestruko nasleđivanje </b> je kada jedna klasa može da nasledi više klasa. Ovo nasleđivanje je dostupno u C++, za razliku od Jave i C#. Iako višestruko nasleđivanje na prvi pogled deluje kao jednostavno proširenje jednostrukog nasleđivanja, ono uvodi puno novih problema koji mogu značajno da uvećaju kompleksnost programa.</br>
+</br>
+
+<b> Problemi višestrukog nasleđivanja </b> </br>
+</br>
+Jedan od problema višestrukog nasleđivanja je dvosmislenost, koja se javlja u slučaju kada bazne klase sadrže metode sa istim nazivima. Drugi, mnogo ozbiljniji,je problem „dijamanta“ koji nastaje kada neka klasa nasleđuje osobine dve bazne klase, a te bazne klase su izvedene iz iste osnovne klase. Ovo vodi do pojave takozvanog dijamantskog oblika nasleđivanja.
+</br></br>
+ <img src="courses/cpp/images/6.jpg" class="img-sm ">
+</br></br>
+
+<h2>Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Šta je nasleđivanje i čemu služi? </br>
+Pitanje 2: Šta je proširivanje, a šta specijalizacija klasa? </br>
+Pitanje 3: Sta je jednostruko nasleđivanje? </br>
+Pitanje 4: Navesti primer višestrukog nasleđivanja. </br>
+Pitanje 5: Navesti probleme višestrukog nasleđivanja. </br>
+</div>
+</br>

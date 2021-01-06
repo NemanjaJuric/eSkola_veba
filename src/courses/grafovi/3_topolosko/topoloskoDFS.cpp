@@ -28,13 +28,11 @@ void topoloskoDFS(){
 
     //Jos samo da okrenemo vektor DFSraspored
     int n=DFSraspored.size()-1;
+    cout<<"Topolosko sortiranje DFS-om: ";
     for(int i=0;i<n;i++){
         cout<<DFSraspored[n-i]<<" -> ";
     }
     cout<<DFSraspored[0]<<endl;
-
-    
-
 
 }
 

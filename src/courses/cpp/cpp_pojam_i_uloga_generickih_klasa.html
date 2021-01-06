@@ -1,0 +1,251 @@
+<h1>Pojam i uloga generičkih klasa </h1>
+</br>
+U računarstvu, <b>generičko programiranje</b> je tehnika koja dozvoljava da jedna promenljiva može čuvati različite tipove podataka sve dok su zadovoljeni određeni uslovi.</br>
+Dakle, dozvoljava nam stvaranje funkcija i klasa koje ne zavise od tipa.
+</br></br>
+Pod pojmom generičkog programiranja podrazumeva se izrada programskog koda koji se u nepromenjenom obliku može primeniti na različite tipove podataka (int, double, string,...)
+</br></br>
+Na primer, ukoliko želimo da napravimo listu koristeći generičnost, moguća deklaracija bi bila <span class = "primer_text">List < T ></span>, gde T predstavlja vrstu podatka, na primer <span class = "primer_text">int</span>. Prema listi se zatim postupa kao prema listi onog tipa podatka koji je naveden. Od objektno orijentisanih programskih jezika, programski jezici C++, BETA, Eiffel, Ada i neke verzije Jave (1.5 i novije) podržavaju generičke tipove podataka.
+</br></br>
+<h2>Prednosti generičkog programiranja</h2>
+<ul>
+<li>ponovna upotrebljivost koda,</li>
+<li>izbegavanje preopterećenja koda funkcijama,</li>
+<li>jednom napisan kod se može koristiti više puta u različitim slučajevima.</li>
+</ul>
+Na primer, softverskoj kompaniji će možda trebati metod za sortiranje različitih tipova podataka. Umesto da pišemo i održavamo više kodova, možemo da napišemo jednom metod <span class = "primer_text">sort()</span> i prosledimo tip podatka koji želimo da sortiramo.</br></br>
+<h2>Šabloni</h2>
+<b>Šabloni (template)</b> predstavljaju osnovu za generičko programiranje.</br>
+Šablon je zapravo formula ili recept za stvaranje klase ili funkcije. Oni omogućavaju da definišemo ponašanje koje možemo primeniti na objekte različitih tipova. Postoje <b>funkcijski šabloni</b> i <b>šabloni klase</b>.
+<h2>Deklaracija šablona</h2>
+Deklaraciju šablona započinjemo upotrebom ključne reči <span class = "primer_text">template</span> koja označava početak deklaracije šablona, koju prati lista parametara šablona. Ova lista parametara sadrži ključnu reč <span class = "primer_text">typename</span>, koja definiše parametar šablona (objectType), čineći ga rezervisanim mestom za tip objekta za koji je šablon instanciran.
+</br></br>
+<b>Primer deklaracije šablona</b>
+</br></br>
+<span class = "primer_text">
+template < listaParametara >  </br>
+funkcijaSablona/klasaSablona 
+</span>
+</br></br>
+Sledeći primer prikazuje funkciju šablona i klasu šablona u C++: Obe koriste dva parametra šablona T1 i T2.
+<xmp class="primer_ta">
+//funkcija sablona 
+template < typename T1, typename T2 > 
+bool sablonFunkcija (const T1& parametar1, const T2& parametar2);
+</xmp>
+<xmp class="primer_ta">
+//klasa šablona 
+template < typename T1,typename T2 >
+
+class SablonKlasa {
+    private:
+        T1 clan1;
+        T2 clan2;
+    public:
+        T1 getClan1() {
+            return clan1;
+        }
+        T2 getClan2() {
+            return clan2;
+        }
+};
+</xmp>
+Postoje različiti tipovi deklaracija šablona:
+<ul>
+<li>deklaracija ili definicija funkcije,</li>
+<li>deklaracija ili definicija klase,</li>
+<li>definicija funkcije člana ili klase člana šablona klase,</li>
+<li>definicija člana statičkog podatka šablona klase, </li>
+<li>definicija člana statičkog podatka klase koja je ugnježdena unutar šablona klase,</li>
+<li>definicija šablona člana klase ili šablona klase.</li>
+</ul>
+</br>
+<h2>Funkcije šablona</h2>
+Zamislimo da imamo funkciju koja određuje maksimum od dva broja (cela, realna, znakovna, kompleksna,…). Bez generičkog mehanizma trebalo bi pisati po jednu funkciju ili klasu za svaki od tipova podataka.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+char max(char a, char b) {
+    return (a > b) ? a : b;
+}
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+double max(double a, double b) {
+    return (a > b) ? a : b;
+}
+</xmp>
+Međutim, koristeći šablone možemo napisati funkciju koja se može prilagoditi tako da odgovara parametrima različitih tipova.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+include <iostream>
+using namespace std;
+
+template <typename T>
+const T& Maximum(const T& a, const T& b) {
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+int main() {
+
+    int brInt1 = 57;
+    int brInt2 = 35;
+    int maxVrednostInt = Maximum<int>(brInt1, brInt2);
+
+    double brDouble1 = 2.39;
+    double brDouble2 = 8.01;
+    double maxVrednostDouble = Maximum<double>(brDouble1, brDouble2);
+
+    cout << ”Max int: ” << maxVrednostInt << endl;
+    cout << ”Max double: ” << maxVrednostDouble << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Max int: 57
+Max double: 8.01
+</xmp>
+Pogledajmo detalj <span class = "primer_text">< int ></span> koji je upotrebljen u pozivu funkcije <span class = "primer_text">Maximum</span>. On efikasno definiše parametar šablona <span class = "primer_text">T</span> kao <span class = "primer_text">int</span>. Prethodni kod dovodi do toga da kompajler generiše dve verzije funkcije šablona <span class = "primer_text">Maximum</span>:
+<xmp class="primer_ta">
+const int& Maximum (const int& a, const int& b) {
+    //...
+}
+const double& Maximum (const double& a, const double& b) {
+    //...
+}
+</xmp>
+Međutim, u stvarnosti funkcije šablona ne moraju obavezno da sadrže identifikator tipa. Dakle, sledeći poziv funkcije takođe odlično funkcioniše:
+<xmp class="primer_ta">
+int maxVrednostInt = Maximum(brInt1, brInt2);
+</xmp>
+Kompajleri su u ovom slučaju dovoljno “inteligentni” da razumeju da je funkcija šablona pozvana za tip celog broja. Međutim, za klase šablona treba eksplicitno da specifikujemo tip, o čemu će u nastavku biti reči.</br></br>
+<h2>Klase šablona</h2>
+Ranije smo naučili da su klase programske jedinice koje kapsuliraju određene atribute i metode koje vrše operacije nad konkretnim atributima. Atributi su, obično privatni članovi, kao na primer <span class = "primer_text">mesecnaZarada</span> u klasi <span class = "primer_text">Osoba</span>. Klase su zapravo nacrti objekta, a reprezentacija klase u stvarnom svetu je objekat klase.</br></br>
+Klase šablona su šablonske verzije C++ klasa. One su nacrti nacrta. Kada koristimo klasu šablona, data nam je opcija da specifikujemo tip za koji specijalizujemo klasu. </br>
+Jednostavna klasa šablona koja koristi jedan parametar <span class = "primer_text">T</span> za čuvanje promenljive člana može biti napisana na sledeći način:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+include <iostream>
+using namespace std;
+
+template <typename T>
+class PrimerKlase {
+    private:
+        T vrednost;
+    public:
+        void SetVrednost (const T& novaVrednost) {
+            vrednost = novaVrednost;
+        }
+        T& GetVrednost () {
+            return vrednost;
+        }
+};
+
+int main() {
+
+    PrimerKlase<int> objekat1;
+    objekat1.SetVrednost(8);
+
+    cout << ”Vrednost je: ” << objekat1.GetVrednost() << endl; 
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Vrednost je: 8
+</xmp>
+Ovu klasu šablona smo upotrebili za čuvanje objekta tipa <span class = "primer_text">int</span>, odnosno, klasa je instancirana za parametar šablona tipa <span class = "primer_text">int</span>. Slično tome, možemo upotrebiti istu klasu za znakovne nizove karaktera.
+<xmp class="primer_ta">
+PrimerKlase<char*> objekat2;
+objekat1.SetVrednost(”String”);
+cout << ”Vrednost je: ” << objekat2.GetVrednost() << endl; 
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Vrednost je: String
+</xmp>
+Prema tome, klasa šablona definiše šablon za klase i pomaže u implementiranju tog šablona u različite tipove podataka sa kojima on može da bude instanciran.</br>
+Klase šablona mogu da budu instancirane pomoću drugih tipova (osim jednostavnih kao što je npr. <span class = "primer_text">int</span>) ili klasa koje su sadržane u standardnoj biblioteci. Možemo instancirati šablon koristeći klasu koju smo mi definisali.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+PrimerKlase<Osoba> covek;
+covek.SetVrednost(prviCovek);
+covek.GetVrednost().predstaviSe();
+</xmp>
+</br>
+Lista parametara šablona može biti proširena tako da deklariše više parametara koji su razdvojeni zarezima. Dakle, ukoliko želimo da deklarišemo generičku klasu koja čuva dva objekta koji mogu da budu različitog tipa, možemo to uraditi koristeći strukturu kao što je sledeća:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+include <iostream>
+using namespace std;
+
+template <typename T1, typename T2>
+    class PrimerKlase2 {
+        private:
+            T1 vrednost1;
+            T2 vrednost2;
+        public:
+            //konstruktor
+            PrimerKlase2(const T1& vr1, const T2& vr2) {
+                vrednost1 = vr1;
+                vrednost2 = vr2;
+            }
+            const T1& GetPrvi() const {
+                return vrednost1;
+            }
+            const T2& GetDrugi() const {
+                return vrednost2;
+            }
+};
+
+int main() {
+
+    PrimerKlase2 <int, double> parIntDouble(3, 19.21);
+    PrimerKlase2 <int, int> parIntInt(3, 80);
+    PrimerKlase2 <double, char*> parDoubleChar(32.97, ”Programski jezik C++”);
+
+    cout << ”Par (int, double): (” << parIntDouble.GetPrvi() << ”, ” << parIntDouble.GetDrugi() << ”)” << endl; 
+    cout << ”Par (int, int): (” << parIntInt.GetPrvi() << ”, ” << parIntInt.GetDrugi() << ”)” << endl;
+    cout << ”Par (double, char*): (” << parDoubleChar.GetPrvi() << ”, ” << parDoubleChar.GetDrugi() << ”)” << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Par (int, double): (3, 19.21)
+Par (int, int): (3, 80)
+Par (double, char*): (32.97, Programski jezik C++)
+</xmp>
+</br>
+<b>Deklarisanje šablona pomoću standardnih parametara</b>
+</br></br>
+Možemo da modifikujemo prethodnu verziju <span class = "primer_text">PrimerKlase2 <...></span> tako da deklariše tip <span class = "primer_text">int</span> kao podrazumevani standardni tip parametra šablona.
+<xmp class="primer_ta">
+template <typename T1 = int, typename T2 = int>
+class PrimerKlase2 {
+    //deklaracija klase		
+};
+</xmp>
+Upotreba prethodne klase:
+<xmp class="primer_ta">
+PrimerKlase2 <> parIntInt(3, 80);
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavlja generičko programiranje?</br>
+  Pitanje 2: Koje su prednosti korišćenja generičkog programiranja?</br>
+  Pitanje 3: Navesti nekoliko primera gde generičko programiranje doprinosi efektivnosti programa.</br>
+  Pitanje 4: Šta predstavljaju šabloni?</br>
+  Pitanje 5: Šta predstavljaju funkcije šablona?</br>
+  Pitanje 6: Šta predstavljaju klase šablona?</br></br>
+  Zadatak 1: Napisati C++ program koji ilustruje rad klase Pravougaonik koja od atributa poseduje dužu i kraću stranicu. Klasa treba da sadrži metode za računanje obima i površine pravougaonika. Koristiti generičko programiranje. Program testirati sa različitim tipovima dužine stranica (na primer: int i double).</br>
+  Zadatak 2: Implementirati funkciju šablona za funkciju swap koja menja vrednosti dvema promenljivama.
+</div>
+</br>

@@ -1,0 +1,297 @@
+<h1>Uloga i vrste konstruktora </h1>
+<h2>Uloga konstruktora</h2>
+Da bismo prilagodili način inicijalizacije članova klase ili pozvali metode kada je kreiran objekat klase, moramo definisati konstruktor. Konstruktor ima isto ime kao klasa i nema povratnu vrednost.</br>
+Možemo definisati više konstruktora u okviru jedne klase koji će biti namenjeni za potrebne inicijalizacije. </br>
+Tipično, konstruktori imaju javnu dostupnost tako da izvan definicije klase ili hijerarhije nasleđa mogu da inicijalizuju objekte klase. Ali, konstruktor takođe možemo proglasiti zaštićenim (protected) ili privatnim (private).</br></br>
+<h2>Vrste konstruktora</h2>
+Razmotrićemo jedan primer iz stvarnog života koji će nam pomoći u razumevanju različitih tipova konstruktora u C++.</br>
+Pretpostavimo da smo otišli u knjižaru da kupimo marker. Koje opcije postoje kada želimo da kupimo isti?
+</br></br>
+Prva je da uđemo u radnju i kažemo “Dajte mi marker”, što znači da nismo spomenuli ime marke, boju i slično. Dakle, kada smo samo rekli da hoćemo marker, ma koje god vrste marker bio u radnji, prodavac će nam ga dati. Ovo je podrazumevani konstruktor.
+</br>
+Drugi način je da odemo u prodavnicu i tražimo marker crvene boje i marke “Stabilo”. Dakle, na neki način smo konkretizovali kakav marker želimo i prodavac će nam dati takav marker. Drugim rečima, u ovom slučaju smo dali parametre. Ovo je parametarski konstruktor.
+</br>
+Treći način je da odemo u prodavnicu i kažemo da želimo ovakav marker, pokazujući marker u ruci. Na taj način će prodavac videti željeni marker i dati nam isti. Dakle, ovo je kopija markera koji mi posedujemo. I to je ono što je konstruktor kopiranja.
+</br></br>
+Dakle, u programskom jeziku C++ postoje tri osnovne <b>vrste konstruktora</b>:
+<ul>
+<li> podrazumevani konstruktor </li>
+<li> parametarski konstruktor </li>
+<li> konstruktor kopije </li>
+</ul></br>
+<h2>Podrazumevani konstruktor</h2>
+Konstruktor bez ikakvih argumenata ili sa podrazumevanom vrednošću za svaki argument se naziva <b>podrazumevani konstruktor</b>.</br>
+Podrazumevani konstruktor postoji samo ako u klasi nije definisan ni jedan drugi konstruktor. Definisanjem drugog konstruktora se suspenduje podrazumevani  konstruktor.</br>
+Ali, iako su prisutni neki definisani konstruktori, korisnik i dalje može forsirati automatsko generisanje podrazumevanog konstruktora od strane kompajlera, što se obavlja na sledeći način:
+</br></br>
+<span class = "primer_text">
+imeKlase() = default;
+</span>
+</br></br>
+Takođe, možemo sprečiti kompajler da generiše podrazumevani konstruktor, što se obavlja na sledeći način:</br></br>
+<span class = "primer_text">
+imeKlase() = delete;
+</span>
+</br></br>
+<b>Koji je značaj podrazumevanog konstruktora?</b> </br>
+Ukoliko ne definišemo nijedan konstruktor eksplicitno, kompajler će automatski implicitno generisati podrazumevani konstruktor. </br></br>
+<b>Primer podrazumevanog konstruktora:</b> U ovom slučaju, čim se objekat kreira, poziva se podrazumevani konstruktor koji inicijalizuje članove podataka.
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+class Trougao {
+    public:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+        
+        Trougao() {
+            stranicaA = 10;
+            stranicaB = 13;
+            stranicaA = 8;
+        }
+};
+
+int main() {
+
+    Trougao t;
+    
+    cout  << ”a = ” << t.stranicaA << ”, b = ” << t.stranicaB << ”, c = ” << t.stranicaC << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+a = 10, b = 13, c = 8
+</xmp>
+</br>
+Podrazumevani konstruktor može imati prazno telo. On će inicijalizovati članove podataka objekta na podrazumevanu vrednost. U ovom slučaju to može biti nula ili bilo koja slučajno odabrana celobrojna vrednost. </br></br>
+Ako se od klase ne zahteva da inicijalizuje svog člana ili ne sadrži članove podataka, onda nema potrebe za eksplicitnim pisanjem konstruktora koji ima prazno telo. Za stvaranje objekta klase, podrazumevani konstruktor implicitno pozvan biće dovoljan. Ali, u nekim situacijama moramo napisati isti, sve zavisi od zahteva.</br></br>
+<b>Primer podrazumevanog konstruktora:</b> U ovom slučaju, pozvaće se podrazumevani konstruktor koji nema parametre i ima prazno telo. Neka je podrazumevana vrednost nula.</br>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+    
+class Trougao {
+    public:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+        
+        Trougao() { 
+        }
+};
+
+int main() {
+
+    Trougao t;
+    
+    cout  << ”a = ” << t.stranicaA << ”, b = ” << t.stranicaB << ”, c = ” << t.stranicaC << endl;
+    
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta" >
+a = 0, b = 0, c = 0
+</xmp>
+</br>
+<h2>Parametarski konstruktor</h2>
+Konstruktorima je moguće proslediti argumente. Ti argumenti obično pomažu u inicijalizaciji objekta koji je kreiran. Da bismo kreirali parametarski konstruktor, treba da dodamo parametre na način na koji bismo ih dodali bilo kojoj drugoj funkciji. Kada definišemo telo konstruktora, parametre koristimo za inicijalizaciju objekta.</br>
+Korišćenjem ovog konstruktora možemo članovima podataka različitih objekata pružiti različite vrednosti prosleđivanjem odgovarajućih vrednosti argumenata.</br></br>
+<b>Primer parametarskog konstruktora</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+    
+class Trougao {
+    public:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+        
+        Trougao(int strA, int strB, int strC) {
+            stranicaA = strA;
+            stranicaB = strB;
+            stranicaC = strC;
+        }
+};
+
+int main() {
+
+    Trougao t(10,13,8);
+
+    cout  << ”a = ” << t.stranicaA << ”, b = ” << t.stranicaB << ”, c = ” << t.stranicaC << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+a = 10, b = 13, c = 8
+</xmp>
+Ukoliko postavimo da su atributi klase privatni, moramo implementirati funkcije getter-a (o kojima je bilo reči u prethodnim lekcijama)</br>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        Trougao(int strA, int strB, int strC) {
+            stranicaA = strA;
+            stranicaB = strB;
+            stranicaC = strC;
+        }
+        int getA() {
+            return stranicaA;
+        }
+        int getB() {
+            return stranicaB;
+        }
+        int getC() {
+            return stranicaC;
+        }
+};
+
+int main() {
+
+    Trougao t(10,13,8);
+
+    cout  << ”a = ” << t.getA() << ”, b = ” << t.getB() << ”, c = ” << t.getC() << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+a = 10, b = 13, c = 8
+</xmp></br>
+Postoje i <b>konstruktori sa listama pokretanja</b>. Naime, to je još jedan način za inicijalizaciju članova.
+Listu pokretanja karakteriše dvotačka (:), praćena deklaracijom parametara sadržanih u zagradama (…), pojedinačnom promenljivom članom klase i vrednošću kojom je ona inicijalizovana.</br> 
+Ova vrednost inicijalizacije može biti parametar, kao sto je npr. stranicaA, ili može biti neka fiksna vrednost.</br></br>
+Liste pokretanja mogu biti korisne u pozivanju konstruktora osnovne klase pomoću specifičnih argumenata, što se primenjuje u implementiranju nasleđivanja, o čemu će kasnije biti reči.</br></br>
+<b>Primer konstruktora koji koristi liste pokretanja</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+        
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        Trougao(int strA, int strB, int strC) 
+            :stranicaA(strA), stranicaB(strB), stranicaC(strC) {
+        }
+        int getA() {
+            return stranicaA;
+        }
+        int getB() {
+            return stranicaB;
+        }
+        int getC() {
+            return stranicaC;
+        }
+};
+
+int main() {
+
+    Trougao t(10,13,8);
+
+    cout  << ”a = ” << t.getA() << ”, b = ” << t.getB() << ”, c = ” << t.getC() << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+a = 10, b = 13, c = 8
+</xmp></br>
+<h2>Konstruktor kopije</h2>
+<b>Konstruktor kopije</b> je funkcija koja inicijalizuje objekat koristeći drugi objekat iste klase. Ako su članovi naše klase jednostavni tipovi kao što su skalarne vrednosti, dovoljan je konstruktor kopije koji generiše kompajler i ne moramo definisati svoj.</br>
+Međutim, ukoliko naša klasa zahteva složeniju inicijalizaciju, tada moramo primeniti prilagođeni konstruktor kopije.</br></br>
+Na primer, ukoliko je član klase pokazivač, tada treba definisati konstruktor kopije kako bismo dodelili novu memoriju i kopirali vrednosti iz drugog ukazanog objekta.</br>
+Konstruktor kopije generisan od strane kompajlera jednostavno kopira pokazivač, tako da novi pokazivač i dalje pokazuje na memorijsku lokaciju drugog.</br></br>
+Konstruktor kopije ima sledeću sintaksu:</br></br>
+<span class = "primer_text">
+imeKlase (const imeKlase &prviObjekat);
+</span></br></br>
+<b>Primer konstruktora kopije</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+        
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        //parametarski konstruktor
+        Trougao(int strA, int strB, int strC) {
+            stranicaA = strA;
+            stranicaB = strB;
+            stranicaC = strC;
+        }
+        //konstruktor kopije
+        Trougao(const Trougao &prviTrougao) {
+            stranicaA = prviTrougao.stranicaA;
+            stranicaB = prviTrougao.stranicaB;
+            stranicaC = prviTrougao.stranicaC;
+        }
+        int getA() {
+            return stranicaA;
+        }
+        int getB() {
+            return stranicaB;
+        }
+        int getC() {
+            return stranicaC;
+        }
+};
+
+int main() {
+
+    //poziv parametarskog konstruktora
+    Trougao t1(10,13,8);
+
+    //poziv konstruktora kopije
+    Trougao t2 = t1;
+
+    cout  << ”Trougao t1: a = ” << t1.getA() <<”, b = ” << t1.getB() << ”, c = ” << t1.getC() << endl;
+
+    cout  << ”Trougao t2: a = ” << t2.getA() <<”, b = ” << t2.getB() << ”, c = ” << t2.getC() << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Trougao t1: a = 10, b = 13, c = 8
+Trougao t2: a = 10, b = 13, c = 8
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Nabrojati vrste konstruktora.</br>
+  Pitanje 2: Koja je uloga podrazumevanog konstruktora? Detaljno opisati način funkcionisanja.</br>
+  Pitanje 3: Detaljno opisati parametarski konstruktor.</br>
+  Pitanje 4: U kojim situacijama se koristi konstruktor kopije?</br>
+  Pitanje 5: Da li uvek treba implementirati konstruktor kopije?</br>
+  Pitanje 6: Zašto parametri konstruktora kopije koriste izvor kopije po referenci?</br>
+  Pitanje 7: U kojim slučajevima je pogodno koristiti konstruktore sa listama pokretanja?
+</div>
+</br>

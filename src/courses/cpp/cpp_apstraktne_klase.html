@@ -1,0 +1,149 @@
+<h1> Apstraktne klase </h1>
+
+</br>
+  Postoje situacije u kojima virtualna metoda u baznoj klasi ne može da uradi nešto što bi imalo smisla i tada se sve zapravo odradi u
+izvedenim klasama. Takva virtualna metoda zove se <b>čisto virtualna metoda</b> ili <b>apstraktna</b>.
+Čisto virtualna metoda je prazna metoda, tj. metoda koja nema implementaciju, dakle nema telo (čak ni prazno telo) </br>
+U C++ čista virtualna klasa se deklariše tako što se iza naslova doda = 0. 
+<xmp class = "primer_ta">
+virtual int f1() = 0; 
+</xmp> </br>
+  Klasa koja sadrži bar jednu čisto virtualnu metodu zove se <b>apstraktna klasa</b>. </br>
+Apstraktne klase definišu potpise metoda za ponašanja koja su zajednička i koje potklase treba da implementiraju ako su virtualne i
+definišu podatke koji su zajednički, korisni za sve potklase. </br>
+
+</br>
+
+  Apstraktna klasa se <b>ne može</b> instancirati, tj. ne može se napraviti objekat apstraktne klase! Moguće je međutim koristiti
+pokazivač na apstraktnu klasu.
+  </br>
+
+  Potklasa apstraktne klase:
+  <ul>
+    <li>
+      Može realizovati sve apstraktne metode i u tom slučaju ona postaje konkretna klasa.
+    </li>
+    <li>
+      Ne mora realizovati apstraktne metode i u tom slučaju postaje apstraktna.
+    </li>
+    </ul>
+</br>
+
+Klase koje se nalaze na vrhu hijerarhije najčešće su apstraktne klase, dok su klase koje su na dnu hijerarhije obično konkretne klase.</br>
+</br></br>
+<b>Primer </b>
+<xmp class = "primer_ta">
+//kod napisan u programskom jeziku C++
+#include <iostream>
+#include <string>    
+using namespace std;
+    
+class Osoba{
+    public:
+        Osoba(string i, string p, long mB){
+            ime = i;
+            prezime = p;
+            maticniBroj = mB;
+        }
+        virtual string predstaviSe() = 0;
+        ~Osoba(){
+            cout << "Destruktor osobe" << endl;
+        }
+    protected:
+        string ime;
+        string prezime;
+    private:
+        long maticniBroj;
+};
+class Ucenik: public Osoba{
+    public:
+        Ucenik(string i, string p, long mB, string sk){
+            Osoba(i,p,mB);
+            imeSkole=sk;
+        }
+        string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << " i ucenik sam skole " << imeSkole << "." << endl;
+        }
+        void uci(){}
+        ~Ucenik(){
+            cout << "Destruktor ucenika" << endl;
+        }
+    private:
+        string imeSkole;
+};
+class Zaposleni: public Osoba{
+    public:
+        Zaposleni(string i, string p, long mB, string imeP){
+            Osoba(i,p,mB);       
+            imePosla = imeP;
+        } 
+        void iciNaPosao(){}
+        //Nema deklaraciju metode predstaviSe() pa se smatra apstraktnom klasom
+        ~Zaposleni(){
+            cout << "Destruktor zaposlenog" << endl;
+        }
+    private:
+        string imePosla;
+};
+class Profesor: public Zaposleni{
+    public:
+        Profesor(string i, string p, long mB, string imeP){
+            Zaposleni(i,p,mB,"profesor");
+            imePredmeta = imeP;
+        }
+        string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << ", radim kao profesor i predajem predmet" << imePredmeta << "." << endl;
+        }
+        ~Profesor(){
+            cout << "Destruktor profesora" << endl;
+        }
+    private:
+        string imePredmeta;
+};
+
+int main(){
+
+    Osoba* o = new Ucenik("Jovan", "Jovanovic",25041998772017, "Dr Andra Jovanovic");
+    Ucenik u("Ana", "Anic", 0602008777027, "Nikolaj Velimirovic");
+    Zaposleni* z= new Profesor("Sonja", "Srdanovic", 0606996565210, "matematika");
+    Profesor p("Marko", "Markovic", 0606996565210, "fizika");
+                                                            
+    o->predstaviSe();
+    u.predstaviSe();
+    z->predstaviSe();
+    p.predstaviSe();
+            
+    delete o;
+    delete z;
+            
+    return 0;  
+}
+      
+</xmp>
+</br>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Ja sam Jovan Jovanovic i ucenik sam skole Dr Andra Jovanovic. 
+Ja sam Ana Anic i ucenik sam skole Nikolaj Velimirovic.
+Ja sam Sonja Srdanovic, radim kao profesor i predajem predmet matematika.
+Ja sam Marko Markovic, radim kao profesor i predajem predmet fizika.
+Destruktor ucenika.
+Destruktor osobe.
+Destruktor profesora.
+Destruktor zaposlenog.
+Destruktor osobe.
+
+</xmp>
+</br>
+<h2> Pitanja i zadaci </h2> 
+<div class="zadatak">
+Pitanje 1: Šta je apstraktna metoda?  </br>    
+Pitanje 2: Šta je apstraktna klasa? </br>
+Pitanje 3: Da li se može napraviti instanca apstraktne klase? </br>
+Pitanje 4: Kakva je potklasa apstraktne klase koja ne realizuje apstraktnu metodu? </br>
+</br>
+Zadatak 1. U C++ napisati baznu klasu Oblik i u njoj virtualnu metodu int obim() i uređeni par int-ova koji predstavljaju koordinate centra. Zatim dodati klase Krug, Trougao i Pravougaonik koje nasleđuju Oblik i koje sadrže potrebne elemente za računanje obima (određen broj stranica) i realizovanu funkciju obim().
+</div>
+</br>
+
+

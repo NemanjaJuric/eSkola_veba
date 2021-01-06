@@ -1,0 +1,58 @@
+<h1> Statički i dinamički polimorfizam </h1>
+
+
+<h2> Statičko vezivanje </h2>
+
+  <b> Statičko vezivanje</b> je <b>”odlučivanje”</b> koja će metoda biti pozvana u vreme prevođenja.
+  Naime, pretpostavimo da postoje dve metode sa istim imenom u istoj klasi koje se razlikuju po broji i/ili tipu argumenata.
+  Odluka o tome koja će od ove dve metode biti pozvana može se doneti u fazi prevođenja i to tako što se izvrši poređenje tipova argumenata.
+  Ukoliko postoji dvosmislenost onda prevodilac javlja grešku. Takođe, ako ne postoji metod sa datim imenom u izvedenoj klasi onda se
+  on traži u baznoj klasi.</br>
+Na osnovu ovog može se steći utisak da je to dovoljno i da se sve može razrešiti statički. Međutim, programski jezik C++
+omogućava dodatnu fleksibilnost, tj. dinamičko vezivanje.</br>
+</br>
+<h2>Dinamičko vezivanje </h2>
+ </br> 
+<b>Dinamičko vezivanje</b> je <b>”odlučivanje”</b> koja će metoda biti pozvana u vreme izvršavanja programa. C++ omogućuje pokazivačima na baznu klasu da dobiju vrednost pokazivača na objekte izvedenih klasa.
+Dakle, može se napisati sledeće: </br>
+</br>
+ <span class = "primer_text">A* pok_bazna=new B;</span> </br>
+</br>
+ Kreira se objekat tipa B i vraća se pokazivač na taj objekat koji se dodeljuje pokazivaču na A. Ovaj pokazivač se zatim može koristiti
+za pozivanje bilo kog metoda iz A. Isto važi i za reference. Možemo primetiti da je dozvoljeno dodeljivanje objektu bazne
+klase objektat izvedene klase. U tom slučaju se odbacuje sve ono što je dodato u odnosu na baznu klasu. Obrnuta operacija nije
+dozvoljena jer deo objekta ostaje neinicijalizovan. </br>
+</br>
+
+  <h2>Primer</h2>
+  
+ U prethodnoj lekciji smo definisali baznu klasu Osoba i iz nje izveli klase Učenik, Student i Zaposleni.
+Zatim smo formirali niz pokazivača na klasu Osoba kojima, u zavisnosti od situacije, dodeljujemo da pokazuju na različite Osobe, Učenike,
+Studente i Zaposlene. Izvedene klase su predefinisale metodu predstaviSe() klase Osoba i pri pozivanju metode, uz pomoć pokazivača na Osobu,
+bivaju pozvane metode iz odgovarajućih izvedenih klasa, tj. svako je predstavljao sebe sa svim informacijama o sebi. </br>
+Kada bismo napravili objekat klase Osoba i pokušali da je dodelimo objektu iz klase Učenik došlo bi do greške jer nemamo informaciju u koju
+školu ide. </br>
+  </br>
+
+Ukoliko u izvedenim klasama jedne bazne klase imamo metode koje su predefinisale neke metode bazne klase onda bi bilo poželjno da
+prevodilac prepozna na koju smo izvedenu klasu mislili. Da bi se pozivi metoda razrešavali dinamički, neophodno
+je da koristimo pokazivač ili referencu na objekat izvedene klase. Tada možemo da biramo da li da se vezivanje vrši
+statički ili dinamički. Da bi se vršilo dinamičko vezivanje neophodno je da odgovarajuće metode deklarišemo kao virtuelne, o čemu će biti reči u narednim lekcijama. </br>
+</br>
+  <h2> Statički i dinamički polimorfizam </h2>
+
+  Ova vezivanja su poznatija kao statičko i dinamičko spajanje, a odgovarajući oblici polimorfizma se u skladu sa tim nazivaju statički polimorfizam i dinamički polimorfizam.</br> 
+ <b>Statički polimorfizam</b> se izvršava brže, ali zahteva dodatnu podršku kompajlera. Omogućava veću statičku analizu: prilikom kompajliranja (posebno za optimizaciju), analizu izvornog koda i analizu koju vrše programeri. </br>
+  <b>Dinamički polimorfizam</b> je fleksibilniji, ali sporiji - na primer, dinamički polimorfizam omogućava kodiranje bez eksplicitno deklarisanih tipova, a dinamički povezane biblioteke omogućavaju njihovo korišćenje nad objektima bez poznavanja njihovog punog sadržaja. </br>
+</br>
+Statički polimorfizam se obično javlja u ad-hoku i parametarskom polimorfizmu, dok je dinamički polimorfizam uobičajen za hijerarhijski polimorfizam. Međutim, moguće je koristiti statički polimorfizam sa podtipiziranim polimorfizmom pomoću sofisticiranih upotreba šablona metaprogramiranja. </br>
+</br>
+<h2> Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1. Šta je statičko vezivanje, a šta dinamičko? </br>
+Pitanje 2. Šta se radi ako tražena metoda ne postoji u izvedenoj klasi? </br>
+Pitanje 3. Uporediti statičko i dinamičko vezivanje. </br>
+Pitanje 4. Šta je statički polimorfizam? </br>
+Pitanje 5. Šta je dinamički polimorfizam? </br>
+</div>
+</br>

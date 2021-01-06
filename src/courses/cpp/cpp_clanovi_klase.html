@@ -1,0 +1,161 @@
+<h1>Članovi klase </h1>
+
+</br>
+Klase sadrže <b>članove</b> koji predstavljaju njihove podatke i ponašanje. <b>Polja</b> i <b>metode</b> (funkcije) unutar klasa se nazivaju članovima klasa. </br>Polja predstavljaju podatke koji opisuju stanje objekta klase, dok su metode namenjene definisanju operacija nad poljima klase.
+</br>
+Na primer, klasa <span class = "primer_text">Auto</span> ima tri člana klase, dva polja i jednu metodu:
+<xmp class="primer_ta">
+class Auto {
+    public:
+        //polja
+        string boja="crvena";   
+        int maxBrzina=200;
+        //metoda
+        void punGas(){ 
+            cout << "Auto se krece najbrze moguce." << endl;
+        }  
+};
+</xmp>
+<h2>Polja </h2>
+Polja (eng. fields) služe za čuvanje nekih podataka (vrednosti) tj. polja predstavljaju stanja objekata.
+U prethodnom primeru smo mogli videti da su polja promenljive unutar klase.  </br>
+U sledećem primeru ćemo pokazati pristupanje poljima, o čemu će u narednim lekcijama biti više reči.
+</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+class Auto {
+    public:
+        string boja="crvena"; 
+        int maxBrzina=200; 
+};
+
+int main(){
+
+    //kreiranje objekata tipa Auto
+    Auto mojObjekat1;
+    Auto *mojObjekat2=new Auto(); 
+
+    cout << mojObjekat1.boja << ", " << mojObjekat1.maxBrzina << endl;
+    cout << mojObjekat2->boja << ", " << mojObjekat2->maxBrzina << endl;
+    
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+crvena, 200
+crvena, 200
+</xmp>
+Polja možemo ostavljati praznim i modifikovati ih pri kreiranju objekta. Na primer:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+class Auto {
+    public:
+        string boja;
+        int maxBrzina;
+};
+
+int main() {
+
+    Auto *mojObjekat=new Auto();
+    mojObjekat->boja="crvena";
+    mojObjekat->maxBrzina=200;
+
+    cout << mojObjekat->boja << ", " << mojObjekat->maxBrzina << endl;
+
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+crvena, 200
+</xmp>
+Ovo je zapravo vrlo korisno pri kreiranju više objekata jedne klase:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+class Auto { 
+    public:
+        string boja;
+        string model;
+        int godina;
+};
+
+int main() {
+
+    Auto *ford=new Auto();
+    ford->boja="crvena";
+    ford->model="Mustang";
+    ford->godina=1969;
+        
+    Auto opel;
+    opel.boja="bela";
+    opel.model="Astra";
+    opel.godina=2005;
+        
+    cout << ford->boja << ", " << ford->model << ", " << ford->godina << endl;
+    cout << opel.boja << ", " << opel.model << ", " << opel.godina << endl;
+
+    return 0;
+}   
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+crvena, Mustang, 1969
+bela, Astra, 2005
+</xmp>
+
+</br>
+<h2>Metode</h2>
+
+Metode koristimo kako bismo omogućili našem objektu određene aktivnosti. Metode izvršavaju aktivnosti nad internim stanjem objekta i osnovni su mehanizam za komunikaciju između objekata.
+One uglavnom pripadaju klasi i definišu kako se objekat ponaša.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Auto {
+    public:
+        string boja;
+        int maxBrzina;
+        void punGas(){
+            cout << "Auto se krece najbrze moguce." << endl;
+        }
+};
+
+int main() {
+
+    Auto *mojObjekat=new Auto();
+    
+    //pozivanje metode 
+    mojObjekat->punGas(); 
+ 
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+Auto se krece najbrze moguce.
+</xmp>
+
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Koji su članovi klase i šta oni predstavljaju?</br>
+  Pitanje 2: Dati primer polja i metoda koje može sadržati klasa Ptica. </br>
+  Pitanje 3: Kako je sve moguće modifikovati polja?</br>
+  Zadatak 1: Napisati klasu Ptica sa članovima čiji smo primer dali u prethodnom pitanju i pristupiti im.</br>
+  Zadatak 2: Napisati klasu Zivotinje, koja će sadržati vrstu, životni vek i metod oglašavanja životinja. Kreirati različite objekte i za svaki pozvati metod oglašavanja.</br>
+</div>
+</br>

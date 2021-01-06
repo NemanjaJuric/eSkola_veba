@@ -1,0 +1,154 @@
+<h1>Polja i metode izvedene klase</h1>
+
+</br>
+Sintaksa nasleđivanja klase: </br>
+<span class = "primer_text">
+class imeKlase: lista_izvodjenja_klase
+</span>
+</br>
+Lista izvođenja klase predstavlja niz klasa koje izvedena klasa nasleđuje uz opis načina tog nasleđivanja, dakle: </br>
+
+<span class = "primer_text">
+vrsta_nasledjivanja ime_klase_koja_se_nasledjuje 
+</br></br>
+Elementi liste su razdvojeni zarezima. Nasleđivanja mogu biti <b> privatna</b>, <b> zaštićena </b> i <b> javna</b>, a koriste se ključne reči <span class = "primer_text"> private</span>, <span class = "primer_text"> protected</span> i <span class = "primer_text"> public</span>, redom.
+</br>
+
+Kada je nasleđivanje javno to znači da svi nasleđeni članovi zadržavaju isti nivo pristupa.</br>
+Ako je vrsta nasleđivanja zaštićena, tada oni članovi bazne klase koji su bili javni ili zaštićeni postaju zaštićeni i izvedena klasa može da im pristupi.</br>
+Kada je nasleđivanje privatno tada sve što je nasleđeno postaje privatno i ne može da se koristi. </br>
+Ono što je privatno u baznoj klasi ostaje nevidljivo za izvedenu. </br>
+</br></br>
+
+<b> Primer javnog nasleđivanja </b>
+
+<xmp class = "primer_ta">
+class A {
+    public:
+        int a;
+        int MetodA1() {...}
+    protected:
+        int MetodaA2() {...}
+    private:
+        int x,y;
+};
+class B: public A {
+    public:
+        int b;
+        int MetodB() {...}
+    private:
+        int i, j;
+};
+</xmp>
+
+<span class = "primer_text"> Klasa A</span> je bazna klasa i nju javno nasleđuje <span class = "primer_text"> klasa B</span>. <span class = "primer_text"> Klasa B</span> može da koristi atribut <span class = "primer_text">a</span> i metodu <span class = "primer_text"> MetodA1()</span> iz javnog dela, ali takođe može da pristupi metodi <span class = "primer_text"> MetodA2()</span>, jer je podklasa <span class = "primer_text"> klase A</span>, dok joj je pristup atributima <span class = "primer_text">x</span> i <span class = "primer_text">y</span> zabranjen. </br>
+</br>
+</br>
+<b> Primer zaštićenog nasleđivanja </b>
+
+
+<xmp class = "primer_ta">
+class A {
+    public:
+        int a;
+        int MetodA1() {...}
+    protected:
+        int MetodaA2() {...}
+    private:
+        int x,y;
+};
+class B: protected A {
+    public:
+        int b;
+        int MetodB() {...}
+    private:
+        int i, j;
+};
+
+</xmp>
+
+<span class = "primer_text"> Klasa A</span> je bazna klasa i nju zaštićeno nasleđuje <span class = "primer_text"> klasa B</span>. Atribut <span class = "primer_text">a</span> i metoda <span class = "primer_text"> MetodA1()</span> se sada posmatraju kao zaštićeni, a kako je <span class = "primer_text">B</span> izvedena klasa <span class = "primer_text">klase A</span> pristup joj je odobren. <span class = "primer_text"> MetodA2()</span> ostaje zaštićena pa joj je pristup moguć, dok je pristup atributima <span class = "primer_text">x</span> i <span class = "primer_text">y</span> zabranjen. <br>
+</br>
+
+Kada bi <span class = "primer_text"> klasa B</span> privatno nasleđivala <span class = "primer_text">A</span> ona ne bi bila u mogućnosti da pristupi ni jednom članu <span class = "primer_text"> klase A</span>. </br>
+</br>
+
+
+U okviru izvršavanja konstruktora izvedene klase najpre se poziva konstruktor bazne klase, a prilikom uništavanja objekta, prvo se
+poziva destruktor izvedene klase, a on automatski poziva destruktor bazne klase. </br>
+</br>
+
+<h2> Primer realizacije konstruktora i destruktora u izvedenoj klasi </h2>
+
+<xmp class = "primer_ta">
+//kod napisan u programskom jeziku C++  
+#include <iostream>
+#include <string>
+using namespace std;
+class Osoba{
+    public:
+        Osoba(string i, string p, int mB){
+            ime = i;
+            prezime = p;
+            maticniBroj = mB;
+            cout << "Konstruktor osobe" << endl;
+        }
+        string govori(){
+            return "Danas je lep dan.";
+        }
+        ~Osoba(){
+            cout << "Destruktor osobe" << endl;
+        }					 
+    protected:
+        string ime;
+        string prezime;
+    private:
+        int maticniBroj;
+};
+class Ucenik: private Osoba{
+    public:
+        Ucenik(string i, string p, int mB, string sk): Osoba(i,p,mB){
+            // U konstruktoru za Ucenika pozivamo konstruktor za Osobu		       
+            imeSkole=sk;
+            cout << "Konstruktor ucenika" << endl;				 
+        }
+        ~Ucenik(){
+            cout << "Destruktor ucenika" << endl;
+        }	
+        void uci(){}
+    private:
+        string imeSkole;
+};
+
+int main(){
+    
+    Osoba *o = new Osoba("Jovan", "Jovanovic",25041998772017);
+    Ucenik *u = new Ucenik("Ana", "Anic", 0602000777027, "Nokolaj Velimirovic");
+
+    delete o;
+    delete u;
+
+    return 0;
+}
+</xmp>
+
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Konstruktor osobe
+Konstruktor osobe
+Konstruktor ucenika
+Destruktor osobe
+Destruktor ucenika
+Destruktor osobe
+</xmp>
+</br>
+<h2> Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Kakvo nasleđivanje može biti?</br>
+Pitanje 2: Da li možemo da pristupimo atributima i metodama bazne klase ako je izvedena klasa nasleđuje zaštićeno, a ako je privatno nasleđivanje? Imati u vidu u kojoj sekciji bazne klase se ti elementi nalaze.</br>
+Pitanje 3: Da li u destruktoru za izvedenu klasu moramo eksplicitno pozvati destruktor bazne klase?</br>
+</br>
+
+Zadatak 1. U prethodnom kodu dodati klasu Zaposleni koja zaštićeno nasleđuje klasu Osoba. Klasi dodati atribut imePosla koja je string i metodu iciNaPosao tipa void i odgovarajući destruktor. U main-u napraviti instancu klase Zaposleni sa operatorom new i nakon toga je uništiti.
+</div>
+</br>

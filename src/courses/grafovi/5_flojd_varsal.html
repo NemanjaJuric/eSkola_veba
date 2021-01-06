@@ -1,32 +1,37 @@
 <div class="half-panel-scrollable">
 
 <h1><b>Najkraći putevi između svih parova čvorova</b></h1>
-<br />
 
-
-Važan problem predstavlja nalaženje najkraćih puteva između svih parova čvorova. Ovo se uglavnom koristi u kontekstu efikasnog odgovaranja na upite npr. ako nam je potrebno da odgovarmo efikasno na 
-upite gde unosimo dva grada i treba da dobijemo odgovor na to koje je najkraće rastojanje između ova dva grada, voleli bi smo da što brže dobijemo odgovor.
-Najbrže rešenje bi bilo neko gde već imamo unapred sračunata sva najkraća rastojanja između svi parova ćvorova i da odgovor na upit dobijemo jednostavnim pristupom traženom podatku, bez pokretanja nekog algorimta
+Važan problem predstavlja nalaženje najkraćih puteva između svih parova čvorova. Na ovaj problem se npr. nailazi u slučaju kada se često
+javljaju upiti kod kojih unosimo dva grada i potrebno je da što brže
+dobijemo odgovor na pitanje koje je najkraće rastojanje između ova dva
+grada.
+Najbrže rešenje bi bilo neko gde već imamo unapred sračunata sva najkraća rastojanja između svi parova čvorova i da odgovor na upit dobijemo jednostavnim pristupom traženom podatku, bez pokretanja nekog algoritma
 koji računa traženi podatak svaki put iznova.<br /> Najpoznatiji algoritam koji rešava ovaj problem jeste Flojd-Varšalov algoritam (engl. Floyd-Warshall).
 <br />
-<h3><b>Flojd-Varšalov algoritam</b></h3>
+<h2><b>Flojd-Varšalov algoritam</b></h2>
 <br />
-Ovaj algoritam koristi logiku:<br />
-Ako posmatramo put od čvora <i>u</i> do čvora <i>v</i> koji je najkraći, onda za neki čvor <i>k</i> na tom putu takođe važi da je put od <i>u</i> do <i>k</i>, kao i put od <i>k</i> do <i>v</i>, najkraći između tih čvorova. <br />
+Flojd-Varšalov algoritam koristi narednu logiku:<br />
+ako posmatramo put od čvora \( u \) do čvora \( v \) koji je najkraći, onda za neki čvor \( k \) na tom putu takođe važi da je put od \( u \) do \( k \), kao i put od \( k \) do \( v \), najkraći između tih čvorova. <br />
 
-Služi se matricom rastojanja u kojoj se na poziciji <i>rastojanje[u][v]</i> nalazi najkraći put između čvorova <i>u</i> i <i>v</i>, pa jednostavnim pristupom elementu matrice imamo odgovor na upit, jednom kad sračunamo najkraće puteve.
+Služi se matricom rastojanja u kojoj se na poziciji \( rastojanje[u][v] \) nalazi dužina najkraćeg put između čvorova \( u \) i \( v \), pa jednom kad sračunamo
+najkraće puteve odgovor na upit dobijamo jednostavnim pristupom
+odgovarajućem elementu matrice.
 <br /><br />
 Kako dolazimo do tih najkraćih puteva? <br />
-Polazimo od direktnih puteva između čvorova, zatim za svaki par čvorova posmatramo put na kom je uključen čvor 0. U sledećem koraku korigujemo puteve dodavajući i čvor 1, tako da posmatramo puteve u kojima su
-   uključeni čvorovi {0,1} i tako dalje, dok ne dodamo sve čvorove. <br /><br />
+Polazimo od direktnih puteva između čvorova, zatim za svaki par čvorova posmatramo najkraće
+puteve između datih čvorova koji mogu da uključuju čvor 0. U sledećem koraku korigujemo puteve dodavajući i čvor 1, tako da posmatramo
+puteve u kojima kao unutrašnji čvorovi mogu biti uključeni čvorovi
+{0,1} i tako dalje, dok ne dodamo sve čvorove. <br /><br />
    
    <b>Algoritam:</b>
    <ul>
-<li> Označimo sa <i>d_k[u][v]</i> dužinu najkraćeg puta između čvorova <i>u</i> i <i>v</i> tako da su svi čvorovi osim krajnjih iz skupa {0,1,..k}, dok su direktne veze date matricom povezanosti koju ćemo označiti sa <i>g</i>.
- <li> Matrice <i>d_k</i> određujemo redom za <i>k=0,1..n-1</i> </li>
- <li> Prilikom određivanja matrice <i>d_k</i> potrebno je proveriti da li je dodavanjem čvora <i>k</i> na putu između čvorova <i>u</i> i <i>v</i> dobijen bolji put (za sve parove <i>u</i> i <i>v</i>) </li>
+<li> Označimo sa \( d_k[u][v] \) dužinu najkraćeg puta između čvorova \( u \) i \( v \) tako da su svi čvorovi osim krajnjih iz skupa {0,1,..k}, dok su direktne veze date matricom povezanosti koju ćemo označiti sa \( g \).
+ <li> Matrice \( d_k \) određujemo redom za \( k=0,1..n-1 \) </li>
+ <li> Prilikom određivanja matrice \( d_k \) potrebno je proveriti da li je dodavanjem čvora \( k \) na putu između čvorova \( u \) i \( v \) dobijen bolji put (za sve parove \( u \) i \( v \)) </li>
    tj. imamo da je d_k[u][v] = min(d_k-1[u][v], d_k-1[u][k] + d_k-1[k][v]) </li>
- <li> Možemo posmatrati ove matrice kao iteracije i za dodavanje čvora samo modifikovati prethodnu matricu, nepotrebno je kreiranje nove </li>
+ <li> Matrice d_k možemo razmatrati kao iteracije jedne iste matrice i za
+dodavanje novog čvora samo modifikovati prethodnu matricu.</li>
  </ul>
  <br />
  
@@ -54,19 +59,19 @@ void floydWarshall()
  <br />
 <b>Rekonstrukcija puta:</b>
 <ul>
- <li> Da bismo mogli da rekonsktruišemo put između čvorova <i>u</i> i <i>v</i>, neophodno je uvesti pomoćnu matricu <i>poslednji_pre</i> (kao niz kod Dijkstrinog algoritma, samo imamo od svakog čvora, tj. imamo jedan indeks više u kodu),
-   gde se na poziciji <i>poslednji_pre[u][v]</i> nalazi poslednji čvor pre <i>v</i> na putu od <i>u</i> do <i>v</i>. Rekonstrukcija iz ove matrice ide rekurzivno kao kod Dijsktrinog algoritma, tj. ispisemo put od <i>u</i> do <i>poslednji_pre[u][v]</i>
-   i onda ispišemo <i>v</i> kao poslednji  </li>
-  <li> Ovu matricu na početku kod direktnih grana popunjavamo kao <i>poslednji_pre[u][v]=u</i> i <i>poslednji_pre[v][u]=v</i> dok na sva ostala mesta stavljamo -1  </li>
-  <li> Kasnije, kad god dodajem čvor <i>k</i> važiće: ako je put između <i>u</i> i <i>v</i> ostao nepromenjen dodavanjem <i>k</i>, ostaće nepromenjen i element <i>poslednji_pre[u][v]</i>, ali ako se promenio put tj. novi put je put od <i>u</i> do <i>k</i> pa od <i>k</i> do <i>v</i>,
-   važiće da je <i>poslednji_pre[u][v] = poslednji_pre[k][v]</i>  </li>
+ <li> Da bismo mogli da rekonsktruišemo put između čvorova \( u \) i \( v \), neophodno je uvesti pomoćnu matricu \( poslednji_pre \) (kao niz kod Dijkstrinog algoritma, samo imamo od svakog čvora, tj. imamo jedan indeks više u kodu),
+   gde se na poziciji \( poslednji_pre[u][v] \) nalazi poslednji čvor pre \( v \) na putu od \( u \) do \( v \). Rekonstrukcija iz ove matrice ide rekurzivno kao kod Dijsktrinog algoritma, tj. ispisemo put od \( u \) do \( poslednji_pre[u][v] \)
+   i onda ispišemo \( v \) kao poslednji  </li>
+  <li>Matricu \( poslednji_pre[u][v] \) na početku kod direktnih grana popunjavamo kao \( poslednji_pre[u][v]=u \) tamo gde grana postoji od čvora \( u \) do čvora \( v \), dok na sva ostala mesta stavljamo -1. Kod neusmerenih grafova, ova matrica će biti simetrična.</li>
+  <li>Prilikom dodavanja čvora \( k \) važiće: ako je put između \( u \) i \( v \) ostao nepromenjen dodavanjem \( k \) ostaće nepromenjen i element \( poslednji_pre[u][v] \), ali ako se promenio put tj. novi put je put od \( u \) do \( k \) pa od \( k \) do \( v \),
+   važiće da je \( poslednji_pre[u][v] = poslednji_pre[k][v] \)  </li>
    <li> Pogledati rekonstrukciju puta kod Dijkstinog algoritma (prethodna lekcija) </li>
    </ul>
 
 
 <br />
 <br />
-<h3>Prateći video materijali: </h3>
+<h2>Prateći video materijali: </h2>
 <br />
 <video style="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/5_flojd-varsal/flojd_varsal.mp4" type="video/mp4" />
@@ -74,7 +79,7 @@ void floydWarshall()
 </video>
 <br />
 <br />
-<h3>C++ kod implementacije: </h3>
+<h2>C++ kod implementacije: </h2>
 Kod implementacije Flojd-Varšalovog algoritma možete preuzeti 
 <a href="courses/grafovi/5_flojd-varsal/fv.cpp" download="courses/grafovi/5_flojd-varsal/fv.cpp">ovde
 </a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/FlojdVarsalcpp" > ovde

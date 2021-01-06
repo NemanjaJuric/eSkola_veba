@@ -2,39 +2,37 @@
 <div class="half-panel-scrollable">
 <h1><b>Obilasci grafa</b></h1>
 
-Obilazak grafa podrazumeva obilazak svih čvorova tako da se krećemo granama grafa i da svaki čvor obiđemo tačno jednom.
+Obilazak grafa podrazumeva obilazak svih čvorova tako da se krećemo granama grafa što efikasnije moguće, sa izbegavnjem ulaska u ciklus.
 Ovo nije lak zadatak jer graf nije jednostavna struktura podataka, kao što je npr. niz, u kojem postoji jasan redosled elemenata.
 <br /><br />
-Obilazimo jedan po jedan čvor po određenom pravilu. U zavisnosti od pravila razlikujemo oblizak tj. pretragu grafa po dubini (eng. depth first search ili skraćeno DFS) 
+Obilazimo jedan po jedan čvor po određenom pravilu. U zavisnosti od pravila razlikujemo obilazak tj. pretragu grafa po dubini (eng. depth first search ili skraćeno DFS) 
 kao i pretragu grafa po širini (eng. breadth first search ili skraćeno BFS).
 
 <br />
 <h3><b>Pretraga grafa po dubini (DFS)</b></h3>
-<br />
-Posmatrajmo graf prikazan na slici. Pretraga kreće od jednog čvora. Bez gubitka opštosti, možemo da uzmemo da je to npr. čvor sa indeksom 0. 
+Posmatrajmo neusmereni graf prikazan na slici. Pretraga kreće od jednog čvora. Bez gubitka opštosti, možemo da pretpostavimo da je to čvor sa indeksom 0. 
 <br />
 <img style="width:320px;max-width=75%" src="courses/grafovi/2_bfs-dfs/primer1.jpg" class="img-fluid velicina"> 
 <br />
 
-U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0 i tako u krug. Potrebno je da svaki čvor obiđemo tačno jednom,
-zato uvodimo niz <i>posecen</i> u kom će na odgovarajućem indeksu biti vrednost 1 ukoliko je čvor posećen i 0 u suprotnom.
+U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0 čime smo zatvorili jedan ciklus. Potrebno je da
+prepoznamo situaciju kada smo već posetili neki čvor,
+zato uvodimo niz \( posecen \) u kom će na odgovarajućem indeksu biti vrednost 1 ukoliko je čvor posećen i 0 u suprotnom.
 <br />
 <br />
 Algoritam radi na sledeći način:
 <ol>
-   <li> krećemo od proizvoljnog čvora <i>u</i> i kažemo da je posećen tj. <i>posecen[u] = 1</i> </li>
-    <li> biramo suseda od <i>u</i> koji još nije posećen, kažemo da je i on posećen i nastavljamo dalje od njega, neka je to <i>v</i> </li>
-    <li> nakon završetka obilaska od <i>v</i>, ukoliko <i>u</i> ima suseda koji nije posećen, ponavlja se postupak za tog suseda </li>
+   <li> krećemo od proizvoljnog čvora \( u \) i označimo da je posećen tj. \( posecen[u] = 1 \) </li>
+    <li> biramo suseda od \( u \) koji još nije posećen, označimo da je i on posećen i nastavljamo dalje od njega, neka je to \( v \) </li>
+    <li> nakon završetka obilaska od \( v \), ukoliko \( u \) ima suseda koji nije označen kao posećen, ponavlja se postupak za tog suseda </li>
 </ol>
 <br />
 
-
-
 <b>Implementacija 1: iterativno</b>
 <br />
-Čvorove koje smo posetili možemo čuvati u strukturi koja se zove stek (prvi sledeći koji uzimam je poslednji koji je upisan).
-U koraku 1. bismo upisali <i>u</i> na stek, u koraku 2. bismo polgedali vrh steka, videli da je tu čvor <i>u</i>, našli neposećenog suseda od <i>u</i>, dodali njega na stek i nastavili pretragu,
-kada za element na vrhu steka nema više neposećenih suseda, njega možemo skinuti sa steka (operacija pop).
+Čvorove koje smo posetili možemo čuvati u strukturi koja se zove stek. Stek je struktura u kojoj je prvi sledeći koji uzimamo onaj koji je poslednji dodat, a potrebno nam je da nastavljamo obilazak iz poslednjeg čvora koji je dodat i pamtimo putanju do njega kako bismo se kretali po tim čvorovima 'unazad' da vidimo da li je neki sused čvora na tom putu ostao neposećen. Upravo čuvanje ovog redosleda i pristup čvoru od kog bi dalje trebalo da nastavimo nam omogućava stek. <br />
+U koraku 1. bismo upisali \( u \) na stek (operacijom push), u koraku 2. bismo polgedali vrh steka (operacijom top), videli da je tu čvor \( u \), našli neposećenog suseda od \( u \), dodali njega na stek i nastavili pretragu.<br />
+Kada za element na vrhu steka nema više neposećenih suseda, njega možemo skinuti sa steka (operacija pop).
 <br />
 <xmp class="primer_ta">
 void dfs_iterativni()
@@ -53,8 +51,8 @@ void dfs_iterativni()
             cout << s << " "; 
             posecen[s] = 1; 
         } 
-
-        for (int i = 0; i < g[s].size(); i++)  // krecemo se po susedima
+                                               // g[s] sadrzi listu suseda cvora s
+        for (int i = 0; i < g[s].size(); i++)  // krecemo se po susedima cvora s
         {   
             int v = g[s][i];                   // cvor v je i-ti sused od s
             if (posecen[v] == 0)               // ako nije posecen dodam ga na stek
@@ -70,9 +68,8 @@ void dfs_iterativni()
 
 <b>Implementacija 2: rekurzivno</b>
 <br />
-DFS kao algoritam, nameće i prirodno rekurzivno rešenje (jer sama rekurzija u pozadini koristi stek za čuvanje poziva), tako da bi algoritam mogao biti implentiran na sledeći način:
-Krećemo od nekog čvora, na početku kažemo da je on posećen. Prolazimo po svim susedima tog čvora i pozovemo rekurzivno dfs pretragu od svakog suseda koji nije već posećen.
-Suštinski ova i prethodna implementacija rade istu stvar.
+DFS kao algoritam, nameće i prirodno rekurzivno rešenje (jer sama rekurzija u pozadini koristi stek za čuvanje poziva), tako da bi algoritam mogao biti implentiran na sledeći način: <br />krećemo od nekog čvora, na početku označimo da je on posećen. Prolazimo po svim susedima tog čvora i pozovemo rekurzivno dfs pretragu od svakog suseda koji nije već posećen.
+Suštinski, ova i prethodna implementacija rade istu stvar.
 <br />
 <xmp class="primer_ta">
 void dfs_rekurzivni(int u)
@@ -96,18 +93,19 @@ Primer izvršavanja algoritma za gorenavedeni graf:
 <br />
 <img style="width:1100px;max-width=98%" src="courses/grafovi/2_bfs-dfs/primer11.png" class="img-fluid velicina"> 
 <br />
-
-
 <h3><b>Pretraga grafa po širini (BFS)</b></h3>
 
 Pretraga po širini koristi sledeće pravilo: polazeći od jednog čvora prvo obiđemo sve njegove direktne susede koje još nismo posetili, a nakon toga nastavljamo,
 od tih suseda, obilazak na isti način. <br />
 
-Da bismo obezbedili da svaki čvor posetimo tačno jednom, možemo uvesti niz <i>posecen</i> u kom će na odgovarajućem 
+Da bismo obezbedili da svaki čvor posetimo tačno jednom, možemo uvesti niz \( posecen \) u kom će na odgovarajućem 
 indeksu biti vrednost 1 ukoliko je čvor posećen a 0 u suprotnom.
+<br />
 
-<b>Implementacija: </b>
-Čvorove koje smo posetili čuvamo u strukturi koja se zove red (prvi sledeći koji uzimam je onaj koji je prvi stao u red tj. koji je najdavnije upisan).
+<b>Implementacija: </b><br />
+Čvorove koje smo posetili čuvamo u strukturi koja se zove red. Red je struktura podataka koja omogućava
+efikasan pristup i uklanjanje elementa koji je najranije dodat u
+strukturu.
 Iz reda uzimamo jedan po jedan čvor kako bismo od njih dalje nastavili obilazak po gorenavedenom pravilu.
 
 
@@ -117,15 +115,15 @@ void bfs()
 { 
     memset(posecen, 0, sizeof(posecen));    // popunjavamo niz sa 0
     queue<int> q;                       // inicijalizujemo red
-    posecen[0]=1;                       // krecemo od cvora 0 i kazemo da je posecen
+    posecen[0] = 1;                       // krecemo od cvora 0 i kazemo da je posecen
     q.push(0);                          // dodamo ga u red
     
     while(!q.empty())                   // dok god red nije prazan
     {
-        int u=q.front();                // uzimamo sledeceg na redu
+        int u = q.front();                // uzimamo sledeceg na redu
         q.pop();
-        cout<< u <<" ";
-        for(int i = 0; i < g[u].size(); i++)  // prolazimo groz njegove susede
+        cout << u << " ";
+        for(int i = 0; i < g[u].size(); i++)  // prolazimo kroz njegove susede
         {
             int v = g[u][i];              // i-ti sused cvora u je cvor v
             if(posecen[v] == 0)           // ako v nije posecen
@@ -149,18 +147,17 @@ Primer izvršavanja algoritma za gore navedeni graf:
 
 <h3><b>Stablo pretrage</b></h3>
 
-Možemo primetiti da se redosledi obilazaka grafa ova dva algoritma razlikuju, to je prouzrokovano različitim pravilima pretrage.
+Možemo primetiti da se redosledi obilazaka čvorova grafa ova dva algoritma razlikuju, što je prouzrokovano različitim pravilima pretrage.
 Takođe, ono što se razlikuje kod ova dva algoritma je stablo pretrage.
-Stablo pretrage nam prikazuje sa kog smo čvora došli do kog prilikom pretrage i ta dva čvora u stablu povezujem granom.
+Stablo pretrage nam prikazuje sa kog smo čvora došli do kog prilikom pretrage (tj. kada čvor označimo kao da je posećen) i ta dva čvora u stablu povezujem granom.
 Stabla pretrage za gorenavedeni graf prilikom ova dva algoritma su:
-
 
 <br />
 <img style="width:470px; max-width=95%" src="courses/grafovi/2_bfs-dfs/stablo.png" class="img-fluid velicina">
 <br />
 
-Vidimo da stablo pretrage kod algoritma DFS ide u dubinu dok stablo prterage kod algoritma BFS ide u širinu, odatle i nazivi samih algoritama.
-
+Vidimo da stablo pretrage kod algoritma DFS ide u dubinu dok stablo pretrage kod algoritma BFS ide u širinu, odatle i nazivi samih algoritama.
+<br />
 <h3><b>Primene</b></h3>
 Neke od tipičnih primena ovih algoritama su: <br />
 <ul>
@@ -170,14 +167,12 @@ Neke od tipičnih primena ovih algoritama su: <br />
 </ul>
 
 <br />
-
 <h3>Prateći video materijali: </h3>
 <br />
 <video style ="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/2_bfs-dfs/bfs_dfs.mp4" type="video/mp4" />
       Vaš pregledač ne podržava ovaj video format.
 </video>
-<br />
 <br />
 <h3>C++ kod implementacije: </h3> 
 Kod implementacije algoritama BFS i DFS možete preuzeti

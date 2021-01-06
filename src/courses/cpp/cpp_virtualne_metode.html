@@ -1,0 +1,146 @@
+<h1> Virtualne metode </h1>
+
+</br>
+ Virtualna metoda je <b>ne statička</b> metoda osnovne klase, koja može da se zameni istoimenom metodom odgovarajuće izvedene klase, kada se pozove za objekat koji pripada izvedenoj klasi.  </br>
+Virtualne metode deklarišu se dodavanjem modifikatora <span class = "primer_text">virtual</span> na početak njihove deklaracije u osnovnoj klasi. Prilikom ponovnog deklarisanja u izvedenim klasama modifikator virtual se podrazumeva, te ne mora da bude eksplicitno naveden.</br>
+ </br>
+ Deklaracije date virtualne metode u osnovnoj i u svim izvedenim klasama moraju da imaju isti broj i tipove parametara i povratnu vrednost.
+ Jedino u čemu se one razlikuju je tip objekta za koji se pozivaju. Prilikom pozivanja virtualne metode pokazivačem na objekte klase pozivaće se istoimena metoda izvedene klase na čiji objekat u tom momentu ukazuje dati pokazivač. </br>
+  </br>
+
+<h2> Virtualne metode u C++-u </h2>
+
+  Kada programiramo u C++ moramo voditi računa da polimorfizam radi samo u slučaju pokazivača na objekte. Dakle, ukoliko instanciramo
+  objekat na stek memoriji, ne pokreće se virtualni mehanizam i nemamo polimorfizam. Razlog zašto polimorfizam radi samo ako su u pitanju
+  pokazivači i hip memorija je jednostavan, ukoliko se poznaje priroda nastanka C++ jezika. </br>
+Kako je C++ jezik izrastao iz C jezika, koji ima statičnu veličinu za svaki formirani objekat na steku, otuda dolazi razlog da se
+virtualne metode ne mogu menjati na tako statički
+  definisanom objektu. Međutim, ukoliko se objekat klase instancira na hip dinamičkoj memoriji, tabela sa virtualnim metodama se povezuje
+  i vrši prepoznavanje metoda poziva u vreme izvršavanja.</br>
+</br>
+  Kako rade virtualne metode može se objasniti na sledeći način: prilikom kompajliranja formira se tabela u koju se smeštaju virtualne metode
+  iz bazne i svih izvedenih klasa. Prilikom poziva interpreter pretražuje virtualnu tabelu sa listom virtualnih metoda, te poziva onu
+  virtualnu metodu iz one klase iz koje je objekat instanciran.</br>
+</br>
+
+<h2> Instanciranje objekata</h2>
+
+Kada govorimo o instanciranju objekata u slučaju bazne i izvedene klase možemo imati sledeće slučajeve:</br>
+1. Objekat tipa bazne klase instanciran sa baznom klasom. </br>
+2. Objekat tipa bazne klase instanciran sa izvedenom klasom. </br>
+3. Objekat tipa izvedene klase instanciran sa izvedenom klasom. </br>
+</br>
+
+<h2> Poziv virtualne metode </h2>
+
+Kada objekat pozove virtualnu metodu možemo dobiti sledeće slučajeve, shodno gore instanciranim varijantama objekta: </br>
+1. Izvršava se virtualna metoda iz bazne klase. </br>
+2. Izvršava se metoda iz izvedene klase. </br>
+3. Izvrsava se metoda iz izvedene klase. </br></br>
+U drugom slučaju imamo pojavu polimorfizma, dok se u prvom i trećem slučaju radi o standardnom pozivu metode. </br>
+  </br>
+
+  <h2> Konstruktor i destruktor </h2>
+  
+  Konstruktor <b>ne može</b> biti virtualna metoda (jer se poziva pre nego što se objekat kreira), a destruktor može. Tačnije,
+  u C++ kada neka klasa ima neku virtualnu metodu onda i njen destruktor (ako ga ima) treba da bude virtualan.
+   Destruktor osnovne klase se uvek izvršava (ili kao jedini ili posle destruktora izvedene klase). Unutar destruktora izvedene klase ne treba pozivati destruktor osnovne klase (on se implicitno poziva). </br>
+</br>
+
+<h2> Primer </h2>
+
+<xmp class = "primer_ta">
+//kod napisan u programskom jeziku C++
+#include <iostream>
+#include <string>
+using namespace std;
+    
+class Osoba{
+    public:
+        Osoba(string i, string p, int mB){
+            ime = i;
+            prezime = p;
+            maticniBroj = mB;
+        }
+        virtual string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << "." << endl;
+        }
+        ~Osoba(){
+            cout << "Destruktor osobe" << endl;
+        }
+    protected:
+        string ime;
+        string prezime;
+    private:
+        int maticniBroj;
+};
+class Ucenik: public Osoba{
+    public:
+        Ucenik(string i, string p, int mB, string sk){
+            Osoba(i,p,mB);
+            imeSkole = sk; 
+        }
+        //klasa nema svoju metodu predstaviSe() 
+        void uci(){}
+        ~Ucenik(){
+            cout << "Destruktor ucenika" << endl; 
+        }
+    private:
+        string imeSkole;
+};
+class Zaposleni: public Osoba{
+    public:
+        Zaposleni(string i, string p, int mB, string imeP){
+            Osoba(i,p,mB);
+            imePosla = imeP;
+        }
+        string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << " i radim kao " << imePosla << "." << endl;
+        }
+        void iciNaPosao(){}
+        // klasa nema svoj destruktor
+    private:
+        string imePosla;
+};
+int main(){
+
+    Osoba* ljudi[3];
+    ljudi[0]= new Osoba("Jovan", "Jovanovic",25041998772017);
+    ljudi[1]= new Ucenik("Ana", "Anic", 0602008777027, "Nikolaj Velimirovic");
+    ljudi[2]= new Zaposleni("Sonja", "Srdanovic", 0606996565210, "profesor");
+    
+    for(int i=0;i<3;i++){
+        ljudi[i]->predstaviSe(); 
+    }
+      
+    delete ljudi[0];
+    delete ljudi[1];
+    delete ljudi[2];
+                
+    return 0;
+}
+</xmp>
+</br>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Ja sam Jovan Jovanovic. 
+Ja sam Ana Anic.
+Ja sam Sonja Srdanovic i student sam Matematickog fakulteta.
+Destruktor osobe.
+Destruktor ucenika.
+Destruktor osobe.
+Destruktor osobe.
+</xmp>
+</br>
+<h2>Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Šta je virtualna metoda? </br>
+Pitanje 2: Objasniti princip rada virtualne metode? </br>
+Pitanje 3: Ako objekat bazne klase instanciramo sa izvedenom klasom iz koje klase se koristi metoda, da li se javlja polimorfizam? </br>
+Pitanje 4: Ako objekat izvedene klase instanciramo sa izvedenom klasom iz koje klase se koristi metoda, da li se javlja polimorfizam? </br>
+Pitanje 5: Da li konstruktor može biti virtualan, a destruktor? </br>
+Pitanje 6: Prilikom destrukcije objekata izvedene klase čiji se destruktor prvo poziva, izvedene ili bazne? </br>
+</br>
+Zadatak 1: U prethodnom primeru u klasi Zaposleni izbrisati metod predstavitiSe(). Dodati klasu Prodavac koja nasleđuje javno klasu Zaposleni, u njoj realizovati virtualnu funkciju i dodati atribut string radnoMesto.
+</div>
+</br>

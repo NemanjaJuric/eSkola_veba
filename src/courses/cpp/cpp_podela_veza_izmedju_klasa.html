@@ -1,0 +1,86 @@
+<h1> Podela veza između klasa</h1>
+</br>
+    
+Objektno orijentisano programiranje je zasnovano na klasama i zato ćemo u ovom odeljku diskutovati o vezama između klasa. Pri rešavanju kompleksnijih problema imamo više klasa i one nikada nisu u potpunosti disjunktne. Naš zadatak pri modelovanju je da izvučemo bitne veze. </br>
+Veze između klasa generalno se dele na <b> klijentske veze </b> i <b> nasleđivanje </b>.</br>
+      U okviru klijentskih veza imamo:</br>
+      <ul>
+	<li>
+	  <b> Asocijacija </b>
+	</li>
+	<li>
+	  <b> Agregacija</b>
+	</li>
+	<li>
+	  <b> Kompozicija</b></br>
+	</li>
+      </ul>
+</br>      
+<h2> Asocijacija</h2>
+ 
+  <b>Asocijacija</b> je veza koja povezuje klase bez posebnih uslova. Ako se veza odnosi na klasu odnosi se i na njene instance. Binarna asocijacija je veza između dve klase, ternarna između tri, a tu je i n-arna veza između n klasa. 
+Postoje četiri različita tipa asocijacija: dvosmerna, jednosmerna, agregacija (uključuje agregaciju kompozicije) i refleksivna (postoje veze između objekata iste klase). </br>
+</br>
+    
+ <b>Primer dvosmerne asocijacije </b></br>
+ </br>
+  Imamo dve klase, Auto i Osoba i između njih možemo formirati dvosmernu asocijaciju: Osoba je vlasnik Auta i Auto je vlasništvo Osobe.</br>
+  </br>
+
+<img src="courses/cpp/images/2_2.jpg" class="img-fluid img-sm"> </br>
+</br>
+<b> Primer višestruke asocijacije </b> </br>
+</br>
+  Imamo klase Učenik, Profesor, Predmet, Učionica.
+  Povezanost Učenika i Predmeta bi bila da Učenik sluša neki Predmet, zatim u njihovu vezu ulazi Profesor koji drži taj Predmet. Profesor ima određenu Učionicu u kojoj drži Predmet. </br>
+  Ako bismo napravili konkrentne instance ovih klasa i za Učenika uzeli Milica, za Profesora Marina, Učionicu 23, a Predmet hemija, značilo bi da Milica sluša hemiju kod Marine u učionici 23.
+  
+  </br>
+<img src="courses/cpp/images/3.jpg" class="img-fluid ">
+</br></br>
+
+<h2>Agregacija</h2>
+
+  Agregacija je varijanta asocijacije koja znači „ima”. To je asocijacija koja predstavlja deo celine ili deo odnosa. Ovaj odnos je posebno važan i zato ga i izdvajamo iz asocijacije. Bitno je naglasiti da agregacija ne može uključivati više od dve klase, tj. mora biti binarna asocijacija. </br>
+</br>
+<b>Primer agregacije</b> </br>
+</br>
+
+  Klasa Profesor „ima” klasu Odeljenje koju uči.
+</br>
+<img src="courses/cpp/images/4.jpg" class="img-fluid ">
+</br></br>
+<h2>Kompozicija</h2>
+
+
+Kompozicija je posebna vrsta agregacije, ali je takođe veoma važna pa se zato navodi kao posebna vrsta veze. Kompozicija je odnos celina-deo, ali je životni vek dela sadržan u životnom veku celine, tj. životni vek celine i dela se poklapaju. Npr. slučaj duži i tačaka kojima je određena, jer sa uništavanjem duži mi uništavamo i njene tačke.</br>
+U C++ ova veza predstavlja biti objekat neke klase. Objekti
+iz  natklase zovu se <b> vlasnici </b> (owner), a iz potklase zovu se <b> komponente </b>.
+</br>
+</br>
+<b>Primer kompozicije </b></br>
+</br>
+  Uzmimo klase Valjak, Omotač i Osnova. Valjak je u ovom slučaju vlasnik, a Omotač i Osnova su komponente. Kada bismo napravili instance datih klasa i uništili instancu iz klase Valjak, uništili bi se i njeni delovi tj. instance iz klasa komponenata.</br>
+</br>
+
+<h2> Razlike između kompozicije i agregacije </h2> 
+
+<b> Kompozicija </b>
+</br>
+Kada pokušavamo da predstavimo stvarne odnose celog dela, npr. motor je deo automobila. </br>
+Kada se kontejner uništi, sadržaj se takođe uništava, npr. fakultet i njegovi departmani.</br>
+</br>
+<b> Agregacija </b>
+</br>
+Kada predstavljamo odnos softvera ili baze podataka, npr. model motora automobila MM01 je deo modela automobila AM01, ali model motora MM01 može biti deo i nekog drugog modela automobila.</br>
+Kada se kontejner uništi, sadržaj se obično ne uništava, npr. profesor ima studente, kada profesor ode iz škole, studenti ne odlaze zajedno sa njim.</br>
+</br>
+<h2> Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Koje veze imamo u okviru klijentskih klasa? </br>
+Pitanje 2: Šta je asocijacija i navesti primer? </br>
+Pitanje 3: Šta je agregacija i navesti primer? </br>
+Pitanje 4: Šta je kompozicija i navesti primer? </br>
+Pitanje 5: Navesti razlike između kompozicije i agregacije. </br>
+</div>
+</br>

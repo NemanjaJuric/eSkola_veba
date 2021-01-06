@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ void Kanov_algoritam(vector<vector<int>> &lista_povezanodsti){
     int n=lista_povezanodsti.size();    //broj cvorova u grafu
     vector<int> stepen(n);              //stepen svakog cvora 
     vector<int> topoloski_sortirani;    //niz u kome smestamo cvorove topoloski sortirano
-    stack<int> stek;                    //stek potreban za algoritam, isto bi bilo i sa redom
+    queue<int> red;                    //red potreban za algoritam, isto bi bilo i sa stekom
     
     //racunamo stepene cvorova
     for(int i=0;i<n;i++){
@@ -17,25 +17,25 @@ void Kanov_algoritam(vector<vector<int>> &lista_povezanodsti){
         }
     }
     
-    //ubacujemo u stek sve cvorove ciji je stepen nula
+    //ubacujemo u red sve cvorove ciji je stepen nula
     for(int i=0;i<n;i++){
-        if(stepen[i]==0) stek.push(i);
+        if(stepen[i]==0) red.push(i);
     }
 
 
-    int vrhsteka;
-    while(!stek.empty()){
-        vrhsteka=stek.top();
-        topoloski_sortirani.push_back(vrhsteka);
-        stek.pop();
-        for(int i:lista_povezanodsti[vrhsteka]){
+    int pocetakreda;
+    while(!red.empty()){
+        pocetakreda=red.front();
+        topoloski_sortirani.push_back(pocetakreda);
+        red.pop();
+        for(int i:lista_povezanodsti[pocetakreda]){
             if(--stepen[i]==0)
-                stek.push(i);
+                red.push(i);
         }
     }
 
     //stampamo topoloski sortirane cvorove
-
+    cout<<"Kanov algoritam: ";
     for(int i=0;i<n-1;i++){
         cout<<topoloski_sortirani[i]<<" -> ";
     }

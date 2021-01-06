@@ -2,48 +2,48 @@
 <div class="half-panel-scrollable">
 
 <h1><b>Najkraći putevi od jednog čvora do svih ostalih</b></h1>
-<br />
-<h3><b>Opis problema</b></h3>
-<br />
  Jako često nam je potrebno da nađemo najkraće puteve od jednog fiksiranog čvora do svih ostalih. 
   Primer jednog ovakvog problema ja npr. izračunati najkraće puteve (u smislu kolometraže) od Beograda do svih ostalih gradova u Srbiji, koristeći postojeće puteve.
-  Ovde možemo kao čvorove posmatrati gradove a grane grafa su postojeći putevi između gradova, dok im je težina sama kilometraža puta.
+ Ovaj problem možemo modelovati korišćenjem težinskih grafova, tako što
+će gradovi predstavljati čvorove grafa, grane grafa biće postojeći
+putevi između gradova, dok će težina grana biti kilometraža
+odgovarajućeg puta.
   Efikasan algorima koji rešava ovaj problem je Dijskrin algoritam.
 <br />
 
-<h3><b>Dijkstirn algoritam svojstva</b></h3>
+<h2><b>Dijkstrin algoritam</b></h2>
 <br />
-<ul>
- <li> Za svaki čvor <i>v</i> rastojanje od čvora s (fiksiran čvor od kog tražimo rastojanja) pamtimo u nizu rastojanja, tj.
-    element <i>rastojanje[v]</i> označava rastojanje od <i>s</i> do <i>v</i> </li>
-  <li> Rastojanje od <i>s</i> do <i>s</i> je uvek 0 tj. <i>rastojanje[s]=0</i> </li>
-  <li> Ukoliko ne želimo samo vrednost najkraćeg puta već želimo i mogućnost rekonstruisanja puta, uvodimo i niz <i>poslednji_pre</i>
-    gde će element <i>poslednji_pre[v]</i> označavati poslednji čvor na putu od <i>s</i> do <i>v</i>, tj. čvor sa kog smo došli do <i>v</i>, tada je put od <i>v</i> do <i>s</i>
-    zapravo: <i>v, poslednji_pre[v], poslednji_pre[poslednji_pre[v]]...s</i></li>
-    Put od <i>s</i> do <i>v</i> onda možemo dobiti jednostavnim obrtanjem ili čitanjem od pozadi puta od <i>v</i> do <i>s</i>
-  <li> U svakom trenutku imamo dva disjunktna skupa čvorova u grafu - markirane i nemarkirane čvorove
-    markirani čvorovi su oni za koje smo našli najkraći put dok su nemarkirani oni za koje tek treba da ih nađemo
-    i za njih se u nizu rastojanje može naći procena trenutnog minimalnog puta za te čvorove, ali možda možemo bolje, dok se za markirane tu nalazi najkraći put</li>
-</ul>
-<br />
+Za svaki čvor \( v \) rastojanje od čvora s (fiksiran čvor od kog tražimo rastojanja) pamtimo u nizu rastojanja, tj.
+    element \( rastojanje[v] \) označava rastojanje od \( s \) do \( v \), dok je rastojanje od \( s \) do \( s \) je uvek 0 tj. \( rastojanje[s]=0 \).<br />
+   Ukoliko ne želimo samo vrednost najkraćeg puta već želimo i mogućnost rekonstruisanja puta, uvodimo i niz \( poslednji_pre \)
+    gde će element \( poslednji_pre[v] \) označavati poslednji čvor na putu od \( s \) do \( v \), tj. čvor sa kog smo došli do \( v \). <br /> Tada je put od \( v \) do \( s \)
+    zapravo: \( v, poslednji_pre[v], poslednji_pre[poslednji_pre[v]]...s \).
+    Put od \( s \) do \( v \) onda možemo dobiti jednostavnim obrtanjem ili čitanjem od pozadi puta od \( v \) do \( s \).<br />
+  U svakom trenutku imamo dva disjunktna skupa čvorova u grafu - markirane i nemarkirane čvorove.
+    Markirani čvorovi su oni za koje smo našli najkraći put. Nemarkirani su oni za koje tek treba da nađemo najkraći put
+    i za njih se u nizu rastojanje može naći procena trenutnog najkraćeg puta, za koji možda postoji bolje rešenje, dok se za markirane tu nalazi baš najkraći put.
 
-<h3><b>Dijkstrin algoritam</b></h3>
+<br /><br />
+<b>Algoritam:</b>
 <br />
 <ul>
- <li> Na početku su svi čvorovi nemarkirani, rastojanja za sve postavljamo na neki veliki broj (npr. int max kako bi se prilikom nalaženja prvog puta do njih dužine sigurno promenile),
-    dok elemente niza <i>poslednji_pre</i> možemo postaviti na -1 da naznačimo da još nemamo nijedan put - nakon toga, za element od kog krećemo (neka je to 0) kažemo da je <i>rastojanje[0] = 0</i></li>
-  <li> U svakom koraku (itraciji) algoritma potrebno je da pronađemo nemarkirani čvor v sa minimalnom vrednošću rastojanje[v] - ovo je zapravo dužina puta do v preko markiranih čvorova
-    taj čvor markiramo i to rastojanje koje trenutno imamo upisano je minimalno rastojanje do čvora <i>v</i> (*)</li>
-  <li> Potrebno je korigovati rastojanja nemarkiranih čvorova granama koje idu iz čvora <i>v</i> ka njima jer smo možda našli neko bolje rešenje, za slučaj da jesmo, treba promeniti vrednost u nizu rastojanje kao i u nizu <i>poslednji_pre</i>
-    za čvor kom je kraći put preko čvora <i>v</i></li>
-  <li> Algoritam se završava kada markiramo sve čvorove</li>
+ <li> Na početku su svi čvorovi nemarkirani, rastojanja za sve postavljamo na neki veliki broj ( npr. maksimalnu vrednost koju je moguće sačuvati kao
+podatak tipa int kako bi se prilikom nalaženja prvog puta do njih dužine sigurno promenile),
+    dok elemente niza \( poslednji_pre \) možemo postaviti na -1 da naznačimo da još nemamo nijedan put. Ako tražimo najkraća rastojanja od čvora 0, onda
+postavljamo još \( rastojanje[0] = 0 \).</li>
+  <li> U svakom koraku (iteraciji) algoritma potrebno je da pronađemo nemarkirani čvor v sa minimalnom vrednošću rastojanje[v] - ovo je zapravo dužina puta do v preko markiranih čvorova.</li><li> Taj čvor markiramo i to rastojanje koje trenutno imamo upisano je minimalno rastojanje do čvora \( v \) (*)</li>
+  <li> Potrebno je korigovati rastojanja nemarkiranih čvorova granama koje idu iz čvora \( v \) ka njima jer smo možda našli neko bolje rešenje. Za slučaj da jesmo, treba promeniti vrednost u nizu rastojanje kao i u nizu \( poslednji_pre \)
+    za čvor kom je kraći put preko čvora \( v \).</li>
+  <li> Algoritam se završava kada markiramo sve čvorove.</li>
   </ul>
 <br />
    * Ovaj algoritam je gramziv - to znači da u svakom trenutku bira ono što je naizgled najbolje rešenje. Treba da opravdamo da to i jeste zaista najbolje rešenje.
-    Kada uzimamo čvor iz nemarkiranih čvorova sa najmanjim rastojanjem od <i>s</i> da ga markiramo, da li smo sigurni da za njega ne postoji kraći put i zašto?
-    Jesmo, jer prema načinu biranja uvek će markirani čvorovi imati kraću dužinu puta od nemarkiranih, a s obzirom na činjenicu da se u nizu rastojanja čuva put do nekog čvora preko
-    markiranih čvorova (koji su bliži čvoru <i>s</i>) i da biramo čvor sa minimalnim rastojanjem kod nemarkiranih (neka je to čvor <i>v</i>), znamo da je za njega to rastojanje optimalno jer bi npr. da putuje preko nekog od nemarkiranih rastojanje puta 
-    bilo rastojanje do tog nemarkiranog čvora (neka je to čvor <i>w</i>) plus još neki put, a samo rastojanje do <i>w</i> je veće od rastojanja do <i>v</i> jer smo <i>v</i> birali tako da ima minimalno rastojanje pa put preko <i>w</i> nikako ne može da bude bolji.
+    Dakle, treba pokazati da će rastojanje čvora iz skupa
+    nemarkiranih čvorova koji ima najmanje rastojanje od s biti minimalno
+    moguće, odnosno da neće postojati neki kraći put od čvora s do njega.<br />
+    To važi jer prema načinu biranja uvek će markirani čvorovi imati kraću dužinu puta od nemarkiranih. S obzirom na činjenicu da se u nizu rastojanja čuva put do nekog čvora preko
+    markiranih čvorova (koji su bliži čvoru \( s \)) i da biramo čvor sa minimalnim rastojanjem kod nemarkiranih (neka je to čvor \( v \)), znamo da je za njega to rastojanje optimalno jer bi npr. da putuje preko nekog od nemarkiranih rastojanje puta 
+    bilo rastojanje do tog nemarkiranog čvora (neka je to čvor \( w \)) plus još neki put, a samo rastojanje do \( w \) je veće od rastojanja do \( v \) jer smo \( v \) birali tako da ima minimalno rastojanje. Sledi da put preko \( w \) nikako ne može da bude bolji.<br />
     Zbog toga je ovaj algoritam korektan, i znamo da sigurno nalazi minimalna rastojanja između s i svih ostalih čvorova grafa.
 <br /><br />
 <b>Implementacija1 - niz (manje efikasno):</b>
@@ -131,16 +131,17 @@ void dijkstra2() // vremenska slozenost O(ElogV) gde je E broj grana a V broj cv
 } 
 </xmp>
 <br />
+Ono što se razlikuje kod navedene dve implementacije je način traženja elementa sa najmanjim rastojanjem do početnog čvora iz skupa markiranih.<br /> U prvoj implementaciji jednostavnim ciklusom prolazimo kroz sve markirane i nalazimo minimum što je operacija linearne složenosti. <br />Druga implementacija koristi red sa prioritetom u kom čuvamo dužinu puta do nekog čvora i koji je to čvor (kao par). Prioritet je minimalno rastojanje (u pozadini min heap) gde u O(1) možemo dohvatiti minimalni element dok su operacije dodavanja elementa i brisanja minimalnog elementa logaritamske složenosti, što nam poboljšava složenost traženja miminuma u odnosu na prvu implementaciju.<br />
+Ova verzija algoritma takođe dozvoljava duplikate tj. više različitih dužina puteva ka nekom čvoru upisanih u red s prioritetom. To nam ne pravi problem jer ne menja složenost i svakako ćemo prvo proći kroz minimalne a kad naiđemo na one duže puteve videćemo da oni ne doprinose boljem rešenju i preskočiti ih.
 
-
+<br />
 <br />
 Rad algoritma se takođe može videti i na datom primeru:
 <br />
 <img style="max-width:98%;" src="courses/grafovi/4_dijkstra/primer.png" class="img-fluid velicina">
 
 <br />
-<br />
-<h3>Prateći video materijali: </h3>
+<h2>Prateći video materijali: </h2>
 <br />
 <video style="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/4_dijkstra/dijkstra.mp4" type="video/mp4" />
@@ -148,7 +149,7 @@ Rad algoritma se takođe može videti i na datom primeru:
 </video>
 <br />
 <br />
-<h3>C++ kod implementacije: </h3>
+<h2>C++ kod implementacije: </h2>
 Kod implementacije Dijkstrinog algoritma možete preuzeti 
 <a href="courses/grafovi/4_dijkstra/dijkstra.cpp" download="courses/grafovi/4_dijkstra/dijkstra.cpp">ovde
 </a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/dijkstracpp" >ovde

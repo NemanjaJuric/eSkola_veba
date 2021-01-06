@@ -6,8 +6,14 @@
 
 using namespace std;
 
-vector<pair<int,pair<int,int> > > g[10005];
-int n,e,used[10005],mstAns;
+
+vector<vector<pair<int,pair<int,int> > >>g={   
+    {make_pair(2,make_pair(0,1)),make_pair(6,make_pair(0,3)) },  
+    {make_pair(2,make_pair(1,0)),make_pair(3,make_pair(1,2)),make_pair(8,make_pair(1,3)),make_pair(5,make_pair(1,4)) },  
+    {make_pair(3,make_pair(2,1)),make_pair(7,make_pair(2,4)) },  
+    {make_pair(6,make_pair(3,0)),make_pair(8,make_pair(3,1)),make_pair(9,make_pair(3,4)) },  
+    {make_pair(5,make_pair(4,1)),make_pair(7,make_pair(4,2)),make_pair(9,make_pair(4,3)) } };
+int n,e,used[10005];
 priority_queue<pair<int,pair<int,int> >, vector<pair<int,pair<int,int> > >, greater<pair<int,pair<int,int> > > > pq;
 
 void process(int u)                     // funkcija za obradu cvora
@@ -21,9 +27,9 @@ void process(int u)                     // funkcija za obradu cvora
     }
 }
 
-void Prim() // slozenost algoritma je  O(E Log V) gde je E broj grana a V broj cvorova grafa
+int Prim() // slozenost algoritma je  O(E Log V) gde je E broj grana a V broj cvorova grafa
 {
-    
+    int a=0;
     process(1);                         // krecemo od cvora 1
     while(!pq.empty())                  // dok god red sa prioritetom nije prazan
     {
@@ -31,27 +37,20 @@ void Prim() // slozenost algoritma je  O(E Log V) gde je E broj grana a V broj c
         pq.pop();
         if(!used[v])                    // ako nije obradjen, potrebno ga je obraditi
         {
-            cout<<u<<"-"<<v<<" "<<w<<"\n"; // ispisemo granu
-            mstAns+=w;                  // dodajemo tezinu na ukupnu tezinu mcst
+            cout<<"grana:"<<u<<"-"<<v<<" tezina "<<w<<"\n"; // ispisemo granu
+            a+=w;                  // dodajemo tezinu na ukupnu tezinu mcst
             process(v);                 // i zatim ga obradjujemo
         }
     }
+    return a;
 }
 
 // ucitavanje i ispis stabla za ucitan graf
 int main()
 {
-    ios_base::sync_with_stdio(0);
-    cin>>n>>e;
-    for(int i=0;i<e;i++)
-    {
-        int u,v,w;
-        cin>>u>>v>>w;
-        g[u].push_back(make_pair(w,make_pair(u,v)));
-        g[v].push_back(make_pair(w,make_pair(v,u)));
-    }
+    
     cout << "Primov algoritam: " << endl;
-    Prim();
-    cout<<mstAns;
+    int a=Prim();
+    cout<<"Ukupna tezina: "<<a;
     return 0;
 }

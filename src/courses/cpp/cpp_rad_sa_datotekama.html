@@ -1,0 +1,322 @@
+<h1> Rad sa datotekama </h1>
+</br>
+<b>Datoteka</b> ili <b>fajl</b> predstavlja skup podataka snimljenih na nekoj vrsti trajne memorije(hard disk, CD-ROM...). <br>
+Datoteci ili fajlu se pristupa preko njenog imena (filename).
+<br><br>
+Postoje dve vrste fajlova: <b>tekstualni</b> i <b>binarni</b>.<br> Tekstualni fajl sadrži tekst i njima je jednostavnije pristupiti, pisati u njih i čitati iz njih, dok binarni mogu sadržati i 
+kompleksne vrste podataka, kao što su slike, izvršni programi, baze podataka itd.
+<br><br>
+U programskom jeziku C++ postoji standardna biblioteka <span class = "primer_text">fstream</span> (f kao fajl), koja nam omogućava kreiranje, čitanje i pisanje u fajl.<br>
+Za njeno korišćenje, uključujemo zaglavlja <span class = "primer_text">iostream</span>  i <span class = "primer_text">fstream</span>. <br>
+Biblioteka <span class = "primer_text">fstream</span> definiše tri nova tipa podataka:
+<ul>
+<li><span class = "primer_text">ofstream</span> - tok za izlazne fajlove. Koristi se za kreiranje datoteka i pisanje informacija u njih. Ne može se koristiti za čitanje datoteka.</li>
+<li><span class = "primer_text">ifstream</span> - tok za ulazne fajlove. Koristi se za čitanje informacija iz datoteka. Ne može se koristiti za kreiranje datoteka i pisanje u njih.</li>
+<li><span class = "primer_text">fstream</span> - predstavlja kombinaciju prethodna dva, odnosno koristi se za kreiranje, čitanje i pisanje.</li>
+</ul>
+
+Bez obzira da li se sadržaj datoteke treba pročitati ili se u nju upisuju neki podaci, ona se najpre treba <b>otvoriti</b>.
+</br></br>
+<h2>Otvaranje datoteke pomoću funkcije open() </h2>
+
+Prvi argument funkcije <span class = "primer_text">open()</span> je ime i lokacija datoteke koja se treba otvoriti. 
+Međutim, moguće je dodati i drugi argument zavisno od toga da li se <span class = "primer_text">ifstream</span> i <span class = "primer_text">ofstream</span> poziva funkcijom  <span class = "primer_text">open,
+ ili se želi neki drugi modul od onog koji se daje.<br>
+Fajl u koji želimo da upišemo neke podatke ne mora da postoji i u tom slučaju on će se automatski
+ kreirati. <br><br>
+Lokacija, odnosno putanja do fajla može biti <b>relativna</b> i <b>apsolutna</b>. 
+<br>
+<div class = "napomena">
+Svi sledeći primeri će biti napisani u programskom jeziku C++, ali slično je i u svim ostalim programskim jezicima.
+</div>
+<br>
+<b>Primer</b></br></br>
+Otvaranje datoteke - relativna putanja
+<xmp class = "primer_ta">
+ofstream izlaz;
+izlaz.open("studenti.txt"); 
+</xmp>
+
+Otvaranje datoteke - apsolutna putanja
+<xmp class = "primer_ta">
+ofstream izlaz;
+izlaz.open("C:/MATF/Matematika/studenti.txt");
+
+</xmp>
+
+Otvaranje datoteke - niska
+<xmp class = "primer_ta">
+ofstream izlaz;
+char imeDatoteke[80];
+cout <<"Unesite ime datoteke:";
+cin >> imeDatoteke;
+izlaz.open(imeDatoteke);
+</xmp>
+
+Korišćenjem drugog argumenta u funkciji  <span class = "primer_text">open()</span> definišemo modul u kojem se treba otvoriti datoteka. 
+Ako želimo, na primer, da pratimo greške izazvane pokretanjem nekog programa i sačuvamo sve zapise o tome, koristimo opciju <span class = "primer_text">ios::app</span>:
+<xmp class = "primer_ta">
+ofstream izlaz;
+izlaz.open("studenti.txt", ios::app);
+
+</xmp>
+Ako se za otvaranje datoteke za pisanje koristi <span class = "primer_text">fstream</span> objekat, treba se dodati još jedan argument, tj. opcija za pisanje <span class = "primer_text">ios::in</span>.
+</br>
+</br>
+<h2>Otvaranje datoteke pomoću konstruktora</h2>
+
+U prethodnim primerima korišćene su naredbe sa konstruktorima bez argumenata. <br>
+Naredni primeri pokazuju upotrebu konstruktora sa jednim i dva argumenta:
+<xmp class = "primer_ta">
+ofstream izlaz("studenti.txt");
+fstream izlaz("studenti.txt",ios::out);
+</xmp>
+</br>
+
+<h2>Otvaranje datoteke za čitanje </h2>
+
+Sve prethodno navedeno važi i za otvaranje datoteke za čitanje. Razlika je što umesto korišćenja fstream objekta, koristimo <b>iostream</b>.
+Međutim ovde je bitno da datoteka <b>mora postojati</b>.
+<br>
+<br>
+Otvaranje datoteke za čitanje:
+<xmp class = "primer_ta">
+ifstream ulaz;
+ulaz.open("studenti.txt");
+fstream ulaz;
+ulaz.open("studenti.txt", ios::in);     //obavezno dodati argument ios::in
+ifstream ulaz("studenti.txt");
+fstream ulaz("studenti.txt", ios::in)
+</xmp>
+</br>
+
+
+<h2> Otvaranje datoteke za čitanje i pisanje</h2>
+
+U ovom slučaju koristimo objekat <b>fstream</b>.
+<xmp class = "primer_ta">
+fstream izlazUlaz;
+izlazUlaz.open("studenti.txt", ios::in | ios::out);
+</xmp>
+Prethodno možemo postići i pomoću <b>konstruktora</b>:
+<xmp class = "primer_ta">
+fstream izlazUlaz ("studenti.txt", ios::in | ios::out);
+</xmp>
+</br>
+
+
+<h2>Zatvaranje datoteke </h2>
+
+
+Svaka otvorena datoteka se pre završetka programa treba i zatvoriti. Zatvaranje datoteka se vrši pomoću funkcije <span class = "primer_text">close()<span>. 
+
+<xmp class = "primer_ta">
+ifstream ulaz;
+ulaz.open("studenti.txt");
+   
+   // skup naredbi
+   
+ulaz.close();
+</xmp>
+</br>
+
+
+<h2>Upis u datoteku </h2>
+
+U C++ programskom jeziku, za upis u datoteku koristimo <span class = "primer_text">operator (<<)</span>, kao što je to bio slučaj sa ispisivanjem na ekran <span class = "primer_text">cout << </span>. 
+Jedina razlika je u tome što se ovde koristi fstream ili iostream objekat, a ne cout objekat. 
+
+<br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+int main (){
+    char podaci[80];
+    ofstream izlaz;
+  
+    izlaz.open("studenti.txt");
+  
+    cout << "Zapisivanje u datoteku" << endl;
+    cout << "=======================" << endl;
+        
+    cout << "Upisite razred: ";
+    cin.getline(podaci, 80);
+
+    izlaz << podaci << endl;
+    
+    cout << "Unesite broj studenata: ";
+    cin >> podaci;
+    cin.ignore();
+
+    izlaz << podaci << endl;
+    
+    izlaz.close();
+  
+    return 0;
+}
+</xmp>
+
+Upotrebom drugog argumenta pri otvaranju datoteke za pisanje (ios::app) možemo dodavati sadržaj na postojeću datoteku, kao što to pokazuje sledeći primer.
+<br><br>
+<b>Primer</b>
+<xmp class = "primer_ta">
+//U ovom primeru zapisivanje se prekida nakon unosa znakova ***.
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+  
+int main(){
+  
+    string x;
+    ofstream izlaz;
+    izlaz.open("podaci.txt", ios::app);
+    
+    while (x != "***"){
+        cout << "Unesite tekst (za kraj unesite ***):“ << endl;
+        cin >> x;
+        izlaz << x << endl;
+    }
+    izlaz.close();
+    
+    return 0;
+}
+</xmp>
+</br>
+
+<h2> Čitanje iz datoteke </h2>
+
+Čitanje podataka iz datoteke obavlja se pomoću operatora za čitanje (>>), kao što je to slučaj sa učitavanjem sa tastature (cin >>).</br>
+Sledeći primer dopunjuje onaj iz prethodnog poglavlja, tj. nakon što korisnik upisuje informacije u datoteku, program čita iste podatke i ispisuje ih na ekran.</br></br>
+<b>Primer </b>
+<xmp class = "primer_ta">
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+
+int main (){
+    string podaci;
+    ofstream izlaz;
+   
+    izlaz.open("studenti.txt");
+    cout << "Upisivanje u datoteku" << endl;
+    cout << "=====================" << endl;
+    cout << "Unesite razred: ";
+   
+    getline(cin,podaci);
+   
+    izlaz << podaci << endl;
+   
+    cout << "Unesite broj studenata: ";
+    cin >> podaci;
+    cin.ignore();
+    izlaz << podaci << endl;
+    izlaz.close();
+   
+    ifstream ulaz;
+   
+    cout << "Citanje iz datoteke" << endl;
+    cout << "===================" << endl;
+    ulaz.open("studenti.txt“);
+    getline(ulaz,podaci);
+    cout << podaci << endl;
+   
+    getline(ulaz,podaci);
+    cout << podaci << endl;
+   
+    ulaz.close();
+   
+    return 0;
+}
+
+
+</xmp>
+
+Međutim, vidimo da je u ovom slučaju korišćena C++ string klasa umesto promenljive<span class = "primer_text"> podaci </span>tipa char. Na taj način se pomoću funkcije <span class = "primer_text">getline</span> može ispisati ime razreda koje ima više od jedne reči. Prethodni primer se može napisati i na sledeći način upotrebom funkcija za čitanje i pisanje u datoteku.
+<xmp class = "primer_ta">
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool upisiDatoteku (ofstream&, char*);
+bool citajDatoteku (ifstream&, char*);
+int main (){
+
+    string podaci;
+    bool status;
+    ofstream izlaz;
+    status = upisiDatoteku(izlaz, "studenti.txt");
+    
+    if (!status){
+        cout << "Datoteka za ispisivanje se ne moze otvoriti\n";
+        cout << "Program se zavrsava\n";
+        system("PAUSE");
+        return 0;
+    }
+    else{
+        cout << "Pisanje u datoteku" << endl;
+        cout << "==================" << endl;
+        cout << "Upisite razred: ";
+        getline(cin, podaci);
+        izlaz << podaci<< endl;
+        cout << "Unesite broj studenata: ";
+        cin >> podaci;
+        cin.ignore();
+        izlaz << podaci<< endl;
+        
+        izlaz.close();
+    }
+    
+    ifstream ulaz;
+    status = citajDatoteku(ulaz, "studenti.txt");
+    
+    if (!status){
+        cout << "Datoteka za citanje se ne moze otvoriti\n";
+        cout << "Program se zavrsava\n";
+        system("PAUSE");    
+        return 0;
+    }
+    else{
+        cout << "Citanje iz datoteke" << endl;
+        cout << "===================" << endl;
+        getline(ulaz, podaci);
+        while(!ulaz.fail()){
+            cout << podaci << endl;
+            getline(ulaz, podaci);
+        }
+        ulaz.close();
+    }
+    system("PAUSE");
+    return 0;
+}
+
+bool upisiDatoteku (ofstream& datoteka, char* strDatoteka){
+    datoteka.open(strDatoteka);
+    if (datoteka.fail())
+        return false;
+    else
+        return true;
+}
+
+bool citajDatoteku (ifstream& datoteka, char* strDatoteka){
+    datoteka.open(strDatoteka);
+    if (datoteka.fail())
+        return false;
+    else 
+        return true;
+}
+</xmp></br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavlja datoteka i koje vrste datoteka postoje?</br>
+  Pitanje 2: Koja C++ standardna biblioteka nam omogućava rad sa fajlovima? Koje tipove podataka ona definiše? Prokomentarisati njihove uloge.</br>
+  Pisanje 3: Pomoću kojih funkcija se datoteka otvara i zatvara?</br>
+  Zadatak 1: Kreirati datoteku sa imenima svih učenika u razredu i otvoriti je preko relativne i apsolutne putanje, a zatim i preko konstruktora.</br>
+  Zadatak 2: Kreirati datoteku "uceniciMatematika.txt" sa imenima, prezimenima i ocenama učenika iz matematike. Zatim u datoteku "prosekUceniciMatematika.txt" upisati ime, prezime i prosečnu ocenu za svakog učenika.</br>
+</div>
+</br>

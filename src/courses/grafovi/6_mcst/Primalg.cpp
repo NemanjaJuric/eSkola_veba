@@ -56,7 +56,7 @@ int PrimAlg(){
     
     //ispis grana koje cine mst
 
-    cout<<"Minimalno povezujuce stablo cine sledece grane"<<endl;
+    cout<<"Primov algoritam: \nMinimalno povezujuce stablo cine sledece grane"<<endl;
     for(int i=1;i<n;i++){
         cout<<roditelj[i]<<" - "<<i<< " tezina: "<< graf[roditelj[i]][i] <<endl;
     }

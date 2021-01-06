@@ -1,0 +1,409 @@
+<h1> Rad sa strukturama podataka </h1>
+</br>
+<b>Struktura podataka</b> je način predstavljanja podataka u računarskoj memoriji,
+ kojom se omogućava njihovo efikasno modifikovanje, pristup i obrada.<br>
+Najbitnije strukture podataka su:
+ <ul>
+  <li>Niz</li>
+  <li>Lista</li>
+  <li>Stek</li>
+  <li>Red</li>
+  <li>Red sa prioritetom</li>
+  <li>Graf</li>
+  <li>Stablo</li>
+  
+</ul>
+<br>
+<h2> Nizovi   </h2>
+Glavna ideja nizova je da se veliki broj podataka istog tipa uskladišti zajedno.<br><br>
+Na primer, umesto da definišemo više promenljivih <span class = "primer_text">broj0, broj1,..., broj99</span>, možemo definisati jedan 
+niz veličine 100 pod imenom <span class = "primer_text">nizBrojeva</span> čiji su elementi brojevi. 
+U tom slučaju, elementima niza pristupa se sa <span class = "primer_text">nizBrojeva[0], nizBrojeva[1],..., nizBrojeva[99]</span>.<br><br>
+Brojevi u uglastoj zagradi predstavljaju <b>indekse</b> nizova. Prvi element niza ima indeks 0.<br>
+Elementi niza mogu se u programu koristiti kao bilo koja druga promenljiva.<br>
+Može im se dodeliti ili modifikovati vrednost, mogu se prosleđivati kao argumenti funkcija i slično.
+<br> <br>
+Niz zapravo predstavlja kolekciju podataka uskladištenih na susednim memorijskim lokacijama.
+U računarskoj memoriji se uglavnom realizuju kao kontinualni memorijski blokovi. 
+<br> <br>
+Direktan pristup elementima niza je veoma efikasan, kao i sekvencijalan. Takođe, postoji veliki broj algoritama za pretraživanje i uređivanje nizova po različitim kriterijumima. 
+<br> 
+Na primer, neka je adresa početka niza <span class = "primer_text">A</span> i tražimo i-ti element tog niza. Do njega se dolazi veoma lako:<br>
+<span class = "primer_text"> a[i] = vrednost_lokacije (A + i * velicina_pojedinacnog_elementa_niza)</span>.
+<br><br> 
+Mane nizova su veoma zahtevno umetanje elemenata između dva postojeća (potrebno je pomeriti sve elemente niza od mesta gde se umeće element jedno mesto prema kraju niza) i brisanje elemenata iz niza.
+<br> <br>
+Nizovi se uglavnom definišu na sledeći način: <span class = "primer_text">tip imeNiza [velicinaNiza] </span>(ovo je primer deklaracije jednodimenzionalnog niza, a mogu se deklarisati i nizovi većih dimenzija).
+<br> <br>
+<b>Veličina</b> niza se izražava pozitivnim celim brojem i ne može biti nula. <b>Tip</b> niza predstavlja tip podataka elemenata niza.
+<br>
+Veličina niza označava koliko će se memorijskog prostora rezervisati i on je jednak proizvodu veličine niza i memorije potrebne za skladištenje tipa koji predstavlja tip elemenata niza.
+  
+ <br>
+<br>
+<b>Primer</b><br> 
+<xmp class = "primer_ta">
+//Deklaracija niza veličine 10 čiji su elementi tipa double
+double niz[10]
+</xmp>    
+ova deklaracija će rezervisati 10x8=80 bajtova memorije (veličina tipa double je 8 bajtova).
+<br><br>
+<b>Inicijalizacija</b> niza predstavlja dodelu vrednosti elementima niza. Ona se može vršiti na dva načina:
+ <ul>
+  <li>Dodela vrednosti svim elementima niza odjednom </li>
+ <li>Dodela vrednosti jednom po jednom elementu niza</li>
+</ul>
+
+
+Svim elementima niza vrednost se dodeljuje navođenjem vrednosti u vitičastim zagradama, razvojenim zarezom, kao na primer:
+<xmp class = "primer_ta">double niz[5] = {100.0, 2.0, 5.0, 4.0, 6.0};</xmp>
+
+Broj elemenata u vitičastoj zagradi mora biti jednak ili manji od zadate veličine niza. Ukoliko je broj dodeljenih vrednosti manji od veličine niza, na preostala mesta postavljaju se podrazumevane vrednosti koje zavise od tipa (na primer, za int je 0, za float i double je 0.0).
+<br> <br>
+Moguće je dodeliti elemente nizu i bez navođenja veličine niza:
+<xmp class = "primer_ta">double niz[] = {100.0, 2.0, 5.0, 4.0, 6.0}; </xmp>   
+
+Za obradu nizova, najčešće se koriste petlje sa brojačem koji uzima redom vrednosti indeksa niza.
+
+<br><br>
+<b>Primer</b>
+<xmp class="primer_ta">
+//primer koji ilistruje dodelu vrednosti elementima niza i ispis elemenata niza
+#include <iostream>
+
+int main () {
+    int niz[10]; // deklarisemo niz od 10 integera 
+    int i,j;
+    // inicijalizacija vrednosti elemenata niza
+    for (i = 0; i<10; i++) {
+        niz[i] = i + 100; //dodela vrednosti i-tom elementu
+    }
+    // ispis vrednosti elemenata niza
+    for (j = 0; j < 10; j++ ) {
+        printf("niz[%d] = %d\n", j, niz[j] );
+    }
+    return 0;   
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+niz[0] = 100
+niz[1] = 101
+niz[2] = 102
+niz[3] = 103
+niz[4] = 104
+niz[5] = 105
+niz[6] = 106
+niz[7] = 107
+niz[8] = 108
+niz[9] = 109
+</xmp>
+</br> 
+ <h2>Liste </h2>
+Lista je struktura podataka koja se odlikuje linearnim rasporedom pripadajućih elemenata. Po svojoj prirodi, lista je najsrodnija nizu, ali se uglavnom implementira koristeći dinamičko alociranje memorije i pokazivače. 
+</br></br> 
+Osobine liste:
+ <ul>
+  <li>lista može biti prazna,</li>
+  <li>moguće je ubaciti novi element na bilo koju poziciju u listi,</li>
+  <li>moguće je izbaciti bilo koji element iz liste,</li>
+  <li>lista ima svoju veličinu,</li>
+  <li>svakom elementu liste se može pristupiti preko indeksa.</li>
+  
+</ul>
+ 
+Lista se može sastojati od elemenata različitih tipova, a može biti i tipizirana, tj. imati ograničenje da svi pripadajući elementi moraju biti istog, unapred određenog tipa. 
+ <br>
+Po vrsti povezanosti, liste se najčešće dele na:
+ <ul>
+  <li>jednostuko povezane,</li>
+  <li>dvostruko povezane.</li>
+</ul>
+Po svom obliku, liste se dele na:
+ <ul>
+  <li>linearne,</li>
+  <li>kružne.</li>
+</ul><br>
+<img src="courses/cpp/images/lista.png" class="img-fluid img-md">
+<br><br>
+
+<b>Jednostruko povezane liste</b> podržavaju pretraživanje elemenata samo u jednom smeru. Kod implementacije liste pomoću pokazivača i dinamičke memorije, svaki element sadrži tačno po jedan pokazivač koji pokazuje na sledeći element u listi. 
+<br>
+<b>Dvostruko povezane liste</b> su liste u kojima je moguće pretraživanje pripadajućih elemenata u dva smera. Ovo se uglavnom implementira postojanjem dva pokazivača u svakom elementu liste, gde jedan pokazuje na prethodni, a drugi na sledeći element u listi. 
+
+<br><br>
+<b>Kružne liste</b> se odlikuju odsustvom početka liste. Za raziku od <b>linearnih (običnih) listi</b> koje imaju jasno izražen početni i krajnji element,
+ kod kružne liste poslednji element se uvek postavlja da pokazuje na prvi, a prvi element može da šeta, tj. u svakom trenutku bilo koji element liste
+ može da se proglasi za prvi bez ometanja strukture. Na ovaj način, postiže se da se iteracija po listi ne mora nikada završiti, 
+ jednostavno prelazeći svaki put na sledeći element.
+
+<br><br>
+Tipične <b>operacije sa listom</b> su umetanje, brisanje i pretraživanje liste. Takođe postoje i ostale operacije, kao što su inverzija poretka čvorova u listi, povezivanje dve liste u jednu, nalaženje i-tog čvora itd.
+<br><br>
+<b>Čvor</b> dvostruko povezane liste koji sadrži celobrojnu vrednost se može definisati kao sledeća struktura (C++  kod):
+<xmp class="primer_ta">
+struct Cvor { 
+    int vrednost; 
+    Cvor *sledeci; 
+    Cvor *prethodni; 
+}
+</xmp>
+
+Novi čvor ovakve liste se kreira korišćenjem operatora <span class = "primer_text">new</span>, 
+koji alocira memoriju za novi čvor, na primer:
+<xmp class="primer_ta">
+Cvor *novi_cvor = new Cvor;
+</xmp>
+
+
+U okviru standardne C++ biblioteke, dostupna je struktura dvostruko povezane liste <span class = "primer_text">list</span>. Da bi se mogla koristiti, potrebno je uključiti zaglavlje biblioteke <span class = "primer_text">list</span>: <span class = "primer_text"> #include < list > </span>
+<br>
+
+<br>
+<b>Primer</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <list>
+ 
+int main(){
+
+    list<int> lista; //inicijalizacija listi celih brojeva 
+    
+    lista.push_back(1); // Dodavanje elementa na kraj liste, pa sada lista izgleda ovako: [1]
+    lista.push_back(2); // [1, 2] 
+    
+    lista.push_front(3); // Dodavanje elementa na pocetak liste, pa sada lista izgleda ovako: [3, 1, 2]
+    lista.push_front(4); // [4, 3, 1, 2] 
+    
+    lista.pop_back(); // Uklanjanje elementa sa kraja liste, pa sada lista izgleda ovako: [4, 3, 1]      
+    lista.pop_front(); // Uklanjanje elementa sa pocetka liste, pa sada lista izgleda ovako: [3, 1]
+    
+    cout << lista.front() << endl; // Funkcija front() vraca vrednost prvog elementa liste 
+    cout << liste.back() << endl; // Funkcija back() vraca vrednost poslednjeg elementa liste
+    
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+3
+1
+</xmp>
+<br>
+<h2>Stek</h2>
+
+<b>Stek</b> je struktura podataka bazirana na <b>LIFO</b> (engl. last in-first out) principu.  <br>
+<br>
+Možemo ga zamisliti kao gomila tanjira poređanih jedan na drugi. Na vrh gomile dodajemo novi tanjir, a možemo uzeti, odnosno skinuti samo onaj tanjir koji se nalazi na vrhu. Da bismo uzeli tanjir sa dna, prethodno moramo ukloniti sve tanjire koji se nalaze iznad njega. Samo je tanjir sa vrha dostupan, dok su ostali prekriveni.
+<br><br>
+Sastoji se od čvorova i dve osnovne operacije: <span class = "primer_text">push</span> i <span class = "primer_text">pop</span>. Push stavlja dati čvor na vrh steka, ostavljajući ostale ispod. Pop uklanja i vraća čvor koji je trenutno na vrhu. 
+<br>
+Kod modernih računarskih jezika, stek se obično implementira sa dodatnim operacijama, a ne samo sa operacijama <span class = "primer_text">push</span> i <span class = "primer_text">pop</span>. Često je moguće da se vrati dužina steka kao parametar. Takođe, česta operacija je i operacija <span class = "primer_text">top</span>, koja može da vrati element sa vrha steka, bez njegovog uklanjanja.
+<br><br>
+<b>Standardna biblioteka šablona (STL)</b> programskog jezika C++ sadrži implementaciju strukture podataka stek. Biblioteka za korišćenje strukture stek se uključuje na sledeći način:
+<span class = "primer_text">
+#include <stack>
+</span>
+</br></br>
+Funkcije koje možemo koristiti:
+<ul>
+  <li><span class = "primer_text">empty()</span> - testira da li je stek prazan,</li>
+  <li><span class = "primer_text">size()</span> - vraća veličinu steka,</li>
+  <li><span class = "primer_text">top()</span> - vraća element sa vrha steka, ali ga ne uklanja,</li>
+  <li><span class = "primer_text"> push()</span> - dodaje element na vrh steka,</li>
+  <li><span class = "primer_text">pop()</span> - uklanja element sa vrha steka.</li>
+</ul>
+
+
+<img src="courses/cpp/images/stack.png" class="img-fluid img-md">
+<br>
+<br>
+<b>Primer</b>
+
+<xmp class="primer_ta">
+#include <iostream>
+#include <stack>
+
+int main(){
+    stack s; // Stek koji cuva elemente tipa int, inicijalno prazan.
+    s.push(1);
+    s.push(2);
+    s.push(3); 
+    
+    while(s.empty() == false) { 
+        cout << s.top() << " ";   // Ispis elementa sa vrha steka
+        s.pop();                  // Uklanjanje elementa sa vrha steka 
+    }
+
+    return 0; 
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+3 2 1
+</xmp>
+<br>
+<h2> Red </h2>
+
+<b>Red</b> je struktura podataka bazirana na <b>FIFO</b> (eng. first in-first out) principu kod kojeg se elementi dodaju na jedan kraj, a uklanjanju sa drugog kraja.<br> 
+Red na šalteru je primer iz svakodnevnog života. Osoba koja prva stigne, prva će završiti posao na šalteru, dok će osobe koje su kasnije došle dolaziti na kraj reda i čekati da svi ispred njih završe posao.</br></br>
+
+Osnovne operacije nad redom su:
+<ul>
+<li>dodavanje (enqueue) elemenata na kraj reda, </li>
+<li>uklanjanje (dequeue) elemenata sa početka reda.</li>
+</ul>
+
+<img src="courses/cpp/images/queue.png" class="img-fluid img-md">
+<br><br>
+U standardnoj biblioteci jezika C++ nalazi se stuktura <span class = "primer_text">queue</span> koja predstavlja implementaciju strukture red.<br>
+Biblioteka za korišćenje strukture red se uključuje na sledeći način:
+<span class = "primer_text">
+#include < queue >
+</span></br></br>
+Pri deklaraciji se navodi tip elemenata koji će se smeštati u red.
+Funkcija <span class = "primer_text">push()</span> dodaje novi element na kraj reda, dok funkcija <span class = "primer_text">pop()</span> skida element sa početka reda.
+Funkcija <span class = "primer_text">pop()</span>, kao i kod strukture stek ne vraća vrednost elementa uklonjenog sa početka reda već je za proveru vrednosti sa početka reda potrebno iskoristiti funkciju <span class = "primer_text">front()</span>.
+ Funkcija <span class = "primer_text">empty()</span> proverava da li je red prazan. 
+<br><br>
+<b>Primer</b>
+
+<xmp class="primer_ta">
+#include <iostream>
+#include <cstdio>
+#include <queue>
+using namespace std;
+
+int main() {
+
+    char qu[4] = {'a', 'b', 'c', 'd'};    
+    queue <char> q;
+    
+    int N = 3; // broj koraka
+    char ch;
+    
+    for(int i = 0;i < 4;++i)
+        q.push(qu[i]);
+        
+    for(int i = 0;i < N;++i) {
+        ch = q.front();
+        q.push(ch);
+        q.pop();
+    }
+    
+    while(!q.empty()) {
+        printf("%c", q.front());
+        q.pop();
+    }
+    
+    printf("\n");
+    
+    return 0;
+}
+ </xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+dabc
+</xmp>
+</br>
+<h2>Red sa prioritetom </h2>
+ 
+
+Slično regularnom redu, samo sa dodatno pridruženim prioritetom svakom elementu. U redu sa prioritetom, element sa najvećim prioritetom se uzima pre elementa sa nižim prioritetom. Ako dva elementa imaju isti prioritet, onda se uzimaju prema redosledu u redu. 
+</br></br>
+Tipične operacije koje podržava red sa prioritetom su:
+<ul>
+<li>ubaci(element, prioritet) - ubacuje u red sa prioritetom element sa datim prioritetom,</li>
+<li>vratiElementSaNajvecimPrioritetom() - vraća element sa najvećim prioritetom, </li>
+<li>brisiNajveciPrioritet() - uklanja element sa najvećim prioritetom.</li>
+  
+ </ul>
+  <br>
+  Programski jezik C++ nam daje podršku za rad sa redovima sa prioritetom.
+  Deklaracija za prioritetni red celobrojnih vrednosti: <span class = "primer_text"> priority_queue < int > redSaPrioritetom; </span>
+  
+  
+  </br></br>
+  
+  Funkcije koje možemo da koristiti:
+   <ul>
+   <li><span class = "primer_text">empty()</span> - proverava da li je red sa prioritetom prazan,</li>
+   <li><span class = "primer_text">pop()</span> - uklanja element sa najvećim prioritetom,</li>
+   <li><span class = "primer_text">push()</span> - dodaje novi element,</li>
+   <li><span class = "primer_text">size()</span> - vraća broj elemenata u redu sa prioritetom,</li>
+   <li><span class = "primer_text">top()</span> - vraća referencu na element sa najvećim prioritetom.</li>
+   </ul>
+   
+<b>Primer</b>
+<xmp class="primer_ta">
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main(){
+    
+    priority_queue<int> pq;
+    pq.push(10);
+    pq.push(20);
+    pq.push(5);
+    
+    while(!pq.empty()){
+        cout << pq.top() << endl;
+        pq.pop();
+    }
+    
+    return 0;
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+10
+20
+5
+</xmp>
+</br>
+<h2>Stabla </h2>
+
+Pojam <b>stablo</b> se u programiranju koristi da označi strukturu podataka koja ima "razgranatu" strukturu, po uzoru na pojam stabla u teoriji grafova.
+</br
+>Stablo se često koristi kao glavni oblik nekog skladišta podataka, zbog lakog pisanja odgovarajućeg koda kroz korišćenje rekurzije, brzog upisivanja podataka i brzog pristupa traženim podacima. Najčešće korišćeno stablo je stablo u kojem svaki čvor mora imati tačno dve grane, tj. <b>binarno stablo</b>.
+ <br></br>
+ <img src="courses/cpp/images/binstablo.png" class="img-fluid img-md">
+ </br></br>
+<h2>Grafovi </h2>
+U računarstvu, graf je vrsta strukture podataka koja se satoji od skupa čvorova i skupa grana, koje predstavljaju veze između čvorova. 
+<br><br>
+Graf G se definiše na sledeći način:<span class = "primer_text"> G=(V,E)</span>, gde je V konačan, neprazan skup čvorova, a E je skup grana, odnosno veza između čvorova.
+<br><br>
+<img src="courses/cpp/images/graph.png" class="img-fluid img-md">
+<br><br>
+ Grafovi se u računarstvu uglavnom predstavljaju na razne načine, a najčešći su <b>lista povezanosti</b> i <b>matrica povezanosti</b>.  <br><br>
+ Lista povezanosti je implementirana tako što predstavlja svaki čvor kao strukturu podataka koja sadrži listu svih susednih čvorova.<br>
+ Matrica povezanosti je matrica čije vrste i kolone predstavljaju početne i krajnje čvorove, a dati član matrice predstavlja indikaciju da li između odgovarajuća dva čvora postoji grana (recimo 0 ako ne postoji, a 1 ako postoji).<br>
+ Liste povezanosti se češće koriste kod retkih grafova, a u suprotnom su matrice povezanosti dobar izbor. Takođe, za vrlo velike grafove koji imaju neku pravilnost što se tiče položaja grana, mogući izbor predstavljanja je simbolički graf. <br>
+ Vrste ove matrice predstavljaju čvorove, a kolone predstavljaju grane. U svakoj koloni stoje jedinice na mestima koja odgovaraju čvorovima koje spaja odgovarajuća grana (a na ostalim mestima su nule).
+<br> 
+<br>
+Grafovske strukture podataka su nehijerarhijske, i stoga su pogodne za podatke gde su pojedinačni elementi povezani na kompleksne načine. Na primer, simulacija računarske mreže se može predstaviti pomoću grafa.<br>
+Hijerarhijski skupovi podataka se mogu predstaviti binarnim ili nebinarnim stablom. Stabla se takođe mogu posmatrati i kao grafovi.<br><br>
+Grafovski algoritmi su od velikog značaja u računarstvu. Tipične operacije povezane sa grafovima su nalaženje puta između dva čvora, za šta se na primer koriste pretraga grafa u dubinu i pretraga grafa u širinu, i nalaženje najkraćeg puta od jednog do drugog čvora.
+<br>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+Pitanje 1: Šta predstavlja struktura podataka? Nabroj neke strukture podataka.<br>
+Pitanje 2: Šta su nizovi? Navesti primer gde možemo koristiti nizove. Prednosti i mane nizova?<br>
+Pitanje 3: Kako se pristupa elementima niza?<br>
+Pitanje 4: Kako se deklariše niz? Šta je tip, a šta veličina niza?<br>
+Zadatak 1: Sa standardnog ulaza se unosi n brojeva. Izračunati sumu, naći minimum i maksimum tih brojeva.<br>
+Zadatak 2: Napisati program koji za unetih n brojeva određuje maksimalnu razliku susednih brojeva.<br>
+Pitanje 5: Šta je lista i koje su njene osobine?<br>
+Pitanje 6: Šta su tipizirane, a šta netipizirane liste?<br>
+Pitanje 7: Kakva lista može biti po vrsti povezanosti, a kakva po obliku?<br>
+Zadatak 3: Sa standardnog ulaza se unosi lista celih brojeva dok se ne unese 0 i broj x. Odrediti broj pojavljivanja broja x u listi.<br>
+Zadatak 4: Napisati program kojim se od date liste brojeva formira nova koja sadrži samo parne brojeve.<br>
+Pitanje 8: Šta predstavlja stek i na kom principu je zasnovan? Šta važi za red? <br>
+Pitanje 9: Koje sve operacije podržava struktura stek, a koje red?<br>
+Pitanje 10: Šta je red sa prioritetom i koja je razlika između njega i običnog reda? Koje su tipične operacije za red sa prioritetom?<br>
+Pitanje 11: Šta predstavljaju stabla, a šta grafovi?
+</div>

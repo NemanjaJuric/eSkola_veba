@@ -1,0 +1,354 @@
+<h1> Primeri primene generičkih klasa u različitim objektno orijentisanim jezicima </h1>
+</br>
+Do sada smo naučili kako se generičke klase primenjuju u programskom jeziku C++, pa s tim u vezi ćemo prikazati dva primera.
+<h2>Primer 1</h2>
+Napisati šablon klasu <span class = "primer_text">Koordinate</span> za predstavljanje koordinata tačaka u prostoru. Obezbediti metodu za poređenje tačaka na osnovu udaljenosti od koordinatnog početka.
+<xmp class="primer_ta">
+include <iostream>
+using namespace std;
+
+template <class T>
+class Koordinate {
+    private:
+        T _x;
+        T _y;
+        T _z;
+    public:
+        //konstruktor sa podrazumevanim vrednostima
+        Koordinate() {
+            _x = 0;
+            _y = 0;
+            _z = 0;
+        }
+        //parametarski konstruktor
+        Koordinate(const T& x, const T& y, const T& z) {
+            :_x(x), _y(y), _z(z) {
+        }
+        //getter-i
+        T X() const {
+            return _x;
+        }
+        T Y() const {
+            return _y;
+        }
+        T Z() const {
+            return _z;
+        }
+        //setter-i
+        void postaviX(const T& x){
+            _x = x;
+        }
+        void postaviY(const T& y){
+            _y = y;
+        }
+        void postaviZ(const T& z){
+            _z = z;
+        }
+        //operator manje, koji poredi rastojanja od koordinatnog pocetka
+        bool operator < (const Koordinate& k) const {
+            return X() * X() + Y() * Y() + Z() * Z() < k.X() * k.X() + k.Y() * k.Y() + k.Z() * k.Z(); 
+        }
+        //operator jednako, koji poredi rastojanja od koordinatnog pocetka
+        bool operator == (const Koordinate& k) const {
+            return X() * X() + Y() * Y() + Z() * Z() == k.X() * k.X() + k.Y() * k.Y() + k.Z() * k.Z(); 
+        }
+        //operator vece, koji poredi rastojanja od koordinatnog pocetka
+        bool operator > (const Koordinate& k) const {
+            return X() * X() + Y() * Y() + Z() * Z() > k.X() * k.X() + k.Y() * k.Y() + k.Z() * k.Z(); 
+        }
+        //operator plus, koji sabira koordinate dve tacke
+        Koordinate operator + (const Koordinate& k) const {
+            return Koordinate(X() + k.X(), Y() + k.Y(), Z() + k.Z());
+        }
+        //predefinisemo operator deljenja celim brojem, jer nam je potreban za racunanje sredista duzi
+        Koordinate operator / (int n) const {
+            return Koordinate(X()/n, Y()/n, Z()/n);
+        }
+};
+
+//standardni ulaz
+template <typename T>
+std::istream& operator >> (std::istream& ulaz, Koordinate<T>& k){
+    T x, y, z;
+    ulaz >> x >> y >> z;
+    k.postaviX(x);
+    k.postaviY(y);
+    k.postaviZ(z);
+    return ulaz;
+}
+
+//standardni izlaz
+template <typename T>
+std::ostream& operator << (std::ostream& izlaz, const Koordinate<T>& k){
+    izlaz << ”(” << k.X() << ”, ” << k.Y() << ”, ” << k.Z() << ”)”;
+    return izlaz;
+}
+
+int main() {
+    
+    Koordinate<int> prva;
+    Koordinate<int> druga;
+        
+    cout << "Unesite koordinate za prvu tacku (celi brojevi): " << endl;
+    cin >> prva;
+    cout << "Unesite koordinate za drugu tacku (celi brojevi): " << endl;
+    cin >> druga;
+        
+    cout << "Uneli ste tacke: "<< endl;
+    cout << prva << " i " << druga << endl;
+        
+    if(prva < druga)
+        cout << "Tacka: " << prva << " je bliza koordinatnom pocetku." << endl;
+    else if(prva == druga)
+        cout << "Tacke: "<< prva << " i " << druga << " su podjednako udaljene od koordinatnog pocetka." << endl;
+    else
+        cout << "Tacka: "<< druga << " je bliza koordinatnom pocetku." << endl;
+        
+    cout << "Srediste duzi koje obrazuju unete tacke: " << (prva + druga) / 2 << endl;
+            
+    Koordinate<double> prvaD;
+    Koordinate<double> drugaD;
+        
+    cout << "Unesite koordinate za prvu tacku (realni brojevi): " << endl;
+    cin >> prvaD;
+    cout << "Unesite koordinate za drugu tacku (realni brojevi): "<< endl;
+    cin >> drugaD;
+        
+    cout << "Uneli ste tacke: "<< endl;
+    cout << prvaD << " i " << drugaD << endl;
+        
+    if(prvaD < drugaD)
+        cout << "Tacka: " << prvaD << " je bliza koordinatnom pocetku." << endl;
+    else if(prvaD == drugaD)
+        cout << "Tacke: "<< prvaD << " i " << drugaD << " su podjednako udaljene od koordinatnog pocetka." << endl;
+    else
+        cout << "Tacka: "<< drugaD << " je bliza koordinatnom pocetku." << endl;
+        
+    cout << "Srediste duzi koje obrazuju unete tacke: " << (prvaD + drugaD) / 2 << endl;
+    return 0;
+}
+</xmp>
+</br>
+<h2>Primer 2</h2>
+Napisati šablon klasu <span class = "primer_text">Osoba</span> koja sadrži atribute ime, prezime i godinu rođenja. Obezbediti metod za poređenje osoba na osnovu godine rođenja.
+<xmp class="primer_ta">
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Osoba{
+    private:
+        string _ime;
+        string _prezime;
+        int _godinaRodjenja;
+    public:
+        //podrazumevani konstruktor
+        Osoba() {
+            _ime="";
+            _prezime="";
+            _godinaRodjenja=0;
+        }
+        //parametarski konstruktor
+        Osoba(const string& ime, const string& prezime, int god){
+            _ime=ime;
+            _prezime=prezime;
+            _godinaRodjenja=god;
+        }
+        //getter-i
+        string Ime() const{
+            return _ime;
+        }
+        string Prezime() const{
+            return _prezime;
+        }
+        int GodinaRodjenja() const{
+            return _godinaRodjenja;
+        }
+        //setter-i
+        void postaviIme(const string& ime){
+            _ime = ime;
+        }
+        void postaviPrezime(const string& prezime){
+            _prezime = prezime;
+        }
+        void postaviGodinaRodjenja(int godina){
+            _godinaRodjenja = godina;
+        }
+        //operator za poredjenje na osnovu godine rodjenja
+        bool operator < (const Osoba &o1) const{
+            return _godinaRodjenja < o1.GodinaRodjenja();
+        }
+};
+
+//standardni izlaz
+std::ostream& operator << (std::ostream& izlaz, const Osoba &osoba){
+    izlaz << osoba.Ime()<< " " << osoba.Prezime() << " " << osoba.GodinaRodjenja();
+    return izlaz;
+}
+
+//standardni ulaz
+std::istream& operator >> (std::istream& ulaz, Osoba &osoba){
+    string ime, prezime;
+    int god;
+    ulaz >> ime >> prezime >> god;
+    osoba.postaviIme(ime);
+    osoba.postaviPrezime(prezime);
+    osoba.postaviGodinaRodjenja(god);
+    return ulaz;
+}
+
+//funkcija za kreiranje niza
+template<typename T>
+T* napravi(int n){
+    //new se koristi za dinamicku alokaciju i vraca pokazivac na alociran blok
+    return new T[n];
+}
+
+//funkcija za ispisivanje niza
+template <typename T>
+void ispisi(const T* niz, int n){
+    for(int i=0; i<n; i++)
+        cout << niz[i] << endl;
+}
+
+//funkcija za ucitavanje niza
+template <typename T>
+void ucitaj(T* niz, int n){
+    for(int i=0; i<n; i++)
+        cin >> niz[i];
+}
+
+//funkcija za odredjivanje maksimuma niza
+template <typename T>
+T maksimum(const T* niz, int n){
+    T maks = niz[0];
+    for(int i=1; i<n; i++)
+        if(maks<niz[i])
+            maks = niz[i];
+    return maks;
+}
+
+int main(){
+
+    //u ovom zadatku cemo ucitati niz celih brojeva i niz realnih brojeva, kako bismo pokazali nacin rada sablonskih funkcija
+    int n;
+    
+    //deklaracija niza celih brojeva
+    int *nizInt;
+    //deklaracija niza realnih brojeva
+    float *nizFloat;
+    //deklaracija niza osoba
+    Osoba *nizOsoba;
+    
+    //ucitavanje dimenzije niza
+    cout << "Dimenzija niza: ";
+    cin >> n;
+    
+    nizInt = napravi<int>(n);
+    nizFloat = napravi<float>(n);
+    nizOsoba = napravi<Osoba>(n);
+    
+    cout << "Unesite " << n << " celih brojeva: " << endl;
+    ucitaj<int>(nizInt, n);
+    cout << "Unesite " << n << " realnih brojeva: " << endl;
+    ucitaj<float>(nizFloat, n);
+    cout << "Unesite " << n << " osoba u obliku ime prezime godinaRodjenja" << endl;
+    ucitaj<Osoba>(nizOsoba, n);
+    
+    ispisi<int>(nizInt, n);
+    ispisi<float>(nizFloat, n);
+    ispisi<Osoba>(nizOsoba, n);
+    
+    cout << "Maksimum u nizu celih brojeva je: " << maksimum<int>(nizInt,n) << endl;
+    cout << "Maksimum u nizu realnih brojeva je: " << maksimum<float>(nizFloat,n) << endl;
+    cout << "Najmladja osoba (maksimalna godina rodjenja) u nizu Osoba je: " <<   maksimum<Osoba>(nizOsoba,n) << endl;
+    
+    //dealokacija, posto smo koristili operator new
+    delete [] nizInt;
+    delete [] nizFloat;
+    delete [] nizOsoba;
+    
+    return 0;
+}
+</xmp>
+</br>
+Sledeći primer ćemo prikazati u programskom jeziku Java.</br>
+Primena generičkih klasa se pojavljuje u programskom jeziku Java 5 i predstavlja jednu od najvažnijih karakteristika. Generički programi u Javi su vrlo jednostavni, a s druge strane pružaju mnogo.</br>
+Generičke klase su dodate u Javu 5 da bi obezbedile proveru tipa prilikom kompajliranja i uklanjanje rizika <span class = "primer_text">ClassCastException</span> koji je bio uobičajen tokom rada sa klasama. </br>
+Kao u programskom jeziku C++, koristimo <> da odredimo tipove parametara u generičkoj klasi. Da bismo kreirali tipove generičke klase, koristimo sledeću sintaksu:
+</br></br>
+<span class = "primer_text">
+BazniTip <Tip> objekat = new BazniTip <Tip>()
+</span>
+<h2>Primer 3</h2>
+Primer generičke klase u programskom jeziku Java:
+<xmp class="primer_ta">
+class PrimerKlaseJava<T, U> {
+    T obj1;
+    U obj2;
+    //konstruktor
+    PrimerKlaseJava(T obj1, U obj2){
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+    }
+
+    //metod za ispis
+    public void ispis() {
+        System.out.println(obj1);
+        System.out.println(obj2);
+    }
+}
+
+//main klasa
+class Main {
+    public static void main (String[] args){
+        PrimerKlaseJava <String, Integer> objekat = new PrimerKlaseJava<String, Integer>(”Programski jezik Java”, 23);
+        objekat.ispis();
+    }
+}
+</xmp>
+<b>Izlaz:</b> 
+<xmp class="primer_ta">
+Programski jezik Java
+23
+</xmp>
+
+<h2>Primer 4</h2> 
+Primer generičke klase u programskom jeziku C#:
+<xmp class="primer_ta">
+using System; 
+class PrimerKlaseCSharp<T> {
+    T _vrednost;
+    //konstruktor
+    public  PrimerKlaseCSharp(T t) {
+        this._vrednost = t;
+    }
+    //metod za ispis
+    public void Ispis() {
+        Console.WriteLine(this._vrednost);
+    }
+}
+
+class Program {
+    static void Main() {
+        PrimerKlaseCSharp pr1 = PrimerKlaseCSharp<int>(23);
+        PrimerKlaseCSharp pr1 = PrimerKlaseCSharp<string>(”Programski jezik C#”);
+        pr1.Ispis();
+        pr2.Ispis();
+    }
+}
+</xmp>
+<b>Izlaz:</b>
+<xmp class="primer_ta">
+23
+Programski jezik C#
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Diskutovati o prethodnim primerima, koje su sličnosti, a koje razlike?</br>
+  Pitanje 2: Da li je u nekom od primera bilo potrebno implementirati destruktor?</br>
+  Pitanje 3: Da li je u prvom primeru moguće primeniti operatore na različite tipove podataka? Objasniti.</br>
+  Pitanje 4: Diskutovati o generičkim klasama u programskim jezicima Java i C#.
+</div>
+</br>

@@ -1,0 +1,89 @@
+<h1> Prava pristupa </h1>
+</br>
+Zaštita podataka je jedna od važnih karakteristika objektno orijentisanog programiranja koja omogućava sprečavanje funkcija programa da direktno pristupe podacima jedne klase.
+</br></br>
+Modifikatori pristupa koriste se za postavljanje granica dostupnosti članova klase, bilo da se radi o atributima ili metodama. Možemo koristiti jedan, dva ili više modifikatora pristupa u istoj klasi da bismo postavili različite granice za različite članove klase. 
+</br></br>
+Modifikatori pristupa u programskom jeziku C++ definišu pravila kontrole pristupa. C++ poseduje 3 ključne reči:
+<ul>
+<li><span class = "primer_text">public</span> - javno </li>
+<li><span class = "primer_text">private</span> - privatno </li>
+<li><span class = "primer_text">protected</span> - zaštićeno </li>
+</ul>
+<table class="tabela">
+  <thead>
+    <tr>
+      <th>Pravo pristupa</th>
+      <th>Klasa</th>
+      <th>Nasleđena klasa</th>
+      <th>main()</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Public</td>
+      <td>+</td>
+      <td>+</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>Private</td>
+      <td>+</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Protected</td>
+      <td>+</td>
+      <td>+</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</br>
+<h2>Public pristup</h2>
+<span class = "primer_text">Public</span> pristup podrazumeva da će svi članovi klase koji su proglašeni javnim biti dostupni svima. Članovima podataka i metodama članova koji su <span class = "primer_text">public</span> mogu pristupiti i druge klase. Otuda postoje i šanse da bi ih mogli promeniti. Dakle, ključni članovi jedne klase ne smeju biti <span class = "primer_text">public</span>.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+class Osoba {
+    public:
+        string imePrezime;
+        string pol;
+        double mesecnaZarada;
+        void predstaviSe();
+};
+</xmp></br>
+<h2>Private pristup</h2>
+<span class = "primer_text">Private</span> ključna reč podrazumeva da niko ne može pristupiti članovima klase koji su proglašeni kao privatni, izvan te klase. Ako neko pokuša da pristupi privatnim članovima klase, dobiće grešku u vreme kompajliranja. Po default-u promenljive klase i metode su privatne.</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+class Osoba {
+    private:
+        string imePrezime;
+        string pol;
+        double mesecnaZarada;
+        void predstaviSe();
+};
+</xmp></br>
+<h2>Protected pristup</h2>
+Poslednji, <span class = "primer_text">protected</span> pristup je sličan <span class = "primer_text">private</span> pristupu. Naime, on podrazumeva nepristupačnost podacima klase izvan te klase, ali istim se može pristupiti iz bilo koje potklase te klase (ako klasu A nasleđuje klasa B, tada je klasa B potklasa klase A. O nasleđivanju će biti više reči u nastavku).</br></br>
+<b>Primer</b>
+<xmp class="primer_ta">
+class Osoba {
+    protected:
+        string imePrezime;
+        string pol;
+        double mesecnaZarada;
+        void predstaviSe();
+};
+</xmp>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Navesti koja prava pristupa postoje i objasniti razlike između njih.</br>
+  Pitanje 2: Kada primenjujemo public, kada private, a kada protected pristup?</br>
+  Pitanje 3: Ukoliko ne definišemo pravo pristupa, koje je podrazumevano i zašto?</br>
+  Pitanje 4: Napisati primer klase u kojoj se nalazi više modifikatora pristupa primenjenih na različita polja klase.</br>
+  Pitanje 5: Diskutovati o tome na koji način ste odredili koje polje će imati određeni pristup.
+</div>
+</br>

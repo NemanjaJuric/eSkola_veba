@@ -1,0 +1,138 @@
+<h1> Uloga i vrste polimorfizma</h1>
+</br>
+
+    
+ Reč polimorfizam znači da nešto može da ima više oblika. Tipično, polimorfizam se javlja kada imamo hijerarhiju klasa koje su
+povezane principima nasleđivanja. 
+      Polimorfizam u okviru objektne terminologije se najčešće odnosi na tretiranje objekata kao da su objekti bazne klase, ali od njih dobijati ponašanje koje odgovara njihovim specifičnim potklasama.
+    </br>
+    
+     
+       Osnovni tipovi polimorfizma su: </br>
+       <ul>
+	 <li> Ad-hoc polimorfizam
+	 </li>
+	 <li> Parametarski polimorfizam
+	 </li>
+	 <li> Hijerarhijski polimorfizam (polimorfizam podtipova)
+	 </li>
+	 <li> Implicitni polimorfizam
+	 </li>
+	 </ul>
+ </br>          
+      <h2>Ad-hoc </h2>
+	
+      <b>Ad-hoc</b> (poznat kao preopterećenje funkcije - <span class = "primer_text">Overloading</span>) je kada isto ime može da bude pridruženo različitim metodama, u zavisnosti od tipa podataka koji mu se proslede.</br>
+      Na primer <span class = "primer_text">int f() {...}</span> i <span class = "primer_text">int f(int x) {...}</span>.</br>
+ </br>     
+    <h2> Hijerarhijski polimorfizam </h2>
+    
+       <b>  Hijerarhijski polimorfizam</b> (poznat kao predefinisanje - <span class = "primer_text">Overriding</span></b>) koristi uspostavljene hijerarhijske odnose nadtip i podtip među klasama kao sredstvo ostvarivanja polimorfizma. 
+      Relacija potklasa je specijalan slučaj relacije podtip, a relacija natklasa specijalan slučaj relacije nadtip.
+  Hijerarhijski polimorfizam je mogućnost različitih objekata da odgovore na iste poruke na različiti način. Ukoliko u baznoj i izvedenoj klasi imamo metod koji ima isti potpis (ime, broj i tip argumenata), onda kažemo da je izvedena klasa zapravo predefinisala metod iz bazne klase. 
+
+<xmp class = "primer_ta">
+//kod napisan u programskom jeziku C++	 
+#include <iostream>
+#include <string>
+using namespace std;
+	
+class Osoba {
+    public:
+        Osoba(string i, string p, int mB){
+             ime = i;
+             prezime = p;
+             maticniBroj = mB;
+        }
+        string predstaviSe(){
+             cout << "Ja sam " << ime << " " << prezime << "." << endl;
+        }
+    protected:
+        string ime;
+        string prezime;
+    private:
+        int maticniBroj;
+};
+class Ucenik: public Osoba {
+    public:
+        Ucenik(string i, string p, int mB, string sk){
+            Osoba(i,p,mB);	       
+            imeSkole = sk;				 
+        }
+        string predstaviSe() {
+            cout << "Ja sam " << ime << " " << prezime << " i ucenik sam skole " << imeSkole << "." << endl;
+        }				 
+        string uci(){}
+        string uci(string imePredmeta){}
+        //preopterećenje											
+    private:
+        string imeSkole;
+};
+class Student: public Osoba {
+    public:
+        Student(string i, string p, int mB, string imeF){
+            Osoba(i,p,mB);	       
+            imeFakulteta=imeF;				 
+        }
+        string predstaviSe() {
+             cout << "Ja sam " << ime << " " << prezime << " i student sam " << imeFakulteta << " fakulteta." << endl;
+        }						 
+        string uci(){}
+     private:
+        string imeFakulteta;
+};
+int main(){
+    
+    Osoba o("Jovan", "Jovanovic",25041998772017);
+    Ucenik u1("Ana", "Anic", 0602008777027, "Nikolaj Velimirovic");
+    Ucenik u2("Marko", "Markovic", 1205004735027, "Dr Andra Jovanovic");
+    Student s("Sonja", "Srdanovic", 0606996565210, "Matematickog");
+    
+    Osoba[] ljudi={o,u1,u2,s};
+    for(int i=0;i<4;i++){
+        ljudi[i].predstaviSe();												 
+    }												 
+    return 0;										  
+}
+      
+</xmp>
+<b>Izlaz:</b>
+<xmp class = "primer_ta">
+Ja sam Jovan Jovanovic. 
+Ja sam Ana Anic i ucenik sam skole Nikolaj Velimirovic.
+Ja sam Marko Markovic i ucenik sam skole Nikolaj Velimirovic.
+Ja sam Sonja Srdanovic i student sam Matematickog fakulteta.
+</xmp>
+</br>
+    <h2> Parametarski polimorfizam </h2>
+    
+    <b>Parametarski polimorfizam</b> počiva na upotrebi tzv. tipskih promenljivih. Tipske promenljive se koriste za simboličko označavanje tipova vrednosti, promenljivih i izraza. Svaki put kada se upotrebi kod, koji je napisan uz upotrebu parametarskog polimorfizma, simbolički tipovi (tipske promenljive) se zamenjuju konkretnim tipovima i program se prevodi u nepolimorfnom obliku. Da bi prevođenje bilo uspešno, neophodno je da u svim delovima tog polimorfnog koda zamenjivanje simboličkih tipova konkretnim tipovima proizvodi ispravan programski kod. Ako to nije slučaj, tj. ako je za konkretan tip izabran neki tip za koji dati programski kod nije ispravan, onda će prevodilac prijaviti grešku.</br>
+</br>
+    Određivanje konkretnih tipova se može izvoditi eksplicitno, navođenjem tipa, ili implicitno, na osnovu pravila prevođenja konkretnog programskog jezika.</br>
+    Parametarski polimorfizam u programskom jeziku C++ je implementiran kroz koncept šablona funkcija i klasa. </br>
+</br>
+    <h2> Implicitni polimorfizam </h2>
+    
+      <b>Implicitni polimorfizam</b> (uopštenje parametarskog) podrazumeva da se pri pisanju koda uopšte ne navode tipovi vrednosti i izraza. Pretpostavlja se da će prevodilac analizirati svaki konkretan segment programskog koda i sam zaključiti za koje tipove može da se prevede. Ako neki deo koda može uspešno da se prevede za više različitih tipova, onda se prevodi i koristi kao polimorfan deo koda.</br>
+    </br>
+  <h2> Zašto je polimorfizam koristan?</h2>
+  
+      Polimorfizam čini program elegantnijim, lakšim za razumevanje i za održavanje (modifikovanje).
+Kada primenimo polimorfizam onda nema potrebe da se pišu različita imena funkcija za akcije izvršene na različitim tipovima
+objekata. Takođe jedna opšta ideja neke funkcije sa različitim verzijama implementacije, ali sa istim imenom i istim argumentima, može da
+  se zadrži sa istim pozivom čak i ako se ta ideja koristi sa različitim tipovima objekata. </br>
+</br>
+    
+Polimorfizmi se mogu razlikovati prema tipu implementacije na <b>statičke</b> i <b>dinamičke</b>. Detaljnije o njima ćemo videti u narednoj lekciji.</br>
+</br>
+
+<h2> Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Koji su osnovni tipovi polimorfizma? </br>
+Pitanje 2: Šta je ad-hoc polimorfizam? Navesti primer. </br>
+Pitanje 3: Šta je hijerarhijski polimorfizam? </br>
+Pitanje 4: Šta je parametarski polimorfizam? </br>
+Pitanje 5: Šta je implicitni polimorfizam? </br>
+Pitanje 6: Prednosti polimorfizma? </br>
+</div>
+</br>

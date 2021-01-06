@@ -3860,7 +3860,7 @@
         "sublessons": null
       },
       {
-        "name": "Dijkstirn algoritam",
+        "name": "Dijkstrin algoritam",
         "url": "4_dijkstra",
         "type": "lesson",
         "parentCourse": "grafovi",
@@ -3878,6 +3878,221 @@
         "url": "6_mcst",
         "type": "lesson",
         "parentCourse": "grafovi",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "C++",
+    "id": "cpp",
+    "logo": "<i class='fas fa-copyright'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["programski_jezici", "srednja_skola"],
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Nastanak i karakteristike OOP-a",
+        "url": "cpp_nastanak_i_karakteristike_objektno_orijentisanog_programiranja",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa i objekat",
+        "url": "cpp_klasa_i_objekat",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Odnos između klasa i objekata",
+        "url": "cpp_odnos_izmedju_klasa_i_objekata",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Instanciranje klase",
+        "url": "cpp_instanciranje_klase",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Članovi klase",
+        "url": "cpp_clanovi_klase",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Zajednički članovi klase",
+        "url": "cpp_zajednicki_clanovi_klase",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Prava pristupa",
+        "url": "cpp_prava_pristupa",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Pristup polju i poziv metode",
+        "url": "cpp_pristup_polju_i_poziv_metode",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Konstrukcija i destrukcija objekata",
+        "url": "cpp_konstrukcija_i_destrukcija_objekta",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Uloga i vrste konstruktora",
+        "url": "cpp_uloga_i_vrste_konstruktora",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Poziv konstruktora",
+        "url": "cpp_poziv_konstruktora",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Načini destrukcije objekata",
+        "url": "cpp_nacini_destrukcije_objekata",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Primeri konstrukcije i destrukcije",
+        "url": "cpp_primeri_konstrukcije_i_destrukcije_objekata_u_razlicitim_objektno_orijentisanim_jezicima",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Podela veza između klasa",
+        "url": "cpp_podela_veza_izmedju_klasa",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Nasleđivanje",
+        "url": "cpp_nasledjivanje",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Polja i metode izvedene klase",
+        "url": "cpp_polja_i_metode_izvedene_klase",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Uloga i vrste polimorfizma",
+        "url": "cpp_uloga_i_vrste_polimorfizma",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Statički i dinamički polimorfizam",
+        "url": "cpp_staticki_i_dinamicki_polimorfizam",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Virtualne metode",
+        "url": "cpp_virtualne_metode",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Apstraktne klase",
+        "url": "cpp_apstraktne_klase",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejs",
+        "url": "cpp_interfejs",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Pojam i uloga generičkih klasa",
+        "url": "cpp_pojam_i_uloga_generickih_klasa",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Primeri primene generičkih klasa",
+        "url": "cpp_primeri_primene_generickih_klasa_u_razlicitim_objektno_orijentisanim_jezicima",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Značaj obrade izuzetka",
+        "url": "cpp_znacaj_obrade_izuzetka",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Mehanizam kreiranja i obrade izuzetka",
+        "url": "cpp_mehanizam_kreiranja_i_obrade_izuzetka",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Primena gotovih klasa",
+        "url": "cpp_primena_gotovih_klasa",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa strukturama podataka",
+        "url": "cpp_rad_sa_strukturama_podataka",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Rad sa datotekama",
+        "url": "cpp_rad_sa_datotekama",
+        "type": "lesson",
+        "parentCourse": "cpp",
+        "sublessons": null
+      },
+      {
+        "name": "Blok nastava",
+        "url": "cpp_blok_nastava",
+        "type": "lesson",
+        "parentCourse": "cpp",
         "sublessons": null
       }
     ]

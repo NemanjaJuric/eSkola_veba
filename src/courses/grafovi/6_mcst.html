@@ -1,63 +1,66 @@
 <div class="half-panel-scrollable">
 <h1><b>Minimalno povezujuće stablo</b></h1>
-<br />
-<br />
+
 <h22><b>Uvod</b></h2>
-<br />
+
 
 Grafovima je moguće modelirati razne probleme iz stvarnog života, tako je npr. problem nalaženja minimalnog povezujućeg stabla nekog grafa čest problem sa kojim se susrećemo. 
-Primer: Novi internet operater se pojavio u gradu i hoće da sprovede svoje kablove tako da mu bude što jeftinije, a da pokrije ceo grad, tj. da signal može da stigne do svakog mesta.
+Primer: Novi internet operater se pojavio u gradu i hoće da sprovede svoje kablove tako da prođe što jeftinije, a da pokrije ceo grad, tj. da signal može da stigne do svakog mesta.
 Naime, problem minimalnog povezujućeg stabla se definiše ovako:
 Dat je neusmeren težinski graf, potrebno je odrediti skup grana koji povezuje sve čvorove (odnosno da je moguće naći put od bilo kog čvora do bilo kog) , i da je zbir težina svih grana najmanji mogući.
 
 Jasno je da nećemo imati cikluse u tom novodobijenom grafu, jer ukoliko ih imamo možemo izbaciti bilo koju granu iz ciklusa i tako smanjiti ukupnu težinu. 
-Takođe, vidi se da, ukoliko imamo n čvorova, broj grana potrebnih da ih sve povežemo je n-1, grafove koji nemaju cikluse nazivamo stablom, otuda i sam naziv minimalno povezujuće stablo.
+Takođe, vidi se da, ukoliko imamo n čvorova, broj grana potrebnih da ih sve povežemo je n-1. Grafove koji nemaju cikluse nazivamo stablom, otuda i sam naziv minimalno povezujuće stablo.<br />
 Ukoliko u početnom grafu postoji ciklus u kom imamo bar dve grane iste težine rešenje problema nije jedinstveno određeno.
+<br />
+Razmotrićemo dva algoritma rešavanje problema minimalnog povezujućeg stabla: Primov i Kruskalov algoritam.
+<br />
 
-Za rešavanje problema minimalnog povezujućeg stabla predložićemo dva algoritma Primov i Kruskalov algoritam.
-<br /><br /><br />
-
-
-
-
-<br><br>
 
 <h2><b>Primov algoritam</b></h2>
 
 
-<br><br>
 
 Primov algoritam se zasniva na tome da ukoliko smo napravili neki deo minimalnog povezujućeg stabla sledeću granu koju dodajemo biramo tako da ima minimalnu težinu i da joj je jedan kraj medju čvorovima za koje smo već napravili minimalno stablo a drugi među onima koji jos uvek nisu u tom stablu.
-Algoritam počinjemo tako sto proizvoljno izaberemo jedan čvor kojim ćemo početi(npr onaj sa indeksom 0) i sastoji se iz sledećih koraka:
+
+Algoritam na početku bira proizvoljni čvor (na primer onaj sa indeksom 0) i sastoji se iz sledećih koraka:
 
 
 
 <ul>
-  <li>za svaki čvor se odredjuje minimalna grana kojom se povezuje za već izgradjeno stablo, tu informaciju ćemo čuvati u nizu <i>minimalna_grana</i></li>
-  <li> posto nam nije dovoljna samo informacija kolika je tezina minimalne grane čuvaćemo i čvor sa kojim je ta grana u nizu <i>roditelj</i></li>
-  <li> vrtećemo se u petlji dok ne pokrijemo sve čvorove, tj dok ne ubacimo n-1 granu</li>
-  <li> petlja se sastoji iz određivanja minimalne grane, ubacivanja te grane i ažuriranja vrednosti iz nizova <i>minimalna_grana</i> i <i>roditelj</i>  </li>
-  <li>na kraju petlje u nizu <i>roditelj</i> imamo grane koje su dodate, tj grana <i>(roditelj[i],i)</i> je u minimalnom povezujućem stablu</li>
+  <li>
+  za svaki čvor se odredjuje grana minimalne težine kojom se on povezuje sa već izgradjenim stablom i tu informaciju ćemo čuvati u nizu  \(minimalna_grana\)
+  </li>
+  <li> 
+  posto nam nije dovoljna samo informacija kolika je težina minimalne grane u nizu \(roditelj\) čuvaćemo i čvor sa kojim je ta grana povezana
+  </li>
+  <li> telo petlje se izvrsava dok ne pokrijemo sve čvorove, tj dok ne ubacimo n-1 granu</li>
+  <li> petlja se sastoji iz određivanja minimalne grane, ubacivanja te grane i ažuriranja vrednosti iz nizova \(minimalna_grana\) i \(roditelj\)  </li>
+  <li>na kraju petlje u nizu \(roditelj\) imamo grane koje su dodate, tj grana \((roditelj[i],i)\) je u minimalnom povezujućem stablu</li>
 </ul> 
 <br><br>
 Implementacija Primovog algoritma:
 
 <xmp class="primer_ta">
 
-
+//funkcija azurira vrednosti u nizovima grane i roditelj 
 void novegrane(int u, vector<int> &grane,vector<int> &roditelj){
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n;i++){//prolazimo kroz sve susede cvora u i
+    //ako je neka grana manja azuriramo vrednosti
         if(graf[u][i] && grane[i]>graf[u][i]){
             grane[i]=graf[u][i];
             roditelj[i]=u;
         }
     }
 }
-
+//funkcija racuna i vraca cvor koji nije u minimalnom 
+//povezujucem stablu i najlaksom granom je povezan za isto
 int minimalnaGrana(const vector<bool> &obradjen,const vector<int> &grane){
    int min=maks,indeks;
-   for(int i=0;i<n;i++)
+   for(int i=0;i<n;i++)//prolazimo kroz sve cvorove
         if(!obradjen[i] && grane[i]< min ){
+            //proveravamo da li je u minimalnom povezujucem stablu, 
+            //i da li je manja tezina grane od dosadasnjeg minimuma
             min=grane[i];
             indeks=i;
         }
@@ -68,27 +71,27 @@ int PrimAlg(){  // slozenost O(V^2) gde je V broj cvorova
 
     vector<int> minimalna_grana(n);     //niz koji cuva informaciju koja je grana najmanja za cvor sa tim indeksom
     vector<int> roditelj(n);            //niz koji cuva sa kojim cvorom je najmanja grana iz prethodnog niza
-    vector<bool> obradjen(n);           // niz za proveru da li je cvor vec u minimalnom poveyujucem stablu ili ne
+    vector<bool> obradjen(n);           // niz za proveru da li je cvor vec u minimalnom povezujucem stablu ili ne
 
-    obradjen[0]=true;
+    obradjen[0] = true;
 
     for(int i=0;i<n;i++){
-        minimalna_grana[i]=maks;        //postavljamo sve vrednosti minimalnih grana na neki veliki broj da se osiguramo da upadnu u mst
+        minimalna_grana[i] = maks;        //postavljamo sve vrednosti minimalnih grana na neki veliki broj da se osiguramo da upadnu u mst
     }
     
     novegrane(0,minimalna_grana,roditelj);  //funkcija za azuriranje vrednosti nizova minimalna_grana i roditelj
     
-    int u,tezina=0;                         //vrednost tezina ce cuveti ukupnu tezinu mst
+    int u,tezina = 0;                         //vrednost tezina ce cuveti ukupnu tezinu minimalnog povezujuceg stabla
     
-    //petlja koja izracunava mcst  
+    //petlja koja izracunava minimalno povezujuce stablo  
     for(int i=1;i<n;i++){
-        u=minimalnaGrana(obradjen,minimalna_grana);
-        obradjen[u]=true;
+        u = minimalnaGrana(obradjen,minimalna_grana);
+        obradjen[u] = true;
         novegrane(u,minimalna_grana,roditelj);
-        tezina+=minimalna_grana[u];
+        tezina += minimalna_grana[u];
     }
     
-    //ispis grana koje cine mst
+    //ispis grana koje cine minimalno povezujuce stablo
 
     cout<<"Minimalno povezujuce stablo cine sledece grane"<<endl;
     for(int i=1;i<n;i++){
@@ -105,15 +108,11 @@ int PrimAlg(){  // slozenost O(V^2) gde je V broj cvorova
 nalazi se na kraju lekcije i koristi red sa prioritetom. (V je broj čvorova a E broj grana grafa).<br><br>
 <b>Primer izvršavanja algoritma:</b><br>
 <img style="width:600px;max-width:98%;" src="courses/grafovi/6_mcst/PrimSimulacija.png" class="img-fluid img-sm">
-<br>
-
-<br>
-
 
 <br>
 
 <h2>Kruskalov algoritam </h2>
-<br>
+
 
 
 Kruskalov algoritam je zasnovan na malo drugačijoj ideji:
@@ -121,12 +120,13 @@ Kruskalov algoritam je zasnovan na malo drugačijoj ideji:
 <ul>
   <li>Grane se odradjuju u neopadajućem redosledu po težini</li>
   <li> Proverava se da li grana obrazuje ciklus sa vec izabranim granama, ukoliko obrazuje preskačemo tu granu, inače je dodajemo u minimalno povezujuće stablo,</li>
-  <li> Vrtećemo se u petlji dok ne pokrijemo sve čvorove, tj dok ne ubacimo n-1 granu.</li>
+  <li> telo petlje se izvršava dok ne pokrijemo sve čvorove, tj. dok ne ubacimo n-1 granu.</li>
 </ul> 
 <br>
 
 
-Primetimo da to da li neka grana obrazuje ciklus možemo posmatrati na sledeći način: na početku možemo gledati da je svaka čvor stablo sam za sebe, kada se doda neka grana ta dva stabla, ono kojem pripada levi kraj grane i ono kojem pripada desni kraj grane, se spajaju u jedno. Na prvi pogled ovo baš i nema neke veze sa ciklusima, međutim nije baš tako, neka grana će obrazovati ciklus samo ako povezuje čvorove iz istog stabla. Samim tim proveru da li grana obrazuje ciklus mozemo obaviti tako sto proverimo da li čvorovi koji pripadaju grani pripadaju istom stablu ili ne(ovaj algoritam se može poboljšati povoljno izabranom strukturom koja omogućava da brzo uniramo neke skupove čvorova i brzo odredimo kom skupu pripada određeni čvor, međutim to je malo napredniji koncept i ostavljamo za radoznale, ta struktura je union find).
+Primetimo da to da li neka grana obrazuje ciklus sa
+već izabranim granama možemo posmatrati na sledeći način: na početku možemo gledati da je svaki čvor stablo sam za sebe, a kada se doda neka grana ta dva stabla, ono kojem pripada levi kraj grane i ono kojem pripada desni kraj grane, se spajaju u jedno. Na prvi pogled ovo baš i nema neke veze sa ciklusima, međutim nije baš tako: neka grana će obrazovati ciklus samo ako povezuje čvorove iz istog stabla. Samim tim proveru da li grana obrazuje ciklus mozemo obaviti tako sto proverimo da li čvorovi koji pripadaju grani pripadaju istom stablu ili ne. Ovaj algoritam se može poboljšati pogodno izabranom strukturom podataka koja se naziva union find i koja omogućava da brzo uniramo neke skupove čvorova i brzo odredimo kom skupu pripada određeni čvor. Međutim, ova struktura podataka izlazi iz obima ovog materijala i ostavljamo radoznalim čitaocima da pročitaju više o njoj.
 <br><br>
 
 Implementacija Kruskalovog algoritma:
@@ -136,36 +136,36 @@ Implementacija Kruskalovog algoritma:
 int Kruskal(){
     vector<int> skup(n); //za skupove
     vector<int> roditelj(n);//za grane 
-    int i,j,tezina=0;
+    int i,j,tezina = 0;
     for( i=0;i<n;i++)skup[i]=i; //svaki cvor cini stablo sam za sebe
     
-    int levi,desni;
+    int levi,desni; //krajevi grane koju trenutno obradjujemo
     for(int p=0;p<n-1;p++){
         // trazimo najmanju granu koja povezuje dva razlicita skupa cvorova
-        levi=desni=-1;
+        levi = desni = -1;
         
 
         //grane prolazimo neopadajuće
         for(i=0;i<n;i++){
             for(j=0;j<n;j++){
-                if(skup[i]!=skup[j] && matrica[i][j]!=-1){
-                    if(levi==-1){
-                        levi=i;
-                        desni=j;
+                if(skup[i]! = skup[j] && matrica[i][j]!=-1){
+                    if(levi == -1){
+                        levi = i;
+                        desni = j;
                     }
-                    else if(matrica[i][j]<matrica[levi][desni]){          
-                        levi=i;desni=j; 
+                    else if(matrica[i][j] < matrica[levi][desni]){          
+                        levi = i;desni = j; 
                     }
                 }
             }    
         }
         
-        if(levi==-1) break;
-        roditelj[desni]=levi; //dodajemo granu jer povezuje razlicita stabla 
-        tezina+=matrica[levi][desni];
+        if(levi == -1) break;
+        roditelj[desni] = levi; //dodajemo granu jer povezuje razlicita stabla 
+        tezina += matrica[levi][desni];
 
         for(i=0;i<n;i++)
-            if(skup[i]==skup[desni]) skup[i]=skup[levi]; //azuriramo skup za sve cvorove iz skupa kome pripada desni
+            if(skup[i] == skup[desni]) skup[i] = skup[levi]; //azuriramo skup za sve cvorove iz skupa kome pripada desni
     }
     
     cout<<"Minimalno povezujuce stablo cine sledece grane"<<endl;
@@ -182,15 +182,15 @@ int Kruskal(){
 
 
 
-<h3>Prateći video materijali: </h3>
-<br />
+<h2>Prateći video materijali: </h2>
+
 <video style="width:600px; max-width:98%;" controls>
       <source src="courses/grafovi/6_mcst/Minimalno-stablo.mp4" type="video/mp4" />
       Vaš pregledač ne podržava ovaj video format.
 </video>
 <br />
-<br />
-<h3>C++ kod implementacije: </h3>
+
+<h2>C++ kod implementacije: </h2>
 Kod implementacije Primovog algoritma složenosti O(V^2) možete preuzeti
 <a href="courses/grafovi/6_mcst/Primalg.cpp" download="courses/grafovi/6_mcst/Primalg.cpp">ovde
 </a> ili ga probati <a target="_blank" rel="noopener noreferrer" href="https://repl.it/@eskolaveba/Prim-OV2" >ovde

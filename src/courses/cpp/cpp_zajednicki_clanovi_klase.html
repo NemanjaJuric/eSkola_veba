@@ -1,0 +1,84 @@
+<h1>Zajednički članovi klase (static)</h1>
+</br>
+Kada se veći broj objekata kreira iz iste klase, svaki od njih ima svoje zasebne kopije, tj. instance promenljive. <br>
+Na primer, u slučaju klase <span class = "primer_text">Bicikl</span>, instance promenljive su kadenca, zupčanik i brzina. Svaki objekat ove klase ima svoje vrednosti za ove promenljive, smeštene na različitim memorijskim lokacijama.</br></br>
+Ukoliko želimo promenljive koje su zajedničke za sve objekte, to možemo postići pomoću <b>statičkog modifikatora</b>, koristeći ključnu reč <span class = "primer_text">static</span>.
+
+Polja koja imaju statički modifikator u svojoj deklaraciji se nazivaju <b>statička polja</b> ili <b>klasne promenljive</b>. One su povezane sa klasom, a ne sa objektom.<br><br>
+Svaka instanca klase deli jednu klasnu promenljivu koja se nalazi na fiksnom mestu u memoriji.<br>
+
+Statička (zajednička) polja klase su dostupna svim objektima
+klase. Statičko polje ima samo jednu instancu bez obzira na
+broj kreiranih objekata klase.</br></br>
+<h2>Deklaracija i upotreba statičkih polja</h2>
+Deklaracija statičkog polja se nalazi u telu klase, dok se njegova
+definicja (inicijalizacija) uvek vrši van nje (pre poziva main()).
+Razlog je što statičko polje treba da postoji i pre nego što se
+deklarišu objekti tipa klase.</br></br>
+
+
+Upotreba statičkih polja omogućava da objekti iste klase dele neki
+podatak i/ili da preko njega međusobno “komuniciraju”. Ona se
+ponašaju isto kao i globalne statičke promenljive sem što su
+enkapsulirane u klasu.</br>
+
+
+Bilo koji objekat može promeniti vrednost klasne promenjive, ali klasnim promenljivim se takođe može manipulisati bez stvaranja instance klase.
+ </br>
+ Statičke metode ne smeju pristupati poljima koja nisu statička. Statičkim članovima klase se može pristupiti tako što se navede ime klase, :: i ime statičkog člana.
+<br>
+<br>
+<h2>Primer </h2>
+ Pretpostavimo da želimo da kreiramo određeni broj objekata klase <span class = "primer_text">Bicikl</span> i svakom objektu želimo da dodelimo serijski broj koji kreće od 1 za prvi objekat. <br>
+ Ovaj ID broj je jedinstven za svaki objekat i zato je promenljiva instance.
+ Istovremeno, potrebno nam je polje koje će pratiti koliko je objekata klase <span class = "primer_text">Bicikl</span> stvoreno, da bismo znali koji je ID sledeći. <br>
+ Ovaj podatak nije povezan ni sa jednim pojedinačnim objektom, već sa klasom u celini. 
+ Da bismo to postigli, možemo koristiti klasnu promenljivu <span class = "primer_text">brojBicikala</span>:
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku
+include <iostream>
+using namespace std;
+class Bicikl {
+    public:
+        int kadenca;
+        int zupcanik;
+        int brzina;
+        int id;
+        static int brojBicikala;
+        
+        //konstruktor koji je zadužen za inicijalizaciju objekata (o kome će biti više reči u nastavku)
+        Bicikl(int k, int z, int b) {
+            kadenca = k;
+            zupcanik = z;
+            brzina = b;
+            id = ++brojBicikala; //povecamo brojBicikala svaki put kada kreiramo novi objekat klase Bicikl
+        }
+};
+//inicijalizacija statickog polja
+int Bicikl::brojBicikala = 0;
+
+int main() {
+
+    Bicikl b1(5,2,15);
+    Bicikl b2(6,3,17);
+    cout << "Ukupno objekata: " << Bicikl::brojBicikala << endl;
+    return 0;
+}
+
+</xmp>
+
+<b>Izlaz</b>
+<xmp class="primer_ta">
+Ukupno objekata: 2
+</xmp>
+
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavljaju zajednički članovi klase?</br>
+  Pitanje 2: Šta su statička polja? Objasniti razliku između polja i statičkih polja.</br>
+  Pitanje 3: Objasniti kako se deklarišu i definišu statički članovi.</br>
+  Pitanje 4: Šta nam omogućava upotreba statičkih članova?</br>
+  Pitanje 5: Navesti primer upotrebe statičkih članova.</br>
+
+</div>
+</br>

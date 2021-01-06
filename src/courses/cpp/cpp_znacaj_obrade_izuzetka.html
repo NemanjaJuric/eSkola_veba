@@ -1,0 +1,89 @@
+<h1>Značaj obrade izuzetka </h1>
+<h2>Primer iz svakodnevnog života</h2>
+Kako bismo na pravi način shvatili šta zapravo predstavlja izuzetak, razmotrićemo jedan primer iz svakodnevnog života. </br>
+Program dodeljuje memoriju, čita i piše podatke, snima u fajl. To su poslovi koji se izvršavaju bez problema u dobrom radnom okruženju, bez curenja memorije. Isporučićemo aplikaciju, kupac će je koristiti na svojih 1000 radnih stanica, a neki od njegovih računara su stari desetak godina. Neće proći mnogo vremena dok ne dobijemo prvu žalbu. Neke žalbe će se odnositi na ”kršenje pristupa”, dok će druge imati naslov ”neobrađeni izuzeci”.
+</br></br>
+Naravno, aplikacija je odlično funkcionisala u našem okruženju, pa se postavlja pitanje odakle sada ovaj problem?
+</br></br>
+Činjenica je da je svet veoma heterogen. Ne postoje dva ista računara, čak i ako imaju istu hardversku konfiguraciju, zato što od softvera koji je pokrenut na svakom računaru i stanja mašine zavisi koliko će resursa biti dostupno u određeno vreme. Zbog toga će verovatno dodela memorije koja savršeno funkcioniše u našem okruženju biti neuspešna u drugom okruženju.
+</br></br>
+Rezultat ovih neuspeha se naziva <b>izuzetak</b>.</br></br>
+Izuzeci ometaju normalan tok aplikacije. Ipak, ako ne postoji dostupna memorija, ne postoji način da aplikacija izvrši ono za šta je podešena da radi. Međutim, aplikacija može da rukuje izuzecima i da prikaže korisniku poruku o grešci, izvršavajući minimalne pomoćne operacije ako je to potrebno, a zatim se aplikacija zatvara.
+</br></br>
+<b>Šta izaziva izuzetke?</b></br></br>
+Izuzeci mogu biti izazvani eksternim faktorima, kao što je na primer sistem sa nedovoljnim izvorima, ili internim faktorima u aplikaciji, kao što je na primer pokazivač koji se koristi bez obzira što sadrži netačnu vrednost ili grešku deljenja sa nulom.</br></br>
+<h2>Rukovanje izuzecima</h2>
+Da bismo zaštitili kod od izuzetaka, treba da rukujemo izuzecima i tako učinimo kod bezbednim za korišćenje. O rukovanju izuzecima će biti više reči u nastavku.
+</br></br>
+Jedna od prednosti programskog jezika C++ je rukovanje izuzecima. Izuzeci su anomalije tokom izvođenja ili abnormalni uslovi sa kojima se program susreće tokom svog izvođenja. </br></br>
+Postoje dve vrste izuzetaka:
+<ul>
+<li>sinhroni</li>
+<li>asinhroni (npr. oni koji su izvan kontrole programa, otkazivanje diska itd.)</li>
+</ul>
+U svrhu obrade izuzetaka, C++ pruža sledeće specijalizovane ključne reči:
+<ul>
+<li><span class = "primer_text">try</span>: omogućava nam da definišemo blok koda koji će se testirati na greške dok se izvršava,</li>
+<li><span class = "primer_text">catch</span>: predstavlja blok koda koji se izvršava kada se izbaci određeni izuzetak,</li>
+<li><span class = "primer_text">throw</span>: koristi se za bacanje izuzetka kada se otkrije problem, što nam omogućava da napravimo prilagođenu grešku.</li>
+</ul>
+Pod pretpostavkom da će blok stvoriti izuzetak, metoda hvata izuzetak koristeći kombinaciju <span class = "primer_text">try-catch</span>. Blok <span class = "primer_text">try-catch</span> postavljen je oko koda koji može generisati izuzetak. Kod unutar bloka <span class = "primer_text">try-catch</span> naziva se zaštićenim kodom, a sintaksa je:</br></br>
+<span class = "primer_text">
+try { </br>
+//zasticeni kod </br>
+} catch (tipIzuzetka i1) { </br>
+//catch blok </br>
+} catch (tipIzuzetka i2) { </br>
+//catch blok </br>
+} catch (tipIzuzetka eN) { </br>
+//catch blok </br>
+}
+</span></br></br>
+Možemo navesti više <span class = "primer_text">catch</span> delova kako bismo uhvatili različite vrste izuzetaka u slučaju da naš <span class = "primer_text">try</span> blok pokrene više od jednog izuzetka u različitim situacijama.
+</br></br>
+<b>Primer izuzetka</b>
+<xmp class="primer_ta">
+//primer napisan u programskom jeziku C++
+#include <iostream>
+using namespace std;
+
+double deljenje (int a, int b) {
+    if(b == 0) {
+        throw ”Deljenje nulom nije dozvoljeno!”;
+    }
+    return a/b;
+}
+
+int main() {
+
+    int x = 50;
+    int y = 0;
+    double z = 0;
+    try {
+        z = deljenje(x, y);
+        cout << z << endl;
+    } catch (const char* poruka) {
+        cerr <<  poruka << endl;
+    }
+    return 0;
+}
+</xmp>
+</br>
+<h2>Prednosti rukovanja izuzecima u odnosu na tradicionalno rukovanje greškama</h2>
+<ul>
+<li>odvajanje koda za rukovanje greškama od uobičajenog koda. U klasičnim kodovima za rukovanje greškama uvek postoje <span class = "primer_text">if- else</span> uslovi za rukovanje greškama, što kod čini manje čitljivim i održivim. Sa <span class = "primer_text">try-catch</span> blokovima, kod za rukovanje greškama postaje odvojen od normalnog toka.</li></br>
+<li>funkcije/metode mogu da obrade bilo koji izuzetak koji odaberu: funkcija može da izazove mnogo izuzetaka, ali može da odluči da obrađuje samo neke od njih. Sa ostalim izuzecima koji su bačeni, ali nisu uhvaćeni, pozivalac može da postupi.</br>
+U programskom jeziku C++, funkcija može odrediti izuzetke koje izbacuje pomoću ključne reči <span class = "primer_text">throw</span>. Pozivalac ove funkcije mora na neki način obraditi izuzetak.</li></br>
+<li>grupisanje tipova grešaka: U C++, i osnovni tipovi i objekti se mogu dodati kao izuzetak. Možemo stvoriti hijerarhiju objekata izuzetaka, grupne izuzetke u imenskim prostorima ili klasama, kategorisati ih prema tipovima.</li>
+</ul>
+</br>
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Kako se definiše izuzetak?</br>
+  Pitanje 2: Koje situacije mogu dovesti do nastanka izuzetka?</br>
+  Pitanje 3: Koje ključne reči se koriste za obradu izuzetaka i koja je njihova uloga?</br>
+  Pitanje 4: Koje vrste izuzetaka postoje?</br>
+  Pitanje 5: Koje su prednosti rukovanja izuzecima?</br>
+  Pitanje 6: Da li se može obraditi više različitih vrsta izuzetaka? Ukoliko je odgovor "da", objasniti na koji način se to može postići.
+</div>
+</br>

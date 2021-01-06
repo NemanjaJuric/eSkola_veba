@@ -1,0 +1,110 @@
+<h1>Konstrukcija i destrukcija objekta </h1>
+<h2>Konstruktor</h2>
+<b>Konstruktor</b> je specijalna funkcija koja izvršava inicijalizaciju svakog objekta. Kompajler poziva konstruktor kad god se kreira objekat. Konstruktori inicijalizuju vrednosti članovima objekta nakon što je objektu dodeljena memorija. 
+</br></br>
+<b>Po čemu se konstruktori razlikuju od obične funkcije?</b>
+<ul>
+<li>konstruktor ima isto ime kao i sama klasa,</li>
+<li>konstruktor nema povratnu vrednost, dok funkcija u većini slučajeva ima,</li>
+<li>konstruktor se automatski poziva kada se kreira objekat, dok funkciju treba pozvati eksplicitno pomoću objekta klase,</li>
+<li>kada ne kreiramo nijedan konstruktor u klasi, C++ kompajler generiše podrazumevani konstruktor za nas (ne očekuje parametre i ima prazno telo), dok kod funkcije to nije slučaj.</li>
+</ul></br>
+<h2>Definicija konstruktora</h2>
+Konstruktor može biti implementiran unutar klase ili eksterno van deklaracije klase.
+</br></br>
+<b>Primer definicije konstruktora unutar klase</b>
+<xmp class="primer_ta">
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        Trougao() {
+            //implementacija konstruktora
+        }
+};
+</xmp>
+Varijanta koja omogućava definiciju konstruktora izvan deklaracije klase
+<xmp class="primer_ta">
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        Trougao(); //deklaracija konstruktora
+};      
+Trougao::Trougao() {
+    //implementacija konstruktora
+}
+</xmp>
+</br>
+<div class = "napomena">
+Naziv za :: je operator rezolucije dosega. Na primer: Trougao::stranicaA se odnosi na promenljivu stranicaA koja je deklarisana unutar dosega klase Trougao.
+</div></br>
+U klasi može biti više različitih konstruktora, o čemu će biti više reči u nastavku.</br></br>
+<h2>Destruktor</h2>
+S druge strane, <b>destruktor</b> se koristi za uništavanje objekta klase. Destruktor se primenjuje kada treba osloboditi (dealocirati) memoriju koju je konstruktor zauzeo (alocirao) ili neke druge resurse.
+</br></br>
+<b>Osobine destruktora:</b>
+<ul>
+<li>destruktor se poziva kada je objekat uništen, kada izađe van oblasti važenja klase ili kada je obrisan pomoću operatora <span class = "primer_text">delete</span>, </li>
+<li>destruktor se ne može deklarisati kao <span class = "primer_text">static</span> ili <span class = "primer_text">const</span>, </li>
+<li>destruktor nema argumente, </li>
+<li>destruktor nema povratni tip (čak ni <span class = "primer_text">void</span> tip), </li>
+<li>objekat i destruktor ne mogu biti članovi iste unije,</li>
+<li>destruktor treba deklarisati sa pravom pristupa <span class = "primer_text">public</span>,</li>
+<li>programer ne može pristupiti adresi destruktora.</li>
+</ul>
+</br>
+Destruktor se poziva automatski u sledećim situacijama:
+<ul>
+<li>kada se funkcija završava, </li>
+<li>kada se program završava, </li>
+<li>kada se završava blok koji sadrži lokalne promenljive, </li>
+<li>kada se poziva operator brisanja. </li>
+</ul>
+</br>
+<b>Primer definicije destruktora unutar klase</b>
+<xmp class="primer_ta">
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        ~Trougao() {
+            //implementacija destruktora
+        }
+};
+</xmp>
+Varijanta koja omogućava definiciju destruktora izvan deklaracije klase
+<xmp class="primer_ta">
+class Trougao {
+    private:
+        int stranicaA;
+        int stranicaB;
+        int stranicaC;
+    public:
+        ~Trougao(); //deklaracija destruktora 
+};
+Trougao::~Trougao() {
+    //implementacija destruktora 
+}
+</xmp>
+Ukoliko ne definišemo destruktor, kompajler će nam omogućiti podrazumevani. </br>
+Podrazumevani destruktor dobro funkcioniše ukoliko u klasi nismo dinamički dodelili memoriju ili pokazivač. U suprotnom, trebalo bi napisati destruktor za oslobađanje memorije pre nego što instanca bude uništena. To se mora učiniti kako bi se izbeglo tzv. curenje memorije.
+</br></br>
+Može li u klasi postojati više destruktora? </br>
+Ne! Može postojati samo jedan destruktor u klasi sa imenom klase kojoj prethodi <span class = "primer_text">~</span>, bez parametara i bez povratnog tipa.</br></br> 
+<h2>Pitanja i zadaci</h2>
+<div class="zadatak">
+  Pitanje 1: Šta predstavlja konstruktor?</br>
+  Pitanje 2: Koja je razlika između konstruktora i obične funkcije?</br>
+  Pitanje 3: Šta predstavlja destruktor?</br>
+  Pitanje 4: Kada se poziva konstruktor, a kada destruktor?</br>
+  Pitanje 5: Diskutovati o tome da li se konstruktor može izostaviti? Da li se destruktor može izostaviti? O ovim pitanjima će biti reči u nastavku.</br>
+  Zadatak 1: U prethodno definisanoj klasi Pravougaonik obezbediti konstruktor koji ima dva argumenta (stranice pravougaonika). Testirati rad programa.
+</div>
+</br>

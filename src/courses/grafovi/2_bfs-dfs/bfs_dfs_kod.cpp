@@ -65,7 +65,7 @@ void bfs()
         int u=q.front();                // uzimamo sledeceg na redu
         q.pop();
         cout<< u <<" ";
-        for(int i = 0; i < g[u].size(); i++)  // prolazimo groz njegove susede
+        for(int i = 0; i < g[u].size(); i++)  // prolazimo kroz njegove susede
         {
             int v = g[u][i];              // i-ti sused cvora u je cvor v
             if(posecen[v] == 0)           // ako v nije posecen

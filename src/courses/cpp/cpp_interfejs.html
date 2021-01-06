@@ -1,0 +1,94 @@
+<h1> Interfejs </h1>
+
+
+</br>
+  <b>Interfejsi </b> (kao apstraktne klase i metodi) obezbeđuju šablone za neko ponašanje, a koje će druge klase koristiti.
+U okviru interfejsa se mogu naći samo zaglavlja metoda, a u nekim programskim jezicima i definicije konstanti.
+Klasa može da nasledi više interfejsa, što predstavlja neki vid ograničenog višestrukog nasleđivanja u programskim jezicima koji to nemaju.
+Interfejs može da nasledi druge interfejse, ali se ne formira hijerarhija kao sto je hijerarhija klasa. Mogu se deklarisati promenljive tipa interfejs, ali se ne mogu napraviti instance. </br>
+</br>
+ Veoma je važno znati razliku između interfejsa i implementacije. Interfejs je korisnički pogled na to šta neki objekat može da uradi, a
+implementacija vodi računa o internim operacijama interfejsa koji ne moraju da budu poznati korisniku.</br>
+Interfejs govori <b>ŠTA</b> objekat može da uradi, dok implementacija govori <b>KAKO</b> objekat interno radi.</br>
+  </br>
+
+ U C++ se interfejs realizije preko apstraktne klase u kojoj su sve metode čisto virtualne. Kao što je već rečeno, u drugim programskim jezicima interfejs je vid višestrukog nasleđivanja, a kako je to prisutno u C++, nije potreban konkretan tip interfejs. </br>
+</br></br>
+
+<b>Primer</b>
+<xmp class = "primer_ta">
+//kod napisan u programskom jeziku C++
+#include <iostream>
+#include <string>    
+using namespace std;
+
+class LjudskoBice{
+    virtual string govori() = 0;
+    virtual int predjeniBrojKorakaUTokuDana() = 0;
+    virtual string predstaviSe() = 0;
+};
+class Osoba: public LjudskoBice{
+    public:
+        Osoba(string i, string p, int mB){
+            ime = i;
+            prezime = p;
+            maticniBroj = mB;
+        }
+        string govori(){}
+        int predjeniBrojKorakaUTokuDana(){}
+        //metoda predstaviSe() nije implementirana i ostavlja se za potklase
+        ~Osoba(){
+            cout << "Destruktor osobe" << endl;
+        }
+    protected:
+        string ime;
+        string prezime;
+    private:
+        int maticniBroj;
+};
+class Ucenik: public Osoba{
+    public:
+        Ucenik(string i, string p, int mB, string sk){
+            Osoba(i,p,mB);   
+            imeSkole = sk;
+        }
+        string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << " i ucenik sam skole " << imeSkole << "." << endl;
+        } 
+        void uci(){}
+        ~Ucenik(){
+            cout << "Destruktor ucenika" << endl;
+        }
+    private:
+        string imeSkole;
+};
+class Zaposleni: public Osoba{
+    public:
+        Zaposleni(string i, string p, int mB, string imeP){
+            Osoba(i,p,mB); 
+            imePosla = imeP; 
+        } 
+        void iciNaPosao(){}
+        string predstaviSe(){
+            cout << "Ja sam " << ime << " " << prezime << " i radim u skoli " << imeSkole << "." << endl;
+        }
+        ~Zaposleni(){
+            cout << "Destruktor zaposlenog"<<endl;
+        }
+    private:
+        string imePosla;
+};
+      
+</xmp>
+
+<h2> Pitanja i zadaci </h2>
+<div class="zadatak">
+Pitanje 1: Šta je interfejs? </br>
+Pitanje 2: Da li se mogu napraviti instance tipa interfejs? </br>
+Pitanje 3: Koja je razlika između interfejsa i implementacije? </br>
+Pitanje 4: Kako se realizuje interfejs u C++? </br>
+</br>
+Zadatak 1. Napisati kod u C++ takav da sadrži interfejs Zivotinja u kome se nalazi metoda oglasitiSe() tipa string (predstavlja zvuk koji ispušta životinja). Zatim po sopstvenom izboru uzeti 3 životinje za koje će se napraviti klase u kojima će, pored realizovane čisto virtalne metode, biti još atributi ime i vrsta i metoda kretatiSe() tipa string (predstavlja način kretanja odabrane životinje). 
+</div>
+</br>
+
