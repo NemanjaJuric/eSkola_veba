@@ -191,5 +191,29 @@
     "course": "Angular JS",
     "url": "assets/images/team/aleksandar_promicac.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Andrijana Ćoćić",
+    "course": "C++",
+    "url": "assets/images/team/AndrijanaCocic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Aleksandra Trailović",
+    "course": "C++",
+    "url": "assets/images/team/AleksandraTrailovic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Dijana Alanović",
+    "course": "C++",
+    "url": "assets/images/team/DijanaAlanovic.jpg",
+    "mainPosition": false
+  },
+  {
+    "name": "Stefanela Đukić",
+    "course": "C++",
+    "url": "assets/images/team/user.jpg",
+    "mainPosition": false
   }
 ]

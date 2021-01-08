@@ -1,0 +1,148 @@
+<h1>Verovatnoća u R-u</h1>
+
+U R-u postoje ugrađene funkcije pomoću kojih se dobijaju funkcija gustine raspodele, funkcija raspodele, inverzna funkcija raspodele i funkcija koje služi za generisanje
+slučajnih veličina iz neke raspodele.</br>
+Nazivi nekih od raspodela u R-u:<b> unif,norm,pois,beta,gamma,binom,cauchy,exp..</b></br>
+U zavisnoti od toga šta je potrebno izračunati, određeni prefiksi se dodaju na naziv raspodele:</br>
+<ul>
+<li><b> p </b> funkcija raspodele</li>
+<li><b> d </b> funkcija gustine(kod diskretnih raspodela to je verovatnoća da slučajna veličina uzme zadatu vrednost)</li>
+<li><b> q </b> inverzna funkcija raspodele</li>
+<li><b> r </b> generisanje slučajnih(random)brojeva iz neke raspodele</li>
+</ul>
+<h2>Normalna raspodela</h2>
+U R-u normalna raspodela ima naziv norm i dodavanjem odgovarajucih prefiska dobijaju se sledee funkcije:</br>
+<xmp class="primer_ta">
+dnorm(x, mean, sd)
+pnorm(x, mean, sd)
+qnorm(p, mean, sd)
+rnorm(n, mean, sd)
+</xmp>
+Opisi parametara datih funkcija:</br>
+<ul>
+<li><b> x </b> vektor brojeva</li>
+<li><b> p </b> vektor čiji su elementi verovatnoće</li>
+<li><b> n </b> veličina PSU(prost slučajan uzorak)</li>
+<li><b> mean </b> srednja vrednost svih elemenata. Podrazumevana vrednost je 0.</li>
+<li><b> sd </b> standardna devijacija. Podrazumevana vrednost je 1.</li>
+</ul>
+</br>
+<b> dnorm()</b>
+Za svaku tačku iz vektora ulaznih podataka vraća verovatnoću za datu
+srednju vrednost i standardnu devijaciju. Dakle, sledeći grafik predstavlja grafik funkcije gustine normalne raspodele.</br>
+<xmp class="primer_ta">
+#generiše se vektor brojeva iz intervala(-10,10) sa razmakom 1
+x <- seq(-10, 10, by = .1)
+
+#srednja vrednost se postavlja na 2.5 i standardna devijacija na 0.5
+y <- dnorm(x, mean = 2.5, sd = 0.5)
+
+plot(x,y)
+</xmp>
+<img src="courses/r/dnorm.png" class= "img-lg img-fluid">
+</br></br>
+<b>pnorm()</pnorm></b>
+Vraća funkciju raspodele, odnosno računa verovatnoću da normalno raspodeljena slučajna veličina uzima vrednost manju od zadatog broja. </br>
+<xmp class="primer_ta">
+#kreira se vektor ulaznih podataka
+x <- seq(-10,10,by = .2)
+
+#biraju se vrednosti očekivanja i standardne devijacije i primenjuje se funkcija pnorm
+y <- pnorm(x, mean = 2.5, sd = 2)
+
+#graficki prikaz funkcije raspodele
+plot(x,y)
+</xmp>
+<img src="courses/r/pnorm.png" class= "img-lg img-fluid">
+</br></br>
+<b>qnorm()</b>
+Računa inverznu funkiju raspodele, dakle vraća broj koji je sa datom verovatnoćom manji od unapred zadatog broja</br>
+<xmp class="primer_ta">
+#kreira se vektor čiji su elementi verovatnoće(voditi računa da se vrednosti kreću od 0 do 1)
+x <- seq(0, 1, by = 0.02)
+
+y <- qnorm(x, mean = 2, sd = 1)
+
+#grafički prikaz
+plot(x,y)
+</xmp>
+<img src="courses/r/qnorm.png" class= "img-lg img-fluid">
+</br></br>
+
+<b>rnorm()</b>
+U sledećem primeru pomoću ove funckije će na slučajan način biti generisani elementi(brojevi) iz normalne raspodele. Kao ulazna vrednost navodi se veličina uzorka,
+tj. broj brojeva koji će biti generisani. Crta se histogram kako bi se lakše uočila raspodela generisanih brojeva.</br>
+<xmp class="primer_ta">
+#generiše se uzorak od 50 elemenata koji su iz normalne raspodele
+y <- rnorm(50)
+
+#crta se histogram za dobijeni uzorak
+hist(y, main = "Normal Distribution")
+</xmp>
+<img src="courses/r/rnorm.png" class= "img-lg img-fluid">
+
+<h2>Binomna raspodela</h2>
+Binomni model raspodele bavi se pronalaženjem verovatnoće uspeha događaja koji ima samo dva moguća ishoda u nizu eksperimenata.
+Na primer, bacanjem novčića uvek se dobije glava ili pismo. Verovatnoća pronalaska tačno 3 glave u ponovljenom bacanju novčića 10 puta modeluje se pomoću binomne raspodele.</br>
+<b> dbinom()</b>
+</br>
+S obzirom da je binomna raspodela diskretnog tipa računa se verovatnoća za svaku vrednost iz ulaznog vektora posebno.
+Odnosno računaju se pojedinačne verovatnoće P{X=x}. </br>
+<xmp class="primer_ta">
+#kreira se uzorak od 50 elemenata sa razmakom 1
+x <- seq(0,50,by = 1)
+
+y <- dbinom(x,50,prob=0.5)
+
+#prikazuje se grafik
+plot(x,y,main="Binomial Distribution B(50,0.5)")
+</xmp>
+<img src="courses/r/dbinom.png" class= "img-lg img-fluid">
+</br></br>
+<b>pbinom()</b>
+Funkcija daje kumulativnu verovatnoću događaja. Dakle,povratna vrednost je jedan broj izmedju 0 i 1 koji predstavlja verovatnoću</br>
+Primer:</br>
+Potrebno je izračunati verovatnoću da padne 26 glava u 51 bacanju novčića. Prvo se formira slučajna veličina X koja predstavlja broj glava koje su pale u 51 bacanju novčića. Slučajna veličina uzima vrednosti od 0 do 51 i za svaku vrednost računa se verovatnoća po binomnoj formuli. Da bi se došlo do verovatnoće da je ishod
+eksperimenta 26 glava, potrebno je sabrati sve verovatnoće za vrednosti od 0 do 26. Funkcija pbinom() upravo to radi. Pretpostavka je da se radi o homogenom novčiću, tj.verovatnoća pada glave/pisma je 1/2.</br>
+<xmp class="primer_ta">
+#verovatnoća dobijanja bar 26 glava u 51 bacanju novčića
+x <- pbinom(26,51,prob=0.5)
+print(x)
+</xmp>
+<xmp class="primer_ta">
+[1] 0.610116
+</xmp>
+<b>qbinom()</b>
+Ova funkcija uzima vrednost verovatnoće i daje broj čija kumulativna vrednost odgovara vrednosti verovatnoće.
+Primer:</br>
+<xmp class="primer_ta">
+#Novčić se baca 51 put i sa verovatnoćom 0.25 je palo n glava. Koliko je glava palo?
+x <- qbinom(0.25,51,1/2)
+
+print(x)
+</xmp>
+
+<xmp class="primer_ta">
+[1] 23
+</xmp>
+</br></br>
+<b>rbinom()</b>
+Iz datog uzorka sa binomnom raspodelom B(n,p) generiše se na slučajan način unapred zadat broj elemenata.</br>
+<xmp class="primer_ta">
+#pronaći 8 random vrednosti iz uzorka sa binomnom raspodelom (150,0.4)
+x <- rbinom(8,150,0.4)
+
+print(x)
+</xmp>
+<xmp class="primer_ta">
+[1] 58 61 59 66 55 60 61 67
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Pomoću koje funkcije se dobija funkcija raspodele neke slučajne veličine?
+</br>
+2.Generisati slučajan uzorak obima 5 iz uniformne raspodele (0,1)
+</br>
+3.Nacrtati funkciju gustine eksponencijalne raspodele.
+</br>

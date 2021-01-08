@@ -1,0 +1,74 @@
+<h1>R-Nizovi</h1>
+
+Nizovi u R-u su objekti koji mogu da čuvaju podatke u više od dve dimenzije. Ukoliko 
+se kreira niz sa dimenzijama (2,3,4) tada se zapravo kreiraju četiri pravougaone matrice od kojih svaka ima po 2 reda i 3 kolone. 
+Nizovi mogu da skladište podatke bilo kojeg tipa.</br>
+Za kreiranje nizova koristi se funkcija <b> array() </b>. Uzima vektore kao ulazne vrednosti,a parametrom <b>dim</b> se reguliše dimenzija niza.</br>
+Vrstama, kolonama i matricama mogu biti dodeljeni nazivi pomoću paramatera <b>dimnames</b>.</br>
+U sledećem primeru se kreira niz koji se sastoji od dve matrice dimenzija 3x3, svaka sa 3 vrste i 3 kolone.</br>
+<xmp class="primer_ta">
+x <- c(5,9,3)
+y <- c(10,11,12,13,14,15)
+column.names <- c("Kol1","Kol2","Kol3")
+row.names <- c("Red1","Red2","Red3")
+matrix.names <- c("Matrica1","Matrica2")
+niz <- array(c(x,y),dim = c(3,3,2),dimnames = list(row.names,column.names, matrix.names))
+print(niz)
+</xmp>
+Rezultat:</br>
+<xmp class="primer_ta">
+, , Matrica1
+
+     Kol1 Kol2 Kol3
+Red1    5   10   13
+Red2    9   11   14
+Red3    3   12   15
+
+, , Matrica2
+
+     Kol1 Kol2 Kol3
+Red1    5   10   13
+Red2    9   11   14
+Red3    3   12   15
+
+</xmp>
+</br>
+<h2>Operacije sa nizovima</h2>
+S obzirom da se nizovi sastoje od matrica u nekoliko dimenzija, operacije nad elementima 
+niza se izvode pristupom elementima matrica od kojih se niz sastoji.</br>
+<xmp class="primer_ta">
+#kreiranje prvog niza
+vektor1 <- c(5,9,3)
+vektor2 <- c(10,11,12,13,14,15)
+niz1 <- array(c(vektor1,vektor2),dim = c(3,3,2))
+
+# Kreiranje drugog niza
+vektor3 <- c(9,1,0)
+vektor4 <- c(6,0,11,3,14,1,2,6,9)
+niz2 <- array(c(vektor3,vektor4),dim = c(3,3,2))
+
+# Prave se dve matrice od nizova 1 i 2
+matrica1 <- niz1[,,2]
+matrica2 <- niz2[,,2]
+
+# sabiraju se dobijene matrice što zapravo predstavlja sabiranje nizova(niz1 + niz2)
+rezultat_sabiranja <- matrica1 + matrica2
+print(rezultat_sabiranja) 
+</xmp>
+Rezultat sabiranja nizova:</br>
+<xmp class="primer_ta">
+     [,1] [,2] [,3]
+[1,]    7   19   19
+[2,]   15   12   14
+[3,]   12   12   26
+</xmp>
+Na gore opisan način, na nizove se primenjuju i ostale operacije koje su definisane za matrice.</br>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Pomoću koje funkcije se kreiraju nizovi u R-u?
+</br>
+2.Da li je moguće sabrati dva niza različite dimenzije?
+</br>
+3.Navesti primer jednog niza u R-u.
+</br>

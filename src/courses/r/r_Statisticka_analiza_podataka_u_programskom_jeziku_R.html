@@ -1,0 +1,128 @@
+<h1>Statistička analiza podataka u programskom jeziku R </h1>
+</br>
+
+Postoje mnoge ugrađene funkcije za statističku analizu podataka. Sve funkcije koje će biti prikazane su deo standardnog R paketa.</br>
+<h2>Srednja vrednost, moda i medijana</h2>
+Srednja vrednost na nekom uzorku se računa kao suma svih vrednosti podeljena sa brojem jedinki koje se nalaze u uzorku.</br>
+Funkcija pomoću koje se računa srednja vrednost u R-u naziva se <b>mean()</b>.</br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+mean(x, trim = 0, na.rm = FALSE, ...)
+</xmp>
+Opis parametara funkcije:</br>
+<ul>
+<li><b> x </b> ulazni vektor </li>
+<li><b> trim </b>odbacuje neke vrednosti sa oba kraja sortiranog vektora</li>
+<li><b> na.rm </b>uklanja vrednosti koje nisu numeričke odnosno vrednosti NA iz ulaznog vektora</li>
+</ul>
+</br>
+S obzirom da su drugi i treći parametar opcioni, prvo će biti primenjena funkcija mean() bez ovih parametara.</br>
+<xmp class="primer_ta">
+#prvo se kreira vektor čija će srednja vrednost biti izračunata
+x <- c(12,7,3,4.2,18,2,54,-21,8,-5)
+
+#računanje srednje vrednosti
+srednja_vrednost <- mean(x)
+srednja_vrednost
+</xmp>
+Rezultat nakon primene funkcije:</br>
+<xmp class="primer_ta">
+[1] 8.22
+</xmp>
+</br>
+Kada se uključi parametar trim, vrednosti vektora se sortiraju i onda se zahtevan broj elemenata izbaci 
+iz računanja srednje vrednosti. Kada je trim=0.3, tada po tri vrednosti sa oba kraja sortiranog vektora neće biti razmatrane za računanje srednje vrednosti datog vektora.
+Sortiran vektor x izgleda ovako: (−21, −5, 2, 3, 4.2, 7, 8, 12, 18, 54), a vrednosti koje će biti uklonjene su (−21,−5,2) sa leve i  (12,18,54) sa desne strane.</br>
+<xmp class="primer_ta">
+x <- c(12,7,3,4.2,18,2,54,-21,8,-5)
+srednja_vrednost <- mean(x,trim = 0.3)
+srednja_vrednost
+</xmp>
+Rezultat u ovom slučaju se menja i iznosi:</br>
+<xmp class="primer_ta">
+[1] 5.55
+</xmp>
+</br>
+Ukoliko u ulaznom vektoru neki element nema vrednost tj.umesto konkretne vrednosti stoji NA, onda će srednja vrednost takođe biti NA. Da bi se to izbeglo,
+vrednost parametra na.rm se postavlja na TRUE, sto znači da će NA vrednost biti uklonjena.</br>
+<xmp class="primer_ta">
+x <- c(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+
+#bez postavljanja vrednosti parametra na.rm na TRUE
+srednja_vrednost <- mean(x)
+srednja_vrednost
+
+#NA vrednost je ignorisana, srednja vrednost je konkretan broj
+srednja_vrednost <- mean(x,na.rm = TRUE)
+srednja_vrednost
+</xmp>
+<xmp class="primer_ta">
+[1] NA
+[1] 8.22
+</xmp>
+</br></br>
+<h3>Moda</h3>
+Vrednost koja se najviše puta ponavlja u nekom skupu podataka naziva se moda. Moda može da bude numeričkog i znakovnog tipa.
+R nema standardnu ugrađenu funkciju za računanje mode, sto znači da programer sam mora da implementira funkciju kada mu je ona potrebna.
+Funkcija koja je ovde predstavljena uzima vektor kao ulaz i daje vrednost mode kao izlaz.</br>
+<xmp class="primer_ta">
+#kreira se funkcija
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+#kreiranje vektora ulaznih podataka,elementi vektora su numeričkog tipa
+v1 <- c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
+
+#moda se računa pomoću funkcije koje je kreirana
+moda1 <- getmode(v1)
+print(moda1)
+
+#vektor ulaznih podataka čiji su elementi znakovnog tipa
+v2 <- c("o","i","o","io","oi")
+moda2 <- getmode(v2)
+print(moda2)
+</xmp>
+Lako se može proveriti da se u vektoru v1 najviše puta pojavljuje vrednost 2 odnosno u vektoru v2 karakter "o".
+Vrednosti koje su rezultat prethodnog koda su takođe 2 i "o" sto je indikator tačnosti napisane funkcije.</br>
+<xmp class="primer_ta">
+[1] 2
+[1] "o"
+</xmp>
+</br></br>
+<h3>Medijana</h3>
+Vrednost u uzorku sa čije se leve i desne strane nalazi isti broj elemenata naziva se medijana. Pre računanja medijane potrebno je sortirati skup podataka u rastućem poretku.
+Ukoliko taj skup ima neparan broj elemenata, medijana će biti element u sredini, a ukoliko je ipak paran broj elemenata onda se vrednost medijane dobije kao aritmetička sredina dva središnja elementa u sortiranom nizu.</br>
+U R-u postoji ugrađena funkcija za računanje medijane i naziva se <b>median()</b></br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+median(x, na.rm = FALSE)
+</xmp>
+Opis parametara funkcije:</br>
+<ul>
+<li><b> x </b> vektor ulaznih podataka </li>
+<li><b>na.rm</b> logički parametar, ukoliko je postavljen na TRUE, izbacuje iz vektora ulaznih podataka elemente koji nemaju numeričku neko NA vrednost</li>
+</ul>
+</br>
+<xmp class="primer_ta">
+#vektor ulaznih podataka
+x <- c(12,7,3,4.2,18,2,54,-21,8,-5)
+
+#pronalazak medijane
+medijana <- median(x)
+print(medijana)
+</xmp>
+<xmp class="primer_ta">
+[1] 5.6
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Koji su parametri funkcije mean()?
+</br>
+2.Šta je moda raspodele? Napisati funkciju u R-u koja računa modu raspodele.
+</br>
+3.Kako se računa medijana u uzorku sa neparnim brojem članova?
+</br>
+

@@ -35,11 +35,11 @@ da nam grane ne predstavljaju uređene parove, već skupove od dva elementa. Me�
 <br><br>
 
 
-Čvor \(v\) zovemo <b>susedom</b> čvora \(u\) ukoliko postoji grana iz čvora \(u \)ka čvoru \(v\).Za neusmerene grafove važi da je čvor \(v\) je sused čvora \(u\) ukoliko postoji grana izmedju njih. U prethodnom primeru susedi čvora \(b\) su čvorovi \(a\) i \(c\).
+Čvor \(v\) zovemo <b>susedom</b> čvora \(u\) ukoliko postoji grana iz čvora \(u \) ka čvoru \(v\).Za neusmerene grafove važi da je čvor \(v\) sused čvora \(u\) ukoliko postoji grana izmedju njih. U prethodnom primeru susedi čvora \(b\) su čvorovi \(a\) i \(c\).
 <br>
 <br>
 
-Kod usmerenih grafova postoje ulazne i izlazne grane, tj. za (u,v) iz E kazemo da je <b>ulazna</b> grana za čvor v, a <b>izlazna</b> za čvor u. S obzirom na to da kod neusmerenih grafova nemamo usmerenja grana, granu \( (u,v) \) bismo razmatrali i kao ulaznu i kao izlaznu za oba čvora \(u\) i \(v\). Ulazne i izlazne grane označavamo strelicama, tj. ulazna grana za neki čvor je ona grana koja strelicom "ulazi" u taj čvor dok izlazne predstavljaju one čija strelica "izlazi" iz tog čvora. Čvor e prethodnog grafa nema izlaznih grana, ali ima dve ulazne grane.
+Kod usmerenih grafova postoje ulazne i izlazne grane, tj. za \((u,v) \in E\) kažemo da je <b>ulazna</b> grana za čvor \(v\), a <b>izlazna</b> za čvor \(u\). S obzirom na to da kod neusmerenih grafova nemamo usmerenja grana, granu \( (u,v) \) bismo razmatrali i kao ulaznu i kao izlaznu za oba čvora \(u\) i \(v\). Ulazne i izlazne grane označavamo strelicama, tj. ulazna grana za neki čvor je ona grana koja strelicom "ulazi" u taj čvor dok izlazne predstavljaju one čija strelica "izlazi" iz tog čvora. Čvor \(e\) prethodnog grafa nema izlaznih grana, ali ima dve ulazne grane.
 <br>
 <br>
 
@@ -73,11 +73,11 @@ Grafove možemo predstaviti na različite načine. Kako je skup grana podskup sk
 
  <ul>
   <li>čvorove označimo brojevima od 0 do n-1 gde je n broj čvorova iz grafa</li>
-  <li>matrica povezanosti je matrica dimenzije n x n gde se u ćeliji [i,j] nalazi 1 ukoliko postoji grana od čvora i do čvora j, a 0 ukoliko takva grana ne postoji</li>
+  <li>matrica povezanosti je matrica dimenzije n x n gde se u ćeliji \([i,j]\) nalazi 1 ukoliko postoji grana od čvora \(i\) do čvora \(j\), a 0 ukoliko takva grana ne postoji</li>
   
 </ul> 
 <br>
-Kako je kod neusmerenih grafova grana \((u,v)\) grana između ovih čvorova matrica povezanosti ce imati 1 i na poziciji [u,v] i na poziciji [v,u], odnosno matrica će biti simetrična.
+Kako je kod neusmerenih grafova grana \((u,v)\) grana između ovih čvorova matrica povezanosti ce imati 1 i na poziciji \([u,v]\) i na poziciji \([v,u]\), odnosno matrica povezanosti će biti simetrična.
 
 
 <br><br>
@@ -96,7 +96,7 @@ Primer: Graf iz prethodnog primera,samo sa preimenovanim čvorovima
 <br>
 <img style="width:300px; max-width:98%" src="courses/grafovi/1_uvod/usmerengraf1.png" class="img-fluid img-sm">
 <br>
-Samo je čvor 3 sused 0, pa će vrsta matrice povezanosti za ovaj graf koja odgovara čvoru nula biti {0,0,0,1,0}, za čvor 1 će biti {1,0,1,0,0}, itd, posto imamo 5 čvorova matrica će biti 5x5 i imaće ovaj oblik: 
+Samo je čvor 3 sused 0, pa će vrsta matrice povezanosti za ovaj graf koja odgovara čvoru nula biti {0,0,0,1,0}, za čvor 1 će biti {1,0,1,0,0}, itd. Pošto imamo 5 čvorova matrica će biti 5x5 i imaće ovaj oblik: 
 <table style="width:400px; max-width:98%" class = "tabela"><tr style="background-color:#B0E0E6"><td> x </td><td> 0 </td><td style="background-color:#B0E0E6"> 1 </td><td> 2 </td><td> 3 </td><td > 4 </td></tr> <tr><td style="background-color:#B0E0E6"> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 2 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td></tr> <tr><td style="background-color:#B0E0E6"> 3 </td><td> 0 </td><td> 0 </td><td>  0</td><td> 0 </td><td> 0 </td></tr> <tr><td style="background-color:#B0E0E6"> 4 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td></tr> </table>
 
 <br><br>
@@ -114,13 +114,13 @@ Liste povezanosti možemo i grafički predstaviti na sledeći način:
 
 
 <br>
-Matricu povezanosti ćemo čuvati kao niz nizova, dok ćemo listu povezanosti čuvati kao niz listi, sa sledećim znacenjem. \(matrica_povezanosti[0][3]\) nam čuva podatak da li postoji grana od čvora 0 prema čvoru 3, dok element sa tim indeksom u listi povezanosti uopste ni ne mora da postoji.<br> \(lista[0]\) će biti lista suseda čvora 0, kako on može imati proizvoljan broj čvorova ne znamo kolika je duzina liste. 
+Matricu povezanosti ćemo čuvati kao niz nizova, dok ćemo listu povezanosti čuvati kao niz listi, sa sledećim znacenjem. \(matrica\_povezanosti[0][3]\) nam čuva podatak da li postoji grana od čvora 0 prema čvoru 3, dok element sa tim indeksom u listi povezanosti uopste ni ne mora da postoji.<br> \(lista[0]\) će biti lista suseda čvora 0, kako on može imati proizvoljan broj čvorova ne znamo kolika je duzina liste. 
 
 Samim tim pošto liste povezanosti u proseku sadrže manje informacija ova reprezentacija je memorijski efikasnija u odnosu na reprezentaciju matricom povezanosti.
  Medjutim, neke operacije je efikasnije izvršiti kada je graf predstavljen matricom povezanosti, npr. u konstantnom vremenu možemo proveriti da li grana (1,3) postoji u grafu, dok u listi moramo u najgorem slučaju proći kroz sve elemente liste povezanosti za čvor 1. Dakle, izbor pogodne reprezentacije grafa zavisi od problema koji se rešava.
 <br><br>
 
-Grafovima možemo modelirati razne stvari, na primer čvorovi grafova mogu biti gradovi, a putevi između grane grafa. Međutim u tim slučajevima ukoliko postoji grana izmedju grada Beograda ka npr Novom Sadu, i ka Nišu nama je nedovoljno informacija samo da znamo da postoji put ka tim gradovima. Zato se uvode težinski grafovi koji omogucavaju da svakoj grani dodamo neku težinu, tj. da naglasimo da od Beograda do Novog Sada ima 90km, a do Niša 240km tako što grani ka Novom sadu damo težinu 90, a grani ka Nišu damo težinu 240.
+Grafovima možemo modelirati razne stvari, na primer čvorovi grafova mogu biti gradovi, a putevi između grane grafa. Međutim u tim slučajevima ukoliko postoji grana izmedju grada Beograda ka npr Novom Sadu, i ka Nišu nama je nedovoljna informacija samo da znamo da postoji put ka tim gradovima. Zato se uvode težinski grafovi koji omogućavaju da svakoj grani dodamo neku težinu, tj. da naglasimo da od Beograda do Novog Sada ima 90km, a do Niša 240km tako što grani ka Novom sadu damo težinu 90, a grani ka Nišu damo težinu 240.
 <br><br>
 
 Težinske grafove možemo predstaviti matricom povezanosti tako što ako postoji grana između dva čvora umesto broja 1 pišemo težinu te grane, a ukoliko grana ne postoji pišemo neki broj koji se ne može javiti kao težina nijedne grane. Najčesće se u te svrhe bira vrednost 0 ili -1, pošto ćemo u narednim primerima razmatrati samo grafove sa strogo pozitivnim težinama grana. Težinske grafove možemo predstaviti i listama povezanosti, gde umesto da čuvamo samo oznaku suseda ka kome postoji grana iz datog čvora, čuvamo uredjeni par \((a,b)\) gde je \(a\) sused do kog ide ta grana, dok vrednost \(b\) predstavlja težinu grane.

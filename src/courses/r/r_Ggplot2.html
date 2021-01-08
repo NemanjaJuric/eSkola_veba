@@ -1,0 +1,110 @@
+<h1>Ggplot2</h1>
+
+Paket ggplot2 se koristi za crtanje grafika. Jedan je od najkorisnijih i najzastupljenijih paketa u R-u. 
+Ima dosta drugačiju sintaksu od sintakse klasičnih grafika, a njegova najveća prednost je što se sa malo koda prave estetski bogati grafici.</br>
+Korištenjem ovog paketa grafici se prave dodavanjem pojedinačnih komponenti koje se razdvajaju znakom "+".</br>
+</br>
+Glavni delovi koje svaki grafik sadrži su:</br>
+<ul>
+ <li> <b> data(podaci)</b> Skup podataka koji se prikazuje </li>
+ <li> <b> geometrijski objekat geom </b> Tip geometrijskog objekta kojim se prikazuju podaci(linije, tačkice, stepenici..) </li>
+ <li> <b> estetski parametri (aes()) </b> Estetski atributi koji se mogu dodeliti geometrijskim objektima.</li>
+</ul>
+</br></br>
+<h2>Linijski grafik</h2>
+Sledeći primer prikazuje crtanje linijkog grafika pomoću paketa ggplot2.</br>
+<xmp class="primer_ta">
+#prvo je potrebno instalirati paket ggplot2 i uključiti bliblioteku sa funkcijama 
+install.packages("ggplot2")
+library(ggplot2)
+
+#koristi se skup podataka economics iz paketa ggplot2
+data <- ("economics")
+
+ggplot(economics, aes(x = date, y = psavert)) + 
+        geom_line(color = "darkgreen") +
+	geom_smooth() + 
+	scale_x_date(date_breaks = "5 years", date_labels = "%b %Y") +
+        labs(x = "Mesec", y = "Stopa stednje") 
+#funkcijom scale_x_date bira se broj godina u kojima ce se pratiti promene, u ovom konkretnom slučaju to je 5 (“%b” u formatu označava mesec a “%Y” godinu, pa može i redosled da se menja)
+</xmp>
+
+
+<img src="courses/r/ggplot_linijski.png" class= "img-lg img-fluid">
+</br></br>
+<h2>Kružni grafik(Pie chart)</h2>
+MPG baza podataka sadrži podskup podataka o potrošnji goriva koje EPA stavlja na raspolaganje na http://fueleconomy.gov. Sadrži samo modele koji su svake godine imali novo izdanje između 1999. i 2008. godine.
+Podaci su prikazani u tabeli(data frame) sa 234 reda i 11 promenjivih(manufacturer,displ,year.cyl,trans,drv,cty,hwy,fl,class).</br>
+ <xmp class="primer_ta">
+pie <- ggplot(mpg, aes(x = "", fill = factor(class))) + 
+   geom_bar(width = 1) +
+   theme(axis.line = element_blank(), #izbacuju se x-osa i y-osa 
+         plot.title = element_text(hjust=0.5)) + #podešava se i centrira naslov
+   labs(fill="class", 
+        x=NULL, 
+        y=NULL, 
+        title="Pie Chart of class", 
+        caption="Source: mpg")
+ 
+ pie + coord_polar(theta = "y")
+</xmp>
+
+<img src="courses/r/ggplot_kruzni.png" class= "img-lg img-fluid">
+</br></br>
+
+<h2>Trakasti grafik(Bar plot)</h2>
+<xmp class="primer_ta">
+#iz baze mpg izdvaja se broj automobila po klasi
+ggplot(mpg, aes(x = class)) +
+geom_bar(fill = "forestgreen", color = "black")
+</xmp>
+<img src= "courses/r/ggplot_bar.png" class= "img-lg img-fluid">
+</br></br>
+
+
+<h2>Kutijasti grafik(Box plot)</h2>
+Posmatra se baza mpg kao i u prethodna dva slučaja.</br>
+<xmp class="primer_ta">
+ library(ggplot2)
+ theme_set(theme_classic())
+#Postavljanjem varwidth=T podešava se da debljina boksova bude proporcionalna broju vrednosti koje sadrži
+#Posmatra se gradska kilometraža grupisana po klasi vozila
+ g <- ggplot(mpg, aes(class, cty))
+ g + geom_boxplot(varwidth=T, fill="plum") + 
+   labs(title="Box plot", 
+        subtitle="City Mileage grouped by Class of vehicle",
+        caption="Source: mpg",
+        x="Class of Vehicle",
+        y="City Mileage")
+ library(ggplot2)
+ theme_set(theme_classic())
+</xmp>
+<img src= "courses/r/ggplot_box.png" class= "img-lg img-fluid">
+
+<h2>Histogram</h2>
+U sledećem primeru takođe se posmatra baza mpg, ali se ovaj put posmatra broj vozila određene klase po zapremini motora.</br>
+<xmp class="primer_ta">
+library(ggplot2)
+theme_set(theme_classic())
+ g <- ggplot(mpg, aes(displ)) + scale_fill_brewer(palette = "Spectral")
+ 
+ g + geom_histogram(aes(fill=class), 
+                    binwidth = .1, 
+                    col="black", 
+                    size=.1) + 
+   labs(title="Histogram sa automatskim brojem pravougaonika", 
+        subtitle="Engine Displacement across Vehicle Classes")  
+</xmp>
+</br>
+<img src= "courses/r/ggplot_hist1.png" class= "img-lg img-fluid">
+</br>
+Ukoliko je potrebno kreirati histogram sa fiksiranim brojem pravougaonika, to se može učiniti postavljanjem atributa bins na željeni broj pravougaonika.</br> 
+</br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Koristeći podatke iz baze economics nacrtati tačkasti grafik.
+</br>
+2.Nacrtati histogram koristeći podatke iz primera u lekciji, ali fiksirati broj pravougaonika na 5.
+</br>
+3.U kojim situacijama je pogodno koristiti kružni grafik(Pie chart)?
+</br> 

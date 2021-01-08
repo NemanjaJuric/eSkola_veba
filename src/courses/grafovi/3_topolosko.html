@@ -5,8 +5,8 @@
 
 <h2><b>Uvod</b></h2>
 
-Topološko sortiranje predstavlja neku vrstu uređenja čvorova grafa. Za neki niz čvorova grafa \(a_1,a_2,....,a_n\) gde je \(a_i \in V\) za svako i iz {1,2,...,n}, \(a_i \neq a_j za i \neq  j\), i gde je n broj čvorova u grafu, kažemo da je topološki sortiran ako ne postoji put od ai do aj gde je i>j. Ukoliko bismo čvorove grafa razmatrali kao poslove, a grane grafa kao međusobne zavisnosti poslova, onda bi topološko sortiranje odgovaralo pronalaženju redosleda kojim se taj skup poslova može obaviti.<br>
-Na primer potrebno je sagraditi kuću,poslovi su napraviti temelj, ozidati zidove i napraviti krov. Jasno je da ne možemo zidati zidove dok se ne napravi temelj, isto tako i za krov i zidove, jos se vidi da nije moguće postaviti krov ukoliko nemamo ni temelj. U grafu ćemo zavisnost poslova predstavljati granama, tj. grana od sagraditi temelj ka sagraditi zidove će označavati da je potrebno prvo zavrsiti temelj da bi se zidovi počeli odnosno da zidanje zidova zavisi od temelja. Primetimo da postoji i zavisnost koja ne mora biti direktna tj ne oznacava samo jedna grana zavisnost već zavisnost možemo videti i na osnovu postojanja puta od čvora u do čvora v, takvu zavisnost vidimo na primeru da krov preko zidova zavisi i od temelja(u opštem slučaju moguće je postojanje tranzitivnih zavisnosti koje nisu i direktne). Ukoliko posao napraviti temelj označimo kao posao br 2, ozidati zidove sa 0, a krov sa 1, sledeći graf bi predstavljao datu situaciju:
+Topološko sortiranje predstavlja neku vrstu uređenja čvorova grafa. Za neki niz čvorova grafa \(a_1,a_2,....,a_n\) gde je \(a_i \in V\) za svako \(i\) iz {1,2,...,n}, \(a_i \neq a_j\) za \(i \neq  j\), i gde je n broj čvorova u grafu, kažemo da je topološki sortiran ako ne postoji put od \(a_i\) do \(a_j\) gde je \(i>j\). Ukoliko bismo čvorove grafa razmatrali kao poslove, a grane grafa kao međusobne zavisnosti poslova, onda bi topološko sortiranje odgovaralo pronalaženju redosleda kojim se taj skup poslova može obaviti.<br>
+Na primer potrebno je sagraditi kuću,poslovi su napraviti temelj, ozidati zidove i napraviti krov. Jasno je da ne možemo zidati zidove dok se ne napravi temelj, isto tako i za krov i zidove, jos se vidi da nije moguće postaviti krov ukoliko nemamo ni temelj. U grafu ćemo zavisnost poslova predstavljati granama, tj. grana od sagraditi temelj ka sagraditi zidove će označavati da je potrebno prvo zavrsiti temelj da bi se zidovi počeli odnosno da zidanje zidova zavisi od temelja. Primetimo da postoji i zavisnost koja ne mora biti direktna tj ne oznacava samo jedna grana zavisnost već zavisnost možemo videti i na osnovu postojanja puta od čvora \(u\) do čvora \(v\), takvu zavisnost vidimo na primeru da krov preko zidova zavisi i od temelja (u opštem slučaju moguće je postojanje tranzitivnih zavisnosti koje nisu i direktne). Ukoliko posao napraviti temelj označimo kao posao br 2, ozidati zidove sa 0, a krov sa 1, sledeći graf bi predstavljao datu situaciju:
 <br><br>
 
 
@@ -15,13 +15,13 @@ Na primer potrebno je sagraditi kuću,poslovi su napraviti temelj, ozidati zidov
 <br><br>
 Niz 2,0,1 zadovoljava uslov topološkog sortiranja, tj iz čvora 0 granama ne možemo doći do čvora 2, takođe iz čvora 1 ne možemo ni do 0 ni do 2. U ovom slučaju topološko uređenje  nam govori ono sta smo već znali, da ukoliko gradimo kuću moramo početi od temelja preko zidova pa tek na kraju možemo praviti krov. Iako je ovaj primer bio očigledan topološko sortiranje daje odgovor i u mnogo zahtevnijim primerima.
 <br><br>
-Topološko sortiranje nije moguće u neusmerenim grafovima. Naime, kako god da uredimo čvorove, ako razmotrimo proizvoljnu granu \((u,v)\)  u grafu jedan od čvorova u\) i v\) mora biti u ovom uređenju ispred onog drugog, a samim tim neće biti zadovoljeni uslovi topološkog sortiranja
+Topološko sortiranje nije moguće u neusmerenim grafovima. Naime, kako god da uredimo čvorove, ako razmotrimo proizvoljnu granu \((u,v)\)  u grafu jedan od čvorova \(u\) i \(v\) mora biti u ovom uređenju ispred onog drugog, a samim tim neće biti zadovoljeni uslovi topološkog sortiranja
 jer postoji put i od \(u\) do \(v\) i od \(v\) do \(u\).
  Međutim, topološko sortiranje nije moguće izvesti ni u svim usmerenim grafovima. Na primer za sledeći graf ni jedan raspored čvorova ne predstavlja topološki sortirane čvorove:
 <br><br>
 <img style="width:230px; max-width:70%;" src="courses/grafovi/3_topolosko/topolosko2.png" class="img-fluid img-sm">
 <br><br>
-Može se jednostavno uočiti da je dovoljan uslov da neki usmereni graf ima topološki redosled čvorova taj da u njemu nema ciklusa.Primetimo da topološki redosled nije jedinstven, ukoliko postoje dva posla koja zavise od istih poslova moguće je promeniti njihove pozicije i opet zadovoljiti uslov topološkog sortiranja. Jedan od algoritama za izračunavanje topološkog redosleda čvorova je Kanov algoritam.
+Može se jednostavno uočiti da je dovoljan uslov da neki usmereni graf ima topološki redosled čvorova taj da u njemu nema ciklusa.Primetimo da topološki redosled nije jedinstven, ukoliko postoje dva posla koja zavise od istih poslova moguće je napraviti topoloski redosled tako da su oni jedan posle drugog. Zamenom njihovih pozicija će biti opet zadovoljen uslov topološkog sortiranja. Jedan od algoritama za izračunavanje topološkog redosleda čvorova je Kanov algoritam.
 <br>
 
 <h2><b>Kanov algoritam</b></h2>
@@ -42,8 +42,8 @@ Pošto smo zavisnost čvora \(u\) od čvora \(v\) predstavljali granom \((v,u)\)
 Pošto se prethodni postupak ponavlja iznova i iznova dok ne rasporedimo sve čvorove, algoritam se sastoji iz sledećih koraka:
 
 <ul>
-  <li>računaćemo stepene svih čvorova (stepene čvorova ćemo smeštati u jedan niz u kom će na indeksu i biti stepen čvora sa rednim brojem i),</li>
-  <li> sve čvorove stepena nula smestićemo u red(ili stek svejedno)</li>
+  <li>računaćemo stepene svih čvorova (stepene čvorova ćemo smeštati u jedan niz u kom će na indeksu \(i\) biti stepen čvora sa rednim brojem \(i\)),</li>
+  <li> sve čvorove stepena nula smestićemo u red (ili stek svejedno)</li>
   <li> telo petlje se izvršava sve dok ne ispraznimo red, dok ćemo u svakoj iteraciji petlje prvi čvor iz reda ubaciti u niz koji će na kraju algoritma predstavljati topološki poredak, smanjićemo stepene svih suseda čvora koji je bio na početku reda, ukoliko je neki od tih stepena postao nula ubacimo u red i nastavimo</li>
   
 </ul> 
@@ -53,38 +53,38 @@ Pošto se prethodni postupak ponavlja iznova i iznova dok ne rasporedimo sve čv
 Implementacija Kanovog algoritma: 
 <xmp class="primer_ta">
 void Kanov_algoritam(vector<vector<int>> &lista_povezanosti){
-    int n=lista_povezanosti.size();    //broj cvorova u grafu
+    int n = lista_povezanosti.size();    //broj cvorova u grafu
     vector<int> stepen(n);              //stepen svakog cvora 
     vector<int> topoloski_sortirani;    //niz u kome smestamo cvorove topoloski sortirano
     queue<int> red;                    //red potreban za algoritam, isto bi bilo i sa stekom
     
     //racunamo stepene cvorova
-    for(int i=0;i<n;i++){
+    for(int i = 0;i<n;i++){
         for (int a:lista_povezanosti[i]){
             stepen[a]++;
         }
     }
     
     //ubacujemo u red sve cvorove ciji je stepen nula
-    for(int i=0;i<n;i++){
-        if(stepen[i]==0) red.push(i);
+    for(int i = 0;i < n;i++){
+        if(stepen[i] == 0) red.push(i);
     }
 
 
     int pocetakreda;
     while(!red.empty()){
-        pocetakreda=red.front();
+        pocetakreda = red.front();
         topoloski_sortirani.push_back(pocetakreda);
         red.pop();
         for(int i:lista_povezanosti[pocetakreda]){
-            if(--stepen[i]==0)
+            if(--stepen[i] == 0)
                 red.push(i);
         }
     }
 
     //stampamo topoloski sortirane cvorove
     cout<<"Kanov algoritam: ";
-    for(int i=0;i<n-1;i++){
+    for(int i = 0;i < n-1;i++){
         cout<<topoloski_sortirani[i]<<" -> ";
     }
     cout<<topoloski_sortirani[n-1]<<'\n';
@@ -109,8 +109,8 @@ Algoritam za topološko sortiranje zasnovan na DFS obilasku grafa se zasniva na 
 Implementacija topološkog sortiranja pomoću DFS-a: 
 <xmp class="primer_ta">
 void dfs(int u,vector<int> &DFSraspored) { 
-    posecen[u]=true;
-    for(int i:lista_povezanosti[u]){
+    posecen[u] = true;
+    for(int i : lista_povezanosti[u]){
         if(!posecen[i])
         dfs(i,DFSraspored);         //ovo nam osigurava da se svi cvorovi koji zavise od u smeste u DFSraspored pre cvora u
     }
@@ -121,14 +121,14 @@ void topoloskoDFS(){
     vector<int> DFSraspored; //vektor za redosled zavrsetka rekurzivnog poziva
 
     //osiguravamo se da smo posetili sve cvorove DFS obilaskom
-    for(int i=0;i<lista_povezanosti.size();i++){
+    for(int i = 0;i<lista_povezanosti.size();i++){
         if(!posecen[i])
             dfs(i,DFSraspored);
     }
 
     ////kako DFSraspored sadrži topološki redosled ali u obrnutom poretku, niz DFSraspored ispisujemo otpozadi 
-    int n=DFSraspored.size()-1;
-    for(int i=0;i<n;i++){
+    int n = DFSraspored.size()-1;
+    for(int i = 0;i<n;i++){
         cout<<DFSraspored[n-i]<<" -> ";
     }
     cout<<DFSraspored[0]<<endl;

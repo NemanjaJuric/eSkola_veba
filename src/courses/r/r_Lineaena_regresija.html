@@ -1,0 +1,91 @@
+<h1>Linearna regresija </h1>
+
+Jedan od ciljeva u velikom broju istraživanja je da se opišu veze među pojavama koje nas
+okružuju. To se može postići pronalaženjem formule ili jednačine koja povezuje veličine koje
+posmatramo. Regresijska analiza je vrlo korišten statistički alat za uspostavljanje modela veze između dve promenjive.
+Regresija je od velikog značaja, kako u ekonomiji i privredi, tako i u drugim prirodnim
+naukama, kao što su: hemija, fizika, biologija, farmakologija, toksikologija.. Na primer, može nas interesovati veza između temperature i pritiska u hemijskom
+procesu; ili veza između broja jabuka na drveću u voćnjaku i količine đubriva koje je korišteno u
+voćnjaku; ili kako nova vakcina utiče na bolest. Veza između količine padavina, temperature ,
+vlažnosti ili veza između prinosa i sorte kukuruza. Cilj regresije je da nađe funkcionalnu vezu između obeležja Y koje se 
+naziva zavisnom promenjivom i obeležja X koje se naziva nezavisnom promenjivom(prediktorom).</br>
+Ova veza ima oblik: </br>
+<xmp class="primer_ta">
+Y = f(X) + ε
+</xmp>
+ε predstavlja grešku modela i pretpostavlja se da ima normalnu raspodelu.</br>
+Ukoliko je funkcija f sledećeg oblika: </br>
+<xmp class="primer_ta">
+f(x) = a*x + b
+</xmp>
+onda je model oblika: </br>
+<xmp class="primer_ta">
+Y = a*X + b + ε
+</xmp>
+Tada se kaže da se radi o <b>linearnoj regresiji. </b></br>
+U slučaju jednog prediktora radi se o prostoj linearnoj regresiji(gornja jednačina) a u slučaju više prediktora radi se o višetrukoj linearnoj regresiji. Da bi se nacrtala prava koja opisuje model, potrebno je oceniti koeficijente a i b. Kada se ocenjeni koeficijenti vrate nazad u jednačinu dobijaju se ocenjene vrednosti zavisne promenjive.
+Greška predviđanja dobije se kao razlika prave vrednosti za Y i ocenjene vrednosti. </br>
+Kreiranje linearne veze u R-u odvija se u sledećih nekoliko koraka:</br>
+<ul>
+	<li>crtanje grafika zavisne promenjive u odnosu na prediktore radi utvrđivanja linearne zavisnosti </li>
+	<li>kreiranje linearnog modela pomoću funkcije <b>lm()</b>
+	<li>pronalazak koeficijenata modela </li>
+	<li>pomoću funkcije <b>summary()</b> očitati greške predviđanja(reziduale)</li>
+	
+</ul>
+</br>
+Glavna funkcija za pravljenje i analiziranje linearnih modela u R-u je funkcija lm. Kao prvi argument prima formulu u obliku y ~ x1 + x2 + x3, gde je sa leve strane ~, zavisna promenljiva(ovde Y), a sa desne prediktori(kod proste regresije jedan, a kod višestruke nekoliko njih).
+Drugi argument u funkciji je tabela koja sadrži podatke.</br>
+U sledećem primeru posmatra se skup podataka cars, a modeluje se zavisnost dužine traga kočenja od brzine
+Dakle zavisna promenjiva će biti dužina traga kočenja(dist) dok će prediktor biti brzina(speed)</br>
+<xmp class="primer_ta">
+ #uključi se biblioteka cars
+library(cars)
+
+#pravljenje modela
+model <- lm(dist ~ speed, cars)
+</xmp>
+Najčešće korištena funkcija uz lm (koja pravi model), je funkcija summary koja prikazuje osnovne rezultate modelovanja</br>
+<xmp class="primer_ta">
+summary(model)
+</xmp>
+Rezultat poziva funkcije: </br>
+<xmp class="primer_ta">
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.069  -9.525  -2.272   9.215  43.201 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+## speed         3.9324     0.4155   9.464 1.49e-12 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 15.38 on 48 degrees of freedom
+## Multiple R-squared:  0.6511, Adjusted R-squared:  0.6438 
+## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12
+</xmp>
+Iz prethodnog dela zaključuju se sve osobine modela.</br>
+ Vrsta “Coefficients” sadrži 4 kolone, gde se svaki red odnosi na odgovarajući prediktor (u ovom slučaju slobodan član b)  i koeficijent uz prediktor speed(a). </br>
+<ul>
+	<li><b> Estimate </b> Ocenjena vrednost koeficijenta uz prediktor</li>
+	<li><b>Std. Error </b> Standardna greška ocene koeficijenta </li>
+	<li><b>t value </b> Vrednost t statistike, koja se koristi za testiranje značajnosti koeficijenata </li>
+	<li><b>Pr(>|t|)</b> p vrednost t testa značajnosti odgovarajućeg koeficijenta</li>
+	<li>Zvezdice predstavljaju značajnost prediktora, ukoliko nema zvezdica prediktor se može izbaciti iz modela, više zvezdica znači da je prediktor značajniji. </li>
+</ul>
+Nakon pravljenja modela, potrebno je testirati razne pretpostavke i u skladu sa tim napraviti mnogobrojne modifikacije. Dakle, pravljenjem linearnog modela posao tek počinje! Na ovom kursu neće biti obrađene lekcije o analizi linearnih modela, ideja je bila da se čitaocu pokaže da je rad sa linearnim modelima moguć u R-u.</br>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Iz baze Boston(paket MASS) modelovati cenu kuće u odnosu na prediktore "age" i "crim".
+</br>
+2.Koja se funkcija koristi za pravljenje linearnih modela?
+</br>
+3.Koje informacije o modelu pruža funkcija summary()?
+

@@ -1,0 +1,35 @@
+<h1>Faktori</h1>
+
+Faktori su objekti koji se koriste za kategorizaciju podataka i njihovo čuvanje u obliku grupa.
+Korisni su u kolonama koje imaju ograničen broj jedinstvenih vrednosti("tačno","netačno" itd). Faktori 
+se često koriste u analizi podataka za statističko modeliranje. 
+</br>
+Kreiraju se pomoću funkcije <b> factor() </b>,uzimajući vektor kao ulaz.
+</br>
+Primer:
+<xmp class="primer_ta"> 
+#pravi se vektor za ulaz
+podaci<- c("istok","zapad","sever","istok","sever","istok","zapad","sever","sever")
+print(is.factor(podaci))
+
+#primenjuje se funkcija
+factor_podaci <-factor(podaci)
+print(factor_podaci)
+print(is.factor(factor_podaci))
+</xmp>
+Potrebno je uočiti da se podaci iz ulaznog vektora klasiraju u kategorije.
+<xmp class="primer_ta"> 
+[1] FALSE
+[1] istok zapad sever istok sever istok zapad sever sever
+Levels: istok sever zapad
+[1] TRUE
+</xmp>
+</br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.U bazi podataka nalazi se kolona sa spiskom država koje su osvojile zlatnu medalju na OI. Koju funkiciju je potrebno primeniti da bi se izdvojili nazivi svih država koje su osvojile bar jednu zlatnu medalju?
+</br>
+2.Šta su to faktori u R-u?
+</br>
+3.Zbog čega se oni(faktori) koriste?
+</br>

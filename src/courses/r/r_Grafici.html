@@ -1,0 +1,187 @@
+<h1>Grafici</h1>
+
+Grafici u R-u mogu se kreirati na razičite načine. 
+Jedan od načina su ugrađene funkcije,koje mogu da se koriste bez uključivanja posebnih paketa, a drugi način je uključivanje paketa i kreiranje grafika pomoću funkcija koje se nalaze u njima. 
+Najpopularniji paketi su <b>ggplot</b> i <b>ggplot2</b>. Sintaksa se razlikuje od sintakse klasičnog grafika, ali najveća prednost ovih paketa je što se sa malo koda prave estetski bogati grafici.
+U ovoj lekciji biće prikazan način kreiranja grafika pomoću funkcija iz standardnog paketa, a već u sledećoj lekciji biće primeri istih grafika kreiranih pomoću funkcija iz paketa ggplot2.</br>
+<h2>Linijski grafik(Line graph)</h2>
+Za crtanje vremednki uređenih grafika, najčšće se koriste linijski grafici. To je prosto linija koja prikazuje kretanje neke promenjive kroz vreme.</br>
+Za kreiranje linijskog grafika koristi se funkcija <b>plot()</b>.</br>
+</br>
+Sintaksa funkcije je sledeca:</br>
+<xmp class="primer_ta">    plot(v,type,col,xlab,ylab) </xmp>
+</br>
+Opis parametara funkcije:</br>
+<ul>
+<li> <b> v </b> vektor koji sadrži numeričke vrednosti</li>
+<li> <b> type </b> vrednost "p" za crtanje tačaka, "l" za crtanje linija i "o" za crtanje tačaka i linija</li>
+<li> <b> xlab </b> labela za osu x </li>
+<li> <b> ylab </b> labela za osu y </li>
+<li> <b> main </b> naslov </li>
+<li> <b> col </b>  boja </li>
+</ul>
+</br>
+<b>Primer:</b>
+Kreira se jednostavan linijski grafik tipa "o".</br>
+<xmp class="primer_ta"> 
+#podaci za grafik
+v <- c(7,12,28,3,41)
+
+#crtanje linijskog grafika
+plot(v,type = "o", col = "red", xlab = "Month", ylab = "Rain fall", main = "Rain fall chart")
+</xmp>
+
+<img src="courses/r/linijski_grafik.png" class= "img-lg img-fluid">
+</br></br>
+<h2>Kružni grafik(Pie chart)</h2>
+Definiše se kao način prikazivanja delimičnih vrednosti neke celine kao dela kruga. 
+U pravilu je grafik podeljen na kružne isečke i svaki od njih predstavlja neku delimičnu vrednost, a celi krug predstavlja zbir svih tih vrednosti. 
+Pogodni za prikazivanje odnosa neke raspodele.</br>
+ Funkcija pomoću koje se kreira kružni dijagram je <b>pie()</b>. Ulazne podatke predstavlja vektor pozitivnih brojeva, a ostali parametri 
+služe za podešavanje boje, naslova,veličine..</br>
+Sintaksa funkcije pie():</br>
+<xmp class="primer_ta"> 
+pie(x, labels, radius, main, col, clockwise)
+</xmp>
+</br>
+Opis parametara funkcije</br>
+<ul> 
+<li> <b> x </b> vektor numeričkih podataka</li>
+<li> <b> labels </b> opis delova grafika </li>
+<li> <b> radius </b> vrednost između -1 i 1 koja predstavlja prečnik kruga(kruznog grafika)</li>
+<li> <b> main </b> naslov </li>
+<li> <b> col </b> boja </li>
+<li> <b> clockwise </b> logička vrednost koja signalizira orjentaciju</li>
+</ul>
+</br>
+<b>Primer:</b>
+<xmp class="primer_ta"> 
+#vektor ulaznih podataka
+x <- c(21, 62, 10, 53)
+
+#labele:
+labels <- c("London", "New York", "Singapore", "Mumbai")
+
+#kreiranje grafika
+pie(x, labels, main = "City pie chart", col = rainbow(length(x)))
+</xmp>
+<img src="courses/r/kruzni_grafik.png" class= "img-lg img-fluid">
+</br>
+Moguće je vršiti mnoge izmene kružnog grafika u vidu dodavanja legende, postotka koji zauzima svaki kružni isečak ili pravljenja 3D kružnog grafika.
+To se ostavlja čitaocu za istraživanje.</br>
+</br></br>
+<h2>Trakasti grafik(Bar plot)</h2>
+Podaci su predstavljeni u pravougaonim trakama koje su proporcionalne vrednosti promenjive. Bar plotovi nam služe za grafički prikaz kategoričkih promenljivih. Na njima se prikazuje koliko postoji podataka u bazi iz odgovarajuće kategorije.
+Za kreiranje grafika ovog tipa koristi se funkcija <b> barplot() </b>
+Trake mogu biti nacrtane i vertikalno i horizontalno, a takođe mogu biti i obojene različitim bojama.</br>
+Sintaksa funkcije barplot()</br>
+<xmp class="primer_ta"> 
+barplot(H, xlab, ylab, main, names.arg, col)
+</xmp>
+</br>
+Opis parametara funkcije</br>
+<ul> 
+<li> <b> H </b> vektor ili matrica sa numeričkim vrednostima koji predstavljaju ulazne podatke</li>
+<li> <b> xlab </b> labela za osu x</li>
+<li> <b> ylab </b> labela za osu y</li>
+<li> <b> main </b> naslov </li>
+<li> <b> names.arg </b> vektor sa nazivima koji se pojavljuje ispod svake trake </li>
+<li> <b> col </b> dodavanje boje </li>
+</ul>
+</br>
+<b>Primer:</b>
+<xmp class="primer_ta">
+#kreiranje ulaznih vektora:
+colors = c("green","orange","brown")
+months <- c("Mar","Apr","May","Jun","Jul")
+regions <- c("East","West","North")
+
+#kreiranje matrice vrednosti:
+H <- matrix(c(2,9,3,11,9,4,8,7,3,12,5,2,8,10,11), nrow = 3, ncol = 5, byrow = TRUE)
+
+#kreiranje grafika:
+barplot(H, main = "total revenue", names.arg = months, xlab = "month", ylab = "revenue", col = colors)
+
+#dodavanje legende
+legend("topleft", regions, cex = 1.3, fill = colors)
+</xmp>
+</br>
+<img src="courses/r/trakasti_grafik.png" class= "img-lg img-fluid">
+</br></br>
+<h2>Kutijasti grafik(Box plot)</h2>
+ Predstavlja grafički prikaz 5 sumarnih statistika - minimum, 1. kvartil, medijana, 3. kvartil i maksimum.
+Ovaj grafik je zapravo mera koliko su podaci dobro raspoređeni u skupu podataka. Takođe su korisni za upoređivanje raspodela podataka po skupovima crtanjem okvira za svaki skup.</br>
+Za kreiranje ove vrste grafika koristi se funkcija <b>boxplot()</b></br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+boxplot(x, data, notch, varwidth, names, main)
+</xmp>
+</br>
+Opis parametara funkcije</br>
+<ul> 
+<li> <b> x </b> vektor ili formula</li>
+<li> <b> data </b> tabela(data frame) </li>
+<li> <b> notch </b> logička vrednost</li>
+<li> <b> varwidth </b> logička vrednost, postavlja se kao TRUE ukoliko je potrebno da širina okvira bude proporcionalna veličini uzorka  </li>
+<li> <b> names </b> grupa labela koje se postavljaju ispod svakog dela dijagrama </li>
+<li> <b> main </b> naslov</li>
+<li> <b> col </b> dodavanje boje</li>
+</ul>
+</br>
+<b>Primer:</b>
+ Koristi se skup podataka "mtcars" dostupan u R okruženju za stvaranje osnovnog grafika.
+Iz baze podataka bice izdvojene kolone "mpg" i "cyl".
+<xmp class="primer_ta"> 
+#izdvajanje pomenutih kolona
+input <- mtcars[,c('mpg','cyl')]
+
+#crtanje grafika
+boxplot(mpg ~ cyl, data = mtcars, xlab = "Number of Cylinders",
+   ylab = "Miles Per Gallon", main = "Mileage Data",notch = TRUE, 
+   varwidth = TRUE,  col = c("green","yellow","purple"),
+   names = c("High","Medium","Low"))
+</xmp>
+<img src="courses/r/kutijasti_grafik.png" class= "img-lg img-fluid">
+</br></br>
+<h2>Histogram</h2>
+Histogram predstavlja frekvencije vrednosti promenjive grupisane u intervale. Sličan je trakastom dijagramu, ali razlika je u tome što vrednosti grupiše u kontinuirane intervale.
+Histogramom se takođe moze vizualizirati gruba ocena raspodele uzorka, gde brojimo koliko elemenata uzorka upada u odgovarajuće kategorije.
+Koristeći histogram, može se kontrolisai broj pravougaonika, takođe može se odabrati koliki interval pokriva svaki pravougaonik.</br>
+U R-u se histogram kreira pomoću funkcije <b>hist()</b></br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+hist(v, main, xlab, xlim, ylim, breaks, col, border)
+</xmp>
+</br>
+Opis parametara funkcije</br>
+<ul> 
+<li> <b> v </b> vektor numeričkih vrednosti koje se koriste za crtanje histograma</li>
+<li> <b> main </b> naslov </li>
+<li> <b> xlab </b> opis x-ose </li>
+<li> <b> xlim </b> konkretizacija raspona vrednosti na x-osi  </li>
+<li> <b> ylim </b> konkretizacija raspona vrednosti na y-osi  </li>
+<li> <b> breaks </b> širina svake trake </li>
+<li> <b> col </b> dodavanje boje</li>
+<li> <b> border </b> boja okvira svake trake </li>
+</ul>
+</br>
+<b>Primer:</b>
+<xmp class="primer_ta"> 
+#kreiranje vektora ulaznih podataka
+v <-  c(9,13,21,8,36,22,12,41,31,33,19)
+
+#kreiranje histograma
+hist(v, xlab = "Weight",col = "green",border = "red", xlim = c(0,40), ylim = c(0,5), breaks = 3)
+</xmp>
+<img src="courses/r/histogram.png" class= "img-lg img-fluid">
+</br></br>
+<div class = "napomena"> S obzirom da na graficima u R-u nije moguće prikazati slova poput č,ć,š,ž,đ, autorka je odlučila da tekst koji bude prikazan na graficima u okviru ove lekcije bude napisan na engleskom jeziku.</div>
+</br></br></br>
+<b>Pitanja za ponavljanje</b>
+</br></br>
+1.Pomoću koje funkcije se crtaju grafici u R-u?
+</br>
+2.Ukoliko vektor ulaznih podataka izgleda ovako c(4,12,9,6,1). Nacrtati sve moguće grafike za ovakvu vrstu ulaznih podataka.
+</br>
+3.Poznato je da je jedna prodavnica u januaru februaru i martu prodala 150,300,180 odevnih predmeta. Podatke predstaviti trakastim grafikom.
+</br>

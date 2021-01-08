@@ -1,0 +1,247 @@
+<h1>DPLYR paket za obradu podataka</h1>
+
+Obrada podataka je mnogo jednostavnija i lakša ukoliko se za to koristi dplyr paket.</br>
+Uloga dplyr paketa je sledeća:
+<ul>
+ <li> Ograničavanjem mogućnosti pomaže programeru da razmišlja o izazovima manipulacije podataka</li>
+ <li> Poseduje jednostavne funkcije koje odgovaraju najčešćim  zahtevima manipulacije podataka</li>
+ <li>Koristi učinkovite pozadinske baze pa se manje vremena troši na izvršavanje programa</li>
+</ul>
+</br>
+Paket pruža funkciju za sve osnovne radnje koje se primenjuju prilikom manipulacije podataka. Sve aktivnosti mogu se svrstati u tri grupe. Moguće je vršiti 
+manipulaciju nad redovima, kolonama i grupama redova. U sledećem odeljku date su funkcije iz dplyr paketa koje se koriste za obradu podataka u tabelama.</br>
+<ul>
+  <li>REDOVI</li>
+	<ul> 
+	  <li> <b> filter()</b> biraju se redovi na osnovu vrednosti iz kolone </li>
+	  <li> <b> slice()</b> biraju se redovi na osnovu njihove lokacije</li>
+	  <li> <b> arrange()</b> vrste menjaju mesta, odnosno sortiraju se na osnovu nekih parametara iz kolona</li>
+  	</ul>
+  <li>KOLONE</li>
+	<ul>
+  	  <li> <b> select()</b> biraju se kolone iz tabele </li>
+  	  <li> <b> rename()</b> kolone menjaju mesta</li>
+  	  <li> <b> mutate()</b> menja vrednosti u kolonama i kreira nove kolone </li>
+	  <li> <b> relocate()</b> sortira kolone</li>
+	</ul>
+  <li>GRUPE REDOVA</li>
+	<ul>
+	  <li> <b> summarise()</b> računa sumarne statistike, grupiše podatke i od nekoliko redova napravi samo jedan </li>
+	</ul>
+</ul>
+</br>
+Prvi argument svake od pomenutih funkcija je tabela(data frame) u kojem se nalaze podaci koje je potrebno obraditi. Operator<span class = "primer_text"> %>% </span>  se koristi kao indikator primene fukcija iz ovog paketa.</br>
+U sledećim primerima biće prikazana primena svake od navedenih funkcija na podacima iz baze starwars.</br>
+</br>
+<h2>filter() - filtriranje redova</h2>
+Funkcija omogućava filtriranje vrste po nekom unapred zadatom parametru. Dakle, bira se podskup skupa svih vrsta koje zadovoljavaju neko obeležje. Kao što je već navedeno prvi argument funkcije je tabela, a drugi je uslov koji treba da bude ispunjen. Funkcija radi po prinicipu da ako je uslov ispunjen ta se vrsta bira u podskup koji se prikazuje kao krajnje rešenje.</br>
+U sledećem primeru iz baze će biti izdvojene samo one osobe koje imaju svetlu put i smeđe oči. Ukoliko ima više uslova kao u ovom slučaju oni se mogu radvojiti zarezom, operatorom konjukcije <span class = "primer_text"> & </span>i operatorom disjunkcije <span class = "primer_text"> | </span>. </br>
+<xmp class="primer_ta">
+install.packages("dplyr")
+library(dplyr)
+starwars %>% filter(skin_color == "light", eye_color == "brown")
+</xmp>
+<xmp class="primer_ta">
+# A tibble: 7 x 14
+  name  height  mass hair_color skin_color eye_color birth_year sex   gender
+  <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+1 Leia~    150    49 brown      light      brown             19 fema~ femin~
+2 Bigg~    183    84 black      light      brown             24 male  mascu~
+3 Cordé    157    NA brown      light      brown             NA fema~ femin~
+4 Dormé    165    NA brown      light      brown             NA fema~ femin~
+5 Raym~    188    79 brown      light      brown             NA male  mascu~
+6 Poe ~     NA    NA brown      light      brown             NA male  mascu~
+7 Padm~    165    45 brown      light      brown             46 fema~ femin~
+</xmp>
+</br>
+<h2>arrange() - sortiranje redova </h2>
+ Ova funkcija je veoma slična funkciji filter() s tim što se u ovom slučaju ne izdvaja podskup, nego se redovi sortiraju u odnosu na neku kolonu. Argumenti koje funkcija uzima su tabela sa podacima i skup naziva kolona u odnosu na koje se vrši sortiranje.</br>
+ U sledećem primeru sortiraju se osobe po visini rastuće, a ukoliko je visina ista onda se sortiraju po masi.</br>
+<xmp class="primer_ta">
+starwars %>% arrange(height, mass)
+</xmp>
+<xmp class="primer_ta">
+# A tibble: 87 x 14
+   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+ 1 Yoda      66    17 white      green      brown            896 male  mascu~
+ 2 Ratt~     79    15 none       grey, blue unknown           NA male  mascu~
+ 3 Wick~     88    20 brown      brown      brown              8 male  mascu~
+ 4 Dud ~     94    45 none       blue, grey yellow            NA male  mascu~
+ 5 R2-D2     96    32 NA         white, bl~ red               33 none  mascu~
+ 6 R4-P~     96    NA none       silver, r~ red, blue         NA none  femin~
+ 7 R5-D4     97    32 NA         white, red red               NA none  mascu~
+ 8 Sebu~    112    40 none       grey, red  orange            NA male  mascu~
+ 9 Gasg~    122    NA none       white, bl~ black             NA male  mascu~
+10 Watto    137    NA black      blue, grey yellow            NA male  mascu~
+# ... with 77 more rows, and 5 more variables: homeworld <chr>, species <chr>,
+#   films <list>, vehicles <list>, starships <list>
+</xmp>
+Za sortiranje u opadajućem poretku koristi se funkcija <b>desc()</b>.</br>
+<xmp class="primer_ta">
+starwars %>% arrange(desc(height))
+</xmp>
+<br>
+<h2> slice() - izbor redova na osnovu njihove pozicije</h2>
+Sledeća naredba dovešće do izdvajanja svih redova između rednog broja 5 i 10.</br>
+<xmp class="primer_ta">
+starwars %>% slice(5:10)
+#> # A tibble: 6 x 14
+#>   name  height  mass hair_color skin_color eye_color birth_year sex   gender
+#>   <chr>  <int> <dbl> <chr>      <chr>      <chr>          <dbl> <chr> <chr> 
+#> 1 Leia…    150    49 brown      light      brown             19 fema… femin…
+#> 2 Owen…    178   120 brown, gr… light      blue              52 male  mascu…
+#> 3 Beru…    165    75 brown      light      blue              47 fema… femin…
+#> 4 R5-D4     97    32 <NA>       white, red red               NA none  mascu…
+#> # … with 2 more rows, and 5 more variables: homeworld <chr>, species <chr>,
+#> #   films <list>, vehicles <list>, starships <list>
+</xmp>
+</br>
+Pored osnovne funkcije slice() postoje i neke njene modifikacije a to su:</br>
+<ul> 
+ <li> <b> slice_head()</b> bira se samo prva vrsta</li>
+ <li> <b> slice_tail()</b> bira se samo poslednja vrsta</li>
+ <li> <b> slice_sample()</b> slučajan izbor vrsta. Kao argument funkcije navodi se broj vrsta koje je potrebno izdvojiti</li>
+</ul>
+</br>
+
+<h2>select() - odabir kolona </h2>
+Vrlo često u bazama se nalazi veliki broj kolona, a za određene zadatke od interesa su samo neke od njih. 
+Funkcija select() omogućava brži izbor podskupa kolona sa kojima programer želi da radi. </br>
+<xmp class="primer_ta">
+#izbor kolone navođenjem njenog naziva
+starwars %>% select(hair_color, skin_color, eye_color)
+#> # A tibble: 87 x 3
+#>   hair_color skin_color  eye_color
+#>   <chr>      <chr>       <chr>    
+#> 1 blond      fair        blue     
+#> 2 <NA>       gold        yellow   
+#> 3 <NA>       white, blue red      
+#> 4 none       white       yellow   
+#> # … with 83 more rows
+
+#biraju se sve kolone koje se nalaze između hair_color i eye_color
+starwars %>% select(hair_color:eye_color)
+
+#izbor svih kolona osim one čiji je naziv hair_color
+starwars %>% select(!(hair_color:))
+
+#izbor svih kolona čiji se naziv završava na "color"
+starwars %>% select(ends_with("color"))
+#> # A tibble: 87 x 3
+#>   hair_color skin_color  eye_color
+#>   <chr>      <chr>       <chr>    
+#> 1 blond      fair        blue     
+#> 2 <NA>       gold        yellow   
+#> 3 <NA>       white, blue red      
+#> 4 none       white       yellow   
+#> # … with 83 more rows
+</xmp>
+</br>
+
+<h2>mutate() - dodavanje novih kolona </h2>
+Često je veoma korisno dodati u bazu nove kolone koje su funkcija već postojećih kolona.</br>
+<xmp class="primer_ta">
+starwars %>%
+  mutate(height_m = height / 100) %>%
+  select(height_m, height, everything())
+
+#> # A tibble: 87 x 15
+#>   height_m height name   mass hair_color skin_color eye_color birth_year sex  
+#>      <dbl>  <int> <chr> <dbl> <chr>      <chr>      <chr>          <dbl> <chr>
+#> 1     1.72    172 Luke…    77 blond      fair       blue            19   male 
+#> 2     1.67    167 C-3PO    75 <NA>       gold       yellow         112   none 
+#> 3     0.96     96 R2-D2    32 <NA>       white, bl… red             33   none 
+#> 4     2.02    202 Dart…   136 none       white      yellow          41.9 male 
+#> # … with 83 more rows, and 6 more variables: gender <chr>, homeworld <chr>,
+#> #   species <chr>, films <list>, vehicles <list>, starships <list>
+</xmp>
+U prethodnom primeru u bazu je dodata još jedna kolona koja predstavlja visinu osobe izraženu u metrima i naziv te kolone je height_m. Kao što se može primetiti, od nove baze funkcijom select() izabrane su kolone height_m i height na početak 
+a ostale dolaze nakon njih. Ovo je urađeno da bi se lakše uporedile vrednosti u ove dve kolone, ali i da bi se pokazala mogućnost primene operatora  <span class = "primer_text"> %>% </span>više puta zaredom na različite funkcije.</br>
+<h2>relocate() - menja redosled kolona </h2>
+
+Koristi sličnu sintaksu kao funkcija select() i pomera blokove kolona odjednom.</br>
+U sledećem primeru potrebno je sve kolone koje se nalaze između onih sa nazivima sex i homeworld staviti pre ostalih kolona.</br>
+<xmp class="primer_ta">
+starwars %>% relocate(sex:homeworld, .before = height)
+
+#> # A tibble: 87 x 14
+#>   name  sex   gender homeworld height  mass hair_color skin_color eye_color
+#>   <chr> <chr> <chr>  <chr>      <int> <dbl> <chr>      <chr>      <chr>    
+#> 1 Luke… male  mascu… Tatooine     172    77 blond      fair       blue     
+#> 2 C-3PO none  mascu… Tatooine     167    75 <NA>       gold       yellow   
+#> 3 R2-D2 none  mascu… Naboo         96    32 <NA>       white, bl… red      
+#> 4 Dart… male  mascu… Tatooine     202   136 none       white      yellow   
+#> # … with 83 more rows, and 5 more variables: birth_year <dbl>, species <chr>,
+#> #   films <list>, vehicles <list>, starships <list>
+</xmp>
+</br>
+<h2> summarise() - sumarne statistike </h2>
+Ova, jedna od korisnijih funkcija, služi za računanje karakterističnih statistika nad podacima(min,max,medijana,kvantili).</br>
+Prosečna visina za sve osobe iz baze dobija se ovako:</br>
+<xmp class="primer_ta">
+starwars %>% summarise(height = mean(height, na.rm = TRUE))
+
+#> # A tibble: 1 x 1
+#>   height
+#>    <dbl>
+#> 1   174.
+</xmp>
+</br>
+<h2> group_by() - grupisanje opservacija</h2>
+Vrlo često postoji potreba da se podaci grupišu u odnosu na neko obeležje. To je posebno važno kada se pripremaju podaci za primenu funkcije
+summarise().</br>
+U sledećem primeru računaju se prosečna visina i masa, ali se to ne čini na nivou cele tabele, nego se računa u odnosu na pol osobe. </br>
+<xmp class="primer_ta">
+a1 <- group_by(starwars, species, sex)
+a2 <- select(a1, height, mass)
+a3 <- summarise(a2,
+  height = mean(height, na.rm = TRUE),
+  mass = mean(mass, na.rm = TRUE)
+)
+
+#> Adding missing grouping variables: `species`, `sex`
+#> `summarise()` regrouping output by 'species' (override with `.groups` argument)
+#> # A tibble: 41 x 4
+#> # Groups:   species [38]
+#>   species  sex   height  mass
+#>   <chr>    <chr>  <dbl> <dbl>
+#> 1 Aleena   male      79    15
+#> 2 Besalisk male     198   102
+#> 3 Cerean   male     198    82
+#> 4 Chagrian male     196   NaN
+#> # … with 37 more rows
+</xmp>
+</br>
+Prethodna sekvenca koda nije naročito elegantna. Da bi se zaobišao ovaj problem, dplyr paket pruža mogućnost korištenja operatora 
+ <span class = "primer_text"> %>%</span>. Ovaj operator omogućava da se funckija primenjuje s desna na levo na date podatke. Prethodna sekvenca koda se programerski elegantnije može napisati na sledeći način: </br>
+<xmp class="primer_ta">
+starwars %>%
+  group_by(species, sex) %>%
+  select(height, mass) %>%
+  summarise(
+    height = mean(height, na.rm = TRUE),
+    mass = mean(mass, na.rm = TRUE)
+  )
+</xmp>
+</br>
+Veoma često je potrebno pregrupisati podatke i skoro nikada se ne primenjuje niti jedna od gore pomenutih funkcija na celu tabelu. Dakle, prilikom analize podataka, funkcija group_by() i pomenuti operator će biti neizostavan deo napisanih kodova. 
+</br></br>
+<b>Pitanja za ponavljanje:</b>
+</br>
+1.Koja funkcija se koristi za promenu redosleda kolona?
+</br>
+2.Izračunati prosečnu cenu kuće u odnosu na stopu kriminala u tom kraju! (Koristiti bazu Boston iz paketa MASS)
+</br>
+3.Za šta se koristi funkcija summarise()?
+</br>
+4.Zbog čega je bolje koristiti paket dplyr umesto standardnog pristupa elementima tabele?
+</br>
+5.Objasniti upotrebu funkcije filter() i navesti primer kada se ona koristi.
+</br>
+6.Iz baze Boston(paket MASS) odabrati kolonu sa nazivom "age", skalirati podatke iz te kolone(smestiti ih u novu kolonu) i dodati tu novu kolonu u bazu.
+</br>
+
+
+
+

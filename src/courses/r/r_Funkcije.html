@@ -1,0 +1,124 @@
+<h1>Funkcije</h1>
+
+U R-u funkcije se kreiraju pomoću ključne reči <b>function</b>.</br>
+Osnovna sintaksa neke funkcije u R-u izgleda ovako:</br>
+<xmp class="primer_ta">
+naziv_funkcije <- function(arg1,arg2,...){
+   telo funkcije
+}
+</xmp>
+Komponente funkcije:</br>
+<ul>
+<li><b> Naziv funkcije </b> aktuelno ime funkcije koje se čuva u R-okruženju kao objekat sa tim imenom</li>
+<li><b> Argument </b>rezervisano mesto kojem se dodeljuje vrednost prilikom poziva funkcije. Argumenti nisu obavezni, može da se napiše funkcija koja nema argumente ili funckija čiji argumenti imaju podrazumevanu vrednost.</li> 
+<li><b> Telo funkcije </b>sadrži naredbe koje određuju izračunavanja koja funkcija treba da izvrši.</li>
+<li><b> Povratna vrednost </b> poslednja naredba koja se izvršava u telu funkcije</li>
+</ul>
+</br></br>
+U R-u postoje mnoge ugrađene funkcije koje se mogu direktno pozivati bez prethodnog definisanja. Neke funkcije se nalaze u standardnom R-paketu dok za korištenje nekih drugih funkcija potrebno je prvo uključiti paket u kojem se one nalaze. Funkcije takođe mogu biti kreirane od strane programera.</br>
+<h2> Ugrađene funkcije</h2>
+ Neki jednostavni primeri ugrađenih funkcija su <b> seq(), mean(), max(), sum(), paste(),print()..</b></br>
+Primer:</br>
+<xmp class="primer_ta">
+#Kreira sekvenca brojeva od 32 do 44
+print(seq(32,44))
+
+#pronalazi se srednja vrednost brojeva od 25 do 82
+print(mean(25:82))
+
+#Suma brojeva od 41 do 68
+print(sum(41:68))
+</xmp>
+Rezultat poziva funkcija nakon izvršavanja programa:</br>
+<xmp class="primer_ta">
+[1] 32 33 34 35 36 37 38 39 40 41 42 43 44
+[1] 53.5
+[1] 1526
+</xmp>
+</br></br>
+<h2>Korisnički definisane funkcije</h2>
+Kada programer jednom kreira funkciju koja mu je potrebna koristi je na isti način kao ugrađene funkcije. Sledeći primer prikazuje kako se funkcija kreira i koristi.</br>
+<xmp class="primer_ta">
+#kreira se funkcija koja ispisuje kvadrate svih brojeva u sekvenci
+kvadrati_brojeva <- function(a){
+   for(i in 1:a){
+      b <- i^2
+      print(b)
+   }
+}
+
+kvadrati_brojeva(6)
+</xmp>
+Nakon izvršavanja programa rezultat poziva funkcije je sledeći:</br>
+<xmp class="primer_ta">
+[1] 1
+[1] 4
+[1] 9
+[1] 16
+[1] 25
+[1] 36
+</xmp>
+</br>
+Funkcija koja ne sadrži argumente:</br>
+<xmp class="primer_ta">
+kvadrati_brojeva <- function(){
+   for(i in 1:5){
+      print(i^2)
+   }
+}
+
+#funkcija se poziva
+kvadrati_brojeva
+</xmp>
+<xmp class="primer_ta">
+[1] 1
+[1] 4
+[1] 9
+[1] 16
+[1] 25
+</xmp>
+</br>
+Prilikom pozivanja funkcije argumenti mogu biti navedeni u istom redosledu kao u definiciji funkcije ili u proizvoljnom redosledu,s tim da se u tom slučaju moraju navesti imena argumenata.</br>
+<xmp class="primer_ta">
+f <- function(a,b,c){
+  rezultat <- a * b + c
+  print(rezultat)
+}
+
+#argumenti se navode u istom redosledu kao u definiji funckije
+f(5,3,11)
+
+#pozivanje funkcije navođenjem imena argumenata
+f(a = 11, b = 5, c = 3)
+</xmp>
+<xmp class="primer_ta">
+[1] 26
+[1] 58
+</xmp>
+</br>
+Argumenti funkcije se lenjo evaluiraju, tj.računaju se tek u telu funkcije. </br>
+<xmp class="primer_ta">
+f <- function(a,b) {
+   print(a^2)
+   print(a)
+   print(b)
+}
+
+#funkcija se poziva bez navođenja jednog argumenata
+f(6)
+</xmp>
+Greška se signalizira tek u telu funckije kada je potrebno prikazati drugi parametar funkcije.</br>
+<xmp class="primer_ta">
+[1] 36
+[1] 6
+Error in print(b) : argument "b" is missing, with no default
+</xmp>
+</br>
+<b>Pitanja za ponavljanje</b>
+</br></br>
+1.Implementirati funkciju koja računa maksimum niza brojeva 65,4,7,78,81,1. Nije dozvoljeno koristiti ugrađenu funkciju!
+</br>
+2.Izračunati medijanu niza brojeva iz prethodnog zadatka.
+</br>
+3.Napisati funkciju koja proverava vrednosti u matrici i svaki element koji nema susednu nulu, menja nulom.
+</br>

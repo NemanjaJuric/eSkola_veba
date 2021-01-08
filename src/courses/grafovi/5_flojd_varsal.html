@@ -6,8 +6,8 @@ Važan problem predstavlja nalaženje najkraćih puteva između svih parova čvo
 javljaju upiti kod kojih unosimo dva grada i potrebno je da što brže
 dobijemo odgovor na pitanje koje je najkraće rastojanje između ova dva
 grada.
-Najbrže rešenje bi bilo neko gde već imamo unapred sračunata sva najkraća rastojanja između svi parova čvorova i da odgovor na upit dobijemo jednostavnim pristupom traženom podatku, bez pokretanja nekog algoritma
-koji računa traženi podatak svaki put iznova.<br /> Najpoznatiji algoritam koji rešava ovaj problem jeste Flojd-Varšalov algoritam (engl. Floyd-Warshall).
+Najbrže rešenje bi bilo neko gde već imamo unapred sračunata sva najkraća rastojanja između svih parova čvorova i da odgovor na upit dobijemo jednostavnim pristupom traženom podatku, bez pokretanja nekog algoritma
+koji računa traženi podatak svaki put iznova.<br /> Najpoznatiji algoritam koji rešava ovaj problem jeste Flojd-Varšalov algoritam (eng. Floyd-Warshall).
 <br />
 <h2><b>Flojd-Varšalov algoritam</b></h2>
 <br />
@@ -26,12 +26,12 @@ puteve u kojima kao unutrašnji čvorovi mogu biti uključeni čvorovi
    
    <b>Algoritam:</b>
    <ul>
-<li> Označimo sa \( d_k[u][v] \) dužinu najkraćeg puta između čvorova \( u \) i \( v \) tako da su svi čvorovi osim krajnjih iz skupa {0,1,..k}, dok su direktne veze date matricom povezanosti koju ćemo označiti sa \( g \).
+<li> Označimo sa \( d_k[u][v] \) dužinu najkraćeg puta između čvorova \( u \) i \( v \) tako da su svi čvorovi osim krajnjih iz skupa {0,1,..k}, dok su direktne veze date matricom povezanosti koju ćemo označiti sa \( g \)
  <li> Matrice \( d_k \) određujemo redom za \( k=0,1..n-1 \) </li>
  <li> Prilikom određivanja matrice \( d_k \) potrebno je proveriti da li je dodavanjem čvora \( k \) na putu između čvorova \( u \) i \( v \) dobijen bolji put (za sve parove \( u \) i \( v \)) </li>
-   tj. imamo da je d_k[u][v] = min(d_k-1[u][v], d_k-1[u][k] + d_k-1[k][v]) </li>
- <li> Matrice d_k možemo razmatrati kao iteracije jedne iste matrice i za
-dodavanje novog čvora samo modifikovati prethodnu matricu.</li>
+   tj. imamo da je \( d_k[u][v] = min(d_{k-1}[u][v], d_{k-1}[u][k] + d_{k-1}[k][v]) \) </li>
+ <li> Matrice \( d_k \) možemo razmatrati kao iteracije jedne iste matrice i za
+dodavanje novog čvora samo modifikovati prethodnu matricu</li>
  </ul>
  <br />
  
@@ -59,13 +59,13 @@ void floydWarshall()
  <br />
 <b>Rekonstrukcija puta:</b>
 <ul>
- <li> Da bismo mogli da rekonsktruišemo put između čvorova \( u \) i \( v \), neophodno je uvesti pomoćnu matricu \( poslednji_pre \) (kao niz kod Dijkstrinog algoritma, samo imamo od svakog čvora, tj. imamo jedan indeks više u kodu),
-   gde se na poziciji \( poslednji_pre[u][v] \) nalazi poslednji čvor pre \( v \) na putu od \( u \) do \( v \). Rekonstrukcija iz ove matrice ide rekurzivno kao kod Dijsktrinog algoritma, tj. ispisemo put od \( u \) do \( poslednji_pre[u][v] \)
-   i onda ispišemo \( v \) kao poslednji  </li>
-  <li>Matricu \( poslednji_pre[u][v] \) na početku kod direktnih grana popunjavamo kao \( poslednji_pre[u][v]=u \) tamo gde grana postoji od čvora \( u \) do čvora \( v \), dok na sva ostala mesta stavljamo -1. Kod neusmerenih grafova, ova matrica će biti simetrična.</li>
-  <li>Prilikom dodavanja čvora \( k \) važiće: ako je put između \( u \) i \( v \) ostao nepromenjen dodavanjem \( k \) ostaće nepromenjen i element \( poslednji_pre[u][v] \), ali ako se promenio put tj. novi put je put od \( u \) do \( k \) pa od \( k \) do \( v \),
-   važiće da je \( poslednji_pre[u][v] = poslednji_pre[k][v] \)  </li>
-   <li> Pogledati rekonstrukciju puta kod Dijkstinog algoritma (prethodna lekcija) </li>
+ <li> Da bismo mogli da rekonsktruišemo put između čvorova \( u \) i \( v \), neophodno je uvesti pomoćnu matricu \( poslednji\_pre \) (kao niz kod Dijkstrinog algoritma, samo imamo od svakog čvora, tj. imamo jedan indeks više u kodu),
+   gde se na poziciji \( poslednji\_pre[u][v] \) nalazi poslednji čvor pre \( v \) na putu od \( u \) do \( v \). Rekonstrukcija iz ove matrice ide rekurzivno kao kod Dijsktrinog algoritma, tj. ispišemo put od \( u \) do \( poslednji\_pre[u][v] \)
+   i onda ispišemo \( v \) kao poslednji.  </li>
+  <li>Matricu \( poslednji\_pre[u][v] \) na početku kod direktnih grana popunjavamo kao \( poslednji\_pre[u][v]=u \) tamo gde grana postoji od čvora \( u \) do čvora \( v \), dok na sva ostala mesta stavljamo -1. Kod neusmerenih grafova, ova matrica će biti simetrična.</li>
+  <li>Prilikom dodavanja čvora \( k \) važiće: ako je put između \( u \) i \( v \) ostao nepromenjen dodavanjem \( k \) ostaće nepromenjen i element \( poslednji\_pre[u][v] \), ali ako se promenio put tj. novi put je put od \( u \) do \( k \) pa od \( k \) do \( v \),
+   važiće da je \( poslednji\_pre[u][v] = poslednji\_pre[k][v] \)  </li>
+   <li> Pogledati rekonstrukciju puta kod Dijkstinog algoritma (prethodna lekcija). </li>
    </ul>
 
 

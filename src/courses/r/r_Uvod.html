@@ -1,0 +1,47 @@
+<h1>R - Uvod</h1>
+</br>
+
+R je programski jezik i softverko okruženje za statističku analizu, grafičko predstavljanje podataka i pravljenje izveštaja.
+Kreirali su ga Ross Ihaka i Robert Gentlemen na univerzitetu Auckland na Novom Zelandu. Prva verzija predstavljena je 1993. godine na pomenutom univerzitetu. 
+Nakon prvobitne verzije koju su objavili Ihaka i Gentlemen, mnogi pojedinci su doprineli razvoju programskg jezika R slanjem izveštaja o greškama u kodovima i njihovim mogućim rešenjima.
+Od sredine 1997. godine postoji grupa pod nazivom R Core Team koja može da modifikuje arhive izvornog koda.
+</br>
+R je interpretirani programski jezik, koji omogućava grananje i petlje, kao i modularno programiranje pomoću funkcija.
+Dostupan je kao slobodan softver pod uslovima Free Software Foundation GNU.
+Neke od najvažnijih pozitivnih karakteristika programskog jezika R:</br>
+<ul>
+<li>Jednostavan i efikasan</li>
+<li>Efikasan mehanizam za rukovanje i skladištenje podataka</li>
+<li>Sadrži skup operatora za proračune nad nizovima,listama, matricama i vektorima</li>
+<li>Pruža veliku i integrisanu kolekciju alata za analizu podataka</li>
+<li>Grafičke mogućnosti za analizu i prikaz podataka</li>
+<li>Postoji vrlo dobra tehnička dokumentacija i veliki broj udžbenika koje pripremaju sami korisnici. Takođe, postoji i veliki broj knjiga koje objašnjavaju kako sprovesti pojedine vrste analiza koristeći sistem R. </li>
+<li>Svaki korak u analizi je sačuvan(.Rhistory datoteka) i može se naknadno koristiti u novim analizama ili kao dokumentacija postojećoj.  </li>
+<li>Ima izuzetnu mogućnost razmene podataka sa drugim programima kao što su datoteke formata MS Excel, tekst, SAS, datoteke sa definisanim razdvajanjima (npr. CSV). Veoma važna je i mogućnost pristupa bazama podataka kao što su Oracle i MS Access putem ODBC pristupa bazama SQL upitima (paket "RODBC").  </li>
+</ul>
+</br>
+Zbog svih pogodnih performansi, programski jezik R je najčešće korišten programski jezik za statističku obradu podataka.
+R je često prvi izbor u oblastima istraživanja i obrade podataka. Ovaj kurs pružice osnovna znanja za korištenje ovog programskog jezika i dobru podlogu za usavršavanje mašinskog učenja, te složenih analiza statističkih podataka.</br>
+</br>
+<h2>Instalacija sistema R</h2>
+Kako je već spomenuto, R je sistem koji radi na različitim platformama, kao što su UNIX, Windows, Mac OS. Prilikom instalacije programskog okruženja treba pronaći odgovarajući kod te pratiti upustva o instalaciji. Sa web-stranice http://cran.r-project.org/bin/ potrebno je odabrati verziju kompatibilnu operativnom sistemu na računaru.
+Instalacija na operativni sistem Windows je klasična i ovom prilikom neće biti detaljno opisana.</br>
+</br> 
+<b>Paketi koji dolaze sa instalacijom sistema R: </b>
+Mogućnosti jezika R proširene su putem paketa koje razvijaju korisnici i time omogućavaju upotrebu specijalnih statističkih tehnika, grafičkih komponeti, distribuciju podataka, upotrebu alata za izveštavanje itd. 
+Ovi paketi su razvijeni pre svega u jeziku R, ali ponekad i u jezicima Java, C ili Fortran. Ukupno više od 6400 dodatnih paketa (stanje tokom marta 2015.) dostupno je na sveobuhvatnoj arhivi sistema R (CRAN: The comprehensive R Archive Network), Bioconductor (repozitorij paketa za analizu genomskih podataka) i drugim spremištima (engl. repository).</br>
+Određene osnovne funkcionalnosti sistema R dobijaju se sa sistemom samom njegovom instalacijom. To su tzv. osnovni paketi koji podržavaju osnovnu statistiku i osnovnu grafiku. Neki od paketa uključeni su u instalaciju sistema R za verziju R.3.1.0 i to su: base, compiler, datasets, graphics, grDevices, grid, methods, parallel, splines, stats, stats4, tcltk i utils.
+Ovaj skup paketa ne menja se između dve verzije sistema R i svi nose oznaku bazičnih paketa (priority="base"). Pakete iz ove grupe nije moguće pronaći nezavisne na spremištu CRAN. Drugi skup paketa sistema je deo i same instalacije, ali se njihove verzije mogu nadograđivati između pojedinih verzija i kao takvi se mogu i pojedinačno pronaći na spremištu CRAN.
+Neki od njih su KernSmooth, MASS, Matrix, boot, class, cluster, codetools, foreign, lattice, mgcv, nlme, nnet, rpart, spatial, survival. </br>
+Paket base (library (base)) čini okosnicu sistema R sadržavajući osnovne funkcije: aritmetika, ulaz i izlaz podataka, osnovne programske potpore, itd.</br>
+</br>
+<b>Instalacija paketa sa spremišta:</b>
+Da bi se istalirali svi paketi koji su dostupni u željenom spektru aplikacija najpre je potrebno instalirati paket ctv funkcijom <b>install.packages()</b>, a kao argument uneti pod navodnicima ime paketa. </br>
+<xmp class="primer_ta">
+install.packages("ctv") 
+</xmp>
+Sama instalacija paketa ne čini funkcije paketa dostupnima. Svaki put prilikom početka rada u sistemu, potrebno je učitati u radni prostor funkcije željenog paketa funkcijom library() ili require() pri čemu funkcija library() učitava funkcionalnost instaliranog paketa, dok funkcija require() proverava da li je paket instaliran te po potrebi napravi i instalaciju paketa i učita njegove funkcionalnosti u radnu konzolu. </br>
+<xmp class="primer_ta">
+library("ctv") 
+</xmp>
+Tek tada su funkcionalnosti paketa ctv u sistemu.</br>

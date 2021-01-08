@@ -3893,5 +3893,171 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "R",
+    "id": "r",
+    "logo": "<i class='far fa-registered'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["programski_jezici"],
+    "detailsText": "",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "r_Uvod",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Osnovna sintaksa",
+        "url": "r_Osnovna_sintaksa",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": "r_Tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Promenjive",
+        "url": "r_Promenjive",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori",
+        "url": "r_Operatori",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Petlje",
+        "url": "r_Petlje",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "r_Funkcije",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Niske",
+        "url": "r_Niske",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Vektori",
+        "url": "r_Vektori",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Liste",
+        "url": "r_Liste",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Matrice",
+        "url": "r_Matrice",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Nizovi",
+        "url": "r_Nizovi",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Faktori",
+        "url": "r_Faktori",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Tabele",
+        "url": "r_Tabele",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "DPLYR paket za obradu podataka",
+        "url": "r_DPLYR_paket_za_obradu_podataka",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Grafici",
+        "url": "r_Grafici",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Ggplot2",
+        "url": "r_Ggplot2",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Statisticka analiza podataka u programskom jeziku R",
+        "url": "r_Statisticka_analiza_podataka_u_programskom_jeziku_R",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Verovatnoca u R",
+        "url": "r_Verovatnoca_u_R",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Linearna regresija",
+        "url": "r_Linearna_regresija",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Masinsko ucenje i R",
+        "url": "r_Masinsko_ucenje_i_R",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      },
+      {
+        "name": "Literatura",
+        "url": "r_Literatura",
+        "type": "lesson",
+        "parentCourse": "r",
+        "sublessons": null
+      }
+    ]
   }
 ]

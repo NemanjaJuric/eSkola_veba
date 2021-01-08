@@ -1,0 +1,117 @@
+<h1>Niske</h1>
+
+U Programskom jeziku R bilo koja vrednost zapisana između jednostrukih ili dvostrukih navodnika tretira se kao string(niska).
+Interno R pohranjuje svaku nisku između dvostrukih navodnika, čak i kada se ta niska kreira pomoću jednostrukih navodnika.</br>
+Za razliku od nekih drugih programskih jezika u R-u ne postoji razlika između niske i karaktera. Pozivanjem funkcije class() za svaku kreiranu nisku u R-u, njena povratna vrednost će biti "character". </br>
+</br>
+<xmp class="primer_ta"> 
+#kreira se string koji sadrži belinu
+x <- "Zdravo svete"
+class(x)
+</xmp>
+U jeziku C(i mnogim drugim) promenjiva x bi bila tipa "string",međutim u R-u je tipa "character".</br>
+<xmp class="primer_ta"> 
+[1] "character"
+</xmp>
+</br>
+
+Pravila koja se primenjuju prilikom konstrukcije niski:</br>
+<ul>
+<li>I na početku i na kraju niske treba da bude jedan tip navodnika. Ne mogu se mešati jednostruki i dvostruki navodnici.</li>
+<li>Dvostruki navodnici mogu se umetnuti u niz koji započinje i završava jednostrukim navodnikom.</li>
+<li>Jednostruki navodnik može se umetnuti u niz koji započinje i završava dvostrukim navodnicima.</li>
+<li>Dvostruki navodnici ne mogu se umetnuti u niz koji započinje i završava dvostrukim navodnicima.</li>
+<li>Jednostruki navodnik ne može se umetnuti u niz koji započinje i završava jednostrukim navodnikom.</li>
+</ul>
+</br>
+<h2>Rad sa stringovima</h2>
+Funkcija <br>paste()</b> za spajanje stringova. Broj stringova koji će biti spojeni u jedan nije ograničen.</br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+paste(..., sep = " ", collapse = NULL)
+</xmp>
+Opis parametara funkcije:</br>
+<ul>
+<li> <br>...</b> predstavlja bilo koji broj argumenata koji mogu biti kombinovani</li>
+<li> <br>sep</b> separator između argumenata </li>
+<li> <br>collapse</b> eliminiše razmak između dva stringa, ali ne eliminiše razmak između dve reči istog stringa</li>
+</ul>
+</br>
+<xmp class="primer_ta"> 
+#kreiraju se pojedinačni stringovi koji će biti spojeni
+a <- "Zdravo"
+b <- "Kako si?"
+c <- "Dobro sam"
+
+print(paste(a,b,c, sep = "-", collapse = ""))
+</xmp>
+Rezultat koji se dobije:</br>
+<xmp class="primer_ta"> 
+
+[1] "Zdravo-Kako si?-Dobro sam"
+</xmp>
+</br></br>
+Funkcija <br>nchar()</b> vraća broj znakova u stringu(uključujući i beline).</br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">  
+nchar(x)
+</xmp>
+ gde <br> x </b> predstavlja vektor ulaznih podataka </br>
+Primer:</br>
+<xmp class="primer_ta"> 
+x <- "Zdravo svete"
+nchar(x)
+</xmp>
+<xmp class="primer_ta">
+[1] 12
+</xmp>
+</br></br>
+Promena veličine slova pomoću funckija <br>toupper()</b> (mala slova pretvara u velika) i <br>tolower()</b> (velika slova pretvara u mala).</br>
+ Sintaksa navedenih funkcija: </br>
+<xmp class="primer_ta"> 
+toupper(x)
+tolower(x)
+</xmp>
+gde je <br> x </b> vektor ulaznih podataka.</br>
+<xmp class="primer_ta"> 
+rezultat <- toupper("Promeni mala slova u VELIKA")
+print(rezultat)
+rezultat <- tolower("Promeni VELIKA slova u mala")
+print(rezultat)
+</xmp>
+<xmp class="primer_ta"> 
+[1] "PROMENI MALA SLOVA U VELIKA"
+[1] "promeni velika slova u mala"
+</xmp>
+</br></br>
+Izdvajanje podniske vrši se pomoću funkcije <br>substring()</b>.</br>
+Sintaksa funkcije:</br>
+<xmp class="primer_ta">
+substring(x, first, last)
+</xmp>
+Opis parametara funkcije:</br>
+<ul>
+<li> <br> x </b> ulazni vektor karaktera, odnosno niska čija se podniska traži</li>
+<li> <br> first </b> pozicija prvog karaktera koji treba da bude izdvojen </li>
+<li> <br> last </b> pozicija poslednjeg karaktera koji treba da bude izvojen</li>
+</ul>
+</br>
+<xmp class="primer_ta">
+#uzimaju se karakteri od 3. do 5. pozicije u sledećem stringu
+rezultat <- substring("AnavoliMilovana", 4, 7)
+
+print(rezultat)
+</xmp>
+Nakon izvršavanja programa dobija se sledeći string:</br>
+<xmp class="primer_ta">
+[1] "voli"
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Šta radi funkcija paste()?
+</br>
+2.Da li u R-u postoji razlika između tipa char i tipa string?
+</br>
+3.Nabrojati neke funkcije u R-u za rad sa stringovima.
+</br>

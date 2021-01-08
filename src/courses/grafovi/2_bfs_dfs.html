@@ -2,8 +2,8 @@
 <div class="half-panel-scrollable">
 <h1><b>Obilasci grafa</b></h1>
 
-Obilazak grafa podrazumeva obilazak svih čvorova tako da se krećemo granama grafa što efikasnije moguće, sa izbegavnjem ulaska u ciklus.
-Ovo nije lak zadatak jer graf nije jednostavna struktura podataka, kao što je npr. niz, u kojem postoji jasan redosled elemenata.
+Obilazak grafa podrazumeva obilazak svih njegovih čvorova tako da se krećemo granama grafa, sa izbegavanjem ulaska u ciklus.
+Ovo nije lak zadatak jer graf nije jednostavna struktura podataka, kao što je npr. niz, u kojem postoji jasan redosled elemenata i možemo linearno da se krećemo redom kroz elemente.
 <br /><br />
 Obilazimo jedan po jedan čvor po određenom pravilu. U zavisnosti od pravila razlikujemo obilazak tj. pretragu grafa po dubini (eng. depth first search ili skraćeno DFS) 
 kao i pretragu grafa po širini (eng. breadth first search ili skraćeno BFS).
@@ -15,17 +15,17 @@ Posmatrajmo neusmereni graf prikazan na slici. Pretraga kreće od jednog čvora.
 <img style="width:320px;max-width=75%" src="courses/grafovi/2_bfs-dfs/primer1.jpg" class="img-fluid velicina"> 
 <br />
 
-U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0 čime smo zatvorili jedan ciklus. Potrebno je da
+U grafu su mogući ciklusi, npr. krećemo se od čvora 0 do čvora 3, od 3 do 2, pa od čvora 2 opet do čvora 0, čime smo zatvorili jedan ciklus. Potrebno je da
 prepoznamo situaciju kada smo već posetili neki čvor,
 zato uvodimo niz \( posecen \) u kom će na odgovarajućem indeksu biti vrednost 1 ukoliko je čvor posećen i 0 u suprotnom.
 <br />
 <br />
 Algoritam radi na sledeći način:
-<ol>
+<ul>
    <li> krećemo od proizvoljnog čvora \( u \) i označimo da je posećen tj. \( posecen[u] = 1 \) </li>
     <li> biramo suseda od \( u \) koji još nije posećen, označimo da je i on posećen i nastavljamo dalje od njega, neka je to \( v \) </li>
     <li> nakon završetka obilaska od \( v \), ukoliko \( u \) ima suseda koji nije označen kao posećen, ponavlja se postupak za tog suseda </li>
-</ol>
+</ul>
 <br />
 
 <b>Implementacija 1: iterativno</b>
@@ -68,7 +68,7 @@ void dfs_iterativni()
 
 <b>Implementacija 2: rekurzivno</b>
 <br />
-DFS kao algoritam, nameće i prirodno rekurzivno rešenje (jer sama rekurzija u pozadini koristi stek za čuvanje poziva), tako da bi algoritam mogao biti implentiran na sledeći način: <br />krećemo od nekog čvora, na početku označimo da je on posećen. Prolazimo po svim susedima tog čvora i pozovemo rekurzivno dfs pretragu od svakog suseda koji nije već posećen.
+DFS kao algoritam, nameće i prirodno rekurzivno rešenje (jer sama rekurzija u pozadini koristi stek za čuvanje poziva), tako da bi algoritam mogao biti implentiran na sledeći način: <br />krećemo od nekog čvora, na početku označimo da je on posećen, prolazimo po svim susedima tog čvora i pozovemo rekurzivno dfs pretragu od svakog suseda koji nije već posećen.<br />
 Suštinski, ova i prethodna implementacija rade istu stvar.
 <br />
 <xmp class="primer_ta">
@@ -105,7 +105,7 @@ indeksu biti vrednost 1 ukoliko je čvor posećen a 0 u suprotnom.
 <b>Implementacija: </b><br />
 Čvorove koje smo posetili čuvamo u strukturi koja se zove red. Red je struktura podataka koja omogućava
 efikasan pristup i uklanjanje elementa koji je najranije dodat u
-strukturu.
+strukturu, što je upravo ono što nam je potrebno.
 Iz reda uzimamo jedan po jedan čvor kako bismo od njih dalje nastavili obilazak po gorenavedenom pravilu.
 
 

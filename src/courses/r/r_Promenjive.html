@@ -1,0 +1,101 @@
+<h1>Promenjive</h1>
+
+Promenjive predstavljaju podatke kojima se upravlja u programima. Promenjive mogu 
+menjati vrednost u toku izvršavanja programa, otuda potiče reč promenjiva(eng.variable).
+U najprostijem smislu to su imenovani delovi memorije kojima se pristupa u programu. Promenjiva u R-u može da predstavlja atomski vektor,
+grupu atomskih vektora, ali i kombinaciju drugih R-objekata. Tip promenjive ne mora da se navodi, a važeće ime promenjive se sastoji od slova, brojeva, tačaka ili podvučenih linija.
+Naziv promenjive počinje slovom ili tačkom iza koje ne sledi broj. </br>
+</br>
+U sledećoj tabeli predstavljeni zu nazivi promenjivih koji su ispravni i oni koji to nisu.</br>
+</br></br>
+<table class = "tabela">
+<thead>
+ <tr>
+  <th>naziv</th>
+  <th>ispravnost</th>
+  <th>razlog</th>
+ </tr>
+</thead>
+<tbody>
+<tr>
+<td>prom_naziv2</td>
+<td>ispravan</td>
+<td>Naziv promenjive sadrži samo slova,broj i podvučenu liniju.</td>
+</tr>
+<tr>
+<td>prom_naziv%</td>
+<td>neispravan</td>
+<td>Sadrži znak % koji nije dozvojen u nazivu promenjive.</td>
+</tr>
+<tr>
+<td>.prom_naziv</td>
+<td>ispravan</td>
+<td>Počinje tačkom iza koje ne sledi broj.Nema drugih nedozvoljenih znakova.</td>
+</tr>
+<tr>
+<td>.2prom_ime</td>
+<td>neispravan</td>
+<td>Počinje tačkom iza koje sledi broj.</td>
+</tr>
+<tr>
+<td>_prom_naziv</td>
+<td>neispravan</td>
+<td>Počinje sa _ , a to nije dozvoljeno.</td>
+</tr>
+</tbody>
+</table>
+</br></br>
+<h2>Dodeljivanje vrednosti promenjivoj</h2>
+</br>
+Promenjivoj se može dodeliti vrednost pomoću sledećih operatora: <span class = "primer_text"> <- </span> ili <span class = "primer_text"> = </span> </br>
+Za štampanje vrednosti promenjivih koriste se funkcije <b>print()</b> i <b>cat()</b>. Funkcija cat() kombinuje 
+više stavki u kontinuirani izlaz za štampu. </br>
+<xmp class="primer_ta"> 
+#dodeljivanje vrednosti pomoću operatora =
+x.1 = c(0,1,2,3)
+
+#operator <- za dodelu vrednosti
+x.2 <- c("learn", "R")
+
+#ispis vrednosti promenjivih
+print(x.1)
+cat("vrednost promenjive x.2 je: ", x.2 , "\n")
+</xmp>
+</xmp>
+Izlaz iz programa je sledeći:</br> 
+<xmp class="primer_ta"> 
+[1] 0 1 2 3
+vrednost promenjive x.2 je:  learn R
+</xmp>
+</br></br>
+<h2>Tip podataka promenjive</h2>
+U R-u sama promenjiva nije deklarisana ni za jedan tip podataka, već dobija tip podataka 
+R-objekta koji joj je dodeljen. Dakle, R je dimamički tipiziran jezik, sto znači da se iznova može
+menjati tip podataka promenjive prilikom njenog korištenja u programu.
+U narednom primeru istoj promenjivoj će biti dodeljivana različita vrednost nekoliko puta. Očekuje se da pri svakoj dodeli vrednosti, nova vrednost bude zapisana u nazivu promenjive, a da se stara vrednost zaboravi.</br>
+<xmp class="primer_ta"> 
+x <- "Zdravo svete"
+print(x)
+x <- 25L
+print(x)
+x <- 15.3
+print(x)
+x <- TRUE
+print(x)
+</xmp>
+Očekivano, rezultat izvršavanja programa:</br>
+<xmp class="primer_ta">
+[1] "Zdravo svete"
+[1] 25
+[1] 15.3
+[1] TRUE
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Da li je ovo pravilan naziv za promenjivu u R-u: .4naziv ?
+</br>
+2.Kako se promenjivoj dodeljuje vrednost?
+</br>
+3.Da li je potrebno navoditi tip podataka promenjive u R-u?
+</br>

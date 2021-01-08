@@ -1,0 +1,122 @@
+<h1>Petlje</h1>
+
+
+Kao i u slučaju drugih programskih jezika, petlje su sastavni deo R-a. R poznaje for, while i repeat petlje. Petlje su od ključnog značaja u situacijama kada je potrebno izvršiti neku komandu (deo koda) određen broj puta (for petlja), 
+dok je ispunjen neki uslov (while petlja) ili dok se ne stekne uslov za prekid (repeat petlja).
+
+<h2> for petlja </h2>
+
+Ova petlja ponavlja deo koda više puta, tako da se za svaki element vektora dobija određeni rezultat. Sintaksa neophodna za pokretanje for petlje ima jednostavnu strukturu.
+
+<xmp class="primer_ta">
+for(promenjiva in grupa_promenjivih){
+
+ komanda
+
+}
+</xmp>
+Recimo da je namera ispisati formu oblika Danas je [dan], pri čemu promenljiva [dan] prima vrednosti ponedeljak, utorak, sreda, četvrtak, petak, subota i nedelja.
+
+<xmp class="primer_ta">
+
+for(dan in c("ponedeljak","utorak","sreda","četvrtak",
+                             "petak","subota","nedelja")){
+
+  print(paste("Danas je",dan))
+}
+</xmp>
+<xmp class="primer_ta">
+## [1] "Danas je ponedeljak"
+## [1] "Danas je utorak"
+## [1] "Danas je sreda"
+## [1] "Danas je četvrtak"
+## [1] "Danas je petak"
+## [1] "Danas je subota"
+## [1] "Danas je nedelja"
+</xmp>
+
+U slučaju da se radi o brojevima, funkcija, odnosno vektor unutar nje bi se još jednostavnije mogao napisati.
+
+<xmp class="primer_ta">
+for (broj in c(1:7)){
+   print(paste("Danas je",broj,"u mesecu"))
+ }
+</xmp>
+Izlaz iz programa u ovom slučaju izgleda ovako:
+<xmp class="primer_ta">
+## [1] "Danas je 1 u mesecu"
+## [1] "Danas je 2 u mesecu"
+## [1] "Danas je 3 u mesecu"
+## [1] "Danas je 4 u mesecu"
+## [1] "Danas je 5 u mesecu"
+## [1] "Danas je 6 u mesecu"
+## [1] "Danas je 7 u mesecu"
+</xmp>
+Na isti način bi se mogla upotrebiti bilo koja funkcija. Npr. kvadratni koren iz niza brojeva od 1 do 5.
+<xmp class="primer_ta">
+for (broj in c(1:5)){
+   print(sqrt(broj))
+}
+</xmp>
+Unutar petlje može biti druga petlja, unutar druge može biti treća petlja, itd.
+
+<h2> while petlja </h2>
+Petlja while ponavlja deo koda više puta, sve dok je odgovor na postavljeni uslov pozitivan (logička vrednost TRUE). 
+Petlja se završava kada odgovor na uslov postane negativan (FALSE).
+Ne postoji tačan broj koliko puta će kod unutar petlje biti izvršen, kao što je slučaj sa for petljom, već će iteracije biti nastavljene sve dok je zadati uslov ispunjen.</br>
+Sintaksa neophodna za pokretanje while petlje je sledeća:
+<xmp class="primer_ta">
+while (uslov) {
+  komanda
+}
+</xmp>
+Jednostavnim primerom brojača se prikazuje funkcionalnost while petlje.
+<xmp class="primer_ta">
+x <- 0
+while(x <= 6) {
+  x<-x+1
+  print(x)
+ }
+</xmp>
+Nakon izvršavanja programa, rezultat je sledeći:
+<xmp class="primer_ta">
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+</xmp>
+
+<h2> repeat petlja </h2>
+Ova petlja je jednostavnija od while i for petlje. Ona će ponavljati određenu radnju sve dok ne bude prekinuta. Do prekida petlje dolazi kad naiđe na komandu break ili kada je korisnik prekine (Escape).</br>
+Sintaksa neophodna za pokretanje repeat petlje je sledeća:
+<xmp class="primer_ta">
+repeat {
+  komanda
+  }
+</xmp>
+Pomoću repeat petlje se takođe može kreirati brojač koji prekida petlju kada se dostigne određeni uslov.
+<xmp class="primer_ta">
+x <- 0
+repeat {
+  x<-x+1
+  print(x)
+  if(x==7){
+    break
+}}
+</xmp>
+<xmp class="primer_ta">
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+</xmp>
+Razlika u odnosu na while je da se u repeat petlji uslov postavlja na kraju, tako da će repeat izvršiti bar jednu iteraciju ako uslov nije ispunjen za razliku od while.
+
+
+

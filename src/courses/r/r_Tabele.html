@@ -1,0 +1,154 @@
+<h1>Tabele</h1>
+
+Često se koristi engleski naziv - Data Frame. U svakoj koloni sadrži vrednsti jedne 
+promenjive, a svaka vrsta po jedan skup vrednosti iz svake kolone. Tabelarni prikaz podataka je pogodan za rad i analizu. 
+Data Frame izgledom podseća na matricu, ali u osnovi to je lista koja sadrži vektore jednakih dužina(kolone) pri čemu ti vektori ne moraju biti istog tipa. Dakle, jednu kolonu mogu da čine brojevi, 
+a drugu tekstualni podaci.</br>
+Karakteristike tabela u R-u:</br>
+<ul>
+<li>Svakoj koloni mora da se dodeli ime</li>
+<li>Imena vrsta treba da budu jedinstvena</li>
+<li>Podaci koji se čuvaju u tabeli mogu biti numeričkog, znakovnog ili faktor tipa.</li>
+<li>Svaka kolona treba da bude iste dužine</li>
+</ul>
+</br>
+<h2>Kreiranje i rad sa tabelama</h2>
+Tabele se kreiraju pomoću funkcije <b>data.frame()</b>.</br>
+<xmp class="primer_ta">
+df <- data.frame(ime=c("Ana","Marko","Petar"),pol=c("z","m","m"),visina_plate=c(750,780,720))
+df
+</xmp>
+Kreirana je tabela sa tri kolone, od kojih su dve tekstualne, a jedna numerička. 
+Svakoj koloni je dodeljen naziv i na taj način postaje jasno koji se podaci čuvaju u tabeli.</br>
+<xmp class="primer_ta">
+    ime    pol   visina_plate
+1   Ana     z          750
+2  Marko    m          780
+3  Petar    m          720
+</xmp>
+</br>
+Strukturu podataka koji se nalaze u tabeli moguće je videti pomoću funkcije <b>str()</b>.
+R podrazumevano pretvara tekstualne podatke u faktore, a da se to ne bi događalo potrebno je dodati argument:</br>
+<xmp class="primer_ta"> stringsAsFactors = FAlSE</xmp>
+<xmp class="primer_ta">
+df <- data.frame(ime=c("Ana","Marko","Petar"),pol=c("z","m","m"),visina_plate=c(750,780,720),stringsAsFactors = FALSE)
+str(df)
+</xmp>
+<xmp class="primer_ta">
+ 'data.frame':	3 obs. of  3 variables:
+ $ ime         : chr  "Ana" "Marko" "Petar"
+ $ pol         : chr  "z" "m" "m"
+ $ visina_plate: num  750 780 720
+</xmp>
+Bez dodavanja ovog argumenta ili sa postavljanjem njegove vrednosti na TRUE,
+podaci iz prve i druge kolone bili bi tipa factor a ne character(chr) kao u ovom slučaju.</br>
+</br></br>
+Statistički sažetak i priroda podataka mogu se dobiti primenom funkcije <b>summary()</b>.</br>
+</br></br>
+Dva dataframe-a koji imaju isti broj vrsta, mogu se spojiti po kolonama pomoću funkcije <b>cbind()</b>.</br>
+<xmp class="primer_ta">
+df1 <- data.frame(ime = c("Ana", "Marko" ,"Petar"), pol=c("z","m","m"))
+df2 <- data.frame(visina_plate=c(750,780,720), radni_staz = c(8,12,5))
+df3 <- cbind(df1,df2)
+df3
+</xmp>
+<xmp class="primer_ta">
+    ime pol visina_plate radni_staz
+1   Ana   z          750          8
+2 Marko   m          780         12
+3 Petar   m          720          5
+</xmp>
+</br>
+Na isti način mogu se spojiti tabele po vrstama ukoliko su nazivi kolona u obe tabele identični. 
+Funkcija koja se koristi za spajanje tabela po vrstama naziva se <b>rbind()</b>.</br>
+<xmp class="primer_ta">
+df1 <- data.frame(ime=c("Ana","Marko","Petar"),pol=c("z","m","m"),visina_plate=c(750,780,720))
+df2 <- data.frame(ime=c("Maja","David"),pol=c("z","m"),visina_plate=c(850,900))
+df3 <- rbind(df1,df2)
+df3
+</xmp>
+Nakon izvršavanja programa dobija se jedna tabela čiji je broj vrsta jednak zbiru broja vrsta prve i druge tabele.</br>
+<xmp class="primer_ta">
+    ime  pol    visina_plate
+1   Ana   z          750
+2 Marko   m          780
+3 Petar   m          720
+4  Maja   z          850
+5 David   m          900
+</xmp>
+Spajanje tabela po vrstama/kolonama je vrlo značajno ukoliko je potrebno proširiti kolekciju podataka bez kreiranja potpuno novih tabela. </br>
+</br>
+<h2>Pristupanje elementima tabele</h2>
+Vrednostima kolona moguće je pristupiti pomoću operatora <span class = "primer_text"> $</span>, a pomoću ovog operatora moguće je i dodati nove kolone.</br>
+<xmp class="primer_ta">
+df <- data.frame(ime=c("Ana","Marko","Petar"),pol=c("z","m","m"),visina_plate=c(750,780,720))
+df$ime
+df$radni_staz <- data.frame(radni_staz=c(8,12,5))
+df
+</xmp>
+<xmp class="primer_ta">
+[1] Ana Marko Petar
+
+   ime   pol   visina_plate  radni_staz
+1   Ana   z          750          8
+2 Marko   m          780         12
+3 Petar   m          720          5
+</xmp>
+</br>
+Međutim, postoji i drugi način filtriranja i odabira podskupova podataka iz tabela, a to je korišćenje uglatih zagrada. Notacija koja se koristi izgleda ovako:  <span class = "primer_text"> df[redovi,kolone]</span>. Prvi 
+argument predstavlja redni broj vrste(reda) koji se izdvaja, dok drugi broj predstavlja redni broj kolone. 
+Prazno mesto za neki od argumenata salje poruku "uzmi sve" iz te vrste/kolone. </br>
+<xmp class="primer_ta">
+#df je tabela konstruisana u prethodnom primeru
+#izdvajanje cele tabele
+df[,] 
+</xmp>
+<xmp class="primer_ta">
+ ime   pol   visina_plate  radni_staz
+1   Ana   z          750          8
+2 Marko   m          780         12
+3 Petar   m          720          5
+</xmp>
+<xmp class="primer_ta">
+#prva vrsta
+df[1,]
+
+  ime  pol   visina_plate  radni_staz
+1 Ana   z          750          8
+
+#prva kolona
+df[,1]
+[1] Ana Marko Petar
+</xmp>
+Ukoliko je potrebno izdvojiti više vrsta/kolona onda se indeksi tih kolona mogu zadati pomoću vektora ili se može konstruisati vektor sa logičkim vrednostima, iste dužine kao broj vrsta/kolona u dataframe-u, pri čemu vrednost TRUE označava da se ta vrsta/kolona izdvaja,
+a vrednost FALSE označava da vrsta/kolona ne treba da bude izabrana u toj filtraciji tabele. Pored toga, kolona može biti izdvojena i navođenjem njenog naziva.</br>
+<xmp class="primer_ta">
+#koristi se ista tabela(df) kao u prethodnom primeru
+
+#izdvajanje prvog i drugog reda i svih kolona
+df[c(1,2),]
+
+    ime  pol  visina_plate  radni_staz
+1   Ana   z          750          8
+2 Marko   m          780         12
+
+#izdvajanje prvog elementa u prvoj vrsti
+df[c(TRUE, FALSE,FALSE), "ime"]
+
+[1] Ana
+
+</xmp>
+Korisno je jos i napomenuti da predznak minus(-) označava da se izdvaja sve osim vrste/kolone pod tim rednim brojem.</br>
+<xmp class="primer_ta">
+#izdvajaju se sve vrste osim one pod rednim brojem 2
+df[-2,]
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Kreirati tabelu po izboru.
+</br>
+2.Na koji način se spajaju tabele u R-u? Koji preduslovi treba da budu zadovoljeni?
+</br>
+3.Izdvojiti prvu kolonu iz tabele kreirane u prvom zadatku.
+</br>

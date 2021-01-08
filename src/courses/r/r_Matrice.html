@@ -1,0 +1,145 @@
+<h1>Matrice</h1>
+
+Matrice su dvodimenzionalni R-objekti. Sadrže elemente istih atomskih tipova. Iako se mogu kreirati matrice čiji su elementi logičkog 
+ili znakovnog tipa, ipak se najčešće koriste matrice čiji su elementi numeričkog tipa. Takvim matricama biće posvećena pažnja na ovom kursu.</br>
+Matrica se kreira pomoću funckije <b>matrix()</b></br>
+Osnovna sintaksa za kreiranje matrice u R-u:</br>
+<xmp class="primer_ta">
+matrix(data, nrow, ncol, byrow, dimnames)
+</xmp>
+Parametri preko kojih se definiše matrica imaju sledeće značenje:
+<ul>
+<li><b>data</b> vektor čiji elementi postaju elementi matrice. Matrica se popunjava po kolonama!</li>
+<li><b>nrow</b> broj vrsta matrice koja će biti kreirana.</li>
+<li><b>ncol</b> broj kolona matrice koja će biti kreirana.</li>
+<li><b>byrow</b> ukoliko je ovaj parametar TRUE onda se matrica popunjava po vrstama.</li>
+<li><b>dimname</b> dodela naziva vrstama i kolonama</li>
+</ul>
+</br>
+Primer:</br>
+<xmp class="primer_ta">
+#Elementi su poređani sekvencijalno po vrstama
+M <- matrix(c(1:9), nrow=3, byrow = TRUE)
+print(M)
+
+#Elementi su poređani sekvencijalno po kolonama
+N <- matrix(c(1:9),nrow=3, byrow = FALSE)
+print(N)
+
+#dodavanje naziva vrstama i kolonama
+rownames <- c("row1", "row2", "row3")
+colnames <- c("col1", "col2", "col3")
+
+P <- matrix(c(1:9), nrow=3, byrow = FALSE, dimnames = list(rownames, colnames))
+print(P)
+</xmp>
+
+Rezultat:</br>
+
+<xmp class="primer_ta">
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+
+      [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+
+     col1 col2 col3
+row1    1    4    7
+row2    2    5    8
+row3    3    6    9
+</xmp>
+</br>
+<h2>Pristupanje elementima matrice</h2>
+Elementu matrice se pristupa pomoću broja vrste i kolone u kojoj se element nalazi.
+Na već konstruisanoj matrici P(prethodni primer) biće prikazan način pristupanja pojedinačnim elementima matrice P.</br>
+<xmp class="primer_ta">
+#pristupanje elementu koji se nalazi u prvoj vrsti i trećoj koloni.
+print(P[1,3])
+#bira se element i na poziciji (3,2), odnosno element iz treće vrste i druge kolone.
+print(P[3,2])
+#izdvajanje cele druge vrste
+print(P[2,])
+#cela treća kolona
+print(P[,3])
+</xmp>
+Nakon izvršavanja koda:</br> 
+<xmp class="primer_ta">
+[1] 7
+
+[1] 6
+
+col1 col2 col3 
+   2    5    8 
+
+row1 row2 row3 
+   7    8    9 
+</xmp>
+</br>
+<h2>Operacije sa matricama</h2>
+Operaracije sa matricama su moguće ukoliko su operandi-matrice iste dimenzije. Dimenzija matrice se računa kao n x m, gde je n broj vrsta, a m broj kolona matrice. Rezultat primene operatora na matrice je takođe matrica.</br>
+<h2>Sabiranje i oduzimanje matrica</h2>
+Sabiranje matrica se vrši član po član. Elementi matrice A se sabiraju sa odgovarajućim elementima matrice B. Dakle,
+ sabiraju se elementi čiji su redni brojevi vrste i kolone jednaki u matricama A i B. Oduzimanje matrica se takođe vrši element po element. Od svakog elementa matrice A oduzimaju se elementi koji su na istoj poziciji u matrici B. </br>
+<xmp class="primer_ta">
+#kreiranje dve matrice dimenzija 2x3
+A <- matrix(c(3, 9, -1, 4, 2, 6), nrow = 2)
+B <- matrix(c(5, 2, 0, 9, 3, 4), nrow = 2)
+
+#Sabiranje matrica, rezultat se smešta u matricu R
+R <- A + B
+cat("Rezultat sabiranja" , "\n")
+print(R)
+
+#oduzimanje matrica
+R <- A - B
+cat("Rezultat oduzimanja" , "\n")
+print(R)
+</xmp>
+Nakon izvršavanja programa dobije se sledeći rezultat:</br>
+<xmp class="primer_ta">
+ Rezultat sabiranja 
+     [,1] [,2] [,3]
+[1,]    8   -1    5
+[2,]   11   13   10
+ Rezultat oduzimanja
+     [,1] [,2] [,3]
+[1,]   -2   -1   -1
+[2,]    7   -5    2
+</xmp>
+</br>
+<h2>Množenje i deljenje matrica</h2>
+Primenom operatora * i /, matrice se množe na isti način kao što se i sabiraju(oduzimaju) - član po član.
+Primenom ovih operatora na matrice A i B iz prethodnog primera dobija se sledeći rezultat:</br>
+<xmp class="primer_ta">
+R <- A * B
+cat("Rezultat množenja","\n")
+print(R)
+R <- A / B
+cat("Rezultat deljenja","\n")
+print(R)
+</xmp>
+Rezultat nakon izvršavanja programa: </br>
+<xmp class="primer_ta">
+ Rezultat množenja
+     [,1]  [,2] [,3]
+[1,]   15    0    6
+[2,]   18   36   24
+ Rezultat deljenja
+     [,1]      [,2]      [,3]
+[1,]  0.6      -Inf 0.6666667
+[2,]  4.5 0.4444444 1.5000000
+</xmp>
+Množenje dve matrice u algebarskom smislu(matrično množenje) obavlja se pomoću operatora %*%.
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Kreirati matricu A dimenzija 3x3.
+</br>
+2.Transponovati matricu kreiranu u prvom zadatku.
+</br>
+3.Kreirati matricu B dimenzija 3x3 i nakon toga je pomnožiti sa matricom A u algebarskom smislu.

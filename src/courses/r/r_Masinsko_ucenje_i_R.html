@@ -1,0 +1,243 @@
+<h1>Mašinsko učenje i R </h1>
+
+Ova lekcija namenjena je čitaocima koji nisu iskusni u mašinskom učenju i kao kolekcija svih mogućnosti koje R pruža u ovoj oblasti.</br>
+Kao sto je već rečeno u uvodnom delu kursa, R je jedan od glavnih programskih jezika u oblasti istraživanja podataka. Ima velike mogućnosti vizualizacije podataka, što je neophodno pre upotrebe bilo kakvog algoritma, ali i za procenu kvalieta modela. U R-u postoje mnogi 
+dostupni paketi namenjeni za mašinsko ucenje. Veliki broj popularnih algoritama su već implementirani u R-u kao deo razvoja ovog jezika. Međutim, da bi se primenom algotitama dobio validan model, potrebno je pre svega proučiti i prilagoditi date podatke.</br>
+</br>
+Mašinsko učenje je podoblast veštačke inteligencije čiji je cilj konstruisanje algoritama i računarskih sistema koji su sposobni da se adaptiraju na analogne nove situacije i uče na bazi iskustva. Algoritmi za mašinsko učenje spadaju u jednu od dve glavne kategorije – nadgledano i nenadgledano učenje.</br>
+<h2>Primeri baza podataka u R-u</h2>
+U R-u postoje ugrađene baze podataka koje mogu da se prilagođavaju i da služe kao ulazni podaci za algoritme mašinskog ucenja </br>
+<b> Edgar Anderson’s Iris Data</b>
+U R-u ova baza se uključuje pozivom funkcije:</br>
+<xmp class="primer_ta">
+data(iris)
+</xmp>
+Ovaj poznati skup podataka daje merenja o dužini i širini lista i latice za 50 cvetova iz svake od 3 vrste irisa.</br>
+<xmp class="primer_ta">
+#prikaz tabele podataka
+datatable(iris)
+
+#dodatne informacije o bazi podataka
+?iris
+</xmp>
+</br></br>
+<b>Motor Trend Car Road Tests</b>
+Podaci u bazi su preuzati iz američkog casopisa "Motor Trend US" iz 1974. godine i obuhvataju potrošnju goriva i 10 aspekata dizajna i performansi automobila. U bazi se nalaze 34 automobila(modeli od 1973. do 1974.).</br>
+<xmp class="primer_ta">
+data(mtcars)
+?mtcars
+</xmp>
+</br>
+<b>The diamonds data</b>
+Podaci o dijamantima isporučuju se s paketom ggplot2 i predviđaju cijenu (u američkim dolarima) oko 54000 dijamanta okruglog rezanja.</br>
+<xmp class="primer_ta">
+library("ggplot2")
+data(diamonds)
+</xmp>
+</br>
+<b>The Sonar data</b>
+Podaci Sonara iz paketa mlbench mogu se koristiti za obuku klasifikatora za prepoznavanje mina iz stijena pomoću podataka sonera. Podaci su sastavljeni od 60 obeležja koja predstavljaju energiju unutar određenog frekvencijskog pojasa.
+<xmp class="primer_ta">
+library("mlbench")
+data(Sonar)
+</xmp>
+</br>
+<b>Housing Values in Suburbs of Boston</b>
+Ova baza je deo paketa MASS i u njoj se nalaze informacije o ceni kuca u Bostonu u odnosu na neka obeležja</br>
+<xmp class="primer_ta">
+library("MASS")
+data(Boston)
+
+#opis svih obeležja baze 
+?Boston
+
+</xmp>
+<h2>Nenadgledano mašinsko učenje</h2>
+Nenadgledano učenje je vid mašinskog učenja kod kojeg nisu date vrednosti ciljne promenljive. 
+Većina problema koji odgovaraju ovoj grupi potpada pod probleme klasterovanja, učenja reprezentacije i
+detekcije anomalija</br>
+ U nastavku ce biti prikazana implementacija nekih poznatih algoritama koji se koriste za klasterovanje. Pretpostavlja se da čitalac zna princip rada algoritama te je prikazana samo njihova implementacija u R-u i neke osnovne osobine. </br>
+</br>
+Pre primene bilo kojeg algoritma potrebno je "pripremiti" podatke, odnosno potrebno ih je skalirati, a to se u R-u vrši pomoću funkcije <b>scale()</b>. Argument funkcije je baza podataka čije je elemente potrebno skalirati</br>
+</br></br>
+<b>Algoritam k sredina: </b>
+Ovaj algoritam pronalazi k klastera koje predstavlja pomoću k težišta tih klastera, od kojih se svako dobija uprosečavanjem elemenata datog klastera. Taj korak čini algoritam primenljivim samo na podatke koji se mogu uprosečavati, poput vektora.</br>
+ U R-u implementacija izgleda ovako:</br>
+<xmp class="primer_ta">
+stats::kmeans(x, centers = 3, nstart = 10)
+</xmp>
+gde su : </br>
+<ul>
+	<li><b> x </b> predstavlja matricu ulaznih podataka </li>
+	<li><b>centers</b>unapred definisan broj klastera u koji se dele polazni podaci</li>
+	<li><b>nstart</b> broj ponavljanja random komponente u svrhu poboljsavanja modela</li>
+</ul>
+</br></br>
+<b>Hijerarhijsko klasterovanje:</b>
+Hijerarhijsko klasterovanje konstruiše stablo u čijim se listovima nalaze instance trening skupa, a unutrašnji čvorovi definišu strukturu klastera. Klaster koji odgovara nekom unutrašnjem čvoru sastoji se iz klastera koji
+odgovaraju njegovim direktnim potomcima. Problem klasterovanja svodi se na problem konstrukcije ovakvog stabla. Pristupa rešavanju ovog problema ima više. Jedan koji se često razmatra je hijerarhijsko aglomerativno
+klasterovanje pri kojem se skup klastera inicijalizuje pojedinačnim instancama, a potom se u svakom koraku, spajaju dva najsličnija klastera u jedan, čime se konstruiše binarno stablo. Takvo stablo naziva se dendogram.</br>
+Korištenje algoritma hijerarhijskog klasterovanje omugućeno je preko funckije <b>hclust()</b> koja je unapred instalirana u R paketu sa statistikama</br>
+U sledećem primeru pravi se model na podacima iz mtcars pomocu algoritma hijerarhijskog klasterovanja.</br>
+<xmp class="primer_ta">
+#matrica udaljenosti, računa se euklidsko rastojanje između svake dve komponente
+distance_mat <- dist(mtcars, method = 'euclidean')
+
+#pravljenje modela
+hijerarhijsko_k <- hclust(distance_mat, method = "average") 
+
+#prikazivanje dendograma
+plot(hijerarhijsko_k)
+
+#sečenje stabla po visini
+abline(h = 110, col = "green") 
+  
+#biranje broja klastera koji će da se naprave pomoću ovog algoritma
+br_k <- cutree(hijerarhijsko_k, k = 3 ) 
+</xmp>
+graficki prikaz ovakvog oblika klasterovanja: </br>
+<img src="courses/r/dendogram.png" class= "img-lg img-fluid">
+</br>
+Kao što se može primetiti u R-u postoje ugrađene funckije za pravljenje modela pomoću ovog algortima, kao i za tumačenje podataka i uzimanja željenih obeležja modela(poput funkcije cutree)</br>
+</br></br>
+<b>tSNE algoritam </b>
+Ovaj algoritam predstavlja nelinearnu redukciju dimenzije. Vizuelnim prikazom rezultata algoritma dobija se izgled klastera u dve dimenzije.</br>
+U R-u se koristi funkcija Rtsne iz istoimene biblioteke.</br>
+<xmp class="primer_ta">
+#uključivanje odgovarajuće biblioteke
+library("Rtsne")
+
+#uklanjanje kopija vrednosti iz baze
+uiris <- unique(iris[, 1:5])
+
+#pravljenje modela
+Iris_tsne <- Rtsne(uiris[, 1:4])
+
+#vizuelni prikaz
+plot(iristsne$Y, col = uiris$Species)
+</xmp>
+<img src="courses/r/tsne.png" class= "img-lg img-fluid">
+</br>
+<h2>Nadgledano mašinsko učenje</h2>
+Nadgledano mašinsko učenje karakteriše se time da su za sve unapred raspoložive podatke poznate vrednosti ciljne promenljive. Osnovni problemi nadgledanog učenja su klasifikacija i regresija.</br>
+Regresija ce biti opisana u posebnoj lekciji, a neki od algoritama klasifikacije će biti prikazani u nastavku.</br>
+</br>
+<b>Klasifikacija</b>
+Klasifikacija predstavlja razvrstavanje nepoznate instance u jednu od unapred ponuđenih kategorija tj. klasa.</br>
+Neki od algoritama za klasifikaciju su:</br>
+<ul>
+	<li>Logistička regresija</li>
+	<li>Stabla odlučivanja</li>
+	<li>KNN</li>
+	<li>Naivni Bajes</li>
+	<li>LDA i QDA...</li>
+</ul>
+Svi ovi modeli mogu se vrlo lako implementirati u R-u pomoću ugrađenih funkcija, a neki primeri ce biti odrađeni kao deo ove lekcije.</br>
+<b>KNN algoritam:</b>
+Naziv ovog algoritma se može prevesti kao k najbližih suseda. Algoritam se izvršava u nekoliko koraka: </p
+<ul>
+	<li>odabere se broj k</li>
+	<li>na osnovu udaljenosti(Euklidsko rastojanje) bira se k najbližih suseda objekta koji je potrebno klasifikovati.</li>
+	<li>od izabranih k suseda prebroji se broj članova svake kategorije.</li>
+	<li>novi član pripada onoj kategorji kao i većina k najbližih suseda</li>
+</ul>
+Implementacija u R:</br>
+<xmp class="primer_ta">
+#instaliranje paketa
+install.packages("e1071") 
+install.packages("caTools") 
+install.packages("class") 
+
+library(e1071) 
+library(caTools) 
+library(class)
+
+#učitavanje baze podataka
+data(iris)
+
+#podela podataka na test i trening skup
+split <- sample.split(iris, SplitRatio = 0.7) 
+trening_skup <- subset(iris, split == "TRUE") 
+test_skup <- subset(iris, split == "FALSE") 
+
+#skaliranje podataka
+trening_skalirano <- scale(train_cl[, 1:4]) 
+test_skalirano <- scale(test_skup[, 1:4]) 
+
+#kreiranje modela:
+klasifikator_knn <- knn(train = trening_skalirano, 
+                      test = test_skalirano, 
+                      cl = trening_skup$Species, 
+                      k = 1) 
+
+#matrica konfuzije 
+cm <- table(test_skup$Species, klasifikator_knn) 
+cm 
+
+</xmp>
+Nakon izvršavanja programa iz matrice konfuzije može se zaključiti da su samo 2 cveta klasifikovana pogrešno.</br>
+<xmp class="primer_ta">
+          klasifikator_knn
+             setosa versicolor virginica
+  setosa         20          0         0
+  versicolor      0         20         0
+  virginica       0          2        18
+</xmp>
+</br></br>
+<b>Naivni Bajes: </b>
+Naivni Bajes je nelinearni algoritam klasifikacije u R programiranju. Bazira se na Bajesovoj teoremi.</br>
+Implementacija u R-u:</br>
+<xmp class="primer_ta">
+#instaliranje potrebnih paketa
+install.packages("e1071") 
+install.packages("caTools") 
+install.packages("caret") 
+
+library(e1071) 
+library(caTools) 
+library(caret) 
+
+#podela podataka na test i trening skup
+split <- sample.split(iris, SplitRatio = 0.7) 
+trening_skup <- subset(iris, split == "TRUE") 
+test_skup <- subset(iris, split == "FALSE") 
+
+#skaliranje podataka
+trening_skalirano <- scale(train_cl[, 1:4]) 
+test_skalirano <- scale(test_cl[, 1:4]) 
+
+#kreiranje modela
+set.seed(120)  # Setting Seed 
+klasifikator_nb <- naiveBayes(Species ~ ., data = train_cl) 
+ 
+
+#predvidjanje na test skupu
+y_pred <- predict(klasifikator_nb, newdata = test_cl) 
+
+#matrica konfuzije
+cm <- table(test_skup$Species, y_pred) 
+cm 
+</xmp>
+Nakon izvrsavanja programa matrica konfuzije izgleda ovako: </br>
+<xmp class="primer_ta">
+  y_pred
+             setosa versicolor virginica
+  setosa         20          0         0
+  versicolor      0         20         0
+  virginica       0          3        17
+</xmp>
+</br></br>
+U ovoj lekciji neće biti implementirani svi algoritmi, jer to nije osnovna tema ovog kursa, ali je to naravno moguće učiniti.</br>
+</br></br></br>
+<b>Pitanja za ponavljanje: </b>
+</br></br>
+1.Navesti neke algoritme koji se koriste u oblasti mašinskog učenja.
+</br>
+2.Objasniti princip rada KNN algoritma.
+</br>
+3.Šta je to nenadgledano mašinsko učenje? Navesti neke primere i algoritme koji se koriste u toj oblasti.
+</br>
+ 
+
+
+

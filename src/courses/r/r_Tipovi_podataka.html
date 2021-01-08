@@ -1,0 +1,124 @@
+<h1>Tipovi podataka</h1>
+
+Prilikom programiranja u bilo kom programskom jeziku potrebno je koristiti promenljive za pohranu različitih informacija.
+Promenljive predstavljaju rezervisane memorijske lokacije za pohranu vrednosti. To znači da, kada se kreira promjenljiva, rezerviše se prostor u memoriji.
+Često je potrebno pohraniti podatke različitih tipova poput znaka, celog broja, 
+logičke vrednosti itd. Na osnovu kom tipu podataka pripada promenljiva, operativni sistem dodeljuje memoriju.</br>
+Za razliku od ostalih programskih jezika kao sto su C i JAVA, u programskom jeziku R, promenljive nisu deklarisane kao neki tip podataka. Promenljivima se dodeljuju R-Objekti, a tip podataka R-objekta postaje tip podataka promjenljive. </br>
+Postoji mnogo vrsta R-objekata a fundamentalni su:</br>
+<ul>
+<li>Vektori</li>
+<li>Liste</li>
+<li>Matrice</li>
+<li>Nizovi</li>
+<li>Faktori</li>
+<li>Tabele</li>
+</ul>
+</br>
+
+Od svih nabrojanih R-objekata, najjednostavniji su vektori. Za vektore se još kaže i da su atomski R-objekti, 
+jer se svi ostali objekti grade pomoću vektora. Postoji šest tipova vektora ili drugačije rečeno šest klasa vektora.</br>
+</br>  
+<table class = "tabela">
+<thead>
+ <tr>
+  <th>Tip podataka</th>
+  <th>Primer</th>
+  <th>Provera</th>
+ </tr>
+</thead>
+<tbody>
+<tr>
+<td>Logički</td>
+<td>TRUE, FALSE</td>
+<td>
+
+   <xmp class="primer_ta"> 
+    x <- TRUE
+    print(class(x))
+    
+    Rezultat:
+
+   [1] "logical" </xmp>
+</td>
+</tr>
+<tr>
+<td>Numerički</td>
+<td>4.5, 6, 123</td>
+<td>
+
+   <xmp class="primer_ta"> 
+    x <- 4.5
+    print(class(x))
+    
+    Rezultat:
+
+   [1] "numeric" </xmp>
+</td>
+</tr>
+<tr>
+<td>Celobrojni</td>
+<td>2L, 125L, 0L</td>
+<td>
+
+   <xmp class="primer_ta"> 
+    x <- 2L
+    print(class(x))
+    
+    Rezultat:
+
+   [1] "integer" </xmp>
+</td>
+</tr>
+<tr>
+<td>Kompleksni</td>
+<td>3+2i, 2+5i, 4i</td>
+<td>
+
+   <xmp class="primer_ta"> 
+    x <- 2+5i
+    print(class(x))
+    
+    Rezultat:
+
+   [1] "complex" </xmp>
+</td>
+</tr>
+<tr>
+<td>Karakteri</td>
+<td>'a', "odlicno!", "FALSE", '10.5'</td>
+<td>
+
+   <xmp class="primer_ta"> 
+    x <- "odlicno!"
+    print(class(x))
+    
+    Rezultat:
+
+   [1] "character" </xmp>
+</td>
+</tr>
+<tr>
+<td>Sirovi</td>
+<td>"Hello" is stored as 48 65 6c 6c 6f</td>
+<td>
+
+   <xmp class="primer_ta"> 
+   v <- charToRaw("Hello")
+   print(class(v))
+    
+    Rezultat:
+
+   [1] "raw" </xmp>
+</td>
+</tr>
+</tbody>
+</table>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Koji su osnovni tipovi podataka u R-u?
+</br>
+2.Zašto se za vektore kaže da su atomski objekti?
+</br>
+3 Kojeg su tipa sledeći podaci: 10L, 10, FALSE? 

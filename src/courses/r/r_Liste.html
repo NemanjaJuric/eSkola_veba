@@ -1,0 +1,171 @@
+<h1>Liste</h1>
+
+Liste su R-objekti koji sadrže elemente različitih tipova, uključujući vektore,stringove, matrice,pa čak i druge liste.
+Lista se kreira pomoću funkcije <b>list()</b>.</br>
+<h2>Kreiranje liste</h2>
+U sledećem primeru prikazana je lista koja sadrži brojeve, stringove, vektore i logičke vrednosti.</br>
+<xmp class="primer_ta">
+lista <- list("Red", "Green", c(21,32,11),TRUE, 51.23,119.1)
+print(lista)
+</xmp>
+Rezultat nakon pokretanja programa:</br>
+<xmp class="primer_ta">
+[[1]]
+[1] "Red"
+
+[[2]]
+[1] "Green"
+
+[[3]]
+[1] 21 32 11
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] 51.23
+
+[[6]]
+[1] 119.1
+</xmp>
+
+<h2>Imenovanje elemenata liste</h2>
+Elementima liste mogu biti dati nazivi i preko njih se može pristupati odgovarajućim elementima liste.</br>
+<xmp class="primer_ta">
+#prvo se kreira lista čiji su elementi vektor, matrica i druga lista
+lista <- list(c("Jan","Feb","Mar"), matrix(c(1,2,3,4,5,6),nrow=2), list("green",12.3))
+
+#dodeljivanje naziva elementima liste pomoću metoda names()
+names(lista) <- c("mesec", "matrica", "unutrasnja_lista")
+print(lista)
+</xmp>
+Rezultat:</br>
+<xmp class="primer_ta">
+$mesec
+[1] "Jan" "Feb" "Mar"
+
+$matrica
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+$unutrasnja_lista
+$unutrasnja_lista`[[1]]
+[1] "green"
+
+$unutrasnja_lista`[[2]]
+[1] 12.3
+</xmp>
+</br>
+
+<h2>Pristupanje elementima liste</h2>
+Indeksiranje elemenata u listama počinje od broja 1, kao i indeksiranje elemenata vektora. Važno je primetiti da se pojedinačni elementi liste označavaju dvostrukim uglastim
+zagradama [[ ]] dok se unutar svakog pojedinačnog elementa njihovi elementi označavaju
+jednostrukim uglastim zagradama [ ]. Ukoliko je potrebno pročitati element liste moguće mu je pristupiti pomoću jednostrukih zagrada [], a ukoliko je potrebno promeniti element liste onda mu se mora pristupiti korištenjem dvostruke zagrade [[]].</br>
+</br>
+U sledećem primeru će biti predstavljen način pristupanja elementima liste pomoću uglastih zagrada na gore opisan način.</br>
+<xmp class="primer_ta">
+lista <- list(c("Jan","Feb","Mar"), matrix(c(1,2,3,4,5,6),nrow=2), list("green",12.3))
+lista[1] </xmp>
+<xmp class="primer_ta">
+[[1]]
+[1] "Jan" "Feb" "Mar"</xmp>
+Međutim sledeća sekvenca koda dovešće do upozorenja i netačnog rezultata prilikom pokretanja programa.</br>
+<xmp class="primer_ta">
+lista[1] <-  c('April',"Maj", "Jun")
+lista
+</xmp>
+
+<xmp class="primer_ta">
+Warning message:
+In lista[1] <- c("Apil", "Maj", "Jun") :
+  number of items to replace is not a multiple of replacement length
+> lista
+[[1]]
+[1] "Apil"
+
+[[2]]
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+[[3]]
+[[3]][[1]]
+[1] "green"
+
+[[3]][[2]]
+[1] 12.3
+</xmp>
+
+Izmena prvog elementa korištenjem dvostrukih zagrada:</br>
+<xmp class="primer_ta">
+lista[[1]] <- c('April',"Maj", "Jun")
+lista
+</xmp>
+Nakon izvršavanja programa, element prve liste je izmenjen.</br>
+<xmp class="primer_ta">
+[[1]]
+[1] "April" "Maj"   "Jun"  
+
+[[2]]
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+[[3]]
+[[3]][[1]]
+[1] "green"
+
+[[3]][[2]]
+[1] 12.3
+</xmp>
+</br></br>
+Pristupanje elementu liste moguće je i pomoću znaka $ iza kojeg se navodi ime elementa.</br>
+Sledeći primer to i pokazuje:</br>
+<xmp class="primer_ta">
+#pristupa se prvom elementu liste konstruisane u prethodnom primeru pomoću znaka $ i naziva elementa
+lista$mesec
+</xmp>
+Očekivano, rezultat je prvi element liste koji predstavlja vektor čiji su elementi prva tri meseca u godini</br>
+<xmp class="primer_ta">
+[1] "April" "Maj" "Jun"
+</xmp>
+<h2>Manipulacija elementima liste</h2>
+Elementi liste mogu se dodavati, brisati ili menjati. Dodavanje i brisanje elemenata moguće je samo na početku i kraju liste, ali svaki element iz liste se može menjati.
+U sledećem primeru je prikazano kako se prethodne naredbe mogu konstruisati i kakav je rezultat pri njihovom izvršavanju.</br>
+<xmp class="primer_ta">
+#Kreira se lista koja sadrži vektor, matricu i listu
+lista <- list(c("Jan","Feb","Mar"), matrix(c(1,2,3,4,5,6),nrow=2), list("green",12.3))
+
+#dodavanje elementa na kraj liste
+lista[4] <- "novi element"
+print(lista[4])
+
+#uklanjanje poslednjeg elementa
+lista[4] <- NULL
+print(lista[4])
+
+#promena 3. elementa
+lista[[3]] <- "promena elementa"
+print(lista[3])
+</xmp>
+Za kraj izlaganja o R-listama, rezultat izvršavanja prethodno napisanih sekvenci koda:</br>
+<xmp class="primer_ta">
+[[1]]
+[1] "novi element"
+
+[[1]]
+NULL
+
+[[1]]
+[1] "promena elementa"
+</xmp>
+</br></br></br>
+<b>Pitanja za ponavljanje:</b>
+</br></br>
+1.Pomoću koje funkcije se kreira lista?
+</br>
+2.Da li elementi liste mogu biti različitih tipova?
+</br>
+3.Kreirati listu dužine 5 (elementi po izboru) i izdvojiti njen drugi element.
+</br>
