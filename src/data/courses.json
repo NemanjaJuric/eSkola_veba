@@ -4068,7 +4068,7 @@
     "lang": "",
     "displayLang": "",
     "sections": ["ai"],
-    "detailsText": "",
+    "detailsText": "Mašinsko učenje je grana veštačke inteligencije zasnovana na ideji da sistemi mogu da uče iz podataka, identifikuju obrasce i donose odluke samostalno, bez eksplicitnog programiranja od strane čoveka. Umesto da čovek programira svaki korak, ovaj pristup daje računarima moć da uče i zaključuju iz podataka bez detaljnih uputstava od strane programera. To znači da se računari mogu koristiti za nove, komplikovane zadatke koji se nisu mogli “ručno” programirati - stvari poput aplikacija za prepoznavanje lica na video materijalima ili fotografijama ili prevođenje slika u govor.",
     "lessons": [
       {
         "name": "Osnovni pojmovi mašinskog učenja",

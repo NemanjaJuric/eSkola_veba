@@ -5,17 +5,43 @@
         class="code-panel lesson-text"
         (click)="lessonClick($event)"
         id="lessonView"
-        [innerHTML]="(lessonText != undefined ? lessonText : '') | sanitizer"
+        [innerHTML]="(lessonText !== undefined ? lessonText : '') | sanitizer"
       ></div>
     </div>
     <div class="col-md-6">
       <div class="code-panel lesson-code">
         <editor [(code)]="code"></editor>
       </div>
-      <div
-        class="code-panel lesson-preview"
-        [ngClass]="{ 'code-preview-full': fullScreen }"
-      ></div>
+      <div class="code-panel">
+        <div class="lesson-preview">
+          <div class="lesson-preview-tabs">
+            <button
+              class="btn"
+              [ngClass]="{ 'btn-selected': !showConsole }"
+              (click)="viewConsole(false)"
+            >
+              HTML
+            </button>
+            <button
+              class="btn"
+              [ngClass]="{ 'btn-selected': showConsole }"
+              (click)="viewConsole(true)"
+            >
+              Console
+            </button>
+          </div>
+          <div
+            class="lesson-preview-content"
+            [ngClass]="{ 'code-preview-full': fullScreen }"
+          ></div>
+          <div
+            class="lesson-preview-console"
+            [ngClass]="{ 'lesson-preview-console-active': showConsole }"
+          >
+            <pre><code id="console"></code></pre>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

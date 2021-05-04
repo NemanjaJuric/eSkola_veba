@@ -1,21 +1,10 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ViewChild,
-  ElementRef,
-  Input,
-} from "@angular/core";
+import { Component, OnInit, OnDestroy, ElementRef, Input } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
 import { SchoolService } from "../../services/school.service";
 import { RouteService } from "../../services/route.service";
 import { CodeRunnerService } from "../../services/code-runner.service";
-import { Course } from "../../classes/course";
 import { Lesson } from "../../classes/lesson";
-import { EditorComponent } from "../../components/editor/editor.component";
-import { LessonsInputComponent } from "../lessons-input/lessons-input.component";
 import { Subscription } from "rxjs/Rx";
 
 declare var $: any;
@@ -32,6 +21,8 @@ export class CourseComponent implements OnInit, OnDestroy {
   jsCode: string;
   allowedExtensions: Array<string> = [];
   routerSubscription: Subscription;
+
+  showConsole = false;
 
   @Input() lessonText;
   @Input() code: string;
@@ -139,13 +130,27 @@ export class CourseComponent implements OnInit, OnDestroy {
     var iframe = document.createElement("iframe");
     iframe.name = "frame";
     iframe.style.backgroundColor = "white";
-    document.getElementsByClassName("lesson-preview")[0].appendChild(iframe);
+    document
+      .getElementsByClassName("lesson-preview-content")[0]
+      .appendChild(iframe);
+    const iframeWindow = iframe.contentWindow as any;
+    iframeWindow.console.print = (message) => {
+      var logger = document.getElementById("console");
+      if (!logger) {
+        return;
+      }
+      if (typeof message == "object") {
+        logger.innerHTML += JSON.stringify(message, null, 4) + "\n";
+      } else {
+        logger.innerHTML += message + "\n";
+      }
+    };
   }
 
   removeIframe() {
     if (document.getElementsByName("frame").length > 0) {
       document
-        .getElementsByClassName("lesson-preview")[0]
+        .getElementsByClassName("lesson-preview-content")[0]
         .removeChild(document.getElementsByName("frame")[0]);
     }
   }
@@ -163,6 +168,10 @@ export class CourseComponent implements OnInit, OnDestroy {
     }
     this.codeRunnerService.run(preview, this.code, this.course);
     preview.window.document.close();
+  }
+
+  viewConsole(console: boolean) {
+    this.showConsole = console;
   }
 
   fullScreen: Boolean = false;
