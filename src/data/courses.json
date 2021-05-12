@@ -4059,5 +4059,94 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "Uvod u ML",
+    "id": "ml",
+    "logo": "ML",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["ai"],
+    "detailsText": "Mašinsko učenje je grana veštačke inteligencije zasnovana na ideji da sistemi mogu da uče iz podataka, identifikuju obrasce i donose odluke samostalno, bez eksplicitnog programiranja od strane čoveka. Umesto da čovek programira svaki korak, ovaj pristup daje računarima moć da uče i zaključuju iz podataka bez detaljnih uputstava od strane programera. To znači da se računari mogu koristiti za nove, komplikovane zadatke koji se nisu mogli “ručno” programirati - stvari poput aplikacija za prepoznavanje lica na video materijalima ili fotografijama ili prevođenje slika u govor.",
+    "lessons": [
+      {
+        "name": "Osnovni pojmovi mašinskog učenja",
+        "url": "ml_Osnovni_pojmovi_masinskog_ucenja",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Uloga i značaj skupa podataka",
+        "url": "ml_Uloga_i_znacaj_skupa_podataka_u_masinskom_ucenju",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Priprema i vizualizacija podataka",
+        "url": "ml_Priprema_i_vizualizacija_podataka",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Modeli pomoću kojih se vrši analiza podataka",
+        "url": "ml_Modeli_pomocu_kojih_se_vrsi_analiza_podataka",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Evaluacija modela",
+        "url": "ml_Evaluacija_modela",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Mere kvaliteta modela",
+        "url": "ml_Mere_kvaliteta_modela",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Klasifikacija i regresija",
+        "url": "ml_Klasifikacija_i_regresija",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Neuronske mreže",
+        "url": "ml_Neuronske_mreze",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Stabla odlučivanja",
+        "url": "ml_Stabla_odlucivanja_metod_slucajnih_suma_i_metod_potpornih_vektora",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Klasterovanje",
+        "url": "ml_Klasterovanje",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      },
+      {
+        "name": "Zaključak",
+        "url": "ml_zakljucak",
+        "type": "lesson",
+        "parentCourse": "ml",
+        "sublessons": null
+      }
+    ]
   }
 ]

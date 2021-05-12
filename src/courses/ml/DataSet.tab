@@ -1,0 +1,13 @@
+Pol	Visina	Težina	Boja očiju	Boja kose	Ime
+discrete	continuous	continuous	discrete	discrete	string
+					meta
+muški	202.0	95.0	plava	crna	Marko
+ženski	164.0	60.0	braon	crna	Marija
+ženski	159.0	58.0	braon	smeđa	Ivana
+muški	187.0	82.0	zelena	plava	Petar
+muški	192.0	90.0	braon	smeđa	Vukašin
+ženski	170.0	62.0	plava	crna	Sanja
+ženski	175.0	63.0	zelena	plava	Milica
+ženski	169.0	59.0	braon	crna	Jovana
+muški	180.0	79.0	braon	smeđa	Ivan
+muški	182.0	75.0	plava	smeđa	Strahinja

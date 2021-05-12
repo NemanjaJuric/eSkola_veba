@@ -22,5 +22,9 @@
   {
     "name": "srednja_skola",
     "title": "Kursevi za srednjoškolce"
+  },
+  {
+    "name": "ai",
+    "title": "Veštačka inteligencija"
   }
 ]
