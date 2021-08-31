@@ -215,5 +215,11 @@
     "course": "R",
     "url": "assets/images/team/user.jpg",
     "mainPosition": false
+  },
+  {
+    "name": "Jelena Ilić",
+    "course": "XML",
+    "url": "assets/images/team/jelena_ilic.jpg",
+    "mainPosition": false
   }
 ]
