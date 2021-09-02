@@ -1,0 +1,54 @@
+<h1>Kreiranje veb strane korišćenjem okruženja ReactJS</h1>
+
+<p>
+  U prethodnoj lekciji su razmotrena dva načina koja omogućuju da ReactJS
+  aplikacija postane nešto što čitač veba razume. U nastavku, radno okruženje
+  ReactJS će biti uključivano iz distribucionog sistema servera CDN, sve dok ne
+  bude eksplicitno rečeno drugačije.
+</p>
+
+<p>
+  Rezultat pokretanja aplikacije koja je predstavljena u primeru je ispisivanje
+  naslova <i>Zdravo, svete!</i> u podrazumevanom čitaču. Kako bi se sintaksa JSX
+  prevela u odgovarajući JavaScript kôd, potrebno je atribut type u oznaci
+  script podesiti na vrednost text/babel. Da bi se element prikazao, poziva se
+  funkcija <i>ReactDOM.render()</i> koja dolazi iz biblioteke koja uključuje rad
+  sa DOM elementima. Navodi se između skript tagova i jedna je od najčešćih
+  metoda koje se koriste u razvoju ReactJS aplikacija. Ova metoda zahteva dva
+  argumenta:
+</p>
+
+<ul>
+  <li>Elemente sintakse JSX koji treba da budu prikazani</li>
+  <li>Lokaciju DOM elementa u koju će se ispisati odgovarajući JSX kôd</li>
+</ul>
+
+<p>
+  Posmatrano unutar primera, kada se metoda <i>render</i> izvrši, oznaka
+  <i>h1</i> i sadržaj unutar nje će biti postavljeni unutar elementa
+  <i>body</i>. Međutim, nije preporučljivo sadržaj predviđen za ispis
+  postavljati direktno u element body, naročito ako se ReactJS koristi u
+  kombinaciji sa drugim JavaScript bibliotekama i radnim okvirima. Uobičajeno je
+  da se napravi poseban element. On se tretira kao nov korenski element i služi
+  kao odredište za metodu <irender></i>. U tu svrhu će biti dodat element
+  <i>div</i> čija će vrednost <i></i>id biti <i>container</i>. Kada je element
+  <i>div</i> definisan, potrebno je još izmeniti metodu <i>render</i> da koristi
+  kreirani element umesto element <i>document.body</i>.
+</p>
+
+<xmp class="primer_ta">
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>Zdravo svete!</h1>,
+        document.querySelector("#container")
+      );
+    </script>
+</body>    
+</xmp>
+
+<div class = "zadatak">
+  <b>Zadatak. </b>Kreiraj veb stranu tako da ispisuje "ReactJS je radni okvir za kreiranje 
+  korisničkih interfejsa" .
+</div>

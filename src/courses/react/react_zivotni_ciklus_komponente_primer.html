@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      class Header extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { boja: "crvena" };
+        }
+        componentDidMount() {
+          setTimeout(() => {
+            this.setState({ boja: "zuta" });
+          }, 3000);
+        }
+        componentDidUpdate() {
+          document.getElementById("root").innerHTML =
+            "Nakon ažuriranja, omiljena boja je " + this.state.boja;
+        }
+        render() {
+          return (
+            <div>
+              <h1>Moja omiljena boja je {this.state.boja}</h1>
+              <div id="root"></div>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<Header />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

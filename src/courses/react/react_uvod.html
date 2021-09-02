@@ -1,57 +1,69 @@
-﻿<h1>Uvod u React (Zdravo svete)</h1>
-<br />
+<h1>Uvod u React</h1>
 
-<b>React</b> je JavaScript biblioteka za kreiranje korisničkih interfejsa.
-<br /><br />
+<p>
+  Napredak tehnologije i sve veća dostupnost interneta doprineli su razvoju i
+  ekspanziji veb aplikacija. Ključni razlog za njihovu popularnost je sposobnost
+  ažuriranja i održavanja bez potrebe za distribucijom i instalacijom softvera
+  na potencijalnim klijentskim računarima. Ne zahtevaju postupak nadogradnje jer
+  se sve nove funkcije sprovode na serveru i automatski dostavljaju korisnicima.
+  Osim što značajno pojednostavljuju, ubrzavaju i olakšavaju svakodnevne
+  poslovne procese i aktivnosti, danas su veb aplikacije postale pomoćno
+  sredstvo u obrazovanju. Budući da su veb aplikacije postale nezaobilazni deo
+  svakodnevnog života, sve je veći njihov broj, a svakodnevno se pojavljuju i
+  nove veb tehnologije za izradu i poboljšanje istih.
+</p>
 
-Jednostavan React primer:
-<br />
+<p>
+  Softverski razvoj veb aplikacija, odnosno razvoj korisničkih interfejsa za
+  njih, uglavnom je vezan za programski jezik JavaScript. Budući da je izrada
+  složenijih aplikacija u programskom jeziku JavaScript prilično komplikovana,
+  sve je više radnih okvira (eng. framework) koji značajno olakšavaju kreiranje
+  istih, uz znatno manje linija koda. Radni okviri pružaju sintaksu koja je
+  jednostavnija, kao i skup često korišćenih funkcionalnosti koje služe za
+  rešavanje problema koji nastaju prilikom razvoja veb aplikacija. Osim što
+  olakšavaju strukturu koda aplikacije, gde je veći akcenat na arhitekturi nego
+  na sintaksi jezika, savremeni radni okviri omogućavaju prilagodljiv veb
+  dizajn. To je veoma značajno zbog povećanog broja uređaja na kojima je
+  veličina ekrana mala.
+</p>
 
-<xmp class="primer_ta">
-ReactDOM.render(
-  <h1>Zdravo svete!</h1>,
-  document.getElementById('root')
-);
-</xmp>
+<p>
+  Glavna uloga JavaScript radnih okvira je da olakša razvoj veb aplikacija koje
+  pri tome treba da budu jasne i intuitivne za koriscenje. ReactJS je radni
+  okvir koji se koristi za kreiranje korisničkih interfejsa za jednostranične
+  veb aplikacije (eng. single page application, skraćeno SPA). Zahvaljujući
+  svojim karakteristikama, ReactJS omogućava razvoj aplikacija koje obezbeđuju
+  promenu podataka bez potrebe za ponovnim učitavanjem stranice, čineći samu
+  aplikaciju brzom, jednostavnom i skalabilnom. Radni okvir ReactJs sadrži
+  obrasce za kreiranje veb strana i veb aplikacija zasnovanih na jeziku za
+  označavanje hiperteksta HTML, na jeziku za formatiranje CSS i na skript
+  jezicima JavaScript i Sass.
+</p>
 
-Na stranici ispisuje naslov "Zdravo svete!".
-<br /><br />
+<p>
+  Još 2011. godine programeri u kompaniji Facebook počeli su da se suočavaju sa
+  problemima oko održavanja koda. Kako je aplikacija koju su koristili dobijala
+  sve veći broj funkcija, vremenom je njom bilo teško upravljati jer se suočila
+  sa brojnim ažuriranjima. Njihov kôd je zahtevao nadogradnju kako bi postao
+  efikasniji. Tim povodom je Jordan Walke, softverski inženjer u kompaniji
+  Facebook razvio prototip koji je proces učinio efikasnijim i nazvao ga FaxJs.
+  Na njegov razvoj je uticao XHP. Međutim, dinamičke veb aplikacije zahtevaju
+  mnogo povratnih putanja do servera, a XHP ne rešava ovaj problem. To znači da
+  se veb aplikacija ponovo iscrtava kada se promeni stanje, što dovodi do toga
+  da korisnik izgubi sve informacije prethodno skladištene u DOM-u. Ovaj proces
+  nije dobar, kako za performanse tako i za korisničko iskustvo. Jordan Walke je
+  radio na prototipu kako bi proces učinio efikasnijim. Tako je nastala
+  biblioteka skript jezika JavaScript za izgradnju korisničkih interfejsa i
+  nazvana je ReactJS. Vremenom je ova biblioteka poprimila sve više korisnika, a
+  u maju 2013. Jordan Walke je svetu predstavio ReactJS u okviru jedne
+  konferencije i sam kôd učinio javno dostupnim.
+</p>
 
-Ovde ćemo se upoznati sa osnovama React aplikacija: elementima i komponentama.
-Kada njih savladate, moći ćete da napravite složene aplikacije od manjih
-komponenti za višestruku upotrebu.<br /><br />
-Ovo je prvo poglavlje u korak-po-korak upoznavanju osnovnih React koncepata.
-Naučićemo i šta su to atributi komponenti, zatim da komponente mogu da imaju
-svoje stanje i čemu ono služi. Takođe, videćemo i kako se rukuje događajima u
-React-u.
-<br /><br />
-
-Lekcije su osmišljene tako da vas na jednostavan i zanimljiv način uvedu u svet
-React-a. Svaka lekcija je prikazana i na konkretnom primeru u okviru nje.
-<br /><br />
-
-Svako od narednih poglavlja nadograđuje se na znanja stečena u prethodnim
-poglavljima.
-
-<div class="napomena">
-  Kao što smo spomenuli, React je <b>JavaScript</b> biblioteka, tako da se
-  pretpostavlja da posedujete osnovno razumevanje JavaScript jezika.Ukoliko
-  sumnjate u svoje poznavanje, savetujemo vam da odvojite malo vremena i
-  proverite svoje
-  <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/js/js_uvod"
-    >JavaScript</a
-  >
-  znanje. Takođe, preporučujemo da se pre React-a posvetite
-  <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/html/html_uvod"
-    >HTML-u</a
-  >
-  i
-  <a href="http://edusoft.matf.bg.ac.rs/eskola_veba/#/course/css/css_uvod"
-    >CSS-u</a
-  >.
-</div>
-
-<div class="zadatak">
-  <b>Zadatak:</b> Prepraviti tekst u editoru tako da na ekranu ispisuje "React
-  je baš zanimljiv!".
-</div>
+<p>
+  U službenoj dokumentaciji je navedeno da je ReactJS biblioteka programskog
+  jezika JavaScript i da služi za razvoj korisničkih interfejsa. Vremenom je,
+  zbog velike popularnosti, zajednica otvorenog koda razvila mnoštvo paketa koje
+  proširuju biblioteku kako bi se omogućile funkcionalnosti koje su nedostajale.
+  Danas je fleksibilnost biblioteke čini kompatibilnom s nizom alata čijom se
+  integracijom postiže potpuna funkcionalnost radnog okvira.
+</p>

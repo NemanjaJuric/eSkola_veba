@@ -1,0 +1,29 @@
+<h1>Arhitekuralni šablon MVC</h1>
+
+<p>
+  Arhitekturalni šablon MVC (eng. Model-View-Controller) opisuje način kreiranja
+  aplikacija pri čemu postoje kriterijumi koje je potrebno zadovoljiti. Suština
+  MVC šablona je razdvajanje prezentacijskog dela aplikacije od koda koji se
+  bavi podacima. Logika aplikacije je strukturirana tako da pruža mogućnost
+  jednostavnog unapređivanja koda. Arhitektura MVC razdvaja aplikaciju na tri
+  grupe komponenti: model, prikaz (eng. view) i kontroler. Pomoću ovog obrasca
+  se zahtevi korisnika preusmeravaju na kontroler koji je zadužen za
+  komunikaciju sa modelom. Model sadrži podatke kao što su informacije o
+  objektima iz baze podataka. Sadrži i poslovnu logiku definišući operacije koje
+  se mogu primeniti nad tim podacima. Model se ne može direktno pozvati, već
+  kontroler zahteva od modela potrebne podatke. Zatim model obrađuje tražene
+  podatke i vraća ih natrag kontroleru. Kontroler prosleđuje podatke komponenti
+  zaduženoj za prikaz, koji ih dalje prikazuje korisniku. Komponenta view samo
+  prikazuje informacije, dok kontroler obrađuje korisnički unos i bira izlazne
+  podatke.
+</p>
+
+<img src="courses/react/slike/mvc-1.jpg" class="img-fluid img-md" />
+
+<p>
+  Radni okvir ReactJS se bavi slojem prikaza, pri čemu je bitno da svi vizuelni
+  elementi budu ažurni. Model i kontroler mogu biti bilo koji od alata. Ta
+  prilagodljivost omogućava programeru odabir tehnologija koje su mu već
+  poznate, a ReactJS postaje koristan ne samo za pravljenje novih veb
+  aplikacija, već i za unapređivanje koda postojećih aplikacija.
+</p>

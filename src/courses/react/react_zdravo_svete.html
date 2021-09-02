@@ -1,0 +1,246 @@
+<h1>Jednostavno podešavanje razvojnog okruženja ReactJS</h1>
+
+<p>
+  U prethodnim lekcijama je radno okruženje ReactJS uključivano pomoću
+  distribucionog sistema servera <a>CDN</a>. To je podrazumevalo pristup
+  odgovarajućim skript datotekama u zaglavlju HTML<i> </i>dokumenta. Pomenuti
+  način stvara brzu i direktnu putanju koja obezbeđuje prevođenje sintakse JSX u
+  odgovarajući JavaScript kôd. Loša strana samog pristupa su performanse. Pored
+  toga što se bavi učitavanjem strane, čitač veba je odgovoran i za prevođenje
+  sintakse JSX u JavaScript kôd. To je proces koji oduzima vreme.
+</p>
+
+<img src="courses/react/slike/zdravo_svete-1.jpg" class="img-fluid img-md" />
+
+<p>
+  Drugi način kreiranja radnog okruženja ReactJS podrazumeva da se konverzija
+  sintakse JSX u odovarajući JavaScript kôd obavlja kao deo izgradnje
+  aplikacije, što se ostvaruje kombinacijom alata Node.js, Webpack i Babel.
+</p>
+
+<img src="courses/react/slike/zdravo_svete-2.jpg" class="img-fluid img-md" />
+
+<p>
+  Pre nekoliko godina, podešavanje razvojnog okruženja je uključivalo ručno
+  konfigurisanje ovih alata. Projekat <i>Create React</i> je znatno
+  pojednostavio postupak podešavanja radnog okruženja. Za početak je potrebno
+  instalirati najnoviju verziju okruženja Node.js. Zatim, u komandnoj liniji
+  uneti sledeću naredbu
+  <span class="primer_text">npm install -g create-react-app</span> i pritisnuti
+  Enter/Return. Nakon nekog vremena, kada se instaliranje završi, u komandnoj
+  liniji je potrebno pristupiti direktorijumu u kome će se napraviti nov
+  projekat i uneti sledeću naredbu:
+  <span class="primer_text">create-react-app zdravosvete</span>. Rezultat
+  izvršenja date komande je projekat nazvan zdravosvete. Da bi se projekat
+  testirao, potrebno je pristupiti direktorijumu <i>zdravosvete</i> pomoću
+  naredbe cd <i>zdravosvete</i>. Nakon toga je moguće testirati aplikaciju
+  unošenjem komande npm start. Projekat će biti izgrađen, lokalni veb server
+  pokrenut.
+</p>
+
+<img src="courses/react/slike/zdravo_svete-3.jpg" class="img-fluid img-lg" />
+
+<p>
+  Dobijeni projekat je podrazumevani sadržaj koji generiše komanda
+  <span class="primer_text">create-react-app</span> . Struktura datoteka i
+  direktorijuma nakon pokretanja aplikacije
+  <span class="primer_text">create-react-app</span> zdravosvete izgleda kao na
+  slici.
+</p>
+
+<img src="courses/react/slike/zdravo_svete-4.jpg" class="img-fluid img-md" />
+
+<p>
+  Datoteka <i>index.html</i> u direktorijumu <i>public</i> se učitava u čitač.
+  Sadržaj datoteke <i>index.html</i>, sa uklonjenim komentarima je dat u
+  primeru. Svaka datoteka <i>index.html </i>sadrži jedan DOM element,
+  podrazumevano nazvan <i>root</i> u koji se smeštaju ostali elementi.
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+</xmp>
+
+<p>
+  Sadržaj React.js aplikacije i JSX kôd su smešteni u direktorijumu
+  <i>src</i>. Polazište aplikacije je smešteno u datoteku <i>index.js</i>.
+</p>
+
+<xmp class="primer_ta">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+reportWebVitals();
+</xmp>
+
+<p>
+  Poziv za metodu <i>ReactDOM.render</i> zahteva korenski element koji je
+  naveden unutar datoteke <i>index.html</i>. Naredba <i>import</i> je deo modula
+  u skript jeziku JavaScript. Cilj modula je da podeli funkcionalnost aplikacije
+  na progresivno manje delove. Neki moduli koji se uvoze su deo koda u projektu.
+  Drugi moduli su spoljni za projekat i to su biblioteke <i>React</i> i
+  <i>React-DOM</i>. Pored njih, uvozi se i CSS<i> </i>datoteka, kao i komponenta
+  koja se podrazumevano označava kao <i>App.js</i>.
+</p>
+
+<xmp class="primer_ta">
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
+    </div>
+  );
+}
+
+export default App;
+</xmp>
+
+<p>
+  Datoteka <i>App.js</i> sadrži naredbu <i>export</i> i ime koje će
+  projekat koristiti da identifikuje izvezeni modul. To ime se navodi prilikom
+  uvoza modula <i>App </i>u druge delove projekta, kao što je datoteka
+  <i>index.js</i>. Pored toga, datoteka <i>App.js</i> uvozi još i logo i CSS<i
+  > </i>datoteku koje su neophodne za funkcionisanje ove strane.
+</p>
+
+<p>
+  Ovo je drugi način struktuiranja koda. Naredbe <i>import</i> i
+  <i>export</i> olakšavaju upravljanje kodom aplikacije. Umesto da sve bude
+  definisano u jednoj velikoj datoteci, aplikacija je podeljena na više
+  funkcionalnih delova. Zavisno od redosleda učitavanja datoteka, postupak
+  izrade može da optimizuje konačan rezultat na načine o kojima onaj ko piše
+  aplikaciju ne mora da brine. Prilikom testiranja aplikacije, dešava se korak
+  prevođenja u izvršnu verziju. Tom prilikom veb čitač obrađuje datoteke i
+  komponente koje se uvoze i prevodi ih u jednu datoteku sa svim bitnim
+  delovima.
+</p>
+
+<img src="courses/react/slike/zdravo_svete-5.jpg" class="img-fluid img-md" />
+
+<h2>Kreiranje aplikacije ZdravoSvete</h2>
+
+<p>
+  Cilj aplikacije je da ispiše reči <i>Zdravo, svete! </i> na ekranu. Ono na šta
+  se treba fokusirati je struktuiranje datoteka u projektu. Za početak, potrebno
+  je u direktorijumu <i>src </i>obrisati sve datoteke, a potom napraviti novu
+  datoteku sa imenom <i>index.js</i>. U tu datoteku uneti sadržaj koji je dat u
+  sledećem primeru.
+</p>
+
+<xmp class="primer_ta">
+import React from "react";
+import ReactDOM from "react-dom";
+import ZdravoSvete from "./ZdravoSvete";
+
+ReactDOM.render(
+    <ZdravoSvete/>,
+    document.getElementById("root")
+);
+
+</xmp>
+
+<p>
+  Moduli koji se uvoze su <i>React</i> i <i>ReactDOM</i>. Pored toga, uvozi se i
+  komponenta <i>ZdravoSvete</i> koja se navodi u pozivu funkcije
+  <i>ReactDOM.render</i>. U istom direktorijumu <i>src</i>, potrebno je kreirati
+  datoteku <i>ZdravoSvete.js</i>, a u okviru nje komponentu <i>ZdravoSvete</i>.
+</p>
+
+<p>
+  Primer prikazuje datoteku <i>ZdravoSvete.js</i> koja sadrži dodatnu naredbu
+  <i>import</i>, komponentu <i>ZdravoSvete</i> koja ispisuje određeni tekst na
+  ekranu i kôd koji označava naredbu za izvoz komponente, kako bi modul kao što
+  je <i>index.js</i>, mogao da joj pristupi.
+</p>
+<p>
+  Nakon što se sačuvaju sve izmene, može da se testira aplikacija. U komandnoj
+  liniji se unese naredba <span class="primer_text">npm start</span>. Ukoliko je
+  aplikacija već pokrenuta, ona se automatski ažurira u skladu sa poslednjim
+  izmenama. Ukoliko se aplikacija zaustavila, kombinacijom tastera CTRL + C je
+  potrebno zaustaviti proces i ponovo uneti naredbu.
+</p>
+<p>
+  Aplikaciji <i>ZdravoSvete</i> se mogu dodati određeni stilovi. To se postiže
+  tako što se u direktorijumu <i>src</i> kreira datoteka pod nazivom
+  <i>index.css</i> i u okviru nje navedu pravila za stilizovanje.
+</p>
+
+<xmp class="primer_ta"
+>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    h1{
+        font-family: sans-serif;
+        font-size: 36px;
+        background-color:aliceblue;
+    }
+</xmp>
+
+<p>
+  Pored pravljenja opisa stilova, potrebno je u datoteci <i>index.js</i> navesti
+  referencu na datoteku za stilizovanje. To se postiže tako što se u datoteci
+  <i>index.js</i> doda odgovarajuća naredba za uvoz.
+</p>
+
+<xmp class="primer_ta">
+import React from "react";
+import ReactDOM from "react-dom";
+import ZdravoSvete from "./ZdravoSvete";
+import "./index.css"
+
+ReactDOM.render(
+    <ZdravoSvete/>,
+
+    document.getElementById("root")
+);
+</xmp>
+
+<h2>Pravljenje produkcione verzije</h2>
+
+<p>
+  Do sada je razvoj aplikacije <i>ZdravoSvete</i> bio u razvojnom režimu. U tom
+  režimu kôd nije minimizovan i neke stvari se pokreću u sporoj postavci.
+  Ukoliko aplikaciju treba poslati korisniku, traži se najbrže i najkompaktinije
+  rešenje. Zbog toga, nakon što se izvrši izgradnja aplikacije, u komandnoj
+  liniji se unosi naredba npm run build. Toj naredbi je potrebno nekoliko minuta
+  da napravi optimizovani skup datoteka. Posle toga se može izabrati opcija da
+  se aplikacija pošalje na server ili samo da se lokalno testira pomoću
+  odgovarajućeg Node.js paketa. Generisana JavaScript datoteka sadrži svu logiku
+  koja je aplikaciji neophodna za rad.
+</p>

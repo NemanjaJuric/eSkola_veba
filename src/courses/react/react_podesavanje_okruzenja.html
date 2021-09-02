@@ -1,0 +1,55 @@
+<h1>Podešavanje radnog okruženja</h1>
+
+<p>
+  Postoje dva načina za kreiranje radnog okruženja ReactJS. Prvi način
+  podrazumeva upotrebu okruženja Node.js i odgovarajućih alata, dok se drugi
+  način ostvaruje uključivanjem okruženja iz distribucionog sistema servera CDN. Oba načina imaju svoju primenu u praksi.
+</p>
+
+<p>
+  Prvi način je način na koji se moderni razvoj veba danas odvija. Pored
+  prevođenja sintakse JSX u odgovarajući JavaScript kôd, ovaj pristup omogućava
+  korišćenje modula, boljih alata za izgradnju i mnoštvo drugih funkcionalnosti
+  koje olakšavaju izradu složenih veb aplikacija.
+</p>
+
+<p>
+  Drugi način uključuje brzu i direktnu putanju koja se brine za prevođenje
+  sintakse JSX u odgovarajući JavaScript kôd kada se strana učita. To se
+  realizuje tako što se u zaglavlju HTML dokumenta navode linkovi pomoću kojih
+  se pristupa udaljenim fajlovima. Linkovi koji se u ovom slučaju navode
+  pokazuju na:
+</p>
+
+<ul>
+  <li>kompajliranu osnovnu ReactJS bibiloteku</li>
+  <li>kompajliranu biblioteku koja je neophodna za rad sa DOM elementima</li>
+  <li>kompajliranu biblioteku Babel</li>
+</ul>
+
+<xmp class="primer_ta">
+<!— biblioteka React-->
+   <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<!— biblioteka React-dom -->
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js">
+    </script>
+<!—biblioteka Babel -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</xmp>
+
+<p>
+  Da bi se omogućilo pravilno funkcionisanje veb strane, potrebno je da se u
+  zaglavlju navede i element &lt;meta&gt; sa sledećim atributima:
+  <span class="primer_text">
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  </span>. Ovaj element omogućava prilagođavanje širini ekrana, dajući instrukcije
+  pregledaču kako da kontroliše i skalira dimenziju veb stranice. Atribut width
+  određuje širinu strane i može mu se dodeliti konkretna vrednost piksela. Izraz
+  <i>width=device-width</i> određuje da širina strane bude jednaka širini
+  ekrana. Atribut <i>initial-scale=1.0</i> postavlja inicijalnu vrednost prikaza
+  veb strane prilikom njenog prvog učitavanja i sprečava podrazumevano uvećanje.
+</p>
+
+<div class = "zadatak">
+  <b>Zadatak. </b>Na koji način se radno okruženje ReactJS uključuje pomoću sistema servera CDN?
+</div>

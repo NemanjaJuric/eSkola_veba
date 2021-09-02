@@ -1,0 +1,193 @@
+<h1>Životni ciklus komponente</h1>
+
+<p>
+  Metode životnog ciklusa komponente su specijalne procedure za obradu događaja
+  koje se pozivaju u određenim trenucima života komponente. Kao i kod procedura
+  za obradu događaja, može se pisati kôd koji će obavljati razne stvari u tim
+  trenucima. Metode životnog ciklusa komponente se mogu svrstati u tri grupe:
+</p>
+
+<ul>
+  <li>Metode iscrtavanja</li>
+  <li>Metode ažuriranja</li>
+  <li>Metode uništenja</li>
+</ul>
+
+<p>
+  Metode iscrtavanja se pozivaju kada se komponenta inicijalizuje i smešta u
+  DOM. Motode ažiriranja se pozivaju pri promeni svojstva i stanja komponente,
+  dok se metode uništenja pozivaju prilikom uklanjanja komponente iz DOM-a.
+</p>
+
+<h2>Metode iscrtavanja</h2>
+
+<p>
+  Kada komponenta treba da započne svoj životni ciklus, pozivaju se sledeće
+  metode:
+</p>
+
+<img
+  src="courses/react/slike/zivotni_ciklus_komponente-1.jpg"
+  class="img-fluid img-md"
+/>
+
+<h2>Unošenje podrazumevanih svojstava</h2>
+
+<p>
+  Unošenje podrazumevanog svojstva omogućava da se komponenti zada podrazumevana
+  vrednost za svojstvo <i>props</i>. Komponenti <i>Pozdrav </i>se može zadati
+  svojstvo <i>ime</i> na način sledeći način:
+</p>
+
+<xmp class="primer_ta"
+>
+Pozdrav.defaultProps = { ime: "Jovan", };
+</xmp>
+
+<div class = "napomena">
+   <b>Napomena. </b>Ovaj kôd se izvršava pre nego što komponenta bude definisana.
+</div>
+<h2>Unošenje podrazumevanog stanja</h2>
+
+<p>
+  Unošenje podrazumevanog stanja komponente se odnosi na zadavanje podrazumevane
+  vrednosti za objekat <i>state</i> kao deo stvaranja komponente.
+</p>
+
+<xmp class="primer_ta"
+>
+constructor(props){
+    super(props);
+
+    this.state = {
+        brojac: 0
+    }
+}
+</xmp>
+
+<p>
+  Metoda koja se poziva pre nego što komponenta bude iscrtana u DOM je metoda
+  <i>componentWillMount</i>. Ako se pozove metoda <i>setState</i> unutar ove
+  metode, komponenta se neće ponovo iscrtavati.
+</p>
+<p>
+  Nakon nje se poziva metoda <i>render</i>. To je ujedno i najčešće korišćena
+  metoda životnog ciklusa.<i> </i>Ona služi za prikazivanje komponente prilikom
+  kreiranja korisničkog okruženja. Metoda <i>render</i> se izvršava za vreme
+  inicijalizacije komponente i prilikom ažuriranja njenog stanja. Unutar same
+  metode se ne poziva metoda <i>setState</i>, jer bi u tom slučaju došlo do
+  izvršavanja beskonačne petlje
+  <i>(render =&gt; setState =&gt; render =&gt; setState =&gt; render…</i>).
+</p>
+<p>
+  Odmah nakon što se komponenta iscrta i postavi u DOM poziva se metoda
+  <i>componentDidMount. </i>Ova metoda se obično koristi kada se pristupa nekim
+  podacima u bazi i dozvoljava korišćenje metode <i>setState</i>.
+</p>
+<p>
+  Sa izuzetkom metode <i>render</i>, navedene metode životnog ciklusa se mogu
+  pokrenuti samo jednom. Kada su komponente dodate u DOM, one se potencijalno
+  mogu ponovo ažurirati i ponovo iscrtavati kada se promene objekti svojstva ili
+  stanja same komponente.
+</p>
+
+<xmp class="primer_ta"
+>
+constructor(props){
+    super(props);
+
+    this.state = {
+        data: []
+    }
+}
+
+componentDidMount(){
+    this.setState({
+        data: [1, 2, 3, 4, 5]
+    });
+}
+</xmp>
+
+<p>
+  U prethodnom primeru se zadaje inicijalno stanje podatkom koji je prazan niz.
+  Nakon definisanja inicijalnog stanja, poziva se metoda
+  <i>componentDidMount</i>, kako bi se <i>state</i> objekat popunio podacima.
+</p>
+<p>
+  Hijerarhija događaja od postavljanja inicijalnog <i>state</i> objekta do
+  njegovog ažuriranja:
+</p>
+<ul>
+  <li>
+    Komponenta se iscrtava u DOM sa podacima koji se nalaze na inicijalnom
+    <i>state</i> objektu
+  </li>
+  <li>Objekat <i>state</i> se ažurira</li>
+  <li>Komponenta se ponovo iscrtava u DOM sa drugim podacima</li>
+</ul>
+
+<h2>Faza ažuriranja</h2>
+
+<p>
+  Jedna od najčešće korišćenih metoda tokom promene stanja komponente je metoda
+  <i>componentDidUpdate</i>. Ova metoda se poziva nakon ažuriranja komponente i
+  pozivanja metode <i>render</i>. Ako treba da se izvrši neki kod nakon
+  ažuriranja, onda se smešta unutar ove metode.
+</p>
+
+<xmp class="primer_ta">
+class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { boja: "crvena" };
+    }
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ boja: "zuta" })
+        }, 3000)
+    }
+    componentDidUpdate() {
+        document.getElementById("root").innerHTML =
+            "Nakon ažuriranja, omiljena boja je " + this.state.boja;
+    }
+    render() {
+        return (
+            <div>
+                <h1>Moja omiljena boja je {this.state.boja}</h1>
+                <div id="root"></div>
+            </div>
+        );
+    }
+}
+</xmp>
+
+<p>
+  Sadržaj veb stranice nakon pokretanja primera, prikazan je na sledećoj slici.
+  Nakon tri sekunde sadržaj veb stranice se menja kako je prikazano.
+</p>
+
+<img
+  src="courses/react/slike/zivotni_ciklus_komponente-2.jpg"
+  class="img-fluid img-md"
+/>
+
+<img
+  src="courses/react/slike/zivotni_ciklus_komponente-3.jpg"
+  class="img-fluid img-md"
+/>
+
+<p>
+  Kada se komponenta montira i smešta u DOM, boja je “crvena“. Nakon što je
+  komponenta smeštena u DOM, tajmer menja stanje i boja postaje “žuta”. Metoda
+  <i>componentDidUpdate</i> se poziva nakon što je izvršena promena stanja i
+  ispisuje poruku u prazan div element.
+</p>
+
+<h2>Faza uništenja komponente</h2>
+
+<p>
+  Kada se metoda uklanja iz DOM-a aktivna je samo jedna metoda životnog ciklusa,
+  a to je <i>componentWillUnmount</i>. Ukoliko je potrebno izvršiti uklanjanje
+  osluškivača događaja ili zaustavljanje tajmera, to se može učiniti unutar ove
+  metode. Kada se ova metoda pozove, komponenta se uklanja iz DOM-a.
+</p>

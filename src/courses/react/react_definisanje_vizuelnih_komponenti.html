@@ -1,0 +1,67 @@
+<h1>Definisanje vizuelnih komponenti</h1>
+
+<p>
+  U svemu čime se programiranje bavi dobro je da stvari budu modularne,
+  kompaktne i samostalne. ReactJS tu ideju primenjuje na kreiranje vizuelnih
+  elemenata aplikacije. Osnovna ideja rada u ovom radnom okviru je da se
+  vizuelni elementi podele na manje komponente, kako bi one bile ponovo
+  iskoristive i kada se podaci koje prikazuju promene.
+</p>
+
+<p>
+  Definisanje vizuelnih elemenata u programskom jeziku JavaScript je prilično
+  komplikovano i zahteva dosta poziva funkcije <i>createElement</i>. ReactJS
+  omogućava da se vizuelne komponente definišu pomoću sintakse slične jeziku
+  HTML, nazvane JSX (eng. JavaScript XML). Umesto pisanja koda za definisanje
+  korisničkog okruženja, sintaksa JSX podrazumeva upotrebu odgovarajućih HTML
+  oznaka.
+</p>
+
+<p>Primer upotrebe JSX sintakse u radnom okviru ReactJS:</p>
+
+<xmp class="primer_ta">
+ReactDOM.render(
+    <div>
+        <h1> Naslov </h1>
+        <h3> Podnaslov </h3>
+    </div>,
+    destination
+);
+</xmp>
+
+<p>Drugačiji način kreiranja ReactJS okruženja:</p>
+
+<xmp class="primer_ta"
+>
+ReactDOM.render(React.createElement
+    "div",
+    null,
+    React.createElement(
+        "h1",
+         null,
+       "Naslov"
+    ),
+    React.createElement(
+        "h1",
+         null,
+        "Podnaslov"
+    )
+), destination);
+</xmp>
+
+<p>
+  Sintaksa JSX omogućava jednostavno definisanje vizuelnih komponenti, a ipak
+  zadržava moć i fleksibilnost koju nudi skript jezik JavaScript.
+</p>
+
+<div class = "napomena">
+  <b>Napomena. </b>Nije bitno da li je aplikacija napisana pomoću radnog okvira ReactJS
+  ili neke druge biblioteke za JavaScript, krajni rezultat mora da bude kombinacija koda koja
+  podrazumeva upotrebu jezika HTML, CSS i JavaScript, inače čitač veba neće
+  znati šta da radi. Zato je potrebno definisati način na koji će se JSX
+  konvertovati u odgovarajući JavaScript kôd, koji čitač veba razume.
+</div>
+
+<div class = "zadatak">
+  <b>Zadatak. </b>Na koji način se mogu definisati vizuelni elementi u radnom okruženju ReactJS?
+</div>

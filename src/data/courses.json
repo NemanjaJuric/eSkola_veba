@@ -1557,78 +1557,85 @@
         "sublessons": null
       },
       {
-        "name": "React - JSX",
-        "url": "react_upoznavanje_JSX",
+        "name": "Arhitekuralni šablon MVC",
+        "url": "react_mvc",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "React - predstavljanje elemenata",
-        "url": "react_predstavljanje_elemenata",
+        "name": "Veb aplikacije na jednoj strani",
+        "url": "react_spa",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Komponente i atributi",
-        "url": "react_komponente_i_atributi",
+        "name": "EcmaScript 6",
+        "url": "react_es6",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Stanje i životni ciklus",
-        "url": "react_stanje_i_zivotni_ciklus",
+        "name": "Definisanje vizuelnih komponenti",
+        "url": "react_definisanje_vizuelnih_komponenti",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Rukovanje događajima",
-        "url": "react_rukovanje_dogadjajima",
+        "name": "Podešavanje radnog okruženja",
+        "url": "react_podesavanje_okruzenja",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Uslovno prikazivanje",
-        "url": "react_uslovno_prikazivanje",
+        "name": "Kreiranje veb strane korišćenjem okruženja ReactJS",
+        "url": "react_kreiranje_veb_strane",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Liste i ključevi",
-        "url": "react_liste_i_kljucevi",
+        "name": "Komponente",
+        "url": "react_komponente",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Forme",
-        "url": "react_forme",
+        "name": "Upravljanje događajima",
+        "url": "react_upravljanje_dogadjajima",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Podizanje stanja nagore",
-        "url": "react_podizanje_stanja_nagore",
+        "name": "Životni ciklus komponente",
+        "url": "react_zivotni_ciklus_komponente",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Sastavlanje naspram nasleđivanja",
-        "url": "react_sastavljanje_naspram_nasledjivanja",
+        "name": "React Hooks",
+        "url": "react_hooks",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null
       },
       {
-        "name": "Razmišljanje u React-u",
-        "url": "react_razmisljanje_u_reactu",
+        "name": "Zdravo svete",
+        "url": "react_zdravo_svete",
+        "type": "lesson",
+        "parentCourse": "react",
+        "sublessons": null
+      },
+      {
+        "name": "Virtuelni DOM",
+        "url": "react_virtual_dom",
         "type": "lesson",
         "parentCourse": "react",
         "sublessons": null

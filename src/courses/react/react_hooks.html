@@ -1,0 +1,594 @@
+<h1>React Hooks</h1>
+
+<p>
+  React Hooks su funkcije koje su postale dostupne pojavom verzije React 16.8,
+  početkom 2019. godine. Upotreba ovih funkcija značajno olakšava razvoj
+  aplikacija. Njihov značaj se ogleda u mogućnosti korišćenja stanja i životnog
+  ciklusa unutar funkcijskih komponenti . Pre pojave ove verzije radnog okvira
+  ReactJS, nije bilo moguće definisati stanje unutar komponenti koje nisu
+  napisane kao klase.
+</p>
+<p>
+  Najčešće korišćena funkcija među njima je <b><i>useState</i></b
+  >. Ona omogućuje inicijalizaciju i promenu stanja funkcijske komponente,
+  analogno svojstvima objekta <i>state </i>u komponentama koje su definisane kao
+  klase.
+</p>
+
+<h2>
+  Korišćenje objekta kao promenljive stanja pomoću funkcije <i>useState</i>
+</h2>
+
+<p>
+  Sledeći primer prikazuje upotrebu objekta kao promenljive stanja pomoću
+  funkcije <i>useState</i>.
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      const App = () => {
+        const [poruka, postaviPoruku] = useState({ tekst: "" });
+        return (
+          <div>
+            <p>{poruka.tekst}</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                poruka.test = event.target.value;
+                postaviPoruku(poruka); //nije ispravno
+              }}
+              placeholder="unesi tekst"
+            />
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>
+  Umesto da kreira novi objekat, kôd unutar događaja
+  <i>onChange</i> transformiše postojeći objekat stanja. U radnom okviru ReactJS
+  to je isti objekat. Da bi promena stanja funkcionisala, potrebno je kreirati
+  objekat na sledeći način:
+</p>
+
+<xmp class="primer_ta"
+>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      const App = () => {
+        const [poruka, postaviPoruku] = useState({ tekst: "" });
+        return (
+          <div>
+            <p>{poruka.tekst}</p>
+            <input
+              type="text"
+              onChange={(event) => {
+                const novaPoruka = { tekst: event.target.value };
+                postaviPoruku(novaPoruka);
+              }}
+              placeholder="unesi tekst"
+            />
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>
+  Funkcija <i>useState</i> vraća niz od dva elementa: prvi element je
+  promenljiva koja predstavlja svojstvo, a drugi je funkcija kojom se to stanje
+  ažurira. Funkcija <i>useState</i> kao argument zahteva jedan parametar koji je
+  inicijalna vrednost svojstva. U primeru argument funkcije <i>useState</i> je
+  objekat. Za razliku od komponenata koje su definisane kao klase, u funkcijskim
+  komponentama stanje ne mora biti objekat, već bilo koji tip podataka. Svaki
+  segment stanja sadrži sopstvenu vrednost, koja može da bude objekat, niz,
+  logička vrednost itd. Argument početnog stanja koristi se samo tokom prvog
+  prikazivanja komponente u DOM. Funkcija koju vraća <i>useState</i> ne
+  nadovezuje objekte kao što je to slučaj sa funkcijom setState unutar
+  komponenata koje su definisane kao klase.
+</p>
+
+<p>
+  Funkciji useState je prosleđen objekat koji sadrži više od jednog svojstva:
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      const App = () => {
+        const [poruka, postaviPoruku] = useState({ tekst: "", id: 1 });
+
+        return (
+          <div>
+            <p>
+              {poruka.id}: {poruka.tekst}
+            </p>
+            <input
+              type="text"
+              onChange={(event) => {
+                const novaPoruka = { tekst: event.target.value };
+                postaviPoruku(novaPoruka);
+              }}
+              placeholder="unesi tekst"
+            />
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>
+  Nakon unosa teksta u input polje, dati sadržaj se ispisuje u liniji iznad, ali
+  će se oznaka koja označava svojstvo izbrisati. Ovakav način pozivanja događaja
+  <i>onChange</i>, koji samo sadrži svojstvo tekst, učiniće da svojstvo
+  <i>id</i> nestane. Naime, ReactJS je zamenio postojeći objekat stanja
+  <span class="primer_text"> {tekst: " ", id: 1 } </span> , objektom
+  <span class="primer_text">{tekst: event.target.value}</span>. Jedan od načina
+  za rešenje ovog problema je da se događaj <i>onChange</i> napiše kao što je to
+  u sledećem primeru. Na taj način će se omogućiti pristup svim svojstvima
+  objekta, a svojstvo tekst će dobiti novu vrednost.
+</p>
+
+<xmp class="primer_ta"
+>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      const App = () => {
+        const [poruka, postaviPoruku] = useState({ tekst: "", id: 1 });
+
+        return (
+          <div>
+            <p>
+              {poruka.id}: {poruka.tekst}
+            </p>
+            <input
+              type="text"
+              onChange={(event) => {
+                const val = event.target.value;
+                postaviPoruku((prethodnoStanje) => {
+                  return { ...prethodnoStanje, tekst: val };
+                });
+              }}
+              placeholder="unesi tekst"
+            />
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>Isti rezultat se postiže korišćenjem metode <i>Object.assign</i>.</p>
+
+<h2>Korišćenje funkcije useState u radu sa nizovima</h2>
+
+<p>
+  Sledeći primer prikazuje korišćenje funkcije <i>useState</i> u radu sa
+  nizovima.
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/babel">
+      const { useState } = React;
+
+      function App() {
+        const [ime, dodajIme] = useState(["Jovan", "Marko"]);
+        const [novoIme, dodajNovoIme] = useState("");
+        const sacuvajIme = () => {
+          dodajIme([...ime, novoIme]);
+          dodajNovoIme("");
+        };
+        return (
+          <div className="container">
+            {ime.map((element) => (
+              <li>{element}</li>
+            ))}
+            <input
+              type="text"
+              onChange={(event) => dodajNovoIme(event.target.value)}
+              value={novoIme}
+              placeholder="novo ime"
+            />
+            <button onClick={sacuvajIme}>Dodaj</button>
+          </div>
+        );
+      }
+      ReactDOM.render(<App />, document.querySelector("#container"));
+    </script>
+  </body>
+</html>
+
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>
+  Sadržaj internet stranice nakon pokretanja aplikacije prikazan je na sledećoj
+  slici:
+</p>
+
+<img src="courses/react/slike/hooks-1.jpg" class="img-fluid img-md" />
+
+<p>
+  Nakon unosa novog imena u okviru <i>input</i> polja, potrebno je pokrenuti
+  dugme <i>Dodaj</i> i to ime će se prikazati u okviru liste, odmah ispod
+  postojećih imena. U okviru prvog poziva funkcije <i>setState</i> inicijalna
+  vrednost stanja je niz imena. Događaju <i>onClick</i> je prosleđena metoda
+  <i>sacuvajIme</i> koja dodaje ime na već postojeći niz imena. Za dodavanje
+  elemenata u niz korišćen je <i>spread</i> operator. Imena su prikazana u
+  okviru nenumerisane liste, dok je za pristup pojedinačnim članovima niza
+  korišćena funkcija <i>map</i>.
+</p>
+
+<h2>Funkcija <i>useEffect</i></h2>
+
+<p>
+  <i>Hooks</i> funkcije su pojednostavile upravljanje metodama životnog ciklusa
+  unutar funkcijskih komponenti. Najčešće korišćena među njima je funkcija
+  <i>useEffect</i>.
+</p>
+<p>
+  Funkcija <i>useEffect</i> se podrazumevano pokreće nakon prvog iscrtavanja
+  komponente u DOM, ali i nakon svakog ažuriranja. Kao argument može da ima
+  jedan ili dva parametra. Prvi je funkcija povratnog poziva, a drugi parametar
+  je niz i on je opcioni. Ukoliko se ne navede drugi parametar, neželjeni efekti
+  se pokreću nakon svakog prikazivanja komponente. Inače, ukoliko se kao drugi
+  parametar navede prazan niz, ovi efekti se pokreću jednom, nakon inicijalnog
+  prikazivanja (renderovanja). Najveći značaj funkcije <i>useEffect </i>je što
+  obezbeđuje pokretanje neželjenih efekata nezavisno od prikazivanja.
+</p>
+<p>
+  Drugi argument funkcije <i>useEffect </i>kontroliše kada se neželjeni efekti
+  pokreću i zavisno od toga razlikuju se sledeći slučajevi:
+</p>
+
+<ul>
+  <li>
+    ukoliko se ne navede, neželjeni efekti se pokreću nakon svakog prikazivanja
+  </li>
+  <li>
+    ukoliko je prazan niz, neželjeni efekti se pokreću jednom, nakon incijalnog
+    prikazivanja
+  </li>
+  <li>
+    ukoliko sadrži svojstva props i state, neželjeni efekti se pokreću samo kada
+    se njihove vrednosti promene
+  </li>
+</ul>
+
+<h2>
+  Upotreba funkcije useEffect na način na koji se neželjeni efekti pokreću
+  jednom, nakon inicijalnog prikazivanja
+</h2>
+
+<p>
+  Sledeći primer pokazuje kako funkcija <i>useEffect</i> pokreće neželjeni
+  efekat samo jednom, nakon inicijalnog prikazivanja.
+</p>
+
+<xmp class="primer_ta"
+>
+const { useEffect } = React
+
+function Pozdrav({ ime }) {
+    const poruka = `Zdravo, ${ime}!`;
+
+    useEffect(() => {
+        alert('Stranica sa pozdravom'); // nezeljeni efekat 
+    }, []);
+
+    return <div>{poruka}</div>;         
+}
+</xmp>
+
+<p>
+  Čak i ako se komponenta ponovo poziva sa različitim svojstvom imena, neželjeni
+  efekat se pokreće samo jednom, nakon prvog prikazivanja. 
+</p>
+
+<div class = "napomena">
+<b>Napomena. </b>Ovaj način upotrebe  funkcije <i>useEffect</i> unutar funkcijske komponente se može uporediti sa metodom životnog ciklusa <i>ComponentDidMount</i> unutar komponente klase.</div>
+
+<xmp class="primer_ta">
+
+// Prvo prikazivanje
+<Pozdrav ime="Stefan" />   // pokrece se nezeljeni efekat
+
+// Drugo prikazivanje, svojstvo props se menja
+<Pozdrav ime="Jovan" />   // ne pokrece se nezeljeni efekat
+
+// Trece prikazivanje, svojstvo props se menja
+<Pozdrav ime="Marko" />   // ne pokrece se nezeljeni efekat
+     
+</xmp>
+
+<h2>
+  Upotreba funkcije <i>useEffect</i> na način na koji se neželjeni efekti
+  pokreću samo kada se vrednosti <i>props</i> i <i>state</i> promene
+</h2>
+
+<xmp class="primer_ta"
+>
+const { useEffect } = React
+
+function App({ prop }) {
+    const [state, setState] = useState();
+
+    useEffect(() => {
+       // nezeljeni efekti koriste vrednosti prop i state
+    }, [prop, state]);
+    return <div>....</div>;
+}
+</xmp>
+
+<p>
+  Svaki put kada neželjeni efekti koriste vrednosti <i>props</i> i <i>state</i>,
+  isti se moraju navesti kao argumenti niza koji je drugi parametar funkcije
+  <i>useEffect</i>. Funkcija povratnog poziva se poziva nakon što se promene
+  izvrše na DOM-u ako i samo ako se neke od vrednosti <i>props</i> i
+  <i>state</i> promene. Korišćenje argumenta zavisnosti u funkciji
+  <i>useEffect</i> omogućava kontrolu poziva neželjenih efekata, nezavisno od
+  ciklusa prikazivanja komponente. To je suština funkcije <i>useEffect</i>.
+  Funkcija <i>useEffect</i> će pokrenuti neželjeni efekat ako se odgovarajuće
+  svojstvo promeni.
+</p>
+
+<xmp class="primer_ta"
+>
+const { useEffect } = React;
+
+function Pozdrav({ ime }) {
+    const poruka = `Zdravo, ${ime}!`
+    useEffect(() => {
+        document.title = 'Zdravo, ${ime}'; // nezeljeni efekat 
+    }, [ime]);
+    
+    return <div>{poruka}</div>;         
+}
+</xmp>
+
+<p>
+  Funkcija <i>useEffect</i> pokreće neželjeni efekat nakon početnog
+  (inicijalnog) prikazivanja, a nakon sledećih prikazivanja samo ako se vrednost
+  svojstva promeni.
+</p>
+
+<xmp class="primer_ta">
+
+// Prvo prikazivanje
+<Pozdrav ime="Jovan" />   // pokrece se nezeljeni efekat
+
+// Drugo prikazivanje, svojstvo props se menja
+<Pozdrav ime="Stefan" />   // pokrece se nezeljeni efekat
+
+// Trece prikazivanje, svojstvo props se menja
+<Pozdrav ime="Stefan" />   // ne pokrece se nezeljeni efekat
+      
+// Cetvrto prikazivanje, svojstvo props se menja
+<Pozdrav ime="Marko" />   // pokrece se nezeljeni efekat     
+
+</xmp>
+
+<p>
+  Ovaj način upotrebe funkcije <i>useEffect </i>unutar funkcijske komponente se
+  može uporediti sa metodom životnog ciklusa <i>ComponentDidUpdate </i>
+  unutar komponente klase.
+</p>
+
+<h2>Uklanjanje neželjenih efekata</h2>
+
+<p>
+  Neki neželjeni efekti zahtevaju uklanjanje. Ako funkcija povratnog poziva koja
+  je argument funkcije <i>useEffect </i> vraća neku funkciju, tada se radi o
+  uklanjanju nekog efekta.
+</p>
+
+<xmp class="primer_ta"
+>
+useEffect(() => {
+  // nezeljeni efekat
+  return function izbrisi() {  
+  // uklanjanje nezeljenog efekta  
+  };
+}, []);
+</xmp>
+
+<p>Uklanjanje neželjenog efekta se odvija na sledeći način:</p>
+
+<ul>
+  <li>
+    Nakon inicijalnog prikazivanja, useEffect proverava da li funkcija povratnog
+    poziva (koja je njen argument) vraća neku funkciju. Funkcija za uklanjanje
+    se ne poziva.
+  </li>
+  <li>
+    Tokom sledećih prikazivanja, pre poziva funkcije povratnog poziva za sledeći
+    neželjeni efekat, <i>useEffect</i> poziva funkciju za uklanjanje prethodnog
+  </li>
+  <li>
+    Nakon uklanjanja komponente, <i>useEffect</i> poziva funkciju za uklanjanje
+    poslednjeg neželjenog efekta
+  </li>
+</ul>
+
+<p>Neželjeni efekti se javljaju prilikom upotrebe metode setInterval.</p>
+
+<div class = "napomena">
+  <b>Napomena. </b> U primerima je korišćena funkcija <i>console.print</i> koja je implementirana na platformi. Inače se koristi <i>console.log.</i>
+</div>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <script type="text/babel">
+      const { useEffect, useState } = React;
+      function PonoviPoruku({ poruka }) {
+        useEffect(() => {
+          setInterval(() => {
+            console.print(poruka);
+          }, 2000);
+        }, [poruka]);
+        return <div>U konzoli će se ispisati "{poruka}"</div>;
+      }
+      function App() {
+        const [poruka, postaviPoruku] = useState("Zdravo svete!");
+        return (
+          <div>
+            <h3>Ukucaj poruku koja će se ispisati u konzoli</h3>
+            <input
+              type="text"
+              value={poruka}
+              onChange={(e) => postaviPoruku(e.target.value)}
+            />
+            <PonoviPoruku poruka={poruka} />
+          </div>
+        );
+      }
+      ReactDOM.render(<App />, document.body);
+    </script>
+  </body>
+</html>
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<p>
+  Nakon pokretanja koda potrebno je otvoriti konzolu i pratiti promene. Konzola
+  beleži svake dve sekunde svaku poruku koja je ikada otkucana u polju
+  predviđenom za unos teksta. Ovo je slučaj kada je potrebno ukloniti neželjeni
+  efekat. To se postiže tako što se vrati funkcija koja zaustavlja prethodni
+  tajmer. Na taj način se samo poslednja izmena evidentira u konzoli.
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <script type="text/babel">
+      const { useEffect, useState } = React;
+      function PonoviPoruku({ poruka }) {
+        useEffect(() => {
+          const id = setInterval(() => {
+              console.print(poruka);
+            }, 2000);
+            return () => {
+              clearInterval(id);
+            };
+          }, [poruka]);     
+          return <div>U konzoli ce se ispisati "{poruka}"</div>;
+      }
+      function App() {
+        const [poruka, postaviPoruku] = useState("Zdravo svete!");
+        return (
+          <div>
+            <h3>Ukucaj poruku koja će se ispisati u konzoli</h3>
+            <input
+              type="text"
+              value={poruka}
+              onChange={(e) => postaviPoruku(e.target.value)}
+            />
+            <PonoviPoruku poruka={poruka} />
+          </div>
+        );
+      }
+      ReactDOM.render(<App />, document.body);
+    </script>
+  </body>
+</html>
+</xmp>
+
+<button class = "button_copy">Vidi primer</button>
+
+<div class = "zadatak">
+<b>Zadatak. </b> Čemu služe funkcije <i>useState</i> i <i>useEffect</i>? Pokrenuti sve isečke koda. Osmisliti sopstvene primere koji ilustruju upotrebu <i>hooks</i> funkcija.
+</div>
