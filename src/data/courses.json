@@ -4167,7 +4167,7 @@
     "type": "book",
     "lang": "",
     "displayLang": "",
-    "sections": ["programski_jezici"],
+    "sections": ["programski_jezici", "srednja_skola"],
     "detailsText": "Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči u Belovim telefonskim laboratorijama (engl. Bell Telephone Laboratories) u SAD.  C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. Međutim, vremenom je počeo da se koristi i za pisanje aplikativnog softvera na velikom broju drugih platformi.",
     "lessons": [
       {
