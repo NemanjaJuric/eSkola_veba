@@ -1,0 +1,135 @@
+<h1>EcmaScript 6</h1>
+
+<p>
+  Budući da je JavaScript najčešće korišćen programski jezik za izradu
+  klijentske strane veb aplikacija, došlo je do razvoja njegovog standarda,
+  odnosno specifikacije koja je nazvana EcmaScript ili skraćeno ES. Vremenom je
+  EcmaScript prošao kroz mnoge izmene i poboljšanja, ali je svaka izmena
+  napravljena tako da prethodna verzija bude kompatibilna sa novom verzijom.
+  Šesti EcmaScript standard, odnosno ES6 je značajno poboljšanje skript jezika
+  JavaScript. Radni okvir ReactJS većinom podrazumeva upotrebu ES6 standarda,
+  zbog boljih performansi.
+</p>
+
+<h2>Klase</h2>
+
+<p>
+  U skript jeziku JavaScript objekti se nasleđuju upotrebom sintakse bazirane na
+  <i>prototyp</i> nasleđivanju. Izlaskom ES6 standarda uvodi se reč <i>class</i> u skript
+  jezik JavaScript. Ključna reč <i>class</i> ukazuje na to da je u pitanju specijalna
+  vrsta funkcije, gde se umesto ključne reči <i>function</i> koristi <i>class</i>, a svojstva
+  se dodeljuju unutar metode <i>constructor</i>. Metoda <i>constructor</i> se poziva kada se
+  instancira novi objekat te klase upotrebom rezervisane reči <i>new</i>. Na ovaj način
+  se ne uvodi novi model nasleđivanja, već se obezbeđuje jednostavna i
+  intuitivna sintaksa za kreiranje objekta i proces postojećeg nasleđivanja. Ako
+  se u narednim primerima uporede delovi koda, može se uočiti da je bolja
+  čitljivost ES6 sintakse u odnosu na ES5 sintaksu.
+</p>
+
+<xmp class="primer_ta"
+>
+// sintaksa ES5
+var Osoba = (function () {
+    function Osoba(ime) {
+      this.ime = ime;
+    }
+    Osoba.prototype.objavi = function () {
+      console.log("Ovo je " + this.ime);
+    };
+    return Osoba;
+  })();      
+</xmp>
+
+<xmp class="primer_ta"
+>
+// sintaksa ES6
+class Osoba {
+    constructor(ime) {
+      this.ime = ime;
+    }
+    objavi() {
+      console.log("Ovo je " + this.ime);
+    }
+  }
+</xmp>
+
+<h2>Ključne reči let i const</h2>
+
+<p>
+  Jedno od svojstava standarda ES6 je mogućnost uvođenja promenljivih uz
+  upotrebu ključnih reči <i>let</i> i <i>const</i>. Ključna reč <i>const</i> se koristi
+  prilikom uvođenja konstanti, odnosno promenljivih kojima se kasnije ne može
+  ponovo dodeliti novi sadržaj. U slučaju kada varijabla može da menja
+  vrednosti, prilikom deklaracije se navodi <i>let</i>. Na ovaj način se domen
+  postojanja promenljive ograničava na blok koda u kome je definisana.
+</p>
+
+<h2>Arrow funkcije</h2>
+
+<p>
+  ES6 standard uvodi novu sintaksu za pisanje funkcija koje su poznate pod
+  nazivom <i>arrow</i> funkcije. Dobile su naziv po znaku => koji obezbeđuje
+  kraći zapis. U drugim programskim jezicima su poznate pod nazivom lambda
+  funkcije. Osim što obezbeđuju sažetost definicije funkcije, njihova prednost u
+  odnosu na druge funkcije se ogleda u tome što ne definišu objekat <i>this</i>, tj. on
+  zadržava referencu na globalni objekat, unutar kojeg je <i>arrow</i> funkcija
+  definisana. Kod ovih funkcija može da se izostavi ključna reč <i>return</i> i
+  u pojedinim slučajevima mogu da se izostave zagrade. Male zagrade mogu da se
+  izostave ukoliko je samo jedan ulazni parametar, a vitičaste zagrade ako u
+  telu funkcije postoji samo jedan izraz. Kod ovih funkcija može da se izostavi
+  ključna reč <i>return</i> i u pojedinim slučajevima mogu da se izostave zagrade. Male
+  zagrade mogu da se izostave ukoliko je samo jedan ulazni parametar, a
+  vitičaste zagrade ako u telu funkcije postoji samo jedan izraz.
+</p>
+
+<xmp class="primer_ta"
+>
+// obicni izraz funkcije
+var pomnozi = function (x, y) {
+    return x * y;
+  };
+
+// arrow funkcija
+const pomnozi = (x, y) => x * y;
+</xmp>
+
+<h2>Metoda <i>Object.assign</i></h2>
+
+<p>
+  Metoda <i>Object.assign</i> se koristi za kopiranje vrednosti svojstava jednog
+  ili više izvornih objekata na ciljani objekat. Prvi parametar ove metode
+  predstavlja referencu na ciljani objekat (eng. targetObject), dok ostali
+  parametri predstavljaju izvorne objekte (eng. sourceObject). Metoda kao
+  rezultat vraća ciljani objekat.
+</p>
+
+<xmp class="primer_ta"
+>
+const test = {
+    ime: 'Jovan',
+    godine: 30,
+    rezultat: 'pozitivan'
+  }; 
+  var test2 = 
+     Object.assign( { }, test, {status: 'mirovanje', rezultat: 'negativan'} );
+  console.log(test); 
+  // { ime: 'Jovan', godine: 30, rezultat: 'pozitivan' }
+  
+  console.log(test2);
+  // { ime: 'Jovan', godine: 30, rezultat: 'negativan', status: 'mirovanje'}
+</xmp>
+
+<p>
+  Prvi argument funkcije <i>Object.assign()</i> predstavlja ciljani objekat koji
+  će funkcija da vrati, drugi argument je objekat čija se svojstva kopiraju u
+  ciljani objekat, dok treći argument funkcije predstavlja objekat čija svojstva
+  ažuriraju prethodna. Rezultat je novi objekat koji odgovara izvornom objektu
+  sa ažuriranim svojstvima. Ova metoda je pogodna za rad sa konstantnim
+  podacima, budući da se promenljivama koje su definisane kao konstante ne mogu
+  menjati vrednosti.
+</p>
+
+<div class = "zadatak">
+ <b>Zadatak.</b> Navedi neka svojstva standarda ES6. U čemu se ogleda njihova prednost 
+  u odnosu na standard ES5?
+</div>

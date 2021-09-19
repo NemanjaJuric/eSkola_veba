@@ -1,0 +1,37 @@
+<h2>Virtuelni DOM</h2>
+
+<p>
+  Prema strukturi HTML dokumenta objektni model dokumenta ima oblik stabla. Kada
+  se dinamički menja sadržaj veb stranice, menja se DOM. Pošto je menjanje DOM-a
+  dosta sporo, radni okvir ReactJS nikada direktno ne menja isti. Umesto toga,
+  koristi virtuelni DOM u memoriji. Na svaku promenu nad podacima, ReactJS
+  stvara novi virtuelni DOM. Taj proces je brz i ne utiče na performanse.
+</p>
+<p>
+  Većina radnih okvira za skript jezik JavaScript ažurira DOM više puta nego što
+  je zaista potrebno, čime se smanjuje efikasnost. To se javlja kao posledica
+  kompleksnih manipulacija DOM-a usled promene stanja aplikacije, budući da se
+  njen sadržaj prikazuje dinamički. Prednost radnog okvira ReactJS u odnosu na
+  ostale okvire za skript jezik JavaScript je to što koristi virtuelni DOM, pri
+  čemu vodi računa o ažuriranju pravog DOM-a kada je potrebno. On poredi izmene
+  u virtuelnom DOM-u sa pravim, praveći najmanji broj potrebnih izmena kako bi
+  sve bilo ažurno. Virtuelni DOM je ustvari kopija pravog DOM-a. ReactJS
+  upravlja sa dva virtuelna DOM-a, jedan je trenutno stanje, drugo pređašnje -
+  odnosno stanje pre ažuriranja. Za upoređivanje najmanjeg broja razlika između
+  instanci dva virtuelna DOM-a koristi algoritam <i>diff</i>. Složenost ovog
+  algoritma je linearna, što znači da se pravi DOM ažurira u najmanjem broju
+  koraka. Naime, kada se komponenta inicijalizuje, koristi se
+  <i>render </i>metoda koja generiše njen prikaz. Kada se sledeći put pozove
+  ista metoda, ReactJS upoređuje trenutni prikaz sa prethodnim i generiše
+  minimalni set promena na pravom DOM-u. Taj proces se naziva usklađivanje
+  podataka (eng. <i>reconciliation</i>). Zbog toga se prednosti ovog radnog
+  okvira najviše ističu kada se podaci koje prikazuju menjaju tokom vremena.
+</p>
+<p>
+  Cena implementacije virtuelnog DOM-a je veličina aplikacije. Postoje alati
+  koji je mogu minimizovati, a najveću upotrebu ima Redux. Uglavnom se u
+  programiranju složenih aplikacija radni okvir ReactJS koristi za oblikovanje
+  korisničkog okruženja, a biblioteka Redux za upravljanje stanjem aplikacije.
+  Vezu među njima predstavlja paket <i>react-redux</i>.
+</p>
+</div>

@@ -1,0 +1,41 @@
+<h1>Veb aplikacije na jednoj strani</h1>
+
+<p>
+  Tradicionalni pristup razvoju veb aplikacija podrazumeva da se nakon svake
+  akcije korisnika šalje zahtev serveru, nakon čega se generiše nova stranica.
+  Ovakav pristup ima za posledicu celokupno ponovno učitavanje stranice, što je
+  proces koji korisniku oduzima vreme. Danas je model aplikacije koji zahteva
+  kretanje između pojedinačnih strana zastareo. Nasuprot tome, moderne veb
+  aplikacije navigaciju vrše u jednoj strani, pri čemu se učitavanje stranice
+  vrši samo prilikom inicijalnog pokretanja aplikacije. Dalja promena okruženja
+  su parcijalna, odgovarajući resursi se učitavaju dinamički i obično su
+  posledica neke od akcija korisnika. Većinom je poslovna logika prebačena na
+  klijentsku stranu, što omogućava brze promene stanja, dok server služi za
+  trajno čuvanje podataka i dostavljanje podataka klijentu. Popularne aplikacije
+  kao što su Gmail, Facebook, Twitter itd. su jednostranične aplikacije. U tim
+  aplikacijama sadržina se dinamički prikazuje, bez ponovnog učitavanja stranice
+  ili prelaska na novu.
+</p>
+
+<p>
+  Kod izrade veb aplikacija na jednoj strani, potrebno je vreme za usklađivanje
+  podataka sa korisničkim okruženjem. Npr. da li ukloniti polje za pretragu
+  nakon što korisnik učita neki sadržaj, ili koji vizuelni elementi će ostati na
+  stranici, a koji će se ukloniti nakon što korisnik izvrši neku akciju. Pored
+  toga, izazov u radu sa modernim veb aplikacijama predstavlja i rad sa
+  objektnim modelom dokumenta (eng. Document Object Model, DOM) koji je veoma
+  spor.
+</p>
+
+<p>
+  Upravljanje DOM-om je način reagovanja na korisnikove akcije i prikazivanja
+  novog sadržaja. Pozivanje elemenata, dodavanje potomaka elemenata i obavljanje
+  drugih operacija nad DOM-om su stvari koje se najsporije obavljaju u čitaču.
+  Uprkos ovim nedostacima, jednostranične aplikacije su veoma popularne i čine
+  budućnost izrade veb aplikacija. Zahvaljujući pojavi mnogih nezavisnih radnih
+  okvira i biblioteka za skript jezik JavaScript, razvoj veb aplikacija u jednoj
+  strani danas nije komplikovan. Radni okviri koji koriste SPA principe su
+  ReactJS, AngularJS, ExtJS, VueJS i drugi.
+</p>
+
+<img src="courses/react/slike/spa-1.jpg" class="img-fluid img-md" />

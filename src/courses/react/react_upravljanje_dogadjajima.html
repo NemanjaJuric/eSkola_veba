@@ -1,0 +1,60 @@
+<h1>Upravljanje događajima</h1>
+
+<p>
+  Upravljanje događajima u radnom okviru ReactJS se ostvaruje tako što se HTML
+  elementima dodaju atributi koji predstavljaju akcije nad njima, a vrednost
+  koja im se dodeljuje je metoda koja će se pozvati nakon što se ta akcija
+  izvrši. Metoda koja se poziva se navodi unutar vitičastih zagrada.
+</p>
+<p>
+  U primeru je metoda <i>uvecajBrojac </i>je definisana kao
+  <i>callback</i> metoda. Ukoliko bi ona bila napisana kao obična funkcija, onda
+  se pritiskom na dugme ne bi povećavala vrednost brojača. Zbog toga je u ovom
+  slučaju neophodno koristiti metodu <i>bind </i>unutar konstruktora. U radnom
+  okviru ReactJS vrednost za objekat <i>this </i>se ne odnosi na element koji je
+  pokrenuo događaj. Ta vrednost je nedefinisana i zbog toga se mora zadati
+  kontekst na koji se ključna reč <i>this </i>odnosi. To se postiže upotrebom
+  metode <i>bind</i>.
+</p>
+
+<xmp class="primer_ta">
+class Brojac extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            vrednost: 0
+        };
+
+        this.uvecajBrojac = this.uvecajBrojac.bind(this);
+    }
+    uvecajBrojac() {
+        this.setState({
+            vrednost: this.state.vrednost + 1
+        })
+    }
+    render() {
+        return (
+            <div>
+                <h1>{this.state.vrednost}</h1>
+                <button onClick={this.uvecajBrojac}> Uvecaj brojac </button>
+            </div>
+        )
+    }
+} 
+</xmp>
+
+<p>
+  Kada se zada događaj, kao što je to slučaj sa događajem <i>onClick</i> ne radi
+  se direktno sa običnim DOM događajima. Radi se sa tipom događaja koji je
+  specifičan za radni okvir ReactJS, a poznat je pod nazivom sintetički događaj
+  (eng. SyntheticEvent). Procedure za obradu događaja neće dobiti matične
+  argumente događaja kao što su događaji miša, tastature itd. One uvek dobijaju
+  argumente sintetičkog događaja koji obavijaju matične događaje čitača. Taj
+  pristup čini te objekte kompatibilnim bilo kom veb pregledaču.
+</p>
+<p>
+  Najčešća metoda klase <i>SyntheticEvent</i> koja se koristi je
+  <i>preventDefault</i>. Ona sprečava izvršavanje podrazumevane (neželjene)
+  akcije prilikom pokretanja veb pregledača.
+</p>

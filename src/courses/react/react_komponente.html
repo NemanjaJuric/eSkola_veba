@@ -1,0 +1,252 @@
+<h1>Komponente</h1>
+
+<p>
+  Komponente predstavljaju jedan od glavnih načina za definisanje vizuelnih
+  elemenata aplikacije. One su nezavisne i ponovo uprotrebljive celine koje
+  treba struktuirati tako da svaka od njih bude odgovorna samo za jedan deo
+  funkcionalnosti. Takva podela funkcionalnosti će ih učiniti jednostavnim i
+  pogodnim za ponovnu upotrebu. Pored toga, manje komponente se lakše testiraju
+  i održavaju, a sama aplikacija se brže ažurira.
+</p>
+
+<p>
+  Komponente su u osnovi HTML elementi, ali ReactJS omogućuje neka dodatna
+  svojstva za bolju manipulaciju tih elemenata.
+</p>
+
+<h2>Načini definisanja komponenti</h2>
+
+<p>
+  Komponente mogu biti napisane kao funkcije ili kao klase. Naziv komponente
+  mora počinjati velikim slovom, jer bi u suprotnom ReactJS smatrao da se radi o
+  standardim HTML elementima.
+</p>
+
+<h3>Funkcijske komponente</h3>
+
+<p>
+  Najjednostavniji način za definisanje jedne komponente je pisanjem funkcije u
+  skript jeziku JavaScriptu.
+</p>
+
+<xmp class="primer_ta">
+function Pozdrav() {
+    return <h2>Zdravo svete!</h2>;
+}    
+</xmp>
+
+<p>
+  Prethodni primer prikazuje funkcijsku komponentu bez ulaznih argumenata.
+  Međutim, u većini slučajeva je funkciji potrebno proslediti neke ulazne
+  podatke, eventualno izvršiti neke promene nad njima i zatim vratiti rezultat.
+  Za to služi tip podatka <i>props</i>. Od njega zavisi prikaz komponente.
+</p>
+
+<p>
+  Naime, komponenti se prilikom inicijalizacije dodeljuju svojstva (eng.
+  properties, skraćeno props). Za definisanje komponente dovoljno je napisati
+  funkciju koja može da ima argument <i>props</i> (kako bi bilo moguće
+  pristupiti svojstvima) i vraća JSX element koji opisuje kako će se komponenta
+  prikazati u okviru DOM-a.
+</p>
+
+<xmp class="primer_ta">
+function Pozdrav(props) {
+    return <h2>Zdravo {props.ime}!</h2>;
+}
+</xmp>
+
+<h2>Klasne komponente</h2>
+
+<p>
+  Drugi način za definisanje komponente je pomoću klase u programskom jeziku
+  JavaScript.
+</p>
+
+<xmp class="primer_ta">
+class Pozdrav extends React.Component {
+    render() {
+        return <h2>Zdravo, {this.props.ime}!</h2>;
+    }
+}
+</xmp>
+
+<p>
+  Stvaranje komponente na ovaj način zahteva nasleđivanje klase
+  <i>React.Component</i> pomoću ključne reči <i>extends</i>. Unutar klase je
+  neophodno implementirati metodu <i>render</i>. Kao povratnu vrednost ona vraća
+  opis izgleda te komponente što je kôd pisan JSX sintaksom, isto kao u slučaju
+  funkcijske komponente. Ova metoda se razlikuje od metode iz klase
+  <i>ReactDOM</i>, čija je uloga da ubaci element u čvor stabla u DOM-u.
+</p>
+
+<p>
+  Budući da je komponenta definisana kao klasa, unutar metode render se koristi
+  objekat this da bi se omogućio pristup svojstvima te komponente.
+</p>
+
+<h2>Prikazivanje komponenti</h2>
+
+<p>
+  Bilo da je komponenta definisana kao funkcija ili kao klasa, inicijalizacija
+  komponente je ista. Potrebno je proslediti vrednost svojstva kao deo poziva za
+  komponentu. Svojstva se dodaju na isti način na koji se dodaju atributi
+  standardnim HTML elementima. To funkcioniše tako što se doda atribut sa istim
+  imenom kao što je ime svojstva, nakon čega sledi vrednost koja se prosleđuje.
+</p>
+<div class = "napomena">  <b>Napomena. </b>Prilikom prikazivanja komponente mora se vratiti samo jedan element. Ukoliko ima više poziva komponente, potrebno ih je obaviti jednim zajedničkim HTML elementom. To može biti i prazan tag.
+</div>
+
+<xmp class="primer_ta">
+ReactDOM.render(
+    <div>
+        <Pozdrav ime="Sara" />
+        <Pozdrav ime="Relja" />
+        <Pozdrav ime="Iva" />
+    </div>,
+    document.querySelector("#container")
+);    
+</xmp>
+
+<p>
+  Svojstva unutar komponente utiču na izgled korisničkog okruženja. Ta svojstva
+  se ne mogu menjati unutar same komponente. Ukoliko korisnik želi da promeni
+  izgled korisničkog okruženja potrebno je da uništi istu komponentu i kreira
+  novu kojoj će predati druge vrednosti za objekat <i>props</i>.
+</p>
+
+<h2>Inicijalizacija i korišćenje stanja</h2>
+
+<p>
+  Komponente definisane u prethodnim primerima su komponente bez stanja. Imaju
+  svojstva (eng. properties, skraćeno props) i to je zapravo način na koji
+  komponente međusobno komuniciraju. Informacije koje se ovim putem prosleđuju
+  se ne mogu menjati. U mnogim interaktivnim rešenjima, to nije ono čemu se
+  teži. Poželjno je da mogu da se menjaju aspekti komponenti, npr. prilikom
+  vraćanja nekih podataka sa servera. Zbog toga je potreban neki drugi način da
+  se unutar komponente čuvaju podaci koji prevazilaze svojstva. Zapravo,
+  potreban je način za čuvanje podataka koji su mogu menjati. To se postiže
+  upotrebom stanja.
+</p>
+
+<p>
+  Stanje je promenljivi skup podataka sadržan unutar objekta <i>state</i> neke
+  komponente. Komponenta može unutar sebe da inicijalizuje, menja i koristi
+  stanje. Ono u čemu se razlikuju komponente definisane kao funkcije i kao klase
+  je upotreba stanja. Sve do 2019. godine i pojave funkcija <i>react hooks</i>,
+  stanje nije moglo da se koristi unutar funkcijske komponente. Ukoliko je
+  komponenta zahtevala upotrebu stanja, morala je biti napisana kao klasa.
+</p>
+
+<p>
+  Primer koji prikazuje komponentu Brojac koja koristi stanje (objekar
+  <i>state</i>), unutar koga je definisana promenljiva <i>vrednost</i> kao
+  njegovo svojstvo. Opis izgleda komponente se definiše u okviru funkcije
+  <i>render</i>.
+</p>
+
+<xmp class="primer_ta"
+>
+class Brojac extends React.Component {
+    state = {
+        brojac: 0
+    }
+    render() {
+        return (
+            <h1>{this.state.brojac}</h1>
+        )
+    }
+}  
+</xmp>
+
+<p>
+  U jeziku JavaScript prilikom rada sa klasom može da se pozove konsktruktor.
+  Konstruktor je mesto gde se inicijalizuje stanje komponente. Sa stanovišta
+  radnog okvira ReactJS, svejedno je koji se od ova dva načina primenjuje za
+  kreiranje komponente i njenog stanja. Drugi način definisanja komponente
+  <i>Brojac</i>:
+</p>
+
+<xmp class="primer_ta"
+>
+class Brojac extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            brojac: 0
+        };
+    }
+    render() {
+        return (
+            <h1>{this.state.brojac}</h1>
+        )
+    }
+}
+</xmp>
+
+<h3>Promena stanja komponente</h3>
+
+<p>
+  Radni okvir ReactJS ažurira korisnični interfejs na osnovu stanja komponente.
+  Stanje se može promeniti u samoj komponenti pomoću metode <i>setState</i>.
+  Njoj se prosleđuje objekat koji sadrži novo stanje. Unutar prosleđenog objekta
+  je dovoljno navesti samo one podatke iz skupa stanja koje je potrebno
+  promeniti. Nakon svake promene stanja poziva se <i>render</i> metoda i
+  prikazuje novo stanje komponente. Promenom objekta <i>state</i> unutar
+  komponente dolazi do automatskog ponovnog prikazivanja te komponente u DOM.
+  Tom prilikom se menjaju samo delovi korisničkog okruženja na koji utiče
+  promenjeni podatak, pri čemu ostatak DOM-a ostaje nepromenjen.
+</p>
+
+<p>
+  Sledeći primer prikazuje komponentu <i>Brojac</i> koja ilustruje promenu
+  stanja. Argument metode <i>setState</i> je objekat koji sadrži svojstvo koje
+  se integriše u objekat <i>state</i>.
+</p>
+
+<xmp class="primer_ta">
+class Brojac extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            brojac: 0,
+        };
+    }
+    uvecajBrojac = () => {
+        this.setState({
+            brojac: this.state.brojac + 1,
+        });
+    };
+
+    render() {
+        return (
+
+            <div>
+                <h1>{this.state.brojac}</h1>
+                <button onClick={this.uvecajBrojac}> Uvecaj brojac </button>
+            </div>
+        );
+    }
+}
+</xmp>
+
+<p>
+  Kada se primer pokrene, na veb stranici će biti prikazan brojač i dugme koje
+  omogućava povećanje vrednosti brojača. Vrednost brojača se menja zahvaljujući
+  promeni stanja.
+</p>
+
+<img src="courses/react/slike/komponente-1.jpg" class="img-fluid img-sm" />
+
+<div class = "napomena">
+  <b>Napomena.</b> Uglavnom se promena stanja komponente postiže upotrebom 
+  događaja. Korisnik aplikacije pritiskom na dugme ili unošenjem teksta u <i>input</i> polje 
+  može izazvati promenu stanja komponente i na taj način promeniti izgled korisničkog 
+  okruženja.
+</div>
+
+<div class = "zadatak">
+  <b>Zadatak.</b> Osmisliti komponentu koja ilustruje promenu stanja. 
+</div>
