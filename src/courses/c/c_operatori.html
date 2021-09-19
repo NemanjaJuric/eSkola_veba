@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Operatori</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Operatori</h1>
+Operatorima su predstavljene osnovne operacije i relacije koje se mogu vršiti
+nad podacima osnovnih tipova u jeziku C. Dele se na osnovu svoje arnosti tj. broja operanada na koje se primenjuju. Unarni operatori deluju samo na jedan operand i mogu biti prefiksni
+kada se navode pre operanda i postfiksni kada se navode nakon svog operanda.
+Binarni operatori imaju dva operanda i obično su infiksni tj. navode se između
+svojih operanda. U jeziku C postoji jedan ternarni operator koji se primenjuje
+na tri operanda.
+<h2>Aritmetički operatori</h2>
+Nad operandima brojevnih tipova mogu se primeniti sledeći aritmetički
+operatori:
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Značenje</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>+</p>
+</td>
+<td width="358">
+<p>binarni operator sabiranja</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>-</p>
+</td>
+<td width="358">
+<p>binarni operator oduzimanja</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>*</p>
+</td>
+<td width="358">
+<p>binarni operator množenja</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>/</p>
+</td>
+<td width="358">
+<p>binarni operator (celobrojnog) deljenja</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>%</p>
+</td>
+<td width="358">
+<p>binarni operator ostatka pri deljenju</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+<b>Primer 1.</b> Aritmetički operatori
+</br>
+<xmp class = "primer_ta"> 
+ /* rad sa aritmetickim operatorima */
+ #include <stdio.h>
+ int main()
+ {
+ int a = 9, b = 4, c;
+ 
+ c = a + b;
+ printf("a+b = %d \n",c);
+ c = a - b;
+ printf("a-b = %d \n",c);
+ c = a * b;
+ printf("a*b = %d \n",c);
+ c = a / b;
+ printf("a/b = %d \n",c);
+ c = a%b;
+ printf("Ostatak pri deljenju sa b = %d \n",c);
+ 
+ return 0;
+ }
+ </xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+a+b = 13
+a-b = 5
+a*b = 36
+a/b = 2
+Ostatak pri deljenju sa b = 1
+</xmp>
+<div class = "napomena">Operator <b>%</b> moguće je primeniti isključivo nad operandima celobrojnog tipa.
+Operator deljenja označava različite operacije u zavisnosti od tipa svojih
+operanada. Kada se operator deljenja primenjuje na dve celobrojne vrednosti
+primenjuje se celobrojno deljenje (tj. rezultat je celi deo količnika). 
+</br>Na primer,
+izraz 9/5 ima vrednost 1. U ostalim slučajevima primenjuje se deljenje realnih
+brojeva (preciznije, deljenje brojeva u pokretnom zarezu). Na primer, izraz
+9.0/5.0 ima vrednost 1.8 (jer se koristi deljenje brojeva u pokretnom zarezu).
+U slučaju da je jedan od operanada ceo broj, a drugi broj u pokretnom zarezu,
+vrši se implicitna konverzija celobrojnog operanda u broj u pokretnom zarezu
+i primenjuje se deljenje brojeva u pokretnom zarezu.</div>
+<h2>Operatori inkrementiranja i dekrementiranja</h2>
+U jeziku C, operator inkrementiranja
+(uvećavanja za 1) zapisuje se sa ++, a operator dekrementiranja (umanjivanja
+za 1) zapisuje se sa --. Oba operatora su unarna, imaju po jedan operand.
+</br>
+<b>Primer 2.</b> Operatori inkrementiranja i dekrementiranja
+<xmp class = "primer_ta"> 
+/* rad sa operatorima inkrementiranja i dekrementiranja */
+#include <stdio.h>
+int main(){
+int a = 10, b = 100;
+float c = 10.5 , d = 100.5;
+
+printf("++a = %d \n",++a);
+printf("--b = %d \n",--b);
+printf("++c= %f \n",++c);
+printf("--d = %f \n",--d);
+
+return 0;
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+++a = 11
+--b = 99
+++c = 11.500000
+--d = 99.500000
+</xmp>
+Ovde, operatori <b>++</b> i <b>--</b> su korišteni u prefiksnom obliku. 
+Ovi operatori se mogu koristiti i u postfiksnom obliku (na primer, <b>n++</b>).
+Razlika između ova dva oblika je u tome što <b>++n</b> uvećava vrednost promenljive n pre nego što je ona upotrebljena u širem izrazu,
+a <b>n++</b> je uvećava nakon što je upotrebljena. Preciznije, vrednost izraza <b>n++</b> je
+stara vrednost promenljive <b>n</b>, a vrednost izraza <b>++n</b> je nova vrednost promenljive <b>n</b>, pri čemu se u oba slučaja, prilikom izračunavanja vrednosti izraza, kao
+propratni efekat, uvećava vrednost promenljive <b>n</b>.
+
+<h2>Operatori dodele</h2>
+Operator dodele se koristi za dodeljivanje vrednosti promenljivoj. Najćešći operator dodele je <b>=</b>.
+</br>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Primer</th>
+  <th>Značenje</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>=</p>
+</td>
+<td width="358">
+<p>a = b</p>
+</td>
+<td width="358">
+<p>a = b</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>+=</p>
+</td>
+<td width="358">
+<p>a+=b</p>
+</td>
+<td width="358">
+<p>a = a+b</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>-=</p>
+</td>
+<td width="358">
+<p>a -= b</p>
+</td>
+<td width="358">
+<p>a = a-b</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>*=</p>
+</td>
+<td width="358">
+<p>a*=b</p>
+</td>
+<td width="358">
+<p>a = a*b</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>/=</p>
+</td>
+<td width="358">
+<p>a/=b</p>
+</td>
+<td width="358">
+<p>a =a/b</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>%=</p>
+</td>
+<td width="358">
+<p>a%=b</p>
+</td>
+<td width="358">
+<p>a =a%b</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+<b>Primer 3.</b> Operatori dodele
+<xmp class = "primer_ta">
+/* Rad sa operatorima dodele */
+#include <stdio.h>
+int main()
+{
+    int a = 5, c;
+
+    c = a;      /* c je 5 */
+    printf("c = %d\n", c);
+    c += a;     /* c je 10 */
+    printf("c = %d\n", c);
+    c -= a;     /* c je 5 */
+    printf("c = %d\n", c);
+    c *= a;     /* c je 25 */
+    printf("c = %d\n", c);
+    c /= a;     /* c je 5 */
+    printf("c = %d\n", c);
+    c %= a;     /* c = 0 */
+    printf("c = %d\n", c);
+
+    return 0;
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+c = 5
+c = 10
+c = 5
+c = 25
+c = 5
+c = 0
+</xmp>
+
+<h2>Relacijski operatori</h2>
+Ovo su operatori za poređenje vrednosti operanada. 
+Operandi u ovom slučaju mogu biti bilo kog numeričkog tipa ili pokazivači, 
+a rezultat je logičkog tipa. 
+Kako logički tip u C-u nije definisan, ukoliko je poređenje tačno 
+(tj. ukoliko je relacija zadovoljena), rezultat je 1, u suprotnom rezultat je 0. 
+</br>
+</br>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Značenje operatora</th>
+  <th>Primer</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>==</p>
+</td>
+<td width="358">
+<p>jednako</p>
+</td>
+<td width="358">
+<p>a == b -> rezultat je 0</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>></p>
+</td>
+<td width="358">
+<p>veće</p>
+</td>
+<td width="358">
+<p>5 > 3 -> rezultat je 1</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p><</p>
+</td>
+<td width="358">
+<p>manje</p>
+</td>
+<td width="358">
+<p>5 < 3 -> rezultat je 0</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>!=</p>
+</td>
+<td width="358">
+<p>Različito</p>
+</td>
+<td width="358">
+<p> 5 != 3 -> rezultat je 1</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>>=</p>
+</td>
+<td width="358">
+<p>veće ili jednako</p>
+</td>
+<td width="358">
+<p>5 >= 3 -> rezultat je 1</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p><=</p>
+</td>
+<td width="358">
+<p>manje ili jednako</p>
+</td>
+<td width="358">
+<p> 5<=3 ->rezultat je 0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+Relacijski operatori poretka <, <=, > i >= imaju isti prioritet i to viši od operatora jednakosti == i različitosti != i svi imaju levu asocijativnost.
+</br>
+</br><b>Primer 4.</b> Relacijski operatori
+<xmp class = "primer_ta">
+/* Rad sa relacijskim operatorima */
+#include <stdio.h>
+int main()
+{
+    int a = 5, b = 5, c = 10;
+
+    printf("%d == %d je %d \n", a, b, a == b);
+    printf("%d == %d je %d \n", a, c, a == c);
+    printf("%d > %d je %d \n", a, b, a > b);
+    printf("%d > %d je %d \n", a, c, a > c);
+    printf("%d < %d je %d \n", a, b, a < b);
+    printf("%d < %d je %d \n", a, c, a < c);
+    printf("%d != %d je %d \n", a, b, a != b);
+    printf("%d != %d je %d \n", a, c, a != c);
+    printf("%d >= %d je %d \n", a, b, a >= b);
+    printf("%d >= %d je %d \n", a, c, a >= c);
+    printf("%d <= %d je %d \n", a, b, a <= b);
+    printf("%d <= %d je %d \n", a, c, a <= c);
+
+    return 0;
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+5 == 5 je 1
+5 == 10 je 0
+5 > 5 je 0
+5 > 10 je 0
+5 < 5 je 0
+5 != 5 je 0
+5 != 10 je 1
+5 >= 5 je 1
+5 <= 10 je 0
+5 <=5 je 1
+5 <=10 je 1
+</xmp>
+<div class = "napomena">Operator <b>== </b>koji ispituje da li su neke dve vrednosti jednake i operator dodele = različiti su operatori i imaju potpuno drugačiju semantiku. Njihovo
+nehotično mešanje čest je uzrok grešaka u C programima.</div>
+
+<h2>Logički operatori</h2>
+Logički operatori primenjuju se nad brojevnim vrednostima i imaju tip rezultata int. Brojevnim vrednostima pridružene su logičke ili
+istinitosne vrednosti na sledeći način: ukoliko je broj jednak 0, onda je njegova
+logička vrednost 0 (netačno), a inače je njegova logička vrednost 1 (tačno). Iako
+su sve vrednosti operanada koje su različite od 0 dopuštene i tumače se kao
+tačno, rezultat izračunavanja tačno nije proizvoljna vrednost različita od 0, već
+isključivo vrednost 1.
+</br>
+</br>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Značenje operatora</th>
+  <th>Primer</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>&&</p>
+</td>
+<td width="358">
+<p>Logička konjukcija - i </p>
+</td>
+<td width="358">
+<p> Ukoliko je c = 5 i d = 2 onda vrednost izraza ((c == 5)&&(d > 5)) je 0 </p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>||</p>
+</td>
+<td width="358">
+<p>Logička disjunkcija - ili</p>
+</td>
+<td width="358">
+<p>Ukoliko je c = 5 i d = 2 onda vrednost izraza ((c == 5)||(d > 5)) je 1</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>!</p>
+</td>
+<td width="358">
+<p>Logička negacija - ne</p>
+</td>
+<td width="358">
+<p>Ukoliko je c = 5, onda vrednost izraza !(c == 5) je 0</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+<b>Primer 5.</b> Logički operatori
+<xmp class = "primer_ta">
+/* Rad sa logičkim operatorima */
+
+#include <stdio.h>
+int main()
+{
+    int a = 5, b = 5, c = 10, rezultat;
+
+    rezultat = (a == b) && (c > b);
+    printf("(a == b) && (c > b) je %d \n", rezultat);
+
+    rezultat = (a == b) && (c < b);
+    printf("(a == b) && (c < b) je %d \n", rezultat);
+
+    rezultat = (a == b) || (c < b);
+    printf("(a == b) || (c < b) je %d \n", rezultat);
+
+    rezultat = (a != b) || (c < b);
+    printf("(a != b) || (c < b) je %d \n", rezultat);
+
+    rezultat = !(a != b);
+    printf("!(a != b) je %d \n", rezultat);
+
+    rezultat = !(a == b);
+    printf("!(a == b) je %d \n", rezultat);
+
+    return 0;
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+(a == b) && (c > b) je 1
+(a == b) && (c < b) je o
+(a == b) || (c < b) je 1
+(a != b) || (c < b) je 1
+!(a != b) je 1
+!(a == b) je 0
+</xmp>
+</br>Objašnjenje ovog logičko operacijskog programa
+<ul>
+<li>vrednost izraza (a == b) && (c > b) je 1 jer oba uslova imaju vrednost 1 (tačna su)  </li>
+<li>vrednost izraza (a == b) && (c > b) je 0 jer uslov (c > b) ima vrednost 0 (nije tačan)</li>
+<li>vrednost izraza (a == b) || (c < b) je 1 jer uslov (a == b) ima vrednost 1 (tačan je)</li>
+<li>vrednost izraza (a != b) || (c < b) je 0 jer oba operanda i (a != b) i (c < b) imaju vrednost nula (netačni su)</li>
+<li>izraz !(a != b) rezultira sa 1 jer operand (a != b) ima vrednost 0 (netačno). Stoga, !(a == b) je 1 (tačno)</li>
+<li>izraz !(a != b) rezultira sa 0 jer operand (a != b) ima vrednost 1 (tačno). Stoga, !(a == b) je 0 (netačno)</li>
+</ul>
+
+
+<h2>Bitovski operatori</h2>
+C podržava naredne operatore za rad nad pojedinačnim bitovima, koji se
+mogu primenjivati samo na celobrojne argumente:
+</br>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Operator</th>
+  <th>Značenje operatora</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>&</p>
+</td>
+<td width="358">
+<p>Bitovska konjukcija</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>|</p>
+</td>
+<td width="358">
+<p>Bitovska disjunkcija</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>^</p>
+</td>
+<td width="358">
+<p>Bitovska ekskluzivna disjunkcija</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>~</p>
+</td>
+<td width="358">
+<p>Bitovska negacija</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p><<</p>
+</td>
+<td width="358">
+<p>Pomeranje (šiftovanje) bitova ulevo</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>>></p>
+</td>
+<td width="358">
+<p>Pomeranje (šiftovanje) bitova udesno</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Operator uslova</h2>
+Ternarni operator uslova <b>?:</b> se koristi u sledećem opštem obliku:
+</br>
+<span class = "primer_text">izraz1 ? izraz2 : izraz3; </span>
+Prioritet ovog operatora je niži u odnosu na sve binarne operatore osim
+dodela i operatora ,.
+</br>Izraz <b>izraz1</b> se izračunava prvi. Ako on ima ne-nula vrednost (tj. ako ima
+istinitosnu vrednost tačno), onda se izračunava vrednost izraza <b>izraz2</b> i to je
+vrednost čitavog uslovnog izraza. Inače se izračunava vrednost <b>izraz3</b> i to je
+vrednost čitavog uslovnog izraza. 
+<h2>Operator zarez</h2>
+Binarni operator zarez (,) je operator kao i svaki drugi (najnižeg je prioriteta od svih operatora u C-u) i prilikom izračunavanja vrednosti izraza izgrađenog njegovom primenom, izračunavaju se oba operanda, pri čemu se vrednost
+celokupnog izraza definiše kao vrednost desnog operanda (ta vrednost se često
+zanemaruje). 
+</br>
+Ovaj operator se često koristi samo da spoji dva izraza u jedinstveni (da bi se takav složeni izraz mogao upotrebiti na mestima gde sintaksa
+zahteva navođenje jednog izraza). To je najčešće u inicijalizaciji i koraku for
+petlje (o čemu će više reči biti u narednoj lekciji). Još jedna od čestih upotreba
+je i u kôdu oblika:
+</br>
+<span class = "primer_text">x = 3, y = 5; /* ekivalentno bi bilo i x = 3; y = 5; */</span>
+<div class = "napomena">Treba razlikovati operator , od zareza koji razdvajaju promenljive prilikom
+deklaracije i poziva funkcije (koji nisu operatori).</div>
+<h2>Operator sizeof</h2>
+Veličinu u bajtovima koju zauzima neki tip ili neka promenljiva moguće je
+odrediti korišćenjem operatora <b>sizeof</b>. Tako, sizeof(int) predstavlja veličinu tipa int i na tridesetidvobitnim sistemima vrednost ovog izraza je najčešće
+4.
+<div class = "zadatak"><pre>Koje vrednosti imaju relevantne promenljive nakon navedenih
+naredbi:
+1. <b>a=b++;</b>, ako pre ove naredbe promenljiva a ima vrednost 1, a promenljiva
+b vrednost 3;
+2. <b>a+=b;</b>, ako pre ove naredbe promenljiva a ima vrednost 1, a promenljiva
+b vrednost 3?
+3.<b> int a=5; b = (a++ - 3) + (a++ - 3);</b>?
+4. <b>int a = 1, b = 1, x, y;
+x = a++; y = ++b;</b>
+5.<b> int a=3; b = (a++ - 3) && (a++ - 3);</b>?</pre></div>
+</body>
+</html>

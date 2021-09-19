@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promenljive, konstante i literali</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+<h1>Promenljive, konstante i literali</h1>
+<p>U ovoj lekciji ćete naučiti šta su promenljive i koja pravila poštujemo prilikom njihovog imenovanja.
+Takođe, naučićete različite vrste literala u C programskom jeziku i kako da kreirate konstante.</p>
+<de>
+<dt>Promenljiva</dt>
+<dd>Promenljiva je objekat kojem je pridružen neki prostor u
+memoriji i u svakom trenutku svog postojanja ima vrednost
+kojoj se može pristupiti — koja se može pročitati i koristiti, ali i
+koja se (ukoliko nije traženo drugacije) može menjati.</dd>
+</de>
+</br>
+<p>Za označavanje prostora za skladištenje, svakoj promenljivoj treba dati jedinstveno ime (identifikator). Imena promenljivih samo su simbolički prikaz memorijske lokacije. 
+Na primer:</p>
+<span class = "primer_text">int rezultatIgraca1=95;</span>
+</br>
+
+<p>U ovom primeru <span class = "primer_text">rezultatIgraca1</span> je promenljiva tipa <span class = "primer_text"> int </span> kojoj je dodeljena celobrojna vrednost 95.
+</br>
+</br>
+Sve promenljive moraju biti deklarisane pre korišćenja. 
+Time se za promenljivu u memoriji rezerviše potreban prostor, 
+a ostatak programa postaje svestan postojanja promenljive i njenog tipa. 
+</br>Deklaracija se sastoji iz imena tipa za kojim slede imena promenljivih (identifikatori) koje se deklarišu, 
+i koja su razdvojena zarezima. Deklaracija se, kao i svaka naredba u C-u završava sa karakterom <b>; </b> . 
+</br>
+<xmp class = "primer_ta">
+int broj; /* deklaracija celog broja */
+int a, b; /*deklaracija više celih brojeva */ </xmp>
+</br>
+Svako ime promenljive u deklaraciji može biti praćeno inicijalizatorom koji se sastoji od karaktera <b>=</b> za kojim sledi inicijalna vrednost. </p>
+<xmp class = "primer_ta">
+int vrednost = 5; /* deklaracija sa inicijalizacijom */
+int a = 3, b, c = 5; /* deklaracija sa inicijalizacijom */
+</xmp>
+</br>
+Imena promenljivih odredena su identifikatorima (podsetimo se pravila prilikom definisanja identifikatora iz prethodne lekcije).
+Imena promenljivih i funkcija treba da oslikavaju njihovo
+značenje i ulogu u programu, ali za promenljive kao što su
+indeksi u petljama se obično koriste kratka, jednoslovna imena
+(na primer i).
+Ako ime promenljive sadrži više reči, onda se, radi bolje
+čitljivosti, te reči razdvajaju simbolom _ (na primer,
+broj_studenata) ili početnim velikim slovima (na primer,
+brojStudenata) — ovo drugo je takozvana kamilja notacija
+(CamelCase).
+
+</br> 
+</br>
+C je snažno tipiziran jezik. To znači da se tip promenljive ne može promeniti nakon što je deklarisana. Na primer:
+<xmp class = "primer_ta">
+int broj=5; /* celobrojna promenljiva */
+broj = 5.5; /* greška */
+double broj; /* greška */
+</xmp>
+</br>
+<dl>
+<dt> Literali (doslovne tj. konstantne niske, konstantni znakovni nizovi)</dt>
+<dd>Literali su podaci koji se ne menjaju. Mogu se koristiti direktno u kodu. </dd>
+</dl>
+</br>
+Na primer: 1, 2.5, 'c' itd. Zašto su ovo literali? 
+Odgovor je da su literali jer ovom pojmovima ne možete dodeliti različite vrednosti.
+Konstante su poznate kao literali.
+Postoji pet tipova konstanti ili literala dostupnih u C programskom jeziku kao što je prikazano u nastavku.
+<ul>
+<li>Celobrojni literali</li>
+<p>Celi brojevi su verovatno najčešći tip podataka u programima. 
+Bilo koja celobrojna vrednost predstavlja celobrojni literal. 
+Primeri su 1, 2, 3 i 42. 
+Sve su to decimalne vrednosti, što znači da pripadaju brojnom sistemu sa osnovom 10 (dekadnom). 
+Postoje još dva brojna sistema u kojima se mogu koristiti celobrojni literali, oktalni (sa osnovom osam) i heksadecimalni (sa osnovom 16).
+Ispred oktalnih vrednosti u C-u, stavlja se nula. Ispred heksadecimalne konstante treba dodati nulu i x (0x ili 0X).
+Primeri:<pre> 0, -9, 22 itd. --> decimalne vrednosti
+ 021, 077, 033 itd. --> oktalne vrednosti
+ 0x7f, ox2a, 0x521 itd. --> heksadecimalne vrednosti</pre></p>
+<li>Literali brojeva u pokretnom zarezu</li>
+<p>Brojevi u pokretnom zarezu predstavljaju vrednosti iz dekadnog brojnog sistema koje sadrže i razlomljenu komponentu.
+ Oni se mogu prikazati u standardnoj ili naučnoj formi (notaciji). 
+ Standardna forma obuhvata celobrojni deo, decimalnu tačku i razlomljenu komponentu. 
+ Na primer, sledeći brojevi u pokretnomzarezu 2.0, 3.14159 i 0.6667 napisani su u ispravnoj standardnoj formi. 
+ Naučna forma koristi broj u pokretnom zarezu, napisan u standardnoj formi, uz sufiks koji označava stepen osnove 10 kojim treba pomnožiti pomenuti broj. 
+ Stepen osnove 10 označava se slovom E ili e, iza koga sledi pozitivan ili negativan decimalni ceo broj. 
+ Primeri su brojevi 6.022E23, 314159E-05 i 2e+100.</p>
+<li>Karakter literali</li>
+<p>Karakter literali se kreiraju stavljanjem jednog znaka unutar jednostrukih navodnika. Na primer: 'a', 'm', 'F', '2', '}' itd. </p>
+<li>Izlazne sekvence</li>
+<p>Ponekad je potrebno koristiti karaktere koji se ne mogu otkucati ili imaju posebno značenje u C programskom jeziku. 
+Da bi se koristili ovi znakovi koriste se izlazne (escape) sekvence. Slede primeri nekih izlaznih sekvenci. </p>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Kod</th>
+  <th>Značenje</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td width="64">
+<p>\b</p>
+</td>
+<td width="358">
+<p>povratak za jedno mesto unazad (backspace)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\f</p>
+</td>
+<td width="358">
+<p>nova stranica (form feed)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\n</p>
+</td>
+<td width="358">
+<p>novi red (new line)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\r</p>
+</td>
+<td width="358">
+<p>povratak na početak linije (carriage return)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\t</p>
+</td>
+<td width="358">
+<p>horizontalni tabulator</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\v</p>
+</td>
+<td width="358">
+<p>vertikalni tabulator</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\0</p>
+</td>
+<td width="358">
+<p>nul znak (null character)</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\?</p>
+</td>
+<td width="358">
+<p>upitnik</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\"</p>
+</td>
+<td width="358">
+<p>navodnik</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\'</p>
+</td>
+<td width="358">
+<p>jednostruki navodnik</p>
+</td>
+</tr>
+<tr>
+<td width="64">
+<p>\\</p>
+</td>
+<td width="358">
+<p>obrnuta kosa crta (back slash)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+<li>Literali znakovnog niza</li>
+<p>Literali znakovnog niza zadaju se u C-u isto kao i u većini drugih jezika — stavljanjem niza znakova u navodnike. Evo nekoliko primera:
+</br>
+“Zdravo svima”
+</br>
+”\”Ovo je u navodnicima\””</p>
+</ul>
+</br>
+<dt>Konstante</dt>
+<dd>Konstante su promenljive čija vrednost ne može biti promenjena. </dd>
+</de>
+<p>Kvalifikator <span class = "primer_text">const</span> (dostupan u novijim standardima jezika C) može biti
+dodeljen deklaraciji promenljive da bi naznačio i obezbedio da se njena vrednost
+neće menjati, na primer:
+</br>
+<xmp class = "primer_ta">
+/* ovu promenljivu nije moguće menjati */
+const double GRAVITY = 9.81;
+</xmp>
+<xmp class = "primer_ta">
+const double PI = 3.14;
+PI=2.9; /* greška */
+</xmp>
+</br>
+Konstantu možete definisati i koristeći predprocesorsku direktivu #define .
+<div class = "zadatak">
+Pitanja i zadaci
+<ol>
+<li>Šta su promenljive, a šta literali?</li>
+<li>Šta znači da je C snažno tipiziran jezik?</li>
+<li>Šta su konstante i koju kvalifikator nam omogućava definisanje istih?</li>
+</ol>
+</div>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ulaz i izlaz podataka</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>Ulaz i izlaz podataka</h1>
+<p><ul><li>U C-u ne postoje posebne naredbe za ulaz/izlaz podataka, </li>
+ <li>postoji skup bibliotetskih funkcija za učitavanje podataka u program i za upis rezultata na standardni izlaz ili u datoteku. Funkcije scanf  i  printf su manje-više
+standardizovane i postoje (sa istim imenom i načinom funkcionisanja) u svim C prevodiocima, </li> 
+ <li>deklaracije funkcija za upravljanje ulaznim/izlaznim resursima u C-u nalaze 
+	se u fajlu <b>stdio.h</b>. Pre korišćenja funkcija za ulaz/izlaz podataka u fajl sa izvornim kodom treba 
+	uključiti fajl stdio.h. Za uključivanje jednog fajla u drugi koristi se pretprocesorska direktiva <b>include</b>.
+Format include direktive:
+	<span class="primer_text">#include &ltime_fajla&gt </span>   ili  <span class="primer_text">#include “ime_fajla”</span>
+Konkretno, kad god se u programu koriste funkcije scanf ili printf, treba navesti:
+	<span class="primer_text">#include &ltstdio.h&gt </span>
+</li>
+</ul>
+</p>
+<h2>Izlaz</h2>
+
+Jedna od osnovnih izlaznih funkcija u C-u. Funkcija ispisuje na standardnom izlazu (ekranu, displeju) formatiran tekstualni niz definisan od strane korisnika. Na primer:
+</br>
+</br>
+<b>Primer 1:</b> C izlaz
+<xmp class = "primer_ta"> 
+#include <stdio.h> 
+int main()
+{
+/* prikazi tekstulni niz unutar navodnika */
+printf("C programiranje");
+return 0;
+}
+</xmp>
+<p>Navedeni program na standardan izlaz ispisuje:</p>
+<span class = "primer_text"> C programiranje </span>
+<p>Kako funkcioniše navedeni program?</p>
+<ul>
+<li>Svaki validan C program mora da sadrži funkciju <b>main</b> (od engleskog <i>main</i>-glavna, glavno) i izrvršavanje programa uvek počinje od te funkcije.
+Prazne zagrade iza njenog imena ukazuju na to da se eventualni argumenti ove funkcije ne koriste. Reč <b>int</b> pre imena funkcije označava da ova funkcija, kao rezultat, vraća celobrojnu vrednost (engl. integer), tj. vrednost tipa int.
+Naredbe funkcije <b>main</b> su grupisane između simbola <b>{</b> i <b>}</b>(koji označavaju početak i kraj tela funkcije). 
+Obe naredbe funkcije završavaju se simbolom <b>;</b>. Programi obično imaju više funckija i funkcija <b>main</b> poziva te druge funkcije za obavljanje raznovrsnih podzadataka.</li>
+<li>Prva naredba u navedenoj funkciji <b>main</b> je poziv standardne bibliotečke funkcije <b>printf</b> koja ispisuje tekst na takozvani standardni izlaz (obično ekran).
+Tekst koji treba ispisati se zadaje između para znakova <b>"</b>, koji se ne ispisuju. U ovom slučaju, tekst koji se ispisuje je <b>C programiranje</b>. </li>
+<li>Da bi C prevodilac umeo da generiše kod poziva funkcije <b>printf</b>,potrebno je da zna tip njene povratne vrednosti i tipove njenih argumenata. 
+Ovi podaci o funkciji <b>printf</b>, njen svojevrsni opis, takozvana deklaracija, nalaze se u datoteci zaglavlja <b>stdio.h</b>(ova datoteka čini deo
+standardne biblioteke zadužen za ulazno-izlaznu komunikaciju i deo je instalacije prevodioca za C). Prva linija programa, kojom se prevodiocu saopštava da je neophodno da uključi sadržaj datoteke <b>stdio.h</b> je pretprocesorska direktiva.
+To nije naredba C jezika, već instrukcija C pretprocesoru koji predstavlja nultu fazu kompilacije i koji pre kompilacije program priprema tako što umesto prve linije upisuje celokupan sadržaj datoteke stdio.h. </li>
+<li>Naredba <b>return 0;</b> prekida izvršavanje funkcije <b>main</b> i, kao njen rezultat, vraća vrednost 0. 
+Vrednost funkcije vraća se u okruženje iz kojeg je ona pozvana, u ovom slučaju u okruženje iz kojeg je pozvan sâm program.
+ Uobičajena konvencija je da se iz funkcije <b>main</b> vraća vrednost 0 da ukaže na to da je izvršavanje proteklo bez problema, a ne-nula vrednost da ukaže na problem ili grešku koja se javila tokom izvršavanja programa.</li>
+<li>Tekst naveden između simbola <b>/*</b> i <b>*/</b> predstavlja komentar. Komentari su korisni samo programerima, doprinose čitljivosti i razumljivosti samog programa. Njih C prevodilac ignoriše i oni ne utiču na izvršivu verziju programa.</li>
+</ul>
+</br><b>Primer 2:</b> Int izlaz
+<xmp class = "primer_ta"> #include <stdio.h> 
+int main()
+{
+int ceoBroj=5;
+printf("Ceo broj= %d\n",ceoBroj);
+return 0;
+} </xmp>
+Navedeni program na standardnom izlazu ispisuje:
+</br>
+<span class = "primer_text"> Ceo broj=5 </span>
+</br>
+<ul>
+<li>Prva linija funkcije <b>main</b> je deklarizacija promenljive <b>ceoBroj</b> sa inicijalizacijom <b>ceoBroj=5</b>
+njom se promenljivoj <b>ceoBroj</b> dodeljuje inicijalna vrednost 5.</li>
+<li> Korišćenjem funkcije <b>printf</b>, pored fiksnog teksta, može se ispisati i vrednost neke promenljive ili izraza.
+ U formatu ispisa, na mestu u tekstu gde treba ispisati vrednost izraza zapisuje se format tog ispisa — u ovom slučaju <b>%d</b>, jer će biti ispisana celobrojna vrednost. 
+ Nakon niske koja opisuje format, navodi se izraz koji treba ispisati.
+Dakle, koristimo format nisku <b>%d</b> za ispisivanje <b>int</b> tipa. 
+U ovom primeru, format niska <b>%d</b> unutar navodnika biće zameljena vrednošću promenljive <b>ceoBroj</b>. </li>
+<li>Znakovi <b>\n</b> se ne ispisuju, nego obezbeđuju prelazak u novi red.</li>
+</ul>
+</br>
+<b>Primer 3:</b> float i double izlaz 
+<xmp class = "primer_ta"> 
+#include <stdio.h>
+int main()
+{
+float broj1=13.5;
+double broj2=12.4;
+
+printf("broj1=%f\n",broj1);
+printf("broj2=%lf\n",broj2);
+return 0;
+} </xmp>
+<p>Navedeni program na standardnom izlazu ispisuje:</p>
+<xmp class = "primer_ta"> 
+broj1=13.500000
+broj2=12.400000 
+</xmp>
+<p>Osnovna razlika u odnosu na prethodne programe je što se koriste razlomljeni brojevi, tj. brojevi u pokretnom zarezu. 
+Dakle, u ovom programu, umesto promenljivih tipa <b>int</b> koriste se promenljive tipa <b>double</b> i <b>float</b> dok se prilikom učitavanja i ispisa ovakvih vrednost za format koriste niska <b>%lf</b> i niska <b>%f</b> umesto niske <b>%i</b>.</p>
+</br>
+<b>Primer 4:</b> Char izlaz 
+<xmp class = "primer_ta"> 
+#include <stdio.h>
+int main()
+{
+char k='a';
+
+printf("karakter = %c\n", k);
+return 0;
+} </xmp>
+
+<p>Navedeni program na standardnom izlazu ispisuje:</p>
+<span class = "primer_text"> karakter = a </span>
+
+<p>U ovom programu koristi se promenljiva tipa <b>char</b> dok se prilikom učitavanja i ispisa ovakvih vrednost za format koriste niska <b>%c</b>. </p>
+</br>
+<h2>Ulaz</h2>
+U C programskom jeziku, <b>scanf()</b> je najčešće korišćena funkcija za unos podataka od strane korisnika. 
+Funkcija <b>scanf()</b> čita ulaz sa standardnog ulaza, poput tastature.
+<xmp class = "primer_ta"> 
+#include <stdio.h>
+int main()
+{
+int ceoBroj;
+printf("Unesi jedan ceo broj: ");
+scanf("%d", &ceoBroj);
+printf("Ceo broj = %d\n", ceoBroj);
+return 0;
+} </xmp>
+<p>Navedeni program na standardnom izlazu ispisuje:</p>
+<xmp class = "primer_ta">
+Unesi jedan ceo broj: 7
+Ceo broj = 7
+</xmp>
+Kako funkcioniše navedeni program?
+<ul>
+<li>Prva linija funkcije <b>main</b> je deklaracija promenljive. 
+Ovom deklaracijom se uvodi promenljiva <b>ceoBroj</b> celobrojnog tipa - tipa <b>int</b>.</li>
+<li>Naredna naredba (poziv funkcije <b>printf</b>) na standardnom izlazu ispisuje tekst <b>Unesi jedan ceo broj:  </b>, 
+a naredba nakon nje (pozov funkcije <b>scanf</b>) omogućava učitavanje vrednosti neke promenljive sa standardnog ulaza (obično tastature).</li>
+<li>U okviru poziva funkcije <b>scanf</b> zadaje se format u kojem će podatak biti sačuvan - 
+u ovom slučaju treba pročitati podatak tipa <b>int</b> i format se u tom slučaju zapisuje kao <b>%d</b>.
+Nakon formata, zapisuje se ime promenljive u koju treba upisati pročitanu vrednost.
+Simbol <b>&</b> govori da će promenljiva <b>ceoBroj</b> biti promenjena u funkciji <b>scanf</b>, tj. 
+da će pročitani broj biti smešten na adresu promenljive <b>ceoBroj</b>.</li>
+</ul>
+<br/><b>Primer 5:</b> Ulaz/izlaz - više vrednosti
+</br>U ovom primeru ćemo videti na koji način je omogućeno korisniku da unese više različitih unosa i prikazivanje istih.
+<xmp class = "primer_ta"> 
+#include <stdio.h>
+int main()
+{
+int a;
+float b;
+
+printf("Unesi jedan ceo i jedan decimalan broj: ");
+
+/* skladistenje vise ulaza */
+scanf("%d%f", &a, &b);
+
+printf("Uneo si %d i %f", a, b);
+return 0;
+} </xmp>
+Navedeni program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta"> 
+Unesi jedan ceo i jedan decimalan broj: -3
+3.4
+Uneo si -3 i 3.400000
+</xmp>
+</br> Format niske za ulaz/izlaz
+<ul>
+<li>%d za int</li>
+<li>%f za float</li>
+<li>%lf za double</li>
+<li>%c za char</li>
+</ul>
+</p>
+<div class = "zadatak">Pitanja i zadaci:
+<ol>
+<li>U kojoj datoteci zaglavlja se nalazi deklaracija funkcija <b>printf()</b> i <b>scanf()</b>?</li>
+<li>Šta radi naredba <b>printf()</b>, a šta naredba <b>scanf()</b>?</li>
+<li>Koja je funkcija simbola <b>& </b> u okviru poziva funkcije <b>scanf()</b> </li>
+<li>Navedni neke format niske za ulaz/izlaz podataka.</li>
+</ol>
+</div>
+</body>
+</html>

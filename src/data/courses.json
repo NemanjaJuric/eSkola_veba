@@ -4148,5 +4148,91 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "HTML",
+    "id": "html",
+    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "sections": ["srednja_skola"],
+    "detailsText": "HTML je standardni jezik za kreiranje veb stranica. Naziv je skraćenica od Hyper Text Markup Language. Jezik HTML se zasniva na eksplicitnom obeležavanju logičke strukture dokumenta.",
+    "lessons": []
+  },
+  {
+    "name": "C",
+    "id": "c",
+    "logo": "<i class='fas fa-copyright'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "",
+    "sections": ["programski_jezici"],
+    "detailsText": "Programski jezik C je programski jezik opšte namene koji je 1972. godine razvio Denis Riči u Belovim telefonskim laboratorijama (engl. Bell Telephone Laboratories) u SAD.  C je jezik koji je bio namenjen prevashodno pisanju sistemskog softvera i to u okviru operativnog sistema Unix. Međutim, vremenom je počeo da se koristi i za pisanje aplikativnog softvera na velikom broju drugih platformi.",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "c_dobrodošli",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Ključne reči i identifikatori",
+        "url": "c_ključne_reči_i_identifikatori",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive, konstante i literali",
+        "url": "c_promenljive_konstante_i_literali",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": "c_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Uvod",
+        "url": "c_dobrodošli",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Ulaz i izlaz podataka",
+        "url": "c_ulaz_i_izlaz_podataka",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori",
+        "url": "c_operatori",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Naredbe i kontrola toka",
+        "url": "c_naredbe_i_kontrola_toka",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "c_funkcije",
+        "type": "lesson",
+        "parentCourse": "c",
+        "sublessons": null
+      }
+    ]
   }
 ]

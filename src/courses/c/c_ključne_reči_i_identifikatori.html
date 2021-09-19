@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ključne reči i identifikatori</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>Ključne reči i identifikatori</h1>
+<p>Za početak ćemo proći kroz ključne reči - rezervisane reči u C programu koje su deo sintakse. Zatim, naučićemo šta su identifikatori i kako im dati imena.</p> 
+<h2>Niz karaktera</h2>
+<p>Niz karaktera čine slova alfabeta i pojedini posebni znakovi koji su važeći u C-u.
+ </p>
+ <ul>
+ <li>Alfabet (mala i velika slova)</li> 
+ <p>Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
+</p>
+ <li>Cifre</li>
+ <p>0 1 2 3 4 5 6 7 8 9 </p>
+ <li>Specijalni karakteri</li>
+ <p>:  _  !  ?  .  ,  :  ;  ‘  =  +  -  /  *  #  %  &  \  |  (  )  [  ]  {  }  <  >
+ </p>
+ <li>Beli znakovi</li>
+ <p>Znak za razmak, tabulacija, vertikalna tabulacija,
+ prelazak u nov red i prelazak na nov list</p>
+ </ul>
+ <h2>Ključne reči (službene ili rezervisane reči)</h2>
+ <dl>
+ <dt>Ključne reči</dt>
+<dd> Ključne reči su unapred definisane, 
+ rezervisane reči koje se koriste u programiranju i 
+ imaju posebno značenje za kompajler. </dd></dl>
+ </br>
+ Ključne reči su deo sintakse 
+ i ne mogu se koristiti kao identifikatori. C razlikuje velika i mala slova, 
+ a sve ključne reči u programskom jeziku C se pišu malim slovom.
+ </br>
+ </br>
+ Sledi lista ključnih reči definisanih od strane ANSI C.
+ </br>
+ <table class="tabela">
+  
+<tbody>
+<tr>
+<td>
+<p>auto</p>
+</td>
+<td>
+<p>double</p>
+</td>
+<td >
+<p>int</p>
+</td>
+<td >
+<p>struct</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>break</p>
+</td>
+<td >
+<p>else</p>
+</td>
+<td >
+<p>long</p>
+</td>
+<td >
+<p>switch</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>case</p>
+</td>
+<td >
+<p>enum</p>
+</td>
+<td >
+<p>register</p>
+</td>
+<td>
+<p>typedef</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>char</p>
+</td>
+<td >
+<p>extern</p>
+</td>
+<td >
+<p>return</p>
+</td>
+<td >
+<p>union</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>countinue</p>
+</td>
+<td>
+<p>for</p>
+</td>
+<td>
+<p>signed</p>
+</td>
+<td >
+<p>void</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>do</p>
+</td>
+<td>
+<p>if</p>
+</td>
+<td>
+<p>static</p>
+</td>
+<td>
+<p>while</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>default</p>
+</td>
+<td >
+<p>goto</p>
+</td>
+<td >
+<p>sizeof</p>
+</td>
+<td >
+<p>volatile</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>const</p>
+</td>
+<td >
+<p>float</p>
+</td>
+<td>
+<p>short</p>
+</td>
+<td >
+<p>unsigned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+ <p>Većina navedenih ključnih reči, njihova sintaksa i primena biće
+ razmatrane u odgovarajućim temama. Međutim, ako želite odam kratak 
+ pregled ovih ključnih reči, posetite <a href="https://www.programiz.com/c-programming/list-all-keywords-c-language "> listu ključnih reči u C programskom jeziku</a>.
+ </p>
+ <h2>Identifikatori (simbolička imena)</h2>
+ <dl> 
+ <dt> Identifikator</dt>
+ <dd>Identifikator je ime koje korisnik dodeljuje za element programa,
+kao što su promenljive, simboličke konstane, funkcije, korisničke tipove podataka i labele. </dd></dl>
+ <p>
+Identifikatori moraju biti jedinstveni. 
+Oni su stvoreni da daju jedinstveno ime entitetu kako bi ga identifikovali tokom izršvanja programa.
+Na primer:
+<xmp class = "primer_ta">
+int novac;
+double stanjeNaRacunu;
+</xmp>
+U ovom primeru, <span class = "primer_text"> novac</span>
+i <span class = "primer_text"> stanjeNaRacunu </span>
+su identifikatori.
+</br>
+</br>
+ Pravila prilikom definisanja identifikatora:
+   <ul>
+   <li>mogu da se sastoje od slova (malih i velikih), cifara i '_'</li>
+   <li>prvi znak u imenu ne može biti cifra</li>
+   <li>dužina imena identifikatora da ne bude veća od 31 karaktera (ukoliko želimo da izbegnemo probleme sa određenim kompajlerima)</li>
+   <li>C razlikuje mala i velika slova - Case Sensitive(Rezultat i rezultat) </li> 
+   <li>Identifikatori moraju biti jedinstveni i ne smeju biti ključne reči.</li>
+   </ul>
+ </br>
+ 
+Možete izabrati bilo koje ime kao identifikator ako se pridržavate navedenih pravila, 
+ali preporuka je da dajete imena koja imaju smisla.
+</br>
+</br>
+Primeri ispravnih identifikatora:
+<table class="tabela">
+  
+<tbody>
+<tr>
+<td >
+<p>c5_4 </p>
+</td>
+<td >
+<p>JEDAN_BROJ</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>TRUE </p>
+</td>
+<td >
+<p>UporediRezultat_sabiranja</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>suma</p>
+</td>
+<td >
+<p>NovoIme</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>novo_ime</p>
+</td>
+<td >
+<p>Broj_studenata</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>Broj_Studenata</p>
+</td>
+<td >
+<p>dugoimesamnogokaraktera</p>
+</td>
+</tr>
+</tbody>
+</table>
+</br>
+</br>
+Primeri neispravnih identifikatora:
+<table class="tabela">
+  
+<tbody>
+<tr>
+<td >
+<p>5cv </p>
+</td>
+<td >
+<p>počinje brojem</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>x-name</p>
+</td>
+<td >
+<p>karakter - nije dozvoljen</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>ime sa razmakom</p>
+</td>
+<td >
+<p>razmak nije dozvoljen</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>c&&</p>
+</td>
+<td >
+<p>karakter & nije dozvoljen</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>Obim*kruga</p>
+</td>
+<td >
+<p>karakter * nije dozvoljen</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>jedan,dva</p>
+</td>
+<td >
+<p>karakter , nije dozvoljen</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class = "zadatak">Pitanja i zadaci:
+<ol>
+<li>Šta su ključne reči, a šta identifikatori?</li>
+<li>Navedi pravila za imenovanje identifikatora.</li>
+<li>Koji od sledećih identifikatora su pravilno napisani?
+</br>Pov1 
+<br>3dan 
+</br>_temp
+<br> x 
+<br>ac-dc 
+ </li>
+</ol>
+</div>
+</body>
+
+</html>

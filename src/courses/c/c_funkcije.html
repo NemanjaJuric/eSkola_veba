@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Funkcije</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>Funkcije</h1>
+Svaki C program sačinjen je od funkcija. 
+Funkcija <b>main</b> mora da postoji i, pojednostavljeno rečeno, izvršavanje programa uvek počinje izvršavanjem ove funkcije.
+ Iz funkcije <b>main</b> (ali i drugih) pozivaju se druge funkcije, bilo bibliotečke (poput funkcije printf), bilo korisnički definisane (kakve će biti opisane
+u nastavku). 
+Druge funkcije koriste se da bi kod bio kraći, čitljiviji, modularniji, šire upotrebljiv itd. 
+U funkciju se obično izdvaja neko izračunavanje, neka obrada koja predstavlja celinu za sebe i koristi se više puta u programu.
+<h2>Primeri definisanja i pozivanja funkcije</h2>
+Naredni programi ilustruju jednostavne primere korišćenja funkcija. 
+</br>
+<b>Primer 1.</b>
+<xmp class = "primer_ta">
+#include <stdio.h>
+
+int kvadrat(int n);
+
+int main(){
+printf("Kvadrat broja %i je %i\n", 5, kvadrat(5));
+printf("Kvadrat broja %i je %i\n", 9, kvadrat(9));
+return 0;
+}
+int kvadrat(int n) {
+return n*n;
+}
+</xmp>
+<ul>
+<li>Linija <b>int kvadrat(int n);</b> deklariše funkciju <b>kvadrat</b> koja će biti definisana kasnije u kodu. 
+Iz deklaracije se vidi da funkcija <b>kvadrat</b> ima jedan parametar tipa int i vraća rezultat tipa int. </li>
+<li>U funkciji <b>main</b>, u okviru poziva funkcije <b>printf</b> poziva se funkcija <b>kvadrat</b> za vrednosti 5 i 9 (tipa int) i ispisuje se rezultat, tipa int, koji ona vraća. 
+Svaki poziv funkcije je izraz (koji može ravnopravno dalje učestvovati u širim izrazima) čiji je tip povratni tip funkcije, a vrednost povratna vrednost funkcije. 
+Na mestu poziva, tok izvršavanja programa prelazi na početak funkcije koja je pozvana, a kada se završi izvršavanje funkcije tok izvršavanja programa vraća se na mesto poziva.</li>
+<li>Definicija funkcije <b>kvadrat</b> je jednostavna: ona kao rezultat, korišćenjem naredbe <b>return</b> vraća kvadrat celobrojne vrednosti n čija se vrednost postavlja na osnovu vrednosti koja je prosleđena prilikom poziva.</li>
+</ul>
+</br>
+<h2>Deklaracija i definicija funkcije</h2>
+Deklaracija (ili prototip) funkcije ima sledeći opšti oblik:
+<xmp class = "primer_ta">
+tip ime_funkcije(niz_deklaracija_parametara);
+</xmp>
+a definicija funkcije ima sledeći opšti oblik:
+<xmp class = "primer_ta">
+tip ime_funkcije(niz_deklaracija_parametara) {
+deklaracije
+naredbe
+}
+</xmp>
+Imena funkcija su identifikatori i za njih važe potpuno ista pravila kao i za imena promenljivih. 
+Radi čitljivosti koda, poželjno je da ime funkcije oslikava ono što funkcija radi.
+</br>
+U naredenom primeru, prvo je navedena deklaracija funkcije, a tek kasnije njena definicija. 
+Dakle, deklaracija je
+<xmp class = "primer_ta">
+int kvadrat(int n);
+</xmp>
+a definicija
+<xmp class = "primer_ta">
+int kvadrat(int n) {
+return n*n;
+}
+</xmp>
+</br>
+Definicija funkcija mora da bude u skladu sa navedenim prototipom, tj. moraju da se podudaraju tipovi povratne vrednosti i tipovi parametara. 
+Deklaracija ukazuje prevodiocu da će u programu biti korišćena funkcija sa određenim tipom povratne vrednosti i parametrima određenog tipa. 
+Zahvaljujući tome, kada prevodilac (na primer, u okviru funkcije main), naiđe na poziv funkcije kvadrat, može da proveri da li je njen poziv ispravan (čak iako je definicija funkcije nepoznata u trenutku te provere). 
+Pošto prototip služi samo za proveravanje tipova u pozivima, nije neophodno navoditi imena parametara, već je dovoljno navesti njihove tipove. 
+</br>
+U navedenom primeru, dakle, prototip je mogao da bude i
+<xmp class = "primer_ta">
+int kvadrat(int);
+</xmp>
+</br>
+<h2>Parametri funkcije</h2>
+Funkcija može imati parametre koje obrađuje i oni se navode u okviru definicije, iza imena funkcije i između zagrada. 
+Termini parametar funkcije i argument funkcije se ponekad koriste kao sinonimi. 
+Ipak, pravilno je termin parametar funkcije koristiti za promenljivu koja čini deklaraciju funkcije, a
+termin argument funkcije za izraz naveden u pozivu funkcije na mestu parametra funkcije. 
+Ponekad se argumenti funkcija nazivaju i stvarni argumenti, a parametri funkcija formalni argumenti. 
+U Primer 1., n je parametar funkcije int kvadrat(int n);, a 5 i 9 su njeni argumenti u pozivima
+kvadrat(5) i kvadrat(9).
+</br>
+</br>
+Parametri funkcije mogu se u telu funkcije koristiti kao lokalne promenljive te funkcije a koje imaju početnu vrednost određenu vrednostima argumenata u pozivu funkcije.
+</br>
+</br>
+Kao i imena promenljivih, imena parametara treba da oslikavaju njihovo značenje i ulogu u programu. 
+Pre imena svakog parametra neophodno je navesti njegov tip. Ukoliko funkcija nema parametara, onda se između zagrada navodi ključna reč void.
+</br>
+</br>
+Prilikom poziva funkcije, vrši se prenos argumenata, što će biti opisano u narednom poglavlju.
+<h2>Prenos argumenata</h2>
+Na mestu u programu gde se poziva neka funkcija kao njen argument se
+može navesti promenljiva, ali i bilo koji izraz istog tipa (ili izraz čija vrednost
+može da se konvertuje u taj tip). Na primer, funkcija kvadrat iz Primer 1. može biti pozvana sa kvadrat(5), ali i sa kvadrat(2+3). 
+</br>
+Argumenti funkcija se uvek prenose po vrednosti.
+To znači da se vrednost koja se koristi kao argument funkcije kopira kada počne izvršavanje funkcije i onda funkcija radi samo sa tom kopijom, ne menjajući original.
+</br>
+Prenos argumenata ilustruje i funkcija <b>swap</b> definisana na sledeći način:
+<xmp class = "primer_ta">
+#include <stdio.h>
+void swap(int a, int b) {
+int temp = a;
+a = b;
+b = temp;
+}
+int main() {
+int x = 3, y = 5;
+swap(x, y);
+printf("x = %d, y = %d\n", x, y);
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+x = 3, y = 5
+</xmp>
+U funkciji <b>swap</b> argumenti a i b zamenjuju vrednosti, ali ako je funkcija
+pozvana iz neke druge funkcije sa <b>swap(x, y)</b>, onda će vrednosti promenljivih
+x i y ostati nepromenjene nakon ovog poziva.
+
+<h2>Konverzije tipova agrumenata funkcije</h2>
+Prilikom poziva funkcije, ukoliko je poznata njena deklaracija, vrši se implicitna konverzija tipova argumenata u tipove parametara (ako se oni razlikuju).
+</br>
+Slično, prilikom vraćanja vrednosti funkcije (putem return naredbe) vrši se
+konverzija vrednosti koja se vraća u tip povratne vrednosti funkcije.
+U sledećem primeru, prilikom poziva funkcije f vrši se konverzija double
+vrednosti u celobrojnu vrednost i program ispisuje 3.
+</br>
+<b>Primer 2.</b>
+<xmp class = "primer_ta">
+#include <stdio.h>
+void f(int a) {
+printf("%d\n", a);
+}
+int main() {
+f(3.5);
+}
+</xmp>
+<h2>Povratna vrednost funkcije</h2>
+Funkcija može da vraća rezultat i tip označava tip vrednosti koja se vraća
+kao rezultat. Funkcija rezultat vraća naredbom <b>return r;</b> gde je <b>r</b> izraz zadatog tipa ili tipa koji se može konvertovati u taj tip.
+</br> Naredba <b>return r;</b> ne
+samo da vraća vrednost <b>r</b> kao rezultat rada funkcije, nego i prekida njeno izvršavanje. 
+</br>Ako funkcija koja treba da vrati vrednost ne sadrži return naredbu,
+kompilator može da prijavi upozorenje, a u fazi izvršavanja rezultat poziva će
+biti nedefinisana vrednost (što je obično pogrešno).
+</br> Ako funkcija ne treba da
+vraća rezultat, onda se kao tip povratne vrednosti navodi specijalan tip <b>void</b>
+i tada naredba <b>return</b> nema argumenata (tj. navodi se return;). Štaviše, u
+tom slučaju nije ni neophodno navoditi naredbu <b>return</b> iza poslednje naredbe
+u funkciji.
+</br>
+</br>
+<div class = "zadatak">
+Pitanja i zadaci:
+<ol>
+<li>Šta je to deklaracija funkcije, a šta je to definicija funkcije? U
+kojim slučajevima se koriste deklaracije?</li>
+<li>Šta se navodi kao tip povratne vrednosti za funkciju koja ne vraća
+rezultat? Da li takva funkcija mora da sadrži naredbu return? Ako se naredba
+return ipak navede, šta se navodi kao njen argument?</li>
+<li>Šta ispisuje sledeći program?
+<xmp class = "primer_ta">
+int f(int x) {
+x = x+2;
+return x+4;
+}
+int main() {
+int x = 1, y = 2;
+x = f(x+y);
+printf("%d\n", x);
+}
+</xmp>
+</li>
+</ol>
+</div>
+</body>
+</html>

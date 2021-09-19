@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tipovi podataka</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>Tipovi podataka</h1>
+Kao i u većini drugih programskih jezika, u jeziku C podaci su organizovani
+u tipove. To omogućava da se u programima ne radi samo nad pojedinačnim
+bitovima i bajtovima (tj. nad nulama i jedinicama), već i nad skupovima bitova
+koji su, pogodnosti radi, organizovani u složenije podatke (na primer, cele
+brojeve ili brojeve u pokretnom zarezu).
+</br>Jedan tip karakteriše:
+<ul>
+<li>vrsta podataka koje opisuje,</li>
+<li>način reprezentacije,</li>
+<li>skup operacija koje se mogu primeniti nad podacima tog tipa,</li>
+<li>broj bitova koji se koriste za reprezentaciju (odakle sledi opseg
+mogućih vrednosti).</li>
+</ul></p>
+<h2>Osnovni tipovi</h2>
+<p>Za brzi pristup, sledi tabela sa najčešće korištenim tipovima podataka u C programskom jeziku.</p>
+</br>
+<table class="tabela">
+  <thead>
+  <tr>
+  <th>Tip</th>
+  <th>Opseg tipa (bajtovi)</th>
+  <th>Specifikator formata</th>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+<td>
+<p>int</p>
+</td>
+<td >
+<p>najmanje 2, obično 4</p>
+</td>
+<td >
+<p>%d, %i</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>char</p>
+</td>
+<td >
+<p>1</p>
+</td>
+<td >
+<p>%c</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>float</p>
+</td>
+<td>
+<p>4</p>
+</td>
+<td>
+<p>%f</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>double</p>
+</td>
+<td >
+<p>8</p>
+</td>
+<td>
+<p> %lf</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>short int</p>
+</td>
+<td>
+<p>obično 2</p>
+</td>
+<td>
+<p>%hd</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>unsigned int</p>
+</td>
+<td>
+<p>najmanje 2, obično 4</p>
+</td>
+<td>
+<p>%u</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>long int</p>
+</td>
+<td >
+<p>najmanje 4, obično 8</p>
+</td>
+<td>
+<p>%ld, %li</p>
+</td>
+</tr>
+<tr>
+<td >
+<p>long long int</p>
+</td>
+<td>
+<p>najmanje 8</p>
+</td>
+<td>
+<p>%lld, %lli</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>unsigned long int</p>
+</td>
+<td>
+<p>najmanje 4</p>
+</td>
+<td>
+<p>%lu</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>unsigned long long int</p>
+</td>
+<td>
+<p>najmanje 8</p>
+</td>
+<td >
+<p>%llu</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>signed char</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>%c</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>unsigned char</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>%c</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>long double</p>
+</td>
+<td >
+<p>najmanje 10, obično 12 ili 16</p>
+</td>
+<td>
+<p>%Lf</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+</p>
+</br>
+
+<h2>int</h2>
+<p>U jeziku C, cele brojeve opisuje tip <b>int</b> (od engleskog integer, ceo broj).
+Podrazumeva se da su vrednosti ovog tipa označene i reprezentuju se najčešće koristeći potpuni komplement. Nad podacima ovog tipa mogu se koristiti
+aritmetičke operacije (na primer, +, -, *, /, %), relacije (na primer, <, >=) i
+druge.</p>
+<p>Ovaj tip podataka možemo koristiti prilikom deklarisanja cjelobrojne promenljive.
+</br>
+<xmp class = "primer_ta">
+int brojStudenata;
+</xmp>
+</br>Ovde je <span class = "primer_text">brojStudenata</span> promenljiva cjelobrojnog tipa.
+</br>U programskom jeziku C možete odjednom deklarisati više promenljivih istog tipa.
+</br>
+<xmp class = "primer_ta">
+int brojStudenata, brojUcionica;
+</xmp>
+Opseg tipa <b>int</b> je obično 4 bajta (32 bita). Obuhvata sve cele brojeva od -2 147 483 648 do 2 147 483 647. 
+Konačan opseg tipova treba uvek imati u vidu jer iz ovog razloga neke
+matematičke operacije neće dati očekivane vrednosti (kažemo da dolazi do prekoračenja ). 
+</br>
+<h2>float i double</h2>
+U programskom jeziku C pomoću tipova <b>float</b> i <b>double</b> opisujemo realne brojeve ili, preciznije, brojeve u pokretnom zarezu. Tip <b>float</b> opisuje brojeve
+u pokretnom zarezu osnovne tačnosti, tip <b>double</b> opisuje brojeve u pokretnom
+zarezu dvostruke tačnost. I nad podacima ovih tipova mogu se koristiti uobičajene aritmetičke operacije (osim operacije računanja ostatka pri deljenju %) i relacije.
+</br>
+<xmp class = "primer_ta">
+float plata;
+double cena;
+</xmp>
+
+<h2>char</h2>
+Male cele brojeve opisuje tip <b>char</b> (od engleskog character — karakter,
+simbol, znak). Nad podacima ovog tipa mogu se primenjivati aritmetičke
+operacije i relacije. Podatak tipa <b>char</b> zauzima tačno jedan bajt. Standard
+ne propisuje da li se podatak tipa <b>char</b> smatra označenim ili neoznačenim
+brojem (na nekom sistemu se može smatrati označenim, a na nekom drugom
+se može smatrati neoznačenim). 
+</br>
+</br>Iako je <b>char</b> opšti brojevni tip podataka i može da se koristi za predstavljanje vrednosti malih celih brojeva, 
+u jeziku C se ovaj tip obično koristi za brojeve koji predstavljaju kodove karaktera (otuda i naziv char).
+Standard ne propisuje koji kodiranje se koristi, ali na savremenim PC računarima i C implementacijama, 
+najčešće se koristi ASCII kodiranje karaktera. 
+</br>
+</br>Ključna reč <b>char</b> se koristi za deklarisanje promenljivih koje su tipa karakter.Na primer:
+</br>
+<xmp class = "primer_ta">
+char test = 'h';
+</xmp>
+
+<h2>void</h2>
+Tip <b>void</b> je ,,nepotpuni tip" i on ima prazan skup mogućih vrednosti.
+Koristi se na primer u slučaju kada funkcija ne vraća nikakvu vrednost, njena povratna vrednost bu trebala biti tipa <b>void</b>.
+ Zapamti da, ne možeš kreirati promenljivu tipa void.
+<h2>short i long</h2>
+Ukoliko treba da koristite velike brojeve, koristite pridružen kvalifikator <b>long</b>. Evo i kako:
+</br>
+<xmp class = "primer_ta">
+long a;
+long long b;
+long double c;
+</xmp>
+Ovde promenljive a i b mogu skladištiti celobrojne vrednosti, a promenljiva c brojeve u pokretnom zarezu.
+</br>
+</br>
+Ako ste sigurni da su vam potrebni samo mali celi brojevi, koristite pridruženi kvalifikator <b>short</b>.
+<xmp class = "primer_ta">
+short d;
+</xmp>
+Uvek možete proveriti opseg promenljive pomoću operatora <b>sizeof()</b>.
+<xmp class = "primer_ta">
+#include <stdio.h>      
+int main() {
+  short a;
+  long b;
+  long long c;
+  long double d;
+
+  printf("size of short = %d bytes\n", sizeof(a));
+  printf("size of long = %d bytes\n", sizeof(b));
+  printf("size of long long = %d bytes\n", sizeof(c));
+  printf("size of long double= %d bytes\n", sizeof(d));
+  return 0;
+}
+</xmp>
+
+<h2>signed i unsigned</h2>
+Bilo kojem od tipova <b>short</b>, <b>int</b>, <b>long</b> i <b>long long</b> mogu biti pridruženi
+kvalifikatori <b>signed</b> ili <b>unsigned</b>. Kvalifikator <b>unsigned</b> označava da se broj
+tretira kao neoznačen i da se sva izračunavanja izvršavaju po modulu 2<sup>n</sup> gde
+je n broj bitova koji tip koristi. Kvalifikator <b>signed</b> označava da se broj tretira
+kao označen i za njegovu reprezentaciju se najčešće koristi zapis u potpunom
+komplementu. Ukoliko uz tip <b>short</b>, <b>int</b>, <b>long</b> ili <b>long long</b> nije naveden ni
+kvalifikator <b>signed</b> ni kvalifikator <b>unsigned</b>, podrazumeva se da je vrednost
+označen broj.
+</br>
+<h2>Ostali tipove podataka definisane u C programskom jeziku su:
+<ul>
+<li>Logičke vrednosti</li>
+<li>Znakovni nizovi</li>
+<li>Složeni tipovi</li>
+</ul></h2>
+<div class = "zadatak">Pitanja i zadaci:
+<ol>
+<li>Šta sve karakteriše jedan tip podataka?</li>
+<li>Koliko bajtova zauzima podatak tipa char? Ukoliko nije navedeno, da li se podrazumeva da je podatak ovog tipa označen ili neoznačen?</li>
+<li>Ako je opseg tipa int oko četiri milijarde, koliko je sizeof(int)?</li>
+</ol></div>
+</body>
+
+</html>

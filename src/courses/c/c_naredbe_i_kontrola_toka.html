@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Naredbe i kontrola toka</title>
+<meta charset="UTF-8">
+<meta name="author" content"Cvija Vasić">
+<meta name="viewport" content"width-device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>Naredbe i kontrola toka</h1>
+Osnovni elementi kojima se opisuju izračunavanja u programima su naredbe.
+Naredbe za kontrolu toka omogućavaju različite načine izvršavanja programa,
+u zavisnosti od vrednosti promenljivih. One uključuju naredbe grananja i petlje. Na osnovu teoreme o strukturnom programiranju, od
+naredbi za kontrolu toka dovoljna je naredba grananja (tj. naredba if) i jedna
+vrsta petlje (na primer, petlja while), ali se u programima često koriste i druge
+naredbe za kontrolu toka radi bolje čitljivosti kôda.
+
+<h2>Naredba izraza</h2>
+Osnovni  oblik naredbe koji se javlja u C programima je takozvana naredba izraza (ova vrsta naredbi obuhvata i naredbu dodele i naredbu poziva funkcije). 
+Naime, svaki izraz završen karakterom <b>;</b> je naredba.
+</br>
+</br>
+Naredni primer ilustruje nekoliko vrsta naredbi:
+</br>
+<span class = "primer_text">3 + 4*5;</span>
+</br>
+<span class = "primer_text"> n = 3; </span>
+</br>
+<span class = "primer_text"> c++; </span>
+</br>
+<span class = "primer_text"> f(); </span>
+<h2>Složene naredbe (blokovi)</h2>
+U nekim slučajevima potrebno je više različitih naredbi tretirati kao jednu
+jedinstvenu naredbu. Vitičaste zagrade { i } se koriste da grupišu naredbe u
+složene naredbe tj. blokove i takvi blokovi se mogu koristiti na svim mestima
+gde se mogu koristiti i pojedinačne naredbe. Iza zatvorene vitičaste zagrade
+ne piše se znak <b>;</b>. 
+<h2>Naredbe grananja</h2>
+Naredbe grananja (ili naredbe uslova), na osnovu vrednosti nekog izraza,
+određuju naredbu (ili grupu naredbi) koja će biti izvršena.
+<h3>Naredba if-else</h3>
+Naredba uslova if ima sledeći oblik:
+</br>
+<xmp class = "primer_ta"> If (izraz)
+naredba 1
+else 
+naredba 2 </xmp>
+Izraz u maloj zagradi može biti neka logička relacija ili promenljiva, a <b>naredba1</b> i <b>naredba2</b> mogu biti elementarne programske narebe ili blok naredbi. 
+Naredba <b>naredba1</b> i <b>naredba2</b> su ili pojedinačne naredbe (kada se završavaju simbolom ;) ili blokovi naredbi zapisani između vitičastih zagrada (iza
+kojih se ne piše simbol ;).
+</br>
+</br>
+Deo naredbe else je opcioni, tj. može da postoji samo if grana.
+</br> 
+</br>
+Izraz <b>izraz</b> predstavlja logički uslov i najčešće je u pitanju celobrojni izraz (ali može biti i izraz čija je vrednost broj u pokretnom zarezu) za koji se smatra, 
+kao i uvek,  da je tačan (tj. da je uslov ispunjen) ako ima ne-nula vrednost, a inače se smatra
+da je netačan.
+</br>
+</br>Kako funkcioniše naredba <b>if-else</b>?
+</br>Proverava se izraz:
+<ul>
+<li>Ako je istinit (ima vrijednost koja nije nula), izvršava se <b>naredba1</b>;</li>
+<li> Ako nije istinit (ima vrijednost nula) i ako postoji else dio, izvršava se <b>naredba2</b>.</li>
+</ul>
+
+</br><b>Primer 1.</b> if-else naredba granjanja
+<xmp class = "primer_ta"> /* Provera da li je uneseni broj paran ili neparan */
+
+#include <stdio.h>
+int main() {
+    int broj;
+    printf("Unesi jedan broj: ");
+    scanf("%d", &broj);
+
+    // Tačno je ako je ostatak nula
+    if  (broj%2 == 0) {
+        printf("%d je paran broj.",broj);
+    }
+    else {
+        printf("%d je neparan broj.",broj);
+    }
+
+    return 0;
+}</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+Unesi jedan broj: 7
+7 je neparan broj
+</xmp>
+</br><b>if-else višeznačnost</b>:
+Naredbe koje se izvršavaju uslovno mogu da sadrže
+nove naredbe uslova, tj. može biti više ugnježdenih if naredbi. Ukoliko vitičastim zagradama nije obezbeđeno drugačije, else se odnosi na poslednji
+prethodeći neuparen if. Ukoliko se želi drugačije ponašanje, neophodno je
+navesti vitičaste zagrade. U narednom primeru, else se odnosi na drugo a ne
+na prvo if (iako nazubljivanje sugeriše drugačije):
+<xmp class = "primer_ta">
+if (izraz1)
+if (izraz2)
+naredba1
+else
+naredba2
+</xmp>
+U narednom primeru, else se odnosi na prvo a ne na drugo if :
+<xmp class = "primer_ta">
+if (izraz1) {
+if (izraz2)
+naredba1
+} else
+naredba2
+</xmp>
+
+<h3>Konstrukcija else-if</h3>
+Za višestruke odluke često se koristi konstrukcija sledećeg oblika:
+<xmp class = "primer_ta">
+if (izraz1)
+naredba1
+else if (izraz2)
+naredba2
+else if (izraz3)
+naredba3
+else
+naredba4
+</xmp>
+U ovako konstruisanoj naredbi, uslovi se ispituju jedan za drugim.
+ Kada je jedan uslov ispunjen, onda se izvršava naredba koja mu je pridružena i time se završava izvršavanje čitave naredbe. 
+ Naredba <b>naredba4</b> u gore navedenom primeru se izvršava ako nije ispunjen nijedan od uslova <b>izraz1, izraz2, izraz3</b>.
+ </br>
+ </br>
+ <b>Primer 2.</b> C else-if konstrukcija
+ </br>
+ <xmp class = "primer_ta">
+ /* Program upoređuje dva uneta broja */
+
+#include <stdio.h>
+int main() {
+    int broj1, broj2;
+    printf("Unesi dva broja: ");
+    scanf("%d %d", &broj1, &broj2);
+
+    /* proverava da li su dva broja jednaka. */
+    if(broj1 == broj2) {
+        printf("Rezultat: %d = %d",broj1,broj2);
+    }
+
+    /* proverava da li je prvi uneseni broj veći od drugog. */
+    else if (broj1 > broj2) {
+        printf("Rezultat: %d > %d", broj1, broj2);
+    }
+
+    /* izvršava se ukoliko su oba prethodna uslova nisu ispunjena */
+    else {
+        printf("Rezultat: %d < %d",broj1, broj2);
+    }
+
+    return 0;
+}
+ </xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+Unesi dva broja: 12
+23
+Rezultat: 12 < 23
+</xmp>
+<h3>Naredba if-else i operator uslova</h3>
+Naredna naredba
+<xmp class = "primer_ta">
+if (a > b)
+x = a;
+else
+x = b;
+</xmp>
+određuje i smešta u promenljivu x veću od vrednosti a i b.
+
+<h2>Petlje</h2>
+Petlje (ciklusi ili repetitivne naredbe) uzrokuju da se određena naredba (ili
+grupa naredbi) izvršava više puta (sve dok je neki logički uslov ispunjen).
+
+<h3>Petlja while</h3>
+Petlja <b>while</b> ima sledeći opšti oblik:
+<xmp class = "primer_ta">
+while(izraz)
+naredba
+</xmp>
+</br>
+Kako funkicioniše petlja <b>while</b>?
+Ispituje se vrednost izraza <b>izraz</b> i ako ona ima istinitosnu vrednost tačno 
+(tj. ako je vrednost izraza različita od nule), izvršava se naredba (što je ili pojedinačna naredba ili blok naredbi).
+ </br>Zatim se uslov izraz iznova proverava i sve se ponavlja dok mu istinosna vrednost ne postane netačno(tj. dok vrednost ne postane jednaka nuli). 
+</br>Tada se izlazi iz petlje i nastavlja sa izvršavanjem prve sledeće naredbe u programu.
+</br>
+</br>
+<b>Primer 3.</b> While petlja
+<xmp class = "primer_ta">
+/* Ispisuje brojeve od 1 do 5 */
+
+#include <stdio.h>
+int main() {
+  int i = 1;
+    
+  while (i <= 5) {
+    printf("%d\n", i);
+    ++i;
+  }
+
+  return 0;
+}
+</xmp>
+</br>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+1
+2
+3
+4
+5
+</xmp>
+
+<h3>Petlja for</h3>
+Petlja for ima sledeći opšti oblik:
+<xmp class = "primer_ta">
+for (izraz1; izraz2; izraz3)
+naredba
+</xmp>
+gde:
+<ul>
+<li><b>izraz1</b> - vrši inicijalizaciju promenljivih koje se koriste u petlji (što može da bude postavljanje početne vrednosti brojača petlje), 
+</li>
+<li><b>izraz2</b> - predstavlja uslov na osnovu koga se odlučuje da li će se telo petlje još izvršavati ili se izvršenje petlje prekida - petlja se izvršava dok je vrednost ovog izraza različita od nule 
+(uslov za izvršenje tela petlje može da bude dok brojač petlje ne postigne svoju gornju granicu,</li>
+<li><b>izraz3</b> - definiše promenu vrednosti promenljivih koje se koriste u petlji. 
+Navedena promena se vrši nakon svake iteracije ( tu se može definisati kako se menja vrednost brojača petlje nakon svake iteracije).
+</li>
+<li>Bilo koji od izraza može biti izostavljen, ali se znak ‘;’ mora pisati,
+</li>
+<li><b>naredba</b> - telo petlje.</li>
+</ul>
+Kako <b>for</b> petlja radi?
+</br>
+Inicijalizacija (izraz <b>izraz1</b>) izračunava se samo jednom, na početku izvršavanja petlje. 
+</br>Petlja se izvršava sve dok uslov (izraz <b>izraz2</b>) ima ne-nulavrednost (tj. sve dok mu je istinitosna vrednost tačno), 
+a korak (izraz <b>izraz3</b>)izračunava se na kraju svakog prolaska kroz petlju. 
+</br>Redosled izvršavanja je, dakle, oblika: inicijalizacija, uslov, telo, korak, uslov, telo, korak, . . . , uslov,
+telo, korak, uslov, pri čemu je uslov ispunjen svaki, osim poslednji put.
+</br>
+<div class = "napomena">Gore navedena opšta forma petlje for ekvivalentna je konstrukciji koja koristi petlja while:
+<xmp class = "primer_ta">
+izraz1;
+while (izraz2) {
+naredba
+izraz3;
+}
+</xmp>
+</div>
+</br>
+<b>Primer 4.</b> For petlja
+<xmp class = "primer_ta">
+/* Ispisuje brojeve od 1 do 10 */
+#include <stdio.h>
+
+int main() {
+  int i;
+
+  for (i = 1; i < 11; ++i)
+  {
+    printf("%d ", i);
+  }
+  return 0;
+}
+
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+1 2 3 4 5 6 7 8 9 10
+</xmp>
+
+<h3>Petlja do-while</h3>
+Petlja <b>do-while</b> ima sledeći opšti oblik:
+<xmp class = "primer_ta">
+do {
+naredbe
+} while(izraz)
+</xmp>
+Kako radi do-while petlja?
+<br>
+Telo (blok naredbi <b>naredbe</b>) naveden između vitičastih zagrada se izvršava
+i onda se izračunava uslov (izraz <b>izraz</b>). Ako je on tačan, telo se izvršava
+ponovo i to se nastavlja sve dok izraz <b>izraz</b> nema vrednost nula (tj. sve dok
+njegova istinitosna vrednost ne postane netačno).
+</br>
+Za razliku od petlje <b>while</b>, naredbe u bloku ove petlje se uvek izvršavaju
+barem jednom.
+</br>
+</br>
+<b>Primer 5.</b> While-do petlja
+<xmp class = "primer_ta">
+/* ispisuje cifre koje se koriste u zapisu unetog neoznačenog broja, zdesna na levo */
+#include <stdio.h>
+int main() {
+unsigned n;
+printf("Unesi broj: ");
+scanf("%u", &n);
+do {
+printf("%u ", n % 10);
+n /= 10;
+} while (n > 0);
+return 0;
+}
+</xmp>
+Program na standardnom izlazu ispisuje:
+<xmp class = "primer_ta">
+Unesi broj: 1234
+4 3 2 1
+</xmp>
+<h3>Naredba break i countinue</h3>
+U nekim situacijama pogodno je napustiti petlju ne zbog toga što nije ispunjen uslov petlje, već iz nekog drugog razloga. To je moguće postići naredbom
+<b>break</b> kojom se izlazi iz tekuće petlje. Na primer:
+<xmp class = "primer_ta">
+for(i = 1; i < n; i++) {
+if(i > 10)
+break;
+...
+}
+</xmp>
+Korišćenjem naredbe <b>break</b> se narušava strukturiranost kôda i to može da
+oteža njegovu analizu (na primer, analizu ispravnosti ili analizu složenosti).
+U nekim situacijama, korišćenje naredbe <b>break</b> može da poboljša čitljivost,
+ali kôd koji koristi naredbu break uvek se može napisati i bez nje. U datom
+primeru, odgovarajući alternativni kôd je, na primer:
+<xmp class = "primer_ta">
+for(i = 1; i<n && i<=10; i++)
+...
+
+</xmp>
+Naredbom <b>continue</b> se prelazi na sledeću iteraciju u petlji. Na primer:
+<br>
+<xmp class = "primer_ta">
+for(i = 0; i < n; i++) {
+if (i % 10 == 0)
+continue; /* preskoci brojeve deljive sa 10 */
+...
+}
+</xmp>
+Slično kao za naredbu <b>break</b>, korišćenjem naredbe <b>continue</b> se narušava strukturiranost kôda, ali može da se poboljša čitljivost. 
+Kôd koji koristi naredbu continue uvek se može napisati i bez nje. 
+U datom primeru, odgovarajući alternativni kôd je, na primer:
+<xmp class = "primer_ta">
+for(i = 0; i < n; i++)
+if (i % 10 != 0) /* samo brojevi koji nisu deljivi sa 10 */
+...
+
+</xmp>
+U slučaju ugnježdenih petlji, naredbe <b>break</b> i <b>continue</b> imaju dejstvo samo
+na unutrašnju petlju. Tako, na primer, fragment
+<xmp class = "primer_ta">
+for (i = 0; i < 3; i++)
+for (j = 0; j < 3; j++) {
+if (i + j > 2) break;
+printf("%d %d ", i, j);
+}
+</xmp>
+ispisuje
+<xmp class = "primer_ta">
+0 0 0 1 0 2 1 0 1 1 2 0
+</xmp>
+<div class = "zadatak">Šta se ispisuje prilikom izvršavanja narednog koda?
+<xmp class = "primer_ta">
+int i = 2; int j = 2;
+while(i + 2*j <= 15) {
+i++;
+if (i % 3 == 0)
+j--;
+else {
+i+=2; j++;
+}
+printf("%d %d\n", i, j);
+}
+</xmp>
+</div>
+</body>
+</html>
