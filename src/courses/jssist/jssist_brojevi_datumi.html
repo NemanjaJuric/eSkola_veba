@@ -1,0 +1,585 @@
+<h1>JavaScript brojevi i datumi</h1>
+<p>Brojeve u JavaScriptu možemo pisati sa ili bez decimala!</p>
+<b>Primer 1:</b>
+<xmp class="primer_ta" disabled
+>
+    var x = 34.00;    // A number with decimals
+    var y = 34;       // A number without decimals
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Mnogo veliki ili mnogo mali brojevi mogu biti napisani u eksponencijalnom
+  (naučnom) obliku:
+</p>
+<b>Primer 2:</b>
+<xmp class="primer_ta"
+>
+    var x = 123e5;    // 12300000
+    var y = 123e-5;   // 0.00123
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Celi brojevi se pišu sa tačnošću do 15 cifara.</p>
+<b>Primer 3:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Celi brojevi se pišu sa tačnošću do 15 cifara.</p>
+        <button onclick="myFunction()">
+            Try it
+        </button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 999999999999999;
+                var y = 9999999999999999;
+                document.getElementById("demo").innerHTML = x + "<br>" + y;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+<p>Maksimalan broj decimala je 17, ali tada tačnost nije uvek 100%.</p>
+<b>Primer 4:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Floating point arithmetic is not always 100% accurate.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 0.2 + 0.1;
+                document.getElementById("demo").innerHTML = "0.2 + 0.1 = " + x;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Gore istaknuti problem, pomaže pri množenju i deljenju brojeva:</p>
+<b>Primer 5:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Floating point arithmetic is not always 100% accurate.</p>
+        <p>But it helps to multiply and divide.</p>
+
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = (0.2 * 10 + 0.1 * 10) / 10;
+                document.getElementById("demo").innerHTML = "0.2 + 0.1 = " + x;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Deljenje nulom odredjuje beskonačnost:</p>
+<b>Primer 6:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Deljenje nulom određuje beskonačnost.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var x = 2 / 0;
+                var y = -2 / 0;
+                document.getElementById("demo").innerHTML = x + "<br>" + y;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Operacija tipeof Infinity vraća broj.</p>
+<b>Primer 7:</b>
+
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p> Beskonačno je broj.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = typeof Infinity;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<h1>Operacije nad brojevima</h1>
+
+<p>Operacija ToString () vraća broj kao string (niz znakova).</p>
+<b>Primer 8:</b>
+
+<xmp class="primer_ta">
+    <!DOCTYPE html1>
+    <html>
+    <body>
+        <h2>The JavaScript toString() Method</h2>
+        <p>Operacija toString() pretvara broj u niz znakova:</p>
+        <p id="demo"></p>
+        <script>
+            var x = 123;
+            document.getElementById("demo").innerHTML =
+                x.toString() + "<br>" +
+               (123).toString() + "<br>" +
+               (100 + 23).toString();
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Operacija toPrecision () vraća broj kao niz znakova zadate dužine, uz
+  poštovanje pravila zaokrugljivanja decimalnih brojeva.
+</p>
+<!-- <b>Primer 9:</b> -->
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Operacija toPrecision() pretvara broj u niz znakova zadate preciznosti :</p>
+        <p id="demo"></p>
+        <script>
+            var x = 9.656;
+            document.getElementById("demo").innerHTML =
+                x.toPrecision() + "<br>" +
+                x.toPrecision(2) + "<br>" +
+                x.toPrecision(4) + "<br>" +
+                x.toPrecision(6);
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija valueOf () vraća broj kao broj.</p>
+<b>Primer 10:</b>
+<xmp class="primer_ta">
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+
+        <script>
+            var x = 123;
+            document.getElementById("demo").innerHTML =
+                x.valueOf() + "<br>" +
+                (123).valueOf() + "<br>" +
+                (100 + 23).valueOf();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Operacija Number () može se koristiti za pretvaranje JavaScript promenljivih u
+  brojeve. Ako se broj ne može konvertovati, vratiće se poruka NaN (nije broj).
+</p>
+<b>Primer 11:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ova operacija pretvara promenljive u brojeve, ili vraća NaN ako konverzija nije moguća:</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+                Number(true) + "<br>" +
+                Number(false) + "<br>" +
+                Number(new Date()) + "<br>" +
+                Number("  10") + "<br>" +
+                Number("10  ") + "<br>" +
+                Number("10 6");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Operacija parseFloat() pretvara stringove u brojeve. Ako konverzija nije
+  moguća, vratiće se NaN.
+</p>
+<b>Primer 12:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ova funkcija pretvara stringove u brojeve, ili vraća NaN ako konverzija nije moguća:</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+                parseFloat("10") + "<br>" +
+                parseFloat("10.33") + "<br>" +
+                parseFloat("10 6") + "<br>" +
+                parseFloat("10 years") + "<br>" +
+                parseFloat("years 10");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">vidi primer</button>
+<br />
+<br />
+<b>Zadatak 1:</b>
+<div class="zadatak">
+  Izmeniti primer tako da se broj 3,14285714 pretvori u niz znakova dužine 1, 2,
+  3, 4 i 5
+</div>
+<br><br>
+<h2>JavaScript Datumi</h2>
+
+<p>Brojeve u JavaScriptu možemo pisati sa ili bez decimala!</p>
+<b>Primer 1:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML = Date();
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Korišćenjem operacije new Date(), prikazuje se trenutni datum i vreme:</p>
+<b>Primer 2:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d;
+        </script>
+
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Kada prikažete datum objekta u HTML, on se automatski konvertuje u string
+  operacijom toString ().
+</p>
+<b>Primer 3:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toString();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija toDateString () prikazuje datum u uobičajenom formatu:</p>
+<b>Primer 4:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toDateString();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Operacija toUTCString() pretvara datum u niz znakova (string) standardnog
+  oblika.
+</p>
+<b>Primer 5:</b>
+<xmp class="primer_ta" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p>
+            The toUTCString() method converts a date to a UTC string (date display
+            standard).
+        </p>
+
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toUTCString();
+        </script>
+
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<h2>JavaScript Formati Datuma</h2>
+
+<p>Datum u ISO formatu može biti napisan bez navođenja dana (GGGG-MM):</p>
+<b>Primer 6:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2017-03");
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2017-03");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Datum u ISO formatu može se napisati bez meseca i dana (samo godina):</p>
+<b>Primer 7:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2017");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2017");
+        </script>
+    </body>
+</html>
+
+</xmp>
+
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Datum u ISO formatu mogu biti pisani sa dodatim satima, minutima i sekundama
+  (GGGG-MM-DDTčč: mm: SSZ):
+</p>
+<b>Primer 8:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2015-03-25T12:00:00Z");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p> Datum i vreme su odvojeni velikim T.</p>
+        <p> UTC-vreme je definisano velikim slovom Z.</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2015-03-25T12:00:00Z");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Ako želite da izmenite vreme u odnosu na UTC, uklonite Z i dodajte + HH: MM
+  ili -HH: MM umesto:
+</p>
+<b>Primer 9:</b>
+<xmp class="primer_ta" disabled>
+    var d = new Date("2015-03-25T12:00:00-06:30");
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <h1>JavaScript ISO Dates</h1>
+        <p>Modify the time relative to UTC by adding +HH:MM or subtraction -HH:MM to the time.</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+            new Date("2015-03-25T12:00:00-06:00");
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<h2>JavaScript Operacije nad datumima</h2>
+<br>
+<p>
+  Unutrašnji sat u Java Scrupt-u računa vreme od ponoći 1. januara 1970. godine.
+</p>
+<br>
+<p>
+  Operacija getTime () prikazuje koliko je milisekundi prošlo od 1. januara
+  1970. godine do sada:
+</p>
+<b>Primer 10:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getTime();
+    </script>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Unutrašnji sat u Java Scrupt-u racuna vreme od ponoci 1. januara 1970. godine.</p>
+        <p>Ova operacija prikazuje broj milisekundi od tada do sada:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getTime();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Operacija getFullyear () prikazuje tekuću godinu u obliku četvorocifrenog
+  broja:
+</p>
+<b>Primer 11:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getFullYear();
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Prikazati tekuću godinu u obliku četvorocifrenog broja:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getFullYear();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija getDay () prikazuje redni broj dana u tekućoj nedelji (0-6):</p>
+<b>Primer 12:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getDay();
+    </script>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Ovo je redni broj današnjeg dana u tekućoj nedelji:</p>
+        <p id="demo"></p>
+
+        <script>
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.getDay();
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>
+  Može se koristiti i niz imena dana u nedelji. Tada će operacija getDay ()
+  prikazati naziv današnjeg dana:
+</p>
+<b>Primer 13:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        document.getElementById("demo").innerHTML = days[d.getDay()];
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>Today is:</p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            document.getElementById("demo").innerHTML = days[d.getDay()];
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+
+<p>Operacija setFullyear () postavlja željeni datum.</p>
+<b>Primer 14:</b>
+<xmp class="primer_ta" disabled>
+    <script>
+        var d = new Date();
+        d.setFullYear(2020, 0, 14);
+        document.getElementById("demo").innerHTML = d;
+    </script>
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p>Ova operacija postavlja datum po želji.</p>
+        <p>JavaScript numeriše mesece od 0 do 11 (jul je na primer 6. mesec u godini).  </p>
+        <p id="demo"></p>
+        <script>
+            var d = new Date();
+            d.setFullYear(2020, 0, 14);
+            document.getElementById("demo").innerHTML = d;
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+<br />
+<b>Zadatak 2:</b>
+<div class="zadatak">
+  Promeniti primer tako da pokazuje trenutni datum i vreme u standardnom obliku,
+  kao i broj milisekundi od 1. januara 1970. godine.
+</div>

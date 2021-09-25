@@ -1,0 +1,36 @@
+Rešenje zadatka 1:
+<xmp class="primer_ta"
+>
+var Pas={
+	ime: "Dzeki",
+	starost: 2
+};
+Pas.zvuk=function(){
+	return "AV AV!";
+	}
+</xmp>
+
+<br><br>
+Rešenje zadatka 2:
+<span class = "primer_text"><p id='pasus1'> Tekst </p>
+<xmp class="primer_ta" >
+    <p id='pasus2'> Tekst </p></span>
+</xmp>
+Pronalazimo ih uz pomoć sledećeg koda:
+<xmp class="primer_ta" >
+<p id='pasus1'> Tekst </p>
+<p id='pasus2'> Tekst </p>
+var a2 = document.getElementById("pasus1");
+var a3 = document.getElementById("pasus2");
+</xmp>
+<br><br>
+Rešenje zadatka 3:
+<xmp class="primer_ta" >
+var element = document.createElement("p");
+element.setAttribute("id","element" + i);
+document.body.appendChild(element);
+element.appendChild(document.createTextNode("Ja sam rečenica broj" + i + "."));}
+var removeel = document.getElementById("element1");
+document.body.removeChild(element);
+</xmp>
+</span>

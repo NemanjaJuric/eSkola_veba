@@ -1,0 +1,552 @@
+
+<h1> Metode nad nizovima</h1>
+<br/>
+<h2> Promena niza u string </h2>
+<br/>
+<p>Metodom toString() se niz karaktera ili objekata može promeniti u string, gde se karakteri tog niza ili objekti odvajaju zarezima.
+</p>
+<xmp class = "primer_ta"  disabled>
+ var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+document.getElementById("demo").innerHTML = voce.toString();
+ </xmp>
+
+<br/>
+Metod <b>join()</b> takođe prevodi niz u string, s tim što mi možemo odrediti simbol koji odvaja elemente.
+
+<br><b>Primer </b>
+
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+document.getElementById("demo").innerHTML = voce.join(" * ");
+</script>
+</xmp>
+
+<h2>Metode <b>pop()</b> i <b>push()</b> </h2> 
+<br/>
+<p>Pri radu sa nizovima javlja se potreba za brisanjem ili umetanjem elemenata niza. Za to postoje metode <b>pop()</b> i <b>push()</b>. </p>
+<h2>Pop()</h2>
+<br/>
+<p>Metodom <b>pop()</b>
+ se uklanja poslednji element niza: </p>
+
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+voce.pop();              // Uklanja poslednji element ("Šljiva") iz niza voća
+</script>
+</xmp>
+<p>Metodom <b>pop()</b> se može vratiti element koji je uklonjen prethodno, na primer: </p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+var x = voce.pop();      // vrednost promenljive x je "Šljiva"
+</script>
+</xmp>
+ <p>Metodom <b>push()</b> se dodaje novi element na kraju niza.</p>
+ <br><b>Primer </b>
+
+
+<xmp class = "primer_ta" rows="15" disabled>
+
+
+<html>
+<body>
+
+<p>Metodom push se dodaje novi elemen na kraju niza</p>
+
+<button onclick="myFunction()">Probaj i ti!</button>
+
+<p id="demo"></p>
+
+<script>
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+document.getElementById("demo").innerHTML = voce;
+
+function myFunction() {
+    voce.push("Kruška");
+    document.getElementById("demo").innerHTML = voce;
+}
+</script>
+
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<h2>
+	Shift</h2>
+<p>Metoda <b>shift()</b> je slična metodi <b>pop()</b>, ali umesto poslednjeg izbacuje prvi element niza.</p>
+
+<xmp class = "primer_ta" rows="15" disabled>
+
+
+<html>
+<body>
+
+<p>Shift metoda uklanja prvi element niza, a ostale pomera za jedno mesto napred.</p>
+
+<button onclick="myFunction()">Probaj i ti</button>
+
+<p id="demo"></p>
+
+<script>
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+document.getElementById("demo").innerHTML = voce;
+
+function myFunction() {
+    voce.shift();
+    document.getElementById("demo").innerHTML = voce;
+}
+</script>
+
+
+
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+<h2>Promena elemenata niza</h2>
+<p>
+Elementima niza se može pristupti i na osnovu njohovog indeksa, pa se na taj način odredjeni element niza može zameniti nekom drugom vrednošću. Indeksiranje počinje nulom, pa je indeks [0] prvog elementa niza, a [1] drugog i tako dalje. <br/>Na primer: </p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+voce[0] = "Kruška";        // Menja prvi element niza u "Kruška"
+</script>
+</xmp>
+
+<p>Način dodavanja novog elementa niza bez korišćenja opcije <b>push</b> je:</p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+voce[voce.length] = "Kruška"; 
+</script>
+</xmp>
+<h2>Brisanje elemenata niza</h2>
+<p> Brisanje se može vršiti opcijom <b>delete</b>, a pristupa se lementima niza preko indeksa, kao na primer: </p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var voce = ["Kajsija", "Dunja", "Jabuka", "Šljiva"];
+delete voce[0];           // Brisanje se prvi element niza postaje nedefinisana vrednost, undefined
+</script>
+</xmp>
+<p> Kako brisanjem pomoću naredbe delete, izbrisani član niza ostaje nedefinisan, jer se ostali članovi ne pomeraju na njegovo mesto, preporučuje se korišćenje naredbi pop() i shift(). </p>
+<h2> Metoda <b>slice()</b></h2> 
+<p> Metodom <b>slice()</b> se izdvaja deo niza koji postaje novi niz.
+Na primer:</p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(3)
+</script>
+</xmp>
+<p> Ovim se kreira novi niz, počevši od trećeg elementa niza fruits uključujući i taj element, što je u ovom slučaju "Apple".
+Novi niz je: Apple, Mango. </p>
+</br>
+<p> Metod <b>slice()</b> može sadržati dva argumenta, gde je prvi indeks početnog elementa niza a drugi krajnji element niza.
+</p>
+<xmp class = "primer_ta"  disabled>
+<script type="text/javascript">
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var citrus = fruits.slice(1, 3);
+</script>
+</xmp>
+<p>Novi niz je: Orange, Lemon.</p>
+<div class = "zadatak"><b>Zadatak:</b> Promeniti kod primera tako da umesto što briše 
+poslednji element niza, izbriše prvi.</div>
+<br><br>
+<h2> Metoda <b>map()</b> </h2>
+<p> Metoda <b>map()</b> kreira novi niz tako što na elementima nekog 
+niza 
+izvrši određenu funkciju za svaki član posebno. </p>
+
+<h2> Sintaksa</h2>
+<xmp class = "primer_ta"  disabled>
+var novi_niz = niz.map(callback[, thisArg])
+</xmp>
+
+Što zapravo znači da je map povratna naredba jer se nakon izvršavanja funkcije na, redom, sve elemente niza, dobija, kao rezultat novi niz. To možemo zapisati i ovako:
+
+<xmp class = "primer_ta"  disabled>
+map(myArray, myFunction);
+</xmp>
+
+<p>Funkcija koju koristi <b>map()</b> je povratna (callback) funkcija, jer uzima vrednost elementa niza kao trenutnu vrednost argumenta i vraća vrednost funkcije na mesto tog elementa, u novom nizu.</p>
+<br><b>Primer:</b><br>
+<xmp class = "primer_ta" rows = "15" disabled>
+<script type="text/javascript">
+incrementByOne = function (element) {
+  return element + 1;
+}
+
+myArray = [1,2,3,4];
+
+myArray.map(incrementByOne);
+ // returns [2,3,4,5]
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br/>
+<p>U sledećem primeru imamo dva različita slučaja, kada se poziva
+ već definisana funkcija i kada se funkcija koja se kreira.</p>
+<br/><b>Primer:</b><br>
+
+<xmp class = "primer_ta" rows = "15" disabled>
+<script type="text/javascript">
+var niz = [1, 5, 10, 15];
+var dup = niz.map(function(x) {
+   return x * 2;
+});
+// dup je novi niz koji dobijamo kada se svaki
+// element niza duplira [2, 10, 20, 30]
+// niz je  [1, 5, 10, 15]
+
+var niz = [1, 4, 9];
+var kvad = niz.map(Math.sqrt);
+// novi niz je [1, 2, 3] niz kvadratnih korena elementata niza 
+// niz je [1, 4, 9]
+</script>
+</xmp>
+
+<h2>Kreiranje niza ćiji su elementi objekti
+ pomoću metode <b>map()</b></h2>
+ <p> Kod primera koji od niza objekata
+ kreira niz čiji su elementi objekti:</p>
+ 
+ <xmp class = "primer_ta" rows = "18" disabled>
+<script type="text/javascript">
+var niz = [{key: 1, value: 10}, 
+               {key: 2, value: 20}, 
+               {key: 3, value: 30}];
+
+var izmenjeniNiz = niz.map(function(obj) { 
+   var rObj = {};
+   rObj[obj.key] = obj.value;
+   return rObj;
+});
+
+//izmenjeniNiz je [{1: 10}, {2: 20}, {3: 30}], 
+
+// niz je i dalje: 
+// [{key: 1, value: 10}, 
+//  {key: 2, value: 20}, 
+//  {key: 3, value: 30}]
+</script>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<p> U sledećem primeru vidimo kako izgleda upotreba <b>map()</b> kada 
+funkcija koja se poziva zahteva jedan argument.</p>
+
+<xmp class = "primer_ta" rows = "10" disabled>
+<script type="text/javascript">
+var niz = [1, 4, 9];
+var dupli = niz.map(function(num) {
+  return num * 2;
+});
+
+// novi niz je [2, 8, 18]
+
+</script>
+</xmp>
+
+<p>Sledeći primer pokazuje kako pomoću <b>map()</b> možemo obrnuti redosled elemenata stringa.</p>
+ 
+ <xmp class = "primer_ta" rows = "10" disabled>
+<script type="text/javascript">
+var str = '12345';
+Array.prototype.map.call(str, function(x) {
+  return x;
+}).reverse().join(''); 
+
+// Rezultat: '54321'
+//  Uz pomoć '===' možemo testirati da li je red
+// karaktera polindrom
+</script>
+</xmp>
+ <br><br>
+ <h2>Metoda filter()</h2>
+    <p>
+      Metodom <b>filter()</b> se kreira novi niz sa elemenitima niza koji
+      zadovoljavaju određeni uslov zadat funkcijom. Uzima u obzir samo elemente
+      niza čije su vrednosti definisane, a ne uzima u obzir obrisane ili
+      elemente čija vrednost nije definisana. Elemeni niza koji ne prođu uslov
+      filtera se preskaču i ne uzimaju se kao elementi novog niza.
+    </p>
+    <xmp class="primer_ta" disabled>
+<script type="text/javascript">
+function isBigEnough(value) {
+  return value >= 10;
+}
+
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+</script>
+</xmp>
+    <br />
+    Filter() poziva callback funkciju za svaki element niza jednom i kreira novi
+    niz svih vrednosti za koje je callback true. <br />Callback se poziva na tri
+    argumenta:
+    <ol>
+      <li>1.vrednost elementa</li>
+      <li>2.redni broj elementa</li>
+      <li>3.niz</li>
+    </ol>
+    <p>filter() ne menja niz koji filrtira već kreira novi.</p>
+    <h2>Sintaksa</h2>
+    <xmp class="primer_ta" disabled
+>
+var newArray = arr.filter(callback[, thisArg])
+</xmp
+    >
+    <h4>Parametri</h4>
+    <p>
+      <b>Callback</b>-funkcija koja proverava da li trenutni član niza
+      zadovoljava uslov, ako je vrednost true onda se član nalazi u novom nizu,
+      ako je vrednost false onda ne. <br />
+      <b>Element</b>-član niza koji se trenutno obrađuje. <br /><b>Index</b
+      >-redni broj elementa koji se trenutno obrađuje. <br /><b>Array</b>- niz
+      koji se filtrira. <br /><b>thisArg</b>-Opciono. Vrednost koja se koristi
+      pri izvršavanju naredbe.
+    </p>
+    <h4>Rezultat</h4>
+    <p>Novi niz sa elementima koji su prošli filtriranje.</p>
+    <br><b>Primer:</b><br>
+    <p>Kreira novi niz čiji elementi imaju vrednost veću od 10:</p>
+    <xmp class="primer_ta" disabled>
+<script type="text/javascript">
+function isBigEnough(value) {
+  return value >= 10;
+}
+
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// novi niz je [12, 130, 44]
+</script>
+</xmp>
+    <p>Sledeći primer izdvaja elemente sa definisanim vrednostima:</p>
+    <xmp class="primer_ta" rows="37" disabled>
+<script type="text/javascript">
+var arr = [
+  { id: 15 },
+  { id: -1 },
+  { id: 0 },
+  { id: 3 },
+  { id: 12.2 },
+  { },
+  { id: null },
+  { id: NaN },
+  { id: 'undefined' }
+];
+
+var invalidEntries = 0;
+
+function isNumber(obj) {
+  return obj!== undefined && typeof(obj) === 'number' && !isNaN(obj);
+}
+
+function filterByID(item) {
+  if (isNumber(item.id)) {
+    return true;
+  } 
+  invalidEntries++;
+  return false; 
+}
+
+var arrByID = arr.filter(filterByID);
+
+console.log('Filtrirani niz je\n', arrByID); 
+// filtrirani niz je
+// [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }]
+
+console.log('Broj nedefinisanih unosa je = ', invalidEntries); 
+//broj nedefinisanih unosa je = 4
+</script>
+</xmp>
+    Sledeći primer pokazuje kako možemo izdvojiti elemente niza pomoću search
+    opcije na osnovu nekog kriterijuma:
+    <xmp class="primer_ta" rows="20" disabled>
+<script type="text/javascript">
+var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+
+/**
+ * Filtrira elemente niza na osnovu kriterijuma (query)
+ */
+function filterItems(query) {
+    return fruits.filter(function(el) {
+     return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+    })
+}
+
+console.log(filterItems('ap')); // ['apple', 'grapes']
+console.log(filterItems('an')); // ['banana', 'mango', 'orange']
+</script>
+</xmp>
+<br><br>
+<h2> Metoda <b>find()</b> </h2>
+<p> Metoda <b>find()</b> pronalazi prvi element u nizu koji
+ zadaovoljava određeni kriterijum i kao rezultat daje vrednost
+ tog elementa. Ukoliko ne pronađe takav element u nizu, rezultat
+ je undefined.</p><br/>
+ <p>Metoda <b>find()</b> ispituje sve elemente niza, kako one za koje je definisana vrednost tako i one za koje nije. Elemente ispituje redom, od indeksa 0 pa do -1.
+ </p>
+
+ 
+ <xmp class = "primer_ta"  disabled>
+function isBigEnough(element) {
+  return element >= 15;
+}
+[12, 5, 8, 130, 44].find(isBigEnough); // 130
+</xmp>
+<h2>Sintaksa</h2>
+
+<xmp class = "primer_ta"  disabled>
+arr.find(callback[, thisArg])
+</xmp>
+
+<h3>Parametri</h3>
+<p><b>callback</b>-funkcija koja se izvršava nad svakim elementom u nizu i ima tri argumenta:
+<ul> <li> <b>element</b> <br/>Element nad koji se trenutno vrši operacija.</li>
+<li> <b>index</b> <br/> Redni broj elementa nad kojim se vrši operacija u trenutku.</li>
+<li> <b>array</b> <br/> Niz nad čijim elementima se vrši operacija.</li>
+</ul>
+<b>thisArg</b> <br/> Opciono.</p> 
+<h3>Rezultat</h3>
+<p>Vrednost elementa koji prođe test, u suprotom undefined.</p>
+<br><b>Primeri:</b><br>
+<p>Pronalaženje elementa niza na osnovu nekog svojstva</p>
+<xmp class = "primer_ta" rows = "15" disabled>
+var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+function findCherries(fruit) { 
+    return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(findCherries)); 
+// { name: 'cherries', quantity: 5 }
+</xmp>
+<p>Sledeći primer pronalazi prost broj u nizu, ukoliko nema prostog broja u nizu vraća reziltat undefined.
+</p>
+<xmp class = "primer_ta" rows = "10" disabled>
+function isPrime(element, index, array) {
+  var start = 2;
+  while (start <= Math.sqrt(element)) {
+    if (element % start++ < 1) {
+      return false;
+    }
+  }
+  return element > 1;
+}
+console.log([4, 6, 8, 12].find(isPrime)); // undefined, nije pronadjen
+console.log([4, 5, 8, 12].find(isPrime)); // 5
+</xmp>
+<p>Na sledećem primeru vidimo kako metoda find tretira nedefinisane vrednosti i izbrisane elemente niza:
+</p>
+<xmp class = "primer_ta" rows = "20" disabled>
+// Niz koji nema elementata na mestima 2, 3 i 4
+var a = [0,1,,,,5,6];
+
+// Pokazuje sve indekse svih elemenata,a ne samo onih koji imaju vrednost
+a.find(function(value, index) {
+  console.log('Visited index ' + index + ' with value ' + value); 
+});
+
+//Pokazuje sve indekse, cak i izbrisanih elementata
+a.find(function(value, index) {
+
+  // briše element 5 u prvoj iteraciji
+  if (index == 0) {
+    console.log('Deleting a[5] with value ' + a[5]);
+    delete a[5];
+  }
+  // Element 5 je posećen, iako izbrisan
+  console.log('Visited index ' + index + ' with value ' + value); 
+});
+</xmp>
+<br><br>
+<h2>Metoda indexOf()</h2>
+<p>
+  Metoda indexOf() kao rezultat daje redni broj gde se element nalazi u
+  nizu. Ako postoje dva ista elementa, indexOf() vraća prvi redni broj tog
+  elementa, a ako se element ne nalazi u nizu vraća -1.
+</p>
+<xmp class="primer_ta" disabled
+>
+var a = [2, 9, 9]; 
+a.indexOf(2); // 0 
+a.indexOf(7); // -1
+
+if (a.indexOf(7) === -1) {
+// element se ne nalazi u nizu
+}
+</xmp
+>
+<h2>Sintaksa</h2>
+<xmp class="primer_ta" disabled
+>
+arr.indexOf(searchElement)
+arr.indexOf(searchElement, fromIndex)
+</xmp
+>
+<h3>Parametri</h3>
+<ol style="list-style-type: circle">
+  <li><b>searchElement</b>-element koji je potrebno locirati u nizu.</li>
+  <br />
+  <li>
+    <b>fromIndex</b>- (opciono) redni broj od kojeg počinje pretraga. Ako je
+    redni broj jednak ili veći od dužine niza, rezultat je -1, što znači da
+    neće pretražiti niz. Ako je uneti redni broj negativan, izvršiće se
+    naredba, a ako je nula onda se pretražuje ceo niz, redom.
+  </li>
+</ol>
+<h3>Rezultat</h3>
+Prvi redni broj elementa unizu, ako se element ne nalazi u nizu, -1.
+<br><b>Primer</b><br>
+U sledećem primeru koristimo indexOf() da odredimo redni broja članova niza:
+<xmp class="primer_ta" disabled
+> 
+var array = [2, 9, 9];
+array.indexOf(2);     // 0
+array.indexOf(7);     // -1
+array.indexOf(9, 2);  // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0 
+</xmp
+>
+Možemo naći sve pozicije nekog elementa u nizu na sledeći način:
+<xmp class="primer_ta" rows="11" disabled
+> 
+var indices = [];
+var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+var element = 'a';
+var idx = array.indexOf(element);
+while (idx != -1) {
+indices.push(idx);
+idx = array.indexOf(element, idx + 1);
+}
+console.log(indices);
+// [0, 2, 4]
+</xmp
+>
+Način na koji možemo proveriti da li se element nalazi u nizu i ako ne
+ubaciti ga:
+<xmp class="primer_ta" rows="19" disabled
+> 
+function updateVegetablesCollection (veggies, veggie) {
+if (veggies.indexOf(veggie) === -1) {
+    veggies.push(veggie);
+    console.log('New veggies collection is : ' + veggies);
+} else if (veggies.indexOf(veggie) > -1) {
+    console.log(veggie + ' already exists in the veggies collection.');
+}
+}
+
+var veggies = ['potato', 'tomato', 'chillies', 'green-pepper'];
+
+updateVegetablesCollection(veggies, 'spinach'); 
+// New veggies collection is : potato,tomato,chillies,green-papper,spinach
+updateVegetablesCollection(veggies, 'spinach'); 
+// spinach already exists in the veggies collection.
+</xmp>

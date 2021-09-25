@@ -1,0 +1,228 @@
+Rešenje zadatka 1:
+<br />
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Porez na imovinu </h3>
+		<script>
+			var imovina = {
+				povrsinaImovine: 0,
+				godinePosedovanjaImovine: 0,
+				porez: function () {
+					Porez = this.povrsinaImovine * 30000.00 - 0.08 * this.godinePosedovanjaImovine * 30000.00;
+					return Porez;
+				}
+			}
+			imovina.povrsinaImovine = prompt("Povrsina vaše imovine za koju želite da izračunate visinu poreza je: ");
+			document.write("Površina vaše imovine je: " + imovina.povrsinaImovine + " m<sup>2</sup><br>");
+			imovina.godinePosedovanjaImovine = prompt("Koliko godina posedujete navedenu imovinu?");
+			document.write("Imovinu posedujete " + imovina.godinePosedovanjaImovine + " godina. <br>");
+			document.write("Visina poreza na vašu imovinu je " + imovina.porez() + " dinara.");
+		</script>
+	</body>
+
+	</html>
+</xmp>
+<br />
+Po uslovima zadatka prvo je definisan objekat imovina, koji ima osobine:
+<ul>
+  <li>
+    <i>povrsinaImovine</i> u kojoj je sačuvana numerička vrednost površine
+    imovine za koju korisnik želi da izračuna visinu poreza,
+  </li>
+  <li>
+    <i>godinePosedovanjaImovine</i> u kojoj je sačuvana numerička vrednost
+    godina koliko je korisnik vlasnik te imovine,
+  </li>
+  <li>
+    <i>porez</i> koja je funkcijska osobina i izračuvana visinu poreza po
+    formuli koja je data u tekstu zadatka.
+  </li>
+</ul>
+Potom, na internet stranici se funkcijom
+<span class="primer_text">prompt</span> zahteva unos neophodnih podataka, koji
+se redom ispisuju funkcijom <span class="primer_text">write</span>. Na kraju,
+ispisuje se i vrednost funkcijskog svojstva objekta <i>imovina</i>.
+
+<br><br>
+Rešenje zadatka 2:
+<br />
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<script>
+			var datum = new Date();
+			function oboji() {
+				if (datum.getHours() < 20)
+					document.body.style.backgroundColor = "yellow";
+				else
+					document.body.style.backgroundColor = "blue";
+			}
+			oboji();
+		</script>
+	</body>
+
+	</html>
+</xmp>
+<br />
+Definisana je nova promenljiva <i>datum</i> koja poziva funkciju <i>Date</i> i
+tako su u njemu sačuvani podaci o datumu i vremenu u trenutku pokretanja
+dokumenta. Funkcijom <i>oboj</i> menja se boja pozdine na žutu ili plavu. Da li
+će boja pozadine biti plave ili žute boje odruje naredba
+<span class="primer_text">if</span> koja ispituje koliko je sati u promenljivoj
+<i>datum</i>. <br />
+<br>
+Rešenje zadatka 3:
+<br />
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Prorocica Druzila </h3>
+		<h5> Dobrodosli </h5>
+		<p> Vase trenutno raspolozenje je: </p>
+		<script>
+			var raspolozenje = ["Tuzan/Tuzna", "Uplakan/Uplakana", "Srecan/Srecna", "Radostan/Radosna", "Veseo/Vesela", "Isfrustriran/Isfrustrirana", "Zaljubljen/Zaljubljena", "Namrgodjen/Namrgodjena", "Ljubomoran/Ljubomorna", "Nasmejan/Nasmejana"];
+			function pogodi() {
+				var rnd = Math.random();
+				return Math.floor(rnd * 10);
+			};
+			document.write(raspolozenje[pogodi()]);
+		</script>
+	</body>
+
+	</html>
+</xmp>
+<br />
+Definisan je niz stringova pod nazivom <i>raspolozenje</i> u kome su sačuvana
+različita raspoloženja koja osoba može imati. Funkcija <i>pogodi</i> slučajno
+bira celi broj iz intervala [0,9], a potom se na internet stranici ispisuje
+string iz niza <i>raspolozenje</i>, koji stoji na slučajno odabranom mestu.
+
+<br><br>
+
+Rešenje zadatka 4:
+<br />
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> Loto </h3>
+		<h5> Ko igra, taj i dobija </h5>
+		<script>
+			function izvuciBroj() {
+				var rnd = Math.random();
+				return Math.ceil(rnd * 39);
+			};
+			function svihSedamBrojeva() {
+				var izvuceni = [];
+				var novBroj = 0;
+				var ind = 0;
+				for (i = 0; i < 7; i++) {
+					ind = 0;
+					novBroj = izvuciBroj();
+					for (j = 0; j < i; j++) {
+						if (novBroj == izvuceni[j]) {
+							ind = 1;
+						}
+					}
+					if (ind == 0) {
+						izvuceni[i] = novBroj;
+					}
+					else if (ind == 1) {
+						i--;
+					}
+				}
+				return izvuceni;
+			}
+			document.write(svihSedamBrojeva());
+		</script>
+	</body>
+
+	</html>
+</xmp>
+<br />
+Funkcija <i>izvuciBroj()</i> pri pozivu određuje jedan slučajno odabrani celi
+broj u intervalu brojeva [1,39].
+<br />
+Nakon toga funkcija <i>svihSedamBrojeva()</i> najmanje sedam puta poziva
+funkciju <i>izvuciBroj()</i> u prvoj
+<span class="primer_text">for</span> petlji. Dok druga
+<span class="primer_text">for</span> petlja služi tome da ukoliko se neki broj
+ponovi pri izvlačenju, on se preskače i izvlačenje se ponavlja. Na kraju,
+rezultat se ispisuje na internet stranici.
+
+<br><br>
+
+Rešenje zadatka 5:
+<br />
+<xmp class="primer_ta">
+	<html>
+
+	<head>
+		<title>Rešenje</title>
+	</head>
+
+	<body>
+		<h3> (Ne)prijatelj </h3>
+		<h5> Da li da ti verujem? </h5>
+		<script>
+			function ime() {
+				return prompt("Unesite ime osobe:");
+			}
+			function prezime() {
+				return prompt("Unesite prezime osobe:");
+			}
+			function proracunPrijateljstva(i, p) {
+				if (i.localeCompare(p) > 0) {
+					return "Ne";
+				}
+				else if (i.localeCompare(p) == 0) {
+					return "Reci ove osobe uzimajte sa rezervom";
+				}
+				else {
+					return "Da, potpuno";
+				}
+			}
+			var imeOsobe = ime();
+			var prezimeOsobe = prezime();
+			document.write(proracunPrijateljstva(imeOsobe, prezimeOsobe));
+		</script>
+	</body>
+
+	</html>
+</xmp>
+<br />
+Definisane su tri funkcije:
+<ul>
+  <li><i>ime</i> - koja od korisnika traži da se unese ime osobe,</li>
+  <li><i>prezime</i> - koja od korisnika traži da se unese prezime osobe,</li>
+  <li>
+    <i>proracunPrijateljstva</i> - koja poredi prosleđeno ime i prezime i u
+    zavisnosti od rezultata vraća string <i>Ne</i>,
+    <i>Reci ove osobe uzimajte sa rezervom</i> ili <i>Da, potpuno</i>.
+  </li>
+</ul>
+
+Ime i prezime se porede string metodom <i>localCompare</i>, koja ispituje da li
+prvi string pri porenju stoji pre drugog (u tom slučaju povratna vrednost ove
+funkcije je -1), nakon drugog (u tom slučaju povratna vrednost ove funkcije je
+1), ili su stringovi jednaki (u tom slučaju povratna vrednost je 0).

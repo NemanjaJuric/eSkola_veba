@@ -1,0 +1,503 @@
+<h1><b>Operacije i nizovi</b></h1>
+<br />
+U JavaScriptu razlikujemo sledeće operatore:
+<br />
+<br />
+<ul>
+  <li>Aritmetički operatori</li>
+  <li>Operatori jednakosti</li>
+  <li>Operatori za rad sa bitovima</li>
+  <li>Relacioni operatori</li>
+  <li>Unarni operatori</li>
+</ul>
+<br />
+<br />
+<b>Aritmetički operatori</b>
+<br />
+<br />
+<table
+  border="1"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Operator</strong></font>
+    </td>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Značenje</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> + </font> </b>
+    </td>
+    <td>
+      <b><font size="2"> Sabiranje </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> - </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Oduzimanje </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> * </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Množenje </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> / </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Deljenje </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> % </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Deljenje sa ostatkom</font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> ++ </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2"> Uvećanje za 1(postfiksno ili prefiksno) </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> - - </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Umanjenje za 1(postfiksno ili prefiksno) </font></b>
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+<b><i>Operator sabiranja</i></b>
+<br />
+<br />
+Ovaj operator funkcioniše na različite načine u zavisnosti koje
+vrednosti sabira.
+<br />
+<br />
+Kada sabiramo dva stringa, operator sabiranja spaja levi i desni argument, dok
+kada sabiramo dva broja, rezultat je njihov zbir.
+<br />
+<br />
+Primer:
+<br />
+<xmp class="primer_ta"
+>
+var broj1 = 1;
+var string1 = "Ja sam broj";
+var broj2 = 999;
+var string2 = "99";
+var rezultat1 = string1 + broj 1; //Rezultat će biti "Ja sam broj 1"
+var rezultat2 = broj 1 + broj2; //Rezultat će biti 1000
+var rezultat3 = broj1 + string2; //Rezultat će biti 199
+</xmp>
+<br />
+<br />
+Korišćenjem metode <i>Number()</i> konvertujemo string u broj. Npr:
+<br />
+<xmp class="primer_ta"
+>
+var broj1 = 1;
+var string2 = Number("99");
+var rezultat3 = broj1 + string2; //Rezultat će biti 100
+</xmp>
+<br />
+<br />
+<b>Operatori jednakosti</b>
+<br />
+<br />
+Ovi operatori koriste se da proverimo da li su neka dva izraza ista ili se
+razlikuju.
+<br />
+<br />
+Uvek daju vrednosti <i>true</i> ili <i>false</i>.
+<br />
+<br />
+<table
+  border="1"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Operator</strong></font>
+    </td>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Značenje</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> = = </font> </b>
+    </td>
+    <td>
+      <b><font size="2"> Jednako </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> != </font></b>
+    </td>
+    <td>
+      <b><font size="2"> Različito </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> = = = </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2">
+          Jednako korišćenjem strože metode
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> != = </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2">
+          Različito korišćenjem strože metode
+        </font></b
+      >
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+<b>Operatori za rad sa bitovima</b>
+<br />
+<br />
+<table
+  border="1"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Operator</strong></font>
+    </td>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Značenje</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> & </font> </b>
+    </td>
+    <td>
+      <b><font size="2"> AND - konjukcija(i) </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> |</font></b>
+    </td>
+    <td>
+      <b><font size="2"> OR - disjunkcija(ili) </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> ^ </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2"> XOR - eksluzivna disjunkcija, eksluzivno ili </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> ~ </font></b>
+    </td>
+    <td>
+      <b><font size="2"> NOT - negacija </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> << </font></b>
+    </td>
+    <td>
+      <b><font size="2"> pomeranje bitova ulevo </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> >> </font></b>
+    </td>
+    <td>
+      <b><font size="2"> označeno pomeranje bitova udesno </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> >>> </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2">
+          neoznačeno pomeranje bitova udesno uz dodavanje nula
+        </font></b
+      >
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+<b>Relacioni operatori</b>
+<br />
+<br />
+<table
+  border="1"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Operator</strong></font>
+    </td>
+    <td align="center" bgcolor="#e3badc">
+      <font size="3"><strong>Značenje</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> > </font> </b>
+    </td>
+    <td>
+      <b><font size="2"> veće od </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> <</font></b>
+    </td>
+    <td>
+      <b><font size="2"> manje od </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> >= </font></b>
+    </td>
+    <td>
+      <b><font size="2"> veće ili jednako od </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> <= </font></b>
+    </td>
+    <td>
+      <b><font size="2"> manje ili jednako od </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> in </font></b>
+    </td>
+    <td>
+      <b><font size="2"> sadrže se unutar izraza ili objekta </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font size="2"> instanceof </font></b>
+    </td>
+    <td>
+      <b><font size="2"> instanca nekog objekta </font></b>
+    </td>
+  </tr>
+</table>
+<br />
+<br />
+<b><i>Operator in</i></b>
+<br />
+<br />
+Ovaj operator se najčešće koristi za procenjivanje da li je neko
+svojstvo sadržano unutar objekta ili ne.
+<br />
+<br />
+Takodje se koristi i za kretanje kroz objekat.
+
+<br />
+<br />
+<b><i>Operator instanceof</i></b>
+<br />
+<br />
+Ovaj operator omogućava da proverimo da li je objekat kreiran pomoću
+zadatog konstruktora.
+<br />
+<br />
+Primer:
+<br />
+<xmp class="primer_ta"
+>
+var mojPas = new Pas();
+if (mojPas instanceof Pas){
+&nbsp;&nbsp;alert("Tačno je!");
+}
+</xmp>
+<br />
+<br />
+Primer:
+<br />
+<xmp class="primer_ta">
+var a=50;
+var b=4;
+
+var c=a+b;
+document.write("Zbir brojeva " + a + " i " + b +" je: " + c + "<br>");
+</xmp>
+U primeru računamo i ispisujemo zbir brojeva 50 i 4.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak 1:</b> Izmeni program tako da umesto zbira računa i ispisuje
+  razliku i proizvod ta dva broja.
+</div>
+<br />
+<br />
+
+<h2><b>Nizovi</b></h2>
+<br />
+Nizovi se koriste za smeštanje više vrednosti u jednu promenljivu.
+<br />
+<br />
+Pošto su nizovi objekti moguće je imati istovremeno različite
+tipove podataka kao elemente niza.
+<br />
+<br />
+Niz možemo da kreiramo na dva načina.
+<br />
+<br />
+Prvi način je da koristimo eksplicitni konstruktor <i>Array()</i>:
+<br />
+<xmp class="primer_ta"
+>
+var predmeti = new Array();
+predmeti[0]= "Analiza";
+predmeti[1]= "Geometrija";
+predmeti[2]= "Algebra";
+predmeti[3]= "Programiranje";
+</xmp>
+<br />
+<br />
+Drugi način je da koristimo implicitni konstruktor niza:
+<br />
+<span class="primer_text">
+  var predmeti = ["Analiza", "Geometrija", "Algebra", "Programiranje"];
+</span>
+<br />
+<br />
+Elementima niza pristupamo pomoću imena niza i indeksa tog elementa u nizu.
+<br />
+<br />
+<b>Svojstvo length</b>
+<br />
+<br />
+Ovo svojstvo vraća dužinu niza, tj. broj elemenata niza.
+<br />
+<br />
+<xmp class="primer_ta"
+>
+var predmeti = ["Analiza", "Geometrija", "Algebra", "Programiranje"];
+var brojPredmeta = predmeti.length; //Rezultat je 4
+</xmp>
+<br />
+<br />
+<b>String metode</b>
+<ul>
+  <li>
+    toString() - konvertuje niz u string, tj. redja elemente niza razdvojene
+    zarezima
+  </li>
+  <li>
+    join() - konvertuje niz u string, ali separator možemo da biramo sami.
+    Npr: <span class="primer_text">imeNiza.join("*")</span>
+  </li>
+  <li>pop() - uklanja poslednji element iz niza i vraća taj element</li>
+  <li>
+    push() - dodaje novi element na kraj niza i vraća novu dužinu
+  </li>
+  <li>
+    shift() - uklanja prvi element iz niza, ostale pomera za jedno mesto napred
+    i vraća taj element
+  </li>
+  <li>
+    unshift() - dodaje novi element na početak niza i vraća novu
+    dužinu niza
+  </li>
+  <li>
+    sort() - sortira niz <br />
+    &nbsp;&nbsp; Ne može se direktno koristiti za sortiranje
+    numeričkih vrednosti jer ih posmatra kao stringove, pa moramo koristiti
+    funkciju <span class="primer_text">sort(function(a, b){ return a-b })</span>
+  </li>
+  <li>reverse() - obrće redosled elemenata niza</li>
+  <li>concat() - spaja nizove</li>
+  <li>slice() - izdvaja podniz</li>
+</ul>
+<br />
+<br />
+<b>Kretanje kroz nizove</b>
+<br />
+<br />
+Kako možemo da se krećemo kroz nizove?
+<br />
+<br />
+Možemo pomoću metoda <i>for()</i> na sledeći nacin:
+<br />
+<xmp class="primer_ta">
+var predmeti = ["Analiza", "Geometrija", "Programiranje"]; <br>
+var brojPredmeta = predmeti.length;
+
+for(var i = 0; i < brPredmeta; i++){
+	document.write(predmeti[i] + "<br>");
+}
+</xmp>
+<br />
+U primeru prolazimo kroz niz i ispisujemo sve njegove vrednosti.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak 2:</b> Izmeni program tako da kreiraš; niz godišnjih doba i
+  redom ispiseš elemente tog niza.
+</div>
+<br />
+<br />

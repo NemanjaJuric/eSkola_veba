@@ -1,0 +1,160 @@
+<h1><b>Tabele</b></h1>
+
+<h2><b>Opšte</b></h2>
+
+HTML definiše tabele pomoću &lttable&gt etikete. Redove tabele definišemo
+pomoću<br />
+&lttr&gt etikete dok same ćelije unutar reda definišemo pomoću &lttd&gt etikete.
+<br />Pored &lttd&gt etikete koju koristimo za standardne podatke, možemo
+koristiti i &ltth&gt etiketu za ćelije koje koristimo kao naslov kolone.
+<xmp class="primer_ta"
+>
+Primer:
+ &lttable border="1"&gt 
+  &lttr&gt 
+    &ltth&gt Ime &lt/th&gt 
+    &ltth&gt Prezime &lt /th&gt 
+    &ltth&gt Broj bodova &lt /th&gt 
+  &lt/tr&gt 
+    &lttr&gt 
+    &lttd&gt Marko &lt/td&gt 
+    &lttd&gt Jovanović &lt/td&gt 
+    &lttd&gt 68 &lt/td&gt 
+  &lt/tr&gt 
+  &lttr&gt 
+    &lttd&gt Jasmina &lt/td&gt 
+    &lttd&gt Mihajiloivć &lt/td&gt 
+    &lttd&gt 94 &lt/td&gt 
+  &lt/tr&gt 
+&lt/table&gt 
+</xmp>
+<br />
+U navedenom primeru korišćen je i atribut 'border' koji odredjuje da li će
+tabela imati ivice. U većini pregledača ukoliko ne navedemo ovaj atribut tabela
+neće imati ivice. Isti rezultat imamo i za vrednost atribut border="0". Svim
+vrednostima većim od nule odgovara tabela sa ivicama čija se debljina povećava
+sa povećanjem vrednosti atributa border.
+<br /><br />Ukoliko je potrebno da prva kolona bude boldovana dovoljno je prvi
+element svake vrste označiti &ltth&gt &lt/th&gt etiketama.
+<br><br>
+<div class="zadatak">
+  <b>Zadatak 1:</b>
+  Dodati još jednu kolonu u tabelu sa podacima po sopstvenom izboru.
+</div>
+
+<br><br>
+<h2><b>Rowspan</b></h2>
+
+Kada je potrebno da se sadržaj ćelije prostire preko više redova unutar &lttd&gt
+etiketa unosi se 'rowspan' atribut čija je vrednost broj redova preko kojih se
+ta ćelija prostire.
+
+<xmp class="primer_ta"
+>
+Primer:
+ &lttable border="1"&gt 
+   &lttr&gt 
+     &ltth&gt Radnja\Dan &lt/th&gt 
+     &ltth&gt Ponedeljak-Petak&lt/th&gt 
+     &ltth&gt Subota &lt/th&gt 
+	 &ltth&gt Nedelja &lt/th&gt 
+   &lt/tr&gt 
+     &lttr&gt 
+     &lttd&gt Radnja #1 &lt/td&gt 
+     &lttd&gt 00:00 - 24:00 &lt/td&gt 
+     &lttd&gt 00:00 - 24:00 &lt/td&gt 
+	 &lttd rowspan="2"&gt ne radi &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #2 &lt/td&gt 
+     &lttd rowspan="2"&gt 08:00 - 20:00 &lt/td&gt 
+     &lttd&gt 08:00 - 16:00 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #3 &lt/td&gt 
+     &lttd&gt 08:00 - 20:00 &lt/td&gt 
+	 &lttd&gt 09:00 - 15:00 &lt/td&gt 
+   &lt/tr&gt 
+ &lt/table&gt
+</xmp>
+<br><br>
+<h2><b>Colspan</b></h2>
+
+<br />Ako je potrebno da se ćelija prostire preko dve ili više kolona koristi se
+'colspan' atribut. Kako bi to uradili unutar &lttd&gt etikete unosi se 'colspan'
+atribut čija vrednost određuje na koliko ćelija će se prostirati sadržaj unutar
+tog reda. U sledećem primeru korišćen je 'colspan' atribut za spajanje tri
+ćelije u drugom redu i dve ćelije u četvrtom redu. Zbog toga su u drugom redu
+popunjene vrednosti za dve umesto za četiri ćelije dok su u četvrtom redu
+popunjene vrednosti samo za tri ćelije.
+
+<xmp class="primer_ta"
+>
+Primer:
+ &lttable border="1"&gt 
+   &lttr&gt 
+     &ltth&gt Radnja\Dan &lt/th&gt 
+     &ltth&gt Ponedeljak-Petak &lt/th&gt 
+     &ltth&gt Subota &lt/th&gt 
+	 &ltth&gt Nedelja &lt/th&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #1 &lt/td&gt 
+     &lttd colspan="3"&gt 00:00 - 24:00 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #2 &lt/td&gt 
+     &lttd&gt 08:00 - 20:00 &lt/td&gt 
+     &lttd&gt 08:00 - 16:00 &lt/td&gt 
+     &lttd&gt ne radi &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Radnja #3 &lt/td&gt 
+     &lttd&gt 08:00 - 20:00 &lt/td&gt 
+	 &lttdcolspan="2"&gt ne radi &lt/td&gt 
+   &lt/tr&gt 
+ &lt/table&gt 
+ </xmp>
+ <br><br>
+ <h2><b>Heder i Futer</b></h2>
+
+Pri radu sa većim tabelama nekada je korisno podeliti tabelu. U okviru
+&lttable&gt etiketa tabelu je moguće podeliti na header, futer i body. To se
+može uraditi pomoću &ltthead&gt, &lttfoot&gt i &lttbody&gt etiketa. Što se tiče
+redosleda navođenja delova tabele neophodno je prvo navesti 'thead', dok za
+ostale delove ('tbody' i 'tfoot') redosled nije od velike važnosti jer će Web
+pregledač delove pod 'tfoot' uvek postavljati na dno tabele. Tabelu koriščenu u
+primeru opšteg dela o tabelama možemo podeliti na gore navedene delove pomoću
+sledećeg koda.
+<xmp class="primer_ta"
+>
+ &lttable border="1"&gt 
+ &ltthead&gt 
+   &lttr&gt 
+     &ltth&gt Ime &lt/th&gt 
+     &ltth&gt Prezime &lt/th&gt 
+     &ltth&gt Broj bodova &lt/th&gt 
+   &lt/tr&gt
+ &lt/thead&gt
+
+ &lttfoot&gt 
+   &lttr&gt 
+     &lttd&gt Footer 1 &lt/td&gt 
+     &lttd&gt Footer 2 &lt/td&gt 
+     &lttd&gt Footer 3 &lt/td&gt 
+ &lt/tfoot&gt 
+ 
+ &lttbody&gt 
+   &lttr&gt 
+     &lttd&gt Marko &lt/td&gt 
+     &lttd&gt Jovanović &lt/td&gt 
+     &lttd&gt 68 &lt/td&gt 
+   &lt/tr&gt 
+   &lttr&gt 
+     &lttd&gt Jasmina &lt/td&gt 
+     &lttd&gt Mihajiloivć &lt/td&gt 
+     &lttd&gt 94 &lt/td&gt 
+   &lt/tr&gt 
+ &lt/tbody&gt 
+ &lt/table&gt 
+</xmp>

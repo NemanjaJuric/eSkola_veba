@@ -1,0 +1,109 @@
+<h1><b>HTML5 video i audio</b></h1>
+<br><br>
+<h2><b>HTML5 video</b></h2>
+
+Pre HTML5 nije postojao standardan način za reprodukovanje video fajlova na veb
+stranama. HTML5 &ltvideo&gt etiketa omogućava standardan način za postavljanje
+video fajla na veb stranice. Trenutno, postoje tri podržana formata za
+&ltvideo&gt etiketu: mp4, WebM i Ogg. Vrednost 'type' atributa u okviru
+&ltsource&gt etikete zavisi od formata video fajla:
+
+<br><br>
+<table border="1">
+  <tr>
+    <th>Format fajla</th>
+    <th>Vrednost atributa</th>
+  </tr>
+  <tr>
+    <td>mp4</td>
+    <td>video/mp4</td>
+  </tr>
+  <tr>
+    <td>ogg</td>
+    <td>video/ogg</td>
+  </tr>
+  <tr>
+    <td>webm</td>
+    <td>video/webm</td>
+  </tr>
+</table>
+
+<xmp class="primer_ta"
+>
+Primer:
+&ltvideo controls&gt
+&ltsource src="NewElementsHTML5.mp4" type="video/mp4"&gt
+Vaš pregledač ne podržava ovaj video format.
+&lt/video&gt
+</xmp>
+
+<br />
+Tekst između &ltvideo&gt i &lt/video&gt etiketa biće prikazan u pretraživačima
+koji ne podržavaju &ltvideo&gt etiketu. <br /><br />
+U okviru &ltvideo&gt etikete koriste se tri različita atributa:
+<br />
+- 'controls' - atribut dodaje video kontrole kao sto su pokretanje audija, pauza
+ili zvuk; <br />
+- 'autoplay' - omogućava automatsko pokretanje video fajla; <br />
+- 'loop' - omogućava automatsko ponavljanje video fajla.
+<br><br>
+<div class="zadatak">
+  <b>Zadatak 1:</b>
+  <br />Izmeniti dati kod iz primera tako da se video fajl reprodukuje
+  automatski.
+</div>
+
+<br><br>
+
+<h2>HTML5 audio</h2>
+
+Pre HTML5 nije postojao standardan način za reprodukovanje audio fajlova na veb
+stranama. HTML5 &ltaudio&gt etiketa omogućava standardan način za postavljanje
+audio fajla na veb stranice. Postoje tri podržana formata za &ltaudio&gt
+etiketu: mp3, Wav i Ogg.
+<br />
+
+<xmp class="primer_ta">
+Primer:
+<audio controls>
+<source src="TomIDzeri.mp3" type="audio/mpeg">
+Vaš pregledač ne podržava ovaj audio format.
+</audio>
+</xmp>
+<br />
+Tekst između &ltaudio&gt i &lt/audio&gt etiketa bice prikazan u pretraživačima
+koji ne podržavaju &ltaudio&gt etiketu.
+<br />U okviru &ltaudio&gt etikete koriste se tri različita atributa: <br />
+-'controls' - atribut dodaje audio kontrole kao što su pokretanje audija, pauza
+ili zvuk; <br />
+-'autoplay' - omogućava automatsko pokretanje audio fajla; <br />
+-'loop' - omogućava automatsko ponavljanje audio fajla.
+
+<br />Vrednost 'type' atributa u okviru &ltsource&gt etikete zavisi od formata
+audio fajla:
+<br><br>
+<table border="1">
+  <tr>
+    <th>Format fajla</th>
+    <th>Vrednost atributa</th>
+  </tr>
+  <tr>
+    <td>mp3</td>
+    <td>audio/mpeg</td>
+  </tr>
+  <tr>
+    <td>ogg</td>
+    <td>audio/ogg</td>
+  </tr>
+  <tr>
+    <td>wav</td>
+    <td>audio/wav</td>
+  </tr>
+</table>
+
+<br />
+<div class="zadatak">
+  <b>Zadatak 2:</b>
+  <br />Izmeniti dati kod iz primera tako da se audio fajl reprodukuje
+  automatski.
+</div>

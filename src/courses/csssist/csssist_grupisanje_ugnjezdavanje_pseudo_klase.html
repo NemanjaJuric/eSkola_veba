@@ -1,0 +1,302 @@
+<h1>Grupisanje, ugnježdavanje, pseudo klase, skraćeni zapis osobina i slike u pozadini</h1>
+<br />
+Postoje dva načina za uprošćavanje koda koji sadrži i html i css i korisćenje
+istih.
+<br /><br />
+<h2>Grupisanje</h2>
+<br />
+Možemo dati iste osobine velikom broju selektora bez potrebe za ponavljanjem.
+<br />
+<xmp class="primer_ta"
+>
+h2 {
+    color: red;
+}
+
+.thisOtherClass {
+    color: red;
+}
+
+.yetAnotherClass {
+    color: red;
+}
+</xmp>
+<br />
+Možemo jednostavno radvojiti selektore zarezom (,) u jednoj liniji i dodeliti
+iste osobine za sve.
+<br />
+<xmp class="primer_ta"
+>
+h2, .thisOtherClass, .yetAnotherClass {
+    color: red;
+}
+</xmp>
+<br /><br />
+<h2>Ugnježdavanje</h2>
+<br />
+Ako je CSS dobro postavljen, neće biti potrebe za korišćenjem mnogo klasnih i ID
+selektora, jer se osobine (novih) selektora mogu navesti kroz postojeće
+selektore.
+<br />
+<xmp class="primer_ta"
+>
+#top {
+    background-color: #ccc;
+    padding: 1em
+}
+
+#top h1 {
+    color: #ff0;
+}
+
+#top p {
+    color: red;
+    font-weight: bold;
+}
+</xmp>
+
+<br />
+Ovim se uklanja potreba za korišćenjem klasnih i ID selektora na p, h1 etiketama.
+Primenjeno na HTML to izgleda ovako:
+<br />
+<xmp class="primer_ta">
+<div id="top">
+    <h1>Čokoladni kolač</h1>
+    <p>Ovo je recept za pravljenje kolača!</p>
+    <p>Prijatno!</p>
+</div>
+</xmp>
+<br />
+Ovo ugnježdavanje može da bude komplikovano ukoliko postoji više od dva nivoa,
+pa bi valjalo provežbati!
+<br /><br />
+<h2>Pseudo klase</h2>
+<br>
+Pseudo klase su usko vezane za selektore i određuju stanje ili vezu prema selektoru. Imaju sledeću formu: <b> selektor:pseudo_klasa{osobina:vrednost}</b>
+<br><br>
+<h2>Linkovi</h2>
+<br>
+Linkovi, bilo posećeni (<b>viseted</b>) ili neposećeni <b>link</b> su najjednostavnije pseudo klase. Naime, menjaće se boje svih linkova na stranice u zavisnosti da li je korisnik posetio tu stranicu ili ne.</br>
+<br>
+<xmp class="primer_ta" >
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+</xmp>
+<br><br>
+<h2>Dinamičke pseudo klase</h2>
+<br>
+Najčešće korišćene za linkove, dinamičke pseudo klase mogu se koristiti za primenu stilova u navedenim situacijama:
+<ol>
+<li><i>active</i> kada je nešto aktivirano od strane korisnika (recimo kada se klikne na link)</li>
+<li><i>hover</i> kada još uvek nije neka akcija preduzeta, već nam se pruža kao mogućnost (recimo prelazak preko linka)</li>
+<li><i>focus</i> kada je nešto u fokusu, kada se selektuje ili se sprema za unos sa tastature </li>
+</ol>
+<br>
+<xmp class="primer_ta" >
+a:active {
+    color: red;
+}
+
+a:hover {
+    text-decoration: none;
+    color: blue;
+    background-color: yellow;
+}
+
+input:focus, textarea:focus {
+    background: #eee;
+}
+</xmp>
+<br>
+<i>focus</i> nije podržan od strane starijih pretraživača (browsers), stoga pažljivo!
+<br><br>
+<h2> First children </h2>
+<br>
+Konačno, tu je i pseudo klasa <b> first child </b> (prvo dete). Ovo se odnosi samo na prve potomke elemenata (glave, tela...)
+<br>
+<xmp class="primer_ta">
+<body>
+    <p>I am the body&#8217;s first paragraph child. I rule. Obey me.</p>
+    <p>I resent you.</p>
+...
+</xmp>
+<br>
+...ako želimo da stilizujemo sledeći paragraf, to radimo uz pomoć CSS koda:
+<br>
+<xmp class="primer_ta">
+p:first-child {
+    font-weight: bold;
+    font-size: 40px;
+}
+</xmp>
+
+<br><br>
+
+<h2>Margine i uokvirenja</h2>
+<br />
+<b> margin </b> omogućava da se spoje <b>margin-top</b>, <b>margin-right</b>,
+<b>margin-bottom</b>, i <b>margin-left</b> u sledećoj formi
+<b>osobina: top right bottom left;</b>
+<br />
+<xmp class="primer_ta" rows="6" disabled
+>
+p {
+    margin-top: 1px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+</xmp>
+<br />
+Možemo zapisati:
+<br />
+<xmp class="primer_ta"
+>
+p {
+    margin: 1px 5px 10px 20px;
+}
+</xmp>
+<br />
+<b>padding</b> funkcioniše po istom principu.
+<br />
+Ako se navedu samo dve vrednosti, prva će se odnositi na <b>top</b> i
+<b>botton</b>, a druga na <b>left</b> i <b>right</b>. Naime, na primeru to
+izgleda ovako : <i>padding: 1em 10em;</i> <br /><br />
+<h2>Granice</h2>
+<br />
+<b>border-width</b> se koristi na isti način kao i prethodne dve osobine.
+Ukoliko želimo da spojimo <b> border-width</b>, <b>border-color</b>, i
+<b> border-style</b> u jednu celinu, to ćemo moći na sledeći način.
+<br />
+<xmp class="primer_ta"
+>
+p {
+    border-width: 1px;
+    border-color: red;
+    border-style: solid;
+}
+</xmp>
+<br />
+Jednostavnije, to izgleda ovako:
+<br />
+<xmp class="primer_ta"
+>
+p {
+    border: 1px red solid;
+}
+</xmp>
+<br />
+<b>border-top</b> i <b>border-right</b> takođe imaju skraćeni zapis.
+<b
+  ><br />
+  <h2>Stilovi</h2>
+  <br />
+  Svojstva vezana za stilove se mogu spojiti pomoću jednog svojstva <b>font</b>.
+  Kombinacija je sledeća:[style] [variant] [weight] [size]/[line-height]
+  [family]
+  <br />
+  <xmp class="primer_ta"
+>
+p {
+    font: italic bold 12px/2 courier;
+}
+</xmp
+  >
+  <br />
+  Sve zajedno:
+  <br />
+  <xmp class="primer_ta"
+>
+p {
+    font: 14px/1.5 "Times New Roman", times, serif;
+    padding: 30px 10px;
+    border: 1px black solid;
+    border-width: 1px 5px 5px 1px;
+    border-color: red green blue yellow;
+    margin: 10px 50px;
+}
+</xmp
+  >
+  <br/><br/></b>
+  <h2><b>Slike u pozadini</b></h2>
+<br />
+CSS svojstvo <b>background-image</b> omogućava postavljanje slike na pozadinu
+bilo kog bloka u CSS-u.<br />
+Ovo svojstvo proširuje mogućnosti dizajna, izuzetno je korisno i daje
+karakterističan izgled stranici. <br />
+Vrednost ovog svojstva počinje slovima URL koja su praćena putanjom do željene
+slike. Putanja je zapisana u zagradi pod navodnicima.<br />
+<span class="primer_text">
+  background-image:url("slike/proleće/cveće.jpg");
+</span>
+<br />
+Ovo svojstvo ima prednost u odnosu na svojstvo <b>background-color</b> (svojstvo
+koje određuje boju elementu), ukoliko se koriste istovremeno. <br />
+<div class="napomena">
+  <b>Napomena:</b> Sliku koja se koristi kao pozadina treba sačuvati u
+  dimenzijma u kojima želite da se pojavi.<br />
+  Sliku u pozadini ne treba koristiti za prenos važnih informacija.<br />
+  Često se slike učitaju nakon ostalih elemenata pa mogu produžiti vreme
+  učitavanja.<br />
+  Neki stariji pregledači mogu imati problema sa prikazom slike u pozadini
+  tabele.<br />
+</div>
+<br />
+Ukoliko su dimenzije slike manje od dimenzija bloka slika se ponavlja dok ne
+popuni ceo blok. Ukoliko to ne želite, koristite svojstvo
+<b>background-repeat</b>, koje ima četiri vrednosti:
+<br />
+<b>repeat</b> (podrazumevano, ponavljanje slike dok ne popuni blok)<br />
+<b>repeat-x</b> (ponavljanje slike horizontalno)<br />
+<b>repeat-y</b> (ponavljanje slike vertikalno)<br />
+<b>no-repeat</b> (bez ponavljanja)<br />
+<div></div>
+<br />
+Poziciju slike u pozadini je moguće menjati korišćenjem svojstva
+<b>background-position</b>. Vrednosti ovog svojstva su sledeće:
+<br />
+<b>x% y%</b> (procenti duž x i y ose) <br />
+<b>x y</b> (apsolutne dužine u pikselima duž x i y ose)<br />
+<b>left</b> (prikazuje sliku levo)<br />
+<b>right</b> (prikazuje sliku desno)<br />
+<b>center</b> (prikazuje sliku u centru)<br />
+<b>top</b> (prikazuje sliku na vrhu bloka)<br />
+<b>bottom</b> (prikazuje sliku na dnu bloka)<br />
+<br />
+<div class="napomena">
+  <b>Napomena:</b> Moguće su i kombinacije, top left, top center, top right,
+  bottom left, bottom center, bottom right.
+</div>
+<br />
+Za fiksiranje slike u pozadini koristi se svojstvo <b>background-attachment</b>,
+sa sledećim vrednostima:<br />
+<b>fixed</b> (prilikom skrolovanja slika se ne pomera)<br />
+<b>scroll</b> (prilikom skrolovanja slika se pomera)<br />
+Moguće je koristiti više svojstava odjednom, redosled nije bitan, ako se
+izostavi neka vrednost primeniće se podrazumevana. Na taj način skraćujemo
+zapis, pa na primer, umesto navođenja svih svojstava:<br />
+<xmp class="primer_ta" disabled
+>
+background–color:purple;
+background–image:url("slike/proleće/cveće");
+background–repeat:repeat-x;
+background–attachment:fixed;  
+background–position:bottom;
+</xmp>
+<br />
+dovoljno je napisati:<br />
+<span class="primer_text">
+  background: purple url("slike/proleće/cveće") repeat-x fixed bottom;
+</span>
+<br />
+<div class="zadatak">
+    <br>
+  <b>Zadatak 1:</b> U primeru je na različite načine prikazana slika. Isprobaj i
+  ti, malim izmenama u kodu, da prikažeš sliku u pozadini primenom preostalih
+  svojstava.
+</div>

@@ -4234,5 +4234,73 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "HTML",
+    "id": "htmlsis",
+    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "sections": ["srednja_skola"],
+    "detailsText": "HTML je standardni jezik za kreiranje veb stranica. Naziv je skraćenica od Hyper Text Markup Language. Jezik HTML se zasniva na eksplicitnom obeležavanju logičke strukture dokumenta.",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "htmlsis_uvod",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Komentari, blok i linijski elementi",
+        "url": "htmlsist_komentari_blok_i_linijski_elementi",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Linkovi i slike",
+        "url": "htmlsist_linkovi_slike",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "HTML video i audio",
+        "url": "htmlsist_HTML5_video_i_audio",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Tabele",
+        "url": "htmlsist_tabele",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Input, select i meta etikete",
+        "url": "htmlsist_input_select_meta_etikete",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Primer",
+        "url": "htmlsist_primer",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      },
+      {
+        "name": "Test",
+        "url": "htmlsist_test",
+        "type": "lesson",
+        "parentCourse": "htmlsis",
+        "sublessons": null
+      }
+    ]
   }
 ]

@@ -1,0 +1,84 @@
+<html>
+  <head> </head>
+  <body>
+    <div>
+      <input type="number" name="broj" id="broj" min="1" max="10" />
+      <button onclick="ispitaj()">OK</button>
+    </div>
+    <br />
+    <hr />
+    <div id="ispis"></div>
+
+    <script>
+      document.getElementById("broj").defaultValue = "1";
+      function ispitaj() {
+        var broj = document.getElementById("broj").value;
+        var ispis = "";
+        if (broj == 5) {
+          ispis = "Uneli ste broj 5!";
+        } else {
+          ispis = "Uneli ste broj koji nije 5!";
+        }
+
+        document.getElementById("ispis").innerHTML = ispis;
+      }
+    </script>
+<br>
+<div>
+    <input type="number" name="broj1" id="broj1" min="1" max="10" />
+    <button onclick="pomnozi()">Ispisi</button>
+  </div>
+  <br />
+  <hr />
+  <div id="ispisTablice"></div>
+
+  <script>
+    document.getElementById("broj1").defaultValue = "1";
+    function pomnozi() {
+      var broj = document.getElementById("broj1").value;
+      var ispis = "";
+      i = broj;
+      while (i < 11) {
+        ispis = ispis + "3 *" + i + " = " + i * 3 + "<br>";
+        i++;
+      }
+
+      document.getElementById("ispisTablice").innerHTML = ispis;
+    }
+  </script>
+  <br><br>
+  <div>
+    <input type="number" name="broj2" id="broj2" min="1" max="10" />
+    <button onclick="pomnozi2()">Ispisi</button>
+  </div>
+  <br />
+  <hr />
+  <div id="ispisTablice2"></div>
+
+  <script>
+    document.getElementById("broj2").defaultValue = "1";
+    function pomnozi2() {
+      var broj = document.getElementById("broj2").value;
+      var ispis = "";
+      for (i = broj; i <= 10; i++) {
+        ispis = ispis + "3 *" + i + " = " + i * 3 + "<br>";
+      }
+
+      document.getElementById("ispisTablice2").innerHTML = ispis;
+    }
+  </script>
+  <br><br>
+  <p id="demo"></p>
+
+<script>
+var txt = "";
+var osoba = {ime:"Ana", prezime:"Ilić", godine:25}; 
+var x;
+for (x in osoba) {
+    txt += osoba[x] + " ";
+}
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+  </body>
+</html>

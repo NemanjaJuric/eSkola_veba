@@ -1,0 +1,164 @@
+<h1><b>Uvod u CSS</b></h1>
+<br />
+CSS (engl. <i>Cascade Style Sheets</i>, jezik formatiranja pomoću kog se
+definiše izgled elemenata veb-stranice) služi za definisanje stilova koji
+određuju izgled HTML elemenata. <br /><br />
+Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je
+služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od
+verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML
+ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i
+razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima
+daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo
+nezamenljiv u dizajniranju Web stranica.
+<br /><br />
+<h2>Prednosti CSS-a</h2>
+CSS-om možete usaglasiti više uredjaja tako što on dozvoljava sadržaj koji je
+optimizovan za više od jedne vrste uređaja. Korišćenjem istog HTML dokumenta,
+različite verzije veb stranice se mogu predstaviti i za ručne uređaje kao što su
+tableti ili mobilni telefoni. <br />
+Takođe, njime možete uštedeti vreme i sprečiti gomilanje koda tako što ćete
+napisati jedan CSS dokument koji se nalazi van HTML dokumenta i koristiti ga za
+više HTML stranica. Možete definisati stil za svaki HTML element i primeniti ga
+na onoliko HTML stranica na koliko god Vi budete želeli.<br />
+Sa CSS-om se stranice učitavaju mnogo brže i ne morate da pišete HTML atribute
+svaki put. Samo napišite jedno CSS pravilo oznake i primenjujte na sve oznake
+gde god se pojave u Vašem HTML dokumentu. Tako, na primer, ako ste napravili
+paragrafe na više HTML stranica i želite da primenite istu boju teksta na njih
+možete ispisati u CSS dokumentu koji se nalazi van HTML stranice
+<br />
+<xmp class="primer_ta"
+>
+p { 
+  color: red; 
+}
+</xmp>
+<br />
+Bolje je napisati samo jednom deklaraciju i primeniti na sve paragrafe, nego
+deklarisati na svakom paragrafu posebno. Deklaracija na svakom paragrafu bi bilo
+konfuzna i HTML dokument bi imao previše linija koda i takav dokument bi bio
+težak za održavanje. Dakle, manji broj linija kodova u dokumentu znači brže
+vreme preuzimanja i dokument je lakši za održavanje. A ako napravite globalnu
+promenu za neki element u CSS dokumentu tako što jednostavno promenite stil tada
+će se taj element u svakoj od Vaših HTML stranica automatski ažurirati. CSS ima
+mnogo širi niz atributa nego HTML, tako da možete dati daleko bolji izgled vašoj
+HTML stranici u poređenju sa HTML atributima.
+<br />
+<br />
+CSS opisi (sadržani u tzv. stilskim listovima) imaju veoma jednostavnu sintaksu.
+Prikažimo je kroz primer koji sadrži dva CSS pravila. Svako pravilo se sastoji
+od selektora p koji označava paragraf i h1 koji označava naslov, za kojim se u
+vitičastim zagradama navodi CSS deklaracija koja se sastoji od svojstva (npr.
+color) i njene vrednosti (npr. green).
+<br>
+<div class="napomena">
+  <b>Napomena:</b> U ovom primeru će se upotrebiti CSS unutar dokumenta, a kako
+  sve možete upotrebiti CSS videćete u sledećoj lekciji.
+</div>
+<br />
+<xmp class="primer_ta">
+<style>
+p { color: green; }
+
+h1{
+    color: blue;
+}
+</style>
+</xmp>
+<br />
+<div class="zadatak">
+  <b>Zadatak 1:</b> Promeniti boju teksta paragrafa u crvenu, postaviti veličinu
+  fonta na 20px i tekst poravnati udesno.
+</div>
+
+<br>
+<br>
+<h2>Upotreba CSS-a</h2>
+<strong>Linijski</strong> - Najjednostavniji i najmanje preporučljiv način za
+upotrebu CSS-a je navođenje iskaza unutar STYLE atributa HTML elementa koji
+želimo da menjamo. Ovako kreiran kod je nečitljiv i težak za pronalaženje
+grešaka i izmene. Koristi se ako je potrebno na licu mesta (u samom HTML-u)
+izmeniti neki već postojeći CSS stil ili zadati određeni izgled bez kreiranja
+stila.
+<br />
+<br />
+Primer linijskog unosa CSS-a koja menja boju pozadine stranice u žutu:
+<br /><br />
+<xmp class="primer_ta">
+<body style="background-color:yellow">
+<p>
+    Boja pozadine stranice je žute boje!
+</p>
+</body>
+</xmp>
+<br /><br />
+<div class="zadatak">
+  <b>Zadatak 2:</b> Promeniti boju teksta trećeg pasusa u crvenu, linijskom
+  upotrebom CSS-a.
+</div>
+
+<br>
+<br>
+<strong>Unutar dokumenta</strong> - Stilovi se kreiraju unutar same HTML
+stranice, s tim što su izdvojeni unutar <b>style</b> etikete unutar zaglavlja
+(etiketa &lthead&gt) HTML dokumenta. Ovaj način koristimo ako nam trebaju
+stilovi za koje smo sigurni da ćemo ih koristiti samo unutar te stranice.
+<br />
+Primer unosa CSS-a unutar dokumenta:
+<br /><br />
+<xmp class="primer_ta">
+<head>
+<style>
+h1{
+  color: blue;          
+}
+div{
+  border: 3px solid green;
+  color: orange;      
+}
+</style>
+</head>
+<body>
+<h1>Boja teksta naslova je plave boje!</h1>
+<div>Okvir ovog bloka je 3px i boja okvira je zelene boje kao i tekst unutar bloka je narandžaste boje, a boja naslova je plava! </div>
+</body>
+</xmp>
+<br /><br />
+
+<div class="zadatak">
+  <b>Zadatak 3:</b> Datu nenumerisanu listu uokviriti linijom od 1px plave boje i
+  tekst unutar te liste braon boje, upotrebom CSS-a unutar dokumenta.
+</div>
+<br>
+<br>
+<strong>Van dokumenta</strong> - ovakvi stilovi imaju prednost u odnosu na
+preostala dva načina (stilovi definisani u zaglavlju i stilovi definisani
+linijski), a to je da pomoću dokumenta koji se nalazi van HTML dokumenta možemo
+da utičemo na elemente više HTML dokumenata (stranica) da upravljamo stilovima i
+izgledom dela ili celog sajta. Da biste u potpunosti iskoristili prednosti
+CSS-a, treba da koristite ovakav način definisanja stilova. Stilove upisujemo u
+poseban tekstualni dokument sa ekstenzijom <span style="color: red">.css</span>!
+<br />
+Primer unosa CSS-a van dokumenta: <br />
+Otvorite editor, deklarišite stilove unutar tog dokumenta:
+<br /><br />
+<xmp class="primer_ta"
+>
+p { 
+   color: red; 
+}
+h1{ 
+   color: blue; 
+}
+</xmp>
+<br />
+Sačuvajte taj dokument kao stilovi.css i unutar HTML dokumenta unutar zaglavlja
+stranice (etikete &lthead&gt) ubacite etiketu <br />
+<xmp class="primer_ta">
+<link href="stil.css" rel="stylesheet" type="text/css"/>
+</xmp>
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak 4:</b> Promeniti boju teksta date numersane liste u zelenu, upotrebom
+  CSS-a van dokumenta.
+</div>

@@ -1,0 +1,297 @@
+<h1><b>Primeri</b></h1>
+<h2>Površina kvadrata (verzija 1)</h2>
+<xmp class="primer_ta">
+  <html>
+
+  <head>
+    <script>
+      function kvadratBroja(x) {
+        return x * x;
+      }
+      function povrsinaKvadrata(x) {
+        var Povrsina = kvadratBroja(x);
+        return Povrsina;
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1> Površina kvadrata </h1>
+    <script>
+      var x = prompt("Unesite dužinu ivice kvadrata");
+      document.write("Površina kvadrata je: " + povrsinaKvadrata(x));
+    </script>
+  </body>
+
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br />
+Nakon pokretanja primera funkcija
+<span class="primer_text">prompt()</span> pokreće iskačući prozor, sa
+tekstualnim poljem u kome je moguće uneti dužinu ivice kvadrata. Pri validnom
+unosu, program radi. Ukoliko korisnik unese negativan broj, program će računati
+površinu. Poznato je da dužina stranice ne može biti negativan broj, zato je ova
+greška u programu ispravljena u narednom primeru.
+<br />
+<h2>Površina kvadrata (verzija 2)</h2>
+<xmp class="primer_ta">
+  <html>
+
+  <head>
+    <script>
+      function kvadratBroja(x) {
+        return x * x;
+      }
+      function povrsinaKvadrata(x) {
+        if (x >= 0) {
+          var Povrsina = kvadratBroja(x);
+          return Povrsina;
+        }
+        else
+          alert("Unos nije validan!");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1> Površina kvadrata </h1>
+    <script>
+      var x = prompt("Unesite dužinu ivice kvadrata");
+      document.write("Površina kvadrata je: " + povrsinaKvadrata(x));
+    </script>
+  </body>
+
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br />
+Nakon pokretanja primera funkcija
+<span class="primer_text">prompt()</span> pokreće iskačući prozor, sa
+tekstualnim poljem u kome je moguće uneti dužinu ivice kvadrata. <br />Pri
+validnom i nevalidnom unosu, program radi. Ukoliko korisnik ne unese podatak,
+program nastavlja sa radom, a to nije očekivano. Poželjno je da ukoliko ne bude
+unosa, program prekine sa radom. <br />
+Ova greška je popravljena u sledećem primeru.
+<br />
+<h2>Površina kvadrata (verzija 3)</h2>
+<xmp class="primer_ta">
+  <html>
+
+  <head>
+    <script>
+      function kvadratBroja(x) {
+        return x * x;
+      }
+      function povrsinaKvadrata(x) {
+        if (x >= 0) {
+          var Povrsina = kvadratBroja(x);
+          return Povrsina;
+        }
+        else
+          alert("Unos nije validan!");
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1> Površina kvadrata </h1>
+    <script>
+      var x = prompt("Unesite dužinu ivice kvadrata");
+      if (x >= 0)
+        document.write("Površina kvadrata je: " + povrsinaKvadrata(x));
+      else
+        document.write("Povšina nije izračunata!");
+    </script>
+  </body>
+
+  </html>
+</xmp>
+<button class="button_copy">Vidi primer</button>
+<br />
+Ni ova verzija nije potpuno ispravna, jer postoji deo koda koji se nikada ne
+izvršava.
+<br />
+<xmp class="primer_ta"
+>
+  else
+  alert("Unos nije validan!");
+</xmp>
+<br />
+Ovaj deo koda se nikada neće izvršiti, jer se funkciji
+<i>povrsinaKvadrata</i> pristupa samo u slučaju kada je <i>x>=0</i>, pa je
+odgovor na ovo pitanje u okviru funkcije uvek potvrdan, a deo koji se odnosi na
+negativan odgovor suvišan.
+<br />
+<h2>Palindrom</h2>
+<xmp class="primer_ta"
+>
+  function is_Palindrome(str1) {
+  var rev = str1.split("").reverse().join("");
+  return str1 == rev;
+  }
+  function longest_palindrome(str1){
+  var max_length = 0,
+  maxp = '';
+  for(var i=0; i < str1.length; i++){ var subs=str1.substr(i, str1.length); for(var j=subs.length; j>=0; j--){
+    var sub_subs_str = subs.substr(0, j);
+    if (sub_subs_str.length <= 1) continue; if (is_Palindrome(sub_subs_str)){ if (sub_subs_str.length> max_length){
+      max_length = sub_subs_str.length;
+      maxp = sub_subs_str;
+      }
+      }
+      }
+      }
+      return maxp;
+      }
+</xmp>
+<br />
+Ovaj primer prikazuje funkciju, t.j. kombinaciju funkcija koje pronalaze najduži
+palindrom u prosleđenoj reči.
+<br />
+<br />
+Funkcija <i>is_Palindrome</i> proverava da li je prosleđena reč palindrom. Prvo
+se string metodom <i>split("")</i> pretvori u niz karaktera, zatim metodom
+<i>reverse()</i> se tako dobijen niz preokrene, a na kraju se metodom
+<i>join("")</i> preokrenut niz pretvara u string. Odnosno, dobije se preokrenuti
+string u odnosu na početni i sačuva se u promenljivoj <i>rev</i>. Funkcija na
+kraju proverava da li su jednaki početni string i novonastali preokrenuti string
+i ukoliko je odgovor potvrdan vraća vrednost <b>true</b>, u suprotnom vraća
+vrednost <b>false</b>.
+<br />
+<br />
+Funkcija <i>longest_palindrome</i> prosleđeni string razlaže na podstringove i
+proverava svaki da li je palindrom koristeći se funkcijom <i>is_Palindrome</i>.
+Prva <i>for</i> petlja od napred prolazi kroz string, dok druga
+<i>for</i> petlja od pozadi skraćuje podstringove koji se proveravaju.
+<br />
+<br />
+Na primer, ukoliko se proverava reč <i>banana</i>, provera će ići sledećim
+tokom:
+<xmp class="primer_ta"
+>
+  banana (i=0, j=6)
+  banan (i=0, j=5)
+  bana (i=0, j=4)
+  ban (i=0, j=3)
+  ba (i=0, j=2)
+  b (i=0, j=1)
+  anana (i=1, j=6)
+  anan (i=1, j=5)
+  ana (i=1, j=5)
+  ...
+</xmp>
+<br />
+Provera se dalje nastavlja istim tokom, ne prekida se iako je pronađena reč koja
+jeste najduži palindrom. Prvi pronađeni palindrom je slovo <b>b</b> i tada
+promenljiva <i>max_length</i> uzima vrednost <b>1</b>. Sledeća reč
+<b>anana</b> je takođe palindrom, dužine <b>5</b>, a promenljiva
+<i>max_length</i> uzima vrednost <b>5</b>, jer je 5>1. Sledeći palindrom na koji
+funkcija naiđe je <b>ana</b>, ali on je kraće dužine, pa se vrednost promenljive
+<i>max_length</i> neće promeniti. Funkcija će još jednom naići na reč
+<b>ana</b> koja je palindrom, koja takođe neće promeniti vrednost promenljive
+<i>max_length</i>.
+<br />
+<br />
+Kada funkcija izađe iz obe <i>for</i> petlje vraća se vrednost sačuvana u
+promenljivoj <i>max_length</i>, koja bi u navedenom primeru bila broj <b>5</b>.
+<br />
+<h2>Najmanji zajednički sadržalac</h2>
+<xmp class="primer_ta"
+>
+  function NZS(x, y){
+  return Math.abs((x * y) / NZD(x, y));
+  }
+  function NZD(x, y){
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while(y){
+  var t = y;
+  y = x % y;
+  x = t;
+  }
+  return x;
+  }
+</xmp>
+<br />
+Funkcije date u ovom primeru pronalaze najmanji zajednički sadržalac i najveći
+zajednički delilac dva broja.
+<br />
+<br />
+Funkcija <i>NZS</i> pronalazi najmanji zajednički sadržalac prosleđenih brojeva
+tako što absolutnu vrednost proizvoda tih brojeva podeli sa njihovim najvećim
+zajedničkim deliocem.
+<br />
+<br />
+Funkcija <i>NZD</i> pronalazi najveći zajednički delilac prosleđenih brojeva.
+Prvo se oba broja pretvore u njihovu apsolutnu vrednost, odnosno ukoliko je neki
+broj bio pozitivan, njegova vrednost se neće promeniti. Zatim se
+<i>while</i> petljom primenjuje Euklidov algoritam za pronalaženje najvećeg
+zajedničkog delioca sve dok je druga promenljiva veća od nule (vrednosti prve i
+druge promenljive se menjaju prolaskom kroz petlju). Kada se izađe iz
+<i>while</i> petlje, odnosno kada vrednost druge promenljive postane <b>0</b>,
+tada se vraća vrednost prve promenljive, koja predstavlja najveći zajednički
+delilac brojeva.
+
+<br><br>
+<h2>Primer 1</h2>
+
+Sledeći objekat ima četiri svojstva i sva su primitivnih tipova.
+<br />
+<xmp class="primer_ta"
+>
+var osoba={
+	ime:"Petar",
+	prezime:"Petrović"
+	starost:50,
+	bojaOčiju:"plave"
+};
+</xmp>
+<br />
+<h2>Primer 2</h2>
+
+<xmp class="primer_ta"
+>
+var korisnik={
+	ime:"Gost",
+	promeniIme: function(){
+		this.ime=prompt("Vase ime je?")
+	},
+	pozdrav: function(){
+		alert('Zdravo, moje ime je '+this.ime)
+	}
+}
+</xmp>
+<br />
+Objekat <i>korisnik</i> definisan je za potrebe registracije korisnika na jednom
+forumu. Ona na početku svojoj osobini <i>ime</i> daje vrednost <i>Gost</i>, a
+potom se može funkcijsim svojstvom <i>promeniIme</i> promeniti vrednost.
+<br />Takođe, definisano je još jedno funkcijsko svojstvo <i>pozdrav</i>, koje
+kada se pozove aktivira iskačući prozor sa porukom:
+<i>'Zdravo, moje ime je '+this.ime</i>, gde deo <i>this.ime</i> prikazuje
+vrednost sačuvanu u osobini <i>ime</i> tog korisnika.
+<br />
+<h2>Primer 3</h2>
+
+<xmp class="primer_ta"
+>
+var stepeniste={
+	stepenik: 0,
+	gore: function(){
+		this.stepenik++
+	},
+	dole: function(){
+		this.stepenik--
+	},
+	prikaziStepenik: function(){
+		alert(this.stepenik)
+	}
+}
+</xmp>
+<br />
+Objekat <i>stepeniste</i> predstavlja simulaciju pravog stepeništa. On sadrži
+numeričko svojstvo stepenik u kome se čuva informacija o tome na kom se
+stepeniku trenutno korisnik nalazi, kao i dva funkcijska svojstva <i>gore</i> i
+<i>dole</i> kojim se korisnik može kretati po stepeništu i još jedno funkcijsko
+svojstvo <i>prikaziStepenik</i> kojim se u iskačućem prozoru ispisuje numerička
+vrednost stepenika na kom se korisnik nalazi.

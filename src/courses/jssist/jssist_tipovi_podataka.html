@@ -1,0 +1,400 @@
+<h1><b>Tipovi podataka</b></h1>
+<br>
+JavaScript definiše od tri do šest tipova podataka. To su:
+<br>
+<ul>
+  <li>brojevi</li>
+  <li>znakovni nizovi - stringovi</li>
+  <li>bulove vrednosti</li>
+  <li>null vrednisti</li>
+  <li>nedefinisana vrednost</li>
+  <li>objekti</li>
+</ul> 
+<br>
+JavaScript ima i nekoliko referentnih tipova podataka uključujući tipove <i>Array, Date, RegExp</i>.
+<br>
+<br>
+<b>BROJEVNI TIP</b>
+<br>
+<br>
+U JavaScriptu celi brojevi i brojevi sa pokretnim zarezom nemaju specijalne ili odvojene tipove.
+<br>
+<br>
+Primeri brojeva u JavaScriptu:
+<br>
+&nbsp;&nbsp; 14 <br>
+&nbsp;&nbsp; 8,4 <br>
+&nbsp;&nbsp; -124 <br>
+&nbsp;&nbsp; 0xa <br>
+<br>
+
+Primer: 
+<br>
+<xmp class = "primer_ta" >
+<script type="text/javascript">
+var a = 0xa;
+var b = 0xe;
+var c = a * b;
+alert(c);
+</script>
+</xmp>
+<br>
+Ovaj kod definiše dve promenljive, <i>a</i> i <i>b</i> i dodeljuje im heksadekadne brojeve. 
+Potom se kreira nova promenljiva <i>c</i>, i dodeljuje joj se proizvod prethodne dve promenljive.
+ Dobijena promenljiva se prosledjuje funkciji <i>alert()</i>. A kao rezultat se dobija broj u decimalnom formatu.
+<br>
+<br>
+<b>NUMERIČKE FUNKCIJE</b>
+<br>
+<br>
+JavaScript ima neke ugradjene funkcije za rad sa numeričkim vrednostima. 
+<br>
+Jedna od tih funkcija je <i>IsNaN()</i>  (is Not a Number).
+<br>
+Ova funkcija se koristi da bismo mogli da proverimo da li je neki broj dopušten ili ispravan u skladu sa ECMA-262 specifikacijom.
+<br>
+Na primer: "4" jeste broj, dok deljenje nulom je nedopušten broj isto kao i vrednosti znakovnog niza(npr. "četiri").
+<br>
+<br>
+Primer koji testira da li je broj dopušten ili ne.
+<br>
+<xmp class = "primer_ta"  >
+<script type="text/javascript">
+document.write("Is Not a Number:" + isNaN("123"));
+</script>
+</xmp>
+<br>
+Kao rezultat ćemo dobiti <i>false</i> jer celobrojna vrednost 123 jeste broj.
+<br>
+<br>
+Funkcija <i>isNaN()</i> se često koristi prilikom provere ispravnosti ulaznih podataka, kako bi se utvrdilo da li je promenljiva uneta kao broj ili kao tekst. 
+<br>
+<br>
+<b>OBJEKAT Math</b>
+<br>
+<br>
+<i>Math</i> objekat je sprecijalan ugrađen objekat koji se koristi za rad sa brojevima u JavaScriptu.
+<br>
+<br>
+Ovaj objekat daje vrednost PI, kvadratni koren broja, apsolutnu vrednost, pseudoslučajni broj...
+<br>
+<br>
+Neka svojstva funkcije objekta <i>Math</i>:
+
+<br>
+ <table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Svojstvo</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Definicija</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > Math.PI </font>
+		</b></td>
+      <td><b><font size="2"  > Daje vrednost broja pi </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > Math.random() </font></b></td>
+      <td><b><font size="2"  > Daje pseudoslucajan broj  </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > Math.abs(x)  </font>
+		</b></td>
+      <td><b><font size="2"  > Daje apsolutnu vrednost x </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > Math.sqrt(x) </font></b></td>
+      <td><b><font size="2"  > Daje koren broja x </font>
+		</b></td>
+	</tr>
+	<tr>
+      <td><b><font size="2"  > Math.pow(x,y) </font></b></td>
+      <td><b><font size="2"  > Daje x stepenovan na y </font>
+		</b></td>
+	</tr>
+	<tr>
+      <td><b><font size="2"  >Math.round(x) </font></b></td>
+      <td><b><font size="2"  > Daje x zaokru&#382;en na najbli&#382;i ceo broj </font>
+		</b></td>
+    </tr>
+
+    </tr>
+  </table>
+<br>
+<br>
+Primer korišćenja <i>Math objekta</i>:
+<br>
+<xmp class = "primer_ta" >
+<script>
+var a = 0xa;
+var b = Math.pow(4,3);
+var c = a * b;
+document.write("Dobijena vrednost je: " + c + "<br>");
+</script>
+</xmp>
+<br>
+U primeru računamo proizvod jedne promenljive koje ima heksadekadnu vrednost, i promenljive koju smo dobili korišćenjem <i>Math objekta</i>.
+<br>
+<br>
+
+<div class = "zadatak"> <br>
+<b>Zadatak 1:</b> Izmeni program tako da prvu promenljivu izabereš sam, a drugu dobiješ kao koren broja 16 korišćenjem <i>Math objekta</i> .
+</div>
+<br>
+<br>
+<h2><b>Znakovni nizovi - Stringovi</b></h2>
+<br>
+Stringovi u JavaScriptu sastoje se od jednog ili vi&#353;e znakova pod navodnicima. 
+Navodnici mogu biti jednostruki ili dvostruki.
+<br>
+<br>
+<br>
+ <table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Primeri sa dvostrukim navodnicima</strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong>Primeri sa jednostrukim navodnicima</strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > "Zdravo svete!" </font>
+		</b></td>
+      <td><b><font size="2"  > 'Zdravo!' </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > "Rekla nam je 'zdravo'." </font></b></td>
+      <td><b><font size="2"  > 'Rekla je: "Napolju pada kiša".' </font></b></td>
+    </tr>
+  </table>
+<br>
+<br>
+Unutar jednog tipa navodnika može se koristiti drugi tip kao što smo imali u primeru iz tabele. 
+<br>
+<br>
+Ukoliko nam je potrebno da koristimo isti stil navodnika unutar stringa, moramo poništiti specijalno značenje navodnika, da ga JavaScript ne bi interpretirao. 
+<br>
+<br>
+Kako poništiti specijalno značenje navodnika?
+<br>
+To se radi korišćenjem znaka za obrnutu kosu crtu (\). Dosta nam je korisno za ono što se piše na engleskom jeziku. Npr: Umesto <code>'I am' - 'I\'m' ili 'You are' - 'You\'re'</code> itd.
+<br>
+<br>
+U JavaScriptu postoje drugi znakovi sa sprecijalnim značenjem.
+<br>
+<br>
+<table border="1" cellpadding="5" cellspacing="1" width="100%" bgcolor="#FFFFFF">
+    <tr>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong> Znakovi sa specijalnim značenjem </strong></font></td>
+      <td align="center" bgcolor="#e3badc"><font size="3"  ><strong> Vrednost znaka </strong></font></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \b </font>
+		</b></td>
+      <td><b><font size="2"  > Backspace </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \t </font></b></td>
+      <td><b><font size="2"  > Tabulator  </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \n  </font>
+		</b></td>
+      <td><b><font size="2"  > Novi red </font></b></td>
+    </tr>
+    <tr>
+      <td><b><font size="2"  > \v </font></b></td>
+      <td><b><font size="2"  > Vertikalni tabulator </font>
+		</b></td>
+	<tr>
+      <td><b><font size="2"  > \f </font></b></td>
+      <td><b><font size="2"  > Prelazak na sledeću stranicu </font>
+		</b></td>
+    </tr>
+	<tr>
+      <td><b><font size="2"  > \r </font></b></td>
+      <td><b><font size="2"  > Znak za početak reda </font>
+		</b></td>
+    </tr>
+	<tr>
+      <td><b><font size="2"  > \\ </font></b></td>
+      <td><b><font size="2"  > Obrnuta kosa crta </font>
+		</b></td>
+    </tr>
+
+    </tr>
+  </table>
+<br>
+<br>
+Takodje postoje metode i svojstva stringova.
+<br>
+Neke od metoda i svojstava su: <i>length, substr(), substring(), slice(), concat(), toUpperCase(), toLowerCase(), charAt(), indexOf(), trim(), valueOf()</i>.
+<br>
+<br>
+<b>Svojstvo length</b>
+<br>
+<br>
+Ovo svojstvo se koristi za odredjivanje dužine stringa. 
+<br>
+<br>
+Možemo ga koristiti na dva nacina. Direktno na stringu, ili prilikom poziva na promenljivoj.
+<br>
+<br>
+Primer kada se <i>length</i> poziva direktno na stringu.
+<br>
+<span class="primer_text">
+document.write("Ovo je string.".length); //Ispisuje "14"
+</span>
+<br>
+<br>
+Primer kada se <i>length</i>  poziva na promenljivoj:
+<br>
+<xmp class = "primer_ta" >
+var MojString = "Ovo je string."; 
+document.write(MojString.length); //Ispisuje "14"
+</xmp>
+<br>
+Oba ova primera daju isti rezultat.
+<br>
+<br>
+<b>Metode slice, substring, substr</b>
+<br>
+<br>
+Metode <i>subtring()</i> i <i>slice()</i> prihvataju dva argumenta, tako da je prvi argument početna pozicija od koje se računa, dok je drugi argument pozicija za zaustavljanje, što nije slučaj sa metodom <i>substr()</i> gde je drugi argument broj znakova od početne pozicije koji se računaju.
+<br>
+<br>
+Primer korišćenja ovih metoda:
+<br>
+<xmp class = "primer_ta" >
+var MojString = "Ovo je string."; 
+document.write(MojString.substring(3)); //Ispisuje " je string."
+document.write(MojString.substring(3,9)); //Ispisuje " je st"
+document.write(MojString.substr(3)); //Ispisuje " je string."
+document.write(MojString.substr(3,9)); //Ispisuje " je strin"
+</xmp>
+<br>
+<br>
+<b>Metod concat</b>
+<br>
+<br>
+Ovaj metod spaja dva niza. 
+<br>
+<br>
+Primer nadovezivanja sa <i>concat()</i>:
+<br>
+<xmp class = "primer_ta" >
+var PrviString = "Zdravo ";
+var DrugiString = "svete";
+document.write(PrviString.concat(DrugiString)); //Ispisuje "Zdravo svete"
+</xmp>
+<br>
+<br>
+Umesto <i>concat()</i> mozemo koristiti znak '+' za nadovezivanje.
+<br>
+<br>
+Primer nadovezivanja sa <b>+</b>:
+<br>
+<xmp class = "primer_ta" >
+var PrviString = "Zdravo ";
+var DrugiString = "svete";
+document.write(PrviString + DrugiString); //Ispisuje "Zdravo svete"
+</xmp>
+<br>
+<br>
+Primer:
+<br>
+<xmp class = "primer_ta" >
+<script>
+var a = "Dobar ";
+var b = "dan!";
+var c = a + b;
+var l=c.length;
+document.write("Nadovezivanjem a i b dobili smo: " +c + "<br>" + "Dužina dobijenog stringa je: " + l + "<br>");
+</script>
+</xmp>
+<br>
+U primeru spajamo dva stringa pomoću znaka za nadovezivanje ( + ), potom ispisujemo string koji smo dobili i njegovu dužinu koju smo prethodno izračunali. 
+<br>
+<br>
+
+<div class = "zadatak"> <br>
+<b>Zadatak 2:</b> Izmeni program na sledeći način: Za vrednosti promenljivih a i b izaberi bilo koja dva stringa, potom izračunaj i ispiši dužinu svakog stringa ponaosob, 
+a potom spoj ta dva stringa pomoću metode <i>concat()</i>, i izračunaj dužinu dobijene vrednosti, i ispiši sve to.
+</div>
+<br>
+<br>
+<h2><b>Bulove vrednosti</b></h2>
+<br />
+Bulove vrednosti mogu biti <i>true (tačno)</i> i
+<i>false (netačno)</i>.
+<br />
+<br />Najčešće se koriste Bulovi izrazi unutar testova, kao
+što je <i>if/then/else</i> iskaz.
+<br />
+<br />
+Primer iskaza u kom je korišćen Bulov izraz:
+<br />
+<br />
+<xmp class="primer_ta"
+>
+if(broj < 10){
+&nbsp&nbsp//uradi nešto
+}
+</xmp>
+<br />
+Ovaj primer služi da pokaže da li će se kod unutar zagrada
+izvršiti ili ne.
+<br />
+Ukoliko je broj manji od 10, Bulov izraz će imati vrednost <i>true</i> i
+kod će se izvršiti, u suprotnom neće.
+<br />
+<br />
+<h2><b>Null vrednosti</b></h2>
+<br />
+Ovo je specijalan tip podataka u JavaScriptu.
+<br />
+To je ništa. Predstavlja se kao vrednost <i>false</i>.
+<br />
+<br />
+Ne treba mešati <i>null</i> sa praznom promenljivom. Praznina i
+<i>null</i> vrednost se razlikuju. Prazna promenljiva je i dalje puna - puna je
+praznine.
+<br />
+<br />
+Npr. ukoliko bismo napisali ovako nešto:
+<br /><span class="primer_text">var mojaPromenljiva=''; </span><br />to
+znači da je promenljiva <i>moja Promenljiva</i> prazna, ali ona nema
+vrednost <i>null</i>.
+<br />
+<br />
+
+<h2><b>Nedefinisane vrednosti</b></h2>
+<br />
+Ovo je zapravo stanje koje se koristi kao vrednost.
+<br />
+Koristimo ga onda kada promenljivoj nije dodeljena nikakva vrednost.
+<br />
+Razlikuje se od <i>null</i> vrednosti.
+<br />
+<br />
+Primer:
+<br />
+<xmp class="primer_ta" rows="6" disabled
+>
+if (number.value < 100) { 
+	ispis = "Proizvod je: " + number.value;
+}
+else { 
+	ispis = 'Rezultat je veći od 100!';
+}
+</xmp>
+<br />
+U primeru proveravamo da li je proizvod dva uneta broja veći ili manji od
+100, ako je manji ispisujemo rezultat, a ako je veći ispisujemo: 'Rezultat
+je veći od 100!'.
+<br />
+<br />
+<div class="zadatak">
+  <b>Zadatak 3:</b>
+  Promeni program tako da uneseš jedan broj, proveri da li je njegov
+  kvadrat manji od 100, ako jeste ispiši rezultat, a ako nije ispiši
+  da je kvadrat prvog broja veći od 100.
+</div>
+<br />
+<br />

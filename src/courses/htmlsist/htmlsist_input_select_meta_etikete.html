@@ -1,0 +1,405 @@
+<h1> <b>Input, select i meta etikete </b></h1>
+
+<h2><b> Veb formulari <b></h2>
+
+<p> Veb formulari su veb strane koje se prave za prikupljanje nekih informacija od korisnika i za njih se koriste etikete &ltform&gt i &lt/form&gt.
+Te informacije mogu biti ime i prezime, datum, lozinka, telefon itd. Elementi formulara su dugmad, polja za unos, radio dugmad, padajuće liste i još neki elementi koje ćemo prikazati.
+ <xmp class="primer_ta" >
+<body>
+  <form>
+       ...
+ </form>  
+</body> 
+</xmp>
+Da bi korisnik mogao poslati svoje informacije na server radi obrade, u formularu mora postojati neko dugme za procesiranje. Za procesiranje i obradu tih informacija dalje se koristi neki od skript jezika (npr. JavaScript). Sada ćemo videti koje sve vrste informacija možemo prikupiti od korisnika uz pomoć etiketa &ltinput&gt i &ltselect&gt.
+</p>
+<br>
+<h2><b> Tipovi input-a </b></h2>
+
+<p> Etiketa&ltinput&gt koristi se za unos različitih vrsta podataka i u zavisnosti od toga imamo različite tipove input kontrola, a i različite atribute. 
+<div class="napomena">Zajednički atributi različitih kontrola su name, kojim se definiše ime promenljive preko koje će biti izvršena dodela vrednosti, i value, koji predstavlja ili izabranu vrednost u formularu ili tekst koji će biti prikazan. Funkcionalnost i pojava input kontrola se menjaju u zavisnosti od atributa type. </div>
+<ul>
+<li>
+Za unos jedne linije koristi se sledeći kod: 
+<br>
+<span class="primer_text">&ltinput type="text" name="ime" value="Unesite ime" maxlength="20"&gt </span>
+<br>
+<input type="text" name="ime" value="Unesite ime" maxlength="20">
+<br>
+Atribut maxlength ograničava unos karaktera na 20.
+Zapravo, to je podrazumevani tip unosa, što znači da je ono što ćete dobiti ako zaboravite da uključite atribut type ili uključite nepoznatu vrednost.
+<li>   
+Radio dugmad se koriste za opcije među kojima korisnik može da odabere samo jednu. Atribut checked definiše podrazumevani izbor.
+<br>
+<xmp class="primer_ta" >
+<input type="radio" name="pol" value="muški" checked> Muški pol
+<input type="radio" name="pol" value="ženski"> Ženski pol
+</xmp>
+<input type="radio" name="pol" value="muški" checked> Muški pol
+<br>
+<input type="radio" name="pol" value="ženski"> Ženski pol
+
+<li>
+Polja za čekiranje, takođe, korisniku nude izbor opcija, s tim što je ovde omogućen višestruki izbor. I ovde se može koristiti atribut checked.
+<xmp class="primer_ta" >
+<input type="checkbox" name="kurs1" value="html"> HTML
+<input type="checkbox" name="kurs2" value="css"> CSS
+<input type="checkbox" name="kurs3" value="js"> JS
+<input type="checkbox" name="kurs4" value="php"> PHP
+</xmp>
+<input type="checkbox" name="kurs1" value="html" checked> HTML <br>
+<input type="checkbox" name="kurs2" value="css"> CSS <br>
+<input type="checkbox" name="kurs3" value="js"> JS <br>
+<input type="checkbox" name="kurs4" value="php"> PHP
+<li>
+Polje za unos neke šifre, koja će se prikazivati kružićima ili zvezdicama, mora imati tip password jer želimo da bude skrivena.
+<br>
+<span class="primer_text">&ltinput type="password" name="šifra" maxlength="8"&gt </span>
+Unesite šifru:
+<input type="password" name="sifra" maxlength="8">
+<li>
+Obično se na kraju formulara ubacuju dva dugmeta - jedno za slanje podataka na server, a drugo za brisanje teksta.
+<br>
+<span class="primer_text">&ltinput type="submit" name="slanje" value="Pošalji"&gt </span>
+<br>
+<input type="submit" name="Pošalji" value="Pošalji"> <br>
+<span class="primer_text">&ltinput type="reset" name="brisanje" value="Obriši"&gt 
+</span> <br>
+<input type="reset" name="brisanje" value="Obriši">
+<li>
+Postoje tipovi unosa datuma, vremena, meseca, nedelje. Svi oni imaju izbor opcija među kojima korisnik treba da izabere jednu.<br>
+<span class="primer_text">&ltinput type="date" name="datum"&gt 
+</span> <br>
+<input type="date" name="datum"> <br>
+<span class="primer_text">&ltinput type="time" name="vreme"&gt 
+</span> <br>
+<input type="time" name="vreme"> <br>
+ <span class="primer_text">&ltinput type="month" name="mesec"&gt </span><br>
+<input type="month" name="mesec"> <br>
+ <span class="primer_text">&ltinput type="week" name="nedelja"&gt 
+</span> <br>
+<input type="week" name="nedelja"> <br>
+<li> 
+Polje za biranje broja ima sledeći kod: <br>
+ <span class="primer_text">&ltinput type="number" name="broj"&gt </span> <br>
+<input type="number" name="broj" min="1" max="10"> <br>
+Ovaj kod možete dopuniti atrubutima min i max, koji ograničavaju izbor broja. U primeru su postavljene vrednosti min="1" i max="10". Takođe, možete dodati atribut step (korak) za postavljanje razmaka između brojeva.
+<li>
+Polje za izbor boje može se dobiti ovako: <br>
+ <span class="primer_text">&ltinput type="color" name="boja"&gt </span> <br>
+<input type="color" name="boja"> <br>
+<li> 
+Za biranje nekog opsega brojeva koristi se range: <br>
+ <span class="primer_text">&ltinput type="range" name="opseg" min="0" max="50" step="5"&gt </span> <br>
+<input type="range" name="opseg" "min="0" max="50" step="5" > 
+<br>
+Podrazumevane vrednosti su min=0, max=100 i step=1. Step (korak) je razmak između brojeva koji se mogu odabrati. Opseg se obično povezuje sa tekstualnim poljem u kome se prikazuje izabrana vrednost.
+<li>
+Za unos mejla, broja telefona i lokacije veb strane koriste se: <br>
+ <span class="primer_text">&ltinput type="email" name="mejl"&gt </span> <br>
+<input type="email" name="mejl"> <br>
+ <span class="primer_text">&ltinput type="tel" name="telefon"&gt </span> <br>
+<input type="tel" name="telefon"> <br>
+ <span class="primer_text">&ltinput type="url" name="lokacija"&gt </span> <br>
+<input type="url" name="lokacija"> <br>
+Neki pretraživači ne prepoznaju ove nove tipove i prikazaće ih kao obična tekstualna polja. Ali to nije razlog da ih ne koristite, jer ih većina savremenih mobilnih telefona i tablet računara koristi.
+<br>
+<li>
+Kontrole search i button ćemo objasniti kroz primer najpoznatije veb strane, Google početne strane. Ona sadrži polje za unos teksta i jedno dugme: <br>
+<xmp class="primer_ta" >
+<input type="search" name="pretraga" value="Traži"> 
+<input type="button" name="dugme" value="Idi"> 
+</xmp>
+<input type="search" name="pretraga" value="Traži">
+<input type="button" name="dugme" value="Idi">
+<li> Postoji i input kontrola pomoću koje možete učitati neku sliku iz fajla:<br>
+<span class="primer_text">&ltinput type="file" name="photo" size="28"&gt </span> <br>
+<input type="file" name="photo"> <br>
+</ul>
+ </p>
+<br>
+<h2><b>Tekstualno polje</b></h2>
+<p> Za unos više od jedne linije koristi se tekstualno polje: 
+<br>
+ <xmp class="primer_ta" >
+<textarea name="tekst" rows="5" cols="50">
+Ovde unosite tekst...
+
+i ovaj deo koda mora se zatvoriti etiketom &lt/textarea&gt.
+<textarea name="tekst" rows="5" value="Unesite tekst"> </xmp> 
+<br>
+Atribut rows označava broj redova, a cols broj kolona. Umesto ovih atributa, može se, kao i kod unosa jedne linije, koristiti atribut maxlength.
+<br><br>
+<div class="zadatak"><b>Zadatak 1:</b> Dat je kod za slanje e-maila sa veb strane. Dodati polja za unos šifre, telefona, datuma i vaše slike. Pokušajte da dodate još neke input kontrole iz lekcije da biste videli kako rade.
+</div>
+</p>
+
+<br><br>
+<h2><b> Select <b></h2>
+    <br>
+    <p> Etiketu &ltselect&gt koristimo kada želimo da ponudimo izbor opcija korisniku. Za razliku od etikete &ltinput&gt, ovaj deo koda se mora 
+    zatvoriti etiketom &lt/select&gt. Etiketa &ltoption&gt između etiketa &ltselect&gt i &lt/select&gt definiše moguće opcije u listi. I taj deo koda se mora zatvoriti etiketom &lt/option&gt.
+    <xmp class="primer_ta" >
+    <select>
+       <option> Opcija 1 </option>   
+       <option> Opcija 2 </option>   
+       <option> Opcija 3 </option>   
+    </select> 
+    </xmp>
+    Izbor opcija možemo predstaviti u obliku padajuće liste (eng. drop-down menu) ili u obliku liste sa trakom za pomeranje (eng. scrolling menu). Prikaz odgovarajućeg izbora će zavisiti od broja vidljivih opcija koji postavite i od toga da li ćete omogućiti izbor jedne ili više opcija u listi. Sve to definišemo uz pomoć odgovarajućih atributa. </p>
+    <br>
+    <p> Prvi atribut koji treba koristiti uz etiketu &ltselect&gt je name, kojim imenujemo navedeni izbor opcija. To je posebno korisno kada imate više listi da bi server, posle slanja podataka od strane korisnika, znao koju listu treba da obradi. <br>
+    <span class="primer_text">&ltselect name="Izbor"&gt </span>
+    <br><br>
+    Etiketa &ltoption&gt se može koristiti bez ikakvih atributa, ali obično je potreban atribut value, koji ukazuje na ono što se šalje serveru. Ukoliko atribut value nije definisan, serveru se šalje sadržaj izabrane opcije.
+    <br>
+    <span class="primer_text">&ltoption value="opc1"&gt Opcija 1 &lt/option&gt </span>
+    </p>
+    <br>
+    <p>Atribut selected uz etiketu &ltoption&gt može se korisiti za obe liste i on menja podrazumevani izbor u listi, koji je, inače, prva opcija navedena u listi. </p>
+    <xmp class="primer_ta" >
+    <select name="Izbor">
+       <option> Opcija 1 </option>   
+       <option> Opcija 2 </option>   
+       <option selected> Opcija 3 </option>   
+    </select>
+     </xmp>
+    <br>
+    <p> Atribut required, uz etiketu &ltselect&gt, zahteva izbor opcije. To znači da korisnik neće moći da pošalje ostale podatke iz formulara na server dok ne izabere opciju. 
+    </p>
+    <span class="primer_text">&ltselect name="Izbor" required&gt </span>
+    <br><br>
+    <h2><b> Padajuća lista </b></h2>
+    <br>
+    <p> Etiketa &ltselect&gt podrazumevano prikazuje padajuću listu kada nije definisan atribut size ili kada je vrednost atributa size postavljena na 1. U ovoj listi može se izabrati samo jedna opcija među navedenim. 
+    </p>
+    <xmp class="primer_ta" >
+    <select name=”izaberiBoju”>
+        <option value=”red”> Crvena </option>
+        <option value=”green”> Zelena </option>
+        <option value=”blue”> Plava </option>
+    </select>
+     </xmp>
+    
+    <select name=”izaberiBoju”>
+        <option value=”red”> Crvena </option>
+        <option value=”green”> Zelena </option>
+        <option value=”blue”> Plava </option>
+    </select>
+    <br><br>
+    <h2><b> Lista sa trakom za pomeranje  </b></h2>
+    <br>
+    <p>Za pravljenje ove liste koristi se atribut size koji definiše broj vidljivih opcija u listi, dok se ostale mogu videti pomoću trake za pomeranje. 
+    Atribut multiple dozvoljava višestruki izbor u ovoj listi. Međutim, ukoliko ovaj atribut upotrebite u padajućoj listi, pretraživač će automatski ovu listu prikazati sa trakom za pomeranje.</p>
+    <div class="napomena"><b>Napomena:</b> Više opcija možete izabrati uz pomoć tastera ctrl.
+    </div>
+    <xmp class="primer_ta" >
+    <select name="Izbor" size="3" multiple>
+       <option selected> Opcija 1 </option>   
+       <option> Opcija 2 </option>   
+       <option> Opcija 3 </option>   
+       <option> Opcija 4 </option>   
+       <option> Opcija 5 </option>   
+       <option> Opcija 6 </option>   
+    </select> 
+    </xmp>
+    
+    <select name="Izbor" size="3" multiple>
+       <option selected> Opcija 1 </option>   
+       <option> Opcija 2 </option>   
+       <option> Opcija 3 </option>   
+       <option> Opcija 4 </option>   
+       <option> Opcija 5 </option>   
+       <option> Opcija 6 </option>   
+    </select> 
+    <br><br>
+    <h2><b> Grupisanje opcija u listi </b></h2>
+    <br>
+    <p> Ako među opcijama koje stavljate u listi imate neke sa zajedničkim karakteristikama pa ih želite grupisati posebno, to se može učiniti etiketom &ltoptgroup&gt. Ova etiketa se koristi između etiketa &ltselect&gt i &ltoption&gt, i mora se zatvoriti etiketom &lt/optgroup&gt. Uz nju se koristi atribut label za imenovanje grupe opcija, iz istog 
+    razloga kao imenovanje cele liste.  
+    </p>
+    <xmp class="primer_ta" >
+    <select>
+      <optgroup label="Izbor 1"> 
+          <option> Opcija 1 </option>   
+          <option> Opcija 2 </option>
+      </optgroup>
+      <optgroup label="Izbor 2"> 
+          <option> Opcija 3 </option>
+          <option> Opcija 4 </option>
+          <option> Opcija 5 </option>
+      </optgroup> 
+    </select> 
+    </xmp> 
+    
+    <select>
+      <optgroup label="Izbor 1"> 
+          <option> Opcija 1 </option>   
+          <option> Opcija 2 </option>
+      </optgroup>
+      <optgroup label="Izbor 2"> 
+          <option> Opcija 3 </option>
+          <option> Opcija 4 </option>
+          <option> Opcija 5 </option>
+      </optgroup> 
+    </select> 
+    
+    <div class="napomena"><b>Napomena:</b> Atribut disabled, koji onemogućava izbor bilo koje opcije, može se koristiti za sve tri etikete.
+    </div>
+    <div class="zadatak">
+    <b>Zadatak 2:</b> Kreirana je lista destinacija sa raznih kontinenata.
+    Sve destinacije grupisati prema kontinentima na kojima se nalaze. Omogućiti višestruki izbor. Postaviti podrazumevani izbor na destinaciju koju preporučujete.
+    </p>
+    </div>
+    <br><br>
+ <h2> Meta etikete </h2>
+ <br>
+ <p> Meta etikete su smeštene između etiketa &lthead&gt i &lt/head&gt i pružaju informacije pretraživaču o sadržaju veb strane, ali se ne mogu videti od strane posetilaca koji gledaju veb stranu. Te informacije mogu biti: tip dokumenta, kodni raspored, jezik, ko je napravio stranu, koliko često se obnavlja, šta je na strani, koje ključne reči predstavljaju sadržaj strane. U HTML-u etiketa &ltmeta&gt nema odgovarajuću zatvorenu etiketu.
+<xmp class="primer_ta" >
+<head>
+   <title> Naslov strane </title>
+   <meta ...>
+</head>
+</xmp> 
+<div class="napomena"> 
+U zavisnosti od atributa name i http-equiv postoje različiti tipovi meta etiketa. Uz ove atribute obavezno ide atribut content, kojim se zadaje sadržaj meta informacije, i koji bez jednog od ova dva atributa ne može biti definisan. </div>
+</p>
+<br>
+
+<h2>Atribut name</h2>
+<br>
+<p> Atributom name imenuju se različiti tipovi meta informacija: naslov, autor, opis strane i još neke ključne informacije, koje su bitne za pretraživanje.
+<br><br>
+Tipom Title imenuje se veb strana, i bez obzira što naslov već imamo u etiketi &lttitle&gt trebalo bi imati i ovu metu etiketu, jer neki pretraživači mogu da je koriste. Tipom description prikazuje se glavni sadržaj veb strane i u njemu treba ukratko objasniti o čemu se radi na veb strani. 
+
+<xmp class="primer_ta" >
+<head> 
+   <title> HTML </title>
+   <meta name="Title" content="Meta etikete za veb strane"> 
+   <meta name="description" content="Tekst o meta etiketama: koje                       
+   meta etikete su potrebne i zašto, na koji način mogu uticati na 
+   pozicioniranje u pretraživačima">                            
+   <meta name="Keywords" content="Etikete, Meta etikete,  
+   Optimizacija, Kodni raspored, Jezik">
+</head> 
+</xmp> 
+
+Primetićete da smo ovde koristili još jedan tip Keywords kojim se predstavljaju ključne reči veb strane. Treba ih uskladiti tako da to budu i reči koje bi neko ukucao u pretraživač ukoliko želi da pronađe informacije koje sadrži veb strana. 
+<br><br>
+Tip author identifikuje autora veb strane. Nije neophodan, ali možete ga koristiti ako želite.
+<br>
+<span class="primer_text">&ltmeta name="author" content="Ime i prezime"&gt </span>
+<br><br>
+Tip Copyright koristite ako želite da zaštitite sadržaj veb strane autorskim pravom. Dan publikacije strane može bitno da utiče na tvrđenje o pravu prioriteta i vlasništvu nad stranom.
+<br>
+<span class="primer_text">&ltmeta name="Copyright" content="© Copyright 2008 Matematički fakultet Univerzitet u Beogradu"&gt </span>
+<br><br>
+Ponekad pauk (mehanizam pretraživača za prikupljanje informacija u bazi) snima sažetak (eng. abstract) veb strane pa imamo i tip abstract. Sažetak je duži opis koji sumira stranu i ovaj tip je sličan tipu description. Ukoliko definišete tip description, pauk će to uzeti za sažetak. Ovaj tip nije neophodan, ali ga možete imati.
+<br>
+<span class="primer_text">&ltmeta name="abstract" content="Meta etikete su smeštene između etiketa..."&gt </span>
+<br><br>
+Tipom Classification predlaže se pretraživačima odgovarajuća kategorija kojoj pripada veb strana. Neki pretraživači to ne uzimaju u obzir već kreiraju svoje kategorije, zato prvo treba posetiti veb stranu pretraživača kako biste pravilno kreirali kategoriju.
+<br>
+<span class="primer_text">&ltmeta name="Classification" content="Programiranje, eŠkola, HTML"&gt </span>
+<br><br>
+Tip Distribution koriste administratori koji distribuiraju datoteke na server kroz specifična prava pristupa. Sadržaj može biti global (globalni), local (lokalni) i iu (eng. internal use - unutrašnja upotreba).
+ <br>
+<span class="primer_text">&ltmeta name="Distribution" content="global"&gt </span>
+<br><br>
+Tip Revisit-after definiše vreme, u danima, za koje bi pretraživač trebalo ponovo da poseti veb stranu. Preporučljivo je za strane koje često menjaju sadržaj.
+ <br>
+<span class="primer_text">&ltmeta name="Revisit-after" content="10 days"&gt </span>
+<br><br>
+Tip robots definiše pretraživačima koje strane da indeksiraju i koje linkove da prate. Ovaj tip nema potrebe da koristite, osim u slučaju da neke strane ne želite da budu indeksirane ili ne želite da pratite: 
+ <br>
+<span class="primer_text">&ltmeta name="robots" content="noindex, nofollow"&gt </span>
+<br>
+Vrednosti koje podržava ovaj tip su:
+<ul>
+<li> "all" - znači da se indeksira strana i prate svi linkovi sa nje
+<li> "index, follow" - isto kao all
+<li> "noindex, follow" - znači da se ne indeksira strana ali da se prate linkovi sa nje
+<li> "index, nofollow" - znači da se indeksira strana ali da se ne prate linkovi
+<li> "noindex, nofollow" - znači da se niti indeksira strana niti se prate linkovi
+<li>"none" - isto kao noindex, nofollow.
+</ul>
+<br>
+<p>Tip expiration omogućava identifikovanje datuma isteka strane. Najčešće se uključuje za sopstvene potrebe ili kao obaveštenje za nekoga ko gleda kod veb strane.</p>
+<span class="primer_text">&ltmeta name="expiration" content="Sun, 1 Jan 2017 12:00:00 GMT"&gt </span>
+<br><br>
+<p> Tip generator određuje jedan od softverskih paketa koji se koriste za generisanje dokumenta. Kao neka vrsta reklame, neki HTML editori automatski uključuju generator meta etiketu na svakoj strani koja je pomoću njih kreirana. </p>
+<span class="primer_text">&ltmeta name="generator" content="UltraEdit"&gt </span>
+</p> <br>
+
+<h2><b>Atribut http-equiv <b></h2>
+<br>
+<p> Atribut http-equiv daje HTTP zaglavlje za vrednost atributa content.
+<br>
+Tip refresh može biti koristan ukoliko menjate ime neke strane ili ukoliko je premeštate na neko drugo mesto. Njime definišete adresu strane na koju će se redirektovati posetilac posle određenog vremena ili kada završi popunjavanje nekog obrasca pa ga šaljete na početnu stranu. 
+<br>
+<span class="primer_text">&ltmeta http-equiv="refresh" content="30"&gt</span>
+<br>
+U prethodnom primeru strana se osvežava posle 30 sekundi, dok se u sledećem učitava druga strana posle 1 sekunde.
+<br>
+<span class="primer_text">&ltmeta http-equiv="refresh" content="1" URL="http://www.matf.bg.ac.rs"&gt </span>
+<br>
+Ovaj atribut koristi se i za tip dokumenta, kodiranje i jezik strane, što ćete videti na kraju lekcije.
+</p>
+<br>
+<h2> <b>Optimizacija pretraživača veba (SEO - Search Engine Optimisation)<b></h2>
+<br>
+<p> Optimizacija je način unapređenja i promocije veb strane, odnosno služi za povećanje broja posetilaca. Njome se služite kada želite da zainteresujete potencijalnog posetioca i ubedite ga da je baš vaša strana ta na kojoj će pronaći tražene informacije. Pre svih etiketa, treba imati kvalitetan sadržaj koji će vašu stranu izdvojiti od drugih.
+<br><br>
+Jedan od ključnih činilaca je sama adresa veb strane, koja treba da sadrži osnovnu frazu za koju se strana optimizuje, ili bar deo fraze, što znatno povećava šanse da vaša strana bude na prvom mestu pretrage.
+<br><br>
+Jako je važno koliko su vam atraktivni naslov i opis strane. Za naslov koristimo etiketu &lttitle&gt, a za opis  etiketu &ltmeta&gt sa atributima name i content. To treba da izgleda ovako:
+<br>
+<xmp class="primer_ta" >
+<head>
+   <title> Naslov strane (koji se sastoji od 3-4 ključne reči, ne
+   treba preterivati) </title>
+   <meta name="desription" content="Opis strane koji će se videti u  
+   rezultatima pretrage i ni ovde ne bi trebalo preterivati
+   (manje od 200 karaktera)">
+</head>
+</xmp> 
+Ova meta etiketa služi tome da se vaš tekst u rezultatima pretrage dopadne osobi koja to čita i da uđe na vašu veb stranu među gomilom drugih veb strana.
+</p>
+<br>
+
+<h2><b>Tip sadržaja i kodni raspored<b></h2>
+<br>
+<p> Meta etikete služe i za definisanje tipa sadržaja i različitih kodnih rasporeda koji se koriste za prikaz grafičkih karaktera. Za to se koristi atribut content-type na sledeći način: <br>
+<span class="primer_text">&ltmeta http-equiv="content-type" content="text/html; charset=UTF-8"&gt </span>
+<br>
+U kodu iznad definisali smo tip HTML dokumenta i kodni raspored UTF-8 za prikaz srpske latinice. Ako želite da koristite neki drugi kodni raspored za srpska slova, upišite odgovarajuću oznaku umesto UTF-8 pod stavkom charset. Slično se može uraditi za drugi tip dokumenta.
+<br>
+Kodni raspored možemo definisati i jednostavnijom etiketom: 
+<br>
+<span class="primer_text">&ltmeta charset="UTF-8"&gt </span>
+<br>
+Kodni rasporedi koji se najčešće koriste su:
+<ul>
+<li> ISO-8859-1 - za zapadno-evropsku latinicu 
+<li> ISO-8859-2 - za istočno-evropske latinice (uključujući i našu) 
+<li> ISO-8859-5 - za ćirilicu 
+<li> UTF-8 - za kombinaciju najvećeg broja karaktera koji su u upotrebi.
+</ul>
+</p>
+<br>
+
+<h2><b>Jezik<b></h2>
+<br>
+<p>Atribut http-equiv dozvoljava da definišete jezik kojim je kreiran dokument. <br>
+<span class="primer_text">&ltmeta http-equiv="content-language" content="en-usa"&gt </span>
+<br>
+To možete uraditi i uz pomoć atributa name:
+<br>
+<span class="primer_text">&ltmeta name="language" content="Serbian, Srpski"&gt </span>
+<br>
+Ova etiketa je potrebna nekim pretraživačima prilikom klasifikacije vaše veb strane po jeziku tako da je nije loše imati. 
+</p>
+<br>
+<div class="zadatak"><b>Zadatak 3:</b>
+Dat je tekst koji je napisao Petar Petrović i objavio na svojoj veb strani. Dopunite kod zadatka tako da sadrži ime autora i da je on zaštićen autorski, dodavanjem nekog datuma postavljanja veb strane. Podesite kodni raspored na srpsku latinicu i jezik na srpski. Dodati kratak opis, ključne reči i naslov strane kako bi Petrova veb strana imala što više posetilaca. 
+</div>

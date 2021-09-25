@@ -1,0 +1,157 @@
+<h1><b> Komentari, blok elementi i linijski elementi u HTML-u</b></h1>
+<br><br><br>
+<h2><b> Komentari u HTML-u</b></h2>
+Komentare možemo unositi bilo gde unutar HTML dokumenta i taj deo teksta se neće
+videti. Njih unosimo u obliku &lt! ---komentar--- &gt. Posle prve zagrade imamo
+uzvičnik, koga nema na kraju. Korišćenjem komentara možemo zapisati specifičnost
+HTML koda koji smo koristili. Takođe, pomoću komentara možemo privremeno
+isključiti deo HTML koda kako bismo lakše pronašli grešku.
+
+<xmp class="primer_ta">
+
+Primer:
+
+Danas je bio vetrovit dan.
+<!--29/09/2017-->
+
+</xmp>
+
+<br />
+U komentaru smo stavili kog datuma je bio vetrovit dan.
+
+<div class="zadatak">
+  <b>Zadatak 1:</b>
+  Napisati dve rečenice, tako da jedna bude u komentaru.
+</div>
+
+<br><br><br>
+<h2><b> Blok elementi - &ltdiv&gt </b></h2>
+
+<br />Karakteristično za blok elemente je da se njihov sadržaj ispisuje uvek u
+novom redu. Mogu unutar sebe da sadrže druge blok i linijske elemente. Blok
+elementi su &lth1&gt, &ltp&gt,... Jedan od blok elemenata je &ltdiv&gt koji nam
+pomaže da promenimo deo teksta onako kako nama odgovora.
+
+<ul>
+  Tri osnovna svojstva &ltdiv&gt etikete:
+  <li>style - definisanje CSS svojstva.</li>
+  <li>
+    class - određuje naziv klase za pristup elementu iz CSS-a ili JavaScripta.
+  </li>
+  <li>
+    id - jedinstveni identifikator za pristup elementu iz CSS-a ili JavaScripta.
+  </li>
+</ul>
+
+<xmp class="primer_ta">
+
+
+Primer:
+
+<div>
+<p>Sadržaj...</p>
+</div>
+
+</xmp>
+
+<br />
+Jednostavno stavljanje sadržaja unutar &ltdiv&gt ne menja ništa.
+
+<br />
+Jedan od najčešćih razloga za korišćenje &ltdiv&gt elementa je promena stilova.
+Možete primeniti stilove na sam element ili na bilo koji element u njemu
+ugrađen.
+
+<xmp class="primer_ta">
+
+
+Primer:
+
+
+<div style="width:200px;background:#F9EECF;border:1px dotted black;text-align:center">
+<p>Sadržaj...</p>
+</div>
+
+</xmp>
+
+<br />
+U ovom primeru je korišćen style atribut, dok ćemo u sledećem koristiti i class.
+
+<xmp class="primer_ta">
+
+
+Primer:
+
+<style>
+div.generic {width:200px;background:#D8FBD6;border:1px dotted black;padding:8px;}
+div.generic ul {color:green;}
+</style>
+<div class="generic">
+<p>Sadržaj...</p>
+<ul>
+<li>Stavka 1</li>
+<li>Stavka 2</li>
+<li>Stavka 3</li>
+</ul>
+</div>
+
+</xmp>
+
+<br />U sledećem primeru pokazaću kako međusobno ugraditi &ltdiv&gt elemente.
+Svaki od njih može imati različite stilove.
+
+<xmp class="primer_ta">
+
+
+Primer:
+
+<style>
+div.generic {width:200px;background:#D8FBD6;border:1px dotted black;padding:8px;}
+div.generic div {width:50%;background:#75CE6F;color:white;border:1px dotted green;text-align:left;padding:3px;}
+</style>
+<div class="generic">
+<p>Sadržaj...</p>
+<div>
+<p>Ugrađen DIV ...</p>
+</div>
+</div>
+
+
+
+</xmp>
+
+<div class="zadatak">
+  <b>Zadatak 2:</b>
+  Promeniti zelenu boju ugrađenog &ltdiv&gt u boju po izboru.
+</div>
+
+<br><br><br>
+
+<h2> <b>Linijski elementi &ltspan&gt</b></h2>
+
+
+<br> Linijski elementi se nastavljaju ispisivati u istom redu. <B> Ne mogu </B> unutar sebe sadržati 
+blok elemente, ali mogu linijske. Linijski elementi su &ltimg&gt, &lta&gt, &ltspan&gt,...
+<ul> Tri osnovna svojstva &ltspan&gt elementa:
+  <li> style - definisanje CSS svojstva.
+  <li> class - određuje naziv klase za pristup elementu iz CSS-a ili JavaScripta.
+  <li> id - jedinstveni identifikator za pristup elementu iz CSS-a ili JavaScripta.
+ </ul>
+
+<xmp class = "primer_ta">
+
+
+Primer:
+
+
+<blockquote style="font-size:larger">:Ako ti neko kaže:  <span style="color:green;">"Ne možeš to",</span> odgovori mu: <span style="color:red;">"Mogu"</span>.</blockquote>
+
+</xmp>
+
+<br> U ovom primeru smo koristili atribut style.
+
+
+<div class = "zadatak">
+<b>Zadatak 3:</b>
+Promeniti zelenu boju teksta iz primera.
+</div>

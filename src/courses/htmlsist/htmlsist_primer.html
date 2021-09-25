@@ -1,0 +1,345 @@
+<h1><b>Primer</b></h1>
+<br />
+U prethodnim lekcijama upoznali smo se sa HTML-om. Sada ćemo konkretno primeniti
+naučeno i napraviti veb stranicu. Tačnije u ovom delu pravimo HTML kod stranice
+bez CSS-a (strukturu stranice bez stilizovanja). Kreirana stranica će biti
+slična našoj početnoj stranici
+<a href="http://alas.matf.bg.ac.rs/~mr11032/HTML_skola/home.php">eŠkola veba</a
+>.
+<br />
+<br />
+<h2><b>Planiranje izgleda veb stranice</b></h2>
+Pre nego što počnemo sa samom izradom stranice poželjno je da napravimo osnovni
+plan njenog izgleda - kostur stranice, koji ćemo kasnije dopuniti i oblikovati.
+<br />
+
+Stranicu delimo na blokove uz pomoć &lt div &gt elemenata. ( &lt div &gt oznaka
+definiše blok unutar HTML dokumenta )<br />
+U telo HTML dokumenta unosimo sledeći kod:
+<br />
+<xmp class="primer_ta">
+<div id="zaglavlje"></div>
+<div id="pano"></div>
+<div id="sadržaj"></div>
+<div id="podnožje"></div>
+</xmp>
+Blokovima smo dodelili identifikacionu vrednost (id) o čemu će više reči biti u
+kursu CSS. Trenutno nam služi samo da se lakše snađemo u kom bloku radimo.
+<br />
+Kao rezultat imamo praznu stranicu. Tek kada unesemo sadržaj<br />u &lt div &gt
+elemente imaćemo vidljive promene. <br /><br />
+<h2><b>Izrada stranice</b></h2>
+<br />
+<div class="zadatak">
+  <b>Zadatak:</b> Sledeće delove koda uneti u odgovarajuće blokove.
+  Koristiti izgled naše početne stranice za praćenje teksta.
+</div>
+<br />
+Krećemo od prvog bloka koji predstavlja navigacioni meni. Ovde imamo dve grupe
+linkova koje ćemo smestiti u dva bloka (&lt div &gt elementi).
+<br />
+To radimo da bismo ih kasnije uz pomoć CSS-a lakše pozicionirali.
+<br />
+Sada kao rezultat dobijamo linije teksta ispisane jedna ispod druge. Tek
+kasnije, upotrebom CSS-a, listu i blokove oblikovaćemo i postaviti kako želimo.
+<br />
+Uneti deo koda u blok<b> "navigacija"</b>:
+<xmp class="primer_ta">
+<div>
+     <a href="#"> <img src = "../../app/assets/pictures/logo_transparent.png" alt="Logo" width="30px">eŠkola veba</a> 
+</div>
+<div>
+   <ul>
+      <li><a href="#kursevi">Kursevi </a></li>
+      <li><a href="#alati">Alati </a></li>
+      <li><a href="#">O nama </a></li>
+  </ul>
+</div>
+</xmp>
+<br />
+Prelazimo na blok<b> "pano".</b>
+<br />
+Ovde imamo samo sliku i tekst:
+<xmp class="primer_ta">
+<img src = "../../app/assets/pictures/logo_light.png" alt="Logo" width="80px">
+<br>
+eŠkola veba
+<br>
+Naučite veb programiranje na interaktivan način
+<br><br>
+</xmp>
+<br />
+Središnji deo stranice - <b> "sadržaj"</b> smeštamo u jedan blok koji delimo na
+deset podblokova koji će se nalaziti jedan ispod drugog (crni blokovi) :
+<br />
+<img
+  src="../../app/assets/pictures/html/kostur1.png"
+  width=" 300px;"
+  class="primer_slika"
+/>
+<br />
+Sadržaj ovih blokava čine samo tekst i slika.
+<br />
+Unosimo sledeće kodove za svaki podblok:
+<br />
+(Dakle, u blok "sadržaj" uneti kodove koji slede a koji predstavljaju naše
+podblokove )
+<xmp class="primer_ta">
+<div>
+   <h2>Zašto učiti veb programiranje?</h2>
+   Posao programera je jedan od najprofitabilnijih poslova.
+   <br>
+   Najnoviji trendovi govore o potpunom prelasku na veb bazirana softverska rešenja.
+</div>
+</xmp>
+<xmp class="primer_ta">
+<div>
+   <h2>Sve je na jednom mestu.</h2>
+   <img src = "../../app/assets/pictures/all.jpg"  width="260px">
+   <br>
+   Radno okruženje je osmišljeno tako da omogući lako i interaktvino učenje.
+</div>
+</xmp>
+<xmp class="primer_ta">
+<div>
+   <h2>Laka navigacija kroz kurseve</h2>
+   <img src = "../../app/assets/pictures/choose.jpg"  width="260px">
+   <br><br>
+   Svaki kurs je podeljen na lekcije koje se logički nadovezuju jedna na drugu.
+   <br>
+   Neke lekcije se sastoje iz više celina.
+</div>
+</xmp>
+<xmp class="primer_ta">
+<div>
+   <h2>Čitajte</h2>
+   <img src = "../../app/assets/pictures/read.jpg"  width="260px">
+   <br><br>
+   Pažljivo čitajte svaku lekciju u kojima su detaljno objašnjeni svi elementi koje treba da znate.
+</div>
+</xmp>
+<xmp class="primer_ta">
+<div>
+   <h2>Interaktivno učenje</h2>
+   <img src = "../../app/assets/pictures/edit.jpg"  width="260px">
+   <br><br>
+   Kod možete probati direktno u pretraživaču i rezultat pratiti u realnom vremenu.
+   <br><br>
+   <img src = "../../app/assets/pictures/keyboard.png"  width="220px">
+   <br><br>
+   Naš editor vam omogućava predviđanje unosa pritiskom na CTRL + Space.
+   <br><br>
+   <img src = "../../app/assets/pictures/open.png"  width="220px">
+   <br><br>
+   Sačuvane HTML fajlove možete možete otvoriti u editoru jednostavnim prevlačenjem fajla u prozor editora.
+</div>
+</xmp>
+<xmp class="primer_ta">
+<div>
+   <h2>Najbolje se uči vežbanjem</h2>
+   <img src = "../../app/assets/pictures/help.jpg"  width="260px">
+   <br><br>
+   Na kraju većine lekcija nalaze se zadaci. Probajte da ih sve uradite uspešno.
+   <br>
+   U svakom trenutku možete iskoristiti pomoć ako vam je potrebna.
+</div>
+</xmp>
+<br />
+Napravili smo šest podblokova "sadržaj"-a i ovde se zaustavljamo jer je u okviru
+preostala četiri podbloka potrebno napraviti dodatnu podelu (crveni blokovi sa
+slike).
+<br />
+Ovo radimo iz istog razloga iz kojeg smo pravili podblokove za "navigaciju" -
+radi pozicioniranja.
+<br />
+Ispod poslednjeg unetog kucamo sledeći deo koda:
+<xmp class="primer_ta">
+<br>
+<br>
+<h2 id="kursevi">Kursevi</h2>
+Počnite sa učenjem tako što ćete izabrati neki od ponuđenih kurseva
+<br><br>
+<div>                             <!--delimo sedmi blok po redu -->
+   <div></div>
+   <div></div>
+   <div></div>
+</div>
+<div>                             <!--delimo osmi blok po redu -->
+    <div></div>
+   <div></div>
+   <div></div>
+</div>
+<br>
+<br>
+<h2 id="alati">Alati</h2>
+Korisni alati za veb programiranje
+<br><br>
+<div>                                                          
+    <div></div>               <!--delimo deveti blok po redu -->
+   <div></div>
+   <div></div>
+</div>
+<div>                        <!--delimo deseti blok po redu -->
+   <div></div>
+   <div></div>
+</div>
+</xmp>
+<b>Napomena: </b>Dodelom id-ja ovim blokovima povezali smo odgovarajuće linkove
+navigacionog menija sa njima. <br /><br />
+Redom u blokove uneti delove koda:
+<br />
+<div style="width: 80%">
+  <div style="float: left">
+    <xmp class="primer_ta">
+<>
+<br><br> 
+HTML 
+</xmp>
+  </div>
+  <div style="float: right">
+    <xmp class="primer_ta">
+{}
+<br><br>
+CSS 
+</xmp>
+  </div>
+  <div style="float: left">
+    <xmp class="primer_ta">
+()
+<br><br>
+JavaScript
+</xmp>
+  </div>
+  <div style="float: right">
+    <xmp class="primer_ta">
+({})
+<br><br>
+jQuery
+</xmp>
+  </div>
+  <div style="float: left">
+    <xmp class="primer_ta">
+()
+<br><br>
+Canvas
+</xmp>
+  </div>
+  <div style="float: right">
+    <xmp class="primer_ta">
+()
+<br><br>
+Veb
+</xmp>
+  </div>
+  <div style="float: left">
+    <xmp class="primer_ta"
+>
+Editor
+</xmp
+    >
+  </div>
+  <div style="float: right">
+    <xmp class="primer_ta"
+>
+Boje
+</xmp
+    >
+  </div>
+  <div style="float: left">
+    <xmp class="primer_ta"
+>
+Konvertor
+</xmp
+    >
+  </div>
+  <div style="float: right">
+    <xmp class="primer_ta"
+>
+Mape
+</xmp
+    >
+  </div>
+  <div style="float: left">
+    <xmp class="primer_ta"
+>
+Konvertor teksta
+</xmp
+    >
+  </div>
+</div>
+<div style="clear: both"></div>
+<br />
+<b>Horizontalna linija:</b>
+<xmp class="primer_ta">
+<br><br>
+<hr>
+</xmp>
+<br />
+Prelazimo na blok <b>"podnožje"</b>.
+<br />
+I ovde pravimo podblokove:
+<br />
+<img src="pictures/html/kostur2.png" width=" 300px;" class="primer_slika" />
+<br />
+U okviru ovog bloka imamo dva podbloka (crni blokovi) a u okviru prvog imamo
+dodatnu podelu (crveni blokovi):
+<xmp class="primer_ta">
+<div id="podnožje">
+         <div>
+                <div></div>
+                <div></div>
+         </div>
+         <div></div>
+</div>
+</xmp>
+Prvi "crveni":
+<xmp class="primer_ta">
+<div>
+<img src = "pictures/logo.png" style = "width: 80px;">
+<br>
+ eŠkola veba
+<br>
+Elektronska škola veb programiranja
+<br>
+<br>
+<a href = "http://www.matf.bg.ac.rs">Matematički fakultet Beograd</a>
+<br>
+<a  href = "http://www.edusoft.matf.bg.ac.rs">Edusoft</a>
+<br>
+<a href="#">O nama</a>
+</div>
+</xmp>
+Drugi "crveni":
+<xmp class="primer_ta">
+<div>
+Kursevi
+<br>
+<ul>
+      <li><a href="#" >HTML</a></li> 
+      <li><a href="#" >CSS</a></li> 
+      <li><a href="#" >JavaScript</a></li> 
+      <li><a href="#" >jQuery</a></li> 
+      <li><a href="#" >Canvas</a></li>
+      <li><a href="#" >Veb</a></li>				
+</ul>
+</div>
+</xmp>
+Treći podblok:
+<xmp class="primer_ta">
+<div>
+Podelite E-školu veba sa prijateljima:
+<br>
+<ul>
+    <li><a  href="https://www.facebook.com"><img src = "pictures/html/facebook.png" style = "width: 30px;"></a> </li>
+    <li><a  href = "http://twitter.com"><img src = "pictures/html/twitter.png" style = "width: 30px;"></a> </li>
+    <li><a  href="https://plus.google.com"><img src = "pictures/html/google.png" style = "width: 30px;"></a> </li>
+</ul>
+<br>
+Beograd, 2015.
+<br>
+</div>
+</xmp>
+<br />
+<br />
+Ovim smo završili definisanje strukture i sadržaja stranice.
+<br />

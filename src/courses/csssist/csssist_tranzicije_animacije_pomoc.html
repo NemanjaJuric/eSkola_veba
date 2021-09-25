@@ -1,0 +1,40 @@
+Rešenje zadatka 1:
+<span class="primer_text"
+  >U delu koda za stil(style) u #prvi_primer postaviti širinu i visinu elementa
+  na iste vrednsti, a funckiju transition-duration: postaviti na 5s i
+  transition-delay: na 1s
+</span>
+<br><br>
+Rešenje zadatka 2:
+<span class="primer_text">
+  <br />
+  Iskoristiti drugi primer u delu gde su po procentima izvršavanja animacije
+  postavljene boje koje se menjaju, izmeniti parametre left i top sa datim
+  parametrima u zadatku.
+</span>
+<br><br>
+Rešenje zadatka 3:
+<xmp class="primer_ta" rows="22" disabled
+>
+div{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+    animation-name: animacija;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    transition: width 2s,height 2s;
+    }
+div:hover{
+    width: 300px;
+    height: 300px;
+    }
+@keyframes animacija {
+     0%  {background-color: blue; left: 0px; top: 0px;   }
+    25%  {background-color: red; left: 300px; top: 0px;   }
+    50%  {background-color: orange; left: 0px; top: 300px; }
+    75%  {background-color: yellow; left: 300px; top: 300px; }
+    100% {background-color: green; left: 0px; top: 0px;   }
+}
+</xmp>

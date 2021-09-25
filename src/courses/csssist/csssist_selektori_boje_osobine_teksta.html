@@ -1,0 +1,248 @@
+<h1><b>CSS selektori, boje i osobine teksta</b></h1>
+<br />
+<h2>Selektori</h2>
+Razlika između klasnih i ID selektora je u znaku koji im prethodi, naime ukoliko
+je znak # (taraba) u pitanju je ID selektor, u suprotnom .(tačka) označava
+klasni selektor.
+<br />
+<xmp class="primer_ta"
+>
+#top{
+    background-color: #ccc;
+    padding: 20px
+}
+
+.intro {
+    color: red;
+    font-weight: bold;
+}
+</xmp>
+<br />
+Ako želimo da primenimo navedeni CSS na HTML stranicu, koristimo atribute
+<b>id</b> i <b>class</b>. To izgleda ovako:
+<br />
+<xmp class="primer_ta">
+<div id="top">
+
+<h1>Zaokruživanje decimalnih brojeva</h1>
+
+<p class="intro">Kada se decimalni broj zaokrugljuje, gleda se prethodna cifra. Ako je prethodna cifra veca od 5, zaokrugljuje se na veći broj, ako je manja, zaokrugljuje se na manji.</p>
+
+<p class="intro">Kada je prethodna cifra 5, gleda se da li postoji jos neka cifra pre nje. Ako postoji, broj se zaokrugljuje na veći, ako ne, broj se zaokrugljuje na manji. </p>
+
+</div>
+</xmp>
+<br />
+Jos jedna razlika između klasnih i ID selektora je što se ID koristi za
+prepoznavanje <b> samo </b> jednog elementa, dok klasni za više. Možete
+primeniti selektor na određeni HTML element jednostavno navodeći HTML selektor
+prvi, tako da npr. <b>p.naziv_klase { ... } </b> će biti primenjen samo na
+elemente paragrafa koji sadrže klasu " naziv_klase" . <br /><br />
+
+<h2>Boje teksta i pozadine</h2>
+CSS donosi 16 777 216 boja. One mogu biti u formi:
+<ul>
+  <li>
+    <b>imena - </b>CSS prepoznaje 147 definisanih naziva boja. Ove boje se
+    zadaju jednostavnim navodjenjem naziva boje.
+  </li>
+  <li>
+    <b>RGB (red/green/blue) vrednosti - </b>zadaju se tri cela broja, od 0 do
+    255, koji predstavljaju tri kolorne komponente - crvenu, zelenu i plavu,
+    čime se mogu postići sve nijanse.
+  </li>
+  <li>
+    <b>heksadekadnog zapisa - </b> boju zadajemo u obliku #RRGGBB. Heksadekadni
+    kodovi se zadaju sa vodećom "tarabom".
+  </li>
+</ul>
+Sve ove vrednosti, za zadavanje crvene boje, imaju isti rezultat:
+<ul>
+  <li>red</li>
+  <li>rgb(255,0,0)</li>
+  <li>#ff0000</li>
+</ul>
+Imena nekih boja koje možemo da koristimo: aqua, black, blue, blanchedalmond,
+blueviolet, chocolate, coral, darkblue, grey, green, deeppink, gold, maroon...
+<br />
+<br />
+CSS pravilo za podešavanje boje teksta zadaje se u obliku deklaracije koja ima
+sledeći oblik:
+<br />
+<span class="primer_text">color:red</span>
+<br />
+Ovaj atribut ima samo tu jednu svrhu, odnosno može se koristiti isključivo za
+postavljanje boje slova unutar nekog HTML dokumenta.
+<br />
+<br />
+Boje se mogu primeniti korišćenjem color i background-color (boja pozadine) na
+sledeći način:
+<br /><br />
+Žuta pozadina i plavi tekst bi izgledali ovako:
+<br />
+<xmp class="primer_ta" rows="4" cols="30" disabled
+>
+h1{
+      color: blue;
+      background-color: yellow;
+}
+</xmp>
+<br />
+<br />
+Možemo primeniti color i background-color svojstva na većinu HTML elemenata,
+uključujući i body, što će promeniti boju stranice i svega na njoj.<br />
+To ćemo uraditi na sledeći način:
+<br /><br />
+<xmp class="primer_ta" rows="3" cols="30" disabled
+>
+body{
+      color: green;
+}
+</xmp>
+<br />
+<div class="zadatak">
+  <b>Zadatak 1:</b> Napisati rečenicu čiji će tekst biti crvene boje,a pozadina
+  žute.
+</div>
+
+<br> <br>
+<h2><b>Osobine teksta</font></b></h2>
+<h2><b>Atributi fonta</font></h2></b>
+Najosnovniji atributi koji određuju izgled slova su: <i>font-family</i>, <i>font-size</i>, <i>font-weight</i>, <i>font-style</i>, <i>font-variant</i>, <i>font</i>. <br>
+<ul>
+<li><b>font-family</b> - Izbor fonta za ispis teksta. </li>
+<li><b>font-size</b> - Veličina slova.</li>
+<li><b>font-weight</b> - Podebljani ispis slova.</li>
+<li><b>font-style</b> - Zakošen ispis slova.</li>
+<li><b>font</b> - Atribut za postavljanje više osobina odjednom.</li>
+</ul> <br>
+<h2>font-family</h2>
+Ovaj atribut odredjuje izgled slova kojim se ispisuje tekst. Moguće je navesti bilo koji font koji postoji na računaru, a neke od mogućnosti su:
+<ul>
+<li><b>serif</b> - Font sa postoljima, podrazumevani je Times new roman.</li>
+<li><b>sans-serif</b> - Font bez postolja, podrazumevani je Arial.</li>
+<li><b>monospace</b> - Slova fiksne širine, podrazumevani je Courier New.</li>
+<li><b>cursive</b> - Kurzivni (iskošeni) font.</li>
+</ul>
+Ako želimo da zadamo sam naziv fonta koji u sebi ima razmak, pišemo ga unutar navodnika. <br>
+<xmp class = "primer_ta" >
+.primer1{
+	font-family: "Times New Roman", serif;
+}
+</xmp><br>
+<h3>font-size</h3>
+Ovaj atribut određuje veličinu slova. Zadaje se kao: <br>
+<ul>
+	<li><b>numerička vrednost</b> - Postavlja veličinu slova na određenu veličinu u pikselima.</li>
+	<li><b>procentualna vrednost</b> - Postavlja veličinu slova na procenat u odnosu na matične elemente.</li>
+	<li><b>jedna od sledećih mogućnosti</b> - xx-small, x-small, small, medium, large, x-large, xx-large. </li>
+</ul>
+
+<xmp class = "primer_ta" >
+.primer2{
+	font-size: 14px;
+	font-size: 40%;
+}
+</xmp><br>
+<h2>font-weight</h2>
+Ovaj atribut odredjuje debljinu slova kojim se tekst ispisuje. Unapred definisane vrednosti su: <br>
+<ul>
+<li><b>normal</b> - Obična slova.</li>
+<li><b>bold</b> - Podebljana slova.</li>
+<li><b>bolder</b> - Ukoliko je moguće, jače podebljana slova.</li>
+<li><b>lighter</b> - Slova tanja od normalnih.</li>
+</ul>
+<xmp class = "primer_ta" >
+.primer3{
+	font-weight: bold;
+}
+</xmp> <br>
+<h2>font-style</h2>
+Atribut koji odredjuje da li su slova iskošena. <br>
+<ul>
+<li><b>normal</b> - Obična slova.</li>
+<li><b>italic</b> - Iskošena slova.</li>
+</ul>
+<xmp class = "primer_ta" >
+.primer4{
+	font-style: italic;
+}
+</xmp> <br>
+<h3>font</h3>
+Atributom font možemo istovremeno da postavimo više podešavanja za font slova. Redosled zadatih vrednosti jeste bitan.
+<ul>
+<li>Prvo se zadaju vrednosti za font-style i za font-weight.
+<li>Zatim se zadaje font-size.
+<li>I uvek se na kraju zadaje font-family.
+</ul>
+<xmp class = "primer_ta" >
+.primer5{
+	font: bold, 14pt, "Times New Roman",serif;
+}
+</xmp> <br>
+<b>Primer</b><br>
+Sada ćemo na dva načina zadati potpuno iste parametre: <br>
+Prvo ćemo ih zadati pomoću pojedinačnih atributa:<br>
+<xmp class = "primer_ta" >
+.primer6{
+	font-family: "Times New Roman",serif;
+	font-size: 11pt;
+	font-weight: bold;
+	font-style: italic;
+}
+</xmp> <br>
+A zatim ćemo iste parametre zadati preko kompleksnog atributa <i>font</i>.<br>
+<xmp class = "primer_ta" >
+.primer7{
+	font: italic, bold, 11pt, "Times New Roman",serif;
+}
+</xmp> <br>
+U ovom primeru slova su ispisana "Times New Roman" fontom,<i>iskošena</i> su,<b>boldirana</b> i njihova veličina je 11pt.
+<br>
+<h3>Atributi teksta</h3>
+Atributi teksta obuhvataju podešavanja vezana za font i pasus i to su:
+<ul>
+<li><b>text-decoration</b> - Vrsta podvlačenja teksta.
+<li><b>text-transform</b> - Transformacija u velika ili mala slova.
+<li><b>text-align</b> - Poravnanje teksta.
+</ul><br>
+<h3>text-decoration</h3>
+Načini podvlačenja teksta su:
+<ul>
+<li><b>none</b> - Slova bez linije.
+<li><b>underline</b> - Linija se nalazi ispod teksta.
+<li><b>overline</b> - Linija se nalazi iznad teksta.
+<li><b>line-through</b> - Linija se iscrtava preko testa.
+</ul>
+<xmp class = "primer_ta" >
+.primer8{
+	text-decoration: underline;
+}
+</xmp>
+<br>
+<h3>text-transform</h3>
+<ul>
+<li><b>none</b> - Slova bez promene.
+<li><b>capitalize</b> - Svako prvo slovo reči postaje veliko.
+<li><b>uppercase</b> - Sva slova pretvara u velika.
+<li><b>lowercase</b> - Sva slova pretvara u mala.
+</ul>
+<xmp class = "primer_ta" >
+.primer9{
+	text-transform: lowercase;
+}
+</xmp> <br>
+<h3>text-align</h3>
+Zadaje se za blok unutar kog se nalazi tekst. Poravnanje se vrši horizontalno prema ivicama bloka.
+<ul>
+<li><b>right</b> - Tekst poravnat po desnoj strani.
+<li><b>left</b> - Tekst poravnat po levoj strani.
+<li><b>center</b> - Tekst je centriran.
+<li><b>justify</b> - Tekst poravnat po obe ivice bloka.
+</ul>
+<xmp class = "primer_ta" >
+.primer10{
+	text-align: center;
+}
+</xmp> <br><br>
+<div class = "zadatak"><b>Zadatak 2:</b> Napisati pasus čiji će tekst biti centriran, veličina slova 12px, a slova da budu iskošena i boldirana.</div><br><br>

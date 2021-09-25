@@ -1,0 +1,247 @@
+<h1><b>Uvod u HTML i kreiranje veb stranice pomoću HTML-a </b></h1>
+
+HTML je standardni jezik za kreiranje veb stranica. Naziv je skraćenica od Hyper
+Text Markup Language. Jezik HTML se zasniva na eksplicitnom obeležavanju logičke
+strukture dokumenta. Obeležavanje se vrši pomoću etiketa koje opisuju elemente
+logičke strukture teksta. Etikete se navode između uglastih zagrada &lt&gt. U
+ovim zagradama se nalaze opisi pojedinih elemenata strukture teksta. Etikete se
+u HTML-u mogu razvrstati na:
+<br />
+Proste etikete ili markere za opisivanje jednostavnih elemenata logičke
+strukture. Oblika su &ltX&gt. <br />
+Složene etikete ili ograđivači su zagrade oblika &ltX&gt y &lt/X&gt kojima je
+opisan izgled teksta y. <br />Atributi složenih obeležja oblika &ltX A1=a, A2=b,
+...&gt y &lt/ X&gt koji pružaju dodatne informacije, obično o grafičkom izgledu
+dela teksta y. <br />
+Etikete su neosetljive na razliku između velikih i malih slova. <br />
+HTML dokument je najlakše kucati u beležnici (Notepad).
+<br> <br> <br>
+<h2><b> Struktura HTML dokumenta</b></h2>
+<ul>
+  Najmanja struktura HTML dokumenta obuhvata etikete:
+  <li>&lt!DOCTYPE html&gt Definiše da ovaj dokument bude HTML5</li>
+  <li>&lthtml&gt ...&lt/html&gt - zagrade HTML teksta.</li>
+  <li>&lthead&gt...&lt/head&gt - sadrži meta definicije HTML dokumenta.</li>
+  <li>&lttitle&gt...&lt/title&gt - Zagrade za naziv HTML dokumenta.</li>
+  <li>
+    &ltbody&gt...&lt/body&gt - između ovih etiketa se nalazi vidljivi sadržaj
+    stranice.
+  </li>
+  <li>
+    &lthn&gt...&lt/hn&gt - su naslovi, gde n ima vrednost od 1 do 6. Naslov
+    veličine h1 je najveći, a h6 najmanji.
+  </li>
+</ul>
+
+<xmp class="primer_ta">
+
+<!DOCTYPE html>
+ <html>
+  <head>
+    <title>  Struktura HTML dokumenta </title>
+  </head>
+ <body>
+  <h1> Moja prva strana </h1>
+ </body>
+</html>
+
+
+
+</xmp>
+
+<br />
+Ovo je najmanja struktura HTML dokumenta.
+
+<div class="zadatak">
+  <b>Zadatak 1:</b>
+  Promenite naziv strani.
+</div>
+
+<br> <br> <br>
+
+<h2> <b> Title </b> </h2>
+
+
+Title su zagrade za naziv HTML dokumenta. Ono sto se nalazi između zagrada &lttitle&gt i &lt/title&gt 
+neće biti vidljivo u HTML dokumentu, već određuje samo naslov dokumentu i vidljiv je u pretraživaču.
+
+
+<xmp class = "primer_ta">
+Primer:
+<!DOCTYPE html>
+ <html>
+  <head>
+    <title>   </title>
+ </head>
+  <body>
+ U ovom primeru nismo ništa napisali između etiketa < title > i zato nam u pretraživaču piše ime dokumenta.
+</body>
+</html>
+</xmp>
+   
+<xmp class = "primer_ta">
+  
+Primer:
+<!DOCTYPE html>
+ <html>
+  <head>
+   <title> Primer 2 </title>
+  </head>
+ <body>
+U ovom primeru nam između etiketa < title > piše "Primer 2" , pa to piše i u pretraživaču.
+
+ </body>
+</xmp>
+
+<div class = "zadatak">
+<b>Zadatak 2:</b>
+Promeniti ime strani.
+</div>
+
+<br><br><br>
+
+<h2><b> Paragraf</b></h2>
+Pasus (engleski paragraf) se obeležava zagradama &ltp&gt i &lt/p&gt . Ukoliko u
+ravnom tekstu sledi pasus za pasusom, etiketa &lt/p&gt se može izostaviti. Ova
+etiketa može imati atribute za pozicioniranje ALIGN sa vrednostima CENTER, RIGHT
+ili LEFT. ALIGN=CENTER nam tekst u HTML dokumentu postavlja na sredinu strane.
+ALIGN=RIGHT nam tekst poravnava u desnu stranu. ALIGN=LEFT poravnava naš tekst u
+levu stranu.
+
+<xmp class="primer_ta">
+
+ <p ALIGN=CENTER> Prokin gaj, zapuštena, gusta i prilično velika šuma, na sat hoda udaljen od
+ podnožja planine, bio je oduvijek, čak i za starije ljude, pomalo strašno i tajanstveno mesto.  </p>
+ 
+ <p ALIGN=RIGHT> Prokin gaj, zapuštena, gusta i prilično velika šuma, na sat hoda udaljen od
+ podnožja planine, bio je oduvijek, čak i za starije ljude, pomalo strašno i tajanstveno mesto.</p>
+
+ <p ALIGN=LEFT> Prokin gaj, zapuštena, gusta i prilično velika šuma, na sat hoda udaljen od
+ podnožja planine, bio je oduvijek, čak i za starije ljude, pomalo strašno i tajanstveno mesto.</p>
+
+</xmp>
+
+<br />
+U ovom primeru jedan isti pasus iz knjige "Orlovi rano lete" Branka Ćopića je
+obeležen na različite načine.
+
+<br />Prvo smo koristili atribut ALIGN=CENTER, zatim smo koristili atribut
+ALIGN=RIGHT i na kraju atribut ALIGN=LEFT.
+
+<div class="zadatak">
+  <b>Zadatak 3:</b>
+  Zameniti mesta atributima u pasusu tako da budu poravnati levo, desno i na
+  sredini strane.
+</div>
+
+<br><br><br>
+<h2><b> Font </b></h2>
+
+&ltfont&gt oznaka određuje oblik pisma, veličinu slova, kao i boju teksta.
+Međutim &ltfont&gt etiketa nije podržana u HTML5, već se koriste CSS stilovi za
+manipulaciju fontovima.
+
+<h2>Promena boje teksta u HTML-u</h2>
+
+<br />Boju teksta u HTML-u menjamo pomoću CSS stilova. Pišemo &ltp
+style="color:ime boje"&gt. U sledećem primeru smo promenili boju teksta.
+
+<xmp class="primer_ta">
+
+Primer:
+
+
+<p style="color:red"> Ovaj pasus je ispisan crvenom bojom. </p>
+<p style="color:blue"> Ovaj pasus je ispisan plavom bojom. </p>
+
+</xmp>
+
+<h2>Promena fonta u HTML-u</h2>
+<br />
+Font u HTML-u menjamo pomoću Css stilova. Pišemo &ltp style="font-family:ime
+fonta"&gt. U sledećem primeru smo promenili font tekstu.
+
+<xmp class="primer_ta">
+
+Primer:
+
+<p style="font-family:verdana"> Ovaj pasus je ispisan fontom "Verdana".</p>
+<p style="font-family:'Courier New'"> Ovaj pasus je ispisan fontom "Courier New".</p>
+
+</xmp>
+
+<h2>Promena veličine slova u tekstu</h2>
+<br />
+I promenu veličine slova vršimo uz pomoć CSS stilova. Pišemo &ltp
+style="font-size:broj piksela"&gt. U sledećem primeru smo promenili veličinu
+slova.
+
+<xmp class="primer_ta">
+
+Primer:
+
+
+<p style="font-size:30px"> Ovo je jedan pasus.</p>
+<p style="font-size:11px">Ovo je takodje jedan pasus.</p>
+
+
+</xmp>
+
+<div class="zadatak">
+  <b>Zadatak 4:</b>
+  Promeniti boju crvenog teksta u zelenu.
+</div>
+
+<br><br><br>
+<h2>Novi red</h2>
+
+Novi red se u HTML-u obeležava etiketom &ltbr&gt. Ovo je prosto obeležje, ne
+postoji etiketa &lt/br&gt.
+<br />
+Podvlaka se obeležava etiketom &lthr&gt. Koristimo je kada želimo horizontalnom
+linijom da razdvojimo nešto.Možemo joj dodati i atribut NOSHADE. &lthr&gt je
+takođe prosta etiketa i ne postoji etiketa &lt/hr&gt.
+
+<xmp class="primer_ta">
+
+Primer:
+
+<br> Novi red u HTML-u <br> se obeležava etiketom br.
+ <hr NOSHADE>
+
+</xmp>
+
+U primeru smo kod podvlake koristili i atribut. Može i bez atributa. Biće samo
+tanja linija.
+
+<div class="zadatak">
+  <b>Zadatak 5:</b>
+  Napisati par omiljenih stihova koristeći etiketu &ltbr&gt.
+</div>
+
+<br><br><br>
+<h2><b>Naslovi u HTML-u </b></h2>
+Naslovi se kodiraju prema relativnoj dubini ciframa od 1 do 6. Etiketa za naslov
+ima opšti oblik &lthn&gt Naslov nivoa n &lt/hn&gt, gde n uzima vrednost od 1 do
+6. Obično se etiketa h1 koristi za naslov, a ostale etikete za podnaslove.
+
+<xmp class="primer_ta">
+
+
+Primer:
+
+<h1>Naslov h1 </h1>
+<h2>Naslov h2 </h2>
+<h3>Naslov h3 </h3>
+<h4>Naslov h4 </h4>
+<h5>Naslov h5 </h5>
+<h6>Naslov h6 </h6>
+
+</xmp>
+
+<div class="zadatak">
+  <b>Zadatak 6:</b>
+  Promeniti naslov u veličinu po sopstvenom izboru.
+</div>
+
+

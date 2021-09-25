@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <script type="text/javascript">
+      var a = 0xa;
+      var b = Math.pow(4, 3);
+      var c = a * b;
+
+      document.write("Dobijena vrednost je: " + c + "<br>");
+    </script>
+    <br>
+    <script>
+        var a = "Dobar ";
+        var b = "dan!";
+  
+        var c = a + b;
+        var l = c.length;
+  
+        document.write(
+          "Nadovezivanjem a i b dobili smo: " +
+            c +
+            "<br>" +
+            "Du&#382;ina dobijenog stringa je: " +
+            l +
+            "<br>"
+        );
+      </script>
+      <br>
+      <div>
+        <input type="number" name="prvibroj" id="prvibroj" min="1" max="100" />
+        <input type="number" name="drugibroj" id="drugibroj" min="1" max="100" />
+        <button onclick="ispitaj()">OK</button>
+      </div>
+      <div id="ispis"></div>
+      <script>
+        document.getElementById("prvibroj").defaultValue = "1";
+        document.getElementById("drugibroj").defaultValue = "1";
+        function ispitaj() {
+          var prvibroj = document.getElementById("prvibroj").value;
+          var drugibroj = document.getElementById("drugibroj").value;
+          var rezultat = prvibroj * drugibroj;
+          var ispis = "";
+          if (rezultat < 100) {
+            ispis = "Proizvod je: " + rezultat;
+          } else {
+            ispis = "Rezultat je veći od 100!";
+          }
+          document.getElementById("ispis").innerHTML = ispis;
+        }
+      </script>
+  </body>
+</html>

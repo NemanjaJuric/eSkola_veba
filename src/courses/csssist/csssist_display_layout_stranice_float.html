@@ -1,0 +1,121 @@
+<h1><b>Display, layout stranice i float</b></h1>
+<br/>
+Svojstvo <b>display</b> je jedno od najvažnijih svojstava CSS-a za kontrolisanje rasporeda elemenata na stranici koje određuje kako će se element prikazati. Vrednosti ovog svojstva su: <b>block</b>, <b>inline</b> i <b>none</b>.<br/>
+Svaki HTML element ima određenu display vrednost u zavisnosti od toga kog je tipa, najčešće je to blok(block) ili linijski(inline).<br/>
+Primeri blok elemenata:<br/>
+<xmp class="primer_ta" rows ="7" disabled>
+<div>
+<h1> - <h6>
+<p>
+<form>
+<header>
+<footer>
+<section> 
+</xmp><br/>
+Primeri linijskih elemenata:<br/>
+<xmp class="primer_ta" rows ="3" disabled>
+<span>
+<a>
+<img>
+</xmp><br/>
+Korišćenjem display svojstva može se neki linijski element prikazati kao blok, a i obrnuto.<br/>
+Svojstvo <b>none</b> se koristi ako ne želimo da se neki element prikaže.<br/><br/>
+<div class = "napomena">
+Svojstvo <b>visibility</b> sa vrednošću <b>hidden</b> je slično kao i <b>display: none</b>, ali postoji razlika.
+ <b>Display: none</b> izbacuje u potpunosti element i oslobađa se prostor koji je pregledač rezervisao za njega,
+dok <b>visibility: hidden</b> zadržava rezervisano mesto koje je element imao i ne prikazuje njegov sadržaj.
+</div><br/>
+Vrednost none je vrlo korisno koristiti za dinamičke efekte.<br/>
+Inline prikazuje elemente redom jedan za drugim i to linijski. Ako listu koja je blok element  prikažemo inline, 
+njene stavke će se prikazati jedna za drugom, a ne jedna ispod druge, i na taj način se lista pretvara u horizontalnu navigaciju.<br/>
+Sa druge strane, vrednost block prikazuje element samostalno, na primer box elementu postavlja prazan red iznad i ispod i 
+omogućava manipulisanje visinom, marginama, padding.<br/>
+<br/>
+<div class = "napomena">
+Postoji i kombinacija, <b>display: inline-block</b>.
+Element će zadržati vrednost inline, dozvoljavaće da se linijski elementi pozicioniraju pored njega, ali će pozajmiti veću
+fleksibilnost formatiranja koju ima block, na primer biće moguće podešavanje širine, visine.
+</div>
+<br/>
+<div class = "zadatak">
+<b>Zadatak 1:</b> Pogledaj u primeru koja svojstva imaju paragrafi. Pokušaj da primenom display svojstva izbrišeš
+četvrti paragraf i dodaš šesti koji će biti pored petog.
+</div>
+<br><br>
+<h2><b>Layout stranice</b></h2>
+<br />
+Za podešavanje rasporeda elemenata na stranici i samog izgleda stranice koriste
+se <b>float</b> i <b>position</b>.<br />
+Pozicioniranje u CSSu može biti relativno, onako kako bi se elementi
+podrazumevano rasporedili, a može se i uticati na njihov raspored i postaviti ih
+na tačno željeno mesto na strani.<br />
+<b>Float</b> pomera element levo ili desno najviše moguće i dopušta tekstu da se
+upakuje oko njega, da ga omota.<br />
+<b>Position</b> omogućava postavljanje elementa bilo gde na strani sa
+preciznošću piksela.<br />
+Načini pozicioniranja su: <b>static</b>, <b>relative</b>, <b>absolute</b>,
+<b>fixed</b>. <br />
+Svojstvo position ukazuje da će element biti pozicioniran i određuje koji će se
+način pozicioniranja koristiti. <br />
+<b>static</b>- normalna šema pozicioniranja, elementi se raspoređuju
+podrazumevano <br />
+<b>relative</b>- pomera sadržajni blok u odnosu na original, prostor koji bi
+element zauzimao u podrazumevanom rasporedu se sačuva <br />
+<b>absolute</b>- elementi se pozicioniraju u odnosu na prvi nestatički element
+koji je hijerarhijski iznad njih, roditelja. <br />
+<b>fixed</b>- element ostaje na svojoj poziciji prilikom skrolovanja,
+pozicioniranje je relativno u odnosu na pregledač <br /><br />
+<div class="napomena">
+  <b>Napomena:</b> Razlika između absolute i relative je u tome što absolute ne
+  čuva prostor koji bi element zauzimao u podrazumevanom rasporedu.
+</div>
+<br />
+Pre detaljnijeg upoznavanja sa float i metodama pozicioniranja podsetimo se
+<b>podrazumevanog rasporeda</b>.<br />
+Tekstualni elementi su organizovani od vrha ka dnu, onim redom kojim se
+pojavljuju u izvoru. Blok elementi se slažu jedan na drugi i popunjavaju širinu
+prozora pregledača ili nekog drugog elementa. Linijski i tekstualni elementi se
+ređaju jedan pored drugog tako da ispune blok element. Kada se promeni širina
+prozora ili bloka koji ga sadrži, blok element se širi ili smanjuje, a linijski
+element se preraspoređuje da bi se uklopio. Na veb stranicama se elementi ne
+preklapaju i ne gomilaju već prave mesto jedni drugima. Float i position menjaju
+vezu među elementima, odnosno na različite načine odstupaju od podrazumevanog
+rasporeda.<br />
+<br />
+<div class="napomena">
+  <b>Napomena:</b> Kada se odredi način pozicioniranja željena pozicija se
+  određuje pomoću četiri svojstva: <b>top</b>, <b>right</b>, <b>bottom</b> i
+  <b>left</b>, koja uzimaju sledeće vrednosti: jedinice mere, procenti, auto,
+  nasleđeno i primenjuju se na relativno, apsolutno ili fiksno pozicioniranje.
+  <br />
+</div>
+<br/><br>
+<h2><b>Float</b><br /></h2>
+Samo po sebi float ne predstavlja šemu pozicioniranja, ali svakako jeste
+jedinstven dodatak ugrađen u CSS sa interesantnim osobinama. Vrednosti koje
+uzima <b>float</b> su: <b>left</b>, <b>right</b>, <b>none</b> i <b>inherit</b>.
+Podrazumevana vrednost je none, primenjuje se na sve elemente i ne nasleđuje se.
+Najbolji način za razumevanje ovog svojstva jeste preko primera.<br /><br />
+<div class="napomena">
+  <b>Napomena:</b>Važno je uvek zadati širinu tekstualnog elementa na koji
+  primenjujete float. Linijski elementi sa svojstvom float se ponašaju kao blok
+  elementi i margine se ne poklapaju. Pri korišćenju float nad blok elementima
+  mora se zadati širina ili će u suprotnom širina biti postavljena na
+  automatsku, a to će biti najveća dostupna, samim tim će float izgubiti smisao.
+  Ideja pri korišćenju float jeste da sledeći element počne do njega, a ne
+  ispod, a kad element zauzme svu dostupnu širinu naredni će biti ispod njega.
+</div>
+<br />
+Svojstvo <b>clear</b> isključuje float i vraća na podrazumevani raspored. Clear
+ima vrednosti: <b>left</b>, <b>right</b>, <b>none</b>, <b>both</b>,
+<b>inherit</b>, primenjuje se samo na blok elemente i ne nasleđuje se,
+podrazumevano je none. Koristi se kada hoćete da element počne ispod elementa
+nad kojim je primenjen float.<br />
+<div class="zadatak">
+    <br>
+  <b>Zadatak 2:</b> Pokušaj da, malim izmenama u kodu, koristeći float napraviš
+  sledeći redosled:<br />
+  plavi<br />
+  zeleni<br />
+  narandzasti, žuti, crveni <br />
+</div>

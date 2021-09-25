@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        background-color: cornflowerblue;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-family: monospace;
+
+        width: 100px;
+        height: 50px;
+        transition: width 2s, height 4s;
+      }
+      #prvi_primer:hover {
+        width: 300px;
+        height: 150px;
+      }
+      .drugi_primer:hover {
+        width: 300px;
+      }
+      #div1 {
+        transition-timing-function: ease;
+        transition-delay: 2s;
+      }
+      #div2 {
+        transition-timing-function: ease-in;
+      }
+      #div3 {
+        transition-timing-function: ease-out;
+      }
+      #div4 {
+        transition-timing-function: linear;
+      }
+
+      div#treci_primer {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        animation-name: primer_3;
+        animation-duration: 4s;
+        -webkit-animation-name: primer_3; /* Chrome, Safari, Opera */
+        -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+      }
+      /* Standardna sintaksa */
+      @keyframes primer_3 {
+        from {
+          background-color: green;
+        }
+        to {
+          background-color: blue;
+        }
+      }
+      /* Chrome, Safari, Opera */
+      @-webkit-keyframes primer_3 {
+        from {
+          background-color: green;
+        }
+        to {
+          background-color: blue;
+        }
+      }
+      /*U drugom primeru navodicemo samo standardnu sintaksu*/
+      div#cetvrti_primer {
+        width: 100px;
+        height: 100px;
+        position: relative; /*Da bi objekat mogao menjati svoju poziciju, mora mu se promeniti pozicioniranje */
+        background-color: black;
+        animation-name: primer_4;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes primer_4 {
+        0% {
+          background-color: black;
+          left: 0px;
+          top: 0px;
+        }
+        25% {
+          background-color: red;
+          left: 100px;
+          top: 0px;
+        }
+        50% {
+          background-color: orange;
+          left: 100px;
+          top: 100px;
+        }
+        100% {
+          background-color: yellow;
+          left: 0px;
+          top: 0px;
+        }
+      }
+
+      /*U narednim primerima korišćena je samo standardna sintaksa */
+      div {
+        width: 100px;
+        height: 50px;
+        background-color: cornflowerblue;
+        position: relative;
+        text-align: center;
+        font-weight: bolder;
+        vertical-align: middle;
+        line-height: 50px;
+        animation-duration: 4s; /* vreme trajanja animacije i broj ponavljanja važe za sve primere */
+        animation-iteration-count: infinite;
+      }
+      div#peti_primer {
+        animation-name: primer_5;
+      }
+      @keyframes primer_5 {
+        0% {
+          background-color: cornflowerblue;
+          left: 0px;
+          top: 0px;
+        }
+        100% {
+          background-color: crimson;
+          left: 200px;
+          top: 0px;
+        }
+      }
+
+      #sesti_primer {
+        animation-name: primer_6;
+        animation-direction: reverse;
+        /*animation-direction: alternate - U zavisnosti od broja iteracija, ali će se animacija izvršiti prvo unapred, pa unazad, zatim opet unapred. Ako je broj iteracija 2, izvršiće se unapred i unazad i stati.
+            */
+      }
+      @keyframes primer_6 {
+        0% {
+          background-color: cornflowerblue;
+          left: 0px;
+          top: 0px;
+        }
+        100% {
+          background-color: crimson;
+          left: 200px;
+          top: 0px;
+        }
+      }
+
+      #div1 {
+        animation-name: primer_7;
+        animation-timing-function: linear;
+      }
+      #div2 {
+        animation-name: primer_7;
+        animation-timing-function: ease;
+      }
+      #div3 {
+        animation-name: primer_7;
+        animation-timing-function: ease-in;
+      }
+      #div4 {
+        animation-name: primer_7;
+        animation-timing-function: ease-out;
+      }
+      #div5 {
+        animation-name: primer_7;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes primer_7 {
+        0% {
+          left: 0px;
+        }
+        100% {
+          left: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="prvi_primer"><span> Primer prelaza po širini i dužini</span></div>
+    <br /><br />
+    <div id="div1" class="drugi_primer">
+      ease <br />
+      Transformacija će se izvršiti za 2 sekunde
+    </div>
+    <br />
+    <div id="div2" class="drugi_primer">ease-in</div>
+    <br />
+    <div id="div3" class="drugi_primer">ease-out</div>
+    <br />
+    <div id="div4" class="drugi_primer">liner</div>
+
+    <p>
+        <b>Napomena: </b> Ovaj primer nece raditi na Internet Explorer 9 ili
+        ranijim verzijama.
+      </p>
+      <div id="treci_primer" title="treci primer"></div>
+      <br />
+      <div id="cetvrti_primer" title="cetvrti primer"></div>
+
+      <p>
+        <span style="font-weight: bold">Napomena: </span> Ovaj primer neće raditi
+        na Internet Explorer 9 ili ranijim verzijama.
+      </p>
+      <div id="peti_primer" title="peti primer">Normal</div>
+      <div id="sesti_primer" title="sesti primer">Reverse</div>
+      <br />
+      <div id="div1">linear</div>
+      <div id="div2">ease</div>
+      <div id="div3">ease-in</div>
+      <div id="div4">ease-out</div>
+      <div id="div5">ease-in-out</div>
+  </body>
+</html>

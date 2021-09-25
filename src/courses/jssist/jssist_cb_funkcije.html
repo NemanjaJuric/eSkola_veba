@@ -1,0 +1,411 @@
+<h1><b>Callbacks funkcije i regularni izrazi</b></h1>
+<br />
+Nastavimo priču o javascript funkcijama i napravimo jednostavnu funkciju koja
+računa zbir dva broja.
+<br />
+
+<xmp class="primer_ta" rows="17">
+<!doctype html>
+<html>
+<head>
+<title> Callbacks </title>
+</head>
+<body>
+<script type="text/javascript">
+var zbir = function(s1, s2){
+var c = s1+s2;
+}
+zbir(5,2);
+</script>
+</body>
+</html>
+</xmp>
+<br />
+Znamo da su promenljive lokacije gde smeštamo izvesnu vrednost. I zbir je
+promenljiva pa bi onda mogli reći da smo funkciju smestili u promenljivu zbir.
+Promenljive su objekti pa ako je funkcija promenljiva i funkcija je objekat.
+<br />
+Kada pozivamo neku funkciju mi njoj prosleđujemo argumente, ti argumenti su neki
+objekti. Na primer, pozivamo funkciju zbir i proseđujemo dva argumenta:
+<br />
+<xmp class="primer_ta" rows="1"
+>
+zbir(5,2);
+</xmp>
+<br />
+Postavlja se sada pitanje, ako su argumenti koje prosleđujemo funkciji takođe
+objekti da li prilikom poziva jedne funkcije kao argument možemo proslediti
+funkciju, jer smo malo pre rekli da je i funkcija objekat. Dakle, ako možemo
+proslediti objekat bilo kojeg tipa zašto ne bismo mogli proslediti i funkciju
+kao argument.
+<br />
+Kreirajmo jos jednu funkciju:
+<br />
+<xmp class="primer_ta" rows="3">
+var rezultat = function(parametar){
+document.write('Zbir je' + parametar +'<br/>');
+};
+</xmp>
+<br />
+Želimo da pozovemo funkciju <span> <i>zbir</i> </span> i kao treći argument da
+joj prosledimo funkciju <i>rezultat</i>.
+<br />
+<xmp class="primer_ta" rows="1"
+>
+zbir(5,2,rezultat);
+</xmp>
+<br />
+Sada našu početnu funkciju menjamo da ima jos parametar, neka to bude npr.
+<i> rez </i>. Dakle, parametar <i> rez </i> je takođe funkcija. Iskoristimo taj
+parametar i imamo poziv funkcije rez koja vraća rezultat zbira:
+<br />
+<xmp class="primer_ta" rows="1"
+>
+rez(c);
+</xmp>
+<br />
+Sada možemo kompletirati naš primer i pogledati šta se desava:
+<br />
+<xmp class="primer_ta" rows="20">
+<!doctype html>
+<html>
+<head>
+<title> Callbacks </title>
+</head>
+<body>
+<script type="text/javascript">
+var zbir = function(s1, s2,rez){
+var c = s1+s2;
+rez(c);
+}
+var rezultat = function(parametar){
+document.write('Zbir je'+ parametar +'<br/>');
+};
+zbir(5,2,rezultat);
+</script>
+</body>
+</html>
+</xmp>
+<button class="button_copy">Pogledaj</button>
+<br />
+Vidimo da smo uspešno kao argument prosledili funkciju.
+<br />
+Sada, zakomentarišimo našu promenljivu rezultat i napišimo:
+<br />
+<xmp class="primer_ta" rows="2">
+zbir(5,2, function(parametar){
+document.write('Zbir je'+ parametar +'<br/>');
+});
+</xmp>
+<br />
+Pogledajmo sada naš primer:
+<br />
+<xmp class="primer_ta" rows="20">
+<!doctype html>
+<html>
+<head>
+<title> Callbacks </title>
+</head>
+<body>
+<script type="text/javascript">
+var zbir = function(s1, s2,rez){
+var c = s1+s2;
+rez(c);
+}
+//var rezultat 
+zbir(5,2,function(parametar){
+document.write('Zbir je'+parametar+'<br/>');
+});
+</script>
+</body>
+</html>
+</xmp>
+<button class="button_copy">Pogledaj</button>
+<br />
+I vidimo da je rezultat isti.
+<br />
+Dakle, funkcija zbir ima prvi argument s1, drugi argument s2 i treći argument je
+funkcija.
+<br />
+Kada funkciju šaljemo kao argument prilikom poziva neke druge funkcije onda se
+ta funkcija naziva <i><b>callback funkcija</b></i
+>.
+<br />
+Callback funkcije se koriste i u JQuery, o kojem ćete više saznati u kartici
+JQuery, a mi ćemo sada samo navesti primer jedne callback funkcije u JQuery.
+<br />
+<xmp class="primer_ta" rows="3"
+>
+$(p).click(function(){
+      //može biti bilo šta ovde
+});
+</xmp>
+<br />
+Ova funkcija prilikom poziva funkcije click je callback funkcija. Callback
+funkcije se koriste svaki put kada želimo da vidimo dejstvo određene funkcije
+koja se poziva, prosleđuje se prilikom njenog poziva druga funkcija.
+<br />
+Dakle, pozivamo funkciju click, kao argument joj proseđujemo funckiju, koja može
+biti bilo šta. Kada funkcija click odradi svoj posao ona poziva ovu funkciju
+function u i njoj vidimo dejstvo funkcije click.
+<br />
+Znamo da JavaScript nije tipizirani jezik i kada pozivamo funkciju možemo joj
+prosledili kao argumente objekte bilo kojeg tipa. Ako ponovo pozovemo funkciju
+zbir sa sledećim parametrima
+<xmp class="primer_ta" rows="2"
+>
+zbir(9, 5, 7);
+</xmp>
+program će nam prijaviti grešku sledeće sadržine:
+<i>number is not a function!</i>
+<br />
+Dakle, u ovom našem primeru pre nego što pozovemo callback funkciju, moramo
+dodati uslov
+<xmp class="primer_ta" rows="1">if(typeof(rez)=='function')</xmp>
+da nam se ovo ne bi desilo. <br />
+I ako konačno sagledamo naš primer imamo sledeće:
+<br />
+<xmp class="primer_ta" rows="20">
+<!doctype html>
+<html>
+<head>
+<title> Callbacks </title>
+</head>
+<body>
+<script type="text/javascript">
+var zbir = function(s1, s2,rez){
+var c = s1+s2;
+if(typeof(rez)=='function')
+rez(c);
+}
+//var rezultat 
+zbir(5,2,function(parametar){
+document.write('Zbir je'+ parametar+'<br/>');
+});
+</script>
+</body>
+</html>
+</xmp>
+<button class="button_copy">Pogledaj</button>
+<br />
+<div class="zadatak"> <br>
+  <b> Zadatak 1: </b> U datom primeru dodati funkciju koja računa razliku dva
+  broja na isti način uz pomoć callback funkcije.
+</div>
+
+<br><br>
+
+<h2>Regularni izrazi</h2>
+Regularni izraz (engl. skr. regexp ili regex,
+ u množini regexps, regexes ili regexen) je string koji opisuje,
+ menja, sparuje, ili pretražuje skup stringova,
+ u skladu sa određenim sintaksnim pravilima.
+
+Regularni izrazi proširuju mogućnosti manipulacijom stringova
+ i to pomoću javascript funkcijama kao što su:
+<ul>
+<li>match( )</li>
+<li>replace( )</li>
+<li>search( )</li>
+</ul>
+<h2>Sinatksa</h2>
+<xmp class = "primer_ta"  disabled>
+regIzraz=/uzorak/modifikatori
+</xmp>
+Izmedju dve kose crte se piše konkretno uzorak regularnog izraza (koji se
+sastavlja iz tabela "Zagrade" "Metakarakteri" "Kvantifikatori") a modifikator je jedan ili
+više simbola (mogu i sva tri simbola biti zajedno samo ih pišete jedan pored drugi) iz
+tablice "Modifikatori"
+<h3>Modifikatori</h3>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Modifikator</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<td>i</td><td>Ne pravi razliku izmedju malih i velikih slova</td>
+</tr>
+<tr>
+<td>g</td><td>Prolazi kroz ceo string(ne staje kada naiđe na podudaranje)</td>
+</tr>
+<tr>
+<td>m</td><td>Izvodi podudaranje svih redova</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Zagrade</h3>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Izgled</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<td> [abc] </td><td>Pronaći bilo koji znak a, b, c
+</td>
+</tr>
+<tr>
+<td>[^abc]</td><td>Pronaći bilo koji znak a da nije a, b, c</td>
+</tr>
+<tr>
+<td>[0-9]</td><td>Pronaći brojeve od 0 do 9
+</td>
+</tr>
+	<tr>
+<td>[a-z] </td><td>Pronaći sva mala slova
+ </td>
+</tr>
+	<tr>
+<td>[A-Z] </td><td>Pronaći sva velika slova </td>
+</tr>
+	<tr>
+<td>[a-Z] </td><td>Pronaći sva slova </td>
+</tr>
+	<tr>
+<td>(x|y) </td><td>Pronaći jedan od izraza u zagradi </td>
+</tr>
+</tbody>
+</table>
+<h3>Metakarakteri</h3>
+<table class = "tabela">
+<thead>
+<tr>
+<th>Metakarakter</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<td> . </td><td>Tačka pronalazi bilo koji znak, ili zamenjuje bilo koji znak
+</td>
+</tr>
+<tr>
+<td>\w</td><td>Pronalazi bilo koji word znak(slova, brojevi i podvučeno) </td>
+</tr>
+<tr>
+<td>\W </td><td>Pronalazi bilo koji znak osim word znakova
+</td>
+</tr>
+	<tr>
+<td>\d  </td><td>Pronalazi brojeve
+ </td>
+</tr>
+	<tr>
+<td>\D  </td><td>Pronalazi bilo koji znak osim brojeva </td>
+</tr>
+	<tr>
+<td>\s  </td><td>Pronalazi razmake i tabulatore(ekvivalentno izrazu [\t\n\r\f\v])
+ </td>
+</tr>
+	<tr>
+<td>\S </td><td>Pronalazi znakove a da nisu tabulatori i razmak </td>
+</tr>
+	<tr>
+<td> \b  </td><td>Pronadji podudaranje na početku ili/i kraju reči
+
+</td>
+</tr>
+<tr>
+<td>\B</td><td>Pronadji podudaranje ali da nije na početku i kraju reči
+</td>
+</tr>
+<tr>
+<td>\0</td><td>Nadji null znak
+</td>
+</tr>
+	<tr>
+<td>\n </td><td>Pronadji znak novog reda
+ </td>
+</tr>
+	<tr>
+<td>\f</td><td>Pronadji novi red</td>
+</tr>
+	<tr>
+<td>\r </td><td>Pronadji povratak
+ </td>
+</tr>
+	<tr>
+<td>\uxxxx </td><td>Pronaći Unicode znak naveden mimo heksadecimalnog broja xxxx </td>
+</tr>
+</tbody>
+</table class = "tabela">
+<h3>Kvantifikatori</h3>
+<table>
+<thead>
+<tr>
+<th>Kvantifikator</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+<td> n+ </td><td>Pronaazi string koji sadrži barem jedno n
+</td>
+</tr>
+<tr>
+<td>n* </td><td>Pronalazi string koji sadrži nula puta n ili više  </td>
+</tr>
+<tr>
+<td>n? </td><td>Pronalazi string koji sadrži n nula ili jedan put
+</td>
+</tr>
+</tbody>
+</table>
+<h3>test()</h3>
+Test() metod je regularni izraz. Pretražuje niz karaktera u nizu. Sledeći primer pretražuje "e" u rečenici:
+<xmp class = "primer_ta"  disabled>
+var patt = /e/;
+patt.test("The best things in life are free!");
+</xmp>
+Kako se e nalazi u rečenici, rezuletet će biti:
+<xmp class = "primer_ta"  disabled>
+true
+</xmp>
+<xmp class = "primer_ta" rows = "20" disabled>
+<!DOCTYPE html>
+<html>
+<body>
+<p>Pretražuje  "e" u sledećem izrazu:</p>
+<p id="p01">Ljubav je smisao života!</p>
+<button onclick="myFunction()">Probaj i ti!</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+    text = document.getElementById("p01").innerHTML; 
+    document.getElementById("demo").innerHTML = /e/.test(text);
+}
+</script>
+</body>
+</html>
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+ <h3>exec()</h3>
+ <p>exec() je metoda regularnog izraza. Pretrazuje određeni niz karaktera i kao rezultat vraća pronađeni niz. Ukoliko traženi niz karaktrea ne postoji u izrazu koji se pretražuje, rezultat će biti null.</p>
+
+  <xmp class = "primer_ta" rows = "21" disabled>
+  <!DOCTYPE html>
+<html>
+<body>
+<p>Search for an "e" in the next paragraph:</p>
+<p id="p01">The best things in life are free!</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+<script>
+function myFunction() {
+    text = document.getElementById("p01").innerHTML; 
+    document.getElementById("demo").innerHTML = /e/.exec(text);
+}
+</script>
+</body>
+</html>
+
+  </xmp>
+  <button class = "button_copy">Vidi primer</button>
+  <div class = "zadatak"> <br>
+      <b>Zadatak 2: </b>U primeru izmeniti kod tako da umesto što pronalazi izraz, samo proverava da li se nalazi u nizu.</div>

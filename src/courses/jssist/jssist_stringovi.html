@@ -1,0 +1,261 @@
+<h1>JavaScript Stringovi</h1>
+<h2>Šta su stringovi?</h2>
+<p>JavaScript stringovi se koriste za čuvanje i rad sa tekstom</p>
+<p>
+  String može biti bilo koji tekst (niz znakova) između jednostrukih ili
+  dvostrukih navodnika. Na primer, ''e-skola weba'' ili 'grupa 5ML'.
+</p>
+<b>Primer 1:</b>
+<xmp class="primer_ta" rows="14" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var carName1 = "Nikon D3200";
+            var carName2 = 'Nikon D3200';
+            document.getElementById("demo").innerHTML =
+            carName1 + "<br>" + carName2;
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>
+  U okviru stringa mogu se koristiti i navodnici koji se razlikuju od navodnika
+  koji taj niz znakova okružuju.
+</p>
+<b>Primer 2:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var answer1 = "Sve je u redu!";
+            var answer2 = "Zvali smo Ivana!";
+            var answer3 = 'Zvali smo Ivana!';
+            document.getElementById("demo").innerHTML =
+            answer1 + "<br>" + answer2 + "<br>" + answer3;
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<h2>Dužina stringa</h2>
+<p>Dužina stringa može se proveriti pomoću ugrađene funkcije LENGTH.</p>
+<b>Primer 3:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.getElementById("demo").innerHTML = txt.length;
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<h2>Specijalni znaci</h2>
+<p>
+  Stringovi moraju biti napisani između navodnika, jer JavaSkript može pogrešno
+  shvatiti na primer sledeću konstrukciju:
+</p>
+<b>Primer 4:</b>
+<span class="primer_text">
+  var y = "We are the so-called "Vikings" from the north."
+</span>
+<button class="button_copy">Vidi Primer</button>
+<p>
+  String će biti iseckan na "We are the so-caled". Da bi se izbegao ovaj
+  problem, rešenje je da se koristi znak \ (escape ili backslash). On pretvara
+  specijalni znak u deo stringa.
+</p>
+<b>Primer 5:</b>
+<xmp class="primer_ta" rows="14" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var x = 'It\'s alright';
+            var y = "We are the so-called \"Vikings\" from the north.";
+            document.getElementById("demo").innerHTML = x + "<br>" + y;
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+We are the so-called "Vikings" from the north.
+<br />
+<h2>Stringovi kao objekti</h2>
+<p>
+  JavaScript stringovi su primitivne vrednosti, sastavljene od znakova (
+  <span class="primer_text">var custorginn = "Jovan")</span>. Ali stringovi
+  takođe mogu biti definisani i kao objekti sa ključnim rečima (
+  <span class="primer_text">var FirstName = novi string ( "Jovan")</span> )
+</p>
+<b>Primer 6:</b>
+<xmp class="primer_ta" rows="14" disabled>
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var x = "Jovan";              // x is a string
+            var y = new String("Jovan");  // y is an object
+
+            document.getElementById("demo").innerHTML =
+            typeof x + "<br>" + typeof y;
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<b>Primer 7:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <h2>Never Create Strings as objects.</h2>
+        <p>JavaScript objekti ne mogu se porediti.</p>
+        <p id="demo"></p>
+        <script>
+            var x = new String("Jovan");  // x is an object
+            var y = new String("Jovan");  // y is an object
+            document.getElementById("demo").innerHTML = (x === y);
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<h2>Operacije nad stringovima</h2>
+<p>
+  Nad primitivnim vrednostima, kao što su ''grupa 5ML'', ne mogu se izvršavati
+  operacije (zato što nisu objekti).
+</p>
+<p>
+  Ali u JavaScript-u, operacije se mogu primenjivati i nad primitivnim
+  vrednostima, jer JavaSkript tretira primitivne vrednosti kao objekte pri
+  izvršavanju operacija.
+</p>
+<b>Primer 8:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="demo"></p>
+        <script>
+            var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.getElementById("demo").innerHTML = txt.length;
+        </script>
+    </body>
+</html>
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>
+  Operacija indexOf () vraća indeks (položaj) prvog pojavljivanju određenog
+  teksta u stringu:
+</p>
+<b>Primer 9:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="p1">Please locate where 'locate' occurs!.</p>
+        <button onclick="myFunction()">proba</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var str = document.getElementById("p1").innerHTML;
+                var pos = str.indexOf("locate");
+                document.getElementById("demo").innerHTML = pos;
+            }
+        </script>
+    </body>
+</html>
+
+
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>
+  Operacija search() traži u stringu zadatu vrednost i vraća poziciju
+  poklapanja:
+</p>
+<b>Primer 10:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p id="p1">Please locate where 'locate' occurs!.</p>
+        <button onclick="myFunction()">proba</button>
+        <p id="demo"></p>
+        <script>
+            function myFunction() {
+                var str = document.getElementById("p1").innerHTML;
+                var pos = str.search("locate");
+                document.getElementById("demo").innerHTML = pos;
+            }
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>Ako izostavite drugi parametar, pretraga će se nastaviti do kraja niza.</p>
+<p>
+  Operacija The slice() izdvaja deo stringa i vraća izdvojeni deo kao novi niz.
+</p>
+<b>Primer 11:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <p>
+            Operacija The slice() izdvaja deo stringa
+            i vraca izdvojeni deo kao novi niz:
+        </p>
+        <p id="demo"></p>
+        <script>
+            var str = "Apple, Banana, Kiwi";
+            document.getElementById("demo").innerHTML = str.slice(7);
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<p>
+  Operacija Substring () je slična operaciji slice(). Razlika je jedino u tome
+  što ne može da prihvati negativne indekse.
+</p>
+<b>Primer 12:</b>
+<xmp class="primer_ta">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <p>
+            Operacija The substr() izdvaja deo stringa
+            i vraca izdvojeni deo kao novi niz:
+        </p>
+        <p id="demo"></p>
+        <script>
+            var str = "Apple, Banana, Kiwi";
+            document.getElementById("demo").innerHTML = str.substring(7, 13);
+        </script>
+    </body>
+</html>
+</xmp>
+<button class="button_copy">Vidi Primer</button>
+<br />
+<br />
+<b>Zadatak 1:</b>
+<div class="zadatak">
+  Izmeniti program koji za niz znakova (string) ''Isprobaj i ti.'' Određuje
+  njegovu dužinu, kao i indeks (položaj) prvog pojavljivanja reči "proba".
+</div>

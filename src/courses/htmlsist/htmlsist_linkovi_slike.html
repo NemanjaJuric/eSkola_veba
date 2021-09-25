@@ -1,0 +1,274 @@
+<h1><b> Linkovi, slike i slike kao linkovi </b></h1>
+<br><br><br>
+
+<h2><b> Linkovi </b></h2>
+<br />
+
+Veb stranice mogu sadržati linkove pomoću kojih je moguće prelaziti sa jedne
+stranice na drugu. Linkovi mogu biti reči, fraze ili slike. Takođe, linkove
+možemo podeliti na unutrašnje i spoljašnje. Unutrašnjim linkom nazivamo link
+koji vodi ka delu sopstvenog sajta, dok spoljašnjim linkom nazivamo onaj link
+koji vodi ka drugom sajtu.
+
+<h2><b> Unutrašnji linkovi </b></h2>
+
+U okviru HTML-a linkovi su navedeni pomoću &lta&gt etikete. Sve između otvorene
+&lta&gt i zatvorene &lt/a&gt etikete postaje deo linka, na koji korisnik može
+kliknuti. Kako bi napravili link ka drugoj stranici &lta&gt etiketa mora
+sadržati atribut po imenu 'href', gde vrednost 'href' atributa predstavlja ime
+fajla ili adrese prema kojoj se pravi link.
+
+<xmp class="primer_ta"
+>
+Primer:
+Link prema početnoj stranici sajta:
+Povratak na &lta href="home.php"&gt početnu stranicu &lt/a&gt
+</xmp>
+
+<br />Pri kreiranju linka treba obratiti pažnju da njegovo ime stavlja
+korisnicima do znanja šta će videti ukoliko kliknu na link.
+
+<h2><b>Spoljašnji linkovi</b></h2>
+
+Ukoliko je potrebno napraviti link ka drugom sajtu, takođe se koristi &lta&gt
+etiketa ali ovoga puta vrednost 'href' argumenta mora biti puna web adresa
+strane ka kojoj link vodi, ne samo ime fajla.
+
+<xmp class="primer_ta"
+>
+Primer:
+&lta href="http://www.matf.bg.ac.rs/"&gt Matematički fakultet &lt/a&gt
+</xmp>
+
+<h2><b>Linkovi ka e-mail adresama</b></h2>
+
+Kako bi kreirali link koji otvara korišćeni e-mail program na računaru sa novim
+mejlom ka zadatoj adresi treba upotrebiti sledeću sintaksu pomoću &lta&gt
+etikete.
+
+<xmp class="primer_ta"
+>
+Primer:
+&lta href=”mailto:ime@primer.com”&gt ime@primer.com &lt/a&gt
+</xmp>
+
+Za razliku od prethodnog primera ovde vrednost 'href' atributa počinje sa
+ključnom recju 'mailto' praćena sa dve tačke i zatim željenom e-mail adresom.
+Kao i kod bilo kog drugog linka, sadržina &lta&gt etikete je vidljivi deo linka
+prikazanog u pregledaču, tako da će i naredni link raditi:
+<br />
+<xmp class="primer_ta"
+>
+Primer:
+&lta href=”mailto:ime@primer.com”&gt posalji nam mejl :) &lt/a&gt
+</xmp>
+
+<div class="zadatak">
+  <b>Zadatak 1:</b>
+  Napraviti link ka Vašoj omiljenoj veb strani.
+</div>
+
+<br><br><br>
+
+
+<h2><b> Odabir odgovarajućeg formata slike </b></h2>
+
+Već na početku pravljenja sajta treba znati koji tipovi slika su odgovarajući za
+koju namenu na Web-u (JPEG, GIF, PNG itd...) jer odabir tipa slike ima uticaja
+na brzinu kojom se stranice učitavaju.
+<br /><br />
+JPEG koristi matematički algoritam za kompresiju slike čime se smanji kvalitet
+slike. Što je viša kompresija manja je jasnoća i veličina slike. Slike JPEG
+formata se najčešće koriste za fotografije.
+<br /><br />
+GIF ne može imati više od 256 boja, ali održava originalne boje slike. Što manji
+broj boja na slici, manja je i veličina slike. GIF takodje dozvoljava i
+providnost svakog piksela na slici. GIF se obično koristi za slike sa punom
+bojom, kao što je logo ili ikonica.
+<br /><br />
+PNG predstavlja boje slično kao GIF, ali omogućava 16 miliona boja kao i alfa
+transparentnost (50% providnost). PNG se obično koristi za raznovrsne slike
+složenijeg dizajna.
+<br /><br />
+Cilj je da se stranice otvaraju što brže moguće. Kompresovanje slika je odličan
+način da se to postigne, ali treba voditi računa o ravnoteži izmedju kvaliteta i
+veličine slike. Korišćenje previsoke rezolucije slika ne čini nikome uslugu.
+<br />
+
+<h2><b>Korišćenje &ltimg&gt etikete za dodavanje slika</b></h2>
+
+Slike se na sajt dodaju pomoću &ltimg&gt etikete koja mora da poseduje bar
+sledeća dva atributa:
+<br />- 'src' atribut koji pokazuje putanju do slike i <br />- 'alt' atribut
+koji obezbeđuje opis slike.
+
+<xmp class="primer_ta">
+Primer:
+    <img src="MihailoPetrovic.jpg" alt="Mihailo Petrović"/>
+</xmp>
+<br />
+Slika se pomoću &ltimg&gt etikete može dodati i iz spoljašnjeg linka na sledeći
+način:
+<xmp class="primer_ta">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mihailo_Petrovi%C4%87_Alas,_portrait_by_Uro%C5%A1_Predi%C4%87.jpg" alt="Mihailo Petrović"/>
+</xmp>
+
+<h2>Atribut 'src'</h2>
+
+Pomoću 'src' atributa saopštavamo pregledaču putanju do željene slike. Vredost
+atributa je URL i baš kao i kod linkova, URL može biti apsolutna ili relativna u
+zavisnosti od toga da li je reč o spoljašnjem ili unutrašnjem linku. Dobra
+praksa za slike koje se koriste na sajtu jeste da one uvek budu na serveru, jer
+korišćenje spoljašnjih linkova može biti nepouzdan način zbog eventualnog
+uklanjanja slika sa korišćenih sajtova. U najvećem broju slučajeva na sajtovima
+se za slike koriste zasebni folderi.
+
+<h2>Atribut 'alt'</h2>
+
+Atribut 'alt' treba da se pojavi u svakom &ltimg&gt elementu i njegova vrednost
+treba da je tekstualni opis slike. Ovaj atribut je bitan jer njegova vrednost
+opisuje sliku u slučaju da npr. pregledač ne može da prikaže sliku, postojaće
+tekstualna alternativa, što je prednost i za Web pretraživače.
+
+<h2><b>Dimenzije slika</b></h2>
+
+Dimenzije slika mogu biti navedene pomoću atributa 'height' i 'width'. Oni
+određuju visinu i širinu slike. Vrednosti ovih atributa u najvećem broju
+slučajeva prikazani su u pikseplima, ali mogu biti navedene i u procentu prozora
+pregledača.
+<br />
+
+<xmp class="primer_ta">
+Primer:
+<img src="MihailoPetrovic.jpg" alt="Mihailo Petrović" height="240" width="181"/>
+</xmp>
+
+<h2><b>Poravnavanje slika</b></h2>
+
+Kako bi pozicionirali sliku unutar stranice, ili unutar nekog elementa stranice
+koristimo 'algin' atribut. Atribut 'algin' može imati sledeće vrednosti:
+<br />- 'top' - gornja ivica slike se poravnava sa gornjom ivicom teksta <br />-
+'middle' - sredina slike poravnava se sa donjom ivicom teksta <br />- 'bottom' -
+donja ivica slike se poravnava sa donjom ivicom teksta, što obično podiže sliku
+iznad teksta <br />- 'left' - slika se poravnava sa levom ivicom prozora ili
+elementa u kom se nalazi dok se tekst nalazi oko slike <br />- 'right' - slika
+se poravnava sa desnom ivicom prozora ili elementa u kom se nalazi dok se tekst
+nalazi oko slike
+<br />
+<xmp class="primer_ta">
+Primer:
+<img src="MihailoPetrovic.jpg" alt="Mihailo Petrović" align="left"/>
+</xmp>
+
+<div class="zadatak">
+  <b>Zadatak 2:</b>
+  Sliku MihailoPetrovic.jpg uneti na sajt tako da ima visinu 160 piksela, širinu
+  120 piksela i tako da se poravnava sa gornjom ivicom teksta.
+</div>
+
+<br><br><br>
+
+<h2><b>Slike kao linkovi</b></h2>
+
+Umesto postavljanja linka unutar
+<a>
+  etiketa, potrebno je postaviti sliku. Slike su najčešće korišćene kao grafička
+  impresija dugmeta, kao npr:
+  <xmp class="primer_ta">
+  <a href="kurs.php?kurs=html/html_linkovi#" title="Potsetimo se naucenog o linkovima">
+    <img src="links.jpg" width="150" height="150" alt="link" />
+  </a>
+</xmp>
+
+  <h2><b>Mapirane slike</b></h2>
+
+  Korišćenjem slike kao mape, može se dodati više linkova na jednu sliku.
+  Upotreba slika kao mapa posebno je korisna kada je sliku potrebno podeliti na
+  nepravilne oblike (kao sto su mape). Svaka od površina slike na koju je moguće
+  kliknuti naziva se 'hotspot'.
+  <br /><br />
+  Ove mapirane slike rade na osnovu x i y koordinata merenih od gornjeg levog
+  ugla slike. Koordinate se koriste za dve stvari:
+  <br />
+  - Za navođenje mesta 'hotspot-a'; <br />
+  - Za određivanje mesta gde je korisnik sajta kliknuo. <br />Poređenjem
+  koordinata mesta na koje je korisnik klikuno i koordinata 'hotspot-a',
+  korisnik se preusmerava na link naveden za konkretni 'hotspot'. <br /><br />
+
+  Slika, od koje će biti formirana mapa unosi se na stranicu korišćenjem
+  <img /> etikete baš kao i svaka druga slika. Atribut po imenu 'usemap' se
+  zatim dodaje unutar <img /> etikete kako bi se ukazalo na to da slika treba da
+  koristi informacije sadržane u odgovarajućoj
+  <map>
+    etiketi kako bi željenu sliku pretvorila u mapu. Etiketom
+    <map
+      >, koja sada sadrži informacije, govori se pretraživaču kako da podeli
+      sliku tako da korisnika može proslediti na odgovarajući sajt. <br /><br />
+      Kao primer za upotrebu slike kao mape na ovaj način može poslužiti slika
+      košarkaškog terena. Klik na centar terena treba da vodi na sajt KSS-a, dok
+      klik na reket treba da vodi na sajt NBA lige.
+
+      <xmp class="primer_ta">
+<img src='imageMaps/Slike/KosarkaskiTeren.png' alt='Teren' width='640' height='367' usemap='#KosarkaskiTeren'/>
+<map name='KosarkaskiTeren'>
+<area shape='circle' coords='160,92,24' href='http://www.kss.rs/' alt='KSS'>
+<area shape='rect' coords='0,72,80,112' href='http://www.nba.com' alt='NBA'>
+</map>
+</xmp>
+      <br />
+      U primeru vrednost 'usemap' atributa počinje sa tarabom # a u nastavku
+      vrednosti je vrednost 'name' atributa iz
+      <map>
+        etikete. Odmah nakon <img /> etikete sledi
+        <map>
+          etiketa koja u sebi sadrži dva ili više <area /> etiketa. Od atributa,
+          <area /> etiketa, sadrži sledeće: <br />- 'shape', <br />- 'coords',
+          <br />- 'href' i <br />- 'alt'.
+
+          <br />
+          Atribut 'shape' definiše kako ce Web pregledač koristiti vrednosti iz
+          'coord' atributa. Ukoliko ovaj atribut nije naveden, pregledač će po
+          definiciji smatrati da treba koristiti oblik pravougaonika. Ovaj
+          atribut moze imati sledeće vrednosti:
+          <br />&nbsp;&nbsp;&nbsp;&nbsp;- default: ostatak slike koji nije
+          definisan u nekoj od prethodnih <area /> etiketa (ukoliko se koristi
+          treba ga navesti u poslednjoj <area /> etiketi)
+          <br />&nbsp;&nbsp;&nbsp;&nbsp;- rectangle ili rect: daje za rezultat
+          oblik pravougaonika <br />&nbsp;&nbsp;&nbsp;&nbsp;- circle ili circ:
+          daje za rezultat oblik kruga <br />&nbsp;&nbsp;&nbsp;&nbsp;- polygon
+          ili poly: daje za rezultat poligon
+          <br />
+          <br />Atribut 'coords' definiše površinu na koju se može kliknuti.
+          Broj koordinata zavisi od oblika navedenog pod 'shape' atributom i to
+          na sledeći način: <br />&nbsp;&nbsp;&nbsp;&nbsp;- rectangle ili rect:
+          četiri koordinate - prve dve predstavljaju gornje levo teme dok druge
+          dve predstavljaju donje desno teme; <br />&nbsp;&nbsp;&nbsp;&nbsp;-
+          circle ili circ: tri koordinate - prve dve predstavljaju centar kruga
+          dok je treća prečnik; <br />&nbsp;&nbsp;&nbsp;&nbsp;- polygon ili
+          poly: paran broj koordinata od kojih svaki par predstavlja jednu tačku
+          poligona. Prvu tačku poligona nije neophodno navoditi ponovo na kraju
+          jer je poligon automatski zatvoren.
+
+          <br />
+          Na primeru košarkaškog terena prikazana je upotreba atributa 'shape'
+          za oblika kruga i pravougaonika. Naredni primer biće upotreba 'shape'
+          atributa kako bi dobili poligon, kao i korišćenje default vrednosti za
+          'shape' atribut. U konkretnom primeru, cilj je da se klikom na crnu
+          strelicu vratimo na vrh stranice, a klikom bilo gde na ostatak slike
+          na početnu stranicu sajta.
+
+          <xmp class="primer_ta">
+Primer:
+<img src='imageMaps/Slike/zigzag.png' alt='primer2' width='300' height='300' usemap='#drugiPrimer'/>
+<map name='drugiPrimer'>
+<area shape='poly' coords='135,257,166,256,165,238,158,220,144,208,137,199,141,191,166,184,189,166,193,141,185,122,171,112,158,108,153,101,153,93,174,99,179,93,138,31,98,89,97,94,101,99,121,93,122,100,125,115,132,126,145,135,160,141,162,149,141,159,125,165,115,175,107,189,107,210,113,224,130,235,133,242' href='' alt='Vrh stranice'>
+<area shape='default' coords='' href='http://alas.matf.bg.ac.rs/~mr11032/HTML_skola/home.php' alt='Pocetna stranica'>
+</map>
+</xmp>
+
+          <div class="zadatak">
+            <b>Zadatak 3:</b>
+            Izmeniti drugi primer tako da ostatak košarkaškog terena predstavlja
+            link ka sajtu prema sopstvenom izboru.
+            <div></div></div></map></map></map></map
+></a>

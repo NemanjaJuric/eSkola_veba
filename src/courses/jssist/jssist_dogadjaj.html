@@ -1,0 +1,705 @@
+<h1><b>Događaji</b></h1>
+<br />
+Rukovanje događajima koristimo kako bi reagovali na akcije korisnika ili
+događaje dokumenta.
+<br />
+
+DOM model događaja sadrži nekoliko događaja koje HTML oznake aktiviraju kao
+odgovor na akcije korisnika ili odgovor na promenu stanja.
+<br />
+Kroz tabelu ćemo opisati svaki dogadjaj.
+<br />
+Tabela 1- DOM događaji
+<br />
+<table
+  border="1"
+  cellpadding="5"
+  cellspacing="1"
+  width="100%"
+  bgcolor="#FFFFFF"
+>
+  <tr>
+    <td align="center" width="30%" bgcolor="#e3cadc">
+      <font size="3"><strong>Naziv dogadjaja</strong></font>
+    </td>
+    <td align="center" width="70%" bgcolor="#e3cadc">
+      <font size="3"><strong>Opis</strong></font>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onblur() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          element gubi fokus.(tj.više nije izabran od strane korisnika)
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onchange() </font></b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          element je izmenjen (na primer, korisnik je uneo neki podatak u polje
+          za tekst ) i nije više u fokusu
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onclick() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          element je izabran pritiskom na taster miša
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> ondblclick() </font></b>
+    </td>
+    <td>
+      <b
+        ><font size="2">
+          element je izabran dvostrukim pritiskom na taster miša
+        </font>
+      </b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onfocus() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2"> element je dobio focus </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onkeydown() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          taster na tastaturi je pritisnut dok je element u fokusu
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onkeypress() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          dok je element u fokusu pritisnut je (i pušten) taster na tastaturi
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onkeyup() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          taster na tastaturi je otpušten dok je element u fokusu
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onload() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2"> element se učitava(dokument, slika) </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onmousedown() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          taster miša je pritisnut dok je element u fokusu
+        </font></b
+      >
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onmousemove() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          miš je pomeren dok se pokazivač nalazio iznad elementa
+        </font></b
+      >
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onmouseout() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2"> pokazivač miša je pomeren sa elementa </font></b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onmouseover() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          pokazivač miša se nalazi iznad elementa
+        </font></b
+      >
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b><font style size="2"> onmouseup() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2"> taster miša je otpušten </font></b>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onreset() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          element obrasca je resetovan, kao na primer kada korisnik pritisne
+          dugme za resetovanje formulara
+        </font></b
+      >
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onresize() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2">veličina prozora je promenjena </font></b>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onselect() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          tekst u elementu obrasca je izabran (za file, password, textarea)
+        </font></b
+      >
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onsubmit() </font> </b>
+    </td>
+    <td>
+      <b><font style size="2"> formular se šalje </font></b>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b><font style size="2"> onunload() </font> </b>
+    </td>
+    <td>
+      <b
+        ><font style size="2">
+          Dokument je zatvoren ili se otišlo na drugu stranicu. Ovo se desi kada
+          se prozor pretraživača isključi ili kada se ode na drugu stranicu,
+          tj.kad stranica treba da se "uništi". Onda npr.može da se pita "da li
+          želis da zatvoriš stranicu, a nisi poslao poruku."
+        </font></b
+      >
+    </td>
+  </tr>
+</table>
+<br />
+Prikažimo neke od događaja:
+<br />
+<h2 style="color: green">Događaji za učitavanje stranice</h2>
+<ul style="color: #e3cadc">
+  <li>
+    onload()
+    <span style="color: green"> Aktivira događaj kada se stranica učita.</span>
+    <xmp class="primer_ta" rows="13">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body onload = "dogadjaj()">
+</body>
+</html>
+</xmp>
+  </li>
+</ul>
+<br />
+<h2 style="color: green">Događaji za učitavanje stranice</h2>
+<ul style="color: #e3cadc">
+  <li>
+    onunload()
+    <span style="color: green">
+      Aktivira događaj kada se stranica ne učita ili ako se prekine učitavanje
+      stranice</span
+    >
+    <xmp class="primer_ta" rows="13">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body onunload = "dogadjaj()">
+</body>
+</html>
+</xmp>
+  </li>
+</ul>
+<br />
+<h2 style="color: green">Događaji vezani za formu</h2>
+<ul style="color: #e3cadc">
+  <li>
+    onfocus()
+    <span style="color: green">
+      Aktivira događaj kada element dobije focus.</span
+    >
+    <xmp class="primer_ta" rows="16">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj(){
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<form>
+<input type= "text" onfocus = "dogadjaj();"/>
+</form>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onblur()
+    <span style="color: green">
+      Aktivira događaj kada element izgubi focus.</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<form>
+<input type= "text" onblur = "dogadjaj();"/>
+</form>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onchange()
+    <span style="color: green">
+      Aktivira događaj kada je neki element izmenjen.</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<form>
+<input type= "text" onchange = "dogadjaj();"/>
+</form>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onreset()
+    <span style="color: green">
+      Aktivira događaj kada je neki element resetovan
+    </span>
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<form>
+<input type= "reset" onreset = "dogadjaj();"/>
+</form>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onsubmit()
+    <span style="color: green"> Aktivira događaj za slanje formulara.</span>
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<form>
+<input type= "text" onsubmit = "dogadjaj();"/>
+<input type = "submit"/>
+</form>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<h2 style="color: green">Događaji vezani za tastaturu</h2>
+
+<ul style="color: #e3cadc">
+  <li>
+    onkeydown()
+    <span style="color: green">
+      Aktivira događaj kada se pritisne taster na tastaturi</span
+    >
+    <xmp class="primer_ta" rows="16">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onkeydown = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onkeyup()
+    <span style="color: green">
+      Aktivira događaj kada se pusti taster na tastaturi</span
+    >
+    <xmp class="primer_ta" rows="16">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onkeyup= "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onkeypress()
+    <span style="color: green">
+      Aktivira događaj kada se pritisne (pusti) taster na tastaturi</span
+    >
+    <xmp class="primer_ta" rows="16">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onkeypress = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+<h2 style="color: green">Događaji vezani za taster miša</h2>
+
+<ul style="color: #e3cadc">
+  <li>
+    onclick()
+    <span style="color: green">
+      Aktivira događaj kada element izabran pritiskom tastera miša.</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onclick = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e2cadc">
+  <li>
+    ondblclick()
+    <span style="color: green">
+      Aktivira događaj kada element izabran dostrukim pritiskom tastera
+      miša.</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" ondblclick = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onmousedown()
+    <span style="color: green">
+      Aktivira događaj pritiskom tastera miša dok je element u fokusu</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onkeydown = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onmouseup()
+    <span style="color: green">
+      Aktivira događaj kada je otpušten taster miša</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onmouseup = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onmousemove()
+    <span style="color: green">
+      Aktivira događaj prilikom pomeranja kursora miša
+    </span>
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onmousemove = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onmouseout()
+    <span style="color: green">
+      Aktivira događaj prilikom pomeranja kursora miša izvan elementa</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onmouseout = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+
+<ul style="color: #e3cadc">
+  <li>
+    onmouseover()
+    <span style="color: green">
+      Aktivira događaj prelaskom tastera miša preko elementa</span
+    >
+    <xmp class="primer_ta" rows="15">
+<!doctype html>
+<html>
+<head>
+<title> Events </title>
+<script type="text/javascript">
+function dogadjaj() {
+alert("Dogadjaj");
+}
+</script>
+</head>
+<body>
+<img src="pictures/js/tastatura.png" onmouseover = "dogadjaj();"/>
+</body>
+</html>
+</xmp>
+    <button class="button_copy">Pogledaj</button>
+  </li>
+</ul>
+<br />
+<div class="zadatak"> <br>
+  <b> Zadatak 1: </b> Kreirati dokument koji sadrži primere ostalih dogadjaja iz
+  tabele koje ovde nismo prikazali.
+</div>

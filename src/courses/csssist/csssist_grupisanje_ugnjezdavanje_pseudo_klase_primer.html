@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      .top {
+        padding: 50px;
+      }
+      h2,
+      .top,
+      .in {
+        color: red;
+      }
+      .in {
+        background-color: #ccc;
+      }
+      p {
+        font: 14px/1.5 "Times New Roman", times, serif;
+        padding: 30px 10px;
+        border: 1px black solid;
+        border-width: 1px 5px 5px 1px;
+        border-color: red green blue yellow;
+        margin: 10px 50px;
+      }
+      body {
+        background-image: url("css/slike_u_pozadini/cvece.jpg");
+        background-attachment: fixed;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+      }
+
+      #prvi {
+        height: 260px;
+        width: 390px;
+        background-image: url("./slike_u_pozadini/cvece.jpg");
+      }
+
+      #drugi {
+        height: 260px;
+        width: 390px;
+        background-image: url("./slike_u_pozadini/cvece.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: purple;
+      }
+
+      #treci {
+        height: 260px;
+        width: 390px;
+        background-image: url("./slike_u_pozadini/cvece.jpg");
+        background-repeat: repeat-x;
+        background-color: purple;
+      }
+
+      #cetvrti {
+        height: 260px;
+        width: 390px;
+        background: url("courses/csssist/slike_u_pozadini/cvece.jpg")
+          repeat-x purple bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="top">crvena slova, uokvirenje 50px</p>
+    <p>Na ovom tekstu će se primeniti sva navedena grupisana svojstva!</p>
+    <p class="in">dodatno svojstvo u odnosu na "top", je pozadina</p>
+    <div id="prvi"></div>
+    <br />
+    <div id="drugi"></div>
+    <br />
+    <div id="treci"></div>
+    <br />
+    <div id="cetvrti"></div>
+  </body>
+</html>
