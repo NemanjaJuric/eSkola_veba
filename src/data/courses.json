@@ -4483,5 +4483,108 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "C#",
+    "id": "cs",
+    "logo": "<i class='fas fa-copyright'></i>",
+    "type": "book",
+    "lang": "",
+    "displayLang": "HTML",
+    "sections": ["serversko_programiranje", "srednja_skola"],
+    "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira.",
+    "lessons": [
+      {
+        "name": "Uvod u C#",
+        "url": "cs_Uvod",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Prvi program u C#",
+        "url": "cs_Hello_World",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Konzolni programi i programi zasnovani na prozorima",
+        "url": "cs_Consola_Gui",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka u C#",
+        "url": "cs_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Nizovni tip",
+        "url": "cs_Nizovni_tip",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "String tip",
+        "url": "cs_String_tip",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Operatori",
+        "url": "cs_Operatori",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Prioritet operatora",
+        "url": "cs_Prioritet_Operatora",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Enum",
+        "url": "cs_Enum",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Klasa i metode",
+        "url": "cs_Klasa_i_Metode",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Konverzija tipova podataka",
+        "url": "cs_Konverzija_tipaPodataka",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba IF",
+        "url": "cs_NaredbaIF",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Zadaci",
+        "url": "cs_Zadaci",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      }
+    ]
   }
 ]

@@ -1,0 +1,229 @@
+<html>
+<head>
+<title>Konverzija tipova podataka</title>
+</head>
+<body>
+<h1>Konverzija tipova podataka</h1>
+
+
+
+Kada su u nekom izrazu svi članovi istog tipa, tada je i vrednost izraza tog tipa.<br>
+Na primer:
+<xmp class = "primer_ta"> 
+static void Main(string[] args){
+float a=5;
+float b=2;
+Console.WriteLine(a/b);
+
+}
+
+ </xmp>
+Main funkcija će vratiti realnu vrednost 2.5 jer je a/b isto float.<br>
+Ako bi a i b bili tipa int, rezultat a/b bi bio 2.<br><br>
+
+
+
+Ponekad izvodimo aritmetičke operacije nad podacima različitog tipa (int, float, double), pa je neophodno prevesti podatke u odgovarajući oblik.<br>
+Takođe, dodela vrednosti promenljivoj može se izvršiti samo ako je vrednost istog tipa kao i promenljiva ili se može prevesti u odgovarajući tip.<br>
+<br>
+Prevodjenje podataka uz jednog u drugi tip može se vršiti automatski <b>(implicitna konverzija)</b> ili pod kontrolom programera <b>(eksplicitna konverzija)</b>.
+
+<h2>Implicitna konverzija</h2>
+
+
+<br>
+Koristi se kada:
+<ul>
+<li> pri izračunavanju vrednosti izraza kompajler automatski uskladjuje tipove podataka koji se koriste u izrazu (ako je to moguće),
+<li> pri dodeljivanju vrednosti izraza kompajler automatski uskladjuje tipove podataka koji se koriste u izrazu (ako je to moguće).
+</ul>
+<br>
+Ovo služi kako se ne bi izgubile informacije i da se sačuva preciznost podataka.
+<br><br>
+Promenljiva tipa A, čiji skup mogućnosti vrednosti je podskup skupa mogućih vrednosti tipa B, može se implicitno konvertovati u tip B.
+<br>
+Npr. tip int može se implicitno konvertovati u tip double (ili float, long...)
+<br>
+
+<table class = "tabela"> 
+<thead> 
+<tr> 
+<th>Tip -> može se implicitno konvertovati u:</th> 
+</tr> 
+
+</thead> 
+<tbody> 
+ <tr> 
+<td>sbyte -> short, int, long, float, double, decimal </td> 
+</tr> 
+ 
+ <tr> 
+<td>byte  -> short,ushort, int,uint, long, ulong, float, double, decimal</td> 
+</tr> 
+
+ <tr> 
+<td>short -> int, long, float, double, decimal </td> 
+</tr> 
+
+ <tr> 
+<td>ushort  ->  int, uint, long, ulong, float, double, decimal</td> 
+</tr> 
+
+
+ <tr> 
+<td>int -> long, float, double, decimal</td> 
+</tr> 
+
+
+
+ <tr> 
+<td>uint -> long, ulong, float, double, decimal</td> 
+</tr> 
+
+
+
+ <tr> 
+<td>long ->  float, double, decimal</td> 
+</tr> 
+
+<tr> 
+<td>ulong ->  float, double, decimal</td> 
+</tr> 
+
+
+<tr> 
+<td>char ->ushort, int,uint, long, ulong, float, double, decimal</td> 
+</tr> 
+
+
+<tr> 
+<td>float  -> double</td> 
+</tr> 
+</tbody> 
+</table>
+
+<h2>Eksplicitna konverzija</h2>
+
+Koristimo tamo gde ne može se implicitno izvršiti konverzija.<br>
+Programer,kao što i sama reč kaže, eksplicitno zahteva,dodatnim kodom, traženu konverziju od kompajlera.<br>
+Eksplicitna konverzija se ostvaruje korišćenjem operatora <b>cast</b>ili korišćenjem klase <b>Convert</b>. <br>
+Operator cast koristimo tako što u zagradama navedemo tip u koji želimo da konvertujemo vrednost izraza koji sledi za operatorom cast: (tip) promenljiva.
+
+
+<table class = "tabela"> 
+<thead> 
+<tr> 
+<th>Tip -> može se eksplicitno konvertovati u:</th> 
+</tr> 
+
+</thead> 
+<tbody> 
+ <tr> 
+<td>sbyte -> byte, ushort, uint, ulong, char </td> 
+</tr> 
+ 
+ <tr> 
+<td>byte  -> sbyte, char </td> 
+</tr> 
+
+ <tr> 
+<td>short -> sbyte, byte, ushort, uint, ulong, char</td> 
+</tr> 
+
+ <tr> 
+<td>ushort  ->  sbyte, byte, short, char</td> 
+</tr> 
+
+
+ <tr> 
+<td>int -> sbyte, byte, ushort,short, uint, ulong, char</td> 
+</tr> 
+
+
+
+ <tr> 
+<td>uint -> sbyte, byte, ushort, short, int, char</td> 
+</tr> 
+
+
+
+ <tr> 
+<td>long ->  sbyte, byte, ushort, short, uint, int, ulong, char</td> 
+</tr> 
+
+<tr> 
+<td>ulong ->  sbyte, byte, ushort, short, uint, int, long, char</td> 
+</tr> 
+
+
+<tr> 
+<td>char ->sbyte, byte, short</td> 
+</tr> 
+
+
+<tr> 
+<td>float  -> sbyte, byte, ushort,short, uint, int, long, ulong, char, decimal</td> 
+</tr> 
+
+<tr> 
+<td>double  -> sbyte, byte, ushort,short, uint, int, long, ulong, char,float, decimal</td> 
+</tr> 
+
+<tr> 
+<td>decimal  -> sbyte, byte, ushort,short, uint, int, long, ulong, char, float, double</td> 
+</tr> 
+
+
+</tbody> 
+</table>
+<br><br>
+<b>Primer 1.</b>
+<xmp class = "primer_ta"> 
+static void Main(string[] args){
+int a=5;
+float b=2.12;
+a=a+b;
+Console.WriteLine(a);
+
+}
+
+ </xmp>
+Pri pokušaju prevodjenja koda u Primeru 1, dobićemo informaciju da je došlo do greške.
+<br>
+Tj. ne može se implicitno konvertovati tip double u int.<br>
+Koristimo sledeći zapis kako bi se izvršila eksplicitna konverzija:<b>
+<b>a =a+ (int)b;</b>
+<br>
+Tj. prethodni primer može se zapisati na sledeći način:<br><br>
+<b>Primer 2.</b>
+<xmp class = "primer_ta"> 
+static void Main(string[] args){
+int a=5;
+float b=2.12;
+a=a+ (int)b;;
+Console.WriteLine(a);
+
+}
+ </xmp>	 	
+
+
+<h2>Broj u string:</h2>
+
+Kod stringova ne mozemo koristiti cast-ovanje.<br>
+Sledeći primer pokazuje kako se podatak tipa <b>int</b> može konvertovati u <b>string</b>.<br> 
+Promenljiva i koja je int, se na dva načina može konvertovati u string:
+<xmp class = "primer_ta"> 
+int i;
+string s = i.ToString();
+string s = Convert.ToString(i);
+</xmp>
+<br><br>
+<b>Primer 3.</b>Promenljiva s,  koja je string uzima vrednost  konvertovanog broja a tipa double.
+<xmp class = "primer_ta">
+double a = 0.000006; 
+string  s = a.toString();
+</xmp>
+
+
+</body>
+</html>

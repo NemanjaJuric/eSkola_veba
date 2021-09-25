@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Prioritet operatora</title>
+</head>
+
+<body>
+<h1>Prioritet operatora</h1>
+
+Operatori imaju svoj prioritet. Kompajler izvršava neki izraz u kome  postoji više operatora
+u redosledu koji se odredjuje na osnovu prioriteta operatora i mesta njihovog pojavljivanja u izrazu.
+<br>
+Primer:
+<xmp class = "primer_ta"> 
+
+int x=2+4*2;
+
+</xmp>
+
+U ovom primeru, operacija množenja ( * ) ima veći prioritet od operacije sabiranja ( + ).
+Dakle, desna strana se izračunava na sledeći način: 4*2=8, pa 2+8 = 10. Zbog toga se promenljivoj x dodeljuje vrednost 10.
+
+Primer:
+<xmp class = "primer_ta"> 
+
+int x=2*4/2;
+
+</xmp>
+
+Operator množenja ( * ) i deljenja ( / ) imaju isti prioritet, pa se operatori izvršavaju sleva na desno. <br>
+ Tako se, prvo računa 2*4=8, a zatim 8/2 = 4.
+ Zbog toga se promenljivoj dodeljuje vrednost 4.
+<br>
+U C# ima veliki broj operatora i ovi operatori se mogu grupisati u kategorije koje imaju isti prioritet.
+<br>
+ Prioritet operatora prema kategorijama je sledeći (od najvišeg ka najnižem):
+<ul>
+  <li>    <b>  osnovni operatori</b> (grupa, pristup polju, poziv metode, pristup indeksu, postinkrementiranje, postdekrementiranje, new, typeof, sizeof)
+<li>     <b>unarni operatori </b>(pozitivna vrednost +, negativna vrednost -,Logičko boolean NE!,konverzija (type) , predekrementiranje i preinkrementiranje)
+<li>      <b> višestruki </b>(množenje, deljenje, ostatak pri deljenju)
+<li>      <b> aritmetički </b> (sabiranje i oduzimanje)
+<li>      <b> pomeranje na nivou bita </b>(pomeranje u levo i pomeranje u desno)
+<li>      <b> relacioni operatori </b> ( >,<, >= ,<= )
+<li>      <b>  jednakost </b> (jednako = , nejednako !=)
+<li>      <b> I </b> na nivou bita
+<li>       ekskluzivno <b>ILI</b> na nivou bita
+<li>       <b> ILI </b> na nivou bita
+<li>       logičko <b>I</b>
+<li>       logičko <b>ILI </b>
+<li>       <b>ternarni operator</b>
+<li>       <b>operatori dodeljivanja</b>
+</ul>
+
+Kada se operand stavi izmedju dva operatora sa istim prioritetom, redosled operacije koja će se izvršiti odredjuje asocijativnost operatora.
+Operatori koji koriste dva operanda (npr. operator oduzimanja) su <b>levo asocijativni</b> (izvršavaju se sleva na desno), izuzev operatora dodeljivanja.
+Operatori dodeljivanja i trostruki operatori su <b>desno asocijativni </b>(tj. operacije se izvršavaju sdesna na levo).
+
+
+
+</body>
+</html>

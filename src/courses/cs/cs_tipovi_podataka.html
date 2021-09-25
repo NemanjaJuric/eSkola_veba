@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Tipovi podataka u C#</title>
+</head>
+<h1>Tipovi podataka u C#</h1>
+
+Sta je promenljiva?<br>
+
+<b>Promenljive</b> su  mesta u memoriji u kojima se podaci privremeno čuvaju kako bi program mogao da ih koristi.
+Svaka promenljiva ima: <b>TIP, IME i VREDNOST</b>.<br>
+Vrednost promenljive može da se menja za vreme izvršavanja programa, zbog čega je dobila i naziv - promenljiva.<br> 
+Svaka promenljiva mora da se deklariše, tj. da joj se da ime i da se navede tip.<br>
+Tipom se definiše dozvoljeni raspon vrednosti koje taj tip može da sadrži, kao i operacije koje se mogu obavljati na datoj promenljivoj.
+<br><br>
+Već smo pomenuli C# razlikuje mala i velika slova.
+Ime promenljive može da se sastoji od slova engleske abecede, cifara i znaka za podvlačenje ( _ ).
+Ime promenljive ne sme počinjati cifrom!
+<br><br>
+primer. Broj_učenika, GodišnjeDoba, mesec3 ...  
+<br><br>
+
+Računaru se mora dati informacija koja vrsta podataka će biti korišćena pomoću tipa podataka. 
+Tipom podataka definisani su: način registrovanja u memoriji, skup mogućih vrednosti tih podataka, skup mogućih akcija nad tim podacima.
+<br>
+<br>
+C# podržava sledeće osnovne tipove podataka:
+ <ul>
+<li>         numeričke
+<li>         znakovne
+<li>       logičke
+
+</ul> 
+Numerički tipovi se koristi za predstavljane celih i realnih brojeva.
+Za opisivanje celih brojeva koristi se više tipova datih u tabeli.
+<br>
+<br>
+<img src="courses/cs/slike/opseg_vrednosti.png"  class="img-lg">
+<br>
+<br>
+Za realne brojeve podržani su sledeći tipovi:
+<ul>
+<li>        float
+<li>       double
+<li>         decimal
+</ul>
+<br>
+<br>
+<img src="courses/cs/slike/opseg_vrednosti1.png"  class="img-lg">
+<br>
+<br> 
+Znakovni tip je <b>char</b> i predstavlja dozvoljene vrednosti sa UNICODE znakom odnosno celim brojem u intervalu 0 do 65536 što zauzima dva bajta.
+Konstante tipa char se pišu unutar navodnika npr. ‘a’,‘C’…  <br>
+Logički tip je <b>bool</b>. Može da ima samo dve vrednosti: <b>true (tačno)</b> i <b> false (netačno)</b>,i zauzima jedan bajt.
+
+<br><br>
+Primer deklaracije u programskom jeziku C#:
+<br>
+<xmp class = "primer_ta"> 
+int a,b;
+double c;
+char m,n;
+ </xmp>
+<br><br>
+
+</body>
+</html>

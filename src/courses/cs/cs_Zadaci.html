@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Algoritmi</title>
+</head>
+
+<body>
+<h1>Zadaci:</h1>
+
+<b>Zadatak 1</b><br>
+Napisati program kojim se unose sa tastature 3 broja, a zatim pronalazi njihov prosek.<br>
+<xmp class = "primer_ta"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float a, b, c, x;
+            string prvi, drugi, treci, prosek;
+            Console.WriteLine("Unesite 3 broja: ");
+            prvi = Console.ReadLine();   
+            drugi = Console.ReadLine();
+            treci = Console.ReadLine();
+            a = Convert.ToInt32(prvi);  
+            b = Convert.ToInt32(drugi);
+            c = Convert.ToInt32(treci);
+            x = (a + b + c) / 3;
+            prosek = Convert.ToString(x);
+            Console.WriteLine("Prosek iznosi:" +prosek);
+            Console.ReadKey(); 
+        }
+    }
+}
+
+</xmp>
+<br><br>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+<b>Zadatak 2</b><br>
+Napisati program kojim se sa tastature unose 2 broja, a zatim štampaju uređeni po veličini.<br>
+<xmp class = "primer_ta"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+            string prvi, drugi;
+            Console.WriteLine(“Unesite 2 broja, pa da ih uredim po velicini:”);
+            prvi = Console.ReadLine();
+            drugi = Console.ReadLine();
+            a = Convert.ToInt32(prvi);
+            b = Convert.ToInt32(drugi);
+            if (a > b)
+            {
+                Console.WriteLine(prvi + “, “ + drugi);
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine(drugi + “, “ + prvi);
+                Console.ReadKey();
+            }
+        }
+    }
+}
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+<br><br>
+
+<b>Zadatak 3</b><br>
+Sastaviti konzolnu aplikaciju, gde se unose dva broja a štampa njihov zbir i razlika:
+ Napraviti klasu matematika, i u okviru nje dve funkcije. Za sabiranje i oduzimanje.<br>
+<xmp class = "primer_ta"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication3
+{
+
+class Program
+{
+static void Main(string[] args)                  
+{
+    Matematika M = new Matematika();                    
+    
+    string prvi=Console.ReadLine();                     
+    string drugi=Console.ReadLine();                      
+    double x=Convert.ToDouble(prvi);                   
+    double y=Convert.ToDouble(drugi);                     
+    
+    
+    
+Console.WriteLine ( "zbir je"+M.Zbir (x, y) );     
+Console.WriteLine ("razlika je"+ M.Razlika (x, y) );          
+Console.ReadKey();
+
+}
+}
+class Matematika  //definisali smo klasu matematika
+{
+    public double Zbir(double A, double B)     
+{
+return A + B;                
+}
+public double Razlika(double A, double B)    
+{
+return A - B;
+}
+
+}
+
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+
+
+
+<br><br>
+<b>Zadatak 4</b><br>
+Uneti tri broja. Ispisati ih u rastućem poretku.
+<xmp class = "primer_ta"> 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication4
+{
+
+class Program
+{
+
+static void Main(string[] args)
+{
+    
+    
+    string prvi=Console.ReadLine();
+    string drugi=Console.ReadLine();
+    string treci=Console.ReadLine();
+    int x=Convert.ToInt32(prvi);
+    
+    int y=Convert.ToInt32(drugi);
+    int z=Convert.ToInt32(treci);
+    
+    if (x>y )
+    { int p;
+        p=x;
+        x=y;
+        y=p; }
+                 if (x>z)
+                 { int p;
+                    p=x;
+                  x=z;
+                  z=p;}
+        if (y>z)
+        {int p;
+        p=y;
+        y=z;
+        z=p;
+        }
+    
+        prvi=Convert.ToString(x);
+        drugi=Convert.ToString(y);
+        treci=Convert.ToString(z);
+    
+Console.WriteLine( prvi+" "+drugi+" "+treci );
+
+Console.ReadKey();
+
+}
+}
+
+
+}
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+</body>
+</html>

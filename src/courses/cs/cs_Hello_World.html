@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Hello World</title>
+</head>
+
+<body>
+  <h1>Prvi program u C#</h1>
+
+
+Kreiranje programa obuhvata tri glavna koraka: unošenje, prevođenje (kompajliranje) i pokretanje programa.
+<br>
+Unošenje programa:
+<xmp class = "primer_ta"> 
+
+using System;
+
+namespace HelloWorldApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            /*ovo je komentar*/
+            Console.WriteLine("Hello World!");
+		Console.ReadKey(); 
+        }
+    }
+}
+ 
+</xmp>
+
+
+<br>
+<br>
+Kada je ovaj kod kompajliran i izvršen dobijamo sledeći rezultat:
+<br>
+<br>
+<xmp class = "primer_ta"> Hello World </xmp>
+
+<br>
+<br>
+Delove ovog programa čine:
+<ul>
+<li>	Prva linija programa  <b>using System; - using</b> je ključna reč upotrebljena da uključi  include System namespace u program.
+        Program generalno ima različite using objave.  
+<li>	Sledeća  linija je  <b>namespace</b>  deklaracija. Namespace je kolekcija klasa. HelloWorldApplication namespace sadrži klasu  HelloWorld.
+<li>	Sledeća linija je deklaracija klase.   class HelloWorld sadrži podatke i metode definisane da ih program koristi.
+ Klase generalno sadrže različite metode.   Metode definišu ponašanje klase. HelloWorld class ima samo  method <b>Main</b>.
+<li>	Sledeća linija definiše  <b>Main method</b>, koji je polazna tačka za sve C# programe. The Main method objavljuje šta klasa radi kada je izvršena.
+<li>	Liniju  /*...*/ ignoriše kompajler, a predstavlja komentare u programu.
+<li>	U main methodi je napisano <b>Console.WriteLine("Hello World")</b>;
+WriteLine je metoda  Console class definisane u   System namespace. Ova izjava omogućava da na ekranu bude ispisano  "Hello, World!" .Linija <b> Console.ReadKey();</b> je za  VS.NET korisike.  Program čeka da korisnik pritisne bilo koji taster da bi nastavio sa radom tj  nama omogućava da vidimo rezultate programa koji će biti zatvoren nakon toga.
+</ul>
+
+<div class = "napomena">
+<h2>Pažnja:</h2>
+<ul>
+<li>	C# razlikuje <u>velika i mala slova</u>.
+<li>	Sve objave i izrazi završavaju sa  <b>(;)</b>.
+<li>	Program se izvršava startovanjem   <b>Main</b> metode.
+ <li>       Za razliku od Jave, ime klase može biti drugačije od imena datoteka.
+
+</ul>
+</div>
+
+</body>
+</html>

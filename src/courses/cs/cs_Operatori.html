@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Operatori</title>
+</head>
+
+<body>
+<h1>Operatori</h1>
+
+Postoje operatori doodeljivanja, aritmetički operatori, logički i operatori poređenja.
+
+<h2>Operator doodeljivanja/dodele </h2>
+
+Operator doodeljivanja je znak jednakosti  <b>=</b> i koristi se na sledeći način:<br>
+<b>promenljiva = izraz </b>.<br>
+Prvo se izračunava vrednost izraza i tako dobijena vrednost dodeli promenljivoj na levoj strani.
+<br>
+<br>
+<b>Primer3. Operator dodele</b>
+<xmp class = "primer_ta"> 
+int a,b,c;
+a=15;
+b=100;
+c=15-9;
+</xmp>
+
+<h2>Aritmetički operatori</h2>
+
+Aritmetički operatori izvršavaju aritmetičke operacije. Postoji pet aritmetičkih operatora:
+<br><b>+</b> (sabiranje)
+<br><b>-</b> (oduzimanje)
+<br><b>*</b> (množenje)
+<br><b>/</b> (deljenje)
+<br><b>%</b>(ostatak celobrojnog deljenja - moduo)
+<br><br>
+<b>Primer4. Aritmetički operatori</b>
+<xmp class = "primer_ta"> 
+5+6;
+4-3;
+3*2;
+8/5;
+8%5;
+</xmp>
+ 
+<h2>Operatori poređenja</h2>
+<br>
+<br>
+Operatori poređenja (relacijski operatori) upoređuju odnos između vrednosti i vraćaju Boolean vrednost (true ili false).
+
+
+<br> <b> == </b> (ekvivalencija tj. jednakost)
+<br> <b>!= </b> (neekvivalencija tj. različito)
+<br><b> < </b> (manje)
+<br><b> > </b> (veće)
+<br><b> <= </b> (manje ili jednako)
+<br><b> >= </b> (veće ili jednako) <br>
+<br>
+<b>Primer 5.</b>
+<xmp class = "primer_ta">
+5  == 9 
+7 != 8  
+100  > 1       
+</xmp>
+<br>
+
+U primeru 5, pitamo se da li je 5 jednako 9? Kako ovo nije ispunjeno, ovaj izraz vraća false.
+Slično tako, postavljamo pitanje da li je 7 različito od 8? Ovo  jeste ispunjeno pa izraz vraća true.
+U poslednjem primeru, takođe je uslov ispunjen, pa izraz vraća true.
+
+<h2>Napomena</h2>
+<div class = "napomena">
+Postoji razlika između operatora ( == ), koji poredi dve vrednosti i operatora dodele ( = ) koji vrši dodeljivanje vrednosti.
+</div>
+
+<h2>Logički operatori</h2>
+Logički operatori su:
+<br><b>! </b> (negacija)
+<br><b>||</b> (logičko ili-OR)
+<br><b>&&</b> (logičko I-AND)
+<br><br>
+Postoje takođe i složeni operatori dodele koji imaju oblik:
+ 
+<b>operator=</b>
+ gde operator može biti bilo koji aritmetički operator. <br>
+Primer:
+  
+
+<xmp class = "primer_ta">
+a+=b;
+</xmp>
+je isto ako da smo napisali:  
+<xmp class = "primer_ta">
+a=a+b;
+</xmp>
+<h2>Operatori inkrementiranja i dekrementiranja</h2><br>
+Operatori inkrementiranja u oznaci <b>++</b> i dekrementiranja u oznaci <b>--</b> mogu biti prefiksni i postfiksni.<br> 
+Operator inkrementiranja povećava  vrednost operanda za jedan, 
+a operator dekrementiranja smanjuje vrednost operanda za jedan i to bez obzira da li su prefiksni ili postfiksni. <br>
+ Razlika  se  uočava jednino kada su ovi operatori deo nekog složenijeg izraza.<br>
+<b>Primer 6.</b>
+<xmp class = "primer_ta">
+int i = 5;
+int y = 10;
+int x = 0;
+i++;
+y--;
+++x;
+       
+</xmp>
+
+U primeru broj 6
+na samom početku vrednosti promenljivih su i=5,y=10, x=0. Posle inkrementacije i dekrementacije promenljive dobijaju sledeću vrednost i=6, y=9, x=1.
+<br>
+<br>
+<b>Primer 7.</b>
+<xmp class = "primer_ta">
+x = y + ++i;          /* x=16 jer se vrednost i poveća za jedan pa se sabere sa y   */
+x = y + i++;          /* x=15 jer se vrednost i sabere sa y i dodeli x, a zatim se i poveća za jedan  */
+x = y + --i; /* x=14 jer se vrednost i smanji za jedan, pa se sabere sa y  */
+x = y + i--;  /* x=15 jer se vrednost i sabere sa y i dodeli x, a zatim se i smanji za jedan  */
+</xmp>  
+
+U primeru broj 7 imamo složenije izraze.
+U prvom redu, x=16 jer se vrednost i poveća za jedan pa se sabere sa y. <br>
+U drugom redu, x=15 jer se vrednost i sabere sa y i dodeli x, a zatim se i poveća za jedan. <br>
+Treći red, x uzima vrednost 14 jer se vrednost i smanji za jedan, pa se sabere sa y.<br>
+U četvrtom redu,  x=15 jer se vrednost i sabere sa y i dodeli x, a zatim se i smanji za jedan .<br><br>
+</body>
+</html>
