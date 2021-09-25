@@ -4179,14 +4179,14 @@
     "lessons": [
       {
         "name": "Uvod",
-        "url": "c_dobrodošli",
+        "url": "c_dobrodosli",
         "type": "lesson",
         "parentCourse": "c",
         "sublessons": null
       },
       {
         "name": "Ključne reči i identifikatori",
-        "url": "c_ključne_reči_i_identifikatori",
+        "url": "c_kljucne_reci_i_identifikatori",
         "type": "lesson",
         "parentCourse": "c",
         "sublessons": null
@@ -4201,13 +4201,6 @@
       {
         "name": "Tipovi podataka",
         "url": "c_tipovi_podataka",
-        "type": "lesson",
-        "parentCourse": "c",
-        "sublessons": null
-      },
-      {
-        "name": "Uvod",
-        "url": "c_dobrodošli",
         "type": "lesson",
         "parentCourse": "c",
         "sublessons": null
