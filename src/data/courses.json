@@ -433,7 +433,7 @@
       "serversko_programiranje",
       "programski_jezici"
     ],
-    "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira. ",
+    "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira.",
     "lessons": [
       {
         "name": "Uvod u JavaScript",
@@ -4370,6 +4370,116 @@
         "url": "csssist_test",
         "type": "lesson",
         "parentCourse": "csssist",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "JavaScript",
+    "id": "jssist",
+    "logo": "<i class='fab fa-js' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "HTML",
+    "sections": ["srednja_skola"],
+    "detailsText": "JavaScript je najpopularniji programski jezik koji programira dinamično ponašanje naših veb stranica. JavaScript je lagan, ali izuzetno moćan programski jezik. Najčešće se sa njim susrećemo u našim pregledačima. \n        Čak i veb serveri mogu biti pokrenuti od strane JavaScript-a. Kao dinamičan programski jezik JavaScript ne mora biti pokrenut kroz kompajler koji čita kod u nešto što naš pregledač razume. Pregledač efektivno čita kod na isti način kao i mi, zatim ga interpretira.",
+    "lessons": [
+      {
+        "name": "Uvod u JavaScript, promenljive i tipovi podataka",
+        "url": "jssist_uvod",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": "jssist_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Operacije i nizovi",
+        "url": "jssist_operacije_nizovi",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Metode nad nizovima",
+        "url": "jssist_metode_nad_nizovima",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "JavaScript stringovi",
+        "url": "jssist_stringovi",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "JavaScript brojevi i datumi",
+        "url": "jssist_brojevi_datumi",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "If, while, for i for-in petlje",
+        "url": "jssist_petlje",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "jssist_funkcije",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Objekti i DOM",
+        "url": "jssist_objekti_dom",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Događaji",
+        "url": "jssist_dogadjaj",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Callback funkcije i regularni izrazi",
+        "url": "jssist_cb_funkcije",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Primeri",
+        "url": "jssist_primeri",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Zadaci",
+        "url": "jssist_zadaci",
+        "type": "lesson",
+        "parentCourse": "jssist",
+        "sublessons": null
+      },
+      {
+        "name": "Test",
+        "url": "jssist_test",
+        "type": "lesson",
+        "parentCourse": "jssist",
         "sublessons": null
       }
     ]
