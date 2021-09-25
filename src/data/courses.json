@@ -195,7 +195,7 @@
     "lang": "text/html",
     "displayLang": "HTML",
     "sections": ["klijentsko_programiranje"],
-    "detailsText": "\n        CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.\n        ",
+    "detailsText": "CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.",
     "lessons": [
       {
         "name": "Uvod u CSS",
@@ -4288,6 +4288,88 @@
         "url": "htmlsist_test",
         "type": "lesson",
         "parentCourse": "htmlsis",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "CSS",
+    "id": "csssist",
+    "logo": "<i class='fab fa-css3' aria-hidden='true'></i>",
+    "type": "course",
+    "lang": "text/html",
+    "displayLang": "CSS",
+    "sections": ["srednja_skola"],
+    "detailsText": "CSS (engl. Cascade Style Sheets, jezik formatiranja pomoću kog se definiše izgled elemenata veb-stranice) služi za definisanje stilova koji određuju izgled HTML elemenata. Da bi učenje CSS-a imalo nekog smisla morate znati HTML. Prvobitno, HTML je služio da definiše kompletan izgled, strukturu i sadržaj veb-stranice, ali je od verzije 4.0 HTML-a uveden CSS koji bi definisao konkretan izgled, dok je HTML ostao u funkciji definisanja strukture i sadržaja. CSS je lako naučiti i razumeti, ali pruža moćnu kontrolu nad prezentacijom HTML dokumenta. CSS ima daleko veće dizajnerske mogućnosti od čistog HTML-a. Zato je danas CSS gotovo nezamenjiv u dizajniranju Web stranica. \n        <br>\n        <br>\n        Na kraju ovog kursa ćete naučiti osnove CSS-a i kako da stilizujete svoju veb stranu.",
+    "lessons": [
+      {
+        "name": "Uvod",
+        "url": "csssist_uvod",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Selektori, boje i osobine teksta",
+        "url": "csssist_selektori_boje_osobine_teksta",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Box model",
+        "url": "csssist_box_model",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Grupisanje, ugnježdavanje i pseudo klase",
+        "url": "csssist_grupisanje_ugnjezdavanje_pseudo_klase",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Display, layout stranice i float",
+        "url": "csssist_display_layout_stranice_float",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Relativno, apsolutno i fiksno pozicioniranje",
+        "url": "csssist_relativno_apsolutno_fiksno_pozicioniranje",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "2D i 3D transformacije",
+        "url": "csssist_2D_3D_transformacije",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Tranzicije i animacije",
+        "url": "csssist_tranzicije_animacije",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Media upiti",
+        "url": "csssist_media_upiti",
+        "type": "lesson",
+        "parentCourse": "csssist",
+        "sublessons": null
+      },
+      {
+        "name": "Test",
+        "url": "csssist_test",
+        "type": "lesson",
+        "parentCourse": "csssist",
         "sublessons": null
       }
     ]
