@@ -4157,17 +4157,6 @@
     ]
   },
   {
-    "name": "HTML",
-    "id": "html",
-    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
-    "type": "course",
-    "lang": "text/html",
-    "displayLang": "HTML",
-    "sections": ["srednja_skola"],
-    "detailsText": "HTML je standardni jezik za kreiranje veb stranica. Naziv je skraćenica od Hyper Text Markup Language. Jezik HTML se zasniva na eksplicitnom obeležavanju logičke strukture dokumenta.",
-    "lessons": []
-  },
-  {
     "name": "C",
     "id": "c",
     "logo": "<i class='fas fa-copyright'></i>",
@@ -4237,7 +4226,7 @@
   },
   {
     "name": "HTML",
-    "id": "htmlsis",
+    "id": "htmlsist",
     "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
     "type": "course",
     "lang": "text/html",
@@ -4247,7 +4236,7 @@
     "lessons": [
       {
         "name": "Uvod",
-        "url": "htmlsis_uvod",
+        "url": "htmlsist_uvod",
         "type": "lesson",
         "parentCourse": "htmlsis",
         "sublessons": null
