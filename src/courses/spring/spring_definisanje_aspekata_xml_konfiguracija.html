@@ -1,92 +1,80 @@
-<h1>Definisanje aspekata - XML konfiguracija</h1>
-Ovaj način definisanja aspekata zahteva pisanje AOP konfiguracije u okviru XML
-datoteke.
-<br />
-Koriste se sledeće etikete:
-<ul>
-  <li>&ltaop:config> - definiše se kompletna kofiguracija aspekta</li>
-  <li>&ltaop:aspect> - definiše aspekt</li>
-  <li>&ltaop:before> - definiše se advice tipa before</li>
-  <li>&ltaop:atfer> - definiše se advice tipa after</li>
-  <li>&ltaop:after-returning> - definiše se advice tipa after-returning</li>
-  <li>&ltaop:after-throwing> - definiše se advice tipa after-throwing</li>
-  <li>&ltaop:around> - definiše se advice tipa around</li>
-  <li>&ltaop:poincut> - definiše se pointcut</li>
-</ul>
+<h1>Definisanje aspekata - xml konfiguracija</h1>
 
-U narednom primeru predstavljena je klasa IdentityCardTaker koja će biti
-definisana kao aspekt u okviru XML datoteke, kao i klasa ValidityChecker na koju
-će taj aspekt biti primenjen.
-<br />
-<xmp class="primer_ta"
->
-public class IdentityCardTaker {
-	
-	public void leaveIC() {
-		System.out.println("Leave your identity card!");
-	}
+<p>
+	Ukoliko se koristi xml konfiguracija za kreiranje i povezivanje zrna u Spring kontejneru, potrebno je da odgovarajuća xml
+	datoteka sadrži etiketu &lt;aop:aspectj-autoproxy>.
+</p>
 
-	public void takeIC() {
-		System.out.println("Take your identity card!");
-	}
-
-}
-</xmp>
-<xmp class="primer_ta"
->
-public class ValidityChecker {
-	
-	public void check() {
-
-		System.out.println("Checking validity!");
-	}
-
-}
-</xmp>
-<br />
-Pre poziva metode check() biće izvršena metoda leaveIC(), a nakon metode check()
-biće pozvana metoda takeIC(). Da bi se to postiglo, odgovarajuća XML datoteka
-treba da ima sledeći oblik.
-<br />
 <xmp class="primer_ta">
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:aop="http://www.springframework.org/schema/aop"
-xsi:schemaLocation=
-"http://www.springframework.org/schema/aop
-http://www.springframework.org/schema/aop/spring-aop.xsd
-http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="identityCardTaker" class="IdentityCardTaker"> </bean>
-	<bean id="validityChecker" class="ValidityChecker"> </bean>
-<aop:config>
-	<aop:aspect ref="identityCardTaker">
-	<aop:before pointcut="execution(check())" method="leaveIC"/>
-	<aop:after pointcut="execution(check())" method="takeIC"/>
-	</aop:aspect>
-</aop:config>
+<beans xmlns="http://www.springframework.org/schema/beans" ...>
+	<aop:aspectj-autoproxy />
+	<bean class="putnici" />
+	<bean class="avion" />
 </beans>
 </xmp>
 
-Main metoda:
-<br />
-<xmp class="primer_ta"
->
-public static void main(String[] args) {
+<p>
+	Spring nudi nekoliko elemenata koji se mogu koristiti za definisanje aspekata korišćenjem xml konfiguracije.
+	<ul>
+		<li> &lt;aop:aspect> - definiše aspekt;</li>
+		<li> &lt;aop:after> - definiše advice tipa after;</li>
+		<li> &lt;aop:after-returning> - definiše advice tipa after-returning;</li>
+		<li> &lt;aop:after-throwing> - definiše advice tipa after-throwing;</li>
+		<li> &lt;aop:around> - definiše advice tipa around;</li>
+		<li> &lt;aop:before> - definiše advice tipa before;</li>
+		<li> &lt;aop:poincut> - definiše pointcut;</li>
+		<li> &lt;aop:config> - sadrži ostale &lt;aop:> elemente.</li>
+	</ul>
+</p>
 
-   	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-   
-   	ValidityChecker validityChecker  =  (ValidityChecker)context.getBean(“airplane”);
-  	validityChecker.check();
+<xmp class="primer_ta">
+public class Putnici {
+	public void zauzetiMesta() {
+		System.out.println("Dragi putnici, molimo zauzmite vasa mesta!");
+	}
+
+	public void aplauz() {
+		System.out.println("Avion je sleteo. Putnici tapsu!!!");
+	}
+
+	public void prinudnoSletanje() {
+		System.out.println("Avionje prinudno sleteo!");
+	}
 }
 </xmp>
-<br />
-Rezultat naredbe validityChecker.check(); je:
-<br />
-Leave your identity card!
-<br />
-Checking validity!
-<br />
-Take your identity card!
-<br />
+
+<p>
+	Kako bi se definisao aspekt definisan klasom Putnici, potrebno je da konfiguraciona xml datoteka sadrži sledeći deo.
+</p>
+
+<xmp class="primer_ta">
+<aop:config>
+	<aop:aspect id="primerAspekta" ref="putnici">
+		<aop:before pointcut="execution(let(..))" methods="zauzetiMesta" />
+		<aop:after-returning pointcut="execution(let(..))" methods="aplauz" />
+		<aop:after-throwing pointcut="execution(let(..))" methods="prinudnoSletanje" />
+	</aop:aspect>
+</aop:config>
+</xmp>
+
+<xmp class="primer_ta">
+public static void main(String[] args) {
+	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+	Avion avion = (Avion) context.getBean("avion");
+	avion.let();
+}
+</xmp>
+
+<p>
+	Rezultat poziva metode avion.let() je:
+</p>
+
+
+<xmp class="primer_ta">
+Dragi putnici, molimo zauzmite vasa mesta!
+
+Avion leti!
+
+Avion je sleteo. Putnici tapsu!!!		
+</xmp>

@@ -1,0 +1,60 @@
+<h1>Aplikacija Spring Initializr</h1>
+
+<p>
+    Spring Initializr je veb aplikacija namenjena za automatsko generisanje Spring Boot projekta.
+</p>
+
+<p>
+    U narednom delu biće prikazano konfigurisanje Spring Boot projekta uz pomoć aplikacije Spring Initializr, korišćenjem alata
+    Spring Tools u razvojnom okruženju Eclipse.
+</p>
+
+<br />
+<img src="courses/spring/images/novi_projekat.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Kako bi se konfigurisala Spring Boot aplikacija potrebno je odabrati opciju File, a zatim New -> Project. Nakon toga, otvara
+    se prozor u okviru koga je kao tip projekta potrebno odabrati Spring Starter Project.
+</p>
+
+<p>
+    Nakon odabira projekta, otvara se prozor u okviru koga je potrebno uneti osnovne informacije o projektu.
+</p>
+
+<br />
+<img src="courses/spring/images/osnovna_konfiguracija.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Nakon unosa osnovnih informacija o projektu i odabira opcije Next, otvara se prozor u okviru koga je potrebno odabrati Spring
+    Boot verziju, kao i zavisnosti projekta.
+</p>
+
+<br />
+<img src="courses/spring/images/zavisnosti_projekta.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Odabirom opcije Finish poziva se aplikacija Spring Initializr kako bi se konfigurisao projekat na osnovu prethodno odabranih
+    podešavanja. Izvorni kod aplikacije smešten je u okviru foldera src/main/java, testovi su smešteni u folderu src/test/java,
+    dok su resursi smešteni u okviru foldera src/main/resources. mvnw i mvnw.cmd predstavljaju Maven skripte koje se mogu
+    koristiti za izgradnju projekta. U okviru datoteke pom.xml mogu se pregledati definisane zavisnosti projekta. Folder
+    static sadrži sve statičke komponente, kao što su npr. slike. Folder templates sadrži obrasce koji se koriste za generisanje
+    sadržaja u okviru veb pregledača.
+</p>
+
+<br />
+<img src="courses/spring/images/struktura_projekta.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Prilikom odabira zavisnosti projekta moguće je odabrati i Spring Dev Tools. Spring Dev Tools nudi nekoliko funkcionalnosti
+    koje ubrzavaju razvoj aplikacije, među kojima su automatsko ponovno pokretanje aplikacije nakon svake izmene, kao i automatsko
+    osvežavanje izmenjene stranice. U okviru alata Spring Tools dostupan je i Spring Boot Dashboard preko kojeg je moguće
+    jednostavno pokrenuti i zaustaviti Spring Boot aplikaciju.
+</p>
+
+<br />
+<img src="courses/spring/images/spring_boot_dashboard.png" class="img-fluid img-sm" />
+<br />

@@ -1,0 +1,102 @@
+<h1>Umetanje zavisnosti - XML konfiguracija</h1>
+
+<p>
+	xml konfiguracija predstavljala je osnovni način definisanja i povezivanja zrna u prvim verzijama radnog okvira Spring. Umetanje
+	zavisnosti xml konfiguracijom moguće je postići na dva načina:
+	<ul>
+		<li>Umetanje zavisnosti preko konstruktora klase;</li>
+		<li>Umetanje zavisnosti preko set metoda.</li>
+	</ul>
+</p>
+
+<p>
+	Oba načina biće predstavljena korišćenjem klasa Krug i Tacka.
+</p>
+
+<xmp class="primer_ta">
+public class Krug {
+	private Tacka centar;
+	private double poluprecnik;
+
+	public Krug(Tacka centar, double poluprecnik) {
+		this.centar = centar;
+		this.poluprecnik = poluprecnik;
+	}
+
+	public void postaviCentar(Tacka centar) {
+		this.centar = centar;
+	}
+
+	public void postaviPoluprecnik(double poluprecnik) {
+		this.poluprecnik = poluprecnik;
+	}
+
+	public String toString() {
+		return "Centar: " + centar + ", poluprecnik: " + poluprecnik;
+	}
+}
+</xmp>
+
+<xmp class="primer_ta">
+public class Tacka {
+	private int x;
+	private int y;
+
+	public Tacka(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public String toString() {
+		return "(" + x + "," + y + ")";
+	}
+}
+</xmp>
+
+<h3>Umetanje zavisnosti preko konstruktora klase</h3>
+
+<p>
+	Klasa Krug ima konstruktor koji prihvata objekat klase Tacka. Potrebno je u okviru xml datoteke deklarisati zrno klase Tacka
+	i umetnuti ga u zrno klase Krug. To se postiže korišćenjem etikete &lt;constructor-arg> u okviru etikete &lt;bean> koja
+	deklariše zrno klase Krug. Etiketa &lt;constructor-arg> ima atribut ref čija je vrednost id zrna klase Tacka. Kontejner
+	može da prosleđuje konstruktoru i argumente primitivnog tipa. To se postiže korišćenjem atributa type i value u okviru etikete
+	&lt;constructor-arg>. Međutim, ukoliko postoji više argumenata istog tipa, kako bi se izbegla dvosmislenost potrebno je
+	koristiti atribut index čija vrednost predstavlja redni broj argumenta. Dakle, prilikom kreiranja zrna klase Krug kontejner
+	koristi konstruktor klase Krug za umetanje potrebnih zavisnosti.
+</p>
+
+<xmp class="primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" ...>
+	<bean id="krug" class="Krug">
+		<constructor-arg ref="centar" />
+		<constructor-arg type="double" value="3.5" />
+	</bean>
+	<bean id="centar" class="Tacka">
+		<constructor-arg index="0" value="5" />
+		<constructor-arg index="1" value="3" />
+	</bean>
+</beans>
+</xmp>
+
+<h3>Umetanje zavisnosti preko set metoda</h3>
+
+<p>
+	Umetanje zavisnosti preko set metoda se ostvaruje tako što kontejner prilikom kreiranja zrna poziva set metode kako bi umetnuo
+	odgovarajuće zavisnosti. To se postiže korišćenjem etikete &lt;property>. Atribut name u okviru etikete &lt;property> definiše
+	naziv polja kome se dodeljuje vrednost, a u zavisnosti od tipa polja atributi ref i value se koriste za dodeljivanje vrednosti.
+</p>
+
+<xmp class="primer_ta">
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" ...>
+	<bean id="krug" class="Krug">
+		<property name="centar" ref="tacka" />
+		<property name="poluprecnik" value="3.5" />
+	</bean>
+	<bean id="tacka" class="Tacka">
+		<property name="x" value="5" />
+		<property name="y" value="3" />
+	</bean>
+</beans>
+</xmp>

@@ -1,0 +1,89 @@
+<h1>Definisanje aspekata - Java konfiguracija</h1>
+
+<p>
+	Najvažnija karakteristika radnog okvira AspectJ jeste mogućnost definisanja aspekata korišćenjem anotacija.
+</p>
+
+<xmp class="primer_ta">
+@Aspect
+public class Putnici {
+	@Before("execution(let())")
+	public void zauzetiMesta() {
+		System.out.println("Dragi putnici, molimo zauzmite vasa mesta!");
+	}
+
+	@AfterReturning("execution(let())")
+	public void aplauz() {
+		System.out.println("Avion je sleteo. Putnici tapsu!!!");
+	}
+
+	@AfterThrowing("execution(let())")
+	public void prinudnoSletanje() {
+		System.out.println("Avion je prinudno sleteo!");
+	}
+}
+</xmp>
+
+<p>
+	Klasa Putnici koja ima anotaciju @Aspect. Anotacija @Aspect označava da ta klasa nije standarna Java klasa, već predstavlja
+	jedan aspekt.
+</p>
+
+<p>
+	Klasa Putnici ima tri metode koje imaju anotacije @Before, @AfterReturning i @AfterThrowing. Time je definisano kada te metode
+	treba da se izvrše u odnosu na izvršavanje metode let() klase Avion.
+</p>
+
+<xmp class="primer_ta">
+public class Avion { 
+	public void let() { 
+		System.out.println("Avion leti!") 
+	} 
+}
+</xmp>
+
+<p>
+	Iako klasa Putnici ima anotaciju @Aspect, ona neće biti definisana kao aspekt u Spring kontejneru. Kako bi se to postiglo
+	konfiguracijskoj klasi je potrebno dodati anotaciju @EnableAspectJAutoProxy.
+</p>
+
+<xmp class="primer_ta">
+@Configuration
+@EnableAspectJAutoProxy
+public class Konfiguracija {
+	@Bean
+	public Putnici putnici() {
+		return new Putnici();
+	}
+
+	@Bean
+	public Avion avion() {
+		return new Avion();
+	}
+}
+</xmp>
+
+<xmp class="primer_ta">
+public static void main(String[] args) {
+	ApplicationContext context = new AnnotationConfigApplicationContext(Konfiguracija.class);
+	Avion avion = (Avion) context.getBean("avion");
+	avion.let();
+}
+</xmp>
+
+<p>
+	Rezultat naredbe avion.let() je:
+</p>
+
+
+<xmp class="primer_ta">
+Dragi putnici, molimo zauzmite vasa mesta!
+
+Avion leti! 
+
+Avion je sleteo. Putnici tapsu!!!
+</xmp>
+
+<p>
+	Dakle, pre izvršavanja metode let() poziva se metoda zauzetiMesta(), a nakon izvršavanja te metode poziva se metoda aplauz().
+</p>

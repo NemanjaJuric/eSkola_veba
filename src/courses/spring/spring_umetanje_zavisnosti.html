@@ -1,0 +1,116 @@
+<h1>Umetanje zavisnosti</h1>
+
+<p>
+	Rad na komplikovanom projektu zahteva kreiranje velikog broja klasa koje bi trebalo da budu što više nezavisne jedne od drugih,
+	kako bi se projekat što lakše održavao i unapređivao.
+</p>
+
+<p>
+	Umetanje zavisnosti (eng. dependency injection) je koncept razdvajanja zavisnosti između klasa, a radni okvir Spring daje
+	podršku za taj koncept. Umetanje zavisnosti pomaže u razdvajanju koda odnosno klasa, tj. omogućava da se prilikom kreiranja
+	nekog objekta umetnu u njega oni objekti od kojih on zavisi. Na taj način objekat koji zavisi od nekih drugih objekata nije
+	zadužen za kreiranje svojih zavisnosti i nije vezan za konkretne implementacije tih zavisnosti.
+</p>
+
+<p>
+	U narednom delu predstavljene su klase Kasetofon i Kaseta.
+</p>
+
+<xmp class="primer_ta">
+public class Kasetofon {
+	private Kaseta kaseta;
+
+	public Kasetofon() {
+		kaseta = new Kaseta();
+	}
+
+	public void pokreni() {
+		kaseta.pusti();
+	}
+}
+</xmp>
+
+<xmp class="primer_ta">
+public class Kaseta {
+	private String naslov = "April u Beogradu";
+	private String izvodjac = "Zdravko Colic";
+
+	public void pusti() {
+		System.out.println("Svira kaseta izvodjaca " + izvodjac + " pod nazivom " + naslov);
+	}
+}
+</xmp>
+
+<p>
+	Kao što se može videti, objekat klase Kasetofon sadrži objekat klase Kaseta i zadužen je za njegovo kreiranje. Na taj način
+	je vezan za jedan konkretan objekat klase Kaseta. Ovakav pristup nije poželjan jer smanjuje mogućnost ponovnog korišćenja
+	koda, dovodi do problema prilikom testiranja i težak je za razumevanje.
+</p>
+
+<p>
+	Klasa Kasetofon se može izmeniti tako da objekat te klase nije zadužen za kreiranje svojih zavisnosti, već su mu te zavisnosti
+	date prilikom kreiranja.
+</p>
+
+
+<xmp class="primer_ta">
+public class Kasetofon {
+	private Kaseta kaseta;
+
+	public Kasetofon(Kaseta kaseta) {
+		this.kaseta = kaseta;
+	}
+}
+</xmp>
+
+<p>
+	Osim umetanja zavisnosti preko konstruktora, zavisnosti je moguće umetnuti i korišćenjem set metoda, jer možda nisu dostupne
+	u trenutku kreiranja objekta.
+</p>
+
+<xmp class="primer_ta">
+public class Kasetofon {
+	private Kaseta kaseta;
+
+	public void ubaciKasetu(Kaseta kaseta) {
+		this.kaseta = kaseta;
+	}
+}
+</xmp>
+
+<p>
+	Kako bi se obezbedila još veća nezavisnost između navedenih klasa, Kaseta se može definisati kao interfejs.
+</p>
+
+<xmp class="primer_ta">
+public interface Kaseta { 
+	void pusti(); 
+}
+</xmp>
+
+<p>
+	Na ovaj način obezbeđuje se mogućnost ponovnog korišćenja istog dela koda, kod postaje čitljiviji i olakšava se njegovo testiranje.
+	Takođe, različiti timovi mogu da rade na razvoju različitih delova aplikacije bez međusobne zavisnosti, ukoliko je komunikacija
+	između tih delova aplikacije definisana interfejsima.
+</p>
+
+<p>
+	Spring kontejner zadužen je za kreiranje objekata aplikacije, čime se obezbeđuje da objekti ne znaju odakle dolaze njihove
+	zavisnosti niti kako izgledaju njihove implementacije. Umetanje zavisnosti jeste osnovni deo radnog okvira Spring na kome
+	se zasnivaju sve Spring aplikacije.
+</p>
+
+<p>
+	Spring nudi tri načina povezivanja zrna:
+	<ul>
+		<li>Eksplicitna xml konfiguracija;</li>
+		<li>Eksplicitna Java konfiguracija;</li>
+		<li>Automatsko povezivanje zrna.</li>
+	</ul>
+</p>
+
+<p>
+	Automatski način povezivanja zrna zahteva najmanje konfiguracije, pa se iz toga razloga najviše preporučuje. Ukoliko je potrebno
+	kreirati zrna klasa koje nisu napisane kao deo projekta i čiji izvorni kod nije dostupan, to se može postići eksplicitnom
+	xml ili Java konfiguracijom.
+</p>

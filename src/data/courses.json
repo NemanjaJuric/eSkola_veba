@@ -2669,13 +2669,6 @@
         "sublessons": null
       },
       {
-        "name": "Radni okvir Spring Framework",
-        "url": "spring_radni_okvir_spring_framework",
-        "type": "lesson",
-        "parentCourse": "spring",
-        "sublessons": null
-      },
-      {
         "name": "Podesavanje okruzenja",
         "url": "spring_podesavanje_okruzenja",
         "type": "lesson",
@@ -2690,29 +2683,29 @@
         "sublessons": null
       },
       {
-        "name": "Injektovanje zavisnosti",
-        "url": "spring_injektovanje_zavisnosti",
+        "name": "Umetanje zavisnosti",
+        "url": "spring_umetanje_zavisnosti",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
       },
       {
-        "name": "Injektovanje zavisnosti - XML konfiguracija",
-        "url": "spring_injektovanje_zavisnosti_xml_konfiguracija",
+        "name": "Automatsko umetanje zavisnosti",
+        "url": "spring_automatsko_umetanje_zavisnosti",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
       },
       {
-        "name": "Injektovanje zavisnosti - Java konfiguracija",
-        "url": "spring_injektovanje_zavisnosti_java_konfiguracija",
+        "name": "Umetanje zavisnosti - xml konfiguracija",
+        "url": "spring_umetanje_zavisnosti_xml_konfiguracija",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
       },
       {
-        "name": "Automatsko povezivanje zrna",
-        "url": "spring_automatsko_povezivanje_zrna",
+        "name": "Umetanje zavisnosti - Java konfiguracija",
+        "url": "spring_umetanje_zavisnosti_java_konfiguracija",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
@@ -2725,22 +2718,36 @@
         "sublessons": null
       },
       {
-        "name": "Definisanje aspekata - AspectJ anotacije",
-        "url": "spring_definisanje_aspekata_aspectj_anotacije",
+        "name": "Definisanje aspekata - Java konfiguracija",
+        "url": "spring_definisanje_aspekata_java_konfiguracija",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
       },
       {
-        "name": "Definisanje aspekata - XML konfiguracija",
+        "name": "Definisanje aspekata - xml konfiguracija",
         "url": "spring_definisanje_aspekata_xml_konfiguracija",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null
       },
       {
-        "name": "Upavljenje dogadjajima",
-        "url": "spring_upravljanje_dogadjajima",
+        "name": "Radni okvir Spring Boot",
+        "url": "spring_radni_okvir_spring_boot",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Aplikacija Spring Initializr",
+        "url": "spring_aplikacija_spring_initializr",
+        "type": "lesson",
+        "parentCourse": "spring",
+        "sublessons": null
+      },
+      {
+        "name": "Radni okvir Spring MVC",
+        "url": "spring_radni_okvir_spring_mvc",
         "type": "lesson",
         "parentCourse": "spring",
         "sublessons": null

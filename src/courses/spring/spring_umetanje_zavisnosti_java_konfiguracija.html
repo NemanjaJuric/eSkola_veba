@@ -1,0 +1,29 @@
+<h1>Umetanje zavisnosti - Java konfiguracija</h1>
+
+<p>
+	Iako automatsko umetanje zavisnosti zahteva najmanje konfiguracije, nije ga moguće primeniti na klase koje nisu deo projekta,
+	jer im u tom slučaju nije moguće dodati anotaciju @ComponentScan. Ovaj problem može se rešiti korišćenjem eksplicitne Java
+	konfiguracije.
+</p>
+
+<p>
+	Kako bi se umetanje zavisnosti odradilo korišćenjem Java konfiguracije, potrebno je kreirati klasu koja ima anotaciju @Configuration.
+	Da bi se deklarisalo zrno, u okviru klase sa anotacijom @Configuration potrebno je napisati metod koji vraća objekat koji
+	će biti registrovan kao zrno. Taj metod treba da ima anotaciju @Bean. Na osnovu @Bean anotacije Spring zna da objekat koji
+	taj metod vraća treba da bude registrovan kao zrno u Spring kontejneru.
+</p>
+
+<xmp class="primer_ta">
+@Configuration
+public class Konfiguracija {
+	@Bean
+	public Kaseta kaseta() {
+		return new RadioBeogradKaseta();
+	}
+
+	@Bean
+	public Kasetofon kasetofon() {
+		return new Kasetofon(kaseta());
+	}
+}
+</xmp>

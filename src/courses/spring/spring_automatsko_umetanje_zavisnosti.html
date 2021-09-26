@@ -1,0 +1,246 @@
+<h1>Automatsko umetanje zavisnosti</h1>
+
+<p>
+	Automatsko kreiranje i povezivanje objekata Spring vrši kroz dva koraka:
+	<ul>
+		<li>Skeniranje komponenata - Spring automatski otkriva zrna koja će biti kreirana u Spring kontejneru.</li>
+		<li>Automatko povezivanje - Spring automatski povezuje zrna.</li>
+	</ul>
+</p>
+
+<p>
+	Kako bi Spring otkrio klasu čiji objekat treba da bude kreiran u Spring kontejneru potrebno je da klasa ima anotaciju @Component.
+</p>
+
+<xmp class="primer_ta">
+@Component
+public class Kasetofon {
+	private Kaseta kaseta;
+
+	public Kasetofon(Kaseta kaseta) {
+		this.kaseta = kaseta;
+	}
+}
+</xmp>
+
+<xmp class="primer_ta">
+@Component
+public class Kaseta {
+	private String naslov = "Jesen u mom sokaku";
+	private String izvodjac = "Predrag Zivkovic Tozovac";
+
+	public void pusti() {
+		System.out.println("Svira kaseta izvodjaca " + izvodjac + " pod nazivom " + naslov);
+	}
+}
+</xmp>
+
+
+<p>
+	Kako bi se pokrenulo automatsko skeniranje i kako bi Spring pronašao klase koje imaju anotaciju @Component i kreirao odgovarajuća
+	zrna, potrebno je kreirati konfiguracijsku klasu koja osim anotacije @Configuration treba da ima i anotaciju @ComponentScan.
+</p>
+
+
+<xmp class="primer_ta">
+@Configuration 
+@ComponentScan 
+public class Konfiguracija { }
+</xmp>
+
+<p>
+	Konfiguracijska klasa koristi se prilikom kreiranja kontejnera, a to se postiže sledećom naredbom.
+</p>
+
+<xmp class="primer_ta">
+ApplicationContext context = new AnnotationConfigApplicationContext(Konfiguracija.class);
+</xmp>
+
+<p>
+	Prilikom skeniranja Spring traži klase koje imaju anotaciju @Component u okviru istog paketa u kome se nalazi konfiguracijska
+	klasa. Moguće je navesti više paketa kroz koje će se vršiti skeniranje, navođenjem niza njihovih imena u okviru anotacije
+	@ComponentScan(basePackages = { ... }).
+</p>
+
+<p>
+	Svako zrno koje se nalazi u kontejneru ima svoj Id. Ukoliko se eksplicitno ne navede, zrno dobija Id koji odgovara nazivu
+	odgovarajuće klase.
+</p>
+
+<p>
+	Da bi se zrnu dodelio drugačiji Id, potrebno je njegovu vrednost proslediti anotaciji @Component.
+</p>
+
+<xmp class="primer_ta">
+@Component("traka") 
+public class Kaseta { ... }
+</xmp>
+
+<p>
+	Postoje tri načina automatskog umetanja zavisnosti:
+	<ul>
+		<li>Umetanje preko konstruktora klase;</li>
+		<li>Umetanje preko set metoda;</li>
+		<li>Umetanje preko polja klase.</li>
+	</ul>
+</p>
+
+<p>
+	Zavisnosti koje su obavezne, tj. zavisnosti bez kojih objekat ne može da obavlja svoje primarne zadatke potrebno je umetnuti
+	preko konstruktora klase, kako bi se obezbedila njihova sigurna dostupnost i sprečile null vrednosti za takve zavisnosti.
+	One zavisnosti koje su opcione i koje možda neće biti dostupne prilikom kreiranja objekta moguće je umetnuti i korišćenjem
+	set metoda.
+</p>
+
+<h3>Umetanje zavisnosti preko konstruktora klase</h3>
+
+<p>
+	Kako bi Spring kreirao zrno korišćenjem konstruktora odgovarajuće klase i prosledio njegove zavisnosti, potrebno je da konstruktor
+	ima anotaciju @Autowired.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+public class Kasetofon { 
+	private Kaseta kaseta; 
+	@Autowired 
+	public Kasetofon(Kaseta kaseta) { 
+		this.kaseta = kaseta;
+	} 
+}
+</xmp>
+
+
+<h3>Umetanje zavisnosti preko set metoda</h3>
+
+<p>
+	Osim konstruktora, anotacija @Autowired može biti primenjena na set metode klase. Na taj način, odgovarajuće zavisnosti se
+	ubacuju pozivanjem set metoda.
+</p>
+
+<xmp class="primer_ta">
+@Component
+public class Kasetofon {
+	private Kaseta kaseta;
+
+	@Autowired
+	public void ubaciKasetu(Kaseta kaseta) {
+		this.kaseta = kaseta;
+	}
+}
+</xmp>
+
+<p>
+	Osim na set metode, anotacija @Autowired može biti primenjena na bilo koji drugi metod klase.
+</p>
+
+<h3>Umetanje zavisnosti preko polja klase</h3>
+
+<p>
+	Još jedan način automatskog umetanja zavisnosti jeste umetanje zavisnosti preko polja klase. Sve što je potrebno jeste da
+	odgovarajuća polja imaju anotaciju @Autowired.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+public class Kasetofon { 
+	@Autowired 
+	private Kaseta kaseta; 
+	... 
+}
+</xmp>
+
+
+<h3>Problemi prilikom automatskog umetanja zavisnosti</h3>
+
+<p>
+	Automatsko umetanje zavisnosti za sva tri navedena načina radi ispravno samo u slučaju da postoji jedno odgovarajuće zrno
+	koje je potrebno umetnuti. U slučaju postojanja više od jednog zrna, dolazi do izbacivanja izuzetka tipa NoUniqueBeanDefinitionException,
+	jer nije moguće odrediti koje zrno je potrebno umetnuti. Spring nudi dva načina za rešavanje ovakvog problema.
+</p>
+
+<p>
+	Ukoliko postoji više implementacija interfejsa Kaseta, problem umetanja zavisnosti moguće je rešiti korišćenjem anotacije
+	@Primary. Na taj način Spring zna koju implementaciju je potrebno umetnuti. U narednom primeru prikazana je klasa RadioBeogradKaseta
+	koja implementira interfejs Kaseta i označena je anotacijom @Primary. To znači da će i u slučaju postojanja neke druge implementacije
+	interfejsa Kaseta, Spring uvek umetati objekat klase RadioBeogradKaseta.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+@Primary 
+public class RadioBeogradKaseta implements Kaseta { 
+	... 
+}
+</xmp>
+
+<p>
+	Osim anotacije @Primary, problem umetanja zavisnosti moguće je rešiti i definisanjem kvalifikatora zrna korišćenjem anotacije
+	@Qualifier. Argument koji se prosleđuje anotaciji @Qualifier jeste Id zrna koje je potrebno umetnuti. U narednom primeru
+	prikazana je klasa Kasetofon čije je polje tipa Kaseta označeno anotacijom @Qualifier kojoj je prosleđen Id zrna radioBeogradKaseta.
+	To znači da će Spring umetnuti implementaciju interfejsa Kaseta iz prethodnog primera, čak i ako ona nije anotirana sa @Primary.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+public class Kasetofon { 
+	@Autowired 
+	@Qualifier("radioBeogradKaseta") 
+	private Kaseta kaseta; 
+	... 
+}
+</xmp>
+
+<p>
+	Takođe, osim korišćenja Id zrna, anotaciji @Qualifier se kao argument može proslediti bilo koji drugi naziv.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+@Qualifier("rb") 
+public class RadioBeogradKaseta implements Kaseta { 
+	... 
+}
+</xmp>
+
+<p>
+	Programski jezik Java podržava primenu više anotacija istog tipa samo ako takve anotacije imaju anotaciju @Repeatable, što
+	nije slučaj sa anotacijom @Qualifier. Stoga, ukoliko je potrebno dodatno suziti izbor prilikom izbora zrna koje je potrebno
+	umetnuti, to se može postići kreiranjem i primenom novih anotacija koji imaju anotaciju @Qualifier.
+</p>
+
+<xmp class="primer_ta">
+@Retention(RetentionPolicy.RUNTIME) 
+@Target({ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOd)
+@Qualifier 
+public @interface RadioBeogradKaseta { }
+</xmp>
+
+<xmp class="primer_ta">
+@Retention(RetentionPolicy.RUNTIME) 
+@Target({ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOd)
+@Qualifier 
+public @interface DomacaKaseta { }
+</xmp>
+
+<p>
+	Nove anotacije mogu se primeniti na klasu RadioBeogradKaseta i na polja klase Kasetofon.
+</p>
+
+<xmp class="primer_ta">
+@Component 
+@RadioBeogradKaseta
+@DomacaKaseta 
+public class RadioBeogradKaseta implements Kaseta { ... }
+</xmp>
+
+<xmp class="primer_ta">
+@Component 
+public class Kasetofon { 
+	@Autowired 
+	@RadioBeogradKaseta 
+	@DomacaKaseta 
+	private Kaseta kaseta; 
+	... 
+}
+</xmp>

@@ -1,0 +1,480 @@
+<h1>Radni okvir Spring MVC</h1>
+
+<p>
+    MVC (Model View Controller) arhitektura je jedna od najpopularnijih arhitektura za kreiranje veb aplikacija, a Spring MVC
+    je najpopularniji radni okvir za razvoj Java veb aplikacija. MVC arhitektura razdvaja aplikaciju na tri osnovna dela:
+    model, prikaz i kontroler. Na taj način postiže se razdvajanje sloja biznis logike od prezentacionog sloja aplikacije.
+</p>
+
+<br />
+<img src="courses/spring/images/mvc.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    U centru Spring MVC arhitekture nalazi se DispatcherServlet koji predstavlja implementaciju šablona Front Controller. Servleti
+    često treba da odrade nekoliko uobičajenih zadataka pre nego što obrade zahtev, kao što je npr. provera dozvola prijavljenog
+    korisnika. Kako se ovakve funcionalnosti ne bi ponavljale kroz servlete, za njih je zadužen Front Controller.
+</p>
+
+<p>
+    DispatcherServlet prima zahteve koje šalje pregledač. Nakon što primi zahtev, DispatcherServlet pronalazi odgovarajući kontroler
+    koji će taj zahtev obraditi. Kontroler vraća model i obrazac prikaza. DispatcherServlet zatim poziva razrešivač prikaza
+    kome šalje model koji je kontroler vratio. Razrešivač prikaza vrši potrebno mapiranje i vraća prikaz nazad u DispatcherServlet.
+    Na kraju, DispatcherServlet šalje prikaz pregledaču.
+</p>
+
+<p>
+    U narednom primeru predstavljen je jednostavan Spring MVC kontroler.
+</p>
+
+<xmp class="primer_ta">
+@Controller
+public class HomeController {
+	@RequestMapping(value = "/welcome")
+	@ResponseBody
+	public String dobrodosli() {
+		return "Dobrodosli na sajt za prijavu ispita!";
+	}
+}
+</xmp>
+
+<p>
+    Anotacija @Controller označava da je u pitanju klasa koja predstavlja kontroler u MVC arhitekturi. Na osnovu anotacije @Controller
+    automatski će biti kreirano odgovarajuće zrno u Spring kontejneru. Metod dobrodosli() ima dve anotacije, @RequestMapping
+    i @ResponseBody. Anotacija @RequestMapping ima atribut value čija je vrednost /welcome. Na taj način se definiše mapiranje
+    zahteva u metod dobrodosli(), tj. kada pregledač pošalje zahtev na putanju /welcome izvršiće se metod dobrodosli(). Anotacija
+    @ResponseBody označava da će vrednost koju vraća metod dobrodosli() biti poslata kao odgovor pregledaču.
+</p>
+
+<p>
+    Kako bi se pokrenula aplikacija koja koristi HomeController, potrebno je napisati klasu koja u okviru main metoda kreira
+    i učitava Spring kontejner. To se može postići pozivanjem statičkog metoda run klase SpringApplication, što je ilustrovano
+    u narednom primeru.
+</p>
+
+<xmp class="primer_ta">
+@SpringBootApplication
+public class PrijavaIspitaApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(PrijavaIspitaApplication.class, args);
+	}
+}
+</xmp>
+
+<p>
+    Anotacija @SpringBootApplication se sastoji od sledeće tri anotacije:
+    <ul>
+        <li>@Configuration - označava da je u pitanju konfiguracijska klasa;</li>
+        <li>@EnableAutoConfiguration - omogućava automatsko skreniranje;</li>
+        <li>@ComponentScan - omogućava skeniranje klasa koje se nalaze u istom paketu kao i klasa na koju se anotacija primenjuje.</li>
+    </ul>
+</p>
+
+<p>
+    Na sledećoj slici prikazan je izgled stranice koja se prikazuje ukoliko se aplikacija pokrene i pristupi se putanji /welcome.
+</p>
+
+<br />
+<img src="courses/spring/images/welcome.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Osim anotacije @RequestMapping, Spring nudi sledeće anotacije koje se mogu koristiti za mapiranje različitih tipova HTTP
+    zahteva:
+    <ul>
+        <li> @GetMapping - koristi se za mapiranje GET zahteva;</li>
+        <li> @PostMapping - koristi se za mapiranje POST zahteva;</li>
+        <li> @PutMapping - koristi se za mapiranje PUT zahteva;</li>
+        <li> @DeleteMapping - koristi se za mapiranje DELETE zahteva;</li>
+        <li> @PatchMapping - koristi se za mapiranje PATCH zahteva.</li>
+    </ul>
+</p>
+
+<p>
+    Za razliku od prethodnog primera, sadržaj koji pregledač prikazuje najčešće se generiše pomoću obrasca prikaza. Postoji nekoliko
+    tipova obrazaca prikaza koje Spring podržava, od kojih su najpoznatiji JSP, tehnologija za dinamičko kreiranje veb stranica
+    i Thymeleaf. Thymeleaf je obrazac prikaza koji je baziran na HTML jeziku i biće korišćen u primerima koji slede.
+</p>
+
+<p>
+    Thymeleaf nije deo radnog okvira Spring, pa nije moguće pristupiti podacima koje je kontroler smestio u model. Pre prosleđivanja
+    zahteva razrešivaču prikaza Spring kopira podatke iz modela u atribute zahteva kojima Thymeleaf može pristupiti.
+</p>
+
+<p>
+    U sledećem primeru prikazan je kontroler koji prima zahtev poslat na putanju /welcome i kao odgovor pregledaču šalje prikaz
+    koji ima naziv welcome. Razrešivač prikaza mapira naziv prikaza koji vraća metod dobrodosli() u odgovarajući prikaz smešten
+    u folderu src/main/resources/templates.
+</p>
+
+<xmp class="primer_ta">
+@Controller 
+public class HomeViewController { 
+	@RequestMapping(value = "/welcome-view") 
+	public String dobrodosli() { 
+		return "welcome"; 
+	} 
+}
+</xmp>
+
+<p>
+    Datoteka welcome.html ima sledeći oblik:
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dobrodosli</title>
+	</head>
+
+	<body>
+		<div>
+			<p> Dobrodosli na sajt za prijavu ispita! </p>
+			<a th:href="@{/form">Prijavite ispite</a>
+			<br/>
+		</div>
+	</body>
+</html>
+</xmp>
+
+<p>
+    Na sledećoj slici prikazan je izgled stranice koja se prikazuje ukoliko se pristupi putanji /welcome-view.
+</p>
+
+<br />
+<img src="courses/spring/images/welcome_view.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    U narednom delu prikazana je klasa Student koja kao polja ima ime, prezime, broj indeksa i listu ispita koje je student prijavio.
+</p>
+
+<xmp class="primer_ta">
+public class Student {
+	private String ime;
+	private String prezime;
+	private String indeks;
+
+	private List<String> prijavljeniIspiti;
+
+	public String getIme() {
+		return ime;
+	}
+
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+
+	public String getPrezime() {
+		return prezime;
+	}
+
+	public void setPrezime(String prezime) {
+		this.prezime = prezime;
+	}
+
+	public String getIndeks() {
+		return indeks;
+	}
+
+	public void setIndeks(String indeks) {
+		this.indeks = indeks;
+	}
+
+	public List<String> getPrijavljeniIspiti() {
+		return prijavljeniIspiti;
+	}
+
+	public void setPrijavljeniIspiti(List<String> prijavljeniIspiti) {
+		this.prijavljeniIspiti = prijavljeniIspiti;
+	}
+}
+</xmp>
+
+<p>
+    Kako bi student mogao da prijavi ispit, potrebno je kreirati odgovarajuću formu koja će se prikazati nakon odabira opcije
+    Prijavite ispite. Potrebno je kreirati novi kontroler koji će biti zadužen za obradu zahteva koji je poslat na putanju
+    /form. Novi kontroler ima sledeći oblik:
+</p>
+
+<xmp class="primer_ta">
+@Controller
+public class FormController {
+	@ModelAttribute
+	public void napraviListuIspita(ModelMap model) {
+		List<String> ispiti = Arrays.asList("Linearna algebra", "Geometrija 1", "Programiranje 2",
+				"Kompleksne funkcije", "Analiza 1");
+		model.put("ispiti", ispiti);
+	}
+
+	@GetMapping("/form")
+	public ModelAndView prikaziFormu(ModelMap model) {
+		model.put("student", new Student());
+		return new ModelAndView("form", model);
+	}
+}
+</xmp>
+
+<p>
+    Klasa FormController ima dva metoda, napraviListuIspita( ModelMap model) i prikaziFormu(ModelMap model). Metod napraviListuIspita(
+    ModelMap model) ima anotaciju @ModelAttribute koja označava da je u pitanju metod koji smešta podatke u model. Takav
+    metod će biti pozvan pre poziva metoda koji ima anotaciju za mapiranje zahteva. Metod prikaziFormu(ModelMap model) dodaje
+    u model atribut student i vraća objekat klase ModelAndView koji će biti prosleđen razrešivaču prikaza kako bi se izvršilo
+    potrebno mapiranje. Objekat klase ModelAndView sadrži model i naziv obrasca prikaza.
+</p>
+
+<p>
+    Stranica koja se prikazuje nakon odabira opcije Prijavite ispite ima sledeći izgled:
+</p>
+
+<br />
+<img src="courses/spring/images/forma.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    Odgovarajući Thymeleaf obrazac (datoteka form.html) ima sledeći oblik:
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Prijava ispita</title>
+	</head>
+
+	<body>
+		<h1>Forma za prijavu ispita</h1>
+		<form method="POST" th:object="${student}">
+			<label for="ime">Ime: </label>
+			<input type="text" th:field="*{ime}" />
+			<br/>
+			<br/>
+			<label for="prezime">Prezime: </label>
+			<input type="text" th:field="*{prezime}" />
+			<br/>
+			<br/>
+			<label for="indeks">Broj indeksa: </label>
+			<input type="text" th:field="*{indeks}" />
+			<br/>
+			<br/>
+			<div class="grid">
+				<div class="lista-ispita" id="ispiti">
+					<h3>Izaberite ispite koje zelite da prijavite:</h3>
+					<div th:each="ispit: ${ispiti}">
+						<input th:field="*{prijavljeniIspiti}" type="checkbox" th:value="${ispit}" />
+						<span th:text="${ispit}"></span>
+						<br/>
+					</div>
+					<br/>
+					<button>Prijavite ispite</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
+</xmp>
+
+<p>
+    Datoteka form.html osim standardnih atributa sadrži dodatne atribute koji se koriste za generisanje sadržaja prikaza. Atribut
+    th:object ima vrednost \$student i omogućava pristup atributu zahteva koji ima naziv student. Atribut th:field služi
+    za postavljanje vrednosti polja za unos na vrednost polja objekta koje je navedeno kao vrednost atributa. Atribut th:each
+    služi za iteraciju kroz kolekciju elemenata.
+</p>
+
+<p>
+    Atribut method u okviru etikete form ima vrednost POST, pa je u okviru klase FormController potrebno napisati metod koji
+    će biti zadužen za obradu POST zahteva koji pregledač šalje nakon što student popuni formu i odabere opciju Prijavite
+    ispite. Odgovarajući metod ima sledeći oblik:
+</p>
+
+<xmp class="primer_ta">
+@Controller
+public class FormController {
+	@ModelAttribute
+	public void napraviListuIspita(ModelMap model) {
+		List<String> ispiti = Arrays.asList("Linearna algebra", "Geometrija 1", "Programiranje 2",
+				"Kompleksne funkcije", "Analiza 1");
+		model.put("ispiti", ispiti);
+	}
+
+	@GetMapping("/form")
+	public ModelAndView prikaziFormu(ModelMap model) {
+		model.put("student", new Student());
+		return new ModelAndView("form", model);
+	}
+
+	@PostMapping("/form")
+	public String sacuvajPrijavu(Student student) {
+		return "redirect:success";
+	}
+
+	@RequestMapping("/success")
+	public String redirektuj() {
+		return "success";
+	}
+}
+</xmp>
+
+<p>
+    Klasa FormController je proširena sa dva metoda, sacuvajPrijavu(Student student) i redirektuj(). Nakon što student odabere
+    opciju Prijavite ispite, vrednosti sa forme se mapiraju u objekat klase Student, a zatim se poziva metod sacuvajPrijavu(Student
+    student) koji preusmerava korisnika na stranicu /success. Nakon poziva metoda sacuvajPrijavu(Student student), Spring
+    šalje odgovor pregledaču sa statusom 302, odnosno redirekciju za novu stranicu. Pretraživač zatim šalje novi zahtev na
+    putanju /success. Stranica koja se prikazuje nakon što student odabere opciju Prijavite ispite ima sledeći izgled:
+</p>
+
+<br />
+<img src="courses/spring/images/success.png" class="img-fluid img-sm" />
+<br />
+
+<p>
+    U implementaciji forme iz prethodnog dela ne postoji provera ispravnosti podataka koje je student uneo, pa se može desiti
+    da student odabere opciju Prijavite ispite, a da prethodno nije uneo sve potrebne podatke.
+</p>
+
+<p>
+    Spring podržava Java Bean Validation API koji nudi veliki broj anotacija koje se primenjuju na polja klase i definišu pravila
+    za validaciju. Kako bi se koristile dostupne anotacije, potrebno je dodati odgovarajuću zavisnost u okviru datoteke pom.xml.
+</p>
+
+<xmp class="primer_ta">
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+</xmp>
+
+<p>
+    Sledeće anotacije predstavljaju jedan deo skupa dostupnih anotacija.
+    <ul>
+        <li> @NotNull - označava da vrednost polja ne može biti null;</li>
+        <li> @Size - definiše veličinu vrednosti polja;</li>
+        <li> @Past - označava da vrednost polja treba da bude datum iz prošlosti;</li>
+        <li> @Future - označava da vrednost polja treba da bude datum iz budućnosti;</li>
+        <li> @Max - definiše maksimalnu vrednost polja;</li>
+        <li> @Min - definiše minimalnu vrednost polja;</li>
+        <li> @Pattern - definiše obrazac koji se koristi za proveru ispravnosti vrednosti polja;</li>
+        <li> @NotBlank - primenjuje se na polja tipa String i označava da vrednost polja ne može biti null i mora da sadrži bar
+            jedan karakter koji nije belina;</li>
+        <li> @Email - označava da vrednost polja treba da bude ispravna e-mail adresa;</li>
+        <li> @Positive - označava da vrednost polja treba da bude pozitivan broj.</li>
+    </ul>
+</p>
+
+<p>
+    Naredni primer ilustruje upotrebu anotacija za validaciju nad poljima klase Student. Atribut message sadrži poruku koja će
+    biti prikazana ukoliko uneti podaci nisu ispravni.
+</p>
+
+<xmp class="primer_ta">
+public class Student {
+	@NotBlank(message = "Polje ime mora biti popunjeno")
+	private String ime;
+	@NotBlank(message = "Polje prezime mora biti popunjeno")
+	private String prezime;
+	@NotBlank(message = "Polje indeksmora biti popunjeno")
+	private String indeks;
+	@Size(min = 1, message = "Morate odabrati bar jedan ispit")
+	private List<String> prijavljeniIspiti;
+	...
+}
+</xmp>
+
+<p>
+    Kako bi se odradila validacija unetih podataka, parametru student metoda sacuvajPrijavu(Student student) potrebno je dodati
+    anotaciju @Valid. Ukoliko vrednosti polja objekta student nisu u skladu sa definisanim pravilima, podaci o greškama biće
+    upisani u objektu klase Errors.
+</p>
+
+<p>
+    Klasa FormController ima sledeći konačni oblik:
+</p>
+
+<xmp class="primer_ta">
+@Controller
+public class FormController {
+	@ModelAttribute
+	public void napraviListuIspita(ModelMap model) {
+		List<String> ispiti = Arrays.asList("Linearna algebra", "Geometrija 1", "Programiranje 2",
+				"Kompleksne funkcije", "Analiza 1");
+		model.put("ispiti", ispiti);
+	}
+
+	@GetMapping("/form")
+	public ModelAndView prikaziFormu(ModelMap model) {
+		model.put("student", new Student());
+		return new ModelAndView("form", model);
+	}
+
+	@PostMapping("/form")
+	public String sacuvajPrijavu(@Valid @ModelAttribute("student") Student student, Errors errors) {
+		if (errors.hasErrors()) {
+			return "form";
+		}
+		return "redirect:success";
+	}
+
+	@RequestMapping("/success")
+	public String redirektuj(Student student, ModelMap model) {
+		return "success";
+	}
+}
+</xmp>
+
+<p>
+    Datoteka form.html koja sadrži potrebne Thymeleaf atribute kako bi se studentu prikazale poruke o neispravnosti unetih podataka
+    ima sledeći oblik:
+</p>
+
+<xmp class="primer_ta">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Prijava ispita</title>
+	</head>
+
+	<body>
+		<h1>Forma za prijavu ispita</h1>
+		<form method="POST" th:object="${student}">
+			<label for="ime">Ime: </label>
+			<input type="text" th:field="*{ime}" />
+			<span style="color:red" th:if="${#fields.hasErrors('ime')" th:errors="*{ime}"></span>
+			<br/>
+			<br/>
+			<label for="prezime">Prezime: </label>
+			<input type="text" th:field="*{prezime}" />
+			<span style="color:red" th:if="${#fields.hasErrors('prezime')" th:errors="*{prezime}"></span>
+			<br/>
+			<br/>
+			<label for="indeks">Broj indeksa: </label>
+			<input type="text" th:field="*{indeks}" />
+			<span style="color:red" th:if="${#fields.hasErrors('indeks')" th:errors="*{indeks}"></span>
+			<br/>
+			<br/>
+			<div class="grid">
+				<div class="lista-ispita" id="ispiti">
+					<h3>Izaberite ispite koje zelite da prijavite:</h3>
+					<span style="color:red" th:if="${#fields.hasErrors('prijavljeniIspiti')" th:errors="*{prijavljeniIspiti}">
+					</span>
+					<div th:each="ispit: ${ispiti}">
+						<input th:field="*{prijavljeniIspiti}" type="checkbox" th:value="${ispit}" />
+						<span th:text="${ispit}"></span>
+						<br />
+					</div>
+					<br />
+					<button>Prijavite ispite</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
+</xmp>
+
+<p>
+    Na narednoj slici prikazan je izgled stranice u slučaju kada student nije uneo ispravne podatke.
+</p>
+
+<br />
+<img src="courses/spring/images/forma_sa_greskom.png" class="img-fluid img-sm" />
+<br />
