@@ -111,7 +111,7 @@
   }
 }
 
-.pitanje{
+.pitanje {
   background-color: $light;
   padding: 20px;
   border-left: 5px solid gray;
@@ -188,18 +188,18 @@ caption {
   caption-side: top;
 }
 
-.half-panel{
+.half-panel {
   width: calc(50% - 5px);
   height: calc(100% - 8px);
   float: left;
   @media (max-width: 992px) {
     float: none;
     width: 100%;
-    height: unset;
+    height: 800px;
   }
 }
 
-.half-panel-scrollable{
+.half-panel-scrollable {
   @extend .half-panel;
   overflow-y: auto;
 }
