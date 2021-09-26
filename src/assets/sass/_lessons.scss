@@ -202,4 +202,7 @@ caption {
 .half-panel-scrollable {
   @extend .half-panel;
   overflow-y: auto;
+  @media (max-width: 992px) {
+    height: unset;
+  }
 }
