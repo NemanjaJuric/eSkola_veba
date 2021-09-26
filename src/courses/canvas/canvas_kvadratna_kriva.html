@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Kvadratna kriva u HTML5 Canvas-u</h1>
+<p>Za crtanje kvadratne krive pomoću  elementa HTML5 Canvas-a koristi se metoda <i>quadraticCurveTo()</i>. Kvadratne krive su definisane kontekstnom tačkom, kontrolnom tačkom i završnom tačkom. Kvadratne krive se mogu stilizovati pomoću svojstava <i>lineWidth</i>, <i>strokeStyle</i> i <i>lineCap</i>.<br>
+Kontrolna tačka definiše zakrivljenost kvadratne krive kreiranjem dve zamišljene tangencijalne linije koje su povezane sa kontekstnom tačkom i završnom tačkom. Kontekstna tačka je definisana metodom <i>moveTo()</i>. Pomeranjem kontrolne tačke dalje od kontekstne tačke i krajnje tačke isrtava se oštrija krivina, a pomeranjem kontrolne tačke bliže kontekstnoj tački i krajnjoj tački iscrtavaju se šire krive.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="linija" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(188, 150);
+      context.quadraticCurveTo(288, 0, 388, 150);
+      context.lineWidth = 10;
+
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Izgled krajeva linije u HTML5 Canvas-u</h1>
+<p>
+Da bi se definisao izgled krajeva linije potrebno je postaviti vrednost svojsta <i>lineCap</i>. Postoje tri definisane vrednosti svojstva lineCap:
+<list>
+<ul> round - krajevi linija su zaobljeni,</ul>
+<ul> square - krajevi linije se kvadriraju dodavanjem okvira jednake širine linije i polovine debljine linije,</ul>
+<ul> butt - krajevi linije su kvadratni na krajnjim tačkama.</ul>
+</list>
+Podrazumevana vrednost je <i>butt</i>. Svojstvu je neophodno dodeliti vrednost pre poziva metode <i>stroke()</i>.</b></p>
+
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(200, canvas.height / 2 - 50);
+      context.lineTo(canvas.width - 200, canvas.height / 2 - 50);
+      context.lineWidth = 20;
+      context.strokeStyle = '#0000ff';
+      context.lineCap = 'butt';
+      context.stroke();
+
+     
+      context.beginPath();
+      context.moveTo(200, canvas.height / 2);
+      context.lineTo(canvas.width - 200, canvas.height / 2);
+      context.lineWidth = 20;
+      context.strokeStyle = '#0000ff';
+      context.lineCap = 'round';
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(200, canvas.height / 2 + 50);
+      context.lineTo(canvas.width - 200, canvas.height / 2 + 50);
+      context.lineWidth = 20;
+      context.strokeStyle = '#0000ff';
+      context.lineCap = 'square';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

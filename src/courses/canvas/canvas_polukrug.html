@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Polukrug u HTML5 Canvas-u</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Polukrug u HTML5 Canvas-u</h1>
+<p>Crtanje polukruga pomoću elementa HTML5 Canvas se postiže pozivom metode <i>arc()</i> postavljanjem vrednosti <i>(početni ugao  + PI)</i> za krajnji ugao.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.arc(120, 40, 70, 0, Math.PI, false);
+      context.closePath();
+      context.lineWidth = 5;
+      context.fillStyle = 'red';
+      context.fill();
+      context.strokeStyle = '#550000';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

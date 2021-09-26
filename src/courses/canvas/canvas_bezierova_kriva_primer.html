@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Bezierova krive</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer Bezierove krive</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(188, 130);
+      context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+      context.lineWidth = 10;
+
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</html>

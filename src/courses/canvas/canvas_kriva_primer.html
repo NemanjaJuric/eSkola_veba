@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Kriva</title>
+      <meta charset="utf-8">
+</head>
+<body>
+<h1>Primer krive u HTML5 Canvas-u</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+      var radius = 75;
+      var startAngle = 1.1 * Math.PI;
+      var endAngle = 1.9 * Math.PI;
+      var counterClockwise = false;
+
+      context.beginPath();
+      context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+      context.lineWidth = 15;
+
+      
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</html>

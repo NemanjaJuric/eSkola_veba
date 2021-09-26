@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Bezierova kriva u HTML5 Canvas-u</h1>
+<p>Za crtanje Bezierove krive pomoću elementa HTML5 Canvas koristi se metoda <i>bezierCurveTo()</i>. Bezierove krive su definisane kontekstnom tačkom, dvema kontrolnim tačkama i završnom tačkom. Za razliku od kvadratnih kriva, Bezierove krive su definisane pomoću dve kontrolne tačke umesto jedne, što nam omogućava stvaranje složenijih krivih.<br>
+Bezierova kriva je definisana kontekstnom tačkom, dvema kontrolnim tačkama i završnom tačkom. Prvi deo krive je tangentan na zamišljenu liniju koja je definisana kontekstnom tačkom i prvom kontrolnom tačkom. Drugi deo krive je tangentan na zamišljenu liniju koja je definisana drugom kontrolnom tačkom i završnom tačkom.</b></p>
+
+<xmp class = "primer_ta">
+      <canvas id="linija" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(188, 130);
+      context.bezierCurveTo(140, 10, 388, 10, 388, 170);
+      context.lineWidth = 10;
+
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

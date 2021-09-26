@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pravouganik u HTML5 Canvas-u</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer pravougaonika dužine 200px i širine 80px, ograničen crnom bojom debljine 7px, unutrašnjost žute boje.</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect(40, 40, 200, 80);
+      context.fillStyle = 'yellow';
+      context.fill();
+      context.lineWidth = 7;
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Linija u HTML5 Canvas-u</h1>
+<p>Za crtanje linije u Canvas-u koriste se sledece metode:</b></p>
+<list>
+  <ul>moveTo() - definiše početnu tačku linije </ul>
+  <ul>lineTo()  - definiše krajnu tačku linije</ul>
+  </list>
+<p>Da bi se ustvari povukla crta između definisane početne i krajnje tačke neophodan je poziv metode: <bold>stroke()</bold>.
+  Definišemo početnu tačku na poziciji (0,0), i krajnju tačku na poziciji (200,100). Zatim pozovemo <bold>stroke()</bold> metodu za iscrtavanje linije.<p>
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      context.moveTo(0, 0);
+      context.lineTo(200, 100);
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

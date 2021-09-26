@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Isecanje slike</title>
+  <meta charset="utf-8">
+</head>
+<body>
+<h1>Isecanje slike u HTML5 Canvas-u</h1>
+<p>Za isecanje slike koristeći element HTML5 Canvas neophodno je dodeliti vrednost sledećim argumentima metode <i>drawImage()</i>: <i>sourceX</i>, <i>sourceY</i>, <i>sourceWidth</i>, <i>sourceHeight</i>, <i>destWidth</i>, <i>destHeight</i>. Ovi argumenti definišu lokaciju i dimenziju pravougaonika koji se koristi prilikom isecanja slike.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+        imageObj.onload = function() {
+        // iscrtavanje isečka slike
+        var sourceX = 150;
+        var sourceY = 0;
+        var sourceWidth = 150;
+        var sourceHeight = 150;
+        var destWidth = sourceWidth;
+        var destHeight = sourceHeight;
+        var destX = canvas.width / 2 - destWidth / 2;
+        var destY = canvas.height / 2 - destHeight / 2;
+
+        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth,                 
+        destHeight);
+      };
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

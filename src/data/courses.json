@@ -3268,13 +3268,6 @@
         "sublessons": null
       },
       {
-        "name": "Canvas - tekst",
-        "url": "canvas_tekst",
-        "type": "lesson",
-        "parentCourse": "canvas",
-        "sublessons": null
-      },
-      {
         "name": "Translacija",
         "url": "canvas_transformacije_translacija",
         "type": "lesson",

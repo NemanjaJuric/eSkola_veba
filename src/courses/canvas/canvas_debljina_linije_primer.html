@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer postavljanja debljina linije</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+       var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.beginPath();
+      context.moveTo(0, 0);
+      context.lineTo(200, 100);
+      context.lineWidth = 15;
+      context.stroke();
+    </script>     
+</html>

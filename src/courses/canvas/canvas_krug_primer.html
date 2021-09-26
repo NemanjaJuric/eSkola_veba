@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Krug u HMTL5 Canvas-u</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer kruga poluprečnika 70px, debljine kružnice 5px, crne boje, unutrašnjost kruga popunjena zelenom bojom</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var centerX = canvas.width / 2;
+      var centerY = canvas.height / 2;
+      var radius = 70;
+
+      context.beginPath();
+      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+      context.fillStyle = 'green';
+      context.fill();
+      context.lineWidth = 5;
+      context.strokeStyle = '#003300';
+      context.stroke();
+    </script>     
+</html>

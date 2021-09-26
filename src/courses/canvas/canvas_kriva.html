@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kiva</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Kriva u HTML5 Canvas-u</h1>
+<p>Da bismo nacrtali luk pomoću elementa HTML5 Canvas, koristi se metoda <i>arc()</i>. Lukovi su definisani središnjom tačkom, poluprečnikom, početnim uglom, završnim uglom i pravcem crtanja (u smeru kazaljke na satu ili u suprotnom smeru). Lukovi se mogu oblikovati svojstvima <i>lineWidth</i>, <i>strokeStyle</i> i <i>lineCap</i>.</b>
+Luk nije ništa drugo nego deo zamišljenog kruga. Ovaj zamišljeni krug se može definisati pomoću koordinate centra <i>x</i> i <i>y</i>, i poluprečnika kruga.
+Luk se može definisati i sa dve tačke duž zamišljenog kruga pomoću <i>startAngle</i> i <i>endAngle</i>. Ova dva ugla su definisana u radijanima i formiraju zamišljene linije koje kreću iz centra kruga i presecaju krajeve luka koji želimo da iscrtamo.
+Poslednji argument metode <i>arc()</i> definiše smer putanje luka između dve početne i krajnje tačke. Osim ako nije drugačije naznačeno, ovaj argument je podrazumevano postavljen na <i>false</i>, što dovodi do povlačenja luka u smeru kazaljke na satu.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var x = canvas.width / 2;
+      var y = canvas.height / 2;
+      var radius = 75;
+      var startAngle = 1.1 * Math.PI;
+      var endAngle = 1.9 * Math.PI;
+      var counterClockwise = false;
+
+      context.beginPath();
+      context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+      context.lineWidth = 15;
+
+      
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

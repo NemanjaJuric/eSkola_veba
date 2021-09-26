@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer kvadratne krive</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(188, 150);
+      context.quadraticCurveTo(288, 0, 388, 150);
+      context.lineWidth = 10;
+
+      context.strokeStyle = 'black';
+      context.stroke();
+    </script>     
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slika u HTML5 Canvas-u</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer postavljanja dimenzija slike na dužinu od 200 px i širinu od 137 px</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var x = 188;
+      var y = 30;
+      var width = 200;
+      var height = 137;
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImage(imageObj, x, y, width, height);
+      };
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+    </script>     
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dodavanje slike</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Dodavanje slike u HTML5 Canvas-u</h1>
+<p>Dodavanje slike pomoću elementa HTML5 Canvas se postiže pozivom metode <i>drawImage()</i>
+kojoj se prosleđuje objekat slike i odredišna tačka. Odredišna tačka definiše gornji levi ugao slike u odnosu na gornji levi ugao Canvas pravougaonika.<br>
+Obzirom da metoda <i>drawImage()</i> zahteva objekat slike, neophodno je najpre kreirati sliku i sačekati njeno učitavanje pre nego što se pozove metoda <i>drawImage()</i>. To se može postići pozivom svojstva <i>onload</i> za objekat slike.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="myCanvas" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+      context.drawImage(imageObj, 69, 50);
+      };
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

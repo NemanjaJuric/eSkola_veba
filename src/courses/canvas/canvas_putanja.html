@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Linija</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Kvadratna kriva u HTML5 Canvas-u</h1>
+<p>Kreiranje putanje pomoću elementa HTML5 Canvas se postiže nadovezivanjem više linija. Završna tačka svake nove linije postaje nova kontekst tačka. To se postiže pozivom poznatih metoda <i>lineTo()</i>, <i>arcTo()</i>, <i>quadraticCurveTo()</i> i <i>bezierCurveTo()</i> za kreiranje određenog tipa linije koje nadovezivanjem daju krajnji rezultat. Takođe se koristi metoda <i>beginPath()</i> da bi se započelo crtanje nove putanje.</p>
+
+<xmp class = "primer_ta">
+      <canvas id="linija" width="578" height="200"></canvas>
+      <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(100, 20);
+      
+      context.lineTo(200, 160);
+
+      context.quadraticCurveTo(230, 200, 250, 120);
+      
+      context.bezierCurveTo(290, -40, 300, 200, 400, 150);
+
+      context.lineTo(500, 90);
+
+      context.lineWidth = 5;
+      context.strokeStyle = 'blue';
+      context.stroke();
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+

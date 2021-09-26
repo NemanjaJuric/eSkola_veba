@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Putanja</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Primer putanje</h1>
+</body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(100, 20);
+      
+      context.lineTo(200, 160);
+
+      context.quadraticCurveTo(230, 200, 250, 120);
+      
+      context.bezierCurveTo(290, -40, 300, 200, 400, 150);
+
+      context.lineTo(500, 90);
+
+      context.lineWidth = 5;
+      context.strokeStyle = 'blue';
+      context.stroke();
+    </script>     
+</html>

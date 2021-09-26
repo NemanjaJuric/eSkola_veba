@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas animacije. Animacija sa reakcijom korisnika.</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>Animacije u HTML5 Canvas-u. Animacija sa reakcijom korisnika</h1>
+<p>U sledećem primeru se kretanje i zaustavljanje objekta aktivira klikom na <i>Canvas context</i> pravougaonik.</p>
+<xmp class = "primer_ta">
+
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+     window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+
+      function drawRect(myRectangle, context) {
+        context.beginPath();
+        context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
+        context.fillStyle = '#8ED6FF';
+        context.fill();
+        context.lineWidth = myRectangle.borderWidth;
+        context.strokeStyle = 'black';
+        context.stroke();
+      }
+      function animate(lastTime, myRectangle, runAnimation, canvas, context) {
+        if(runAnimation.value) {
+        
+          var time = (new Date()).getTime();
+          var timeDiff = time - lastTime;
+
+          var linearSpeed = 100;
+          var linearDistEachFrame = linearSpeed * timeDiff / 1000;
+          var currentX = myRectangle.x;
+
+          if(currentX < canvas.width - myRectangle.width - myRectangle.borderWidth / 2) {
+            var newX = currentX + linearDistEachFrame;
+            myRectangle.x = newX;
+          }
+
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          drawRect(myRectangle, context);
+
+          requestAnimFrame(function() {
+            animate(time, myRectangle, runAnimation, canvas, context);
+          });
+        }
+      }
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      var myRectangle = {
+        x: 0,
+        y: 75,
+        width: 100,
+        height: 50,
+        borderWidth: 5
+      };
+
+      var runAnimation = {
+        value: false
+      };
+
+     document.getElementById('myCanvas').addEventListener('click', function() {
+      
+        runAnimation.value = !runAnimation.value;
+
+        if(runAnimation.value) {
+          var date = new Date();
+          var time = date.getTime();
+          animate(time, myRectangle, runAnimation, canvas, context);
+        }
+      });
+      drawRect(myRectangle, context);
+
+    </script>     
+</xmp>
+<button class = "button_copy">Vidi primer</button>
+
+</body>
+</html>
+
