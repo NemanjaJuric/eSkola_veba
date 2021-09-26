@@ -3275,6 +3275,125 @@
         "sublessons": null
       },
       {
+        "name": "Linija",
+        "url": "canvas_linija",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Debljina linije",
+        "url": "canvas_debljina_linije",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Boja linije",
+        "url": "canvas_boja_linije",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Izgled krajeva linije",
+        "url": "canvas_izgled_krajeva_linije",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Kriva",
+        "url": "canvas_kriva",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Kvadratna kriva",
+        "url": "canvas_kvadratna_kriva",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Bezierova kriva",
+        "url": "canvas_bezierova_kriva",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Putanja",
+        "url": "canvas_putanja",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Nadovezivanje linija",
+        "url": "canvas_nadovezivanje_linija",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Zakrivljene putanje",
+        "url": "canvas_zakrivljenje_putanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Oblici",
+        "url": "canvas_oblici",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Pravougaonik",
+        "url": "canvas_pravougaonik",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Krug",
+        "url": "canvas_krug",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Polukrug",
+        "url": "canvas_polukrug",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Dodavanje slike",
+        "url": "canvas_dodavanje_slike",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Dimenzije slike",
+        "url": "canvas_dimenzije_slike",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Isecanje slike",
+        "url": "canvas_isecanje_slike",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
         "name": "Translacija",
         "url": "canvas_transformacije_translacija",
         "type": "lesson",
@@ -3296,29 +3415,29 @@
         "sublessons": null
       },
       {
-        "name": "Canvas - slike",
-        "url": "canvas_slike",
+        "name": "Prilagođene transformacije",
+        "url": "canvas_prilagodjene_transformacije",
         "type": "lesson",
         "parentCourse": "canvas",
         "sublessons": null
       },
       {
-        "name": "Canvas - senke",
+        "name": "Resetovanje transformacija",
+        "url": "canvas_resetovanje_transformacije",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Senke",
         "url": "canvas_shadow",
         "type": "lesson",
         "parentCourse": "canvas",
         "sublessons": null
       },
       {
-        "name": "Canvas - opacity",
+        "name": "Opacity",
         "url": "canvas_opacity",
-        "type": "lesson",
-        "parentCourse": "canvas",
-        "sublessons": null
-      },
-      {
-        "name": "Linearno kretanje",
-        "url": "canvas_linearno_kretanje",
         "type": "lesson",
         "parentCourse": "canvas",
         "sublessons": null
@@ -3333,6 +3452,69 @@
       {
         "name": "Brisanje",
         "url": "canvas_brisanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Linearno kretanje",
+        "url": "canvas_linearno_kretanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Ubrzanje",
+        "url": "canvas_animacija_ubrzanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Oscilovanje",
+        "url": "canvas_animacija_oscilovanje",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Animacije na klik",
+        "url": "canvas_animacije_na_klik",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Okvir na satu",
+        "url": "canvas_okvir_sat",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Brojčanik na satu",
+        "url": "canvas_sat_brojcanik",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Brojevi na satu",
+        "url": "canvas_sat_brojevi",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Kazaljke na satu",
+        "url": "canvas_sat_kazaljke",
+        "type": "lesson",
+        "parentCourse": "canvas",
+        "sublessons": null
+      },
+      {
+        "name": "Analogni sat",
+        "url": "canvas_analogni_sat",
         "type": "lesson",
         "parentCourse": "canvas",
         "sublessons": null
