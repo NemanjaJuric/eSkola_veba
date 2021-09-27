@@ -1,1 +1,23 @@
-{}
+[
+  {
+    "name": "Html",
+    "id": "htmltest",
+    "logo": "<i class='fab fa-html5' aria-hidden='true'></i>",
+    "type": "test",
+    "questions": 10
+  },
+  {
+    "name": "CSS",
+    "id": "csstest",
+    "logo": "<i class='fab fa-css3' aria-hidden='true'></i>",
+    "type": "test",
+    "questions": 10
+  },
+  {
+    "name": "JS",
+    "id": "jstest",
+    "logo": "<i class='fab fa-js' aria-hidden='true'></i>",
+    "type": "test",
+    "questions": 10
+  }
+]
