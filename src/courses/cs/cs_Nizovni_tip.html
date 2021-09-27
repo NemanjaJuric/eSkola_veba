@@ -1,117 +1,96 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title>Nizovni tip</title>
-  </head>
+  <meta charset="utf-8">
+  <title>Nizovni tip</title>
+</head>
 
-  <body>
-    <h1>Nizovni tip</h1>
+<body>
+<h1>Nizovni tip</h1>
 
-    Nizovni tip je ograničen uređen skup promenljivih istog tipa, koje se
-    nazivaju komponente niza.
-    <br /><br />
-    Svaki podatak u nizu se naziva njegovim elementom, a svaki element ima svoj
-    indeks, tj. objekat preko kojeg prilazimo tom elementu u nizu.
+Nizovni tip je ograničen uređen skup promenljivih istog tipa, koje se nazivaju komponente niza.
+<br><br>
+Svaki podatak u nizu se naziva njegovim elementom, a svaki element ima svoj indeks, tj. objekat preko kojeg prilazimo tom elementu u nizu.
 
-    <img src="courses/cs/slike/Niz.png" class="img-lg" />
-    <br />
-    Broj elemenata u nizu predstavlja njegovu dužinu. Tako da je dužina ovog
-    niza jednaka 6.<br />
-    Elementi niza numerisanu su 0, 1, 2, 3 , 4, 5.<br />
-    Ovim brojevima su predstavljeni indeksi elemenata niza. <br />
+<img src="courses/cs/slike/Niz.png" class="img-lg">
+<br>
+Broj elemenata u nizu predstavlja njegovu dužinu. Tako da je dužina ovog niza jednaka 6.<br>
+Elementi niza numerisanu su 0, 1, 2, 3 , 4, 5.<br>
+Ovim brojevima su predstavljeni indeksi elemenata niza. <br>
 
-    <br /><br />
-    Niz može biti:
-    <ul>
-      <li>
-        <b>Jednodimenzionalan</b> (dimenzija jednodimenzionalnog niza je dužina
-        niza)
-      </li>
-      <li><b>Dvodimenzionalan </b> (matrica)</li>
-      <li><b> Višedimenzionalni </b></li>
-    </ul>
+<br><br>
+Niz može biti:
+<ul>
+<li> <b>Jednodimenzionalan</b>  (dimenzija jednodimenzionalnog niza je dužina niza)
+<li> <b>Dvodimenzionalan </b> (matrica)
+<li>  <b> Višedimenzionalni </b>  
+</ul>
 
-    Za višedimenzionalne nizove kada je u pitanju dimenzija, ne koristimo pojam
-    dužine niza, već kažemo da je dimenzija niza m x n x ...x z. <br />
-    (Npr. Dvodimenzionalan niz ima dimenziju m x n )
+Za višedimenzionalne nizove kada je u pitanju dimenzija, ne koristimo pojam dužine niza, već kažemo da je dimenzija niza m x n x ...x z. <br>
+(Npr. Dvodimenzionalan niz ima dimenziju m x n ) 
 
-    <h2>Pristup elementima niza</h2>
+<h2>Pristup elementima niza</h2>
 
-    Elementima niza se pristupa preko zajedničkog imena (naziv nizovne
-    promenljive ) i broja indeksa. Svaki element niza ima onliko indeksa koliko
-    sam niz ima dimenzija.<br />
-    Tako da element jednodimenzionog niza ima jedan indeks, n- dimenzioni ima
-    n-indeksa.<br />
-    Kod jednodimenzionog niza prvi element ima indeks 0.
-    <br /><br />
+Elementima niza se pristupa preko zajedničkog imena (naziv nizovne promenljive ) i broja indeksa.
+Svaki element niza ima onliko indeksa koliko sam niz ima dimenzija.<br>
+Tako da element jednodimenzionog niza ima jedan indeks, n- dimenzioni ima n-indeksa.<br>
+Kod jednodimenzionog niza prvi element ima indeks 0.
+<br><br>
 
-    Niz se definiše na sledeći način:
-    <xmp class="primer_ta"
-> 
+Niz se definiše na sledeći način:
+<xmp class = "primer_ta"> 
 tip_elemenata  naziv_promenljive[veličina niza];
-</xmp
-    >
+</xmp>
 
-    <br />
-    <b>Primer 1</b>
-    <xmp class="primer_ta"
-> 
+<br>
+<b>Primer 1</b>
+<xmp class = "primer_ta"> 
 int  nizBrojeva[8];
-</xmp
-    >
+</xmp>
 
-    U primeru 1, kreiran je niz od 8 elemenata koji su tipa intiger( celi
-    brojevi). Niz možemo definisati i na sledeće načine:
-    <br />
-    <b>Primer 2</b>
-    <xmp class="primer_ta"
-> 
+U primeru 1, kreiran je niz od 8 elemenata koji su tipa intiger( celi brojevi).
+Niz možemo definisati i na sledeće načine:
+<br>
+<b>Primer 2</b>
+<xmp class = "primer_ta"> 
 int[] nizBrojeva=new int[8];
-</xmp
-    >
+</xmp>
 
-    ili
-    <br />
-    <b>Primer 3</b>
-    <xmp class="primer_ta"
-> 
+ili
+<br>
+<b>Primer 3</b>
+<xmp class = "primer_ta"> 
 int  nizBrojeva[]={1,2,3,4,5,6,7,8};
-</xmp
-    >
+</xmp>
 
-    U primeru 3, kreiranje i inicijalizacija niza je izvršena istovremeno, pa je
-    tako:
-    <xmp class="primer_ta"
-> 
+U primeru 3, kreiranje i inicijalizacija niza je izvršena istovremeno, pa je tako:
+<xmp class = "primer_ta"> 
 nizBrojeva[0]=1;
 nizBrojeva[1]=2;
 .
 .
 .
 nizBrojeva[7]=8;
-</xmp
-    >
+</xmp>
 
-    Dvodimenzione nizove definišemo na sličan način:
-    <xmp class="primer_ta"
-> 
+Dvodimenzione nizove definišemo na sličan način:
+<xmp class = "primer_ta"> 
 int[,]  matricaBrojeva=
 {
     {4,5,6,4},
    {3,2,1,3},
 };
-</xmp
-    >
+</xmp>
 
-    Matrica je dimenzija 2 x 4.
-    <br /><br />
+Matrica je dimenzija 2 x 4.
+<br><br>
 
-    <b>Primer 4.</b>
-    Napraviti program koji za unete elemente matrice dimenzije 2x2 izračunava
-    transponovanu matricu.
-    <xmp class="primer_ta"
-> 
+
+
+<div class="half-panel-scrollable">
+<b>Primer 4.</b>
+Napraviti program koji za unete elemente matrice dimenzije 2x2 izračunava transponovanu matricu.
+<xmp class = "primer_ta"> 
 using System;
 
 namespace ConsoleApp1
@@ -137,16 +116,27 @@ namespace ConsoleApp1
         }
     }
 }
-</xmp
-    >
+</xmp>
+</div>
+<div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Transponovanamatrica?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
 
-    <button class="button_copy">Vidi primer</button>
-    <br /><br />
-    <b>Primer 5.</b>
-    Napraviti program koji za unete elemente matrice dimenzije 2x2 izračunava
-    determinantu matrice.
-    <xmp class="primer_ta"
->
+
+<br><br>
+<div class="half-panel-scrollable">
+<b>Primer 5.</b>
+Napraviti program koji za unete elemente matrice dimenzije 2x2 izračunava determinantu matrice.
+<xmp class = "primer_ta">
 using System;
 
 
@@ -172,18 +162,26 @@ namespace ConsoleApp1
         }
     }
 
-</xmp
-    >
+</xmp>
+</div>
+<div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Determinantamatrice?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
+<br><br>
+<div class="half-panel-scrollable">
+ <b>Primer 6.</b>
+Napraviti program koji za uneti prvi član i razliku aritmetičkog niza računa i ispisuje prvih 5 članova niza i njihov zbir.
 
-    <button class="button_copy">Vidi primer</button>
-
-    <br /><br />
-    <b>Primer 6.</b>
-    Napraviti program koji za uneti prvi član i razliku aritmetičkog niza računa
-    i ispisuje prvih 5 članova niza i njihov zbir.
-
-    <xmp class="primer_ta"
->
+<xmp class = "primer_ta">
 class Program
     {
         static void Main(string[] args)
@@ -212,10 +210,22 @@ class Program
 }
 
 
-</xmp
-    >
+</xmp>
 
-    <button class="button_copy">Vidi primer</button>
-    <br /><br />
-  </body>
+</div>
+<div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Aritmetickiniz?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
+<br><br>
+
+</body>
 </html>

@@ -4688,15 +4688,15 @@
         "sublessons": null
       },
       {
-        "name": "Prvi program u C#",
-        "url": "cs_Hello_World",
+        "name": "Konzolni programi i programi zasnovani na prozorima",
+        "url": "cs_Consola_Gui",
         "type": "lesson",
         "parentCourse": "cs",
         "sublessons": null
       },
       {
-        "name": "Konzolni programi i programi zasnovani na prozorima",
-        "url": "cs_Consola_Gui",
+        "name": "Prvi program u C#",
+        "url": "cs_Hello_World",
         "type": "lesson",
         "parentCourse": "cs",
         "sublessons": null

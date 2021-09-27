@@ -8,7 +8,8 @@
 <body>
 <h1>Zadaci:</h1>
 
-<b>Zadatak 1</b><br>
+<div class="half-panel-scrollable">
+ <b>Zadatak 1</b><br>
 Napisati program kojim se unose sa tastature 3 broja, a zatim pronalazi njihov prosek.<br>
 <xmp class = "primer_ta"> 
 using System;
@@ -41,10 +42,26 @@ namespace ConsoleApplication1
 
 </xmp>
 <br><br>
-<button class = "button_copy">Vidi primer</button>
+</div>
+ <div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Zadatak1?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
+
+
+
 <br><br>
+<div class="half-panel-scrollable">
 <b>Zadatak 2</b><br>
-Napisati program kojim se sa tastature unose 2 broja, a zatim štampaju uređeni po veličini.<br>
+Napisati program kojim se sa tastature unose 2 broja, a zatim se štampaju uređeni po veličini.<br>
 <xmp class = "primer_ta"> 
 using System;
 using System.Collections.Generic;
@@ -59,7 +76,7 @@ namespace ConsoleApplication2
         {
             int a, b;
             string prvi, drugi;
-            Console.WriteLine(“Unesite 2 broja, pa da ih uredim po velicini:”);
+            Console.WriteLine(“Unesite 2 broja: ”);
             prvi = Console.ReadLine();
             drugi = Console.ReadLine();
             a = Convert.ToInt32(prvi);
@@ -78,12 +95,26 @@ namespace ConsoleApplication2
     }
 }
 </xmp>
-<button class = "button_copy">Vidi primer</button>
-<br><br>
+</div>
+ <div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Zadatak2?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
 
+
+<br><br>
+<div class="half-panel-scrollable">
 <b>Zadatak 3</b><br>
-Sastaviti konzolnu aplikaciju, gde se unose dva broja a štampa njihov zbir i razlika:
- Napraviti klasu matematika, i u okviru nje dve funkcije. Za sabiranje i oduzimanje.<br>
+Sastaviti konzolnu aplikaciju, gde se unose dva broja i štampa njihov zbir i razlika.
+ Napraviti klasu matematika, i u okviru nje dve funkcije: za sabiranje i oduzimanje.<br>
 <xmp class = "primer_ta"> 
 using System;
 using System.Collections.Generic;
@@ -94,11 +125,11 @@ namespace ConsoleApplication3
 {
 
 class Program
-{
+ {
 static void Main(string[] args)                  
-{
+   {
     Matematika M = new Matematika();                    
-    
+    Console.WriteLine("Uneti dva broja: ");
     string prvi=Console.ReadLine();                     
     string drugi=Console.ReadLine();                      
     double x=Convert.ToDouble(prvi);                   
@@ -106,32 +137,42 @@ static void Main(string[] args)
     
     
     
-Console.WriteLine ( "zbir je"+M.Zbir (x, y) );     
-Console.WriteLine ("razlika je"+ M.Razlika (x, y) );          
+Console.WriteLine ( "Zbir je"+M.Zbir (x, y) );     
+Console.WriteLine ("Razlika je"+ M.Razlika (x, y) );          
 Console.ReadKey();
 
-}
-}
+   }
+ }
 class Matematika  //definisali smo klasu matematika
-{
+   {
     public double Zbir(double A, double B)     
-{
+    {
 return A + B;                
-}
+    }
 public double Razlika(double A, double B)    
-{
+    {
 return A - B;
-}
+    }
 
+   }
 }
-
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+</div>
 
-
-
-
+ <div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Zadatak3?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
 <br><br>
+<div class="half-panel-scrollable">
 <b>Zadatak 4</b><br>
 Uneti tri broja. Ispisati ih u rastućem poretku.
 <xmp class = "primer_ta"> 
@@ -189,6 +230,23 @@ Console.ReadKey();
 
 }
 </xmp>
-<button class = "button_copy">Vidi primer</button>
+
+
+
+</div>
+ <div class="half-panel">
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/Zadatak4?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
+</iframe>
+ </div>
+
+
 </body>
 </html>
