@@ -4464,13 +4464,6 @@
         "type": "lesson",
         "parentCourse": "htmlsis",
         "sublessons": null
-      },
-      {
-        "name": "Test",
-        "url": "htmlsist_test",
-        "type": "lesson",
-        "parentCourse": "htmlsis",
-        "sublessons": null
       }
     ]
   },
@@ -4543,13 +4536,6 @@
       {
         "name": "Media upiti",
         "url": "csssist_media_upiti",
-        "type": "lesson",
-        "parentCourse": "csssist",
-        "sublessons": null
-      },
-      {
-        "name": "Test",
-        "url": "csssist_test",
         "type": "lesson",
         "parentCourse": "csssist",
         "sublessons": null
@@ -4653,13 +4639,6 @@
       {
         "name": "Zadaci",
         "url": "jssist_zadaci",
-        "type": "lesson",
-        "parentCourse": "jssist",
-        "sublessons": null
-      },
-      {
-        "name": "Test",
-        "url": "jssist_test",
         "type": "lesson",
         "parentCourse": "jssist",
         "sublessons": null
