@@ -4749,6 +4749,97 @@
         "type": "lesson",
         "parentCourse": "cs",
         "sublessons": null
+      },
+      {
+        "name": "While petlja",
+        "url": "cs_While_petlja",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "For petlja",
+        "url": "cs_For_petlja",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba break",
+        "url": "cs_Naredba_break",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Naredba continue",
+        "url": "cs_Naredba_continue",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Uvod u razvojno okruzenje za kreiranje aplikacija",
+        "url": "cs_Uvod_u_razvojno_okruzenje_za_kreiranje_aplikacija",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Elementi prozora za rad",
+        "url": "cs_elementi_prozora_za_rad",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Cuvanje i pokretanje programa",
+        "url": "cs_cuvanje_i_pokretanje_programa",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Forma i njena svojstva",
+        "url": "cs_Forma_i_njena_svojstva",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Komponente i njihova svojstva",
+        "url": "cs_Komponente_i_njihova_svojstva",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Komponenta button",
+        "url": "cs_Komponenta_Button",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Komponenta label",
+        "url": "cs_Komponenta_label",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Komponenta textbox",
+        "url": "cs_Komponenta_textbox",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
+      },
+      {
+        "name": "Komponenta pictureBox",
+        "url": "cs_Komponenta_PictureBox",
+        "type": "lesson",
+        "parentCourse": "cs",
+        "sublessons": null
       }
     ]
   }

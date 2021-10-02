@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>PETLJE</title>
+</head>
+
+<body>
+<h1>For petlja</h1>
+
+Sintaksa for naredbe je:
+<br>
+<br>for ( <i><b>inicijalizacija</b></i>; <i><b> uslov</b></i>;<i><b> inkrementacija</b></i> ){
+<br>	<i><b>blok naredbi</b></i>;
+<br>}
+
+<br>
+<br>
+Prvo se izvrši <b>inicijalizacija</b>, i zatim se proverava <b>uslov</b>. Ukoliko je njegova vrednost tačna , ulazi se u <b>blok naredbi</b> koji je naveden u petlji.
+<br>Kada se izvrše sve naredbe izvršava se <b>inkrementacija</b> i tok programa se vraća na ponovno ispitivanje <b>uslova</b>. Opisani proces se ponavlja sve dok je ispunjen <b>uslov</b>.
+<br>Ako <b>uslov</b> nije ispunjen izlazi se iz petlje i nastavlja se sa izvršavanjem naredbi koje su navedene posle for petlje.
+<br>
+<br>
+Dijagram toka koji ilustruje način izvršavanja for naredbe:
+<br>
+<br>
+<img src="courses/cs/slike/diagram_for.png" class="img-sd">
+<br>
+<br>
+<i>While</i> i <i>for</i> petlja predstavljaju dva različita načina da uradimo istu stvar. Iako uvek možemo rešiti problem koristeći bilo koju od ove dve petlje,
+<br>nekada je zgodnije koristiti jednu, a nekada drugu. Petlja for je pravljena za slučajeve gde, kada dođemo do petlje, 
+<br>znamo koliko puta ćemo je izvršiti. Bilo da je to fiksan broj ili vrednost promenljive.
+<br> Sa druge strane while petlju koristimo u slučajevima gde ne znamo unapred koliko puta će se petlja ponoviti.
+
+<br><br>
+<b>Primer1.</b> . Ispisati poruku “Zdravo svete”  9 puta. <br>
+<xmp class = "primer_ta"> 
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i;
+            for (i = 1; i <= 9; i++) {
+                Console.WriteLine("Zdravo svete");
+            }
+        }
+    }
+}
+
+</xmp>
+Nakon izvrsenja, rezultat programa ce biti:
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br>Zdravo svete
+<br><br>
+Inicijalizacijom, promenljiva i je jednaka 1 u for petlji. Zatim, proverom uslova da je 1<=9, ulazi se u blok naredni gde se prvi put ispisuje poruka,
+<br>nakon cega se i inkrementira (i++). Ponovnom proverom uslova da je 2<=9,drugi put se ispisuje poruka, zatim ponovna inkremetacija gde I dobija vrednost 3.
+<br>For petlja ce se izvrsavati sve dok se poruka ne ispise 9 puta sto je naglaseno u uslovu petlje.
+<br><br>
+<b>Primer2.</b> Izračunavati zbir svih parnih brojeva u intervalu od nula, do nekog zadatog broja n.
+<xmp class = "primer_ta"> 
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            Console.WriteLine("Unesite prirodan broj: ");
+
+            n = int.Parse(Console.ReadLine());
+
+
+
+            int i;
+            int zbir = 0;
+
+            for(i=0;i<=n;i+=2)
+            {
+                zbir += i;
+
+              
+            }
+
+            Console.WriteLine("Zbir je jednak " + zbir);
+
+
+        }
+    }
+}
+
+</xmp>
+
+Za zadati broj 8, zbir ce biti jednak 2+4+6+8 = 20.
+<br>
+Nakon unosa broja(primer kada unosimo broj 8), vrsi se inicijalizacija promenljive i ( i = 0 ). Nakon provere uslova da je 0<=8, 
+<br>izvrsava se blok naredbi gde se zbiru dodaje 0, zatim inkrementacijom se i povecava za 2 (i+=2). Nakon toga se proverava uslov da li je 2<= 8,
+<br> I zatim se broj 2 dodaje zbiru. Inkrementacijom, i dobija vrednost 4, koji se nakon provere uslova dodaje zbiru ( prethodna vrednost zbira je 2,nakon sabiranja 2 + 4, zbir dobija vrednost 6 ).
+<br>For petlja ce se izvrsavati dokle god je ispunjen uslov da je i<=n, sto u nasem slucaju znaci da ce se sabrati brojevi 0,2,4,6,8, I zbir ce iznositi 20.
+
+<br><br>
+<div class = "zadatak">
+Zadatak1. Za zadati prirodan broj, sabrati sve neparne prirodne brojeve manje od njega,zatim ispisati zbir.
+</div>
+
+
+
+</body>
+</html>

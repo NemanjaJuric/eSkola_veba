@@ -1,0 +1,120 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Komponenta Button</title>
+  </head>
+  <body>
+    <h1>Komponenta Button</h1>
+    <br />
+    <br />
+    <b>Button</b> je komponenta koja se u Toolbox-y nalazi u kategoriji Common
+    Controls. Klikom na ovu komponentu se izvršava neka akcija. Sa ovom
+    komponentom smo se već susreli mnogo puta prilikom rada na kompjuteru.
+    <br />
+    Kao primer, prilikom pristupa Google nalogu , klikom na dugme
+    <b>Create account</b>, mozemo kreirati novi nalog ( sto predstalja akciju
+    dugmeta) ili nakon unosa svoje email adrese, sa dugmetom
+    <b>Next</b> pristupamo svom nalogu. <br /><br />
+    <img src="courses/cs/slike/komponenta_button_1.png" class="img-lg" />
+    <br /><br />
+    U aplikacijama, koje ćemo praviti, često ćemo koristiti ovu komponentu.
+    <br />Komponenta <b>Button</b> takođe ima svojstva kao forma i ta svojstva
+    se menjaju na isti način na koji se menjaju kod forme(
+    <i>Prozor Properties</i> ). <br /><br />
+    <b><u>Svojstva koja se najčešće koriste:</u></b>
+    <br /><br />
+    <b>Text</b> je svojstvo koje se najčešće koristi i služi za zadavanje
+    natpisa koji će da stoji na komponenti u skladu sa akcijom koja treba da se
+    izvrši kada se klikne na nju. <br />Tekst koji se inicijalno na početku
+    pojavljuje je button1, za prvo dugme koje se doda formi, button2, za drugo
+    dugme, button3 za treće i tako dalje, <br />ali kao što smo rekli ovi
+    natpisi se pomoću ovog svojstva mogu promeniti.
+    <br />
+    <br /><b>Text Align</b> je svojstvo koje nudi različite opcije za poravnanje
+    natpisa koji stoji na dugmetu. <br />Natpis se može poravnati tako da stoji
+    na primer u gornjem levom uglu, donjem desnom uglu, centru i tako dalje.
+    <br />
+    <br /><b>(Name)</b> je svojstvo koje predstavlja ime komponente koje se
+    koristi u kodu kako bi se identifikovala ta komponenta (tj. objekat).
+    <br />Svako dugme automatski dobija ime i to prema redosledu dodavanja formi
+    button1, button2, button3 i tako dalje. Ova imena se mogu promeniti pomoću
+    ovog svojstva, <br />ali mi ćemo raditi sa ovim već unapred zadatim imenima
+    i nećemo ih menjati. Ovo svojstvo treba razlikovati od svojstva <i>Text</i>.
+    <br />
+    <br /><b>Back Color</b> je svojstvo koje služi za promenu boje dugmeta.
+    Način na koji se to radi je identičan načinu na koji se menja boja pozadine
+    forme.
+    <br />
+    <br /><b>Background Image</b> je svojstvo koje služi za postavljanje slike
+    na pozadinu dugmeta.
+    <br />
+    <br /><b>Background Image Layout</b> je svojstvo u kome su ponuđeni načini
+    na koje slika može da popuni pozadinu dugmeta. <br /><br />
+    <img src="courses/cs/slike/komponenta_button_2.png" class="img-lg" />
+    <br /><br />
+    <b>Flat Appearance</b> je svojstvo koje se tiče izgleda dugmeta i ima četiri
+    podsvojstva: <i>BorderColor</i>, služi za promenu boje linije kojom je
+    oivičeno dugme, <br /><i>BorderSize</i>, služi za promenu debljine linije
+    kojom je oivičeno dugme,<i>MouseDownBackColor</i>, služi za to da dok držimo
+    kliknuto dugme poprimi izabranu boju <br />i <i>MouseOverBackColor</i>,
+    služi za to da kada pređemo mišem preko dugmeta, dugme poprimi izabranu
+    boju. <br />Međutim, ova svojstva se mogu menjati samo ako je u svojstvu
+    <b>Flat Style</b>, to je sledeće svojstvo, izabrana opcija <i>Flat</i>, u
+    suprotnom nema svrhe menjati ova podsvojstva.
+    <br />
+    <br />
+    <b>Flat Style</b> je svojstvo u kome se bira između četiri ponuđena izgleda
+    dugmeta i to su:
+    <ul>
+      <li>Flat</li>
+      <li>Popup</li>
+      <li>Standard</li>
+      <li>System.</li>
+    </ul>
+
+    <br />
+    <img src="courses/cs/slike/komponenta_button_3.png" class="img-lg" />
+    <br /><br />
+    <img src="courses/cs/slike/komponenta_button_4.png" class="img-lg" />
+    <br /><br />
+    <b>Font</b> je svojstvo pomoću koga se može izabrati vrsta slova, način
+    ispisa, veličina slova natpisa koji se pojavljuje na dugmetu.
+    <br />Podsvojstava se mogu videti kada se klikne na simbol . Ta podsvojstva
+    se direktno mogu menjati uokviru <i>Properties Windows-a</i>.
+    <br />
+    <br /><b>Fore Color</b> je svojstvo pomoću koga se može izabrati boja
+    natpisa koji se pojavljuje na dugmetu. Ta boja se bira isto kao što se bira
+    i boja pozadine dugmeta.
+    <br />
+    <br /><b>Size</b> je svojstvo pomoću koga se određuju dimenzije dugmeta
+    izražene u pikselima. Sastoji se od dva podsvojstva: <i>Width</i>, koje
+    služi za podešavanje širine i <i>Height</i>, koje služi za podešavanje
+    visine.
+    <br />
+    <br /><b>Tab Index</b> je svojstvo pomoću koga se određuje redosled po kome
+    će se, pomoću <i>Tab</i> tastera na tastaturi, <br />
+    fokus pomerati sa jedne komponente na drugu komponentu. Na ovaj način možemo
+    da rešimo problem logičnog toka unošenja podataka.
+    <br />
+    <br /><b>Tab Stop</b> je svojstvo pomoću koga se određuje da li korisnik
+    može da pomera fokus sa jedne komponente na drugu pomoću <i>Tab</i> tastera.
+    <br />Ukoliko je izabrana opcija <i>True</i>, fokus se može pomerati sa
+    komponente na komponentu na ovaj način, a ako je izabrana opcija
+    <i>False</i>, <br />fokus se ne može pomerati sa komponente na komponentu na
+    ovaj način.
+    <br />
+    <br /><b>Visible</b> je svojstvo pomoću koga se utvrđuje da li je komponenta
+    vidljiva ili sakrivena. <br />Ukoliko je izabrana opcija <i>True</i>,
+    komponenta će biti vidljiva kada se pokrene program, a ukoliko je izabrana
+    opcija <i>False</i>, <br />komponenta se neće videti kada se pokrene
+    program, odnosno biće sakrivena.
+    <br />
+    <br />
+    <br />
+    Što se tiče pisanja koda,dovoljno je da se odradi dvoklik na dugme sa forme,
+    <br />i otvoriće se kartica gde je dozvoljen unos koda koji je vezan za
+    akciju koja se dešava prilikom pritiska na dugme . <br /><br />
+    <img src="courses/cs/slike/komponenta_button_5.png" class="img-lg" />
+    <br /><br />
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>Naredbe za promene toka izvršavanja petlji</title>
+</head>
+
+<body>
+<h1>Naredbe za promene toka izvršavanja petlji</h1>
+
+Postoje dve ugrađene naredbe koje mogu da promene tok izvršavanja petlji i mogu se koristiti u kombinaciji sa bilo kojom od navedenih naredbi ponavljanja.
+<br>Prva je naredba <i><b>break</b></i>, koja prekida proces izvršavanja petlje, a druga je naredba <i><b>continue</b></i> koja prekida izvršavanje jedne iteracije petlje.
+
+<br>
+<br>
+<h2>Naredba Break</h2>
+
+<br>
+Način na koji naredba break funkcioniše ako se pozove u petlji može se ilustovati na sledeći način:
+<br>
+<br>
+<img src="courses/cs/slike/diagram_break.png" class="img-sd">
+<br>
+<br>
+
+
+<br><br>
+<b>Primer1.</b> Obezbediti korisniku unosenje prirodnog broja, sve dok ne unese prirodan broj deljiv sa 3, nakon kojeg se ispisuje rezultat deljenja. <br>
+<xmp class = "primer_ta"> 
+using System;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+
+            while (true)
+            {
+                int n;
+                Console.WriteLine("Unesite broj: ");
+
+                n = int.Parse(Console.ReadLine());
+                int broj = 0;
+
+                if (n % 3 == 0)
+                {
+
+                    broj = n / 3;
+                    Console.WriteLine("Rezultat je " + broj);
+                    break;
+                }
+            }
+
+        }
+    }
+}
+
+</xmp>
+
+<br>Rezultat je
+<br>"Unesite broj :"
+<br>4
+<br>"Unesite broj :"
+<br>8
+<br>"Unesite broj :"
+<br>9
+<br>"Rezultat je 3"
+<br><br>
+Ukoliko unesemo broj 4, proverom u if naredbi dobijamo da on nije deljiv sa 3, pa ce od nas biti zahtevano ponovno unosenje broja, sve dok ne unesemo broj deljiv sa 3.
+<br>Izabrali smo da napravimo beskonačnu petlju (uslov za naredbu while je uvek tačan), ali čim dobijemo odgovarajući broj izlazimo iz petlje naredbom break
+<br> i program nastavlja sa naredbom posle while-a, odnosno ispisuje rezultat deljenja unetog broja sa 3.
+<br><br>
+
+</body>
+</html>

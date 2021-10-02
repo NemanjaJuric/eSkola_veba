@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <title>PETLJE</title>
+</head>
+
+<body>
+<h1>Petlje</h1>
+
+Ukoliko rešavamo problem u programiranju koji zahteva da se neki blok naredbi izvrši više puta potrebne su nam naredbe ponavljanja ili petlje. 
+<br>Ovakvi programi se često nazivaju programi sa cikličnom strukturom.
+U C#-u postoje  naredbe kojima se mogu implementirati programi sa cikličnom strukturom. To su:
+
+<br>
+<ul>
+<li><b>while</b>
+<li><b> for</b>
+</ul>
+
+<h2>While petlja </h2>
+
+
+Sintaksa naredbe while je:
+<br>
+<br>while (<i><b>uslov</i></b>){
+<br><i><b>blok naredbi</i></b>;
+<br>};
+<br>
+<br>
+
+Petlja je deo koda koji se izvršava dokle god je <b>USLOV</b> te petlje zadovoljen. Dakle, kada dođemo do petlje u kodu, računar proverava da li je <b>USLOV</b> ispunjen, 
+<br>ako jeste, on izvršava <b>BLOK NAREDBI</b>. Nakon što ih izvrši, vraća se ponovo do <b>USLOVA</b>, ako je on i dalje ispunjen <b>BLOK NAREDBI</b> se ponovo izvršavaju.
+<br> Sve se to ponavlja dokle god uslov ne postane netačan.
+
+<br>
+<br>
+Diagram petlje While:
+<br>
+<br>
+<img src="courses/cs/slike/diagram_while.png" class="img-sd">
+<br>
+
+<b>Primer1.</b> Ispisati sve prirodne brojeve manje ili jednake broju 7. 
+<xmp class = "primer_ta"> 
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 1;
+
+            while (n <= 7)
+            {
+                Console.WriteLine("n = " + n);
+                n++;
+            }
+        }
+    }
+}
+</xmp>
+Nakon izvrsenja, rezultat programa ce biti:
+<br>n = 1
+<br>n = 2
+<br>n = 3
+<br>n = 4
+<br>n = 5
+<br>n = 6
+<br>n = 7
+
+<br><br>
+Prvi prirodan broj nam je 1, pa smo inicijalizovali n = 1. Dolazimo do while petlje, gde prvo proveramo da li je 1 <= 7. Kako je uslov ispunjen, ulazimo u blok naredbi,
+<br> i ispisujemo sa komandom <i>Console.WriteLine</i> da je n = 1, zatim n uvecavamo za 1 (n++), i trenutna vrednost broja n je jednaka 2. 
+<br> Proverom uslova da li je 2 <= 7, ponovo ulazimo u blok naredni, ispisujemo n = 2 i povecamo vrednost broja n na 3. 
+<br>Petlja ce se izvrsavati sve dok  se broj n ne uveca do broja 8, tada uslov nece biti ispunjen ( jer 8 nije <= 7 ), i tada ce biti kraj izvrsavanja naseg programa.
+<br>
+<br>
+<b>Primer2.</b> Izračunavati zbir svih  brojeva u intervalu od 1, do nekog zadatog broja n.
+<xmp class = "primer_ta"> 
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            Console.WriteLine("Unesite prirodan broj: ");
+
+            n = int.Parse(Console.ReadLine());
+	/ /Primera radi, unosimo broj 5
+
+            int i = 1;
+            int zbir = 0;
+
+            while (i < n)
+            {
+                zbir = zbir + i;
+
+                i++;
+            }
+
+            Console.WriteLine("Zbir je jednak " + zbir);
+        }
+    }
+}
+
+
+</xmp>
+
+Nakon unosa broja 5, program ce ispisati
+<br>„Zbir je jednak 10„  jer je 1 + 2 + 3 + 4 = 10.
+
+<br>
+<br>Sa komandom n = <i> int.Parse(Console.ReadLine()); </i> korisnik ima mogucnost da unese prirodan broj u promenljivu n (primer kada unesemo broj 5).
+<br> Inicijalizovali smo da je i = 1 ( prvi prirodan broj) i zbir = 0 .  Dolazimo do while petlje, gde je ispunjen uslov da je 1 < 5,
+<br> ulazimo u blok naredbi i zbir dobija vrednost 1. Kako se i povecava za 1 ( i++), proverava se uslov da li je 2 < 5.
+<br>Uslov je ispunjen, i na zbir se dodaje broj 2, pa je vrednost zbira jednako 1 + 2 = 3. I se inkrementira , dok ne dodje do uslova 5 < 5.
+<br> Kako uslov nije ispunjen, sabrace se slucajevi kada je i =1, i = 2, i = 3, i = 4, sto daje kao rezultat da je zbir jednak broju 10. 
+
+<br><br>
+<div class = "zadatak">
+Zadatak1. Za zadati prirodan broj, sabrati sve neparne prirodne brojeve manje od njega,zatim ispisati zbir.
+</div>
+
+
+
+</body>
+</html>
