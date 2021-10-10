@@ -1,85 +1,63 @@
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title>Komponenta Label</title>
-  </head>
-  <body>
-    <h1>Komponenta Label</h1>
-    <br />
-    <br />
-    <b>Label</b> je komponenta koja se u <i>Toolbox-u</i> nalazi u kategoriji
-    <i>Common Controls</i>. Korisnik ne može da menja sadržaj ove komponente.
-    Kada se program pokrene, ona se takodje ne moze promeniti. <br /><br />
-    Sa ovom komponentom se takođe možemo sresti i kada hoćemo da se ulogujemo na
-    neki nalog, na primer <i>Google nalog</i>. <br />U primeru ispod, labela
-    <b>Sign in to continue to Gmail</b> nam govori da treba da se prijavimo sa
-    nasom email-om adresom, <br />da bi pristupili nalogu.Znači, labela služi da
-    bi se preko nje opisala neka druga komponenta.
-    <br />
-    <br />
-    <img src="courses/cs/slike/komponenta_label_1.png" class="img-lg" />
-    <br /><br />
-    <b><u>Svojstva koja se najčešće koriste:</u></b>
-    <br /><br />
-    <b>Text</b> je svojstvo koje se najčešće koristi i služi za zadavanje
-    natpisa koji će da stoji u labeli. <br />Najčešće se zadaje kada treba da
-    opiše neku drugu komponentu. Tekst koji se inicijalno na početku pojavljuje
-    je <i>label1</i>, za prvu labelu koje se doda formi, <i>label2</i>, za drugu
-    labelu, <i>label3</i> za treću i tako dalje, ali kao što smo rekli ovaj
-    tekst se pomoću ovog svojstva može promeniti.
-    <br />
-    <br /><b>Text Align</b> je svojstvo koje nudi različite opcije za poravnanje
-    natpisa koji stoji u labeli. <br />
-    Natpis se može poravnati tako da stoji na primer u gornjem levom uglu,
-    donjem desnom uglu, centru i tako dalje.
-    <br />
-    <br /><b>(Name)</b> je svojstvo koje predstavlja ime komponente koje se
-    koristi u kodu kako bi se identifikovala ta komponenta (tj. objekat).
-    <br />Svaka labela automatski dobija ime i to prema redosledu dodavanja
-    formi <i>label1, label2, label3</i> i tako dalje. <br />Ova imena se mogu
-    promeniti pomoću ovog svojstva, ali mi ćemo raditi sa ovim već unapred
-    zadatim imenima i nećemo ih menjati. Ovo svojstvo treba razlikovati od
-    svojstva Text.
-    <br />
-    <br /><b>Auto Size</b> je svojstvo koje služi da se dimenzije labele
-    automatski prilagode tekstu koji je ispisan u labeli. <br />
-    Ako je ovo svojstvo postavljeno na <i>True</i>, onda se dimenzije automatski
-    prilagođavaju, a ako je postavljeno na <i>False</i>, <br />
-    onda mi možemo sami da zadamo visinu i širinu pomoću svojstva <i>Size</i>.
-    <br />
-    <br /><b>Back Color</b> je svojstvo koje služi za promenu boje pozadine
-    labele. Način na koji se to radi je identičan načinu na koji se menja boja
-    pozadine forme.
-    <br />
-    <br /><b>Border Style</b> svojstvo ima tri ponuđene opcije koje pružaju
-    različite izglede ivica labele.
-    <br />
-    <br /><b>Cursor</b> je svojstvo koje nudi različite izglede kursora. Kada
-    pređemo mišem preko labele, kursor će poprimiti izabrani izgled.
-    <br />
-    <br /><b>Font</b> je svojstvo pomoću koga se može izabrati vrsta slova,
-    način ispisa, veličina slova natpisa koji se pojavljuje u labeli. <br />
-    Ta podsvojstva se direktno mogu menjati u okviru
-    <i>Properties Windows-a</i>.
-    <br />
-    <br /><b>Fore Color</b> je svojstvo pomoću koga se može izabrati boja teksta
-    koji se pojavljuje u labeli. Ta boja se bira isto kao što se bira i boja
-    pozadine labele.
-    <br />
-    <br /><b>Visible</b> je svojstvo pomoću koga se utvrđuje da li je komponenta
-    vidljiva ili sakrivena. <br />Ukoliko je izabrana opcija <i>True</i>,
-    komponenta će biti vidljiva kada se pokrene program, a ukoliko je izabrana
-    opcija <i>False</i>, <br />komponenta se neće videti kada se pokrene
-    program, odnosno biće sakrivena.
-    <br />
-    <br />
-    <br /><b> Primer 1.</b> Prikaz labele na formi, gde je promenjena boja
-    pozadine, text labele i boja slova.
-    <br />
-    <br />
-    <img src="courses/cs/slike/komponenta_label_2.png" class="img-lg" />
-    <br /><br />
-    <img src="courses/cs/slike/komponenta_label_3.png" class="img-lg" />
-    <br /><br />
-  </body>
+  <meta charset="utf-8">
+  <title>Komponenta Label</title>
+</head>
+<body>
+<h1>Komponenta Label</h1>
+<br>
+<br>
+<b>Label</b> je komponenta koja se u <i>Toolbox-u</i> nalazi u kategoriji <i>Common Controls</i>. 
+Korisnik ne može da menja sadržaj ove komponente. Kada se program pokrene, ona se takodje ne moze promeniti. 
+<br><br>
+Sa ovom komponentom se takođe možemo sresti i kada hoćemo da se ulogujemo na neki nalog, na primer <i>Google nalog</i>. 
+<br>U primeru ispod, labela <b>Sign in to continue to Gmail</b> nam govori da treba da se prijavimo sa nasom email-om adresom,
+<br>da bi pristupili nalogu.Znači, labela služi da bi se preko nje opisala neka druga komponenta.
+<br>
+<br>
+<img src="courses/cs/slike/komponenta_label_1.png" class="img-sm">
+<br><br>
+<b><u>Svojstva koja se najčešće koriste:</u></b>
+<br><br>
+<b>Text</b> je svojstvo koje se najčešće koristi i služi za zadavanje natpisa koji će da stoji u labeli. 
+<br>Najčešće se zadaje kada treba da opiše neku drugu komponentu. Tekst koji se inicijalno na početku pojavljuje je <i>label1</i>, 
+za prvu labelu koje se doda formi, <i>label2</i>, za drugu labelu, <i>label3</i> za treću i tako dalje, ali kao što smo rekli ovaj tekst se pomoću ovog svojstva može promeniti. 
+<br>
+<br><b>Text Align</b> je svojstvo koje nudi različite opcije za poravnanje natpisa koji stoji u labeli.
+<br> Natpis se može poravnati tako da stoji na primer u gornjem levom uglu, donjem desnom uglu, centru i tako dalje. 
+<br>
+<br><b>(Name)</b> je svojstvo koje predstavlja ime komponente koje se koristi u kodu kako bi se identifikovala ta komponenta (tj. objekat). 
+<br>Svaka labela automatski dobija ime i to prema redosledu dodavanja formi <i>label1, label2, label3</i> i tako dalje. 
+<br>Ova imena se mogu promeniti pomoću ovog svojstva, ali mi ćemo raditi sa ovim već unapred zadatim imenima i nećemo ih menjati. Ovo svojstvo treba razlikovati od svojstva Text.
+<br>
+<br><b>Auto Size</b> je svojstvo koje služi da se dimenzije labele automatski prilagode tekstu koji je ispisan u labeli.
+<br> Ako je ovo svojstvo postavljeno na <i>True</i>, onda se dimenzije automatski prilagođavaju, a ako je postavljeno na <i>False</i>,
+<br> onda mi možemo sami da zadamo visinu i širinu pomoću svojstva <i>Size</i>.
+<br>
+<br><b>Back Color</b> je svojstvo koje služi za promenu boje pozadine labele. Način na koji se to radi je identičan načinu na koji se menja boja pozadine forme. 
+<br>
+<br><b>Border Style</b> svojstvo ima tri ponuđene opcije koje pružaju različite izglede ivica labele.
+<br>
+<br><b>Cursor</b> je svojstvo koje nudi različite izglede kursora. Kada pređemo mišem preko labele, kursor će poprimiti izabrani izgled.
+<br>
+<br><b>Font</b> je svojstvo pomoću koga se može izabrati vrsta slova, način ispisa, veličina slova natpisa koji se pojavljuje u labeli.
+<br> Ta podsvojstva se direktno mogu menjati u okviru <i>Properties Windows-a</i>.
+<br>
+<br><b>Fore Color</b> je svojstvo pomoću koga se može izabrati boja teksta koji se pojavljuje u labeli. Ta boja se bira isto kao što se bira i boja pozadine labele.
+<br>
+<br><b>Visible</b> je svojstvo pomoću koga se utvrđuje da li je komponenta vidljiva ili sakrivena. 
+<br>Ukoliko je izabrana opcija <i>True</i>, komponenta će biti vidljiva kada se pokrene program, a ukoliko je izabrana opcija <i>False</i>, 
+<br>komponenta se neće videti kada se pokrene program, odnosno biće sakrivena.
+<br>
+<br>
+<br><b> Primer 1.</b> Prikaz labele na formi, gde je promenjena boja pozadine, text labele i boja slova.
+<br>
+<br>
+<img src="courses/cs/slike/komponenta_label_2.png" class="img-sm">
+<br><br>
+<img src="courses/cs/slike/komponenta_label_3.png" class="img-sm">
+<br><br>
+
+
+</body>
 </html>

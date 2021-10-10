@@ -24,7 +24,7 @@ Prvo se izvrši <b>inicijalizacija</b>, i zatim se proverava <b>uslov</b>. Ukoli
 Dijagram toka koji ilustruje način izvršavanja for naredbe:
 <br>
 <br>
-<img src="courses/cs/slike/diagram_for.png" class="img-sd">
+<img src="courses/cs/slike/diagram_for.png" class="img-md">
 <br>
 <br>
 <i>While</i> i <i>for</i> petlja predstavljaju dva različita načina da uradimo istu stvar. Iako uvek možemo rešiti problem koristeći bilo koju od ove dve petlje,
@@ -33,6 +33,7 @@ Dijagram toka koji ilustruje način izvršavanja for naredbe:
 <br> Sa druge strane while petlju koristimo u slučajevima gde ne znamo unapred koliko puta će se petlja ponoviti.
 
 <br><br>
+
 <b>Primer1.</b> . Ispisati poruku “Zdravo svete”  9 puta. <br>
 <xmp class = "primer_ta"> 
 using System;
@@ -52,7 +53,19 @@ namespace ConsoleApp2
 }
 
 </xmp>
-Nakon izvrsenja, rezultat programa ce biti:
+<br><br>
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/forprimer1?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+></iframe>
+<br><br>
+Nakon izvrsenja, rezultat programa će biti:
 <br>Zdravo svete
 <br>Zdravo svete
 <br>Zdravo svete
@@ -64,9 +77,10 @@ Nakon izvrsenja, rezultat programa ce biti:
 <br>Zdravo svete
 <br><br>
 Inicijalizacijom, promenljiva i je jednaka 1 u for petlji. Zatim, proverom uslova da je 1<=9, ulazi se u blok naredni gde se prvi put ispisuje poruka,
-<br>nakon cega se i inkrementira (i++). Ponovnom proverom uslova da je 2<=9,drugi put se ispisuje poruka, zatim ponovna inkremetacija gde I dobija vrednost 3.
-<br>For petlja ce se izvrsavati sve dok se poruka ne ispise 9 puta sto je naglaseno u uslovu petlje.
+<br>nakon čega se i inkrementira (i++). Ponovnom proverom uslova da je 2<=9,drugi put se ispisuje poruka, zatim ponovna inkremetacija gde I dobija vrednost 3.
+<br>For petlja će se izvršavati sve dok se poruka ne ispise 9 puta sto je naglaseno u uslovu petlje.
 <br><br>
+
 <b>Primer2.</b> Izračunavati zbir svih parnih brojeva u intervalu od nula, do nekog zadatog broja n.
 <xmp class = "primer_ta"> 
 using System;
@@ -102,20 +116,30 @@ namespace ConsoleApp3
 }
 
 </xmp>
+<br><br>
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/forprimer2?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+></iframe>
 
-Za zadati broj 8, zbir ce biti jednak 2+4+6+8 = 20.
+
+Za zadati broj 8, zbir će biti jednak 2+4+6+8 = 20.
 <br>
-Nakon unosa broja(primer kada unosimo broj 8), vrsi se inicijalizacija promenljive i ( i = 0 ). Nakon provere uslova da je 0<=8, 
-<br>izvrsava se blok naredbi gde se zbiru dodaje 0, zatim inkrementacijom se i povecava za 2 (i+=2). Nakon toga se proverava uslov da li je 2<= 8,
-<br> I zatim se broj 2 dodaje zbiru. Inkrementacijom, i dobija vrednost 4, koji se nakon provere uslova dodaje zbiru ( prethodna vrednost zbira je 2,nakon sabiranja 2 + 4, zbir dobija vrednost 6 ).
-<br>For petlja ce se izvrsavati dokle god je ispunjen uslov da je i<=n, sto u nasem slucaju znaci da ce se sabrati brojevi 0,2,4,6,8, I zbir ce iznositi 20.
+Nakon unosa broja (primer kada unosimo broj 8), vrši se inicijalizacija promenljive i ( i = 0 ). Nakon provere uslova da je 0<=8, 
+<br>izvršava se blok naredbi gde se zbiru dodaje 0, zatim inkrementacijom se i povećava za 2 (i+=2). Nakon toga se proverava uslov da li je 2<= 8,
+<br> I zatim se broj 2 dodaje zbiru. Inkrementacijom, i dobija vrednost 4, koji se nakon provere uslova dodaje zbiru (prethodna vrednost zbira je 2,nakon sabiranja 2 + 4, zbir dobija vrednost 6).
+<br>For petlja će se izvršavati dokle god je ispunjen uslov da je i<=n, sto u našem slučaju znači da će se sabrati brojevi 0,2,4,6,8, I zbir će iznositi 20.
 
 <br><br>
 <div class = "zadatak">
 Zadatak1. Za zadati prirodan broj, sabrati sve neparne prirodne brojeve manje od njega,zatim ispisati zbir.
 </div>
-
-
 
 </body>
 </html>

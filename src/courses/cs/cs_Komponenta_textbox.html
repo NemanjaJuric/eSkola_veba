@@ -1,101 +1,74 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title>Komponenta TextBox</title>
-  </head>
-  <body>
-    <h1>Komponenta TextBox</h1>
-    <br />
-    <br />
-    <b>TextBox</b> je komponenta koja se u <i>Toolbox-u</i> nalazi u kategoriji
-    <i>Common Controls</i>.<br />
-    TextBox tj. okvir za unošenje i prikazivanje teksta je komponenta koja, kako
-    joj i samo ime kaže, može da služi i za unos teksta sa tastature<br />
-    i za ispisivanje nekog teksta koji se određuje pomoću programa. Kada je ova
-    komponenta u fokusu u njenom okviu treperi kursor.<br /><br />
-    Već smo napomenuli, kada smo pričali o labeli, da se sa ovom komponentom
-    možemo sresti kada hoćemo da se ulogujemo na neki nalog. <br />
-    Primer TextBox-a predstavlja polje u kome unosimo email adresu, prilikom
-    pristupanja nalogu.
-    <br /><br />
-    <br />
-    <img src="courses/cs/slike/komponenta_textbox_1.png" class="img-lg" />
-    <br /><br />
-    <b><u>Svojstva koja se najčešće koriste:</u></b>
-    <br /><br />
-    <b>Text</b> je svojstvo koje služi za ispisivanje teksta koji će da stoji u
-    TextBox-u. Međutim, u većini slučajeva je potrebno da ova komponenta bude
-    prazna, tako da u polju pored svojstva Text ne treba da stoji ništa.
-    <br />
-    <br /><b>(Name)</b>je svojstvo koje predstavlja ime komponente koje se
-    koristi u kodu kako bi se identifikovala ta komponenta (tj. objekat).
-    <br />Svaki TextBox automatski dobija ime i to prema redosledu dodavanja
-    formi <i>textBox1, textBox2, textBox3</i> i tako dalje. <br />Ova imena se
-    mogu promeniti pomoću ovog svojstva, ali mi ćemo raditi sa ovim već unapred
-    zadatim imenima i nećemo ih menjati.
-    <br />
-    <br /><b>Back Color</b> je svojstvo koje služi za promenu boje pozadine
-    TextBox-a. Način na koji se to radi je identičan načinu na koji se menja
-    boja pozadine forme.
-    <br />
-    <br /><b>Border Style</b> svojstvo ima tri ponuđene opcije koje pružaju
-    različite izglede ivica TextBox-a.
-    <br />
-    <br /><b>Cursor</b> je svojstvo koje nudi različite izglede kursora. Kada
-    pređemo mišem preko TextBox-a, kursor će poprimiti izabrani izgled.
-    <br />
-    <br /><b>Font</b> je svojstvo pomoću koga se može izabrati vrsta slova,
-    način ispisa, veličina slova natpisa koji se pojavljuje u TextBox-u. <br />
-    Podsvojstva se mogu videti kada se klikne na simbol . Ta podsvojstva se
-    direktno mogu menjati u okviru <i>Properties Windows-a</i>.
-    <br />
-    <br /><b>Fore Color</b> je svojstvo pomoću koga se može izabrati boja teksta
-    koji se pojavljuje u polju za unos teksta. <br />Ta boja se bira isto kao
-    što se bira i boja pozadine polja za unos teksta.
-    <br />
-    <br /><b>Multiline</b> je svojstvo koje omogućava da se tekst ispisuje u
-    više redova umesto samo u jednom.
-    <br />
-    <br /><b>Scroll Bars</b> ima smisla koristiti samo ako je u svojstvu
-    <b>Multiline</b> izabrana opcija <i>True</i> i u ovom svojstvu se mogu
-    izabrati opcije za skrolovanje <br />teksta gore-dole ili levo-desno ili i
-    jedno i drugo. Koristi se kada se tekst koji je ispisan u TextBox-u ne može
-    videti u celosti zbog malih dimenzija TextBox-a
-    <br />
-    <br /><b>Size</b> je svojstvo pomoću koga se određuju dimenzije TextBox-a
-    izražene u pikselima. <br />Sastoji se od dva podsvojstva: <i>Width</i>,
-    koje služi za podešavanje širine i <i>Height</i>, koje služi za podešavanje
-    visine.
-    <br />
-    <br /><b>Tab Index</b> je svojstvo pomoću koga se određuje redosled po kome
-    će se, pomoću <i>Tab</i> tastera na tastaturi, fokus pomerati sa jedne
-    komponente na drugu komponentu. <br />
-    Na ovaj način možemo da rešimo problem logičnog toka unošenja podataka.
-    <br />
-    <br /><b>Tab Stop</b> je svojstvo pomoću koga se određuje da li korisnik
-    može da pomera fokus sa jedne komponente na drugu pomoću <i>Tab</i> tastera.
-    <br />Ukoliko je izabrana opcija <i>True</i>, fokus se može pomerati sa
-    komponente na komponentu na ovaj način, a ako je izabrana opcija
-    <i>False</i>, <br />fokus se ne može pomerati sa komponente na komponentu na
-    ovaj način.
-    <br />
-    <br /><b>Visible</b> je svojstvo pomoću koga se utvrđuje da li je komponenta
-    vidljiva ili sakrivena. Ukoliko je izabrana opcija <i>True</i>, komponenta
-    će biti vidljiva kada se pokrene program, a ukoliko je izabrana opcija
-    <i>False</i>, komponenta se neće videti kada se pokrene program, odnosno
-    biće sakrivena. <br /><br /><br />
-    <b>Primer 1.</b> Prikaz TextBoxa na formi, kome je promenjena boja pozadine
-    i cija ce slova nakon unosa biti fonta Showcard Gothic i zute boje.
-    <br />
-    <br />
-    <img src="courses/cs/slike/komponenta_textbox_2.png" class="img-lg" />
-    <br />
-    <br />
-    <img src="courses/cs/slike/komponenta_textbox_3.png" class="img-lg" />
-    <br />
-    <br />
-    <img src="courses/cs/slike/komponenta_textbox_4.png" class="img-lg" />
-    <br />
-    <br />
-  </body>
+  <meta charset="utf-8">
+  <title>Komponenta TextBox</title>
+</head>
+<body>
+<h1>Komponenta TextBox</h1>
+<br>
+<br>
+<b>TextBox</b> je komponenta koja se u <i>Toolbox-u</i> nalazi u kategoriji <i>Common Controls</i>.<br> 
+TextBox tj. okvir za unošenje i prikazivanje teksta je komponenta koja, kako joj i samo ime kaže, može da služi i za unos teksta sa tastature<br>
+i za ispisivanje nekog teksta koji se određuje pomoću programa. Kada je ova komponenta u fokusu u njenom okviu treperi kursor.<br><br>
+Već smo napomenuli, kada smo pričali o labeli, da se sa ovom komponentom možemo sresti kada hoćemo da se ulogujemo na neki nalog. <br>
+Primer TextBox-a predstavlja polje u kome unosimo email adresu, prilikom pristupanja nalogu.
+<br><br>
+<br>
+<img src="courses/cs/slike/komponenta_textbox_1.png" class="img-sm">
+<br><br>
+<b><u>Svojstva koja se najčešće koriste:</u></b>
+<br><br>
+<b>Text</b> je svojstvo koje služi za ispisivanje teksta koji će da stoji u TextBox-u. Međutim, u većini slučajeva je potrebno da ova komponenta bude prazna,
+ tako da u polju pored svojstva Text ne treba da stoji ništa.
+<br>
+<br><b>(Name)</b> je svojstvo koje predstavlja ime komponente koje se koristi u kodu kako bi se identifikovala ta komponenta (tj. objekat).
+ <br>Svaki TextBox automatski dobija ime i to prema redosledu dodavanja formi <i>textBox1, textBox2, textBox3</i> i tako dalje.
+ <br>Ova imena se mogu promeniti pomoću ovog svojstva, ali mi ćemo raditi sa ovim već unapred zadatim imenima i nećemo ih menjati. 
+<br>
+<br><b>Back Color</b> je svojstvo koje služi za promenu boje pozadine TextBox-a. Način na koji se to radi je identičan načinu na koji se menja boja pozadine forme.
+<br>
+<br><b>Border Style</b> svojstvo ima tri ponuđene opcije koje pružaju različite izglede ivica TextBox-a.
+<br>
+<br><b>Cursor</b> je svojstvo koje nudi različite izglede kursora. Kada pređemo mišem preko TextBox-a, kursor će poprimiti izabrani izgled.
+<br>
+<br><b>Font</b> je svojstvo pomoću koga se može izabrati vrsta slova, način ispisa, veličina slova natpisa koji se pojavljuje u TextBox-u.
+<br> Podsvojstva se mogu videti kada se klikne na simbol . Ta podsvojstva se direktno mogu menjati u okviru <i>Properties Windows-a</i>.
+<br>
+<br><b>Fore Color</b> je svojstvo pomoću koga se može izabrati boja teksta koji se pojavljuje u polju za unos teksta. 
+<br>Ta boja se bira isto kao što se bira i boja pozadine polja za unos teksta.
+<br>
+<br><b>Multiline</b> je svojstvo koje omogućava da se tekst ispisuje u više redova umesto samo u jednom.
+<br>
+<br><b>Scroll Bars</b> ima smisla koristiti samo ako je u svojstvu <b>Multiline</b> izabrana opcija <i>True</i> i u ovom svojstvu se mogu izabrati opcije za skrolovanje
+<br>teksta gore-dole ili levo-desno ili i jedno i drugo. Koristi se kada se tekst koji je ispisan u TextBox-u ne može videti u celosti zbog malih dimenzija TextBox-a
+<br>
+<br><b>Size</b> je svojstvo pomoću koga se određuju dimenzije TextBox-a izražene u pikselima.
+<br>Sastoji se od dva podsvojstva: <i>Width</i>, koje služi za podešavanje širine i <i>Height</i>, koje služi za podešavanje visine.
+<br>
+<br><b>Tab Index</b> je svojstvo pomoću koga se određuje redosled po kome će se, pomoću <i>Tab</i> tastera na tastaturi, fokus pomerati sa jedne komponente na drugu komponentu.
+<br> Na ovaj način možemo da rešimo problem logičnog toka unošenja podataka.
+<br>
+<br><b>Tab Stop</b> je svojstvo pomoću koga se određuje da li korisnik može da pomera fokus sa jedne komponente na drugu pomoću <i>Tab</i> tastera. 
+<br>Ukoliko je izabrana opcija <i>True</i>, fokus se može pomerati sa komponente na komponentu na ovaj način, a ako je izabrana opcija <i>False</i>,
+<br>fokus se ne može pomerati sa komponente na komponentu na ovaj način.
+<br>
+<br><b>Visible</b> je svojstvo pomoću koga se utvrđuje da li je komponenta vidljiva ili sakrivena. Ukoliko je izabrana opcija <i>True</i>,
+ komponenta će biti vidljiva kada se pokrene program, a ukoliko je izabrana opcija <i>False</i>, komponenta se neće videti kada se pokrene program, odnosno biće sakrivena.
+ <br><br><br>
+ <b>Primer 1.</b> Prikaz TextBoxa na formi, kome je promenjena boja pozadine i cija ce slova nakon unosa biti fonta Showcard Gothic i zute boje. 
+ <br>
+ <br>
+ <img src="courses/cs/slike/komponenta_textbox_2.png" class="img-sm">
+<br>
+<br>
+ <img src="courses/cs/slike/komponenta_textbox_3.png" class="img-sm">
+<br>
+<br>
+ <img src="courses/cs/slike/komponenta_textbox_4.png" class="img-sm">
+<br>
+<br>
+
+
+</body>
 </html>

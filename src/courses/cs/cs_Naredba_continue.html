@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
   <meta charset="utf-8">
@@ -11,14 +12,14 @@
 Naredba continue ne prekida celu petlju već trenutnu iteraciju i može se ilustrovati na sledeći način
 <br>
 <br>
-<img src="courses/cs/slike/diagram_continue.png" class="img-sd">
+<img src="courses/cs/slike/diagram_continue.png" class="img-md">
 <br>
 <br>
-Kada se u toku izvršavanje petlje u nekoj grani programa naiđe na naredbu continue, prekida se izvršavanje trenutne iteracije,
-<br>odnosno preskaču se naredbe u bloku naredbi 2 i tok izvršavanja programa vraća se na ispitivanje uslova za sledeću iteraciju petlje.
+Kada se u toku izvršavanje petlje u nekoj grani programa naiđe na naredbu continue, prekida se izvršavanje trenutne iteracije, odnosno preskaču se naredbe u bloku naredbi 2
+<br> i tok izvršavanja programa vraća se na ispitivanje uslova za sledeću iteraciju petlje.
 
 <br><br>
-<b>Primer1.</b>Omoguciti korisniku unos 5 celih brojeva. Izracunati zbir samo pozitivnih brojeva.<br>
+<b>Primer1.</b> Omoguciti korisniku unos 5 celih brojeva. Izracunati zbir samo pozitivnih brojeva.<br>
 <xmp class = "primer_ta"> 
 using System;
 
@@ -56,6 +57,18 @@ namespace ConsoleApp3
 }
 
 </xmp>
+<br><br>
+<iframe
+  height="100%"
+  width="100%"
+  src="https://replit.com/@eskolaveba/continueprimer1?lite=true"
+  scrolling="no"
+  frameborder="no"
+  allowtransparency="true"
+  allowfullscreen="true"
+  sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+></iframe>
+<br><br>
 
 <br>Rezultat je
 <br>"Unesite broj :"
@@ -71,8 +84,8 @@ namespace ConsoleApp3
 <br>"Zbir = 14". 
 
 <br><br>
-U svakoj iteraciji učitavamo broj preko konzole i ako je unet negativan broj (uslov u naredbi if ce biti ispunjen za brojeve -2, -3), 
-<br>naredbom continue prelazimo na sledeću iteraciju, odnosno preskačemo naredbu koja sabira uneti broj sa trenutnom sumom.
+U svakoj iteraciji učitavamo broj preko konzole i ako je unet negativan broj (uslov u naredbi if će biti ispunjen za brojeve -2, -3), naredbom continue prelazimo na sledeću iteraciju,
+<br>odnosno preskačemo naredbu koja sabira uneti broj sa trenutnom sumom.
 <br><br>
 
 </body>
