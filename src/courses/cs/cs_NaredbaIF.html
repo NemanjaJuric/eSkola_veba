@@ -8,15 +8,13 @@
 <body>
 <h1>Naredba IF</h1>
 
-Do sada smo se bavili programima koji su imali linijsku strukturu.<br>
-To znači da su se koraci izvršavali redom, jedan za drugim, bez preskakanja.<br>
-Osim linijske, postoji i razgranata struktura, u kojoj se svaki korak može izvršiti jednom,ali i ne mora.<br>
+Do sada smo se bavili programima koji su imali linijsku strukturu.
+To znači da su se koraci izvršavali redom, jedan za drugim, bez preskakanja.
+Osim linijske, postoji i razgranata struktura, u kojoj se svaki korak može jednom,ali i ne mora.
 To postižemo zahvaljujući uslovu "AKO".
-<br><br>
- Pitamo se <b>AKO</b> nešto važi, onda izvršiti jednu ili više naredbi.<br>
- Tj. da li je uslov ispunjen. Ako uslov nije ispunjen neće se izvršiti naredba ili se može izvršiti drugi blok naredbi.<br>
-<br>
-Naredba <b>if</b> nam može vratiti vrednost <b>true</b> (ako je uslov ispunjen) i <b>false</b> (ukoliko uslov ne vazi).<br>
+ Pitamo se <b>AKO</b> nešto važi, onda izvršiti jednu ili više naredbu.
+ Tj. da li je uslov ispunjen. Ako uslov nije ispunjen neće se izvršiti naredba ili će može izvršiti drugi blok naredbi.<br>
+Naredba <b>if</b> nam može vratiti vrednost <b>true</b> (ako je uslov ispunjen) i <b>false</b> (ukoliko uslov ne vazi).
 If naredba može se koristiti za obavljanje jednosmernog, dvosmernog, višesmernog ili ugnježdenog testiranja.
 <br><br>
 
@@ -32,14 +30,14 @@ if(uslov)
  </xmp>
 
 Ovakva naredba if smatra se <b>jednosmernim testiranjem</b>.<br>
-Pitamo se da li je uslov ispunjen. Ako jeste izvršiće se naredba, a ukoliko nije, samo će preskočiti ovaj korak.<br>
+Pitamo se da li je uslov ispunjen ako jeste izvršiće se naredba, a ukoliko nije, samo će preskočiti ovaj korak.<br>
+<b>Napomena 1.</b>
 <br>
-<b>Napomena 1</b>
 <div class = "napomena">
-Iza zatvorene male zagrade u if-testu ne stavlja se znak tačka zarez. 
+Iza zatvorene male zagrade u if-testu ne stavlja se znak tačka zarez.
 </div>
 
-<b>Primer 1.</b>
+<b>Primer 1.</b><br>
 Napisati program, u kom se sa tastature unosi jedan broj, i proverava da li je broj negativan.<br>
 Ako jeste, ispisati u consoli poruku "Uneli ste negativan broj."
 <xmp class = "primer_ta"> 
@@ -92,7 +90,7 @@ else
 
 
 
-<b>Primer 2.</b>
+<b>Primer 2.</b><br>
 Napisati program, u kom se sa tastature unosi ceo broj, i proverava da li je broj paran.<br>
 Ako jeste, ispisati u consoli poruku "Uneli ste paran broj.",a ukoliko nije poruku "Uneli ste neparan broj." 
 <xmp class = "primer_ta"> 
@@ -156,13 +154,13 @@ else
 
 <br><br>
 Ako je vrednost prvog uslova true izvršiće se naredba 1, ostali koraci se onda zanemaruju.
-Ako je vrednost prvog uslova false, proverava se drugi uslov. Ako je vrednost true onda tu se izvodi drugi blok naredbi.
+Ako je vrednost pvog uslova false,proverava se drugi uslov. Ako je vrednost true onda tu se izvodi drugi blok naredbi.
 A ako je false, onda se proverava treći uslov i tako redom.
-<br><br>
 
-<b>Primer 3.</b>
+<br>
+<b>Primer 3.</b><br>
 Napisati program, u kom se sa tastature unosi ceo broj, i proverava da li je broj jednak broju 10, manji ili veći od tog broja.<br>
-U consoli u zavisnosti od ispunjenog uslova ispisuje jednu od sledećih poruka:<br>
+U consoli u zavisnosti od ispunjenog uslova ispisuje jednu od poruka<br>
  "Uneti broj je jednak broju 10", ili "Uneti broj je veći od 10", ili poruku "Uneti broj je manji od 10".
 <xmp class = "primer_ta"> 
 
@@ -204,7 +202,7 @@ namespace ConsoleApp6
 Naredbu <b>if</b> možemo staviti unutar neke druge naredbe <b>if</b>.<br>
 Za unutrašnju naredbu if kaže se da je ugnježdena unutar druge.<br>
 <br>
-Sintaksa <b>ugnježdene naredbe</b> je:
+Sintaksa ugnježdene naredbe je:
 <br>
 
 <xmp class = "primer_ta"> 
@@ -229,10 +227,10 @@ else
  </xmp>
 
 
-<b>Primer 4.</b>
+<b>Primer 4.</b><br>
 Napisati program, u kom se sa tastature unosi ceo broj, i prvo se proverava da li je broj jednak nuli, ako jeste ispisuje poruku "Uneti broj je 0.", 
 <br>
-Ukoliko nije proverava se da li je unet paran ili neparan broj i ispisuje odgovarajuća poruka.
+a ukoliko nije proverava se da li je unet paran ili neparan broj i ispisuje odgovarajuća poruka.
 <xmp class = "primer_ta"> 
 
 using System;
@@ -275,10 +273,12 @@ namespace ConsoleApp7
 
 </xmp>
 
-<b>Napomena 2</b>
+<b>Napomena 2.</b>
+<br>
 <div class = "napomena">
-Izmedju ključnih reči else i if postoji razmak, jer su to dve zasebne ključne reči. 
+Između ključnih reči else i if postoji razmak, jer su to dve zasebne ključne reči.
 </div>
+
 
 </body>
 </html>

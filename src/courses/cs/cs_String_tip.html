@@ -7,10 +7,10 @@
 
 <body>
 <h1>String tip</h1>
-String (niska) je uređeni niz simbola.<br>
+String (niska) je uređeni niz simbola.
 Stringovi su, u stvari, nizovi UNICODE znakova i deklariše ih korišćenje <b>tipa string</b>.<br>
-String je pogodan za karakter-po-karakter obradjivanje i po tome se razlikuje od klasičnih nizova.
-<br><br>
+String je pogodan za karakter-po-karakter obrađivanje i po tome se razlikuje od klasičnih nizova.
+<br>
 Na desni kraj niske se dopisuje karakter ’\0’ (tzv.terminalna nula), time se postiže da ne postoji ograničenje za dužinu niske, ali je neophodno proći kroz celu nisku
 kako bi se odredila dužina niske.
 Niske se navode između dvostrukih navodnika.
@@ -20,7 +20,6 @@ string niska = "Danas je lep dan.";
 Console.WriteLine(niska);
 
  </xmp>
-<br>
 
 Stringove možemo nadovezivati uz pomoć operatora <b>+</b>.
 <br>
@@ -32,10 +31,9 @@ Console.WriteLine(niska1+niska2);
  </xmp>
 
 
-<img src=" courses/cs/slike/Escape-znakovi.jpg" class="img-lg">
+<img src="courses/cs/slike/Escape-znakovi.jpg" class="img-md">
 
 <br><br>
-<div class="half-panel-scrollable">
 <b>Primer2.</b> Napisati program kojim se sa tastature unosi jedna reč, a zatim se ta reč ispisuje. 
 <xmp class = "primer_ta">
 using System;
@@ -56,8 +54,7 @@ namespace ConsoleApp3
 }
 
 </xmp>
-</div>
-<div class="half-panel">
+<br><br>
 <iframe
   height="100%"
   width="100%"
@@ -68,11 +65,10 @@ namespace ConsoleApp3
   allowfullscreen="true"
   sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
- </div>
 
 <h2>Svojstvo Length</h2>
 
-Ovo svojstvo se koristi da bise dobio broj znakova u stringu, tj. dužina niske.Svojstvo length vraća tip int.<br>
+Ovo svojstvo se koristi da bi se dobio broj znakova u stringu, tj. dužina niske. Svojstvo length vraća tip int.<br>
 U Primeru 3. ćemo pokazati na koji način možemo odraditi dužinu stringa "Danas je lep dan" . U consoli ćemo ispisati dužinu niske.
 <br><br>
 Primer 3.
@@ -107,7 +103,7 @@ U consoli se ispisuje broj 17, jer pored slova broji i sve ostale znakove u reč
 <h2>Metoda Compare()</h2>
 
 Metoda Compare() vraća vrednost tipa int koji ukazuje na to da li je prvi string veći, jednak ili manji od drugog stringa.
-Poredjenje se vrši alfabetski nad slovima i numerički nad brojevima. Metoda Compare() koristi sledeća pravila za poredjenje:
+Poređenje se vrši alfabetski nad slovima i numerički nad brojevima. Metoda Compare() koristi sledeća pravila za poređenje:
 <ul>
 
 <li> Ako je prvi string veći od drugog stringa, vraća 1
@@ -127,19 +123,18 @@ String.Compare("abc","bbc");
 </xmp>
 <br>
 U primeru 4, consola će  vratiti vrednost -1.
-<br><br>
-Takodje metoda Compare(),pored ova dva paramtera, prihvata i parametar tipa bool koji nam ukazuje na to da li želimo da poredimo i veličinu slova.
-<br><br>
-Ova metoda Compare() ima sledeću sintaksu:
+<br>
+Takođe metoda Compare(), pored ova dva paramtera, prihvata i parametar tipa bool koji nam ukazuje na to da li želimo da poredimo i veličinu slova.
+<br>Ova metoda Compare() ima sledeću sintaksu:
 <xmp class = "primer_ta">
 String.Compare( niska1 , niska 2 , ignorisiSlova );	
 </xmp>
 <br><br>
-Gde je ignorisiSlova promenljiva, tipa bool, kojim se označava da li poredjenjem želimo da koristimo i veličinu slova niska1 и niska 2 .<br>
-Ako postavimo vrednost promenljive ignorisiSlova nа true, onda se veličina slova ne razmatra pri porednju stringova ,
-a ako postavimo na false , onda se pri poredjenju razmatra veličina slova.<br><br>
-U primeru 5, consola  će vratiti vrednost 0 ,dok primer broj 6 vratiće vrednost 1 (jer je "BBC" leksikografski veće od "bbc")
-<b>Primer 5.</b>
+Gde je ignorisiSlova promenljiva, tipa bool, kojim se označava da li poređenjem želimo da koristimo i veličinu slova niska1 и niska 2 .<br>
+Ako postavimo vrednost promenljive ignorisiSlova nа true, onda se veličina slova ne razmatra pri poređenju stringova,
+a ako postavimo na false, onda se pri poređenju razmatra veličina slova.<br><br>
+U primeru 5, consola  će vratiti vrednost 0 ,dok primer broj 6 vratiće vrednost 1 (jer je "BBC" leksikografski veće od "bbc").
+<br><b>Primer 5.</b>
 <xmp class = "primer_ta">
 String.Compare("BBC","bbc",true);
 </xmp>
@@ -152,7 +147,7 @@ String.Compare("BBC","bbc",false);
 <h2>Metoda Equals()</h2>
 
 <br>
-Za proveru da li su dva strigna jednaka možemo koristiti <b>metodu Equals()</b>, koja nam vraća vrednost true ukoliko jesu, i false ako nisu jednaka.<br>
+Za proveru da li su dva stringa jednaka možemo koristiti <b>metodu Equals()</b>, koja nam vraća vrednost true ukoliko jesu, i false ako nisu jednaka.<br>
 <br>
 Ova metoda Equals() ima sledeću sintaksu:
 
@@ -161,7 +156,7 @@ String.Equals( niska1 , niska 2 );
 </xmp>
 <br><br>
 
-Takodje, za proveru da li su dva stringa leksikografski jednaka, možemo koristiti i operator <b>==</b>.
+Takođe, za proveru da li su dva stringa leksikografski jednaka, možemo koristiti i operator <b>==</b>.
 <br><br>
 <xmp class = "primer_ta">
 bool rezultatPoredjenja= niska1 == niska 2 ;	
@@ -199,15 +194,15 @@ Metoda Substring ima sledeću sintaksu:
 niska1.Substring(index);	
 </xmp>
 <br><br>
-Gde je index vrednost tipa int koja odredjuje poziciju znaka od koje treba početi sa čitanjem stringa niska1. 
+Gde je indeks vrednost tipa int koja određuje poziciju znaka od koje treba početi sa čitanjem stringa niska1. 
 Druga verzija ove metode ima sintaksu:
 <xmp class = "primer_ta">
 niska1.Substring(index,brojKaraktera);	
 </xmp>
 <br><br>
-Gde osim indexa, imamo i brojKaraktera tipa int koja odredjuje koliko karktera od početnog indexa uzimamo za novu nisku.
+Gde osim indeksa, imamo i brojKaraktera tipa int koja određuje koliko karktera od početnog indeksa uzimamo za novu nisku.
 <br>
-<b>Primer 8.</b>
+<b>Primer 8.</b><br>
 Od niske "Srecan rodjendan" uz upotrebu metode Substring() dobijamo dva podstinga:<br>
 niskaNova1= "rodjendan" ,dok niskaNova2= "rodj"
 <xmp class = "primer_ta">
@@ -231,7 +226,6 @@ namespace ConsoleApp3
 }
 </xmp>
 <br><br>
-<div class="half-panel-scrollable">
 <b>Primer 9</b><br>
 Sastaviti program koji za uneto ime i prezime sa tastature ispisuje u consoli inicijale, tj. početna slova imena i prezimena.
 using System;
@@ -255,14 +249,12 @@ namespace ConsoleApp3
             slovoPrezime = prezime.Substring(0,1);
             Console.WriteLine("Inicijali su  "+slovoIme+"."+slovoPrezime+".");
             Console.ReadKey();
-
         }
     }
  
 }
 </xmp>
-</div>
-<div class="half-panel">
+<br><br>
 <iframe
   height="100%"
   width="100%"
@@ -273,11 +265,8 @@ namespace ConsoleApp3
   allowfullscreen="true"
   sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals">
 </iframe>
- </div>
+
 <br><br>
-
-
-
 
 
 </body>

@@ -12,76 +12,74 @@ Postoje konzolni programi i programi zasnovani na prozorima.
 Koja je njihova razlika?
 <br>
 
-Kod <b>konzolnih programa</b>, mi pokrećemo program, a programski kod odredjuje sled dogadjaja. 
+Kod <b>konzolnih programa</b>, mi pokrećemo program, a programski kod određuje sled događaja. 
 <br>
-Unosimo podatke kada se to zatraži, a program izbacuje rezultate kada to želi (najčešće je unapred odredjeno).<br>
+Unosimo podatke kada se to zatraži, a program izbacuje rezultate kada to želi (najčešće je unapred određeno).
 U svakom trenutku je poznato koji će se programski kod sledeći izvršiti.
 <br>
 <br>
-Dok kod <b>programa zasnovanim na prozorima</b> rad zavisi od toga šta korisnik uradi sa grafičkim korisničkim interfjesom. <br>
-Biranjem članova menija, dugmadi ili korišćenjem tastature utičemo na dešavanja unutar programa. <br>
-Dok mi nešto ne uradimo, nije poznat programski kod koji sledeći treba da se izvrši. <br>
+Dok kod <b>programa zasnovanim na prozorima</b> rad zavisi od toga šta korisnik uradi sa grafičkim korisničkim interfjesom. 
+Biranjem članova menija, dugmadi ili korišćenjem tastature utičemo na dešavanja unutar programa. 
+Dok mi nešto ne uradimo, nije poznat programski kod koji sledeći treba da se izvrši. 
 <br><br>
 
 
 <h2>Podešavanja okruženja</h2>
 
-C# programski jezik je formalni jezik za prezentaciju računarskih programa, pomoću njega se računaru,<br> 
-čoveku čitljivim tekstom, daju instrukcije i naredbe za izvršenje različitih zadataka.<br>
-Kako bi se instrukcije zadate u programskom jeziku izvršile, potrebno je prevesti ih na mašinski kod, da bi računar mogao da ih izvrši.<br> 
-Ovo prevođenje se vrši pomoću kompajlera i prevodioca programa koji prevode zadate instrukcije na mašinski kod. <br>
+C# programski jezik je formalni jezik za prezentaciju računarskih programa, pomoću njega se računaru, 
+čoveku čitljivim tekstom, daju instrukcije i naredbe za izvršenje različitih zadataka.
+Kako bi se instrukcije zadate u programskom jeziku izvršile, potrebno je prevesti ih na mašinski kod, da bi računar mogao da ih izvrši. 
+Ovo prevođenje se vrši pomoću kompajlera i prevodioca programa koji prevode zadate instrukcije na mašinski kod. 
  Upravo ovakav program koristićemo i za programiranje u C# programskom jeziku.<br><br>
 
-Da bismo napisali program u C# i upoznali se sa alatom za kreiranje softvera, potrebno nam je integrisano okruženje za razvoj programa.<br>
+Da bismo napisali program u C# i upoznali se sa alatom za kreiranje softvera, potrebno nam je integrisano okruženje za razvoj programa.
  Takvo okruženje u sebi sadrži uređivač/editor teksta, prevodilac, alate za otkrivanje grešaka, alat za rukovanje razvojem 
-velikih programskih sistema i još neke druge alate koji čine rad udobnijim.<br>
+velikih programskih sistema i još neke druge alate koji čine rad udobnijim.
 U ovom kursu ćemo koristiti Visual Studio koji postoji samo na Windows platformi.<br><br>
 
 
 Visual Studio Community je okruženje za razvoj softvera kompanije Microsoft koje integriše razvojni interfejs i sve potrebne alate za kompajliranje
-različitih programskih jezika. <br>
-On predstavlja ograničenu i besplatnu verziju okruženja Visual Studio.Na sledećoj adresi:
+različitih programskih jezika. 
+On predstavlja ograničenu i besplatnu verziju okruženja Visual Studio. Na sledećoj adresi:
+
+<a href:https://www.visualstudio.com><u>ovde </u></a> izaberite Visual Studio -> Community 2019.
 <br>
-<a href:https://www.visualstudio.com/downloads/>ovde </a> izaberite Visual Studio -> Community 2019.
-<br>
-Nakon preuzimanja, potrebno je da se pokrene (.exe) fajl instalacije, a zatim da se prate instrukcije instalacionog programa.<br>
- Instalacija zahteva i posedovanje besplatnog Microsoft naloga koji se jednostavno kreira.<br>
+Nakon preuzimanja, potrebno je da se pokrene (.exe) fajl instalacije, a zatim da se prate instrukcije instalacionog programa.
+ Instalacija zahteva i posedovanje besplatnog Microsoft naloga koji se jednostavno kreira.
  Ovaj nalog već imaju svi sa adresom elektronske pošte koja se završava na: hotmail.com, live.com ili outlook.com.<br><br>
 
 
-Posle instalacije, pokrenite Microsoft Visual Studio 2019, kako bismo napisali svoj prvi program. <br>
+Posle instalacije, pokrenite Microsoft Visual Studio 2019, kako bismo napisali svoj prvi program. 
 Izaberite  <b>File -> New -> Project -> Create New Project</b> <br>
 Izaberite <b>Console Application -> Next </b>(slika 1. i 2).
 <br><br>
-<img src="courses/cs/slike/File_LI.jpg" class="img-md">
-<img src="courses/cs/slike/consola_LI.jpg" class="img-md">
+<img src="courses/cs/slike/Filee.png" class="img-md">
+slika1.
+<img src="courses/cs/slike/consolaa.png" class="img-md">
+slika2.
 <br><br>
 Zatim, imate opciju za davanje imena projektu, kao i lokaciju gde želite da projekat bude sačuvan.<br>
  (Ukoliko ne promenite, podrazumevano ime projekta biće ConsoleApplication1 za prvi, ConsoleApplication2 za drugi i tako dalje.
 Ovde je podešeno da se programi čuvaju u folderu Program na Desktopu, a to možete promeniti klikom na <b>...</b>).<br>
  Kliknete <b>Create</b> kao što je i prikazano na sledećim slikama (slika 3. i 4).
 <br><br>
-<img src="courses/cs/slike/name_LI.jpg" class="img-md">
-<img src="courses/cs/slike/create_LI.jpg" class="img-md">
+<img src="courses/cs/slike/namee.png" class="img-md">
+slika3.
+<img src="courses/cs/slike/createe.png" class="img-md">
+slika4.
 <br><br>
 <br>
-Okuženje za pisanje projekta je prikazano na slici 5(Code editor), dok se pri prevodjenju i pokretanju ovog projekta pojavljuje  consola ( slika 6).
+Okuženje za pisanje projekta je prikazano na slici 5(Code editor), dok se pri prevođenju i pokretanju ovog projekta pojavljuje  consola ( slika 6).
 <br><br>
 <img src="courses/cs/slike/113.png" class="img-md">
+slika5.
 <img src="courses/cs/slike/114.png" class="img-md">
-
+slika6.
 
 <br><br>
-Na sledećim slikama opisan postupak kreiranja projekta u programu zasnovan na prozoru <br>
-(GUI eng.Graphical User Interface - grafički korisnički interfejs) koji podržava upotrebu miša 
-ili nekog drugog uređaja za prikazivanje.<br>
-(O ovakvim projektima biće više reči kasnije).
-<br><br>
-<img src="courses/cs/slike/gui_LI.jpg" class="img-md">
-<img src="courses/cs/slike/gui2_LI.jpg" class="img-md">
-<img src="courses/cs/slike/117.png" class="img-md">
-<img src="courses/cs/slike/118.jpg" class="img-md">
- 
+Za razliku od konzolnih aplikacija, detaljan postupak kreiranja projekta u programu zasnovanom na prozoru
+(GUI eng.Graphical User Interface - grafički korisnički interfejs) biće opisan u lekciji 
+"Uvod u razvojno okruženje za kreiranje aplikacija".<br>
 
 
 </body>

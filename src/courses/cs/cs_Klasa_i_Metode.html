@@ -9,24 +9,24 @@
 <h1>Klasa</h1>
 <br><br>
 Za razliku od tradicionalnog proceduralnog programiranja koje se sastoji od niza funkcija i njihovih poziva, 
-objektno programiranje bolje i skladnije oslikava realni svet i omogućava logičnije projektovanje programskih zahteva.<br>
+objektno programiranje bolje i skladnije oslikava realni svet i omogućava logičnije projektovanje programskih zahteva.
   Problem se može rešiti pomoću tradicionalnog i objektnog programiranja.<br>
  Ono što nam donosi objektno programiranje je skladniji programski model i još neke lepe stvari kao što je ponovna upotrebljivost i nasleđivanje objekata.<br>
- Jedan objekat je uvek predstavljen <b>jednom klasom</b>.<br>
+ Jedan objekat je uvek predstavljen <b>jednom klasom</b>.
  Klasu treba posmatrati kao nacrt ili plan za izgradnju objekta.<br>
  Na primer, plan za izgradnju kuće predstavlja klasu, a kuća napravljena po tom planu predstavlja objekat zasnovan na klasi.<br>
- Sama klasa za sebe nije objekat, već predstavlja samo opis po kome će objekat biti napravljen.<br>
- Kada napravimo (kaže se „instanciramo“) objekat na osnovu klase,<br>
+ Sama klasa za sebe nije objekat, već predstavlja samo opis po kome će objekat biti napravljen.
+ Kada napravimo (kaže se „instanciramo“) objekat na osnovu klase,
  on se kreira u memoriji računara i tek tada se može koristiti.<br>
  Na osnovu jedne klase može se napraviti neograničeni broj objekata, odnosno broj koji je tehnički ograničen memorijom računara.<br>
 <h2>Svojstva, metode i događaji</h2> 
-Ako bismo hteli npr.učenika da ga predstavimo u objektnom svetu, šta bi klasa koja ga opisuje trebalo da sadrži? <br>
-Možemo početi od fizičkih karakteristika. <br>
+Ako bismo hteli npr. učenika da ga predstavimo u objektnom svetu, šta bi klasa koja ga opisuje trebalo da sadrži? <br>
+Možemo početi od fizičkih karakteristika.
 Ime učenika, pol, godina rođenja, boja očiju i kose, razred i slično. <br>
- Sve pomenuto predstavlja svojstva klase.<br>
+ Sve pomenuto predstavlja svojstva klase.
  Kada instanciramo objekat na osnovu klase „Učenik“, postavićemo ova svojstva da odgovaraju konkretnom učeniku. <br>
- Očigledno, na osnovu dobro kreirane klase „učenik“ možemo tačno opisati sve učenike svoje škole. <br>
-Međutim, ovo nije dovoljno. <br>
+ Očigledno, na osnovu dobro kreirane klase „učenik“ možemo tačno opisati sve učenike svoje škole. 
+Međutim, ovo nije dovoljno. 
  Učenik obavlja veliki broj školskih aktivnosti koje takođe treba opisati. <br>
 To je ono što učenik radi u školi i kod kuće, na primer, radi pismeni i domaći zadatak, 
 prisustvuje određenom času, dobija ocenu i slično.<br>
@@ -36,7 +36,7 @@ Učenik takođe na određeni način reaguje na dešavanja u školskom okruženju
 Sada, posle detaljne analize svih osobina, radnji i reakcija učenika moguće je kreirati klasu koja verno i detaljno
  može da opiše učenika sa svim potrebnim karakteristikama.  <br>
  <br>
- Svojstva klase su predstavljena različitim promenljivim koje su javno vidljive van klase. <br>
+ Svojstva klase su predstavljena različitim promenljivim koje su javno vidljive van klase. 
  Korisnik klase će po kreiranju objekta na osnovu klase uspostaviti odgovarajuće vrednosti promenljivih i time definisati objekat.<br>
  Metode klase su predstavljene funkcijama u klasi.<br>
  Na primer, funkcija „UradiDomaćiZadatak“ koja bi kao ulazne parametre verovatno trebalo da sadrži opis domaćeg zadatka,
@@ -58,7 +58,7 @@ private int Razred = 1;
 </xmp>
 
 U primeru je deklarisana promenljiva pod nazivom „ImeUcenika“ koja pripada tipu string,
- što znači da može da sadrži bilo koji niz znakova i njena vidljivost je javna (public).<br>
+ što znači da može da sadrži bilo koji niz znakova i njena vidljivost je javna (public).
  Vidljivost definiše odakle se promenljiva može pristupiti. <br>
 Ključna reč „public“ znači da je promenljiva javna u celom opsegu u kome je deklarisana – na primer, u celoj klasi
  i da je takođe vidljiva korisnicima te klase.<br>
@@ -75,9 +75,9 @@ public double Zbir (double a, double b)
 { return a + b; } 
 
 </xmp>
-Funkcija Zbir je javna i kao rezultat vraća tip „double“.<br>
+Funkcija Zbir je javna i kao rezultat vraća tip „double“.
  Postoje dva ulazna parametra a i b koji su takođe tipa „double“.<br>
- Telo funkcije je određeno otvorenom i zatvorenom vitičastom zagradom.<br>
+ Telo funkcije je određeno otvorenom i zatvorenom vitičastom zagradom.
  Naredba return označava bezuslovni završetak rada funkcije i povratnu vrednost funkcije.<br>
  U prethodnom primeru funkcije postoji samo naredba return koja vraća zbir dva broja.<br>
  U složenijim klasama može postojati puno funkcija koje implementiraju različite metode klase.<br> 
@@ -92,11 +92,11 @@ public void PokreniProgram  (string LokacijaPrograma)
 </xmp>
 <br>
 
-U tom slučaju se navodi samo ključna reč return bez parametra.<br>
+U tom slučaju se navodi samo ključna reč return bez parametra.
  U primeru je takođe prikazan način za upisivanje komentara u programskom jeziku C#.<br>
- Dve kose crte // označavaju komentar sve do kraja reda.<br>
+ Dve kose crte // označavaju komentar sve do kraja reda.
  Ovaj komentar se zanemaruje prilikom prevođenja, a dobra praksa je pisati komentare uvek kada je to potrebno radi boljeg razumevanja koda.<br>
- Osim ove jednolinijske varijante komentara postoji i višelinijski komentar koji počinje parom znakova /* i završava sa */.<br>
+ Osim ove jednolinijske varijante komentara, postoji i višelinijski komentar koji počinje parom znakova /* i završava sa */.<br>
  Sve linije između smatraju se komentarom i ne izvršavaju se.<br>
  <br>
 <b>Primer 3.</b> Deklaracija jednostavne klase:
@@ -129,11 +129,11 @@ class Matematika
 return A - B;
  } }
 </xmp>
-Klasa će sadržati dva metoda (funkcije) – „Zbir“ i „Razlika“.<br>
+Klasa će sadržati dva metoda (funkcije) – „Zbir“ i „Razlika“.
  Obe funkcije imaju po dva ulazna parametra i brojeve koji se sabiraju, odnosno oduzimaju. <br> 
-Svi ulazni parametri i obe funkcije su tipa „double“. <br>
+Svi ulazni parametri i obe funkcije su tipa „double“. 
 U kodu prvo treba deklarisati klasu „Matematika“. <br>
- Klasa sama za sebe ne može da se koristi, već je neophodno napraviti objekat na osnovu nje. <br>
+ Klasa sama za sebe ne može da se koristi, već je neophodno napraviti objekat na osnovu nje. 
  Instanca klase se jednostavno pravi. <br>
 <xmp class = "primer_ta"> 
 NazivKlase NazivPromenljive = new NazivKlase();
@@ -154,7 +154,7 @@ Sintaksa upućivanja je jednostavna:
 
  NazivVarijable.NazivMetode (ulazni argumenti). 
 </xmp>
-Sada treba testirati obe metode i ispisati njihov povratni rezultat.<br>
+Sada treba testirati obe metode i ispisati njihov povratni rezultat.
  Brojevi koje prosleđujemo kao ulazne parametre izabrani su potpuno proizvoljno. <br> 
 Dakle, kod treba izgledati ovako:<br>
 <xmp class = "primer_ta"> 
@@ -168,7 +168,7 @@ Dakle, kod treba izgledati ovako:<br>
  } 
 </xmp>
 M.Zbir (3, 4) poziva funkciju „Zbir“ u objektu na koji pokazuje promenljiva M i prosleđuje joj vrednosti parametara.<br>
- Funkcija „Zbir“ kao povratnu vrednost vraća zbir ova dva broja (return 3 + 4).<br>
+ Funkcija „Zbir“ kao povratnu vrednost vraća zbir ova dva broja (return 3 + 4).
  Ovu povratnu vrednost zatim koristimo za ispis u konzolni prozor.<br>
  Isti princip važi za pozive funkcije „Razlika“. 
 
@@ -176,12 +176,12 @@ M.Zbir (3, 4) poziva funkciju „Zbir“ u objektu na koji pokazuje promenljiva 
 
 <br><br>
 Programski jezik C# nudi dva osnovna načina za implementaciju svojstava klase.<br>
- Implementacija  svojstava klase- javne promenljive.<br>
+ Implementacija  svojstava klase- javne promenljive.
  Najjednostavniji način se zasniva na deklaraciji javne (public) promenljive unutar klase.<br>
  Sve što je u klasi definisano kao public, je vidljivo korisnicima ove klase i mogu bez ograničenja postavljati i čitati vrednost ovih promenljivih.<br> 
 
 
-<b>Primer</b>Zadatak je da napravimo klasu Ucenik sa svojstvima Prezime i Ime.
+<b>Primer5</b><br>Zadatak je da napravimo klasu Ucenik sa svojstvima Prezime i Ime.
 <xmp class = "primer_ta"> 
 class Program { static void Main(string[] args) 
 { Ucenik cu = new Ucenik(); 
@@ -201,7 +201,7 @@ public string Ime;
 
 </xmp>
 Ime promenljive cu je proizvoljno izabran.<br><br>
-Zaštićena svojstva
+Zaštićena svojstva <br>
  Oba svojstva u primeru, korisnik klase može da postavi na bilo koju vrednost. U ovom slučaju to ne predstavlja problem. <br>
  Ali ako želimo da u klasu Ucenik dodamo svojstvo Razred, 
 pod predpostavkom da je u pitanju učenik osnovne škole, validne vrednosti mogu biti samo brojevi od 1 do 8. <br> 
@@ -234,15 +234,15 @@ return prRazred;
 
 <br>
 Privatna promenljiva prRazred nije vidljiva van klase, i korisnici klase ne mogu niti da postavljaju niti da čitaju njenu vrednost.<br> 
-Ipak, ova promenljiva je ona koja je nama bitna i sa kojom radimo unutar svoje klase. <br>
+Ipak, ova promenljiva je ona koja je nama bitna i sa kojom radimo unutar svoje klase. 
  Korisnik može da postavlja vrednost ove promenljive, ali na posredan način pomoću public svojstva deklarisanog u liniji public int Razred. <br>
- Svojstvo Razred se sastoji od dva dela: <b>get </b>  deo koji se automatski poziva kada korisnik čita vrednost svojstva <br> 
+ Svojstvo Razred se sastoji od dva dela: <b>get </b>  deo koji se automatski poziva kada korisnik čita vrednost svojstva
    i <b>set</b>  deo koji se automatski poziva kada korisnik postavlja vrednost svojstva Razred.<br>
 U get delu, se korisniku zapravo vraća vrednost privatne promenljive prRazred: <b>return prRazred;</b><br> 
 U set delu se dodeljuje vrednost privatnoj promenljivoj prRazred. <b>prRazred = value;</b> <br>
-Promenjiva value  predstavlja vrednost koju je korisnik upotrebio prilikom dodele vrednosti svojstvu.<br> 
-I ovde se nalazi ključ za proveru vrednosti pre dodele promenljivoj prRazred.<br>
- Pre linije prRazred = value treba proveriti da li je sadržaj promenljive value ispravan.<br>
+Promenjiva value  predstavlja vrednost koju je korisnik upotrebio prilikom dodele vrednosti svojstvu.
+I ovde se nalazi ključ za proveru vrednosti pre dodele promenljivoj prRazred.
+ Pre linije prRazred = value treba proveriti da li je sadržaj promenljive value ispravan.
  Ako jeste dodeljuemo tu vrednost promenljivoj prRazred, u suprotnom najčešće generišemo grešku sa odgovarajućom porukom.<br>
 
 </body>

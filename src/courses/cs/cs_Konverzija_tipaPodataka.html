@@ -18,15 +18,14 @@ Console.WriteLine(a/b);
 }
 
  </xmp>
-Main funkcija će vratiti realnu vrednost 2.5 jer je a/b isto float.<br>
+Main funkcija će vratiti realnu vrednost 2.5 jer je a/b isto float.
 Ako bi a i b bili tipa int, rezultat a/b bi bio 2.<br><br>
 
 
 
 Ponekad izvodimo aritmetičke operacije nad podacima različitog tipa (int, float, double), pa je neophodno prevesti podatke u odgovarajući oblik.<br>
 Takođe, dodela vrednosti promenljivoj može se izvršiti samo ako je vrednost istog tipa kao i promenljiva ili se može prevesti u odgovarajući tip.<br>
-<br>
-Prevodjenje podataka uz jednog u drugi tip može se vršiti automatski <b>(implicitna konverzija)</b> ili pod kontrolom programera <b>(eksplicitna konverzija)</b>.
+Prevođenje podataka iz jednog u drugi tip može se vršiti automatski <b>(implicitna konverzija)</b> ili pod kontrolom programera <b>(eksplicitna konverzija)</b>.
 
 <h2>Implicitna konverzija</h2>
 
@@ -34,8 +33,8 @@ Prevodjenje podataka uz jednog u drugi tip može se vršiti automatski <b>(impli
 <br>
 Koristi se kada:
 <ul>
-<li> pri izračunavanju vrednosti izraza kompajler automatski uskladjuje tipove podataka koji se koriste u izrazu (ako je to moguće),
-<li> pri dodeljivanju vrednosti izraza kompajler automatski uskladjuje tipove podataka koji se koriste u izrazu (ako je to moguće).
+<li> pri izračunavanju vrednosti izraza kompajler automatski usklađuje tipove podataka koji se koriste u izrazu (ako je to moguće)
+<li> pri dodeljivanju vrednosti izraza kompajler automatski usklađuje tipove podataka koji se koriste u izrazu (ako je to moguće)
 </ul>
 <br>
 Ovo služi kako se ne bi izgubile informacije i da se sačuva preciznost podataka.
@@ -105,7 +104,7 @@ Npr. tip int može se implicitno konvertovati u tip double (ili float, long...)
 <h2>Eksplicitna konverzija</h2>
 
 Koristimo tamo gde ne može se implicitno izvršiti konverzija.<br>
-Programer,kao što i sama reč kaže, eksplicitno zahteva,dodatnim kodom, traženu konverziju od kompajlera.<br>
+Programer,kao što i sama reč kaže, eksplicitno zahteva, dodatnim kodom, traženu konverziju od kompajlera.<br>
 Eksplicitna konverzija se ostvaruje korišćenjem operatora <b>cast</b>ili korišćenjem klase <b>Convert</b>. <br>
 Operator cast koristimo tako što u zagradama navedemo tip u koji želimo da konvertujemo vrednost izraza koji sledi za operatorom cast: (tip) promenljiva.
 
@@ -188,7 +187,7 @@ Console.WriteLine(a);
 }
 
  </xmp>
-Pri pokušaju prevodjenja koda u Primeru 1, dobićemo informaciju da je došlo do greške.
+Pri pokušaju prevođenja koda u Primeru 1, dobićemo informaciju da je došlo do greške.
 <br>
 Tj. ne može se implicitno konvertovati tip double u int.<br>
 Koristimo sledeći zapis kako bi se izvršila eksplicitna konverzija:<b>
@@ -209,7 +208,7 @@ Console.WriteLine(a);
 
 <h2>Broj u string:</h2>
 
-Kod stringova ne mozemo koristiti cast-ovanje.<br>
+Kod stringova ne možemo koristiti cast-ovanje.<br>
 Sledeći primer pokazuje kako se podatak tipa <b>int</b> može konvertovati u <b>string</b>.<br> 
 Promenljiva i koja je int, se na dva načina može konvertovati u string:
 <xmp class = "primer_ta"> 

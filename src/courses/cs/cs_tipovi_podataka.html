@@ -27,8 +27,8 @@ Tipom podataka definisani su: način registrovanja u memoriji, skup mogućih vre
 <br>
 C# podržava sledeće osnovne tipove podataka:
  <ul>
-<li>         numeričke
-<li>         znakovne
+<li>       numeričke
+<li>       znakovne
 <li>       logičke
 
 </ul> 
@@ -36,7 +36,85 @@ Numerički tipovi se koristi za predstavljane celih i realnih brojeva.
 Za opisivanje celih brojeva koristi se više tipova datih u tabeli.
 <br>
 <br>
-<img src="courses/cs/slike/opseg_vrednosti.png"  class="img-lg">
+<table>
+		<tr>
+			<td align="center">Tip
+			</td>
+			<td align="center">Opseg vrednosti
+			</td>
+    			<td align="center">Zauzeće memorije u bajtovima
+			</td>
+
+ 
+		</tr>
+		<tr>
+			<td align="center">sbyte
+			</td>
+			<td align="center">-128 do 127
+			</td>
+			<td align="center">1
+			</td>
+		</tr>
+		<tr>
+			<td align="center">byte
+			</td>
+			<td align="center">0 do 255
+			</td>
+                        <td align="center">1
+			</td>
+		</tr>
+		<tr>
+			<td align="center">short
+			</td>
+			<td align="center">-32768 do 32767
+			</td>
+			<td align="center">2
+			</td>
+
+		</tr>
+                 <tr>
+			<td align="center">ushort
+			</td>
+			<td align="center">0 do 65535
+			</td>
+			<td align="center">2
+			</td>
+
+		</tr>
+                 <tr>
+			<td align="center">int
+			</td>
+			<td align="center">-2 147 483 648 do 2 147 483 647
+			</td>
+			<td align="center">4
+			</td>
+		</tr>
+ <tr>
+			<td align="center">uint
+			</td>
+			<td align="center">0 do 4 294 967 295
+			</td>
+			<td align="center">4
+			</td>
+		</tr>
+ <tr>
+			<td align="center">long
+			</td>
+			<td align="center">-9 223 372 036 854 775 808 do 9 223 372 036 854 775 807
+			</td>
+			<td align="center">8
+			</td>
+		</tr>
+ <tr>
+			<td align="center">ulong
+			</td>
+			<td align="center">0 do 18 446 744 073 709 551 615
+			</td>
+			<td align="center">8
+			</td>
+		</tr>
+
+	</table>
 <br>
 <br>
 Za realne brojeve podržani su sledeći tipovi:
@@ -47,7 +125,38 @@ Za realne brojeve podržani su sledeći tipovi:
 </ul>
 <br>
 <br>
-<img src="courses/cs/slike/opseg_vrednosti1.png"  class="img-lg">
+
+<table>
+		<tr>
+			<td align="center">Tip
+			</td>
+			<td align="center">Opseg vrednosti
+			</td>
+    			
+
+ 
+		</tr>
+		<tr>
+			<td align="center">float
+			</td>
+			<td align="center">±1.5∙10^(-45) do ±3.4∙10^(38)  
+			</td>
+		</tr>
+		<tr>
+			<td align="center">double
+			</td>
+			<td align="center">±5.0∙10^(-324)  do ±1.7∙10^(308) 
+			</td>
+		</tr>
+		<tr>
+			<td align="center">decimal
+			</td>
+			<td align="center">±1.0∙10^(-28)  do ±7.9∙10^(28) 
+			</td>
+			
+
+		</tr>
+	</table>
 <br>
 <br> 
 Znakovni tip je <b>char</b> i predstavlja dozvoljene vrednosti sa UNICODE znakom odnosno celim brojem u intervalu 0 do 65536 što zauzima dva bajta.

@@ -11,19 +11,19 @@
 
 
 Nabrajanje nam omogućava da kreiramo skup konstanti na koje možemo da referenciramo u programu.
-Nabrajanje je vrednosni tip.<br>
-Npr. Program koji treba da referencira na redosled meseci u godini.<br>
+Nabrajanje je vrednosni tip.
+Npr. Program koji treba da referencira na redosled meseci u godini.
 Redosled je: Januar, Februar, Mart, April, Maj, Jun, Jul, Avgust, Septembar, Oktobar, Novembar, Decembar.
-<br><br>
+
 Nabrajanje se deklariše korišćenjem ključne reči. <br>
 Primer sintekse nabrojivog tipa:<br>
 <xmp class = "primer_ta"> 
 enum ime_nabrajanja { lista-konstanti }	
 </xmp>
 
-<br><br>
-ime_nabrajanja : Ime koje se dodeljuje nabrajanju. Obično je prvo slovo imena nabrajanja je veliko.
 <br>
+ime_nabrajanja : Ime koje se dodeljuje nabrajanju. Obično je prvo slovo imena nabrajanja je veliko.
+
 lista_konstanti : Lista konstanti koji se nalazi u nabrajanju.
 <br>
 <xmp class = "primer_ta">
@@ -46,7 +46,7 @@ enum Godina
 </xmp>
 
 Ovim nabrajanjem definišemo dvanaest konstanti, pri čemu svaki mesec ima svoju poziciju.<br>
-Januar ima podrazumevanu vrednost 0, dok svaka naredna konstanta ima vrednost za 1 veću od prethodne.<br>
+Januar ima podrazumevanu vrednost 0, dok svaka naredna konstanta ima vrednost za 1 veću od prethodne.
 Podrazumevani tip za konstante u nabrajanju je Int.
 <br><br>
 Konstante u nabrajanju možemo i inicijalizovati, kao što je prikazano u sledećem primeru:
@@ -68,8 +68,8 @@ enum Godina
     Decembar=12  
 }
 </xmp>
-<br><br>
-Da bismo pristupili odredjenom mesecu, koristimo sledeću sintaksu:
+<br>
+Da bismo pristupili određenom mesecu, koristimo sledeću sintaksu:
 <xmp class = "primer_ta">
 Console.WriteLine((int)Godina.Decembar);
 </xmp>
@@ -79,7 +79,7 @@ Ovde se koristi operator za konverziju (int), da bi se dobio broj meseca Decembr
 Bez ove konvrzije Godina.Decembar vratiće string "Decembar".
 Više o konverziji biće u nekoj od narednih lekcija.
 </div>
-<br><br>
+
 <b>Napomena2</b>
 <div class = "napomena">
 Ista konstanta se ne može koristiti u deklaracijama različitih nabrojivih tipova podataka.<br>
@@ -92,39 +92,16 @@ su  NEKOREKTNE, jer se konstanta pet pojavljuje u definiciji oba tipa.
 <br>
 </div>
 
-<b>Primer 1.</b>
-Napisati program koji za uneti broj na tastaturi, u consoli ispisuje koji je to dan u nedelji.
-<xmp class = "primer_ta">
-using System;
 
-namespace ConsoleApp3
-{
-    class Program
-    {
-        enum Dani
 
-        {
-            ponedeljak=1,
-            utorak=2,
-            sreda=3,
-            cetvrtak=4,
-            petak=5,
-            subota=6,
-            nedelja=7
-        }
-        static void Main(string[] args)
-        {
-            int br;
-            Console.WriteLine("Unesi broj u nedelji\n");
-            string broj = Console.ReadLine();
-            br = Convert.ToInt32(broj);
-            Console.WriteLine(br + ". dan u nedelji je " + ((Dani)br).ToString() + ".");
-            Console.ReadKey();
 
-        }
-    }
-}
 
-</xmp>
+
+
+
+
+
+
+
 </body>
 </html>
