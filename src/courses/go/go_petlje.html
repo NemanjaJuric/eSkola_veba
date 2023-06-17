@@ -1,0 +1,166 @@
+<h1>Petlje</h1>
+Programski jezik Go podržava samo jednu vrstu petlji i to je <b>for</b> petlja.
+For petlja je struktura koja se koristi za ponavljanje dela koda određeni broj puta.
+U programskom jeziku Go ova petlja može biti zapisana na nekoliko načina.
+<ul>
+    <li>Kao obična for petlja koja ima sličnu strukturu kao for petlja u drugim programskim jezicima: 
+    C, C++, Java, C#, itd.</li>
+    Oblika:
+<xmp class="primer_ta"> 
+for inicijalizacija; uslov; korak {
+    // telo petlje u okviru koga se pisu naredbe
+}
+</xmp>
+    <ul>
+        <li>
+            Inicijalizacija je opciona i predstavlja izraz koji se izvršava samo jednom na početku petlje i
+            najčešće je deklaracija promenljive, dodela ili poziv funkcije.
+        </li>
+        <li>
+            Uslov je izraz koji vraća logičke vrednosti true ili false i evaluira se na početku svake iteracije petlje.
+            U slučaju da je uslov istinit petlja se izvršava.
+        </li>
+        <li>
+            Korak se izvršava nakon izvršavanja tela petlje. Nakon izvršavanja izraza koraka, ponovo se izračunava uslov,
+            a u slučaju da je uslov false, petlja se prekida.
+        </li>
+    </ul>
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+    
+    // for petlja 
+    // izvrsava se tri puta, dok vrednost promenljive i
+    // ne dodje do 3 i uslov ne postane netacan, odnosno false
+    for i := 0; i < 3; i++ {
+        fmt.Println("Promenljiva i ima vrednost ", i)  
+    }
+    
+}
+</xmp>
+    <br />
+
+    <li>
+        Drugi oblik korišćenja for petlje je "beskonačna" petlja. Moguće je izostaviti sva tri elementa for petlje i zbog toga što nije
+        naveden uslov izlaska iz petlje, smatraće se da je uslov istinit i petlja će se izvršavati beskonačno.
+    </li>
+    Oblika:
+<xmp class="primer_ta"> 
+for {
+    // naredbe
+}
+</xmp>
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+
+    for {
+        fmt.Println("Zdravo svete")  
+    }
+    
+}
+</xmp>
+    <br />
+
+    <li>
+        Treći oblik korišćenja for petlje je kao <i>while</i> petlja u drugim programskim jezicima. U ovom slučaju se navodi samo uslov do kada se petlja izvršava.
+    </li>
+    Oblika:
+<xmp class="primer_ta"> 
+    for uslov {
+        // naredbe
+    }
+</xmp>
+<xmp class="primer_ta"> 
+package main
+
+import "fmt"
+
+func main() {
+    
+    i:= 0
+    for i < 3 {
+        i += 1
+    }
+    fmt.Println(i) 
+}
+</xmp>
+    <br />
+
+    <li>
+        Postoji još jedan oblik for petlje koja se koristi u kombinaciji sa naredbom <b>range</b> za prolazak
+        kroz iterativne sekvencijalne strukture kao što su niz, isečak ili mapa.
+    </li>
+    Oblika:
+<xmp class="primer_ta"> 
+for indeks, vrednost := range struktura {
+    // naredbe
+}
+</xmp>
+<xmp class="primer_ta"> 
+package main
+
+import "fmt"
+
+func main() {
+
+    studenti := []string { "Ana", "Jelena", "Nikola" }
+    
+    for indeks, vrednost := range studenti {
+        fmt.Println(indeks, vrednost) 
+    }
+}
+</xmp>
+    Rezultat izvršavanja ove petlje je:
+<xmp class="primer_ta"> 
+    0 Ana
+    1 Jelena
+    2 Nikola
+</xmp>
+</ul>
+U nekim slučajevima treba preskočiti izvršavanje neke iteracije petlje, kao u slučaju prikazivanja samo parnih brojeva,
+tada se može koristiti ključna reč <b>continue</b>. Kada se naiđe na tu ključnu reč prelazi se na korak petlje i ponovo se ispituje njen uslov.
+<xmp class="primer_ta"> 
+package main
+
+import "fmt"
+
+func main() {
+
+    var brojevi [10]int = [10]int {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    for i := 0; i < len(brojevi); i++ {
+        if brojevi[i] % 2 == 0 {
+            fmt.Println(brojevi[i])
+        } else {
+            continue
+        }
+    }
+
+}
+</xmp>
+Ukoliko je neophodno prekinuti izvršavanje petlje u nekom slučaju, pre nego što uslov postane netačan, može se koristiti ključna reč
+<b>break</b> koja prekida izvršavanje petlje kada se do nje dođe.
+<xmp class="primer_ta"> 
+package main
+
+import "fmt"
+
+func main() {
+
+    var brojevi [10]int = [10]int {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    for i := 0; i < len(brojevi); i++ {
+        if brojevi[i] != 5 {
+            fmt.Println(brojevi[i])
+        } else {
+            break // izvrsavanje ove petlje ce se naglo prekinuti kada se dodje do broja 5.
+        }
+    }
+
+}
+</xmp>

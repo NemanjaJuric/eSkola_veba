@@ -1,0 +1,239 @@
+<h1>Tipovi podata</h1>
+Go je statički tipizirani jezik, što znači da se promenljivoj dodeljuje tip prilikom njene deklaracije i on se
+ne može menjati tokom izvršavanja programa. Kao što je već rečeno, tip se ne mora eksplicitno navesti, već se može
+zaključiti na osnovu vrednosti koja joj je dodeljena kada se promenljiva deklariše.
+<h2>Osnovni tipovi podataka</h2>
+U osnovne tipove podataka u programskom jeziku Go spadaju: numerički, stringovski i logički tipovi. 
+<br />
+Numerički tipovi pod sobom uključuju nekoliko vrsta celih brojeva, brojeva u pokretnom zarezu i kompleksnih brojeva.
+<h3>Celi brojevi</h3>
+U programskom jeziku Go postoji 11 vrsta celih brojeva, koji se razlikuju po memoriji koja je 
+potrebna za njihovo čuvanje, kao i vrednostima koje mogu da čuvaju. Celi brojevi mogu da 
+budu označeni i neoznačeni.
+<br />
+Označeni celi brojevi su:
+<ul>
+    <li>int8 - zauzima 8 bita;</li>
+    <li>int16 - zauzima 16 bita;</li>
+    <li>int32 - zauzima 32 bita;</li>
+    <li>int64 - zauzima 64 bita.</li>
+</ul>
+Neoznačeni celi brojevi su:
+<ul>
+    <li>uint8;</li>
+    <li>uint16;</li>
+    <li>uint32;</li>
+    <li>uint64.</li>
+</ul>
+Pored njih postoje i int, uint i uintptr, a najčešće se koriste int i uint, koji zauzimaju 32 ili 64 bita,
+zavisno od sistema.
+<br />
+Operacije nad celim brojevima:
+<br />
+<table class="tabela">
+    <tbody>
+        <tr>
+            <td>+</td>
+            <td>Sabiranje</td>
+            <td>==</td>
+            <td>Jednakost</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Oduzimanje</td>
+            <td>!=</td>
+            <td>Nejednakost</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Množenje</td>
+            <td>>, >=, <, <=</td>
+            <td>Relacije veće, veće ili jednako, manje, manje ili jednako</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Deljenje</td>
+            <td>Logičko i</td>
+            <td>&&</td>
+        </tr>
+        <tr>
+            <td>%</td>
+            <td>Ostatak pri deljenju</td>
+            <td>||</td>
+            <td>Logičko ili</td>
+        </tr>
+        <tr>
+            <td>++</td>
+            <td>Inkrementacija</td>
+            <td>!</td>
+            <td>Logička negacija</td>
+        </tr>
+        <tr>
+            <td>--</td>
+            <td>Dekrementacija</td>
+            <td>=</td>
+            <td>Operator dodele</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+Maksimalne vrednosti koje mogu da skladište promenljive tipa int lako je odrediti na osnovu broja bita koji stoji u tipu.
+Najveću vrednost koju uint8 može da čuva je 255, odnosno 2^8-1, a najmanja je 0. Dok je za int8 najveća vrednost 127, odnosno
+2^7-1, a najmanja vrednost -128, odnosno, -2^7.
+<br />
+<h3>Brojevi u pokretnom zarezu</h3>
+U programskom jeziku Go postoje dva tipa brojeva u pokretnom zarezu i to su:
+<ul>
+    <li>float32;</li>
+    <li>float64.</li>
+</ul>
+Zauzimaju 32 i 64 bita. Svi brojevi u pokretnom zarezu se skladište u memoriji po IEEE-754 formatu.
+<h3>Kompleksni brojevi</h3>
+Kompleksni brojevi su poslednji od numeričkih tipova i to su:
+<ul>
+    <li>complex64;</li>
+    <li>complex128.</li>
+</ul>
+Zauzimaju 64 i 128 bita. Realni i imaginarni deo <b>complex64</b> su float32 vrednosti, a realni
+i imaginarni deo <b>complex128</b> su tipa float64.
+Mogu se inicijalizovati na dva načina:
+<xmp class="primer_ta">
+    c1 := complex(7, 12) // koriscenjem funkcije complex
+    c2 := 7 + 12i // direktnom inicijalizacijom
+</xmp>
+Da bi se dobio realni i imaginarni deo kompleksnog broja koriste se funkcije <b>real</b> i <b>imag</b>.
+<xmp class="primer_ta">
+    c := complex(7, 12)
+    realniDeo := real(c)
+    imaginarniDeo := imag(c)
+</xmp>
+<h3>Logičke vrednosti</h3>
+Postoje dve logičke vrednosti i to su <b>true</b> i <b>false</b>. Promenljive koje čuvaju logičke vrednosti imaju tip <b>bool</b>.
+Služe za predstavljanje istinitosne vrednosti. Operatori poređenja, kao što su >, <, ==, itd. se obično definišu tako da vraćaju
+logičke vrednosti.
+<br />
+<span class="primer_text"> var grmljavina bool = true </span>
+<h3>Stringovi</h3>
+Stringovi su nepromenljiva sekvenca bajtova i koriste se za predstavljanje teksta. Stringovi se kreiraju tako što
+se neki tekst stavi između dvostrukih znakova navoda ("").
+<br />
+<span class="primer_text"> var ime = "Rada" </span>
+<br />
+Stringovi su nepromenljivi, tako da ako postoji string
+<br />
+ime := "Rada"
+<br />
+i pri pokušaju promene prvog slova
+<br/>
+ime[0] = "N"
+<br />
+dobila bi se greška od kompajlera.
+Stringovi podržavaju konkatanaciju operatorom "+". Korišcenjem ovog operatora, ne menja se prvobitni string, već se kreira novi string.
+<br />
+<span class="primer_text"> s = s + " uci" </span>
+<br />
+Ovo se može kraće zapisati kao:
+<br />
+<span class="primer_text"> s += " uci" </span>
+<br />
+Stringovi se mogu porediti relacijskim operatorima >, <, >= i <=, pri čemu će se stringovi porediti leksikografski.
+<br />
+Specijalni znakovi su:
+<table class="tabela">
+    <thead>
+        <tr>
+            <th>Literali</th>
+            <th>Opis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td width="64">
+                <p>'\n'</p>
+            </td>
+            <td width="358">
+                <p>novi red (newline)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\r'</p>
+            </td>
+            <td width="358">
+                <p>povratak na početak reda (carriage return)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\f'</p>
+            </td>
+            <td width="358">
+                <p>sledeća strana (formfeed)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\b'</p>
+            </td>
+            <td width="358">
+                <p>brisanje znaka levo od kursora (backspace)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\s'</p>
+            </td>
+            <td width="358">
+                <p>razmak (space)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\t'</p>
+            </td>
+            <td width="358">
+                <p>tabulator (tab)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\''</p>
+            </td>
+            <td width="358">
+                <p>jednostruki navodnik</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\"'</p>
+            </td>
+            <td width="358">
+                <p>dvostruki navodnik</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\\'</p>
+            </td>
+            <td width="358">
+                <p>kosa crta nalevo (backslash)</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\ddd'</p>
+            </td>
+            <td width="358">
+                <p>oktalni kod karaktera</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="64">
+                <p>'\uxxx'</p>
+            </td>
+            <td width="358">
+                <p>heksadekadni kod karaktera iz UNICODE skupa</p>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,95 @@
+<h1>Konkurentnost</h1>
+Konkurentnost je sposobnost programa da obavlja više stvari u približno isto vreme. Ovo znači da 
+program može da obavlja više zadataka u približno isto vreme, ali da oni i dalje budu deo 
+jednog programa.
+<br/>
+Pojam konkurentnosti se često poistovećuje sa paralelizmom, ali paralelizam podrazumeva da se 
+delovi jednog procesa izvršavaju istovremeno, dok konkurentnost definiše zadatke koji se 
+izvršavaju u preklapajućim vremenskim intervalima, ali ne i istovremeno.
+<h3>Niti</h3>
+Niti su osnovne jedinice izvršavanja u okviru programa. Jedan proces može sadržati više niti koje se izvršavaju konkurentno.
+Sve niti jednog procesa dele zajedničku memoriju i time štede memorijski prostor i vreme potrebno za kreiranje procesa.
+Niti omogućavaju obavljanje drugih zadataka, dok su neki delovi blokirani ili zauzeti.
+<h3>Gorutine</h3>
+Gorutine u programskom jeziku Go označavaju funkciju koja se izvršava konkurentno. Gorutine su slične nitima, ali za razliku od njih
+gorutinama upravlja Go, a ne operativni sistem. Gorutine su karakteristične za jezik Go, a ime je nastalo spajanjem reči Go
+sa rečju korutina. Kada se pokrene program, postoji samo jedna, glavna gorutina koja poziva funkciju main.
+<br />
+Gorutine se kreiraju korišćenjem ključne reči <b>go</b>, nakon čega sledi ime funkcije koja se pokreće konkurentno, tj. u novoj
+gorutini.
+<xmp class="primer_ta">
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func prikazi(zdravo string) {
+    for i := 0; i < 3; i++ {
+        time.Sleep(100 * time.Millisecond)
+        fmt.Println(zdravo)
+    }
+}
+
+func main() {
+    go prikazi("Zdravo")
+    prikazi("svete")
+}
+</xmp>
+<h3>Kanali</h3>
+Kanali služe kao metod za sinhronizaciju gorutina. Kanali omogućavaju da gorutine dele memoriju.
+Mogu se posmatrati kao <b>red (queue)</b> u okviru programa, gde jedne gorutine šalju podatke u kanal, a druge uzimaju podatke iz njega.
+Korišćenjem operatora <b><-</b> podaci se smeštaju u kanal ili preuzimaju iz njega, zavisno od toga sa koje se strane kanal nalazi.
+Kanali se kreiraju korišćenjem funkcije <b>make</b>, kojoj se kao parametar prosleđuje tip kanala. Tip kanala je određen tipom koji se
+želi čuvati.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func pomnozi_sa_2(c chan int, vrednost int) {
+    c <- vrednost * 2
+}
+
+func main() {
+    kanal := make(chan int)
+    go pomnozi_sa_2(kanal, 5)
+    go pomnozi_sa_2(kanal, 7)
+
+    prva_vrednost := <-kanal
+    druga_vrednost := <-kanal
+
+    fmt.Println(prva_vrednost, druga_vrednost)
+}
+</xmp>
+Kanali mogu biti jednosmerni i dvosmerni:
+<ul>
+    <li><b>chan T</b> označava dvosmerni kanal tipa T. Kompajler dozvoljava uzimanje vrednosti iz kanala, kao i
+    upisivanje vrednosti u njega.</li>
+    <li><b>chan<- T</b> označava send-only tip kanala. Kompajler ne dozvoljava uzimanje vrednosti iz kanala.</li>
+    <li><b><-chan T</b> označava receive-only tip kanala. Kompajler ne dozvoljava slanje vrednosti u kanal.</li>
+</ul>
+<h3>Operacije nad kanalima</h3>
+1. zatvaranje kanala korišćenjem funkcije close
+<br />
+<span class="primer_text">close(ch)</span>
+<br />
+Argument funkcije close mora biti kanal, ali on ne sme biti receive-only tip kanala.
+<br />
+2. slanje vrednosti u kanal korišćenjem operatora <-
+<br />
+<span class="primer_text">ch <- vrednost</span>
+<br />
+3. uzimanje vrednosti iz kanala, takođe korišćenjem operatora <-
+<br />
+<span class="primer_text">vrednost := <-ch </span>
+<br />
+4. određivanje kapaciteta kanala korišćenjem funkcije cap
+<br />
+<span class="primer_text">cap(ch)</span>
+<br />
+5. određivanje dužine kanala korišćenjem funkcije len
+<br />
+<span class="primer_text">len(ch)</span>
+<br />

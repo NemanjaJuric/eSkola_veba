@@ -1,0 +1,176 @@
+<html>
+
+<h1> Maksimalni zbir na putu kroz matricu </h1>
+
+<br>
+<b> Zadatak: </b> U tabeli dimenzija n × n polja su popunjena ciframa od 0 do 9. Igrač koji se nalazi u gornjem levom uglu tabele može da u jednom koraku pređe u susedno desno polje ili susedno donje polje. Cilj mu je da stigne do donjeg desnog polja tako da zbir vrednosti na pređenim poljima bude maksimalan. Napisati program kojim se određuje maksimalan zbir koji može da ostvari igrač pri kretanju od gornjeg levog do donjeg desnog ugla.<br>
+<br>
+<h2> Rekurzivni algoritam </h2>
+Definišemo rekurzivnu funkciju koja određuje maksimalni zbir vrednosti koji se može postići krećući se od polja (0, 0) do datog polja (v, k), koje je parametar funkcije. 
+Traženi rezultat dobijamo kada je (v, k) jednako 
+(n − 1, n − 1). Izlaz iz rekurzije predstavlja 
+slučaj kada je (v, k) = (0, 0) – postoji samo 
+jedna putanja od polja (0, 0) do njega samog 
+(kada se ne pomeramo) i zbir vrednosti na njoj 
+je jednak vrednosti na polju (0, 0). U suprotnom 
+posmatrajmo neko polje (v, k) različito od (0, 0). 
+Na to smo polje mogli doći ili sa polja (v −1, k) 
+ili sa polja (v, k −1), pri čemu prvi slučaj nije 
+moguć kada se polje nalazi u početnoj vrsti 
+(kada je v = 0), a drugi nije moguć kada se 
+polje nalazi u početnoj koloni (kada je k = 0). <br>
+<br>
+Da bi se postigao optimalni zbir do polja (v, k), 
+mora se postići optimalni zbir do polja sa kog smo 
+na njega prešli. Zaista ako bi se do prethodnog 
+polja moglo doći putanjom sa većim zbirom, tada 
+bismo tu putanju mogli proširiti poslednjim 
+prelaskom na polje (v, k) i dobiti veću vrednost 
+zbira na putanji do polja (v, k). Zato vrednost 
+određujemo dodajući element matrice na poziciji 
+(v, k) na vrednosti rekurzivnih poziva za polja 
+(v −1, k) i (v, k − 1) (vodivši računa da se 
+preskoči neodgovarajući rekurzivni poziv u 
+slučajevima kada je v = 0 tj. k = 0) i birajući povoljniju od te dve varijante (onu koja daje veći zbir). <br>
+<br>
+<br>
+<xmp class = "primer_ta"> 
+
+int maksZbir(vector<vector<int>>& M, int n, int v, int k) {
+	if (v == 0 && k == 0)
+		return M[v][k];
+
+	int odGore = 0, sLeva = 0;
+
+	if (v > 0)
+		odGore = M[v][k] + maksZbir(M, n, v-1, k);	
+
+	if (k > 0)
+		sLeva = M[v][k] + maksZbir(M, n, v, k-1);
+
+	if (v == 0) return sLeva;
+	if (k == 0) return odGore;
+	return max(odGore, sLeva);
+}
+ </xmp>
+<br>
+U rekurzivnoj implementaciji dolazi do ponavljanja istih rekurzivnih poziva (na primer, ako napravimo korake dole-desno i desno-dole, naći ćemo se na istom polju). Stoga je prethodna implementacija izrazito neefikasna (složenost najgoreg slučaja je eksponencijalna). <br>
+<br>
+Moguće je dati i dualnu rekurzivnu definiciju, kojom se izračunava optimalni put od datog polja (v, k) do krajnjeg polja (n−1, n−1). Izlaz iz rekurzije je kada je (v, k) = (n−1, n−1), dok u rekurzivnim koracima analiziramo dva polja do kojih možemo doći sa tekućeg (to su ono desno i dole od njega) i za njih rekurzivno pozivamo funkciju. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int maksZbir(vector<vector<int>>& M, int n, int v, int k) {
+
+	if (v >= n-1 && k >= n-1)
+		return M[v][k];
+
+	int dole, desno;
+	
+	if (v < n - 1)
+		dole = M[v][k] + maksZbir(M, n, v+1, k);
+
+	if (k < n - 1)
+		desno = M[v][k] + maksZbir(M, n, v, k+1);
+
+	if (v >= n-1) return desno;
+	if (k >= n-1) return dole;
+
+	return max(dole, desno);
+
+}
+ </xmp>
+<br>
+<h2> Memoizacija </h2>
+Rešenje direktnom rekurzijom je neefikasno i 
+potrebno je izvršiti optimizaciju tehnikom 
+dinamičkog programiranja. Rekurzivnu funkciju 
+je moguće proširiti korišćenjem memoizacije. 
+Rezultat za svako polje ćemo pamtiti u matrici. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int maksZbir(const vector<vector<int>>& M, int n, int v, int k, vector<vector<int>>& memo) {
+
+	if (memo[v][k] != -1)
+		return memo[v][k];
+
+	if (v == 0 && k == 0)
+		return memo[v][k] = M[v][k];
+
+	int odGore = 0, sLeva = 0;
+
+	if (v > 0)
+		odGore = M[v][k] + maksZbir(M, n, v-1, k, memo);
+
+	if (k > 0)
+		sLeva = M[v][k] + maksZbir(M, n, v, k-1, memo);
+
+	if (v == 0) return memo[v][k] = sLeva;
+	if (k == 0) return memo[v][k] = odGore;
+
+	return memo[v][k] = max(odGore, sLeva);
+}
+
+ </xmp>
+<br>
+Za svaki par brojeva (v, k), takav da je 0 ≤ v, k < n, izračunavanje se vrši samo jednom, a zatim se izračunata vrednost očitava iz matrice. Memorijska i vremenska složenost ovog rešenjasu stoga O(n^2). <br>
+<br>
+<h2> Iterativni algoritam </h2>
+Umesto memoizacije možemo upotrebiti i dinamičko programiranje naviše. Rezultat rekurzivne funkcije koja izračunava maksimalnu vrednost zbira od polja (0, 0) do polja (v, k), pamtićemo u pomoćnoj matrici na njenom polju (v, k). Pošto element u matrici može da zavisi od elementa iznad i levo od sebe, matricu možemo popunjavati vrstu po vrstu (a moguće bi bilo popunjavati je i kolonu po kolonu). <br>
+<br>
+Vrednost na polju (0, 0) prepisaćemo iz polazne matrice, ostale vrednosti u prvoj vrsti ćemo dobiti uvećavanjem vrednosti levo od njih odgovarajućim elementom polazne matrice, a ostale vrednosti u prvoj koloni ćemo dobiti uvećavanjem vrednosti iznad njih odgovarajućim elementom polazne matrice. Ostale vrednosti u matrici ćemo dobiti pronalaženjem većeg od elementa iznad i levo od njih i uvećavanjem tog većeg broja za odgovarajuću vrednost u polaznoj matrici. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int maksZbir(const vector<vector<int>>& M) {
+	int n = M.size();
+	vector<vector<int>> dp(n);
+
+	for (int i = 0; i < n; i++)
+		dp[i].resize(n);
+	dp[0][0] = M[0][0];
+	
+	for (int v = 1; v < n; v++)
+		dp[v][0] = dp[v-1][0] + M[v][0];
+	
+	for (int k = 1; k < n; k++)
+		dp[0][k] = dp[0][k-1] + M[0][k];
+	
+	for (int v = 1; v < n; v++)
+		for (int k = 1; k < n; k++)
+			dp[v][k] = max(dp[v-1][k] + M[v][k], dp[v][k-1] + M[v][k]);
+	
+	return dp[n-1][n-1];
+}
+
+ </xmp>
+<br>
+
+<h2> Memorijska optimizacija </h2>
+Možemo primetiti da elementi u svakoj vrsti matrice kada se koristi dinamičko programiranje naviše zavise samo od vrednosti u prethodnoj vrsti (a ne od vrednosti u vrstama pre nje). To nam omogućava da napravimo dodatnu optimizaciju tako što ćemo umesto matrice za dinamičko programiranje koristiti samo jedan pomoćni niz (u kom ćemo pamtiti elemente prethodne vrste, a zatim ih jedan po jedan menjati elementima tekuće vrste). <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int maksZbir(const vector<vector<int>>& M) {
+	int n = M.size();
+	vector<int> dp(n);
+	dp[0] = M[0][0];
+	
+	for (int k = 1; k < n; k++)
+		dp[k] = dp[k-1] + M[0][k];
+	
+	for (int v = 1; v < n; v++) {
+		dp[0] += M[v][0];
+		for (int k = 1; k < n; k++)
+			dp[k] = max(dp[k] + M[v][k], dp[k-1] + M[v][k]);
+	}
+	
+	return dp[n-1];
+}
+
+ </xmp>
+<br>
+Vremenska složenost ovog rešenja ostaje O(n^2), ali memorijska složenost se smanjuje na O(n). <br>
+<br>
+</html>

@@ -4842,5 +4842,271 @@
         "sublessons": null
       }
     ]
+  },
+  {
+    "name": "Golang",
+    "id": "go",
+    "logo": "GO",
+    "type": "book",
+    "lang": "",
+    "displayLang": "HTML",
+    "sections": [
+      "programski_jezici"
+    ],
+    "detailsText": "Go ili Golang je programski jezik opšte namene i otvorenog koda nastao u okviru kompanije Google 2007. godine. Jezik su osmislili Robert Grisemer (Robert Griesemer), Rob Pajk (Rob Pike) i Ken Tompson (Ken Thompson). Ideja je bila osmišljavanje novog, jednostavnog i moćnog jezika. Programski jezik Go je imperativni, statički tipizirani, kompajlirani jezik. Sadrži automatsko upravljanje memorijom i funkcionalnosti za konkurentno programiranje.",
+    "lessons": [
+      {
+        "name": "Uvod u Go",
+        "url": "go_uvod",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Sintaksa",
+        "url": "go_sintaksa",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Promenljive",
+        "url": "go_promenljive",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Tipovi podataka",
+        "url": "go_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Složeni tipovi podataka",
+        "url": "go_slozeni_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Strukture",
+        "url": "go_strukture",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Referentni tipovi podataka",
+        "url": "go_referentni_tipovi_podataka",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Isečci",
+        "url": "go_isecci",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Mape",
+        "url": "go_mape",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Kontrola toka",
+        "url": "go_kontrola_toka",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Petlje",
+        "url": "go_petlje",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Funkcije",
+        "url": "go_funkcije",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Metodi",
+        "url": "go_metodi",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Interfejsi",
+        "url": "go_interfejsi",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Konkurentnost",
+        "url": "go_konkurentnost",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Paketi",
+        "url": "go_paketi",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      },
+      {
+        "name": "Testiranje",
+        "url": "go_testiranje",
+        "type": "lesson",
+        "parentCourse": "go",
+        "sublessons": null
+      }
+    ]
+  },
+  {
+    "name": "Dinamičko programiranje",
+    "id": "dp",
+    "logo": "DP",
+    "type": "book",
+    "lang": "",
+    "displayLang": "HTML",
+    "sections": [
+      "srednja_skola"
+    ],
+    "detailsText": "Dinamičko programiranje predstavlja metod kojim se smanjuje vreme izvršavanja onih problema u kojima se zahteva traženje optimalne podstrukture i čiji se potproblemi ponavljaju.",
+    "lessons": [
+      {
+        "name": "Uvod u DP",
+        "url": "dp_uvod",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Maksimalni zbir na putu kroz matricu",
+        "url": "dp_maksimalni_zbir_na_putu_kroz_matricu",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Minimalno brisanje iz zbira",
+        "url": "dp_minimalno_brisanja_iz_niza",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Edit rastojanje",
+        "url": "dp_edit_rastojanje",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Najduži niz palindrom",
+        "url": "dp_najduzi_podniz_palindrom",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Najveći zajedniči podniz",
+        "url": "dp_najveci_zajednicki_podniz",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Problem ranca",
+        "url": "dp_problem_ranca",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Broj pokrivanja distanci",
+        "url": "dp_broj_pokrivanja_distanci",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Gko uvod",
+        "url": "dp_gko_uvod",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Kombinacije bez ponavljanja",
+        "url": "dp_kombinacije_bez_ponavljanja",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Broj kombinacija bez ponavljanja",
+        "url": "dp_broj_kombinacija_bez_ponavljanja",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Kombinacije sa ponavljanjem",
+        "url": "dp_kombinacije_sa_ponavljanjem",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Permutacije bez ponavljanja",
+        "url": "dp_permutacije_bez_ponavljanja",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Permutacije sa ponavljanjem",
+        "url": "dp_permutacije_sa_ponavljanjem",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Varijacije bez ponavljanja",
+        "url": "dp_varijacije_bez_ponavljanja",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Varijacije sa ponavljanjem",
+        "url": "dp_varijacije_sa_ponavljanjem",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      },
+      {
+        "name": "Partitivni skup",
+        "url": "dp_partitivni_skup",
+        "type": "lesson",
+        "parentCourse": "dp",
+        "sublessons": null
+      }
+    ]
   }
 ]

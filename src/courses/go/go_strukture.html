@@ -1,0 +1,65 @@
+<h1>Strukture</h1>
+<b>Struktura</b> je složeni tip podataka u programskom jeziku Go koji grupiše nula ili više podataka. Omogućava kreiranje složenih
+tipova podataka kojima se predstavljaju objekti iz svakodnevnog života. Svaki podatak ima svoje ime i vrednost.
+<br />
+Struktura se kreira korišćenjem ključne reči <b>type</b>, nakon čega sledi ime novog tipa, pa ključna reč <b>struct</b> 
+i onda definicija strukture unutar zagrada {}.
+<br />
+Pojedinačnim poljima se pristupa koristeći . (tačku).
+<xmp class="primer_ta">
+package main
+
+type Osoba struct {
+    ime string
+    pol string
+    godiste int
+}
+
+func main() {
+
+    var ja Osoba;
+    ja.ime = "Ana"
+
+}
+</xmp>
+Moguće je i inicijalizovati promenljivu prilikom deklaracije.
+<xmp class="primer_ta">
+package main
+
+type Osoba struct {
+    ime string
+    pol string
+    godiste int
+}
+
+func main() {
+
+    // eksplicitnim navodjenjem imena polja
+    var ucenik1 Osoba = Osoba{ime: "Ana", pol: "Zenski", godiste: 1996}
+    // ili krace bez navodjenja imena polja, ali se mora postovati njihov redosled
+    var ucenik2 Osoba = Osoba{"Jovana", "Zenski", 1996}
+    // ili još krace
+    ucenik3 := Osoba{"Marko", "Muski", 1996}
+
+}
+</xmp>
+Moguće je porediti pojedinačna polja strukture, kao i čitavu strukturu koristeći operatore == (jednako) i != (različito).
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Tacka struct {
+    x float32
+    y float32
+}
+
+func main() {
+
+    tacka1 := Tacka{1.35, 3.12}
+    tacka2 := Tacka{1.35, 4.22}
+
+    fmt.Println(tacka1.x == tacka2.x) // prikazuje true, posto su vrednosti polja x jednake
+    fmt.Println(tacka1 == tacka2) // prikazuje false, posto polja y imaju razlicite vrednosti
+}
+</xmp>

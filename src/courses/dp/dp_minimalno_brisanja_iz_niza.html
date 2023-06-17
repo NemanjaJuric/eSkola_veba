@@ -1,0 +1,170 @@
+<html>
+
+<h1> Minimalno brisanja iz niza </h1>
+
+<br>
+
+<b> Zadatak: </b> Dat je niz od \(n\) celih brojeva i ceo broj k. Naći najmanji broj elemenata koje treba obrisati iz niza tako da razlika maksimalnog i minimalnog elementa iz ostatka niza bude manja ili jednaka od k. <br>
+<br>
+<h2> Primeri </h2>
+<b> primer 1: </b> ulaz: a[]={1, 3, 4, 9, 10, 11, 12, 17, 20} k=4 <br>
+rešenje: 5, potrebno je obrisati 1,3,4 sa početka i 17,20 sa kraja niza. <br>
+<br>
+<b> primer 2: </b> ulaz: a[]={1, 5, 6, 2, 8} k=2 <br>
+rešenje: 3, postoji više načina da to uradimo, npr. izbaciti brojeve 1,2,5 . <br>
+<br>
+
+<h2> Prvi pristup </h2>
+
+Sortirajmo date elemente. Intuitivno, prva ideja je obrisati minimalni ili maksimalni element i proverti da li je tražena razlika manja ili jednaka od \(k\). <br>
+Dakle, pišemo rekurzivni algoritam u kom ćemo isprobati sve kombinacije dok ne stignemo do traženog uslova. Postoje dva načina za brisanje, brišemo minimalni ili maksimalni element.
+Neka je (\(i...j\)) indeks elemenata koji ostaju nakon brisanja. Počinjemo sa 
+\(i=0\) i \(j=n-1\) i broj obrisanih elemenata na početku je 0.
+Element brišemo samo u slučaju da je a[j]-a[i] > \(k\), na dva 
+moguća načina a to su \((i+1...j)\) ili \((i...j-1)\). Biramo minimum od ova dva načina (tj biramo onaj za koji je potrebno iz ostatka niza obrisati manje elemenata do traženog uslova) . <br>
+<br>
+U matrici dp ćemo na poziciji \((i,j)\) pamtiti broj elemenata koje je potrebno obrisati tako da nakon brisanja bude a[j]-a[i] ≤ \(k\) . <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+int brojBrisanja(int a[], int i, int j, int k){
+	
+	if(i>=j)
+		return 0;
+	
+	else if ((a[j]-a[i])<=k)
+		return 0;
+	
+	else if (dp[i][j]!=-1)
+		return dp[i][j];
+	
+	else if ((a[j]-a[i])>k) {
+		
+		dp[i][j]= 1 + min(brojBrisanja(a,i+1,j,k), brojBrisanja(a,i,j-1,k));
+    }
+	return dp[i][j];
+}
+
+ </xmp>
+<br>
+ <div class = "napomena"> Napomena: u main-u je potrebno sortirati niz, postaviti sve vrednosti globalne matrice dp na -1, i pozvati funkciju na sledeći način brojBrisanja(a,0,n-1,k); </div>
+ <br>
+ I vremenska i prostorna složenost ovog algoritma je O(n^2).
+<h2> Drugi pristup  </h2>
+
+Ideja je sortirati niz u rastućem redosledu i proći kroz ceo niz, npr. indeksom \(i\), i za svaki od 
+njih naći maksimalni element, odnosno najveći indeks \(j\), tako da je a[j]-a[i] ≤ \(k\). <br>
+Tako možemo dobiti broj elemenata koje je potrebno obrisati sa 
+kraja soritranog niza kako bi važio uslov 
+a[j]-a[i] ≤ \(k\), taj broj je \(n-(j-i+1)\).
+Minimalni broj elemenata koje je potrebno obrisati iz niza dobijamo tako
+što uzmemo minimum od vrednosti \(n-(j-i+1)\) za svako \(i\). <br>
+<br>
+Vrednosti \(j\) ćemo određivati binarnom pretragom sa početnim indeksom \(i+1\)
+i krajnjim \(n-1\) . <br>
+<br>
+Na osnovu navedenog, algoritam se može prikazati sledećim kodom. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int nadjiJ(int i, int n, int k, int a[])
+{
+    int poc, kraj, s, ind = -1;
+     
+    poc = i + 1;
+    kraj = n - 1;
+    while (poc < kraj)
+    {
+        s = poc + (kraj - poc) / 2;
+         
+        if (a[s] - a[i] <= k)
+        {  
+            ind = s;
+            poc = s + 1;
+        }
+        else
+        {
+			kraj=s;
+		}
+    }
+    return ind;
+}
+ 
+int brojBrisanja(int a[], int n, int k)
+{
+    int i, j, rez = n - 1;
+     
+    sort(a, a+n);
+     
+    for (i = 0; i < n; i++)
+    {
+       
+        j = nadjiJ(i, n, k, a);
+         
+        if (j != -1)
+        {
+            rez = min(rez, n - (j - i + 1));
+        }
+    }
+    
+    return rez;
+}
+
+ </xmp>
+<br>
+
+ Složenost ovog algoritma je O(nlogn). <br>
+ <br>
+<h2> Treći pristup  </h2>
+
+Ponovo ćemo sortirati niz u rastućem redosledu. Kroz niz prolazimo 
+indeksom \(j\) i tražimo minimalni indeks \(i\) s leva tako da je a[j]-a[i] ≤ \(k\). Kada pronađemo 
+takav indeks čuvaćemo ga u pomoćnom nizu dp na poziji \(j\) (tj. 
+čuvaćemo ga u dp[j]. <br>
+<br>
+Tako možemo dobiti broj elemenata koje je potrebno obrisati sa 
+početka soritranog niza kako bi važio uslov 
+a[j]-a[i] ≤ \(k\), taj broj je \(n-(j-i+1)\).
+Minimalni broj elemenata koje je potrebno obrisati iz niza dobijamo tako
+što uzmemo minimum od vrednosti \(n-(j-i+1)\) za svako \(j\). <br>
+<br>
+Indekse \(i\) možemo računati koristeći prethodni član iz niza dp. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int brojBrisanja(int a[], int n, int k){
+
+	sort(a, a+n);
+	int dp[n];
+	
+	for(int i=0; i<n; i++)
+		dp[i]=-1;
+	
+	int rez=n-1;
+	dp[0]=0;
+	
+	for(int j=1; i<n; j++){
+		
+		dp[j]=j;
+		int i=dp[j-1];
+		
+		while(i!=j && a[i]-a[j] > k)
+			i++;
+		
+		dp[j]=min(dp[j],i);
+		rez=min(rez, n-(j-i+1));
+	}
+	return rez;
+}
+ </xmp>
+<br>
+Složenost ovog algoritma je O(nlogn). Spoljašnja petlja će napraviti 
+\(n\) iteracija. Unutrašnja petlja će ukupno napraviti najviše 
+\(n\) iteracije tokom svih spoljašnjih petlji. Razlog toga je što 
+indeks \(i\) kreće od dp[j-1] i kreće se najviše do \(j\) a nakon toga 
+za sledeći element \(i\) kreće od prethodne dp[j] vrednosti. Pa 
+je vremenska složenost O(n) ako ne uračunamo složenost soritranja. 
+Međutim ovaj algoritam nam zahteva dodatnu prostornu složenost O(n). <br>
+<br>
+</html>

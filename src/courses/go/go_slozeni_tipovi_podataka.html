@@ -1,0 +1,75 @@
+<h1>Složeni tipovi podataka</h1>
+Složeni tipovi podataka su tipovi koji nastaju kombinacijom jednog ili više prostih tipova. 
+U složene tipove podataka, u programskom jeziku Go, spadaju <b>nizovi</b> i <b>strukture</b>.
+<h2>Niz</h2>
+<b>Niz</b> je kolekcija promenljivih istog tipa, fiksne dužine od 0 ili više elemenata. Elementima niza se pristupa preko indeksa,
+koji se kreće od 0 do n-1, gde je n dužina niza. Kada se kreira niz u memoriji se rezerviše odgovarajući broj
+uzastopnih mesta koji odgovara dužini niza. U slučaju da u memoriji ne postoji dovoljno mesta, dobija se greška. 
+<xmp class="primer_ta"> 
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+
+    var x [10]int // deklaracija niza od 10 elemenata tipa int
+    x[1] = 10 // postavljanje vrednosti 10 na drugo mesto u nizu
+    fmt.Println(x[1]) // ispisuje drugi element niza x, posto indeksiranje krece od 0
+
+}
+</xmp>
+Niz je moguće inicijalizovati prilikom njegove deklaracije: 
+<xmp class="primer_ta"> 
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+
+    var x [10]int = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+    // ili krace
+    y := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+}
+</xmp>
+Treba imati na umu da je veličina niza deo njegovog tipa, pa su [2]int i [3]int različiti tipovi. Veličina niza mora biti
+konstantan izraz, čija vrednost može da se izračuna prilikom kompajliranja programa.
+Dodeljivanjem nizu jednog tipa drugi tip, dobija se greška.
+<xmp class="primer_ta"> 
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+
+    var x [2]int = [2]int{1, 2}
+    x = [3]int{1, 2, 3} 
+    // vraca gresku: cannot use [3]int{...} (type [3]int) as type [2]int in assignment
+    // posto su [2]int i [3]int razliciti tipovi
+
+}
+</xmp>
+Nizovi se mogu porediti relacionim operatorima == i !=. Dva niza su jednaka ako imaju jednake vrednosti na istim indeksima.
+<br />
+Da bi se dobila dužinu niza, koristi se funkcija <b>len()</b>.
+<xmp class="primer_ta"> 
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+
+    var x [2]int = [2]int{1, 2}
+    fmt.Println(len(x)) // vraca 2 kao sto je i ocekivano
+
+}
+</xmp>
+<br />

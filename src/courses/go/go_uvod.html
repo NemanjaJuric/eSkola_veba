@@ -1,0 +1,61 @@
+<h1>Uvod u programski jezik Go</h1>
+<b>Go</b> ili Golang je programski jezik opšte namene i otvorenog koda nastao u okviru kompanije Google 2007. godine.
+Jezik su osmislili Robert Grisemer (Robert Griesemer), Rob Pajk (Rob Pike) i Ken Tompson (Ken Thompson). Ideja je bila osmišljavanje novog, 
+jednostavnog i moćnog jezika. Programski jezik Go je imperativni, statički tipizirani, kompajlirani
+jezik. Sadrži automatsko upravljanje memorijom i funkcionalnosti za konkurentno programiranje. <br />
+<br />
+Go nije objektno-orijentisani jezik, ali preuzima neke od koncepata objektno-orijentisanih
+jezika, kao što su metodi i interfejsi. Go je namenjen prvenstveno izradi serverskih aplikacija,
+kao i sistemskom programiranju.
+<br />
+Neke od prednosti programskog jezika Go su:
+<ul>
+    <li>jednostavnost i čitkost;</li>
+    <li>velika brzina izvršavanja;</li>
+    <li>dobra standardna biblioteka, kao i veliki broj korisničkih biblioteka;</li>
+    <li>skalabilnost.</li>
+</ul>
+<br />
+<h2>Instalacija</h2>
+Da bi se počelo sa programiranjem, prvo je neophodno preuzeti i instalirati <b>kompajler</b> koji se
+nalazi na <a href="https://golang.org/dl/">oficijalnom sajtu jezika</a>, a koji prevodi izvorni kod u mašinski (izvršni) kod. Osim toga, neophodan je i <b>terminal</b>, bilo koji
+terminal za Linux i Mac ili Powershell ili cmd za Windows, kao i <b>tekst editor</b>.
+Pogodni tekst editori su Visual Studio Code i Sublime Text zato što poseduju
+ekstenzije za označavanje sintakse, ali ima i drugih. Fajlovi sa izvornim kodom u jeziku Go imaju ekstenziju
+ <b>.go</b>.
+Nakon kompajliranja dobija se izvršni kod sa ekstenzijom .out na Unix-u i .exe na Windows operativnim sistemima.
+ <br />
+<br /> 
+<h2>Moj prvi program "Zdravo svete"</h2>
+
+Kreiranje programa obuhvata tri glavna koraka: unošenje, prevođenje (kompajliranje) i pokretanje programa. 
+
+<h5>Unošenje programa</h5>
+Svaki Go program se sastoji od paketa, koji ima pridruženu putanju i ime. Uloga paketa je da grupiše određene funkcionalnosti
+u jednu celinu, što omogućava lakše održavanje i korišćenje.
+Program počinje u paketu <b>main</b>.
+<br />
+Za ispisivanje teksta neophodno je prvo uvesti paket <b>fmt</b> koji sadrži
+neophodne funkcije za rad sa ulazom i izlazom.
+Kao i u C programskom jeziku i Go počinje izvršavanje od funkcije <b>main</b>, u okviru koje se piše logika programa.
+<br />
+<xmp class="primer_ta">
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println("Zdravo svete")
+}
+</xmp>
+<br />
+<h5>Prevođenje programa</h5>
+Da bi se izvorni kod preveo u izvršni, sve što treba da se uradi je da se u terminal unese <b>go build</b>. Go će automatski
+kreirati izvršni fajl sa ekstenzijom .exe ili .out, zavisno od operativnog sistema i imenom koje će odgovarati imenu direktorijuma u kome se fajl nalazi.
+<br />
+<h5>Pokretanje programa</h5>
+Da bi se novonastali program pokrenuo neophodno je u terminalu uneti imefajla.exe ili imefajla.out.
+Drugi način za pokretanje programa objedinjuje prevođenje i izvršavanje. U terminal treba uneti
+<b>go run imefajla.go</b>, čime će se izvorni kod prevesti i pokrenuti, a rezultat izvršavanja prikazati.

@@ -1,0 +1,84 @@
+<h1>Promenljive</h1>
+Promenljiva je, po definiciji, imenovani prostor u memoriji koji skladišti neke podatke.
+U programskom jeziku Go se promenljive određenog tipa kreiraju korišćenjem ključne reči <b>var</b>, nakon čega sledi ime promenljive i njen tip, a potom 
+se inicijalizuje nekom vrednošću.
+<br/>
+<span class="primer_text"> var ime tip = izraz </span>
+<br />
+<br />
+Dozvoljeno je izostaviti tip promenljive ili izraz, ali ne i oba. Ako se izostavi tip, onda se on zaključuje na osnovu vrednosti izraza.
+Ako se izostavi izraz, onda se vrednost inicijalizuje na "nula vrednost" određenog tipa. U slučaju numeričkih vrednosti to je <b>0</b>,
+za stringovske vrednosti to je <b>""</b>, odnosno prazan string, za logičke vrednosti to je <b>false</b>, a za reference <b>nil</b>.
+<br />
+U programskom jeziku Go ne postoje neinicijalizovane promenljive.
+<xmp class="primer_ta">
+// promenljiva x je tipa int (ceo broj) i ima vrednost 1
+var x = 1
+// promenljiva y je takođe tipa int, ali je njena vrednost 0
+var y int
+</xmp>
+Takođe, moguće je deklarisati i više promenljivih u jednoj liniji.
+<xmp class="primer_ta">
+var x, y, z int // sve promenljive su tipa int
+var x, y, z = true, false, 22 // promenljive x i y su tipa bool (logička vrednost), a z je tipa int
+</xmp>
+<h3>Kratka deklaracija promenljivih</h3>
+U okviru funkcija, moguće je koristiti kraću formu za deklarisanje i inicijalizaciju lokalnih promenljivih, oblika:
+<br />
+<span class="primer_text"> ime := izraz </span>
+<br />
+Pošto tip promenljive nije naznačen u ovom obliku, tip promenljive je određen vrednošću izraza.
+<xmp class="primer_ta">
+x := 0
+y := 0.0
+z := false
+</xmp>
+Zbog konciznosti "kratka" deklaracija je korišćeniji oblik, dok je deklaracija promenljivih korišćenjem
+ključne reči <b>var</b> najčešće korišćena za kreiranje promenljivih kojima se eksplicitno deklariše tip,
+a vrednost će biti naknadno dodeljena, a inicijalna vrednost nije važna.
+<br />
+I kod kratke deklaracije je moguće deklarisati više promenljivih u jednoj liniji:
+<br />
+<span class="primer_text"> x, y := 1.1, 2 </span>
+<h3>Konstante</h3>
+Moguće je deklarisati promenljive i korišćenjem ključne reči <b>const</b>. Međutim, u ovom slučaju se 
+definiše promenljiva čija vrednost mora biti konstantna, tj. ne sme se menjati i mora biti poznata 
+u fazi kompajliranja. Tip konstante mora biti jedan od „prostih“ tipova, odnosno numerička vrednost, logička vrednost ili string.
+<br/>
+<span class="primer_text"> const pi = 3.14 </span>
+<h3>Opseg promenljivih</h3>
+Opseg promenljive je deo programa u kome se može pristupiti nekoj promenljivoj. 
+U programskom jeziku Go postoje dve kategorije opsega, koje zavise od toga gde je promenljiva 
+deklarisana. To su:
+<ul>
+    <li><b>lokalni opseg</b> (promenljive deklarisane u okviru bloka ili funkcije);</li>
+    <li><b>globalni opseg</b> (promenljive deklarisane izvan funkcije);</li>
+</ul>
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+var x int = 20 // globalna promenljiva
+
+
+func prikazi_vrednost() {
+    var y int = 10 // lokalna promenljiva
+
+    // ovde je moguce prikazati vrednost promenljive y
+    // zato sto je ona deklarisana u ovoj funkciji
+    fmt.Printf("Vrednost lokalne promenljive je: %d\n", y)
+
+}
+
+
+func main() {
+
+    // moguce je pristupiti globalnoj promenljivoj x
+    // zato sto je deklarisana izvan funkcije main
+    fmt.Printf("Vrednost globalne promenljive je: %d\n", x)
+    // ali ne moze se prikazati vrednost promenljive y 
+    // zato sto je ona lokalna za funkciju prikazi_vrednost
+
+}
+</xmp>

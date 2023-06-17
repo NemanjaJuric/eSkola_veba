@@ -1,0 +1,95 @@
+<html>
+
+<h1> Varijacije sa ponavljanjem </h1>
+
+<br>
+
+<b> Zadatak: </b> Generisati sve varijacije sa ponavljanjem \(k\)-te klase od \(n\) elemenata. <br>
+
+<br>
+
+<h2> Definicija </h2>
+
+Varijacije sa ponavljanjem \(k\)-te klase od \(n\) elemenata predstavljaju načine na koje iz skupa od \(n\) elemenata možemo \(k\) puta birati po jedan element, pri čemu je moguće da neki elementi budu izabrani i više puta i pri čemu je bitan redosled odabira. <br>
+<br>
+Svaka varijacija elemenata skupa {1,2,...,\(n\)} može se predstaviti nizom \(x_1, x_2, ... , x_k \) , gde je \( 1 ≤ x_i ≤ n \). <br> 
+<br>
+
+Jasno je da je broj varijacija sa ponavljanjem \(k\)-te klase od \(n\) elemenata n^3. <br>
+<br>
+<h2> Rekurzivni algoritam </h2>
+
+Varijacije sa ponavljanjem dužine \(k\) se mogu dobiti tako što se na prvo 
+mesto upiše bilo koji od brojeva od 1 do \(n\) , a zatim
+se preostala mesta dopune svim varijacijama dužine \(k-1\). <br>
+<br>
+Definisaćemo rekurzivnu proceduru koja prima niz kome su popunjeni svi elementi
+do pozicije \(i\) (pozivamo sa \(i\)=0) i koja će na sve moguće načine dopunjavati ostatak niza varijacijama. <br>
+Dakle nakon popunjenog dela niza postavljamo jednu po jednu
+vrednost od 1 do \(n\) i zatim rekurzivno pozivamo proceduru da popuni ostatak niza. <br>
+
+<br>
+
+<xmp class = "primer_ta"> 
+
+void varijacijeSaPonavljanjemR(int i, int k, int n, vector<int>& x){
+
+	if(i==k){
+		for(int j=0; j<k; j++)
+			cout<<x[j]<<" ";
+		cout<<endl;
+		return;
+	}
+	
+	for(int j=1; j<=n; j++){
+		x[i]=j;
+		varijacijeSaPonavljanjemR(i+1,k,n,x);
+	}	
+	
+}
+
+ </xmp>
+<br>
+Naravno, nije neophodno slati argument \(k\) već je njega moguće dobiti kao x.size(). <br>
+<br>
+<h2> Iterativni algoritam </h2>
+
+Generisaćemo varijacije leksikografski.
+Naredna varijacija koja sledi posle \(x_1, x_2, ... , x_k \) 
+može se odrediti tako što se pronađe najveći indeks p 
+takav da je \(x_p\) < n , što znači da se \(x_p\) može povećati. 
+Indeks \(p\) je prelomna tačka. 
+Vrednost \(x_p\) povećava se za jedan, a nove vrednosti \(x_i\) za \(i > p\) su 1.
+<br>
+Početna varijacija je 1,1,...,1 . Prelomnu tačku naći ćemo 
+linearnom pretragom od kraja niza. Ako prelomna tačka postoji 
+tada uvećavamo element i od sledeće pozicije do kraja niz popunimo jedinicama. <br>
+<br>
+Na osnovu navedenog, algoritam se može prikazati sledećim kodom. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+void varijacijeSaPonavljanjem(int k, int n){
+	vector<int> x;
+	int i;
+	
+	for(i=0; i<k; i++)
+		x.push_back(1);
+	
+	while(1){
+		for(int j=0; j<k; j++)
+			cout<<x[j]<<" ";
+		cout<<endl;
+	
+		for(i=k-1; i>=0 && x[i]==n; i--)
+			x[i]=1;
+
+		if(i<0) return;
+		x[i]++;
+	}
+}
+
+ </xmp>
+<br>
+</html>

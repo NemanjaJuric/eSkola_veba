@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<h1> Problem ranca </h1>
+Pretpostavimo da ranac treba napuniti stvarima. Stvari mogu da budu različitog oblika i veličine,
+a cilj je da se u ranac upakuje što je moguće više stvari. Umesto ranca to može da bude bilo
+koji drugi predmet ili objekat (kamion, brod ili silicijumski čip, glavni problem je pakovanje
+elemenata). Postoji mnogo varijanti ovog problema; ovde će biti razmatrana varijanta sa
+jednodimenzionalnim predmetima.
+<br> <br>
+<b>Problem:</b> Dat je prirodan broj \(K\) i \(n\) predmeta različitih veličina (samim tim i težina),
+tako da \(i\)-ti predmet ima veličinu \(k\)<font size="-1"><sub>\(i\)</sub></font>, \(1 ≤ i ≤ n\). Pronaći podskup predmeta čija je suma
+veličina jednaka tačno \(K\), ili ustanoviti da takav podskup ne postoji.
+<br> <br>
+Označimo problem sa \(P(n, K)\), gde \(n\) označava broj predmeta, a \(K\) veličinu (nosivost) ranca.
+Veličine predmeta podrazumevaju se implicitno, odnosno nihove veličine nisu deo eksplicitne
+oznake problema. Na taj način \(P(i, k)\) označava problem sa prvih \(i\) predmeta i rancem veličine \(k\).
+Zbog jednostavnosti ograničavamo sa na problem odlučivanja da li rešenje postoji. Započinjemo
+sa najjednostavnijim induktivnim pristupom.
+<br> <br>
+<h3>Induktivna hipoteza (prvi pokušaj):</h3>
+Umemo da rešimo \(P(n −1, K)\).
+Bazni slučaj je jednostavan: rešenje postoji ako i samo ako je \(k\)<font size="-1"><sub>\(1\)</sub></font> = \(K\). Ako postoji rešenje
+problema \(P(n−1, K)\), onda je to i rešenje \(P(n, K)\): u to rešenje ne ulazi predmet veličine \(k\)<font size="-1"><sub>\(n\)</sub></font>.
+U protivnom, ako ne postoji rešenje \(P(n −1, K)\), postavlja se pitanje može li se iskoristiti
+ovaj negativni rezultat?
+<br> <br>
+Najpre zaključujemo da \(n\)-ti predmet mora biti uključen u zbir. Tada ostali predmeti moraju stati
+u manji ranac veličine \(K\)−\(k\)<font size="-1"><sub>\(n\)</sub></font>. Problem je time sveden na dva manja problema \(P(n −1, K)\) i \(P\)(\(n −1\), \(K\)−\(k\)<font size="-1"><sub>\(n\)</sub></font>).
+Da bi se rešenje kompletiralo, trebalo bi pojačati induktivnu hipotezu. Potrebno je imati rešenja
+ne samo za ranac veličine \(K\), nego i za rance veličine manje od \(K\).
+<br> <br>
+<h3>Induktivna hipoteza (drugi pokušaj):</h3>
+Umemo da rešimo \(P(n−1, k)\) za sve \(k\), \(0 ≤ k ≤ K\). Ova induktivna
+hipoteza omogućuje nam da rešimo \(P(n, k)\) za \(0 ≤ k ≤ K\). Bazni slučaj \(P(1, k)\) se lako rešava: za \(k = 0\)
+uvek postoji rešenje (trivijalno, nula sabiraka), a u protivnom rešenje postoji akko je \(k\)<font size="-1"><sub>\(1\)</sub></font> = \(k\).
+Problem \(P(n, k)\) svodi se na dva problema \(P(n−1, k)\) i \(P(n−1, k−kn)\) (drugi problem otpada ako je \(k\)−\(k\)<font size="-1"><sub>\(n\)</sub></font> < 0).
+Oba ova problema se mogu rešiti indukcijom. Pošto je svođenje kompletno, algoritam je konstruisan.
+<br> <br>
+Međutim, ovaj algoritam je neefikasan. Problem veličine \(n\) sveden je na dva problema veličine \(n−1\)
+(istina, u jednom od potproblema smanjena je vrednost \(k\)). Svaki od novih problema svodi se na po dva
+naredna problema, itd, što dovodi do eksponencijalnog algoritma. Na sreću, u mnogo slučajeva moguće
+je poboljšati efikasnost prilikom rešavanja ovakvih problema. Zapaža se da ukupan broj različitih
+problema ne mora biti preveliki: prvi parametar može da ima najviše \(n\), a drugi najviše \(K\) različitih
+vrednosti. Ukupno je broj različitih problema najviše \(nK\).
+<br>
+<h5>Eksponencijalno vreme izvršavanja algoritma je posledica dupliranja broja problema posle svakog svođenja.</h5>
+<br>
+Pošto ukupno ima \(nK\) različitih problema, jasno je da su neki od njih (ako je \(2n > nK\)) više puta rešavani.
+Korisna ideja je pamtiti sva nađena rešenja da bi se izbeglo ponovno rešavanje istih problema.
+Ovaj pristup je kombinacija pojačavanja induktivne hipoteze i korišćenja potpune indukcije.
+<br> <br>
+Razmotrićemo sada kako se ovaj pristup može praktično realizovati. Za smeštanje svih izračunatih
+rezultata koristi se posebna matrica dimenzije \(n × K\). Element \((i, k)\) matrice sadrži informacije o
+rešenju \(P(i, k)\): Svođenje po drugoj varijanti induktivne hipoteze ekvivalentno je izračunavanju
+jedne vrste na osnovu prethodne vrste matrice. Svaki element se izračunava na osnovu dva elementa
+iz prethodne vrste. Ako je potrebno odrediti i podskup sa zadatim zbirom, onda uz svaki element
+matrice treba sačuvati i informaciju o tome da li je odgovarajući element skupa uključen u zbir u
+tom koraku. Prateći ove informacije unazad od elementa \((n, K)\), može se rekonstruisati podskup sa zbirom \(K\).
+<!--
+//Algoritam je prikazan na slici 11, a u tabeli 1 prikazan je jedan primer. Matrica P je zbog udobnosti
+//dimenzije (n + 1) ×(k + 1) i sadrži elemente P[i, k], 0 ≤i ≤n, 0 ≤k ≤K.
+-->
+<xmp class = "primer_ta">
+    // Resenje problema ranca koriscenjem
+    // dinamickog programiranja
+    #include <bits/stdc++.h>
+    using namespace std;
+    // Korisna funkcija koja vraca
+    // maksimum dva broja
+    int max(int a, int b)
+    {
+	     return (a > b) ? a : b;
+    }
+
+    // Vraca maksimalnu vrednost koja
+    // moze biti stavljena u ranac nosivosti W (od weight)
+    int knapSack(int W, int wt[], int val[], int n)
+    {
+	     int i, w;
+	     vector<vector<int>> K(n + 1, vector<int>(W + 1));
+       // Izgradimo tabelu tj. matricu K[][]
+	     for(i = 0; i <= n; i++)
+	     {
+		     for(w = 0; w <= W; w++)
+		     {
+			      if (i == 0 || w == 0)
+				      K[i][w] = 0;
+			      else if (wt[i - 1] <= w)
+				      K[i][w] = max(val[i - 1] + K[i - 1][w - wt[i - 1]], K[i - 1][w]);
+			      else
+				      K[i][w] = K[i - 1][w];
+		     }
+	     }
+	        return K[n][W];
+    }
+
+    // Program koji testira nas algoritam
+    int main()
+    {
+	    int val[] = { 60, 100, 120 };
+	    int wt[] = { 10, 20, 30 };
+	    int W = 50;
+	    int n = sizeof(val) / sizeof(val[0]);
+
+      cout << knapSack(W, wt, val, n);
+
+      return 0;
+    }
+</xmp>
+<h4>Složenost:</h4>
+U tabeli ima \(nK\) elemenata. Svaki od njih izračunava se
+za konstantno vreme na osnovu druga dva elementa, pa je ukupna vremenska
+složenost algoritma \(O(nK)\).
+<br> <br>
+Ako predmeti nisu preveliki, onda \(K\) ne može
+biti preveliko, pa je \(nK << 2n\). Ako je \(K\) jako veliko, ili su veličine predmeta
+realni brojevi, onda je ovaj pristup neprimenljiv. Ako je potrebno samo ustanoviti da li rešenje postoji,
+onda je odgovor sadržan u elementu \(P[n, K]\). Ako pak treba odrediti podskup sa
+zbirom \(K\), onda treba preći put unazad, polazeći od pozicije \((n, K)\), koristeći
+polje \(Postoji\) elemenata matrice iz programa. Predmet težine \(k\)<font size="-1"><sub>\(n\)</sub></font> pripada
+skupu akko je \(P[n, K].Pripada\) tačno; ako je \(P[n, K].Pripada\) tačno, odnosno
+netačno, onda se dalje na isti način posmatra elemenat \(P\)[\(n−1\), \(K\)−\(k\)<font size="-1"><sub>\(n\)</sub></font>], odnosno
+\(P[n − 1, K]\) iz \(n−1\)-e vrste, itd. Podskup se rekonstruiše za \(O(n)\) koraka.
+<br> <br>
+Prostorna složenost ovog algoritma je \(O(nK)\). Ako se zahteva samo odgovor na pitanje
+da li postoji podskup sa zbirom \(K\), lako je modifikovati algoritam
+tako da mu prostorna složenost bude \(O(K)\): naredna vrsta se izračunava na osnovu prethodne,
+pa je za izračunavanje elementa \(P[n, K]\) dovoljno
+imati prostor za smeštanje dve uzastopne vrste matrice. Dalje usavršavanje
+dovodi do algoritma prostorne složenosti \(O(K)\) koji omogućuje i efektivno
+pronalaženje podskupa sa zbirom \(K\).
+
+<div class = "napomena">
+Dinamičko programiranje je efikasno kad se problem može
+svesti na nekoliko manjih, ali ne sasvim malih potproblema. Rešavaju se
+svi mogući potproblemi. Rezultati izračunavanja čuvaju se u odgovarajućoj
+tabeli. Dakle, dinamičko programiranje je praktično izvodljivo samo ako
+broj potproblema nije preveliki. Čak i tada dinamičko programiranje radi
+sa velikim tabelama, pa obično zahteva veliki memorijski prostor. U nekim
+slučajevima, kao u opisanom problemu Ranac, moguće je rešiti problem
+koristeći manji prostor, tako što se u memoriji u jednom trenutku čuva
+samo manji deo (dve vrste) matrice. Vremenska složenost je obično bar kvadratna.
+</div>
+</html>

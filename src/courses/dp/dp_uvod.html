@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<h1> Dinamičko programiranje </h1>
+<h2> Pojam i oblici dinamičkog programiranja </h2>
+<div class = "napomena">
+Pojam <b> dinamičko programiranje </b> uveden je 1953. godine od strane američkog matematičara Ričarda Belmana.
+<b> Dinamičko programiranje </b> predstavlja metod kojim se smanjuje vreme izvršavanja onih problema u kojima
+se zahteva traženje optimalne podstrukture i čiji se potproblemi ponavljaju, kao što će biti opisano u nastavku.
+</div>
+U mnogim slučajevima se dešava da tokom izvršavanja rekurzivne funkcije dolazi do preklapanja rekurzivnih
+poziva (engl. overlapping recursive calls) odnosno da se identični rekurzivni pozivi (rekurzivni pozivi sa
+identičnim parametrima) izvršavaju više puta. Ako se to dešava često, programi su po pravilu veoma
+neefikasni (u mnogim slučajevima broj rekurzivnih poziva, pa samim tim i složenost biva eksponencijalna u
+odnosu na veličinu ulaza). Do efikasnijeg rešenja se često može doći tehnikom dinamičkog programiranja.
+Ono često vremensku efikasnost popravlja angažovanjem dodatne memorije u kojoj se beleže rezultati
+izvršenih rekurzivnih poziva.
+<br><br>
+<b> Dinamičko programiranje dolazi u dva oblika: </b>
+<br>
+• <b> Tehnika memoizacije ili dinamičkog programiranja naniže </b> zadržava rekurzivnu definiciju,
+ali u dodatnoj strukturi podataka (najčešće nizu ili matrici, ređe mapi tj. rečniku) beleži sve
+rezultate rekurzivnih poziva, da bih ih u narednim pozivima u kojima su parametri isti samo očitala
+iz te strukture. <br>
+• <b> Tehnika dinamičkog programiranja naviše </b> u potpunosti uklanja rekurziju i tu pomoćnu strukturu
+podataka popunjava iscrpno u nekom sistematičnom redosledu. Dakle, rekurzivna konstrukcija se
+zamenjuje induktivnom, tj. iterativnom.
+<br> <br>
+Dok se kod memoizacije može desiti da se rekurzivna funkcija ne poziva za neke vrednosti parametara, kod
+dinamičkog programiranja naviše se izračunavaju vrednosti funkcije za sve moguće vrednosti njenih para-
+metara manjih od vrednosti koja se zapravo traži u zadatku. Iako se na osnovu ovoga može pomisliti da je
+memoizacija efikasnija tehnika, u praksi je češći slučaj da je tokom odmotavanja rekurzije potrebno izra-
+čunati vrednost rekurzivne funkcije za baš veliki broj različitih parametara, tako da se ove prednosti
+memoizaicije u praksi retko sreću.
+<br> <br>
+Najbolji način da razjasnimo tehniku dinamičkog programiranja je da je ilustrujemo na nizu pogodno
+odabranih primera. Krenućemo od Fibonačijevog niza, koji je opšte poznati problem i kroz čije se rešavanje
+mogu ilustrovati većina osnovnih koncepata dinamičkog programiranja.<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Zadatak: </b> Pčela matica nosi jajašca. Ako trut oplodi jajašce pčele, tada se iz njega rađa ženska pčela.
+Ako se jajašce ne oplodi, onda se iz njega izleže trut. Dakle, ženska pčela ima dva roditelja, dok trut ima
+samo jednog (on nema oca, već samo majku). Pčela ima dve bake (maminu i tatinu mamu) i jednog dedu
+(maminog tatu), dok trut ima jednu baku i jednog dedu (mamine roditelje). Napiši program koji određuje
+koliko predaka u nekoj generaciji ima trut. <br>
+<b> Ulaz: </b> Sa standardnog ulaza se unosi broj n (1 ≤ n ≤ 50) koji označava redni broj generacije: 0 je generacija
+samog truta, 1 je generacija njegove majke, 2 je generacija njegove bake i dede i tako dalje u prošlost.
+<br>
+<b> Izlaz: </b> Na standardni izlaz ispisati ukupan broj predaka truta u generaciji n.
+<br>
+<b> Primer: </b>
+<br>
+<b> Ulaz: </b>
+<br> 5
+<br>
+<b> Izlaz: </b>
+<br> 8
+<br>
+<b> Rešenje: </b>
+<br>
+Obeležimo sa F<font size="-1"><sup>m</sup><sub>n</sub></font> broj muških predaka koje trut ima u generaciji \( n \) i F<font size="-1"><sup>z</sup><sub>n</sub></font> broj ženskih predaka koje trut
+ima u generaciji \( n \). Važi da je F<font size="-1"><sup>m</sup><sub>0</sub></font> = 1 i F<font size="-1"><sup>z</sup><sub>0</sub></font> = 0 (u nultoj generaciji je samo trut). Za svako \( i ≥ 0 \) važi
+F<font size="-1"><sup>m</sup><sub>i+1</sub></font> = F<font size="-1"><sup>z</sup><sub>i</sub></font>, jer samo ženske jedinke imaju očeve, dok je F<font size="-1"><sup>z</sup><sub>i+1</sub></font> =
+F<font size="-1"><sup>m</sup><sub>i</sub></font> + F<font size="-1"><sup>z</sup><sub>i</sub></font> , jer i muške i ženske jedinke imaju majke.
+<br> <br>
+<h2> Fibonačijev niz </h2>
+Umesto dva, možemo doći i do jednog rekurentnog niza na osnovu kojeg dobijamo rešenje. Obeležimo
+sa F<font size="-1"><sub>n</sub></font> = F<font size="-1"><sup>m</sup><sub>n</sub></font> + F<font size="-1"><sup>z</sup><sub>n</sub></font> ukupan broj predaka truta u generaciji \( n \).
+Pošto je F<font size="-1"><sup>m</sup><sub>0</sub></font> = F<font size="-1"><sup>z</sup><sub>1</sub></font> = 1 i F<font size="-1"><sup>z</sup><sub>0</sub></font> =
+F<font size="-1"><sup>m</sup><sub>1</sub></font> = 0,
+važi da je F<font size="-1"><sub>0</sub></font> = F<font size="-1"><sub>1</sub></font> = 1. Za svako \( i ≥ 0 \) važi da je F<font size="-1"><sup>z</sup><sub>i+1</sub></font> =
+F<font size="-1"><sup>m</sup><sub>i</sub></font> + F<font size="-1"><sup>z</sup><sub>i</sub></font> = F<font size="-1"><sub>i</sub></font>. Zato za svako \( i ≥ 0 \) važi da
+je F<font size="-1"><sup>m</sup><sub>i+2</sub></font> = F<font size="-1"><sup>z</sup><sub>i+1</sub></font> = F<font size="-1"><sub>i</sub></font>.
+Zato za svako i ≥0 važi F<font size="-1"><sub>i+2</sub></font> = F<font size="-1"><sup>m</sup><sub>i+2</sub></font> + F<font size="-1"><sup>z</sup><sub>i+2</sub></font> =
+F<font size="-1"><sub>i</sub></font> + F<font size="-1"><sub>i+1</sub></font>.
+<br> <br>
+Dakle, važi sledeće:
+<br> F<font size="-1"><sub>0</sub></font> = F<font size="-1"><sub>1</sub></font> = 1;
+<br> F<font size="-1"><sub>i+2</sub></font> = F<font size="-1"><sub>i+1</sub></font> + F<font size="-1"><sub>i</sub></font>.
+<br> <br>
+Na osnovu ovoga možemo zaključiti da broj predaka zadovoljava uslove čuvenog Fibonačijevog niza brojeva
+u kojem je svaki naredni element jednak zbiru prethodna dva (elementi tog niza su 1, 1, 2, 3, 5, 8, 13,
+21, . . .).
+<br> <br>
+<h2> Osnovna rekurzivna implementacija </h2>
+Implementaciju možemo napraviti rekurzivno, direktno na osnovu definicije (ako je \( n = 0 \) ili \( n = 1 \) funkcija
+vraća 1, a u suprotnom vraća zbir rezultata rekurzivnih poziva za vrednosti \( n − 1 \) i \( n − 2 \)).
+<xmp class = "primer_ta">
+  long long f(int n) {
+      if (n == 0 || n == 1)
+      return 1;
+      return f(n-1) + f(n-2);
+  }
+</xmp>
+Direktna rekurzivna implementacija je tipičan primer neefikasne implementacije jer se rekurzivni
+pozivi za iste vrednosti parametara ponavljaju više puta. Ako rekurzivnu funkciju modifikujemo tako
+da na početku svog izvršavanja ispisuje broj n, za poziv fib(6) dobijamo sledeći ispis: <br>
+6 5 4 3 2 1 0 1 2 1 0 3 2 1 0 1 4 3 2 1 0 1 2 1 0
+<br> <br>
+Poziv fib(6) vrši se jedan put, fib(5) jedan put, fib(4) dva puta, fib(3) tri puta, fib(2) pet puta,
+fib(1) osam puta i fib(0) pet puta. Primetimo da broj poziva odgovara članovima Fibonačijevog niza.
+<br> <br>
+<b> Analiza složenosti: </b>
+<br>
+Rekurzivna implementacija zadovoljava jednačinu \( T(n) = T(n−1) + T(n−2) + O(1) \),dok je \( T(1) = T(0) = O(1) \).
+<br>
+Rešenje ove nehomogene jednačine jednako je zbiru rešenja njenog homogenog
+dela i nekog partikularnog rešenja, pri čemu je rešenje homogenog dela \( F(n) = F(n − 1) + F(n − 2) \)
+baš Fibonačijev niz, čije rešenje se eksplicitno može izraziti takozvanom Bineovom formulom pomoću F(n) =(φ<sup><font size="-1"> n </font></sup> − ψ <sup><font size="-1"> n </font></sup>)/(φ−ψ),
+gde je \( φ = (1+√5)/2 \) i \( ψ = (1−√5)/2 \) (napomenimo i da se Bineova formula može upotrebiti za efikasno
+izračunavanje članova Fibonačijevog niza). Rešenje polazne jednačine je T(n) = O((1+√5)/2)<sup><font size="-1"> n </font></sup>, tako da je
+rešenje eksponencijalne složenosti, što je jako neefikasno. Stoga, da bi bilo moguće vršiti izračunavanje i za veće vrednosti \( n \), potrebno je ubrzati implementaciju
+korišćenjem tehnika dinamičkog programiranja.
+<br> <br>
+<h2> Memoizacija uz korišćenje asocijativnog niza </h2>
+Jedna mogućnost je da se primeni memoizacija. Rezultate svih rekurzivnih poziva ćemo pamtiti u nekoj po-
+moćnoj strukturi podataka i na početku svakog rekurzivnog poziva ćemo pretragom te strukture proveravati
+da li je rezultat za tekuću vrednost parametra možda već izračunat ranije. Pošto vrednosti parametara
+treba da preslikamo u rezultate rekurzivnih poziva treba da koristimo neki oblik preslikavanja ključeva
+u vrednosti. To može biti asocijativni niz, (mapa, odnosno rečnik).
+<br> <br>
+<b> Analiza složenosti: </b>
+<br>
+Na ovaj način dobijamo algoritam čija je i vremenska i memorijska složenost \( O(n) \),
+jer se za svako \( n \) izračunavanje vrši samo jednom. Drvo rekurzivnih poziva u ovom slučaju je prikazano na
+slici (spustom duž leve grane računaju se vrednosti za sve parametre, dok se onda svaka od desnih grana
+saseca jer je rezultat već od ranije poznat).
+<xmp class = "primer_ta">
+  long long fib(int n, unordered_map<int, long long>& memo) {
+      // ako je vrednost za parametar n već računata
+      // vraćamo ranije izračunatu vrednost
+      auto it = memo.find(n);
+      if (it != memo.end())
+         return it->second;
+      // pre nego što vratimo vrednost, pamtimo je u nizu
+      if (n == 0) return memo[n] = 1;
+      if (n == 1) return memo[n] = 1;
+         return memo[n] = fib(n-1, memo) + fib(n-2, memo);
+  }
+  long long fib(int n) {
+      // mapa u kojoj se vrednostima parametara rekurzivnog poziva
+      // pridružuju vrednosti rekurzivnog poziva
+      unordered_map<int, long long> memo;
+      return fib(n, memo);
+  }
+</xmp>
+<h2> Memoizacija uz korišćenje klasičnog niza </h2>
+Iako mapa to jest rečnik predstavlja prirodan izbor za čuvanje konačnog preslikavanja,
+njena upotreba u službi memoizacije nije česta. Naime, pokazuje se da se bolje performanse
+postižu ako se umesto mape upotrebi niz (bilo statički, bilo dinamički alociran). Time se
+može angažovati malo više memorije u odnosu na korišćenje asocijativnog niza, međutim,
+pretraga i upis vrednosti su donekle brži. U situacijama u kojima se vrednost izračunava
+za veliki broj ulaznih parametara (a kod Fibonačija možemo biti sigurni da se prilikom
+izračunavanja vrednosti za parametar \( n \) vrše pozivi za sve vrednosti od \( 0 \) do \( n−1 \)), niz može
+biti čak i memorijski efikasniji u odnosu na mapu.
+<br> <b> Stoga se u sklopu dinamičkog programiranja obično koristite nizovi i matrice. </b>
+<br> <br>
+Rečnik ćemo realizovati pomoću niza tako što ćemo
+na mestu \( i \) pamtiti vrednost poziva za vrednost parametra \( i \). Potrebno je još nekako
+obeležiti vrednosti parametara u nizu za koje još ne znamo rezultate rekurzivnih poziva.
+Za to se obično koristi neka specijalna vrednost. Ako znamo da će svi rezultati biti
+nenegativni brojevi, možemo upotrebiti, na primer, \( −1 \), a ako znamo da će biti pozitivni brojevi,
+možemo upotrebiti, na primer 0. Ako nemamo takvih pretpostavki možemo angažovati dodatni niz
+logičkih vrednosti kojima ćemo eksplicitno kodirati da li za neki parametar znamo ili ne znamo
+vrednost.
+<br> <br>
+Pošto smo sigurni da će tokom rekurzije sve vrednosti parametara biti pozitivne i da je
+najveća vrednost koja se može javiti kao parametar vrednost inicijalnog poziva \( n \),
+dovoljno je da alociramo niz veličine \( n + 1 \). <br>
+<xmp class = "primer_ta">
+  long long fib(int n, vector<long long>& memo) {
+      // ako je vrednost za parametar n već računata
+      // vraćamo ranije izračunatu vrednost
+      if (memo[n] != -1)
+         return memo[n];
+      // pre nego što vratimo vrednost, pamtimo je u nizu
+      if (n == 0) return memo[n] = 1;
+      if (n == 1) return memo[n] = 1;
+         return memo[n] = fib(n-1, memo) + fib(n-2, memo);
+      }
+      long long fib(int n) {
+          // alociramo niz veličine n+1 i popunjavamo ga vrednostima -1
+          // kojima označavamo da ta vrednost još nije računata
+          vector<long long> memo(n+1, -1);
+          return fib(n, memo);
+      }
+</xmp>
+<b> Dinamičko programiranje naviše </b>
+<br>
+Moguće je primeniti i dinamičko programiranje naviše. Tehnika dinamičkog programiranja naviše
+podrazumeva da se ukloni rekurzija i da se sve vrednosti u nizu popune nekim redosledom.
+Pošto vrednosti na višim pozicijama zavise od onih na nižim, niz popunjavamo sleva nadesno.
+Na prva dva mesta upisujemo nulu i jedinicu, a zatim u petlji svaku narednu vrednost izračunavamo
+na osnovu dve prethodne. Na kraju vraćamo traženu vrednost na poslednjoj poziciji u nizu.
+<xmp class = "primer_ta">
+   vector<long long> dp(n + 1);
+   dp[0] = dp[1] = 1;
+
+   for (int i = 2; i <= n; i++)
+   dp[i] = dp[i-1] + dp[i-2];
+   cout << dp[n]; //>>
+   cout << endl;
+</xmp>
+<h2> Dinamičko programiranje naviše - memorijska optimizacija </h2>
+Jednostavno se primećuje da vrednost narednog člana Fibonačijevog niza zavisi samo od vrednosti njegova
+prethodna dva člana. Zato možemo napraviti memorijsku optimizaciju i ne moramo istovremeno čuvati sve
+članove u nizu.
+<xmp class = "primer_ta">
+long long fpp = 1;
+long long fp = 1;
+for (int i = 2; i <= n; i++) {
+long long f = fp + fpp;
+fpp = fp;
+fp = f;
+}
+cout << fp; //>>
+cout << endl;  //>>
+</xmp>
+<b> Analiza složenosti: </b>
+<br>
+Memorijska složenost ovog rešenja je \( O(1) \), dok je vremenska složenost \( O(n) \).
+<br> <br>
+<b> Recept za dinamicko programiranje </b>
+<br> 
+Niz koraka koje smo primenili u ovom zadatku javljaće se veoma često: <br>
+    • <b> Induktivno-rekurzivnom konstrukcijom </b> konstruiše se rekurzivna definicija koja je neefikasna jer
+     se isti pozivi peklapaju, to jest, fnkcija se za iste argumente poziva više puta; <br>
+    • <b> Tehnikom memoizacije </b> poboljšava se složenost tako što se u pomoćnom rečniku (najčešće
+    implementiranom pomoću niza ili matrice) čuvaju izračunati rezultati rekurzivnih poziva; <br>
+    • Umesto tehnike memoizacije koja je vođena rekurzijom i u kojoj se vrednosti popunjavaju po potrebi,
+     rekurzija se može eliminisati i rečnik (niz iliti matrica) se može ceo popuniti (nekim redosledom); <br>
+    • Često je moguće izvršiti memorijsku optimizaciju na osnovu toga što se primećuje da nakon
+    popunjavanja određenih elemenata niza to jest matrice neke vrednosti (raniji elementi, ranije vrste
+    ili kolone) više nisu potrebne, tako da se umesto istovremenog pamćenja svih elemenata treba pamtiti samo
+    nekoliko prethodnih (onih koji su potrebni za dalje popunjavanje).<br>
+</html>

@@ -1,0 +1,67 @@
+<h1>Kontrola toka</h1>
+Kontrola toka predstavlja redosled kojim se pojedinačni iskazi, instrukcije ili pozivi funkcija proveravaju ili izvršavaju.
+<h2>Uslovne naredbe</h2>
+Uslovne naredbe predstavljaju niz instrukcija koje se izvršavaju u slučaju da je zadovoljen specifičan uslov, odnosno ako je vrednost izraza logička vrednost true.
+Programski jezik Go podržava dve vrste uslovnih naredbi, a to su <b>if-else</b> i <b>switch</b>.
+<h3>If-else naredba</h3>
+If naredba se koristi da bi se izvršila naredba ili blok naredbi u slučaju da je uslov ispunjen. 
+Uslov je izraz koji vraća jednu od logičkih vrednosti <b>true</b> ili <b>false</b>.
+Slučaj else se izvršava ukoliko je vrednost koja se ispituje u if uslovu false.
+<xmp class="primer_ta"> 
+    broj_bodova := 10
+    if broj_bodova > 5 {
+        fmt.Println("Ispit polozen")
+    } else {
+        fmt.Println("Ispit nije polozen")
+    }
+</xmp>
+Ukoliko postoji više slučajeva koji se ispituju, oni se mogu dodati proverom dodatnih uslova korišćenjem <b>else if</b>.
+<xmp class="primer_ta"> 
+    ocena := 5
+    if ocena == 5 {
+        fmt.Println("Odlican uspeh")
+    } else if ocena == 4 {
+        fmt.Println("Vrlo dobar uspeh")
+    } else if ocena == 3 {
+        fmt.Println("Dobar uspeh")
+    } else if ocena == 2 {
+        fmt.Println("Dovoljan uspeh")
+    } else {
+        fmt.Println("Nedovoljan uspeh")
+    }
+</xmp>
+Ispitivanje se prekida kada se naiđe na prvi uslov čija je vrednost true ili kada se dođe do else uslova 
+koji se ispunjava kada ni jedan od prethodnih uslova nije bio tačan. Moguće je izostaviti 
+else uslov, pri čemu ako se ne naiđe na istinit uslov, neće se izvršiti nijedna naredba, odnosno 
+blok naredbi.
+<h3>Switch naredba</h3>
+Switch naredba omogućava upoređivanje početnog izraza ili vrednosti sa vrednostima koje su definisane u switch bloku. Ako se vrednosti poklapaju
+onda se izvršava niz iskaza definisanih u toj grani.
+<br />
+Za definisanje grane se koristi ključna reč <b>case</b>, nakon čega stoji skup naredbi koje treba da se izvrše. 
+Za razliku od programskog jezika C i njemu sličnih jezika, u programskom jeziku Go nije neophodno navoditi 
+ključnu reč <b>break</b> da bi se izašlo iz grane, pošto se nakon poslednjeg izraza u okviru
+grane izlazi iz switch iskaza. U slučaju da izvršavanje treba da pređe u blok sledećeg slučaja, može se iskoristiti
+ključna reč <b>fallthrough</b>. 
+<br />
+Treba imati na umu da ključna reč fallthrough:
+<ul>
+    <li>mora biti poslednji izraz u grani;</li>
+    <li>ne sme se nalaziti u poslednjoj grani.</li>
+</ul>
+Korišćenje fallthrough, break i default ključnih reči je opciono.
+<xmp class="primer_ta"> 
+    broj_godina := 3
+    switch broj_godina {
+        case 1:
+            fmt.Println("vrednost 1")
+            break
+        case 2:
+            fmt.Println("vrednost 2")
+        case 3:
+            fmt.Println("vrednost 3")
+            fallthrough
+        default:
+            fmt.Println("Podrazumevana vrednost")
+    }
+</xmp>

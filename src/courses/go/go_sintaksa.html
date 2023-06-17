@@ -1,0 +1,69 @@
+<h1>Sintaksa programskog jezika Go</h1>
+<h2>Identifikatori</h2>
+Identifikatori predstavljaju imena koja se daju promenljivama, funkcijama, metodima, interfejsima, itd. Prilikom imenovanja
+treba pratiti jednostavna pravila, a to su: identifikatori počinju slovom ili donjom crtom i mogu imati bilo koji broj slova, cifara ili donjih crta.
+<br />
+Bitne stavke koje se moraju imati na umu su:
+<ul>
+    <li>identifikatori mogu da sadrže slova, brojeve ili _, ali ne smeju počinjati brojem;</li>
+    <li>moraju biti jedinstveni, tj. jedan isti identifikator ne sme biti upotrebljen da označi dva entiteta;</li>
+    <li>Go pravi razliku između malih i velikih slova;</li>
+    <li>ne smeju sadržati prazan prostor;</li>
+    <li>za identifikatore se ne smeju koristiti ključne reči koje su rezervisane u programskom jeziku Go.</li>
+</ul>
+<h4>Ključne reči</h4>
+<table class="tabela">
+    <tbody>
+        <tr>
+            <td>break</td>
+            <td>default</td>
+            <td>func</td>
+            <td>interface</td>
+            <td>select</td>
+        </tr>
+        <tr>
+            <td>case</td>
+            <td>defer</td>
+            <td>go</td>
+            <td>map</td>
+            <td>struct</td>
+        </tr>
+        <tr>
+            <td>chan</td>
+            <td>else</td>
+            <td>goto</td>
+            <td>package</td>
+            <td>switch</td>
+        </tr>
+        <tr>
+            <td>const</td>
+            <td>fallthrough</td>
+            <td>if</td>
+            <td>range</td>
+            <td>type</td>
+        </tr>
+        <tr>
+            <td>continue</td>
+            <td>for</td>
+            <td>import</td>
+            <td>return</td>
+            <td>var</td>
+        </tr>
+    </tbody>
+</table>
+<h2>Komentari:</h2>
+Komentari su objašnjenja u kodu koje pišu programeri. Dodaju se sa ciljem da objasne neki deo koda i ignorisani su od strane kompajlera.
+<br /><br />
+U programskom jeziku Go postoje dve vrste komentara:
+<ul>
+    <li>Jednolinijski komentar</li>
+    <span class="primer_text"> // Ovo je komentar </span>
+    <li>Višelinijski komentar</li>
+    <xmp class="primer_ta"> 
+/* 
+Ovaj komentar
+se prostire
+na vise linija 
+*/ 
+    </xmp>
+</ul>

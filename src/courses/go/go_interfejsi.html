@@ -1,0 +1,102 @@
+<h1>Interfejsi</h1>
+Interfejs je kolekcija potpisa metoda koje određeni tip može da implementira, tj. interfejs deklariše, ali ne definiše, ponašanje objekta određenog tipa. Osnovni posao 
+interfejsa je da deklariše potpise metoda koji se sastoje od imena metoda, ulaznih parametara i povratnih vrednosti, 
+dok je na konkretnom tipu da te metode definiše. Interfejs se kreira korišćenjem ključnih reči <b>type</b> i <b>interface</b>, između kojih stoji ime
+interfejsa, a nakon kojih idu potpisi metoda u vitičastim zagradama.
+<br />
+Na primer, poznato je da geometrijski oblici imaju površinu i obim, onda se može napraviti interfejs koji deklariše potpise metoda 
+površina i obim. 
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Oblik interface {
+    Povrsina() float64
+    Obim() float64
+}
+
+type Pravougaonik struct {
+    sirina float64
+    visina float64
+}
+
+func (p Pravougaonik) Povrsina() float64 {
+    return p.sirina * p.visina
+}
+
+func (p Pravougaonik) Obim() float64 {
+    return 2 * (p.sirina + p.visina)
+}
+
+func main() {
+    var o Oblik
+    o = Pravougaonik {7.0, 12.0}
+    p := Pravougaonik {12, 15}
+    fmt.Println(o.Povrsina())
+    fmt.Println(p.Obim())
+}
+</xmp>
+Tip koji sadrži metode koje određeni interfejs deklariše, odnosno ima iste potpise metoda, automatski implementira određeni interfejs.
+Kada neki tip implementira interfejs onda se promenljiva tog tipa može prikazati tipom interfejsa, kao u prethodnom primeru.
+U slučaju da određeni tip nema sve metode koje su deklarisane u interfejsu, a promenljivoj tipa interfejs bude pokušana dodela
+vrednosti tog tipa dolazi do greške.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Oblik inteface {
+    Povrsina() float64
+    Obim() float64
+}
+
+type Pravougaonik struct {
+    sirina float64
+    visina float64
+}
+
+func (p Pravougaonik) Obim() float64 {
+    return 2 * (p.sirina + p.visina)
+}
+
+func main() {
+    var o Oblik
+    o = Pravougaonik {7.0, 12.0} 
+    // cannot use Pravougaonik literal (type Pravougaonik) as type Oblik in assignment:
+    // Pravougaonik does not implement Oblik (missing Povrsina method)
+}
+</xmp>
+<h3>Prazan interfejs</h3>
+U slučaju da interfejs ne sadrži metode, onda se naziva prazan interfejs i označava se sa <b>interface{}</b>. Pošto ovaj interfejs ne sadrži metode,
+svi tipovi implicitno implementiraju ovaj interfejs.
+Ovo je jako koristan koncept koji se koristi u paketu <b>fmt</b>. Na primer, funkcija Println prihvata parametre koji su tipa 
+interface{}.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func prikazi(i interface{}) {
+    fmt.Println("Vrednost je", i)
+}
+
+type Pravougaonik struct {
+    sirina float64
+    visina float64
+}
+
+func (p Pravougaonik) Povrsina() float64 {
+    return p.sirina * p.visina)
+}
+
+func (p Pravougaonik) Obim() float64 {
+    return 2 * (p.sirina + p.visina)
+}
+
+func main() {
+    var p Pravougaonik = Pravougaonik 5, 7}
+    prikazi(p)
+}
+</xmp>
+Tip može da implementira više interfejsa, neophodno je samo da ima sve metode naznačene u interfejsima.

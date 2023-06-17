@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>
+Generisanje kombinatornih objekata
+  </h1>
+</head>
+<p>
+Algoritmi za generisanje kombinatornih objekata (kao što su <b>permutacije,
+varijacije, kombinacije </b>) oduvek su privlačili pažnju. Nama su interesantni
+kao komponenta algoritama zasnovanih na <b> gruboj sili</b> (engl. <b> brute force </b>)
+odnosno kao primeri <b>algoritama pretrage</b> (pogotovu <b>pretrage sa
+vraćanjem</b>- engl. <b> backtracking </b>). Problem koji razmatramo je generisanje svih objekata datog
+tipa bilo <b>permutacija, kombinacija, particija</b> i <b>varijacija</b>.
+</p>
+<p>
+U vezi sa slozenošću ovih algoritama može se razmatrati složenost
+generisanja, odnosno složenost listanja svih objekata. Na primer, optimalni algoritam
+za generisanje svih <b>permutacija</b> reda \(n\) bio bi složenosti
+𝑂(\(n\)!), a algoritam za njihovo listanje složenosti \(O(n ·n!)\), jer je ispis
+svake <b> permutacije </b> dužine \(n\) složenosti \(O(n)\). Ako je \(P\) broj instanci
+kombinatornog objekta, a \(N\) prosečna veličina instance, onda se kaže
+da algoritam lista sve instance za asimptotski optimalno vreme ako je
+složenost algoritma \(O(N ·P)\).
+</p>
+<p>
+  Među nizovima \(a = a_1, a_2, ... , a_p\) i \(b = b_1, b_2, ... , b_q\) elemenata iz uređenog
+  skupa leksikografski poredak se definiše na sledeći način: 𝑎 prethodi 𝑏
+  (odnosno 𝑎 < 𝑏) ako i samo ako postoji indeks 𝑖 takav da je \(a_j = b_j\) za
+  𝑗 < 𝑖 i vazi 𝑖 = 𝑝 + 1 ≤ 𝑞 ili \(a_i < b_i\). Na primer, 11 < 112 < 221 (ovde je 𝑖 =
+  3, odnosno 𝑖 = 1). <b> Ovaj poredak se koristi za utvrđivanje redosleda reči u
+  rečniku.</b> <br> <br>
+  <b> Na primer, leksikografski redosled podskupova skupa {1,2,3}
+  predstavljenih kao skupova bio bi: ∅, {1}, {1,2}, {1,2,3}, {1,3}, {2}, {2,3},
+  {3}.</b> <br> <br>
+  <b> U binarnoj notaciji redosled je nesto drugačiji: 000, 001, 010, 011,
+  100, 101, 110, 111, sto odgovara podskupovima ∅, {3}, {2}, {2,3}, {1},
+  {1,3}, {1,2}, {1,2,3}.</b> <br> <br>
+  <b>Kao što se vidi, leksikografski redosled objekata
+  zavisi od načina njihovog predstavljanja - različitim notacijama mogu
+  da odgovaraju različiti redosledi istih objekata.</b>
+</p>
+<div class = "napomena">
+Algoritmi za generisanje kombinatornih objekata mogu da budu rekurzivni ili iterativni.
+Iterativni algoritmi obično omogućavaju bolju kontrolu nad načinom
+generisinja narednog objekta, polazeći od tekućeg.
+Mi ćemo ovde razmatrati iterativne algoritme.
+Skoro svi algoritmi za generisanje se zasnivaju na jednoj od sledeće tri ideje:
+<br>
+  ∙ korišćenje nekog načina numerisanja (pridruživanja uzastopnih celih
+  brojeva objektima). Na primer, binarnim trojkama odgovaraju
+  celi brojevi 0, 1, 2, ... , 7, pa se trojke mogu generisati tako što se
+  redom za 𝑖 = 0, 1, ... , 7 formira trocifreni binarni zapis broja 𝑖;
+  <br>
+  ∙ leksikografsko ažuriranje - pronalazi se najdešnji element instance
+  koji treba ažurirati ili premestiti na novu poziciju. Tako
+  se, na primer, naredna binarna trojka u nizu trojki 000, 001, ... , 111
+  dobija tako što se najdešnja nula zameni jedinicom, pa se iza nje
+  dopišu nule;
+  <br>
+  ∙ pravilo najmanje promene - prelaz između uzastopnih objekata vrši
+  se pomoću najmanjeg broja izmena. Primeri primene ovog pravila su:
+  <br><br>
+  - <b> generisanje u obliku Grejovog koda </b>, kada su promene teorijski
+  najmanje moguće. Na primer, u nizu binarnih trojki 000, 001, 011,
+  010, 110, 111, 101, 100 svake dve uzastopne trojke razlikuju se na
+  tačno jednoj poziciji;
+  <br>
+  - <b> transpozicije </b>, kada se naredna instanca dobija zamenom para
+  elemenata (ne obavezno susednih). Na primer, u nizu permutacija
+  123, 132, 231, 213, 312, 321 svaka permutacija se od prethodne dobija
+  jednom transpozicijom;
+  <br>
+  - <b> zamena para susednih elemenata </b>. Na primer, u nizu permutacija
+  123, 132, 312, 321, 231, 213 svaka permutacija se od prethodne dobija
+  jednom zamenom susednih elemenata.
+
+</div>
+<p>
+  <b> I algoritmi koji su zasnovani na numerisanju objekata se drže leksikografskog
+  poretka. Prema tome, algoritmi za generisanje kombinatornih
+  objekata mogu da se podele na one koji se drže leksikografskog redosleda
+  i one koji se drže pravila najmanje promene. Oba tipa algoritama imaju
+  svoje prednosti, pa izbor zavisi od primene. </b>
+</p>
+<p>
+  <b> Mnogi problemi zahtevaju u okviru rešenja potpunu pretragu varijanti.
+  Tipični primeri takvih problema su problem 8 dama, traženje puta kroz
+  lavirint, izbor predmeta kojima bi se popunio ranac datog kapaciteta. </b>
+  <br> <br>
+  Za neke od problema ne zna se algoritam polinomijalne složenosti, pa za
+  njihovo rešavanje preostaje neki oblik <b> potpune pretrage </b>. Pošto je obično
+  broj rešenja koje treba proveriti eksponencijalna funkcija od veličine
+  ulaza, potrebno je koristiti neku strategiju <b> sistematične pretrage </b>, da
+  bi se povećala efikasnost <b> potpune pretrage </b>.
+  <br> <br>
+  <b> Jedna takva strategija je pretraga (sa vraćanjem), postupak koji radi sa
+  parcijalnim rešenjima problema. Rešenje se proširuje u veće parcijalno
+  rešenje ako to može da dovede do kompletnog rešenja - ta faza se zove faza
+  proširivanja. Ako proširivanje tekućeg rešenja nije moguće ili je dostignuto
+  kompletno rešenje, a traži se i naredno rešenje, onda se vrši povratak na kraće
+  parcijalno rešenje i pokušava se ponovo - ova faza naziva se fazom
+  skraćivanja. Pretraga je obično povezana sa leksikografskim poretkom
+  instanci. </b>
+
+</p>
+
+</html>

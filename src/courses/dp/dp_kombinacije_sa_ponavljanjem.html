@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<h1> Kombinacije sa ponavljanjem </h1>
+<h2> Definicija: </h2>
+Kombinacije \(k\)-te klase od \(n\) elemenata kod kojih se jedan element može do \(k\) puta
+ponavljati zovu se kombinacije sa ponavljanjem \(k\)-te klase od \(n\) elemenata. Broj
+kombinacija sa ponavljanjem je:
+<img src="courses/dp/dp_kombinacije_sa_ponavljanjem/slika1.png" class="img-fluid img-sm">
+uz uslov:
+<img src="courses/dp/dp_kombinacije_sa_ponavljanjem/slika2.png" class="img-fluid img-sm">
+<b> Zadatak: </b> Pretpostavimo da imamo niz dužine \(n\) i želimo da generišemo sve
+kombinacije u kojima uzimamo \(r\) elemenata niza, a pritom je dozvoljeno neki element
+uzeti više puta, odnosno ponoviti ga. <br>
+<div class = "napomena">
+U kombinatorici postoje četiri osnovna koncepta:
+<br> 1) Kombinacije bez ponavljanja/zamena;
+<br> 2) Kombinacije sa ponavljanjima/zamenama;
+<br> 3) Permutacije bez ponavljanja/zamena;
+<br >4) Permutacije sa ponavljanjima/zamenama.
+<br> <br>
+Ispod je tabela sažetka koja prikazuje osnovne koncepte u teoriji kombinatorike.
+<br>
+<table class = "tabela">
+<tr>
+   <th> </th>
+   <th>Zamene/ponavljanja su dozvoljena</th>
+   <th>Zamene/ponavljanja nisu dozvoljena </th>
+</tr>
+<tr>
+   <th>Pemutacije (redosled bitan)</th>
+   <td>...</td>
+   <td>...</td>
+</tr>
+<tr>
+   <th>Kombinacije (redosled nije bitan)</th>
+   <td>Ovaj slučaj trenutno obrađujemo!</td>
+   <td>...</td>
+</tr>
+
+</table>
+</div>
+<br>
+Ovaj članak je o trećem slučaju (redosled nije važan i ponavljanja su dozvoljena).
+Ideja je da se ponavlja za sve mogućnosti stringa, čak i ako se karakteri ponavljaju.
+Osnovni slučaj rekurzije je kada ima ukupno 'r' znakova i kombinacija je spremna za štampanje.
+Radi jasnoće, pogledajte stablo rekurzije za string- “ 1 2 3 4” i r=2.
+<br>
+U kodu koji sledi prikazana je implementacija.
+<xmp class = "primer_ta">
+  // C++ program koji ispisuje sve kombinacije sa ponavljanjem dužine r od elemenata
+  // dužine r od elemenata niza dužine n
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  /* arr[] ---> Ulayni niz
+  chosen[] ---> Pivremeni niz u kojima speštamo indekse
+  				trenutne kombinacije
+  start & end ---> Početni i krajnji indeksi niza arr[]
+  r --->Veličina kombinacije koja treba da se ispiše */
+  void CombinationRepetitionUtil(int chosen[], int arr[],
+  					int index, int r, int start, int end)
+  {
+  	// Ukoliko je index postao r, trenutno kombinacije je
+  	// spremna za ispis
+  	if (index == r)
+  	{
+  		for (int i = 0; i < r; i++)
+  			cout << " " << arr[chosen[i]];
+  		cout << "\n";
+  		return;
+  	}
+
+  	// Biramo sve elemente jedan po jedan (ne uzimajući u obzir
+  	// da li je element već odabran ili ne)
+  	// i to radimo rekurzivno
+  	for (int i = start; i <= end; i++)
+  	{
+  		chosen[index] = i;
+  		CombinationRepetitionUtil(chosen, arr, index + 1, r, i, end);
+  	}
+  	return;
+  }
+
+  // Glavna funkcija koja ispisuje sve kombinacije sa ponavljanjem dužine r
+  // od niza arr[] sa n elemenata. Ova funkcija
+  // koristi CombinationRepetitionUtil()
+  void CombinationRepetition(int arr[], int n, int r)
+  {
+  	// Allocate memory
+  	int chosen[r+1];
+
+  	// Pozivamo rekurzivnu funkciju
+  	CombinationRepetitionUtil(chosen, arr, 0, r, 0, n-1);
+  }
+
+  // main funkcija u kojoj pozivamo našu funkciju
+  int main()
+  {
+  	int arr[] = {1, 2, 3, 4};
+  	int n = sizeof(arr)/sizeof(arr[0]);
+  	int r = 2;
+  	CombinationRepetition(arr, n, r);
+  	return 0;
+  }
+
+</xmp>
+<b> Izlaz: </b>
+<br> 1 1
+<br> 1 2
+<br> 1 3
+<br> 1 4
+<br> 2 2
+<br> 2 3
+<br> 2 4
+<br> 3 3
+<br> 3 4
+<br> 4 4
+<br> <br>
+<b> Vremenska složenost: </b> Za niz dužine \(n\) i kombinacije sa ponavljanjem
+obima odnosno veličine \(r\) , složenost algoritma iznosi
+O(C<sup> \(n+r-1\) </sup> <sub> \(r\) </sub>).
+</html>

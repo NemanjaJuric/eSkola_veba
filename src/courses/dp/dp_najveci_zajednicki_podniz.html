@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<h1> Najduži zajednički podniz (podsekvenca) </h1>
+Razgovarali smo o preklapajućim potproblemima i osobinama optimalne podstrukture.
+Hajde da razmotrimo problem najdužeg zajedničkog podniza odnosno podsekvence (skr. NZP) kao još jedan primer
+problema koji se može rešiti korišćenjem dinamičkog programiranja.
+<br> <br> <!-- ··· -->
+<b> NZP (engl. LCS od longest common subsequence) iskaz problema: </b>
+<br>
+Data su dva niza (podrazumevamo stringa), pronađite dužinu najdužeg podniza prisutnog u oba. Podniz
+je niz koji se pojavljuje u istom relativnom redosledu, ali ne mora da bude u susedstvu.
+Na primer, „abc“, „abg“, „bdf“, „aeg“, „acefg“, .. i tako dalje smatramo podnizovima niza (stringa
+iliti polazne sekvence) „abcdefg“.
+<br> <br>
+Da bismo saznali složenost pristupa grubom silom, moramo prvo da znamo broj mogućih različitih
+podniza niza dužine n, odnosno da pronađemo broj podniza sa dužinama u rasponu od 1, 2, ... , n-1.
+Podsetimo se iz teorije permutacije i kombinacije da je broj kombinacija sa 1 elementom \(C\)<font size="-1"><sup> \(n\) </sup> <sub> \(1\) </sub></font> .
+Broj kombinacija sa 2 elementa je \(C\)<font size="-1"><sup>\( n \)</sup> <sub>\( 2 \)</sub></font> i tako dalje i tako dalje. Znamo da je
+\( C \)<font size="-1"><sup> \(n\) </sup> <sub>\( 0 \)</sub></font> + \(C\)<font size="-1"><sup> \(n\) </sup> <sub>\(1\)</sub></font> +
+\(C\)<font size="-1"><sup> \(n\) </sup><sub>\(2\)</sub></font> + … + \(C\)<font size="-1"><sup> \(n\) </sup><sub>\(n\)</sub></font> = \(2\)<font size="-1"><sup>\(n\)</sup></font> .
+Dakle, niz dužine n ima \(2\)<font size="-1"><sup>\(n-1\)</sup></font> različitih mogućih podnizova pošto
+ne uzimamo u obzir podniz dužine 0. Ovo implicira da će vremenska složenost pristupa grubom silom
+biti \( O(n \) · 2<font size="-1"><sup> \( n \)</sup></font>\( ) \). Imajte na umu da je potrebno \( O(n) \) vremena da se proveri da li je podniz (podsekvenca)
+zajednički za oba niza.
+<br> <br>
+<b> Ova vremenska složenost se može poboljšati korišćenjem dinamičkog programiranja. </b>
+<br> <br>
+<b> To je klasičan računarski problem, osnova diff (programa za poređenje datoteka koji daje
+razlike između dve datoteke) i ima primenu u bioinformatici. </b>
+<br> <br>
+Naivno rešenje za ovaj problem je generisanje svih podnizova oba data niza i pronalaženje
+najdužeg odgovarajućeg podniza.
+<br>
+<b> Ovo rešenje je eksponencijalne vremenske složenosti. </b>
+<br>
+Hajde da vidimo kako ovaj problem poseduje <b> oba važna svojstva problema dinamičkog programiranja (DP) </b>.
+<br> <br>
+<b> Optimalna podstruktura: </b>
+<br>
+    • Neka su ulazni nizovi \( X[0..m-1] \) i \( Y[0..n-1] \) dužine \( m \) i \( n \) respektivno.
+      I neka je \( L(X[0..m-1], Y[0..n-1]) \) dužina LCS dva niza \( X \) i \( Y \). Sledi rekurzivna
+      definicija \( L(X[0.. m-1], Y[0..n-1]) \). <br> <br>
+    • Ako se poslednji karakteri oba niza poklapaju (to jest \( X[m-1] == Y[n-1] \)), onda
+      \( L(X[0..m-1], Y[0..n-1]) = 1 + L(X[0..m-2], Y[0..n-2]) \); <br> <br>
+    • Ako se poslednji karakteri oba niza ne poklapaju (ili \( X[m-1] != Y[n-1] \)) onda
+      \( L(X[0..m-1], Y[0..n-1]) = MAX{L(X[0..m-2], Y[0..n-1]), L( X[0..m-1], Y[0..n-2])} \).
+<br> <br>
+<b> Primeri: </b>
+<br>
+1)Razmotrite ulazne nizove „AGGTAB“ i „GKSTKSAIB“. Poslednji znakovi se podudaraju sa stringovima. Dakle, dužina LCS-a se može napisati kao:
+L(„AGGTAB“, „GKSTKSAIB“) = 1 + L(„AGGTA“, „GKSTKSAI“).
+<br> <br>
+2)Razmotrite ulazne nizove „ABCDGH“ i „AEDFHR.  Poslednji znakovi se ne podudaraju sa stringovima. Dakle, dužina LCS-a se može napisati kao:
+L(„ABCDGH“, „AEDFHR“) = MAX{L(„ABCDG“, „AEDFHR“), L(„ABCDGH“, „AEDFH“)}.
+<br> <br>
+<b> Dakle, LCS problem ima optimalno svojstvo podstrukture jer se glavni problem može rešiti korišćenjem rešenja podproblema. </b>
+<br> <br>
+<b> Preklapajući potproblemi: </b> Sledi jednostavna rekurzivna implementacija LCS problema. Implementacija jednostavno prati
+rekurzivnu strukturu pomenutu gore:
+<xmp class = "primer_ta">
+  // Naivna rekurzivna implementacija algoritma
+  // za resavanje NZP (engl. LCS) problema
+  #include <bits/stdc++.h>
+  #include <iostream>
+  #include <vector>
+  #include <string>
+  int max(int a, int b);
+
+  // Vraca duzinu NZP-a za X
+  int nzp(string X, string Y, int m, int n)
+  {
+  if (m == 0 || n == 0)
+  	return 0;
+  if (X[m-1] == Y[n-1])
+  	return 1 + nzp(X, Y, m-1, n-1);
+  else
+  	return max(nzp(X, Y, m, n-1), nzp(X, Y, m-1, n));
+  }
+
+  // Korisna funkcija koja odredjuje maksimumdva dva cela broja
+  int max(int a, int b)
+  {
+  	return (a > b) ? a : b;
+  }
+
+  // Main funkcija koja testira nas algoritam
+  int main()
+  {
+   string X = "AGGTAB";
+   string Y = "GXTXAYB";
+
+   int m = X.size();
+   int n = Y.size();
+
+   cout << "Duzina NZP-a iznosi " << nzp( X, Y, m, n) << endl;
+
+   return 0;
+  }
+</xmp>
+<b> Izlaz: </b>
+<br> Dužina LCS-a je 4.
+<br> <br>
+Vremenska složenost gornjeg naivnog rekurzivnog pristupa je O(2n) u najgorem slučaju,
+a najgore se dešava kada se svi karakteri X i Y ne podudaraju, to jest kada je dužina LCS-a jednaka 0.\
+<br> <br>
+Uzimajući u obzir gornju implementaciju, sledi parcijalno stablo rekurzije za ulazne
+nizove „AKSIT“ i „AIZKS“.
+<img src="courses/dp/dp_najduzi_zajednicki_podniz/lcs2.png" class="img-fluid img-md">
+U gore navedenom stablu delimične rekurzije, lcs(“AKSI”, “AIZ”) se rešava dva puta. Ako nacrtamo kompletno
+stablo rekurzije, onda možemo videti da postoji mnogo potproblema koji se rešavaju iznova i iznova.
+Dakle, ovaj problem ima svojstvo preklapajuće podstrukture. Ponovno izračunavanje istih potproblema
+se može izbeći korišćenjem memoizacije ili tabulacije. Sledi primer korišćenja tabulacije za rešavanje NZP problema.
+<xmp class = "primer_ta">
+  // Implementacija NZP problema primenom dinamickog programiranja
+  #include<iostream>
+  #include <vector>
+  #include <string>
+  using namespace std;
+  int max(int a, int b);
+
+  /* Vraca duzinu NZP-a za nizove X[0..m-1] i Y[0..n-1] */
+  int nzp( char *X, char *Y, int m, int n )
+   {
+     int L[m+1][n+1];
+     vector<vector<int>> L;
+     for(int i = 0; i<m+1; i++)
+     {
+      vector<int> tmp;
+      for(int j = 0; j<n+1; j++)
+      {
+        tmp.push_back(0);
+      }
+      matrix.push_back(tmp);
+     }
+     int i, j;
+     // Sledeci korak kreira L[m+1][n+1] odozdo na gore. Primetimo
+  	 // da L[i][j] sadrzi duzinu NZP-a za X[0..i-1] i Y[0..j-1]
+
+     for (i=0; i<=m; i++)
+     {
+  	    for (j=0; j<=n; j++)
+  	    {
+  	      if (i == 0 || j == 0)
+  		      L[i][j] = 0;
+  	      else if (X[i-1] == Y[j-1])
+  		      L[i][j] = L[i-1][j-1] + 1;
+  	      else
+  		      L[i][j] = max(L[i-1][j], L[i][j-1]);
+  	    }
+     }
+
+     /* L[m][n] sadrzi NZP za nizove X[0..n-1] i Y[0..m-1] */
+     return L[m][n];
+   }
+
+   /* Korisna funkcija koja odredjuje maksimum dva cela broja */
+   int max(int a, int b)
+   {
+  	return (a > b)? a : b;
+   }
+
+   /* Main funckija koja testira nas algoritam */
+   int main()
+   {
+    string X= "AGGTAB";
+    string Y= "GXTXAYB";
+
+    int m = X.size();
+    int n = Y.size();
+
+    cout << "Duzina NZP iznosi " << nzp( X, Y, m, n ) << endl;
+
+    return 0;
+   }
+</xmp>
+<b> Izlaz: </b>
+<br> Dužina NZP-a je 4.
+<br> <br>
+<b> Vremenska složenost gornje implementacije je \( O(m · n) \) što je mnogo bolje od vremenske složenosti u najgorem slučaju naivne rekurzivne implementacije. </b>
+</html>

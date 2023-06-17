@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<h1> Varijacije bez ponavljanja </h1>
+
+<h2> Definicija: </h2>
+
+Varijacija klase \(k\) bez ponavljanja elemenata skupa \(S\) je svaka
+uređena \(k\)-torka od \(k\) različitih elemenata skupa \(S\). Napisati
+program koji za dato \(n\) i \(k\) prikazuje sve varijacije bez ponavljanja
+klase \(k\) skupa brojeva od \(1\) do \(n\), u leksikografskom poretku.
+<br>
+<b> Ulaz: </b> Prva linija standardnog ulaza sadrži prirodan broj \(n\)
+(\(n\) ≤ \(8\)), u drugoj liniji nalazi se prirodan broj \(k\) (\(0 < k ≤ n\)).
+<br>
+<b> Izlaz: </b> Na standradnom izlazu prikazati u leksikografskom poretku
+sve varijacije klase \(k\) brojeva od \(1\) do \(n\) (svaku u posebnom redu).
+<br>
+<b> Primer: </b>
+<br>
+<b> Ulaz: </b>
+<br> 3
+<br> 2
+<br>
+<b> Izlaz: </b>
+<br> 1 2
+<br> 1 3
+<br> 2 1
+<br> 2 3
+<br> 3 1
+<br> 3 2
+<br>
+<b> Rešenje: </b>
+<br> <b> Rekurzivno generisanje varijacija </b>
+<br>
+Možemo definisatii rekurzivnu funkciju koja nabraja sve varijacije bez ponavljanja,
+koja je slična funkciji koja nabraja varijacije sa ponavljanjem. <br> <br>
+Funkcija prima do sada popunjen prefiks varijacije i pokušava da postavi element
+na poziciju \(i\). Pretpostavićemo da je u početku niz alociran na dužinu \(k\), i da
+popunjavanje kreće od pozicije \(i\) = 0. Ako je \(i = k\), tada je varijacija cela popunjena
+i obrađujemo je (u našem slučaju je samo ispisujemo). U suprotnom na mesto \(i\) redom
+postavljamo jedan po jedan element skupa {\(1,...,n\)} koji nije ranije upotrebljen u
+varijaciji i rekurzivno prelazimo na popunjavanje varijacije od pozicije \(i + 1\). <br>
+<img src="courses/dp/dp_varijacije_bez_ponavljanja/varijacijebez1.png" class="img-fluid img-md">
+<center> Rekurzivno genersianje bez ponavljanja za \(k = 2\) i \(n = 3\) - primetimo da su rezultujuce varijacije zapravo permutacje niza 1, 2, 3</center>
+<br>
+Da bismo efikasno mogli da odredimo da li je trenutni kandidat već upotrebljen,
+koristimo pomoćni niz logičkih vrednosti (na mesto i upisujemo vrednost tačno ako
+i samo ako se element i javlja u tekućoj varijaciji to jest u njenom do tada
+popunjenom delu).
+<br>
+<xmp class = "primer_ta">
+// popunjava se varijacija a od pozicije i nadalje elementima skupa
+// {1, ..., n} pri cemu se u nizu upotrebljen beleze upotrebljeni
+// elementi u delu varijacije pre pozicije i
+void varijacijeBezPonavljanja(vector<int>& a, int n, vector<bool>& upotrebljen, int i) {
+  // varijacija je cela popunjena, pa je ispisujemo
+  if (i == a.size())
+     obradi(a);
+  else {
+     // na poziciju i stavljamo redom svaki neupotrebljen element
+     for (int x = 1; x <= n; x++)
+        if(!upotrebljen[x]) {
+           a[i] = x;
+           upotrebljen[x] = true;
+           varijacijeBezPonavljanja(a, n, upotrebljen, i+1);
+           upotrebljen[x] = false;
+        }
+  }
+}
+// ispisuje sve varijacije bez ponavljanja k elemenata skupa {1, ..., n}
+void varijacijeBezPonavljanja(int n, int k) {
+   vector<int> a(k);
+   vector<bool> upotrebljen(n+1, false);
+   varijacijeBezPonavljanja(a, n, upotrebljen, 0);
+}
+</xmp>
+</html>

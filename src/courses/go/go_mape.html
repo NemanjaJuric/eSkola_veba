@@ -1,0 +1,67 @@
+<h1>Mapa</h1>
+Mapa u programskom jeziku Go označava heš tabelu, tj. neuređenu kolekciju sačinjenu od parova ključ-vrednost.
+Mapa se označava sa <b>map[k]v</b>, gde je k tip ključa, a v tip vrednosti. Ključ mora biti jedinstven za svaku vrednost u heš tabeli.
+<br />
+Mapa se može kreirati na dva načina:
+<ul>
+    <li>
+        Korišćenjem funkcije <b>make()</b>
+    </li>
+<xmp class="primer_ta">
+mapa := make(map[string]string)
+mapa["ime"] = "Ana"
+mapa["pol"] = "zenski"
+</xmp>
+    <li>
+        Inicijalizacijom prilikom deklaracije
+    </li>
+<xmp class="primer_ta">
+bodovi := map[string]int {"Ana": 100, "Jelena": 99 }
+</xmp>
+</ul>
+Kao nizovi i isečci, i mape podržavaju funkciju <b>len()</b> koja vraća broj elemenata mape. Dodatno, mape
+podržavaju funkciju <b>delete()</b> koja briše vrednost i ključ, na osnovu ključa koji joj se prosledi.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+
+    bodovi := map[string]int { "Ana": 100, "Jelena": 99 }
+
+    fmt.Println(len(bodovi))
+
+    delete(bodovi, "Jelena")
+
+    fmt.Println(bodovi) // vraca map[Ana:100]
+
+}
+</xmp>
+Da bi se proverilo da li neka vrednost postoji u mapi mogu se uzeti dve vrednosti koje vraća 
+pristup mapi nekim ključem. Prva vrednost predstavlja vrednost koja se nalazi u mapi za taj 
+ključ, ako vrednost za taj ključ postoji, a druga vrednost je logička vrednost koja govori da li 
+taj ključ postoji u mapi. 
+Ukoliko treba proveriti da li neki ključ postoji, a nije potrebna njegova vrednost, može se 
+koristiti prazan identifikator (blank identifier), odnosno podvlaka (<b>_</b>).
+
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+
+    bodovi := map[string]int { "Ana": 100 }
+
+    _, postoji := bodovi["Jelena"] // _  se koristi kada vrednost koja se nalazi na nekom kljucu nije bitna
+    // vec se samo ispituje postojanje kljuca
+
+    fmt.Println(postoji) // prikazuje false, posto kljuc nije prisutan u mapi
+
+    osoba, postoji := bodovi["Ana"]
+
+    fmt.Println(postoji, osoba) // prikazuje true 100, zato što je kljuc Ana prisutan u mapi
+
+}
+</xmp>

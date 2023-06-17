@@ -1,0 +1,92 @@
+<h1>Referentni tipovi podataka</h1>
+Referentni tipovi podataka su tipovi koji čuvaju adresu ili referencu na vrednost. Kada se 
+kreira promenljiva referentnog tipa rezerviše se prostor u memoriji koji čuva adresu drugog 
+memorijskog bloka.
+U referentne tipove podataka spadaju:
+<ul>
+    <li>pokazivači (pointers);</li>
+    <li>isečci (slices);</li>
+    <li>kanali (channels);</li>
+    <li>mape (maps);</li>
+    <li>funkcije.</li>
+</ul>
+<h2>Pokazivači</h2>
+Pokazivači su vrsta podataka koji čuvaju memorijsku adresu neke promenljive, tj. čuvaju lokaciju (adresu) gde se nalazi neki podatak. 
+Pomoću pokazivača može se pristupiti i menjati vrednost promenljive bez znanja imena te promenljive.
+<br />
+Operator <b>&</b> je unaran i naziva se operatorom referenciranja ili adresnim operatorom i vraća adresu svog operanda.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+
+    var x int = 1
+    var p *int = &x // p je tipa pokazivac na int i pokazuje na promenljivu x
+    fmt.Println(p) // prikazuje memorijsku adresu promenljive x
+
+}
+</xmp>
+Vrednosti na koju pokazuje pokazivač pristupa se korišćenjem unarnog operatora za dereferenciranje <b>*</b>.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+
+
+    x := 1
+    fmt.Println(x)
+    // prikazuje 1
+
+    var p *int = &x
+    *p = 10
+
+    fmt.Println(x)
+    // prikazuje 10
+
+}
+</xmp>
+Promenom vrednosti operatorom dereferenciranja menja se vrednost i same promenljive, pošto se operatorom dereferenciranja 
+modifikuje vrednost promenljive u memoriji. Nula vrednost za pokazivače je <b>nil</b>.
+Pokazivači se mogu porediti, a jednaki su ako pokazuju na istu memorijsku adresu ili ako su oba nil. 
+Moguće je kreirati i pokazivače bez promenljive korišćenjem funkcije <b>new()</b> koji alocira memoriju za novu promenljivu tog tipa 
+i vraća adresu te promenljive.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+    
+    p := new(int) // p je tipa *int, tj. pokazivac na int
+    *p = 10
+    fmt.Println(*p)
+
+}
+</xmp>
+Moguće je kreirati i pokazivače na strukture. Go dozvoljava pristupanje poljima strukture preko pokazivača bez
+korišćenja operatora za dereferenciranje, zbog kraće i čitljivije sintakse.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Tacka struct {
+    X int
+    Y int
+}
+
+func main() {
+    
+    tacka := Tacka{1, 2}
+
+    var p *Tacka = &tacka
+
+    fmt.Println(p.X) // sto je ekvivalentno sa (*p).X
+
+}
+</xmp>
+<br />

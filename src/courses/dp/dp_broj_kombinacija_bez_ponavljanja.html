@@ -1,0 +1,238 @@
+<html>
+
+<h1> Broj kombinacija bez ponavljanja </h1>
+
+<br>
+
+<b> Zadatak: </b> Odrediti broj kombinacija bez ponavljanja \(k\)-te klase od \(n\) elemenata. <br>
+<br>
+Izračunavanje direktno na osnovu formule za n nad k vrlo brzo bi dovelo do prekoračenja (zbog veoma brzog rasta faktorijelske funkcije). Formulu možemo poboljšati tako da faktorijel ostane samo u imeniocu međutim to ne uklanja problem prekoračenja jer imenilac može biti preveliki. <br>
+<br>
+
+Modifikovaćemo rekurzivni algoritam za ispisivanje kombinacija iz prethodne lekcije, tako da računa broj kombinacija. <br>
+Dakle, umesto procedure koja ispisuje kombinacije, definisaćemo funkciju koja vraća broj kombinacija. . Pošto nam je bitan samo broj kombinacija, a ne i same kombinacije, možemo u potpunosti izbaciti niz koji se popunjava i umesto njega prosleđivati samo njegovu dužinu \(k\). <br>
+
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int i, int nmin, int nmax){
+	
+	if(i==k) 
+		return 1;
+	
+	if(nmax-nmin+1 < k-i)
+		return 0;
+	
+	return brojKombinacijaBezPonvaljanja(k,i+1,nmin+1,nmax)+
+	brojKombinacijaBezPonvaljanja(k,i,nmin+1,nmax);
+}
+ </xmp>
+<br>
+Možemo primetiti da nam konkretne vrednosti \(k\) i \(i\)
+nisu bitne, već je bitan samo broj elemenata u intervalu
+ \([i,k)\) tj. razlika \(k – i\) . 
+ Takođe nam nisu bitne ni konkretne vrednosti \(n_{min}\)
+ i \(n_{max}\) već samo broj elemenata u segmentu 
+ \([n_{min}, n_{max}]\) tj. vrednost
+ \(n_{max} – n_{min} +1\). 
+ Ako te dve veličine zamenimo sa \(k\) tj. \(n\) 
+ dobijamo narednu definiciju. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n){
+	
+	if(k==0) 
+		return 1;
+	
+	if(n < k)
+		return 0;
+	
+	return brojKombinacijaBezPonvaljanja(k-1,n-1)+
+	brojKombinacijaBezPonvaljanja(k,n-1);
+}
+ </xmp>
+<br>
+Ako funkciju pozovemo za vrednosti \(k ≤ n\), slučaj \(k > n\)
+može nastupiti jedino iz drugog rekurzivnog poziva za
+\(k = n\) (jer odnos između \(k i n\) u prvom rekurzivnom
+pozivu ostaje nepromenjen, a u drugom se menja samo za 1).
+Međutim, kako je ilustrovano na narednoj slici, u slučaju
+poziva funkcije za k = n dobiće se uvek povratna vrednost
+1 (jedan rekurzivni poziv će uvek vraćati nulu, 
+a drugi će prouzrokovati smanjivanje oba argumenta sve
+dok se ne dođe do k = n = 0, kada će se 1 vratiti na osnovu 
+prvog izlaza iz rekurzije), što je sasvim u skladu sa tim da tada postoji samo jedna kombinacija. <br>
+<br>
+
+<img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/prva.png" class="img-fluid img-lg">
+<br>
+Na osnovu ovoga iz rekurzije možemo izaći za \(k = n\)
+ vrativši vrednost 1, čime onda eliminišemo potrebu za 
+ proverom da li je \(k > n\) (naravno, pod pretpostavkom da ćemo 
+ funkciju pozivati samo za \(k ≤ n\) ). <br>
+ <br>
+ Ovom transformacijom smo dobili čuvene osobine binomnih koeficijenata. <br>
+ <img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/druga.png" class="img-fluid img-lg">
+<br>
+One čine osnovu Paskalovog trougla u kom se nalaze binomni koeficijenti. <br>
+<img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/treca.png" class="img-fluid img-lg">
+<br>
+Prva veza govori da su elementi prve kolone uvek jednaki 1, druga da su na kraju svake vrste elementi takođe jednaki 1, a treća da je svaki element u trouglu jednak zbiru elementa neposredno iznad njega i elementa neposredno ispred tog. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n){
+	
+	if(k==0) 
+		return 1;
+	
+	if(n==k)
+		return 1;
+	
+	return brojKombinacijaBezPonvaljanja(k-1,n-1)+
+	brojKombinacijaBezPonvaljanja(k,n-1);
+}
+ </xmp>
+<br>
+Složenost je i dalje izuzetno visoka.
+ Razlog neefikasnosti su ponovljeni rekurzivni pozivi,
+ što se može videti na slici ispod. Svakom listu drveta 
+ odgovara tačno jedna kombinacijam pa pošto ukupno
+ kombinacija ima n nad k ukupan broj rekurzivnih poziva je ograničen sa 2 n nad k (jer u binarnom drvetu ne može biti više nego 
+ duplo više čvorova nego listova). 
+ Dakle složenost je O(n nad k). <br>
+ <img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/cetvrta.png" class="img-fluid img-lg">
+<br>
+Iako korektna, gornja funkcija je neefikasna i može 
+se popraviti tehnikom dinamičkog programiranja. 
+Najjednostavnije prilagođavanje je da se upotrebi 
+memoizacija. Pošto funkcija ima dva parametra, za 
+memoizaciju ćemo upotrebiti matricu. Ako se n nad k 
+pamti u matrici na poziciji \((n, k)\), matricu možemo 
+alocirati na \(n + 1\) vrsta, gde poslednja vrsta ima 
+\(n + 1\) elemenata, a svaka prethodna po jedan element 
+manje (u matricu će se popunjavati elementi Paskalovog 
+trougla). Pošto nas neće zanimati vrednosti veće od 
+polaznog \(k\) i pošto se i \(k\) i \(n\) smanjuju tokom 
+rekurzije, pri čemu je \(k ≤ n\), možemo i odseći deo 
+trougla desno od pozicije \(k\). Pošto su brojevi 
+kombinacija uvek veći od nule, vrednosti 0 u matrici će 
+nam označavati da poziv za te parametre još nije izvršen. <br>
+<br>
+I memorijska i vremenska složenost memoizovane verzije 
+je O(\(nk\)). Naime, u drvetu rekurzivnih poziva se 
+svaki čvor može javiti najviše dva puta. Pošto svaki 
+čvor sadrži par brojeva takvih da je prvi od 0 do \(k\), 
+a drugi od 0 do \(n\), ukupan broj čvorova je odozgo 
+ograničen sa \(2nk\) (a može biti i manji, jer se neki 
+parovi ne mogu javiti). <br>
+<img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/peta.png" class="img-fluid img-lg">
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n, vector<vector<long long>& memo){
+	
+	if(memo[n][k]!=0) 
+		return memo[n][k];
+	
+	if(k==0 || k==n)
+		return memo[n][k]=1;
+	
+	return memo[n][k]= brojKombinacijaBezPonvaljanja(k-1,n-1, memo) +
+	brojKombinacijaBezPonvaljanja(k,n-1,memo);
+}
+ </xmp>
+<br>
+Umesto memoizacije možemo upotrebiti i dinamičko programiranje naviše, osloboditi se rekurzije i popuniti trougao vrstu po vrstu naniže. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n){
+	
+	vector<vector<long long>> dp(n+1);
+	
+	for(int i=0; i<=n; i++)
+		dp[n].resize(n+1);
+	
+	for(int i=0; i<=n; i++){
+		dp[n][0]=1;
+		for(int j=1; j<i; j++)
+			dp[i][j]=dp[i-1][j-1] + dp[i-1][j];
+		
+		dp[i][i]=1;
+	}
+	return dp[n][k];
+}
+ </xmp>
+<br>
+I u ovom slučaju možemo odseći nepotrebne desne kolone u trouglu. Moguće je odseći i deo ispod odgovarajuće. Na narednoj slici su obeleženi elementi Paskalovog trougla koji su potrebni za izračunavanje broja 6 nad 3 =20. <br>
+<img src="courses/dp/dp_broj_kombinacija_bez_ponavljanja/sesta.png" class="img-fluid img-lg">           
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n){
+	
+	vector<vector<long long>> dp(n+1);
+	
+	for(int i=0; i<=n; i++)
+		dp[n].resize(min(k+1,n+1));
+	
+	for(int i=0; i<=n; i++){
+		dp[n][0]=1;
+		for(int j=1; j<=min(i-1,K); j++)
+			dp[i][j]=dp[i-1][j-1] + dp[i-1][j];
+		
+		if(i<=k)
+			dp[i][i]=1;
+	}
+	return dp[n][k];
+}
+ </xmp>
+<br>
+Pažljivijom analizom prethodnog koda vidimo da, kako je to obično slučaj u dinamičkom programiranju, ne moramo 
+istovremeno čuvati sve elemente matrice, jer svaka vrsta zavisi samo od prethodne i dovoljno je umesto 
+matrice čuvati samo njene dve vrste (prethodnu i tekuću). Zapravo, dovoljno je čuvati samo jedan vektor 
+vrstu ako je pažljivo popunjavamo i ako tokom njenog ažuriranja u jednom njenom delu čuvamo tekuću, a u drugom 
+narednu vrstu. Pošto element \((n, k)\) zavisi od elementa \((n − 1, k − 1)\) i od elementa \((n − 1, k)\) 
+znači da svaki element zavisi od elemenata koji su levo od njega, ali ne od elemenata koji su desno od njega. 
+Zato ćemo vektor popunjavati zdesna nalevo. Pretpostavićemo da tokom ažuriranja važi invarijanta da se na 
+pozicijama strogo većim od \(k\) nalaze elementi vrste \(n\), a da se na pozicijama manjim ili jednakim od \(k\) 
+nalaze elementi vrste \(n − 1\). Ažuriranje započinje time što na kraj vrste dopišemo vrednost 1 
+(osim u slučaju kada vršimo sasecanje desnog dela trougla) i nastavlja se tako što se element na poziciji \(k\) 
+uveća za vrednost na poziciji \(k − 1\). Zaista, pre ažuriranja se na poziciji \(k\) nalazi vredost trougla 
+sa pozicije \((n−1, k)\), dok se na poziciji \(k−1\) nalazi vrednost trougla sa pozicije \((n−1, k−1)\). 
+Njihov zbir je vrednost trougla na poziciji \((n, k)\), pa se on upisuje na poziciju \(k\) i nakon toga se 
+\(k\) smanjuje za 1, čime se invarijanta održava. Ažuriranje se vrši do pozicije \(k = 1\), jer se na poziciji 
+\(k = 0\) u svim vrstama nalazi vrednost 1. Memorijska složenost ovog rešenja je O(\(k\)), dok je vremenska 
+O(\(nk\)). Primetimo kako smo od veoma neefikasnog rešenja eksponencijalne složenosti tehnikom dinamičkog programiranja 
+dobili veoma efikasno i uz to prilično jednostavno rešenje. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+long long brojKombinacijaBezPonvaljanja(int k, int n){
+	
+	vector<vector<long long>> dp(k+1);
+	
+	dp[0]=1;
+	
+	for(int i=1; i<=n; i++){
+	
+		if(i<=k)
+			dp[i]=1;
+		
+		for(int j=min(i-1,k); j>0; j--)
+			dp[j]+=dp[j-1];
+	}
+	return dp[k];
+}
+ </xmp>
+<br>
+</html>

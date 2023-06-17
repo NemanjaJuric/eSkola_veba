@@ -1,0 +1,84 @@
+<h1>Paketi</h1>
+Go programi su organizovani u pakete. Paket je kolekcija izvornih fajlova u istom direktorijumu koji se kompajliraju
+zajedno. Funkcije, tipovi, promenljive i konstante definisane u jednom izvornom fajlu su vidljive za ostale fajlove
+u okviru jednog paketa. Svaki Go program mora pripadati nekom paketu. Da bi se kreirao neki paket, koristi se ključna
+reč <b>package</b>.
+<xmp class="primer_ta">
+package test 
+
+import "fmt"
+
+func pozdrav(ime string) {
+    fmt.Println("Zdravo", ime)
+}
+</xmp>
+Deklaracija paketa mora biti prva linija koda u Go programu. Go programi počinju u paketu <b>main</b>, koji je poseban paket koji se
+koristi za programe koji su namenjeni da se izvršavaju. Programi sa main paketom se nazivaju komande, a ostali se nazivaju paketi.
+<br />
+<br />
+Postoje dva načina za importovanje paketa u programskom jeziku Go:
+<br />
+1. Korišćenjem pojednačnih import naredbi,
+<xmp class="primer_ta">
+import "fmt"
+import "time"
+import "math"
+</xmp>
+2. Grupisanjem import naredbi.
+<xmp class="primer_ta">
+import (
+	"fmt"
+	"time"
+	"math"
+)
+</xmp>
+Promenljive, tipovi ili funkcije koje počinju sa velikim slovom biće eksportovane i vidljive izvan paketa, dok su one koje počinju
+malim slovom vidljive samo u okviru istog paketa.
+<xmp class="primer_ta">
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	// MaxInt64 je vidljivo zato što pocinje velikim slovom
+	fmt.Println("Najveca vrednost int64 je: ", int64(math.MaxInt64))
+
+	// kao i Phi
+	fmt.Println("Vrednost Phi (ϕ) je: ", math.Phi)
+
+	// pi počinje malim slovom, pa se dobija greska od kompajlera
+	fmt.Println("Vrednost Pi (𝜋) je: ", math.pi)
+	// cannot refer to unexported name math.pi
+	// undefined: math.pi
+}
+</xmp>
+<h3>Moduli</h3>
+Modul je kolekcija Go paketa u jednom direktorijumu u kome se nalazi <b>go.mod</b> fajl koji definiše način uvoženja paketa iz ovog modula.
+Pre postojanja modula u programskom jeziku Go, svi paketi su morali da se nalaze u GOPATH-u, tj. direktorijumu koji se nalazi u GOPATH promenljivoj okruženja.
+<br />
+Da bi se kreirao modul, prvo je neophodno kreirati direktorijum, a onda otvoriti terminal i u tom direktorijumu uneti komandu:
+<br />
+<span class="primer_text">
+go mod init lokacija/imeprojekta
+</span>
+<br />
+U slučaju da se projekat nalazi na github-u, modul bi mogao biti kreiran kao:
+<br />
+<span class="primer_text">
+go mod init github.com/imekorisnika/imeprojekta
+</span>
+<br />
+Kada se pokrene Go program koji koristi pakete iz ovog modula, Go automatski preuzima taj modul sa naznačene putanje.
+<xmp class="primer_ta">
+package zdravo
+
+import "rsc.io/quote"
+
+func Zdravo() string {
+    return quote.Hello()
+}
+</xmp>
+Go će u go.mod dodati require rsc.io/quote v1.5.2, čime se naznačuje da ovaj modul koristi paket quote.

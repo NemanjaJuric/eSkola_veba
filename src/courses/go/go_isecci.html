@@ -1,0 +1,70 @@
+<h1>Isečci</h1>
+Isečci su sekvence elemenata promenljive dužine istog tipa. U programskom jeziku Go isečak se označava sa <b>[]Tip</b>.
+Izgledaju kao niz, ali se pri kreiranju ne navodi dužina.
+Za kreiranje isečaka se koristi funkcija <b>make()</b>.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+    s = make([]string, 2)
+    s[0] = "ABC"
+    s[1] = "DEF"
+}
+</xmp>
+Isečci imaju tri komponente:
+<ul>
+    <li>pokazivač;</li>
+    <li>dužina;</li>
+    <li>kapacitet.</li>
+</ul>
+Pokazivač pokazuje na prvi element u isečku. 
+<br />
+Dužina je broj elemenata u isečku, tj. broj elemenata koji se zapravo nalazi u njemu
+i ne može biti veći od kapaciteta. 
+<br />
+Kapacitet predstavlja broj elemenata za koji je rezervisan prostor u memoriji.
+Elementima se pristupa na isti način kao i u radu sa nizovima, a funkcija <b>len()</b> takođe služi za vraćanje dužine isečka.
+Isečci podržavaju još nekoliko funkcija koje ih čine "bogatijim" od nizova. Jedna od tih funkcija je <b>append()</b> koja vraća
+isečak sa jednim ili više dodatih elemenata.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+    s = make([]string, 2)
+    s[0] = "ABC"
+    s[1] = "DEF"
+    
+    s = append(s, "GHI") // kreira novi isecak sa jos jednim dodatnim elementom
+
+    fmt.Println(s[1])
+
+}
+</xmp>
+Isečke je moguće kopirati korišćenjem funkcije <b>copy()</b>, a takođe podržavaju <b>"slice"</b> ([od:do]) operator, za uzimanje odsečka.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func main() {
+    s = make([]string, 2)
+    s[0] = "ABC"
+    s[1] = "DEF"
+    
+    c := make([]string, len(s))
+    copy(c, s) // kopiranje jednog isecka u drugi
+
+    fmt.Println(c[0])
+
+    l := s[0:1] // "slice" operator
+    // uzima elemente od 0 do 1 iz isecka s, ukljucujuci element 0, ali bez elementa 1
+
+    fmt.Println(l)
+
+}
+</xmp>
+<br />

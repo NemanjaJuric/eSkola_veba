@@ -1,0 +1,158 @@
+<html>
+
+<h1> Kombinacije bez ponavljanja </h1>
+
+<br>
+
+<b> Zadatak: </b> Generisati sve kombinacije bez ponavljanja \(k\)-te klase od \(n\) elemenata. <br>
+
+
+<br>
+
+<h2> Definicija </h2>
+
+U kombinatorici, svaki podskup od k (k ≤ n) različitih elemenata nekog n-točlanog skupa zove se kombinacija bez ponavljanja k-te klase od n elemenata. <br>
+Dakle, kako se radi o podskupu poredak u kombinacijama nije važan. <br>
+<br>
+Proizvoljna kombinacija može se predstaviti nizom \( x_1, x_2, ..., x_k \) , gde je \( 1 ≤ x_1 < x_2 < ... < x_k ≤ n\) . Iz ovih nejednakosti sledi da je \(x_{k-1} ≤  n-1 , x_{k-2} ≤ n-2 , x_{k-3}  ≤ n-3 \), odnosno uopšte \(x_i ≤ n-k+i\)  za 1 ≤ \(i\) ≤ \(k\) . <br>
+<br>
+
+Jasno je da je broj kombinacija k-te klase od n elemenata  n nad k. <br>
+
+<br>
+<h2> Rekurzivni algoritam </h2>
+
+
+Rekurzivna funkcija će popunjavati niz dužine \(k\) od pozicije \(i\) pa do kraja. Kada je popunjen ceo niz potrebno je ispisati kombinaciju. <br>
+Inače, biramo element koji ćemo postaviti na poziciju \(i\) . Kako su kombinacije uređene leksikografski, taj element mora biti veći od prethodnog (ako prethodnog nema može biti i 1) i mora biti manji od \( n-k+i \) (jer su elementi strogo rastući pa će u tom slučaju na poziciji \(k\) biti vrednost \(n\) . <br>
+<br>
+Dakle, u petlji stavljamo jedan po jedan od odgovarajućih elemenata na poziciju \(i\) i rekurzivno nastavljamo popunjavanje niza. <br>
+
+<br>
+Na osnovnu navedenog, algoritam se može prikazati sledećim kodom. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+void kombinacijeBezPonvaljanjaR(vector<int> &x, int i, int n){
+
+	int k=x.size();
+
+	if(i==k){
+		for(i=0; i<k; i++)
+			cout<<x[i]<<" ";
+		cout<<endl;
+		return;
+	}
+	
+	int levo = i==0 ? 1 : x[i-1]+1;
+	int desno = n + i - k +1;
+	
+	for(int j=levo; j<=desno; j++){
+		x[i]=j;
+		kombinacijeBezPonvaljanjaR(x,i+1,n);
+	}
+}
+
+ </xmp>
+<br>
+
+Moguće je izbeći rekurzivne pozive u petlji. Tokom rekurzije možemo da čuvamo informaciju o tome koji je raspon elemenata kojim se proširuje niz. U prethodnom programu smo najmanju vrednost za poziciju \(i\) određivali na osnovu vrednosti sa pozicije \(i-1\) , umesto toga možemo da održavamo promenljive \(n_{min}\) i \(n_{max}\) koje određuju skup {\(n_{min},...,n_{max}\)} čiji se elementi raspoređuju u kombinaciji na pozicijama iz intervala [\(i,k\)]. Ako je taj interval prazan kombinacija je popunjena. U suprotnom, ako je \(n_{min} > n_{max} \) , tada ne postoji vrednost koju je moguće staviti na poziciju \(i\), pa izlazimo iz rekurzije, jer ne možemo popuniti trenutnu kombinaciju do kraja. U suprotnom razmatramo dve mogućnosti. Prvo na poziciju \(i\) možemo postaviti element \(n_{min}\) i rekurzivno izvršiti popunjavanje niza od pozicije \(i+1\), a drugo možemo taj element preskočiti i u rekurzivnom pozivu ponovo zahtevati da se popuni pozicija \(i\). U oba slučaja se skup elemenata sužava na {\(n_{min}+1,...,n_{max}\)}. <br>
+<br>
+Pretragu možemo završiti i malo ranije. Kako su ponavljanja zabranjena kada je broj elemenata tog skupa (a to je \( n_{max} - n_{min} +1\)) manji od broja preostalih pozicija koje treba popuniti (a to je \(k-i+1\)), već tada možemo saseći pretragu, jer ne postoji mogućnost da se kombinacija uspešno dopuni do kraja. <br>
+<br>
+
+<img src="courses/dp/dp_kombinacije_bez_ponavljanja/rekurzija.png" class="img-fluid img-lg">
+Na slici je prikazano rekurzivno generisanje kombinacija - levo od svakog čvora je prikazan raspon preostalih vrednosti, a ispod čvora tekuća kombinacija. U zelenim čvorovima su uspešno generisane kombinacije, a u crvenim nastupa odsecanje. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+void kombinacijeBezPonvaljanjaR(vector<int> &x, int i, int nmin, int nmax){
+	int k=x.size();
+	
+	if(i==k){
+		for(i=0; i<k; i++)
+			cout<<x[i]<<" ";
+		cout<<endl;
+		return;
+	}
+	
+	if(nmax-nmin+1 < k-i)
+		return;
+	
+	x[i]=n_min;
+	kombinacijeBezPonvaljanjaR(x,i+1,nmin+1,nmax);
+	kombinacijeBezPonvaljanjaR(x,i,nmin+1,nmax);
+}
+
+ </xmp>
+<br>
+
+<h2> Iterativni algoritam </h2>
+ 
+
+
+Razmotrićemo iterativni algoritam za generisanje kombinacija leksikografskim redosledom. Da bi se odredila naredna kombinacija posle kombinacije \( x_1, x_2, ..., x_k \) treba pronaći najveći indeks \(p\) takav da je \(x_p < n-k+p \) , odnosno najveći indeks \(p\) takav da se \(x_p\) može povećati; indeks \(p\) nazivamo prelomna tačka. Pošto se \(x_p\) uvećava za jedan, iza njega slede elementi \(x_{p+1}, x_{p+2}, ... \) <br>
+<br>
+
+Prelomnu tačku je jednostavno odrediti na osnovu prethodne prelomne tačke. Moguća su dva slučaja: ili je \(x_p\) od svoje maksimalne vrednosti \(n-k+p\) manje za bar 2, ili je manje za tačno 1. <br>
+
+<br>
+
+<b> Prvi slučaj, \(x_p < n-k+p-1 \) </b> <br>
+
+Tada se \(x_p\) povećava za 1 i ne dostiže svoju maksimalnu vrednost, a elementi koji slede iza njega su \(x_p+1, x_p+2, ...\) , i nijedan od njih ne dostiže svoju maksimalnu vrednost, pa je prelomna tačka \(p\) za narednu kombinaciju jednaka \(k\). <br>
+<br>
+
+<b> Drugi slučaj, \(x_p = n-k+t-1\) </b> <br>
+
+Tada se \(x_p\) povećava za 1 i dostiže svoju maksimalnu vrednost, a elementi koji slede iza njega su \(x_p+1, x_p+2, ...\) (oni ne menjaju svoje vrednosti). Svi oni, kao i \(x_p\), dostigli su svoju maksimalnu vrednost, pa je prelomna tačka \(p\) za narednu kombinaciju jednaka \(p-1\). <br>
+
+<br>
+Na osnovnu navedenog, algoritam se može prikazati sledećim kodom. <br>
+<br>
+
+<xmp class = "primer_ta"> 
+
+void kombinacijeBezPonvaljanjaI(int n, int k){
+
+	vector<int> x;
+	int p=k, i, j;
+	
+	for(i=0; i<k; i++)
+		x.push_back(i+1);
+	
+	while(ind!=0){
+		for(i=0; i<k; i++)
+			cout<<x[i]<<" ";
+		cout<<endl;
+		
+		x[p-1]+=1;
+		
+		if(x[p-1]==n+p-k){
+			p-=1;
+		} else {
+			for(j=p+1; j<=k; j++)
+				x[j-1]=x[p-1]+j-p;
+			p=k;
+		}
+	}
+	
+	for(i=0; i<k; i++)
+			cout<<x[i]<<" ";
+		cout<<endl;
+}
+
+
+
+ </xmp>
+
+ <br>
+ 
+ <div class = "napomena"> Napomena: u analizi algoritama kombinaciju smo predstavljali nizom \( x_1, x_2, ..., x_k \) , gde je \( 1 ≤ x_1 < x_2 < ... < x_k ≤ n\)  dok u C++ indeksiranje kreće od 0 pa je u kodu smanjen indeks. </div>
+ <br>
+ Vidimo da smo broj traženih kombinacija mogli odrediti povećavajući brojač pri generisanju svake nove kombinacije. <br> 
+ U sledećoj lekciji analiziraćemo problem određivanja broja kombinacija bez njihovog generisanja i kako ga tehnikama dinamičkog programiranja možemo unaprediti. <br>
+
+
+</html>

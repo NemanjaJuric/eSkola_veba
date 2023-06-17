@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<h1> Permutacije sa ponavljanjem </h1>
+<h2> Definicija: </h2>
+Neka je dat skup od \( n \) objekata tako da postoji \( n_1 \)​ identičnih objekata tipa \( 1 \),
+\( n_2 \)​ identičnih objekata tipa \( 2 \), i \( n_k \) identičnih objekata tipa \( k \). Koliko različitih permutacija
+objekata tog skupa postoji? Imajte na umu da se u ovom slučaju svi objekti moraju pojaviti u permutaciji
+i da se dva poretka smatraju različitim ako su dva objekta na nekoj poziciji \( i \) različita.
+<br> <br>
+<b>Zadatak:</b> Dat je string u kome se neki od znakova mogu ponavljati. Ispisati sve moguće
+permutacije datog stringa ne ponavljajući ih pri ispisu.
+<br> <br>
+Rešavanjem ovog zadatka ćemo zapravo izgenerisati sve <b> permutacije sa ponavljanjem </b> neke reči.
+<br> <br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Primer </b>
+<br> <br>
+<b> Ulaz: </b>
+<br> "AB"
+<br>
+<b> Izlaz: </b>
+<br> AB BA
+<br> <br>
+<b> Ulaz: </b>
+<br> "AA"
+<br>
+<b> Izlaz: </b>
+<br> AA
+<br> <br>
+<b> Ulaz: </b>
+<br> "ABC"
+<br>
+<b> Izlaz: </b>
+<br> ABC ACB BAC BCA CBA CAB
+<br> <br>
+<b> Ulaz: </b>
+<br> "ABA"
+<br>
+<b> Izlaz: </b>
+<br> ABA AAB BAA
+<br> <br>
+<b> Ulaz: </b>
+<br> "ABCA"
+<br>
+<b> Izlaz: </b>
+<br> AABC AACB ABAC ABCA ACBA ACAB BAAC BACA BCAA CABA CAAB CBAA
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<xmp class="primer_ta">
+
+// Program koji ispisuje sve permutacije
+// stringa u sortiranom redosledu.
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  /* Funkcija koja sledi se mora definisati zbog bibliotecke
+  funkcije qsort. */
+  int compare(const void* a, const void* b)
+  {
+  	return (*(char*)a - *(char*)b);
+  }
+  // Korisna funkcija koja zamenjuje vrednosti
+  // karakterima a i b
+  void swap(char* a, char* b)
+  {
+	    char t = *a;
+	    *a = *b;
+	    *b = t;
+  }
+
+// Ova funkcija pronalazi indeks
+// najmanjeg karaktera koji je veci
+// od 'pocetnog' karakterathan i pri tom se nalazi u str[l..h]
+int findCeil(char str[], char first, int l, int h)
+{
+	// inicijalizuje indeks granicnog elementa
+	int ceilIndex = l;
+
+	// Sada iteriramo kroz ostale
+	// elemente i pronalazimo najmanji
+	// karakter koji je veci od 'pocetnog'
+	for (int i = l + 1; i <= h; i++)
+		if (str[i] > first && str[i] < str[ceilIndex])
+			ceilIndex = i;
+
+	return ceilIndex;
+}
+
+// Funkcija ispisuje sve permutacije niza str u sortiranom poretku
+void sortedPermutations(char str[])
+{
+	// Nalazimo duzinu stringa
+	int size = strlen(str);
+
+	// Sortiramo string u rastucem poretku
+	qsort(str, size, sizeof(str[0]), compare);
+
+	// Ispisujemo permutacije jednu po jednu
+	bool isFinished = false;
+	while (!isFinished) {
+
+		// ispisujemo ovu permutaciju
+		static int x = 1;
+		printf("%d %s \n", x++, str);
+
+		// Pronalazimo najdesnji karakter
+		// koji je manji od svog sledeceg
+		// karaktera. Nazovimo ga 'prvi znak'.
+		int i;
+		for (i = size - 2; i >= 0; --i)
+			if (str[i] < str[i + 1])
+				break;
+
+		// Ako ne postoji takav karakter, onda su svi
+		// u rastucem poretku sortirani,
+		// sto znaci da smo ispisali poslednju
+		// permutaciju i da smo zavrsili.
+		if (i == -1)
+			isFinished = true;
+		else {
+
+			// Pronadjite plafon 'prvog znaka'
+			// desno od 'prvog znaka'
+			// Plafon karaktera je
+			// najmanji karakter veci od njega.
+			int ceilIndex = findCeil(str,
+					str[i], i + 1, size - 1);
+
+			// Zameni prvi i drugi karakter
+			swap(&str[i], &str[ceilIndex]);
+
+			// Sortiraj string desno od 'prvog znaka'
+			qsort(str + i + 1, size - i - 1,
+				sizeof(str[0]), compare);
+		    }
+	}
+}
+// main funkcija koja testira nas algoritam
+int main()
+{
+	char str[] = "ACBC";
+	sortedPermutations(str);
+	return 0;
+}
+</xmp>
+<b> Izlaz: </b>
+<br>
+<br> 1  ABCC
+<br> 2  ACBC
+<br> 3  ACCB
+<br> 4  BACC
+<br> 5  BCAC
+<br> 6  BCCA
+<br> 7  CABC
+<br> 8  CACB
+<br> 9  CBAC
+<br> 10  CBCA
+<br> 11  CCAB
+<br> 12  CCBA
+<br> <br>
+<b>Vremenska složenost navedenog koda: </b> \( O \)(\( n \) <sup> <font size="-1"> 2 </font> </sup> · \( n! \) );
+<br>
+<b>Prostorna slozenost navedenog koda: </b> \( O(1) \).
+<br> <br>
+Vremensku složenost prethodnog algoritma možemo poboljšati malom modifikacijom tako
+da ona postane \( O(n!*n) \), kakva je bila u slučaju svih različitih karaktera u ulazu.
+Algoritam koji ispisuje sve permutacije reči sastavljene od isključivo različitih
+karaktera će biti obrađen u lekciji <b> Permutacije bez ponavljanja </b>.
+<br> <br>
+<b> Efikasan pristup: </b> U našoj rekurzivnoj funkciji za pronalaženje svih permutacija,
+možemo koristiti \(unorderedset\) koji će voditi računa o ponovljenim elementima koji se nalaze u
+aktivnom nizu. Iterirajući kroz elemente stringa, proveravamo da li postoji
+ponovljeni element u \(unorderedset\)-u i ukoliko ga pronađemo preskačemo tu iteraciju.
+U suprotnom, ubacujemo taj element u \(unorderedset\). Kako su u proseku sve
+operacije \(unorderedset\) kao sto su <b> insert() </b> i <b> find() </b> izvršavaju u vremenu \(O(1)\), to se vremenska
+složenost algoritma neće poboljšati korišćenjem \(unorderedset\)-a. <br>
+<xmp class = "primer_ta">
+  #include <algorithm>
+  #include <iostream>
+  #include <unordered_set>
+  using namespace std;
+
+  void printAllPermutationsFast(string s, string l)
+  {
+  	if (s.length() < 1) {
+  		cout << l + s << endl;
+  	}
+  	unordered_set<char> uset;
+  	for (int i = 0; i < s.length(); i++) {
+  		if (uset.find(s[i]) != uset.end()) {
+  			continue;
+  		}
+  		else {
+  			uset.insert(s[i]);
+  		}
+  		string temp = "";
+  		if (i < s.length() - 1) {
+  			temp = s.substr(0, i) + s.substr(i + 1);
+  		}
+  		else {
+  			temp = s.substr(0, i);
+  		}
+  		printAllPermutationsFast(temp, l + s[i]);
+  	}
+  }
+
+  int main()
+  {
+  	string s = "ACBC";
+  	sort(s.begin(), s.end());
+  	printAllPermutationsFast(s, "");
+  	return 0;
+  }
+</xmp>
+<b> Izlaz:</b>
+<br> ABCC
+<br> ACBC
+<br> ACCB
+<br> BACC
+<br> BCAC
+<br> BCCA
+<br> CABC
+<br> CACB
+<br> CBAC
+<br> CBCA
+<br> CCAB
+<br> CCBA
+<br> <br>
+<b> Vremenska složenost: </b> \( O(n·n!) \);
+<br>
+<b> Prostorna složenost: </b> \( O(n) \).
+</html>

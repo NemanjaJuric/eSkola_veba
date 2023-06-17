@@ -1,0 +1,61 @@
+<h1>Testiranje</h1>
+Testiranje je metoda provere da li program ispunjava određena očekivanja i vraća dobre rezultate. Svrha testiranja
+je da se otkriju greške i nedostaci pre prikazivanja program korisnicima. Dobro testiran softver osigurava pouzdanost, 
+bezbednost i dobre performanse.
+<h3>Unit test</h3>
+Unit test je funkcija koja testira određeni deo koda iz programa ili paketa. Njihov posao je 
+da provere validnost aplikacije.
+Da bi se počelo sa testiranjem prvo je neophodan direktorijum koji će skladištiti program i test fajlove, a on se može kreirati korišćenjem
+komande mkdir.
+<br />
+<span class="primer_text">
+mkdir matematika
+</span>
+<br />
+Korišćenjem komande cd se može pristupiti tom folderu.
+<br />
+<span class="primer_text">
+cd matematika
+<br />
+</span>
+U okviru foldera matematika, može se kreirati fajl operacije.go koji će sadržati osnovne matematičke operacije.
+<xmp class="primer_ta">
+package matematika
+
+func Sabiranje(x, y int) (res int) {
+    return x + y
+}
+
+func Oduzimanje(x, y int) (res int) {
+    return x - y
+}
+</xmp>
+U programskom jeziku Go ime test fajlova mora da se završava sa _test.go po konvenciji, a sve test funkcije moraju da imaju ime koje počinje sa Test, a prvo
+slovo sledeće reči mora biti veliko slovo. Za testiranje se koristi paket testing, i test funkcije u programskom jeziku Go primaju samo jedan parametar koji je
+pokazivač na testing.T.
+<br />
+Test koji testira prethodno kreirane matematičke operacije bi izgledao ovako:
+<xmp class="primer_ta">
+package matematika
+
+import "testing"
+
+func TestSabiranja(t *testing.T) {
+    rezultat = Sabiranje(5, 7)
+    ocekivan_rezultat = 12
+
+    if rezultat != ocekivan_rezultat {
+        t.Errorf("Ocekivana vrednost je %q, a funkcija je vratila %q", rezultat, ocekivan_rezultat)
+    }
+}
+</xmp>
+U slučaju da test ne vraća odgovarajući rezultat koriste se <b>t.Error</b> ili <b>t.Fail</b> da bi se označilo da test nije prošao.
+Da bi se test pokrenuo koristi se komanda
+<br />
+<span class="primer_text">
+go test
+</span>
+<br />
+koja pokreće fajlove koji imaju sufiks _test.go. 
+<br />
+Rezultat ove funkcije može biti PASS, u slučaju da je test prošao uspešno, ili FAIL u slučaju da test nije prošao.

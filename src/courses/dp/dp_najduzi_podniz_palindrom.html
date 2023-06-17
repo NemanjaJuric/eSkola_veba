@@ -1,0 +1,151 @@
+<html>
+
+<h1> Najduži podniz palindrom </h1>
+
+<br>
+<b> Zadatak: </b> Napisati program koji za datu nisku s 
+određuje dužinu najdužeg podniza niske s koji je palindrom. <br>
+<br>
+<h2> Definicija </h2>
+Podniz niske ne mora da sadrži samo uzastopne karaktere niske, ali 
+se oni moraju javljati u istom redosledu tj. podniz se dobija brisanjem 0 ili 
+više karaktera. <br>
+<br>
+<h2> Rekurzivni algoritam </h2>
+Prazna niska ima samo prazan podniz pa je dužina najdužeg 
+palindromskog podniza jednaka nuli. Niska dužine 1 je sama svoj 
+palindromski podniz, pa je dužina jednaka 1. <br>
+<br>
+Ako niska ima dva ili više karaktera onda razmatramo da li su 
+prvi i poslednji karakter jednaki. Ako jesu, onda se problem svodi 
+na pronalaženja najdužeg palindromskog dela niske bez prvog 
+i poslednjeg karaktera. U suprotnom potrebno je eliminsati 
+jedan od njih. Dakle, problem svodimo na pronalaženje najdužeg 
+palindromskog podniza niske bez prvog karaktera i na pronalaženje 
+najdužeg palindromskog podniza niske bez poslednjeg karaktera. 
+Duži od ta dva je traženi palindromski podniz cele niske. <br>
+<br>
+Kako se u svakom rekurzivnom pozivu vrši analiza nekog 
+segmenta to je svaki rekurzivni poziv određen sa dva broja 
+koji predstavljaju granice tog segmenta. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int najduziPalindrom(string& s, int i, int j) {
+	
+	if (i > j)
+		return 0;
+	
+	if (i == j)
+		return 1;
+	
+	if (s[i] == s[j])
+		return 2 + najduziPalindrom(s, i+1, j-1);
+	
+	return max(najduziPalindrom(s, i, j-1), najduziPalindrom(s, i+1, j));
+}
+ </xmp>
+<br>
+<div class = "napomena"> Funkciju pozivamo sa vrednostima i=0 i j=s.length()-1 </div>
+<br>
+U ovom algoritmu dolazi do preklapanja rekurzivnih poziva pa je 
+složenost eksponencijalna. <br>
+<br>
+<h2> Memoizacija </h2>
+Preklapanje rekurzivnih poziva možemo izbeći memoizacijom. 
+Za to koristimo matricu u kojoj će se inicijalno nalaziti vrednosti -1. 
+Ukoliko se u matrici na poziciji (i,j) ne nalazi vrednost -1 to 
+znači da smo za taj segment već sračunali najduži palindromski podniz. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int najduziPalindrom(string& s, int i, int j, vector<vector<int>>& dp) {
+	
+	if(dp[i][j]!=-1)
+		return dp[i][j];
+	
+	if(i>j)
+		return dp[i][j]=0;
+	
+	if(i==j)
+		return dp[i][j]=1;
+	
+	if(s[i]==s[j])
+		return dp[i][j]=2+najduziPalindrom(s,i+1,j-1,dp);
+	
+	return dp[i][j] = max(najduziPalindrom(s,i,j-1,dp), najduziPalindrom(s,i+1,j,dp));
+}
+ </xmp>
+<br>
+I memorijska i vremenska složenost ovog algoritma je O(n^2). <br>
+<br>
+<h2> Iterativni algoritam </h2>
+Primetimo da u matrici koriscenoj za memoizaciju element na 
+poziciji (i,j) zavisi od elemenata na pozicijama (i+1,j), 
+(i,j-1) i (i+1,j-1), dok se konačno rešenje nalazi u gornjem desnom 
+uglu matrice tj na poziciji (0,n-1). Na osnovu ovoga vidimo 
+da matricu možemo popunjavati dijagonalu po dijagonalu.
+Na dijagonalu ispod glavne upisujemo sve nule, na glavnu dijagonalu sve jedinice, 
+a zatim popunjavamo jednu po jednu dijagonalu iznad glavne dok ne 
+dođemo do elementa u gornjem desnom uglu. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int najduziPalindrom(string &s){
+	int n=s.length();
+	vector<vector<int>> dp(n);
+	
+	for (int i = 0; i < n; i++) {
+		dp[i].resize(n, 0);
+		dp[i][i] = 1;
+	}
+	
+	for (int k = 1; k < n; k++)
+		for (int l = 0; l + k < n; l++) {
+			int d = l + k;
+			if (s[l] == s[d])
+				dp[l][d] = dp[l+1][d-1] + 2;
+			else
+				dp[l][d] = max(dp[l+1][d], dp[l][d-1]);
+			}
+	return dp[0][n-1];
+}
+</xmp>
+<br>
+I memorijska i vremenska složenost ovog algoritma je O(n^2), međutim memorijska složenost se može poboljšati. <br>
+<br>
+<h2> Optimizacija memorijske složenosti </h2>
+Elementi svake dijagonale zavise samo od elemenata prethodne dve dijagonale, 
+pa je moguće umesto matrice čuvati samo dve dijagonale. Tokom ažuriranja 
+tekuće dijagonale njene postojeće elemente istovremeno prepisujemo u prethodnu. <br>
+<br>
+ <xmp class = "primer_ta"> 
+
+int najduziPalindrom(string &s){
+	int n=s.length();
+	
+	vector<int> dpp(n, 0);
+	vector<int> dp(n, 1);
+	
+	for (int k = 1; k < n; k++) {
+		for (int l = 0; l + k < n; l++) {
+			int d = l + k;
+			if (s[l] == s[d]) {
+				int tmp = dp[l];
+				dp[l] = dpp[l+1] + 2;
+				dpp[l] = tmp;
+			}
+			else {
+				dpp[l] = dp[l];
+				dp[l] = max(dp[l], dp[l+1]);
+			}
+		}
+		dpp[n-k] = dp[n-k];
+	}
+	return dp[0];
+}
+</xmp>
+<br>
+Vremenska složenost ostaje O(n^2), ali je sada memorijska složenost O(n). <br>
+<br>
+</html>

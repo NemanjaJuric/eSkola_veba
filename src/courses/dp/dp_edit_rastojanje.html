@@ -1,0 +1,119 @@
+<html>
+
+<h1> Edit rastojanje </h1>
+
+<br>
+<b> Zadatak: </b> Edit-rastojanje između dve niske se definiše u terminima operacija umetanja, brisanja i izmena slova prve reči kojima se može dobiti druga reč. Svaka od ove tri operacije ima svoju cenu. Definisati program koji izračunava najmanju cenu operacija kojima se od prve niske može dobiti druga. Na primer, ako je cena svake operacije jedinična, tada se niska zdravo može pretvoriti u bravo! najefikasnije operacijom izmene slova z u b, brisanja slova d i umetanja karaktera !.
+<br>
+<br>
+<h2> Rekurzivni algoritam </h2>
+Ako je prva niska prazna, najefikasniji način da se od nje dobije druga niska je da se umetne jedan po jedan karakter druge niske, tako da je minimalna cena jednaka proizvodu cene operacije umetanja i broja karaktera druge niske. <br>
+<br>
+Ako je druga niska prazna, najefikasniji način da se od prve niske dobije prazna je da se jedan po jedan njen karakter izbriše, tako da je minimalna cena jednaka proizvodu cene operacije brisanja i broja karaktera prve niske. <br>
+<br>
+Induktivna hipoteza će biti da umemo da rešimo problem za bilo koja dva prefiksa prve i druge niske. Ako su poslednja slova prve i druge niske jednaka, onda je potrebno pretvoriti prefiks bez poslednjeg slova prve niske u prefiks bez poslednjeg slova druge niske. Ako nisu, onda imamo tri mogućnosti. Jedna je da izmenimo poslednji karakter prve niske u poslednji karakter druge niske i onda da, kao u prethodnom slučaju, prevedemo prefikse bez poslednjih karaktera jedan u drugi. Druga mogućnost je da obrišemo poslednji karakter prve niske i probamo da pretvorimo tako njen dobijeni prefiks u drugu nisku. Treća mogućnost je da prvu nisku transformišemo u prefiks druge niske bez poslednjeg karaktera i da zatim dodamo poslednji karakter druge niske. <br>
+<br>
+Na osnovu ovoga lako možemo definisati rekurzivnu funkciju koja izračunava edit-rastojanje. Da nam se niske ne bi menjale tokom rekurzije (što može biti sporo), efikasnije je da niske prosleđujemo u neizmenjenom obliku i da samo prosleđujemo brojeve karaktera njihovih prefiksa koji se trenutno razmatraju. <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int editRastojanje(string& s1, string& s2, int n1, int n2) {
+
+	if (n1 == 0)
+		return n2 * cenaUmetanja;
+	
+	if (n2 == 0)
+		return n1 * cenaBrisanja;
+	
+	if (s1[n1-1] == s2[n2-1])
+		return editRastojanje(s1, s2, n1-1, n2-1);
+
+	int r1 = editRastojanje(s1, s2, n1-1, n2) + cenaUmetanja;
+	int r2 = editRastojanje(s1, s2, n1, n2-1) + cenaBrisanja;
+	int r3 = editRastojanje(s1, s2, n1-1, n2-1) + cenaIzmene;
+    return min({r1, r2, r3});
+
+}
+ </xmp>
+<br>
+U ovoj implementaciji dolazi do velikog broja ponovljenih 
+rekurzivnih poziva, pa je složеnost veoma loša (eksponencijalna). <br>
+<br>
+<h2> Iterativni algoritam </h2>
+Rešenje direktnom rekurzijom je, naravno, izrazito neefikasno zbog preklapajućih rekurzivnih poziva. Algoritam dinamičkog programiranja naviše za ovaj problem poznat je pod imenom Vagner-Fišerov algoritam. Rezultate za prefikse dužine i i j pamtićemo u matrici na polju (i, j). Dakle, ako su dužine niski n1 i n2, potrebna nam je matrica dimenzije (n1 + 1) × (n2 + 1), a konačan rezultat će se nalaziti na mestu (n1, n2). Ako matricu popunjavamo vrstu po vrstu, sleva nadesno, prilikom izračunavanja elementa na poziciji (i, j), biće izračunati svi elementi matrice od kojeg on zavisi (a to su (i − 1, j − 1), (i − 1, j) i (i, j − 1)). <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int editRastojanje(string& s1, const string& s2, int cenaUmetanja, int cenaBrisanja, int cenaIzmene) {
+	
+	int n1 = s1.size(), n2 = s2.size();
+	vector<vector<int>> dp(n1+1);
+
+	for (int i = 0; i <= n1; i++)
+		dp[i].resize(n2+1);
+
+	dp[0][0] = 0;
+
+	for (int i = 0; i <= n1; i++)
+		dp[i][0] = i * cenaBrisanja;
+
+	for (int j = 0; j <= n2; j++)
+		dp[0][j] = j * cenaUmetanja;
+
+	for (int i = 1; i <= n1; i++)
+		for (int j = 1; j <= n2; j++) {
+			if (s1[i-1] == s2[j-1])
+				dp[i][j] = dp[i-1][j-1];
+			else {
+				int r1 = dp[i-1][j] + cenaUmetanja;
+				int r2 = dp[i][j-1] + cenaBrisanja;
+				int r3 = dp[i-1][j-1] + cenaIzmene;
+				dp[i][j] = min({r1, r2, r3});
+			}
+		}
+	
+	return dp[n1][n2];
+}
+
+ </xmp>
+<br>
+Pošto se tokom rada algoritma popunjava matrica dimenzije (n1 + 1) × (n2 + 1), a svako polje matrice se popunjava u vremenu O(1), ukupna vremenska i memorijska složenost algoritma je O(n1 · n2). <br>
+<br>
+<h2> Memorijska optimizacija </h2>
+Na osnovu postavke zadatka, nije potrebno odrediti same izmene, već samo rastojanje (na primer, ako se vrši provera da li su dve niske bliske prilikom pretrage u kojoj se dopušta da je korisnik napravio i nekoliko slovnih grešaka). Pošto elementi tekućeg reda zavise samo od prethodnog, možemo izvršiti memorijsku optimizaciju i istovremeno čuvati samo jedan red. Tokom ažuriranja elementa na poziciji j njegov deo na pozicijama strogo manjim od j će čuvati elemente tekućeg reda i, deo od pozicije j nadalje će čuvati elemente prethodnog reda i−1. Promenljiva prethodni će čuvati vrednost sa polja (i−1, j−1), a promenljiva tekuci će čuvati vrednost sa polja (i − 1, j). <br>
+<br>
+<xmp class = "primer_ta"> 
+
+int editRastojanje(string& s1, const string& s2, int cenaUmetanja, int cenaBrisanja, int cenaIzmene) {
+	
+	int n1 = s1.size(), n2 = s2.size();
+	vector<int> dp(n2 + 1);
+	dp[0] = 0;
+	
+	for (int j = 0; j <= n2; j++)
+		dp[j] = j * cenaUmetanja;
+
+	for (int i = 1; i <= n1; i++) {
+		int prethodni = dp[0];
+		dp[0] = i * cenaBrisanja;
+		
+		for (int j = 1; j <= n2; j++) {
+			int tekuci = dp[j];
+			if (s1[i-1] == s2[j-1])
+				dp[j] = prethodni;
+			else {
+				int r1 = tekuci + cenaUmetanja;
+				int r2 = dp[j-1] + cenaBrisanja;
+				int r3 = prethodni + cenaIzmene;
+				dp[j] = min({r1, r2, r3});
+			}
+			prethodni = tekuci;
+		}
+	}
+	return dp[n2];
+}
+ </xmp>
+<br>
+Vremenska složenost nakon ove optimizacije je O(n1 · n2), dok se memorijska složenost može spustiti na O(min(n1, n2)) (tako što se odabere da li će se popunjavati vrsta po vrsta ili kolona po kolona). <br>
+<br>
+</html>

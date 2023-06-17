@@ -1,0 +1,98 @@
+<h1>Funkcije</h1>
+Funkcija predstavlja logički organizovan deo koda koji je kreiran da bi se izvršavao neki specifičan zadatak.
+Nakon što se definiše, funkcija se može pozvati više puta, što čuva memoriju i smanjuje redudantnost.
+U programskom jeziku Go funkcije predstavljaju referentni tip podataka.
+<br />
+Definicija funkcija u programskom jeziku Go počinje ključnom reči <b>func</b> nakon čega sledi ime funkcije, lista parametara i
+lista povratnih vrednosti. Funkcija može da obavlja neki zadatak bez vraćanja vrednosti, a da bi se vratila neka vrednost 
+iz funkcije koristi se ključna reč <b>return</b>.
+<xmp class="primer_ta"> 
+package main
+
+import "fmt"
+
+func povrsina_pravougaonika(duzina, sirina int) int {
+    P := duzina * sirina
+    return P
+}
+
+func main() {
+    fmt.Println("Povrsina prvog pravougaonika je:", povrsina_pravougaonika(5, 7))
+
+    fmt.Println("Povrsina drugog pravougaonika je:", povrsina_pravougaonika(12, 15))
+}
+</xmp>
+Lista parametara predstavlja listu tipova i imena parametara i one se prosleđuju prilikom pozivanja funkcije.
+Parametri istog tipa se mogu grupisati, tako da se jedan tip ne ponavlja više puta.
+Za razliku od drugih programskih jezika, kao što su C, C++, Java, u programskom jeziku Go funkcije mogu vraćati više vrednosti.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func zameni_vrednosti(a, b int) (int, int) {
+    return b, a
+}
+
+func main() {
+    a := 10
+    b := 12
+
+    a, b = zameni_vrednosti(a, b)
+	
+	fmt.Println(a, b)
+}
+</xmp>
+Ovo je jako koristan koncept koji se koristi za upravljanje greškama i izuzecima. Prva vrednost može biti rezultat izračunavanja, a druga
+greška koja je nastala (ako je došlo do greške).
+U programskom jeziku Go se koristi prosleđivanje parametara po vrednosti, tj. vrednosti koje se proslede funkciji se kopiraju u parametre funkcije.
+To znači da bilo kakva promena nad prosleđenim vrednostima u funkciji se ne odražava na vrednost sa kojom je funkcija pozvana.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func povecaj_vrednost(a int) {
+    a += 1
+}
+
+func main() {
+    a := 10
+    
+    fmt.Println("vrednost promenljive a je:", a)
+    // prikazuje 10 kao sto je i ocekivano
+
+    povecaj_vrednost(a)
+
+
+    fmt.Println("vrednost promenljive a je:", a)
+    // i dalje se prikazuje 10, posto je vrednost promenljive a kopirana i prosledjena funkciji
+}
+</xmp>
+U slučaju da se želi promeniti vrednost promenljive koja se prosleđuje funkciji, može se koristiti 
+prosleđivanje po adresi. Tada će parametar funkcije biti pokazivač, a funkciji će se prosleđivati 
+adresa promenljive. 
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+func povecaj_vrednost(a *int) {
+    *a += 1
+}    
+
+func main() {
+    a := 10
+
+    fmt.Println("vrednost promenljive a je:", a)
+    // prikazuje 10 kao što je i očekivano
+
+    povecaj_vrednost(&a)
+    // prosledjuje se adresa promenljive
+
+
+    fmt.Println("vrednost promenljive a je:", a)
+    // prikazuje 11 posto je promenjena vrednost koja se nalazi
+    // na memorijskoj adresi    
+}
+</xmp>

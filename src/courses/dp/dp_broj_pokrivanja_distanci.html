@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<h1>  Broj različitih prekrivanja distance </h1>
+<b> Formulacija zadatka: </b> Data je distanca, naći ukupan broj načina za prekrivanje (prelaženje) distance koristeći 1, 2 ili 3 koraka.
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Primeri: </b>
+<br> <b>Ulaz:</b> n = 3
+<br> <b>Izlaz:</b> 4
+<br> <br> <b>Objašnjenje:</b>
+<br> Ispod su navedena četiri moguća načina
+<br> 1 korak + 1 korak + 1 korak
+<br> 1 korak + 2 koraka
+<br> 2 koraka + 1 korak
+<br> 3 koraka
+<br>
+<br> <b>Ulaz:</b> n = 4
+<br> <b>Izlaz:</b> 7
+<br> <br> <b>Objasnjenje:</b>
+<br> Ispod je navedeno sedam mogućih koraka
+<br> 1 korak + 1 korak + 1 korak + 1 korak
+<br> 1 korak + 2 koraka + 1 korak
+<br> 2 koraka + 1 korak + 1 korak
+<br> 1 korak + 1 korak + 2 koraka
+<br> 2 koraka + 2 koraka
+<br> 3 koraka + 1 korak
+<br> 1 korak + 3 koraka
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<h2> Rekurzivno rešenje </h2>
+<b> Pristup: </b> Postoji \(n\) stepenica i osobi je dozvoljeno da napravi na sledeći korak, preskoči jednu poziciju (napravi dva koraka) ili preskoči
+dve pozicije (napravi tri koraka). Dakle, postoji \(n\) pozicija. Ideja je sledeća: osoba koja stoji na poziciji \( i \) se može pomeriti
+na \( i+1 \), \( i+2 \), \( i+3 \) poziciju. Dakle, može se formirati rekurzivna funkcija gde se na trenutnom indeksu \( i \)
+funkcija rekurzivno poziva za \(i+1\), \(i+2\) i \(i+3\) pozicije.
+<br> <br>
+Postoji još jedan način formiranja rekurzivne funkcije. Da bi došla do pozicije \( i \), osoba mora da skoči
+ili sa \(i-1\), \(i-2\) ili \(i-3\) položaja gde je \(i\) početna pozicija.
+<br> <br>
+Algoritam:
+<br> 1) Kreirajte rekurzivnu funkciju \(count\)(\(int\) \(n\)) koja uzima samo jedan parametar.
+<br> 2) Proverite bazne slučajeve. Ako je vrednost \(n\) manja od \(0\) onda vratite \(0\),
+a ako je vrednost \(n\) jednaka \(0\) onda vratite \(1\) jer je to početna pozicija.
+<br> 3) Pozovite funkciju rekurzivno sa vrednostima \(n-1\), \(n-2\) i \(n-3\) i sumirajte vrednosti
+koje su vraćene, to jest \(sum = count(n-1) + count(n-2) + count(n-3)\).
+<br> 4) Vrati vrednost sume.
+<h3> Implementacija </h3>
+<xmp class = "primer_ta">
+  // Naivni rekurzivni program koji racuna broj nacina na koji mozemo
+  // pokriti rastojanja (distancu) koristeci 1, 2 ili 3 koraka
+  #include<iostream>
+  using namespace std;
+
+  // Vraca broj nacina na koji mozemo pokriti 'dist'
+  int printCountRec(int dist)
+  {
+  	// Bazni slucajevi
+  	if (dist<0)	 return 0;
+  	if (dist==0) return 1;
+
+  	// Ponavljaj za prethodna tri koraka i dodaj to u rezultat
+  	return printCountRec(dist-1) + printCountRec(dist-2) + printCountRec(dist-3);
+  }
+
+  // Program koji testira nas algoritam
+  int main()
+  {
+  	int dist = 4;
+  	cout << printCountRec(dist);
+  	return 0;
+  }
+</xmp>
+<b> Izlaz: </b>
+<br> 7
+<br> <br>
+<h2> Analiza složenosti </h2>
+<b> Vremenska složenost: </b> \(O\)(\(3\)<font size="-1"><sup> \(n\) <sup></font>).
+<br> Vremenska složenost gornjeg rešenja je eksponencijalna, bliska gornja granica je \(O\)(\(3\)<font size="-1"><sup> \(n\) <sup></font>).
+Iz svakog stanja 3 poziva se rekurzivna funkcija. Dakle, gornja granica za n stanja je \(O\)(\(3\)<font size="-1"><sup> \(n\) <sup></font>).
+<br> <b> Prostorna složenost: </b> \(O(1)\).
+<br> Nije potreban dodatni prostor.
+<h2> Optimalno rešenje </h2>
+<b> Pristup: </b> Ideja je slična, ali se može primetiti da postoji \(n\) stanja ali se rekurzivna funkcija
+poziva \(3\)<font size="-1"><sup> \(n\) </sup></font> puta. To znači da se neka stanja pozivaju više puta. Dakle, ideja je da se čuva vrednost
+stanja. Ovo se može uraditi na dva načina.
+<br> <br>
+Prvi način je da očuvate rekurzivnu strukturu netaknutom i samo sačuvate vrednost u HashMap-u
+i kad god se funkcija pozove, vratite skladište vrednosti bez računanja (pristup odozgo nadole).
+<br> <br>
+Drugi način je da uzmete dodatni prostor veličine \(n\) i počnete da računate vrednosti stanja od \(1, 2, ... n\),
+tj. izračunate vrednosti \(i\), \(i+1\), \(i+2\) i zatim ih koristite za izračunavanje vrednosti \(i+3\) (pristup odozdo prema gore).
+<!--
+        Preklapajući podproblemi u dinamičkom programiranju.
+        Svojstvo optimalne podstrukture u dinamičkom programiranju.
+        Problemi dinamičkog programiranja (DP).
+-->
+<b> Algoritam: </b>
+<br>
+Kreirajte niz veličine \(n+1\) i inicijalizujte prve \(3\) promenljive sa \(1, 1, 2\). Osnovni slučajevi.
+Pokrenite petlju od \(3\) do \(n\). Za svaki indeks \(i\), izračunajte vrednost \(i\)-te pozicije
+kao \( dp[i] = dp[i-1] + dp[i-2] + dp[i-3]\). Odštampajte vrednost \(dp[n]\), kao broj načina da se pređe razdaljina.
+<b> Implementacija: </b>
+<xmp class = "primer_ta">
+  // Program koji primenom dinamickog programiranja izracunava broj nacina na koji
+  // mozemo pokriti distancu koristeci 1, 2 ili 3 koraka
+  #include<iostream>
+  using namespace std;
+
+  int printCountDP(int dist)
+  {
+  	int count[dist+1];
+
+  	// Inicijalizuj bazne vrednosti. Postoji jedan nacin da prekrijes
+    // rastojanja duzine 0 i 1
+    // ali dva nacina da prekrijes rastojanje duzine 2
+  	count[0] = 1;
+  	if(dist >= 1)
+  			count[1] = 1;
+  	if(dist >= 2)
+  			count[2] = 2;
+
+  	// Popuni niz od pocetka do kraja
+  	for (int i=3; i<=dist; i++)
+  	count[i] = count[i-1] + count[i-2] + count[i-3];
+
+  	return count[dist];
+  }
+
+  // Program koji testira nas algoritam
+  int main()
+  {
+  	int dist = 4;
+  	cout << printCountDP(dist);
+  	return 0;
+  }
+</xmp>
+<b> Izlaz: </b>
+<br> 7
+<br> <br>
+<h3> Analiza složenosti: </h3>
+<b> Vremenska složenost: </b> \( O(n) \).
+<br> Potreban je samo jedan obilazak niza.
+Dakle, vremenska složenost je \( O(n) \).
+<br> <b> Složenost prostora: </b> \( O(n) \).
+<br> Za čuvanje vrednosti u DP potreban je dodatni prostor \(O(n)\).
+<!-- ___________________________________________________________________________-->
+<h2> Još optimalnije rešenje </h2>
+<b> Pristup: </b> Umesto da koristimo niz veličine \( n+1 \) možemo koristiti niz veličine \(3\) jer za izračunavanje broja puteva za određeni korak treba nam samo poslednja \(3\) koraka (odluke).
+<br> <br>
+<b> Algoritam: </b>
+<br> 1) Kreirajte niz veličine \(3\) i inicijalizujte vrednosti za korake \( 0, 1, 2 \) kao \( 1, 1, 2 \) (osnovni slučajevi).
+<br> 2) Pokrenite petlju od \(3\) do \(n\) (\(dist\)).
+<br> 3) Za svaki indeks izračunajte vrednost \( ways[i%3] = ways[(i-1)%3] + ways[(i-2)%3] + ways[(i-3)%3] \)
+i sačuvajte njegovu vrednost na \(i%3\)-u poziciju u nizu \(ways\). Ako izračunavamo vrednost za indeks \(3\), onda će izračunata vrednost
+ići na indeks \(0\), jer za veće indekse (\(4, 5, 6, ...\)) nije nam potrebna vrednost na poziciji \(0\).
+<br> 4) Vrati vrednost \(ways[n%3]\).
+<xmp class = "primer_ta">
+  // Program koji primenom dinamickog programiranja izracunava broj nacina
+  #include<iostream>
+  using namespace std;
+
+  int printCountDP(int dist)
+  {
+  		// Kreiraj niz duzine 3.
+  		int ways[3] , n = dist;
+
+  		// Inicijalizuj bazne slucajeve
+  		ways[0] = 1;
+  		ways[1] = 1;
+  		ways[2] = 2;
+
+  		// Pokreni petlju od 3 do n
+  		// Popuni niz od pocetka do kraja
+  		for(int i=3; i<=n ;i++)
+  			ways[i%3] = ways[(i-1)%3] + ways[(i-2)%3] + ways[(i-3)%3];
+
+  		return ways[n%3];
+  }
+
+  // Program koji testira nas algoritam
+  int main()
+  {
+  	int dist = 4;
+  	cout << printCountDP(dist);
+  	return 0;
+  }
+</xmp>
+<b> Izlaz: </b> 7
+<br> <br>
+<b> Vremenska složenost: </b> \( O(n) \).
+<br>
+<b> Prostorna složenost: </b> \( O(1) \).
+
+</html>

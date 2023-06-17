@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<h1> Partitivni skup </h1>
+<h2> Generisanje leksikografski sledećeg podskupa </h2>
+<b> Zadatak 1: </b> Napiši program koji određuje podskup skupa brojeva {1, ... , n} koji u leksikografskom
+redosledu sledi neposredno iza datog podskupa. Podskupovi su zadati u obliku strogo rastuće sortiranih nizova.
+<br><br>
+<b> Ulaz: </b> Prva linija sadrži broj n (1 ≤ n ≤ 100), a naredna linija sadrži podskup čiji su elementi
+zadati sortirano rastuće, razdvojeni po jednim razmakom.
+<br><br>
+<b> Izlaz: </b> Na standardni izlaz u jednoj liniji ispisati elemente traženog podskupa odnosno "-" ako je
+učitani podskup leksikografski najveći.
+<br><br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Primer </b>
+<br>
+<b> Ulaz: </b>
+<br> 5
+<br> 1 2 3 4 5
+<br>
+<b> Izlaz: </b>
+<br> 1 2 3 5
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Rešenje: </b>
+<br>
+Napišimo, na primer, leksikografski uređen spisak svih podskupova skupa brojeva od 1 do 4.
+<br>
+-,  1 ,  12 ,  123 ,  1234 ,  124 ,  13 ,  134 ,  14 ,  2 ,  23 ,  234 ,  24 ,  3 ,  34 ,  4. <br>
+Možemo primetiti da postoje dva načina da se dođe do narednog podskupa. Analizirajmo ove skupove u
+istom redosledu, grupisane i na osnovu broja elemenata.
+<!--
+<br> {}   {1}   {12}   {123}   {1234}
+<br> __   ___   ____   {124}   ______
+<br> __   ___   {13}   {134}   ______
+<br> __   ___   {14}   _____   ______
+<br> __   {2}   {23}   {234}   ______
+<br> __   ___   {24}   _____   ______
+<br> __   {3}   {34}   _____   ______
+<br> __   {4}   ____   _____   ______
+<br>
+-->
+<br> {}__{1}__{12}__{123}__{1234}
+<br> {}__{-}__{--}__{124}__{----}
+<br> {}__{-}__{13}__{134}__{----}
+<br> {}__{-}__{14}__{---}__{----}
+<br> {}__{2}__{23}__{234}__{----}
+<br> {}__{-}__{24}__{---}__{----}
+<br> {}__{3}__{34}__{---}__{----}
+<br> {}__{4}__{--}__{---}__{----}
+<br>
+Jedan način je proširivanje kada se naredni podskup dobija dodavanjem nekog elementa u prethodni. To su
+koraci u prethodnoj tabeli kod kojih se prelazi iz jedne u narednu kolonu. Da bi dobijeni podskup sledio
+neposredno iza prethodnog u leksikografskom redosledu, dodati element podskupu mora biti najmanji mogući.
+Pošto je svaki podskup sortiran, element mora biti za jedan veći od poslednjeg elementa podskupa koji
+se proširuje (izuzetak je prazan skup, koji se proširuje elementom 1). Jedini slučaj kada proširivanje
+nije moguće je kada je poslednji element podskupa najveći mogući (u našem primeru to je 4).
+Drugi način je skraćivanje kada se naredni element dobija uklanjanjem nekih elemenata iz podskupa i izmenom
+preostalih elemenata. To su koraci u prethodnoj tabeli kod kojih se prelazi sa kraja jedne u narednu
+vrstu. U ovom slučaju skraćivanje funkcioniše tako što se iz podskupa izbaci završni najveći element, a
+zatim se najveći od preostalih elemenata uveća za 1 (on ne može biti najveći, jer su elementi unutar svakog
+podskupa strogo rastući). Ako nakon izbacivanja najvećeg elementa ostane prazan skup, naredna kombinacija
+ne postoji.
+Podskupove možemo predstaviti dinamičkim nizom koji nam omogućva da elemente dodajemo i uklanjamo sa
+desnog kraja. U jeziku C++ možemo upotrebiti vektor (tj. kolekciju vector).
+<xmp class = "primer_ta">
+  // na osnovu datog podskupa skupa {1, ..., n} određuje leksikografski
+  // naredni podskup i vraća da li takav podskup postoji
+  bool sledeciPodskup(vector<int>& podskup, int n) {
+     // specijalni slučaj proširivanja praznog skupa
+     if (podskup.empty()) {
+        podskup.push_back(1);
+        // podskup je uspešno pronađen
+        return true;
+     }
+     // proširivanje
+     if (podskup.back() < n) {
+        // u podskup dodajemo element koji je za 1 veći od
+        // trenutno najvećeg elementa
+        podskup.push_back(podskup.back() + 1);
+        // podskup je uspešno pronađen
+        return true;
+     }
+     // skraćivanje
+     // uklanjamo poslednji najveći element
+     podskup.pop_back();
+     // ako nema preostalih elemenata ne postoji naredni podskup
+     if (podskup.empty())
+        return false;
+     // najveći od preostalih elemenata uvećavamo za 1
+     podskup.back()++;
+     // podskup je uspešno pronađen
+     return true;
+  }
+</xmp>
+Podskupove možemo čuvati i u okviru niza koji je unapred alociran tako da može da smesti elemente najvećeg
+podskupa (onog koji ima tačno n elemenata). U tom slučaju je neophodno da održavamo i promenljivu
+u kojoj beležimo broj elemenata podskupa. Pošto se ona menja u funkciji koja određuje naredni podskup,
+moramo je preneti je po referenci.
+<xmp class = "primer_ta">
+   // na osnovu datog podskupa skupa {1, ..., n} određuje leksikografski
+   // naredni podskup i vraća da li takav podskup postoji. Tekući podskup
+   // je smešten u nizu dužine k
+   bool sledeciPodskup(int podskup[], int& k, int n) {
+       // specijalni slučaj proširivanja praznog skupa
+       if (k == 0) {
+          podskup[k++] = 1;
+          return true;
+       }
+       // proširivanje
+       if (podskup[k-1] < n) {
+          // u podskup dodajemo element koji je za 1 veći od
+          // trenutno najvećeg elementa
+          podskup[k] = podskup[k-1] + 1;
+          k++;
+          return true;
+       }
+       // skraćivanje
+       // izbacujemo najveći element iz podskupa
+       k--;
+       // ako nema preostalih elemenata, naredni podskup ne postoji
+       if (k == 0)
+          return false;
+       // najveći od preostalih elemenata uvećavamo za 1
+       podskup[k-1]++;
+       return true;
+  }
+</xmp>
+--------------------------------------------------------------------------------------------------------------
+<b> Zadatak 2: </b> Napiši program koji ispisuje sve poskupove skupa {0, 1, ... , n} u leksikografskom redosledu.
+<br> <br>
+<b>Ulaz: </b> Sa standardnog ulaza se učitava broj n (1 ≤ n ≤15).
+<br> <br>
+<b> Izlaz: </b> Na standardni izlaz ispisati tražene podskupove, svaki u posebnom redu.
+Svaki se podskup predstavlja rastuće sortiranim nizom svojih elemenata.
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Primer: </b>
+<br>
+<b> Ulaz: </b>
+<br> 3
+<br>
+<b> Izlaz: </b>
+<br> 0
+<br> 0 1
+<br> 0 1 2
+<br> 0 2
+<br> 1
+<br> 1 2
+<br> 2
+<br>
+--------------------------------------------------------------------------------------------------------------
+<br>
+<b> Rešenje: </b>
+<br>
+<b> Funkcija za određivanje sledećeg podskupa u leksikografskom redosledu </b>
+<br>
+Zadatak se jednostavno može rešiti korišćenjem funkcije za određivanje
+sledećeg podskupa u leksikografskom redosledu. Taj postupak je opisan
+(posebnom) funkcijom "sledeci podskup".
+<br> <br>
+Prazan podskup se proširuje elementom 0, a neprazan elementom koji je za jedan veći
+od njegovog najvećeg elemenata (ako je njegov najveći element strogo manji \(n − 1\)).
+Ako podskup sadrži element \(n − 1\), tada se taj element uklanja, a najveći element iz
+preostalog skupa se uvećava za 1. Ako takav element ne postoji, ne postoji ni sledeći
+podskup u leksikografskom redosledu (skup {\(n −1\)}je zaista leksikografski najveći).
+<br>
+<xmp class = "primer_ta">
+  // ispis svih podskupova skupa {0, ..., n-1} u leksikografskom redosledu
+  void obradiSvePodskupove(int n) {
+      // krecemo od praznog podskupa
+      vector<int> podskup(n);
+      // broj elemenata podskupa
+      int k = 0;
+      // obradjujemo (ispisujemo) tekuci podskup i prelazimo na sledeci,
+      // dok god je to moguce
+      do {
+         obradi(podskup, k);
+      } while (sledeciPodskup(podskup, k, n));
+  }
+</xmp>
+<h2> Rekurzivno nabrajanje svih podskupova u leksikografskom poretku </h2>
+<br>
+Podskupove skupa {0,...,n−1} u leksikografskom poretku možemo generisati rekurzivnom
+funkcijom koja prima tekući podskup, obrađuje ga (u našem slučaju samo ispisuje),
+i zatim pokušava da ga na sve moguće načine proširi. Svaki podskup će biti
+predstavljen strogo rastućim sortiranim nizom elemenata skupa {0,...,n −1}.
+Da bi niz ostao sortiran i nakon proširivanja, niz se proširuje redom svim elementima
+koji su strogo veći od njegovog poslednjeg elementa i manji od n. Izuzetak je prazan
+podskup (predstavljen praznim nizom), koji nema poslednji element i koji se proširuje
+redom svim elementima od 0 do n −1.
+<br> <br>
+Da bismo izbegli potrebu za korišćenjem nizova
+koji se dinamički šire dodavanjem elemenata, unapred ćemo alocirati niz od n elemenata,
+a podskup će biti predstavljen samo elementima u nekom njegovom prefiksu (pri
+tom ćemo broj elemenata podskupa čuvati kroz posebnu promenljivu).
+<br> <br>
+Rekurzivni pozivi i podskupovi koji se njima generišu su predstavljeni na narednoj slici.
+<br>
+<img src="courses/dp/dp_partitivni_skup/partitivni2.png" class="img-fluid img-md">
+<br>
+<center><b> Rekurzivno generisanje svih podskupova u leksikografskom redosledu </b></center>
+<xmp class = "primer_ta">
+  // rekurzivna procedura koja ispisuje sva moguca prosirenja datog
+  // podskupa koji sadrzi k elemenata elementima skupa {0, ..., n-1}
+  void obradiSvePodskupove(int n, vector<int>& podskup, int k) {
+      // obradjujemo (tj. ispisujemo sam podskup)
+      obradi(podskup, k);
+      // prosirujemo ga svim mogucim elementima skupa {0, ..., n-1}, tako
+      // da ostane strogo rastuce sortiran i dobijena prosirenja
+      // rekurzivno obradjujemo
+      int pocetak = k == 0 ? 0 : podskup[k-1] + 1;
+      for (int i = pocetak; i < n; i++) {
+         podskup[k] = i;
+         obradiSvePodskupove(n, podskup, k+1);
+      }
+  }
+  // procedura koja obradjuje (ispisuje) sve podskupove skupa {0, ..., n-1}
+  void obradiSvePodskupove(int n) {
+      vector<int> podskup(n);
+      obradiSvePodskupove(n, podskup, 0);
+  }
+</xmp>
+
+</html>

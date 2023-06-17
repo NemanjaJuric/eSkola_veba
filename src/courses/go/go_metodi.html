@@ -1,0 +1,93 @@
+<h1>Metodi</h1>
+U programskom jeziku Go metodi su funkcije koje se izvršavaju za specifične tipove. Sintaksa za definisanje metoda je slična kao i sintaksa za definisanje funkcija.
+Razlika je u tome što metodi nakon ključne reči func sadrže dodatan parametar koji se zove <b>"receiver"</b> i koji govori za koji tip se metod vezuje.
+Metodima nekog tipa se pristupa korišćenjem . (tačke).
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Pravougaonik struct {
+    sirina, visina int
+}
+
+func (p Pravougaonik) povrsina() int {
+    return p.sirina * p.visina
+}
+
+func (p Pravougaonik) obim() int {
+    return 2*p.sirina + 2*p.visina
+}
+
+func main() {
+    p := Pravougaonik{sirina: 12, visina: 7}
+
+    fmt.Println("Povrsina: ", p.povrsina())
+    fmt.Println("Obim:", p.obim())
+}
+</xmp>
+Metodi mogu da se definišu samo za tipove u istom paketu. Za ugrađene tipove kao što su int i string, ne mogu se definisati metodi,
+pošto oni pripadaju standardnom paketu builtin.
+<br />
+Kao i kod funkcija, i kod metoda se parametri prosleđuju po vrednosti, tj. sve promene nad "receiver" parametrom se ne odražavaju na program
+izvan metoda.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Pravougaonik struct {
+    sirina, visina int
+}
+
+func (p Pravougaonik) PodesiSirinu (sirina int) {
+    p.sirina = sirina
+}
+
+func main() {
+    var p Pravougaonik // posto nije eksplicitno naznacena visina i sirina prilikom deklaracije, vrednost je 0
+    p.PodesiSirinu(12)
+    fmt.Println(p.sirina) // 0
+}
+</xmp>
+Da bi se promene iz metoda odrazile na ostatak programa, neophodno je kao parametar metoda staviti pokazivač na tip.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type Pravougaonik struct {
+    sirina int
+    visina int
+}
+
+func (p *Pravougaonik) PodesiSirinu(sirina int) {
+    p.sirina = sirina
+}
+
+func main() {
+    var p Pravougaonik // posto nije eksplicitno naznacena visina i sirina prilikom deklaracije, vrednost je 0
+    p.PodesiSirinu(12)
+    fmt.Println(p.sirina) // 0
+}
+</xmp>
+Pošto nije moguće kreirati metode za ugrađene tipove, već samo za tipove iz istog paketa, ukoliko je neophodno da se za osnovni tip dodaju neke metode
+može se kreirati novi tip korišćenjem <b>"type alias"</b>, tj. kreiranjem drugog imena za postojeći tip.
+<xmp class="primer_ta">
+package main
+
+import "fmt"
+
+type noviInt int
+
+func (a noviInt) Saberi(b noviInt) {
+    return a + b
+}
+
+func main() {
+    broj1 := noviInt(10)
+    broj2 := NoviInt(15)
+    zbir := broj1.Saberi(broj2)
+    fmt.Println("Zbir brojeva je", zbir)
+}
+</xmp>
